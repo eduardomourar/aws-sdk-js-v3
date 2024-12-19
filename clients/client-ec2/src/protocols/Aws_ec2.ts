@@ -2868,7 +2868,6 @@ import {
   DeleteCarrierGatewayResult,
   DeleteClientVpnEndpointRequest,
   DeleteClientVpnEndpointResult,
-  DeleteClientVpnRouteRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -3005,6 +3004,7 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   DeclarativePoliciesReport,
+  DeleteClientVpnRouteRequest,
   DeleteClientVpnRouteResult,
   DeleteCoipCidrRequest,
   DeleteCoipCidrResult,
@@ -3080,6 +3080,7 @@ import {
   DeleteRouteRequest,
   DeleteRouteTableRequest,
   DeleteSecurityGroupRequest,
+  DeleteSecurityGroupResult,
   DeleteSnapshotRequest,
   DeleteSpotDatafeedSubscriptionRequest,
   DeleteSubnetCidrReservationRequest,
@@ -3224,8 +3225,6 @@ import {
   DescribeFastSnapshotRestoresResult,
   DescribeFastSnapshotRestoreSuccessItem,
   DescribeFleetHistoryRequest,
-  DescribeFleetHistoryResult,
-  DescribeFleetInstancesRequest,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -3266,6 +3265,8 @@ import {
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
   DescribeFleetError,
+  DescribeFleetHistoryResult,
+  DescribeFleetInstancesRequest,
   DescribeFleetInstancesResult,
   DescribeFleetsInstances,
   DescribeFleetsRequest,
@@ -3390,7 +3391,6 @@ import {
   DescribeRegionsResult,
   DescribeReplaceRootVolumeTasksRequest,
   DescribeReplaceRootVolumeTasksResult,
-  DescribeReservedInstancesRequest,
   DestinationOptionsResponse,
   DiskInfo,
   EbsInfo,
@@ -3518,6 +3518,7 @@ import {
   DescribeReservedInstancesModificationsResult,
   DescribeReservedInstancesOfferingsRequest,
   DescribeReservedInstancesOfferingsResult,
+  DescribeReservedInstancesRequest,
   DescribeReservedInstancesResult,
   DescribeRouteTablesRequest,
   DescribeRouteTablesResult,
@@ -3717,8 +3718,6 @@ import {
   DisassociateVpcCidrBlockRequest,
   DisassociateVpcCidrBlockResult,
   EnableAddressTransferRequest,
-  EnableAddressTransferResult,
-  EnableAllowedImagesSettingsRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3801,6 +3800,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  EnableAddressTransferResult,
+  EnableAllowedImagesSettingsRequest,
   EnableAllowedImagesSettingsResult,
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
   EnableAwsNetworkPerformanceMetricSubscriptionResult,
@@ -4033,8 +4034,6 @@ import {
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
   ModifyInstanceEventStartTimeResult,
-  ModifyInstanceEventWindowRequest,
-  ModifyInstanceEventWindowResult,
   PrefixListAssociation,
   PrefixListEntry,
   Purchase,
@@ -4084,6 +4083,8 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyInstanceEventWindowRequest,
+  ModifyInstanceEventWindowResult,
   ModifyInstanceMaintenanceOptionsRequest,
   ModifyInstanceMaintenanceOptionsResult,
   ModifyInstanceMetadataDefaultsRequest,
@@ -4349,8 +4350,6 @@ import {
   UnassignPrivateIpAddressesRequest,
   UnassignPrivateNatGatewayAddressRequest,
   UnassignPrivateNatGatewayAddressResult,
-  UnlockSnapshotRequest,
-  UnlockSnapshotResult,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
   VerifiedAccessLogOptions,
@@ -4358,6 +4357,8 @@ import {
 } from "../models/models_7";
 import {
   SecurityGroupRuleDescription,
+  UnlockSnapshotRequest,
+  UnlockSnapshotResult,
   UnmonitorInstancesRequest,
   UnmonitorInstancesResult,
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
@@ -19216,9 +19217,12 @@ export const de_DeleteSecurityGroupCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteSecurityGroupResult(data, context);
   const response: DeleteSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -33016,6 +33020,9 @@ const se_CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __Serde
       entries[loc] = value;
     });
   }
+  if (input[_Lo] != null) {
+    entries[_Lo] = input[_Lo];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -33052,6 +33059,9 @@ const se_CreateSnapshotsRequest = (input: CreateSnapshotsRequest, context: __Ser
   }
   if (input[_CTFS] != null) {
     entries[_CTFS] = input[_CTFS];
+  }
+  if (input[_Lo] != null) {
+    entries[_Lo] = input[_Lo];
   }
   return entries;
 };
@@ -62619,6 +62629,20 @@ const de_DeleteQueuedReservedInstancesResult = (
 };
 
 /**
+ * deserializeAws_ec2DeleteSecurityGroupResult
+ */
+const de_DeleteSecurityGroupResult = (output: any, context: __SerdeContext): DeleteSecurityGroupResult => {
+  const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
+  }
+  if (output[_gIr] != null) {
+    contents[_GIr] = __expectString(output[_gIr]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DeleteSubnetCidrReservationResult
  */
 const de_DeleteSubnetCidrReservationResult = (
@@ -81413,6 +81437,9 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   if (output[_sTs] != null) {
     contents[_STs] = __expectString(output[_sTs]);
   }
+  if (output[_aZ] != null) {
+    contents[_AZ] = __expectString(output[_aZ]);
+  }
   if (output[_tTr] != null) {
     contents[_TTr] = __expectString(output[_tTr]);
   }
@@ -81552,6 +81579,9 @@ const de_SnapshotInfo = (output: any, context: __SerdeContext): SnapshotInfo => 
   }
   if (output[_sTs] != null) {
     contents[_STs] = __expectString(output[_sTs]);
+  }
+  if (output[_aZ] != null) {
+    contents[_AZ] = __expectString(output[_aZ]);
   }
   return contents;
 };

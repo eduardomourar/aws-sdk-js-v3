@@ -77,6 +77,35 @@ import {
 /**
  * @public
  */
+export interface DeleteClientVpnRouteRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint from which the route is to be deleted.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The ID of the target subnet used by the route.</p>
+   * @public
+   */
+  TargetVpcSubnetId?: string | undefined;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the route to be deleted.</p>
+   * @public
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClientVpnRouteResult {
   /**
    * <p>The current state of the route.</p>
@@ -1621,6 +1650,23 @@ export interface DeleteSecurityGroupRequest {
 /**
  * @public
  */
+export interface DeleteSecurityGroupResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+
+  /**
+   * <p>The ID of the deleted security group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteSnapshotRequest {
   /**
    * <p>The ID of the EBS snapshot.</p>
@@ -3133,6 +3179,7 @@ export interface DescribeAccountAttributesResult {
  *          Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.</p>
  *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
  *            results that match all of the specified filters.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html#Filtering_Resources_CLI">List and filter using the CLI and API</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface Filter {
@@ -7825,92 +7872,6 @@ export interface HistoryRecordEntry {
    * @public
    */
   Timestamp?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFleetHistoryResult {
-  /**
-   * <p>Information about the events in the history of the EC2 Fleet.</p>
-   * @public
-   */
-  HistoryRecords?: HistoryRecordEntry[] | undefined;
-
-  /**
-   * <p>The last date and time for the events, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          All records up to this time were retrieved.</p>
-   *          <p>If <code>nextToken</code> indicates that there are more items, this value is not
-   *          present.</p>
-   * @public
-   */
-  LastEvaluatedTime?: Date | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the EC Fleet.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-
-  /**
-   * <p>The start date and time for the events, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFleetInstancesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
 }
 
 /**

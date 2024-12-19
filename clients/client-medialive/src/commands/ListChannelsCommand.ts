@@ -55,6 +55,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //           MediaPackageSettings: [ // __listOfMediaPackageOutputDestinationSettings
  * //             { // MediaPackageOutputDestinationSettings
  * //               ChannelId: "STRING_VALUE",
+ * //               ChannelGroup: "STRING_VALUE",
+ * //               ChannelName: "STRING_VALUE",
  * //             },
  * //           ],
  * //           MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
@@ -259,6 +261,16 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //         ChannelPlacementGroupId: "STRING_VALUE",
  * //         ClusterId: "STRING_VALUE",
  * //       },
+ * //       ChannelEngineVersion: { // ChannelEngineVersionResponse
+ * //         ExpirationDate: new Date("TIMESTAMP"),
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //       UsedChannelEngineVersions: [ // __listOfChannelEngineVersionResponse
+ * //         {
+ * //           ExpirationDate: new Date("TIMESTAMP"),
+ * //           Version: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
