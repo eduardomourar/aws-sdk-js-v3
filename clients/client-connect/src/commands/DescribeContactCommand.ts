@@ -106,6 +106,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     WisdomInfo: { // WisdomInfo
  * //       SessionArn: "STRING_VALUE",
  * //     },
+ * //     CustomerId: "STRING_VALUE",
  * //     CustomerEndpoint: { // EndpointInfo
  * //       Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
  * //       Address: "STRING_VALUE",
@@ -134,6 +135,10 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //               Name: "STRING_VALUE",
  * //               Value: "STRING_VALUE",
  * //               ProficiencyLevel: Number("float"),
+ * //               Range: { // Range
+ * //                 MinProficiencyLevel: Number("float"),
+ * //                 MaxProficiencyLevel: Number("float"),
+ * //               },
  * //               MatchCriteria: { // MatchCriteria
  * //                 AgentsCriteria: { // AgentsCriteria
  * //                   AgentIds: [ // AgentIds
@@ -149,6 +154,10 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                   Name: "STRING_VALUE",
  * //                   Value: "STRING_VALUE",
  * //                   ProficiencyLevel: Number("float"),
+ * //                   Range: {
+ * //                     MinProficiencyLevel: Number("float"),
+ * //                     MaxProficiencyLevel: Number("float"),
+ * //                   },
  * //                   MatchCriteria: {
  * //                     AgentsCriteria: {
  * //                       AgentIds: [
@@ -164,11 +173,45 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                 OrExpression: [
  * //                   "<Expression>",
  * //                 ],
+ * //                 NotAttributeCondition: {
+ * //                   Name: "STRING_VALUE",
+ * //                   Value: "STRING_VALUE",
+ * //                   ProficiencyLevel: Number("float"),
+ * //                   Range: {
+ * //                     MinProficiencyLevel: Number("float"),
+ * //                     MaxProficiencyLevel: Number("float"),
+ * //                   },
+ * //                   MatchCriteria: {
+ * //                     AgentsCriteria: {
+ * //                       AgentIds: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   ComparisonOperator: "STRING_VALUE",
+ * //                 },
  * //               },
  * //             ],
  * //             OrExpression: [
  * //               "<Expression>",
  * //             ],
+ * //             NotAttributeCondition: {
+ * //               Name: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //               ProficiencyLevel: Number("float"),
+ * //               Range: {
+ * //                 MinProficiencyLevel: Number("float"),
+ * //                 MaxProficiencyLevel: Number("float"),
+ * //               },
+ * //               MatchCriteria: {
+ * //                 AgentsCriteria: {
+ * //                   AgentIds: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               ComparisonOperator: "STRING_VALUE",
+ * //             },
  * //           },
  * //           Status: "ACTIVE" || "INACTIVE" || "JOINED" || "EXPIRED",
  * //         },

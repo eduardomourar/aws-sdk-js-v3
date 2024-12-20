@@ -52,6 +52,8 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //       MediaPackageSettings: [ // __listOfMediaPackageOutputDestinationSettings
  * //         { // MediaPackageOutputDestinationSettings
  * //           ChannelId: "STRING_VALUE",
+ * //           ChannelGroup: "STRING_VALUE",
+ * //           ChannelName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
@@ -529,6 +531,10 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //             SegmentLength: Number("int"),
  * //             SegmentLengthUnits: "MILLISECONDS" || "SECONDS",
  * //             SendDelayMs: Number("int"),
+ * //             KlvBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //             KlvNameModifier: "STRING_VALUE",
+ * //             NielsenId3NameModifier: "STRING_VALUE",
+ * //             Scte35NameModifier: "STRING_VALUE",
  * //           },
  * //           SrtGroupSettings: { // SrtGroupSettings
  * //             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
@@ -1220,6 +1226,10 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //       ActiveMotionGraphicsActionName: "STRING_VALUE",
  * //       ActiveMotionGraphicsUri: "STRING_VALUE",
  * //       PipelineId: "STRING_VALUE",
+ * //       ChannelEngineVersion: { // ChannelEngineVersionResponse
+ * //         ExpirationDate: new Date("TIMESTAMP"),
+ * //         Version: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   PipelinesRunningCount: Number("int"),
@@ -1237,6 +1247,10 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //   AnywhereSettings: { // DescribeAnywhereSettings
  * //     ChannelPlacementGroupId: "STRING_VALUE",
  * //     ClusterId: "STRING_VALUE",
+ * //   },
+ * //   ChannelEngineVersion: {
+ * //     ExpirationDate: new Date("TIMESTAMP"),
+ * //     Version: "STRING_VALUE",
  * //   },
  * // };
  *

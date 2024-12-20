@@ -441,6 +441,10 @@ import {
   GetRegistrationCodeCommandOutput,
 } from "./commands/GetRegistrationCodeCommand";
 import { GetStatisticsCommandInput, GetStatisticsCommandOutput } from "./commands/GetStatisticsCommand";
+import {
+  GetThingConnectivityDataCommandInput,
+  GetThingConnectivityDataCommandOutput,
+} from "./commands/GetThingConnectivityDataCommand";
 import { GetTopicRuleCommandInput, GetTopicRuleCommandOutput } from "./commands/GetTopicRuleCommand";
 import {
   GetTopicRuleDestinationCommandInput,
@@ -956,6 +960,7 @@ export type ServiceInputTypes =
   | GetPolicyVersionCommandInput
   | GetRegistrationCodeCommandInput
   | GetStatisticsCommandInput
+  | GetThingConnectivityDataCommandInput
   | GetTopicRuleCommandInput
   | GetTopicRuleDestinationCommandInput
   | GetV2LoggingOptionsCommandInput
@@ -1230,6 +1235,7 @@ export type ServiceOutputTypes =
   | GetPolicyVersionCommandOutput
   | GetRegistrationCodeCommandOutput
   | GetStatisticsCommandOutput
+  | GetThingConnectivityDataCommandOutput
   | GetTopicRuleCommandOutput
   | GetTopicRuleDestinationCommandOutput
   | GetV2LoggingOptionsCommandOutput
@@ -1445,6 +1451,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
+
+  /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
 
   /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header

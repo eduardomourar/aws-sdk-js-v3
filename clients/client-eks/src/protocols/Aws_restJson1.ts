@@ -214,6 +214,7 @@ import {
   Nodegroup,
   NodegroupScalingConfig,
   NodegroupUpdateConfig,
+  NodeRepairConfig,
   NotFoundException,
   OidcIdentityProviderConfigRequest,
   OutpostConfigRequest,
@@ -490,6 +491,7 @@ export const se_CreateNodegroupCommand = async (
       instanceTypes: (_) => _json(_),
       labels: (_) => _json(_),
       launchTemplate: (_) => _json(_),
+      nodeRepairConfig: (_) => _json(_),
       nodeRole: [],
       nodegroupName: [],
       releaseVersion: [],
@@ -1418,6 +1420,7 @@ export const se_UpdateNodegroupConfigCommand = async (
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       labels: (_) => _json(_),
+      nodeRepairConfig: (_) => _json(_),
       scalingConfig: (_) => _json(_),
       taints: (_) => _json(_),
       updateConfig: (_) => _json(_),
@@ -3058,6 +3061,8 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_NodegroupUpdateConfig omitted.
 
+// se_NodeRepairConfig omitted.
+
 // se_OidcIdentityProviderConfigRequest omitted.
 
 // se_OutpostConfigRequest omitted.
@@ -3149,6 +3154,10 @@ const de_Addon = (output: any, context: __SerdeContext): Addon => {
     tags: _json,
   }) as any;
 };
+
+// de_AddonCompatibilityDetail omitted.
+
+// de_AddonCompatibilityDetails omitted.
 
 // de_AddonHealth omitted.
 
@@ -3416,6 +3425,7 @@ const de_Insight = (output: any, context: __SerdeContext): Insight => {
  */
 const de_InsightCategorySpecificSummary = (output: any, context: __SerdeContext): InsightCategorySpecificSummary => {
   return take(output, {
+    addonCompatibilityDetails: _json,
     deprecationDetails: (_: any) => de_DeprecationDetails(_, context),
   }) as any;
 };
@@ -3489,6 +3499,7 @@ const de_Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
     labels: _json,
     launchTemplate: _json,
     modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    nodeRepairConfig: _json,
     nodeRole: __expectString,
     nodegroupArn: __expectString,
     nodegroupName: __expectString,
@@ -3512,6 +3523,8 @@ const de_Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
 // de_NodegroupScalingConfig omitted.
 
 // de_NodegroupUpdateConfig omitted.
+
+// de_NodeRepairConfig omitted.
 
 // de_OIDC omitted.
 
