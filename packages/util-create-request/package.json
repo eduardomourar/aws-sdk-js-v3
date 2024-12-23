@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-create-request",
-  "version": "3.709.0",
+  "version": "3.716.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline util-create-request",
@@ -24,7 +24,7 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@smithy/middleware-stack": "^3.0.11",
-    "@smithy/smithy-client": "^3.5.0",
+    "@smithy/smithy-client": "^3.5.1",
     "@smithy/types": "^3.7.2",
     "tslib": "^2.6.2"
   },

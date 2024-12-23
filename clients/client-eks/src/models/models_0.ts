@@ -397,6 +397,24 @@ export interface Addon {
 }
 
 /**
+ * <p>Contains compatibility information for an Amazon EKS add-on.</p>
+ * @public
+ */
+export interface AddonCompatibilityDetail {
+  /**
+   * <p>The name of the Amazon EKS add-on.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A list of compatible add-on versions.</p>
+   * @public
+   */
+  compatibleVersions?: string[] | undefined;
+}
+
+/**
  * <p>Compatibility information.</p>
  * @public
  */
@@ -1047,6 +1065,7 @@ export const UpdateParamType = {
   MAX_UNAVAILABLE: "MaxUnavailable",
   MAX_UNAVAILABLE_PERCENTAGE: "MaxUnavailablePercentage",
   MIN_SIZE: "MinSize",
+  NODE_REPAIR_ENABLED: "NodeRepairEnabled",
   PLATFORM_VERSION: "PlatformVersion",
   POD_IDENTITY_ASSOCIATIONS: "PodIdentityAssociations",
   PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
@@ -1931,11 +1950,79 @@ export interface OutpostConfigRequest {
 
 /**
  * <p>A network CIDR that can contain hybrid nodes.</p>
+ *          <p>These CIDR blocks define the expected IP address range of the hybrid nodes that join
+ *             the cluster. These blocks are typically determined by your network administrator. </p>
+ *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <code>
+ *             10.2.0.0/16</code>).</p>
+ *          <p>It must satisfy the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+ *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+ *                     aren't supported.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+ *                     resources, or the block of the Kubernetes service IP range.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each block must have a route to the VPC that uses the VPC CIDR blocks, not
+ *                     public IPs or Elastic IPs. There are many options including Transit Gateway,
+ *                     Site-to-Site VPN, or Direct Connect.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each host must allow outbound connection to the EKS cluster control plane on
+ *                     TCP ports <code>443</code> and <code>10250</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each host must allow inbound connection from the EKS cluster control plane on
+ *                     TCP port 10250 for logs, exec and port-forward operations.</p>
+ *             </li>
+ *             <li>
+ *                <p> Each host must allow TCP and UDP network connectivity to and from other hosts
+ *                     that are running <code>CoreDNS</code> on UDP port <code>53</code> for service and pod DNS
+ *                     names.</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RemoteNodeNetwork {
   /**
    * <p>A network CIDR that can contain hybrid nodes.</p>
+   *          <p>These CIDR blocks define the expected IP address range of the hybrid nodes that join
+   *             the cluster. These blocks are typically determined by your network administrator. </p>
+   *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <code>
+   *             10.2.0.0/16</code>).</p>
+   *          <p>It must satisfy the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     aren't supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+   *                     resources, or the block of the Kubernetes service IP range.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block must have a route to the VPC that uses the VPC CIDR blocks, not
+   *                     public IPs or Elastic IPs. There are many options including Transit Gateway,
+   *                     Site-to-Site VPN, or Direct Connect.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each host must allow outbound connection to the EKS cluster control plane on
+   *                     TCP ports <code>443</code> and <code>10250</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each host must allow inbound connection from the EKS cluster control plane on
+   *                     TCP port 10250 for logs, exec and port-forward operations.</p>
+   *             </li>
+   *             <li>
+   *                <p> Each host must allow TCP and UDP network connectivity to and from other hosts
+   *                     that are running <code>CoreDNS</code> on UDP port <code>53</code> for service and pod DNS
+   *                     names.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   cidrs?: string[] | undefined;
@@ -1943,11 +2030,45 @@ export interface RemoteNodeNetwork {
 
 /**
  * <p>A network CIDR that can contain pods that run Kubernetes webhooks on hybrid nodes.</p>
+ *          <p>These CIDR blocks are determined by configuring your Container Network Interface (CNI)
+ *             plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin for Kubernetes isn't
+ *             available for on-premises and edge locations.</p>
+ *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <code>
+ *             10.2.0.0/16</code>).</p>
+ *          <p>It must satisfy the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+ *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+ *                     aren't supported.</p>
+ *             </li>
+ *             <li>
+ *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+ *                     resources, or the block of the Kubernetes service IP range.</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RemotePodNetwork {
   /**
    * <p>A network CIDR that can contain pods that run Kubernetes webhooks on hybrid nodes.</p>
+   *          <p>These CIDR blocks are determined by configuring your Container Network Interface (CNI)
+   *             plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin for Kubernetes isn't
+   *             available for on-premises and edge locations.</p>
+   *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <code>
+   *             10.2.0.0/16</code>).</p>
+   *          <p>It must satisfy the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     aren't supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+   *                     resources, or the block of the Kubernetes service IP range.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   cidrs?: string[] | undefined;
@@ -1961,12 +2082,63 @@ export interface RemotePodNetwork {
 export interface RemoteNetworkConfigRequest {
   /**
    * <p>The list of network CIDRs that can contain hybrid nodes.</p>
+   *          <p>These CIDR blocks define the expected IP address range of the hybrid nodes that join
+   *             the cluster. These blocks are typically determined by your network administrator. </p>
+   *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <code>
+   *             10.2.0.0/16</code>).</p>
+   *          <p>It must satisfy the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     aren't supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+   *                     resources, or the block of the Kubernetes service IP range.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block must have a route to the VPC that uses the VPC CIDR blocks, not
+   *                     public IPs or Elastic IPs. There are many options including Transit Gateway,
+   *                     Site-to-Site VPN, or Direct Connect.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each host must allow outbound connection to the EKS cluster control plane on
+   *                     TCP ports <code>443</code> and <code>10250</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each host must allow inbound connection from the EKS cluster control plane on
+   *                     TCP port 10250 for logs, exec and port-forward operations.</p>
+   *             </li>
+   *             <li>
+   *                <p> Each host must allow TCP and UDP network connectivity to and from other hosts
+   *                     that are running <code>CoreDNS</code> on UDP port <code>53</code> for service and pod DNS
+   *                     names.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   remoteNodeNetworks?: RemoteNodeNetwork[] | undefined;
 
   /**
    * <p>The list of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.</p>
+   *          <p>These CIDR blocks are determined by configuring your Container Network Interface (CNI)
+   *             plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin for Kubernetes isn't
+   *             available for on-premises and edge locations.</p>
+   *          <p>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <code>
+   *             10.2.0.0/16</code>).</p>
+   *          <p>It must satisfy the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
+   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     aren't supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS
+   *                     resources, or the block of the Kubernetes service IP range.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   remotePodNetworks?: RemotePodNetwork[] | undefined;
@@ -3433,6 +3605,19 @@ export interface LaunchTemplateSpecification {
 }
 
 /**
+ * <p>The node auto repair configuration for the node group.</p>
+ * @public
+ */
+export interface NodeRepairConfig {
+  /**
+   * <p>Specifies whether to enable node auto repair for the node group. Node auto repair is
+   *          disabled by default.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
  * <p>An object representing the remote access configuration for the managed node
  *             group.</p>
  * @public
@@ -3711,6 +3896,12 @@ export interface CreateNodegroupRequest {
    * @public
    */
   updateConfig?: NodegroupUpdateConfig | undefined;
+
+  /**
+   * <p>The node auto repair configuration for the node group.</p>
+   * @public
+   */
+  nodeRepairConfig?: NodeRepairConfig | undefined;
 
   /**
    * <p>The capacity type for your node group.</p>
@@ -4126,6 +4317,12 @@ export interface Nodegroup {
    * @public
    */
   updateConfig?: NodegroupUpdateConfig | undefined;
+
+  /**
+   * <p>The node auto repair configuration for the node group.</p>
+   * @public
+   */
+  nodeRepairConfig?: NodeRepairConfig | undefined;
 
   /**
    * <p>If a launch template was used to create the node group, then this is the launch
@@ -4784,6 +4981,145 @@ export interface DescribeClusterResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ClusterVersionStatus = {
+  extended_support: "extended-support",
+  standard_support: "standard-support",
+  unsupported: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterVersionStatus = (typeof ClusterVersionStatus)[keyof typeof ClusterVersionStatus];
+
+/**
+ * @public
+ */
+export interface DescribeClusterVersionsRequest {
+  /**
+   * <p>The type of cluster to filter versions by.</p>
+   * @public
+   */
+  clusterType?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filter to show only default versions.</p>
+   * @public
+   */
+  defaultOnly?: boolean | undefined;
+
+  /**
+   * <p>Include all available versions in the response.</p>
+   * @public
+   */
+  includeAll?: boolean | undefined;
+
+  /**
+   * <p>List of specific cluster versions to describe.</p>
+   * @public
+   */
+  clusterVersions?: string[] | undefined;
+
+  /**
+   * <p>Filter versions by their current status.</p>
+   * @public
+   */
+  status?: ClusterVersionStatus | undefined;
+}
+
+/**
+ * <p>Contains details about a specific EKS cluster version.</p>
+ * @public
+ */
+export interface ClusterVersionInformation {
+  /**
+   * <p>The Kubernetes version for the cluster.</p>
+   * @public
+   */
+  clusterVersion?: string | undefined;
+
+  /**
+   * <p>The type of cluster this version is for.</p>
+   * @public
+   */
+  clusterType?: string | undefined;
+
+  /**
+   * <p>Default platform version for this Kubernetes version.</p>
+   * @public
+   */
+  defaultPlatformVersion?: string | undefined;
+
+  /**
+   * <p>Indicates if this is a default version.</p>
+   * @public
+   */
+  defaultVersion?: boolean | undefined;
+
+  /**
+   * <p>The release date of this cluster version.</p>
+   * @public
+   */
+  releaseDate?: Date | undefined;
+
+  /**
+   * <p>Date when standard support ends for this version.</p>
+   * @public
+   */
+  endOfStandardSupportDate?: Date | undefined;
+
+  /**
+   * <p>Date when extended support ends for this version.</p>
+   * @public
+   */
+  endOfExtendedSupportDate?: Date | undefined;
+
+  /**
+   * <p>Current status of this cluster version.</p>
+   * @public
+   */
+  status?: ClusterVersionStatus | undefined;
+
+  /**
+   * <p>The patch version of Kubernetes for this cluster version.</p>
+   * @public
+   */
+  kubernetesPatchVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterVersionsResponse {
+  /**
+   * <p>Pagination token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>List of cluster version information objects.</p>
+   * @public
+   */
+  clusterVersions?: ClusterVersionInformation[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface DescribeEksAnywhereSubscriptionRequest {
   /**
@@ -5102,6 +5438,12 @@ export interface InsightCategorySpecificSummary {
    * @public
    */
   deprecationDetails?: DeprecationDetail[] | undefined;
+
+  /**
+   * <p>A list of AddonCompatibilityDetail objects for Amazon EKS add-ons.</p>
+   * @public
+   */
+  addonCompatibilityDetails?: AddonCompatibilityDetail[] | undefined;
 }
 
 /**
@@ -7010,6 +7352,12 @@ export interface UpdateNodegroupConfigRequest {
    * @public
    */
   updateConfig?: NodegroupUpdateConfig | undefined;
+
+  /**
+   * <p>The node auto repair configuration for the node group.</p>
+   * @public
+   */
+  nodeRepairConfig?: NodeRepairConfig | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
