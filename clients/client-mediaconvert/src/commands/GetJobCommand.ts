@@ -913,6 +913,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                       HexFontColor: "STRING_VALUE",
  * //                       OutlineColor: "BLACK" || "WHITE" || "YELLOW" || "RED" || "GREEN" || "BLUE" || "AUTO",
  * //                       OutlineSize: Number("int"),
+ * //                       RemoveRubyReserveAttributes: "DISABLED" || "ENABLED",
  * //                       ShadowColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
  * //                       ShadowOpacity: Number("int"),
  * //                       ShadowXOffset: Number("int"),
@@ -1242,6 +1243,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     Telecine: "NONE" || "SOFT" || "HARD",
  * //                     TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //                     UnregisteredSeiTimecode: "DISABLED" || "ENABLED",
+ * //                     WriteMp4PackagingType: "AVC1" || "AVC3",
  * //                   },
  * //                   H265Settings: { // H265Settings
  * //                     AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX" || "AUTO",
@@ -1461,6 +1463,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                 ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
  * //                 Sharpness: Number("int"),
  * //                 TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
+ * //                 TimecodeTrack: "DISABLED" || "ENABLED",
  * //                 VideoPreprocessors: { // VideoPreprocessor
  * //                   ColorCorrector: { // ColorCorrector
  * //                     Brightness: Number("int"),

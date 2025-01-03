@@ -34,6 +34,7 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
 /**
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an
  *             asynchronous API for use with active contacts.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of
@@ -50,12 +51,14 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * const input = { // GetAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required
  *   ConnectionToken: "STRING_VALUE", // required
+ *   UrlExpiryInSeconds: Number("int"),
  * };
  * const command = new GetAttachmentCommand(input);
  * const response = await client.send(command);
  * // { // GetAttachmentResponse
  * //   Url: "STRING_VALUE",
  * //   UrlExpiry: "STRING_VALUE",
+ * //   AttachmentSizeInBytes: Number("long"), // required
  * // };
  *
  * ```

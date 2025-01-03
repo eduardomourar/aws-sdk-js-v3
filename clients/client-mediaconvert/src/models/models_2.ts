@@ -6,7 +6,6 @@ import { MediaConvertServiceException as __BaseException } from "./MediaConvertS
 import { AccelerationSettings, BillingTagsSource, Endpoint, HopDestination } from "./models_0";
 
 import {
-  Commitment,
   Job,
   JobEngineVersion,
   JobSettings,
@@ -16,12 +15,51 @@ import {
   Preset,
   PresetSettings,
   PricingPlan,
-  RenewalType,
-  ReservationPlanStatus,
   SimulateReservedQueue,
   StatusUpdateInterval,
   Type,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const Commitment = {
+  ONE_YEAR: "ONE_YEAR",
+} as const;
+
+/**
+ * @public
+ */
+export type Commitment = (typeof Commitment)[keyof typeof Commitment];
+
+/**
+ * @public
+ * @enum
+ */
+export const RenewalType = {
+  AUTO_RENEW: "AUTO_RENEW",
+  EXPIRE: "EXPIRE",
+} as const;
+
+/**
+ * @public
+ */
+export type RenewalType = (typeof RenewalType)[keyof typeof RenewalType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservationPlanStatus = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservationPlanStatus = (typeof ReservationPlanStatus)[keyof typeof ReservationPlanStatus];
 
 /**
  * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.

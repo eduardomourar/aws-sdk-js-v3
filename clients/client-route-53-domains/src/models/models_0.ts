@@ -270,6 +270,7 @@ export const OperationType = {
   RELEASE_TO_GANDI: "RELEASE_TO_GANDI",
   REMOVE_DNSSEC: "REMOVE_DNSSEC",
   RENEW_DOMAIN: "RENEW_DOMAIN",
+  RESTORE_DOMAIN: "RESTORE_DOMAIN",
   TRANSFER_IN_DOMAIN: "TRANSFER_IN_DOMAIN",
   TRANSFER_ON_RENEW: "TRANSFER_ON_RENEW",
   TRANSFER_OUT_DOMAIN: "TRANSFER_OUT_DOMAIN",
@@ -304,7 +305,7 @@ export interface BillingRecord {
   Operation?: OperationType | undefined;
 
   /**
-   * <p>The ID of the invoice that is associated with the billing record.</p>
+   * <p>Deprecated property. This field is retained in report structure for backwards compatibility, but will appear blank.</p>
    * @public
    */
   InvoiceId?: string | undefined;

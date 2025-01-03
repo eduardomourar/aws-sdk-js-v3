@@ -29,10 +29,26 @@ import {
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
-  OutputGroupType,
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputGroupType = {
+  CMAF_GROUP_SETTINGS: "CMAF_GROUP_SETTINGS",
+  DASH_ISO_GROUP_SETTINGS: "DASH_ISO_GROUP_SETTINGS",
+  FILE_GROUP_SETTINGS: "FILE_GROUP_SETTINGS",
+  HLS_GROUP_SETTINGS: "HLS_GROUP_SETTINGS",
+  MS_SMOOTH_GROUP_SETTINGS: "MS_SMOOTH_GROUP_SETTINGS",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputGroupType = (typeof OutputGroupType)[keyof typeof OutputGroupType];
 
 /**
  * Output Group settings, including type
@@ -2810,6 +2826,20 @@ export type H264UnregisteredSeiTimecode =
   (typeof H264UnregisteredSeiTimecode)[keyof typeof H264UnregisteredSeiTimecode];
 
 /**
+ * @public
+ * @enum
+ */
+export const H264WriteMp4PackagingType = {
+  AVC1: "AVC1",
+  AVC3: "AVC3",
+} as const;
+
+/**
+ * @public
+ */
+export type H264WriteMp4PackagingType = (typeof H264WriteMp4PackagingType)[keyof typeof H264WriteMp4PackagingType];
+
+/**
  * Required when you set Codec to the value H_264.
  * @public
  */
@@ -3077,6 +3107,12 @@ export interface H264Settings {
    * @public
    */
   UnregisteredSeiTimecode?: H264UnregisteredSeiTimecode | undefined;
+
+  /**
+   * Specify how SPS and PPS NAL units are written in your output MP4 container, according to ISO/IEC 14496-15. If the location of these parameters doesn't matter in your workflow: Keep the default value, AVC1. MediaConvert writes SPS and PPS NAL units in the sample description ('stsd') box (but not into samples directly). To write SPS and PPS NAL units directly into samples (but not in the 'stsd' box): Choose AVC3. When you do, note that your output might not play properly with some downstream systems or players.
+   * @public
+   */
+  WriteMp4PackagingType?: H264WriteMp4PackagingType | undefined;
 }
 
 /**
@@ -5829,6 +5865,20 @@ export const VideoTimecodeInsertion = {
 export type VideoTimecodeInsertion = (typeof VideoTimecodeInsertion)[keyof typeof VideoTimecodeInsertion];
 
 /**
+ * @public
+ * @enum
+ */
+export const TimecodeTrack = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TimecodeTrack = (typeof TimecodeTrack)[keyof typeof TimecodeTrack];
+
+/**
  * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
  * @public
  */
@@ -6514,7 +6564,7 @@ export interface VideoDescription {
   Crop?: Rectangle | undefined;
 
   /**
-   * Applies only to 29.97 fps outputs. When this feature is enabled, the service will use drop-frame timecode on outputs. If it is not possible to use drop-frame timecode, the system will fall back to non-drop-frame. This setting is enabled by default when Timecode insertion is enabled.
+   * Applies only to 29.97 fps outputs. When this feature is enabled, the service will use drop-frame timecode on outputs. If it is not possible to use drop-frame timecode, the system will fall back to non-drop-frame. This setting is enabled by default when Timecode insertion or Timecode track is enabled.
    * @public
    */
   DropFrameTimecode?: DropFrameTimecode | undefined;
@@ -6560,6 +6610,12 @@ export interface VideoDescription {
    * @public
    */
   TimecodeInsertion?: VideoTimecodeInsertion | undefined;
+
+  /**
+   * To include a timecode track in your MP4 output: Choose Enabled. MediaConvert writes the timecode track in the Null Media Header box (NMHD), without any timecode text formatting information. You can also specify dropframe or non-dropframe timecode under the Drop Frame Timecode setting. To not include a timecode track: Keep the default value, Disabled.
+   * @public
+   */
+  TimecodeTrack?: TimecodeTrack | undefined;
 
   /**
    * Find additional transcoding features under Preprocessors. Enable the features at each output individually. These features are disabled by default.
@@ -7394,44 +7450,3 @@ export const PricingPlan = {
  * @public
  */
 export type PricingPlan = (typeof PricingPlan)[keyof typeof PricingPlan];
-
-/**
- * @public
- * @enum
- */
-export const Commitment = {
-  ONE_YEAR: "ONE_YEAR",
-} as const;
-
-/**
- * @public
- */
-export type Commitment = (typeof Commitment)[keyof typeof Commitment];
-
-/**
- * @public
- * @enum
- */
-export const RenewalType = {
-  AUTO_RENEW: "AUTO_RENEW",
-  EXPIRE: "EXPIRE",
-} as const;
-
-/**
- * @public
- */
-export type RenewalType = (typeof RenewalType)[keyof typeof RenewalType];
-
-/**
- * @public
- * @enum
- */
-export const ReservationPlanStatus = {
-  ACTIVE: "ACTIVE",
-  EXPIRED: "EXPIRED",
-} as const;
-
-/**
- * @public
- */
-export type ReservationPlanStatus = (typeof ReservationPlanStatus)[keyof typeof ReservationPlanStatus];

@@ -3,6 +3,82 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
+
+
+### Features
+
+* **client-connect:** This release supports adding NotAttributeCondition and Range to the RoutingCriteria object. ([329a39d](https://github.com/aws/aws-sdk-js-v3/commit/329a39d934a963883eeeabbe93cc8866645a35d9))
+
+
+
+
+
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.715.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.714.0...v3.715.0) (2024-12-18)
+
+
+### Features
+
+* **client-connect:** This release adds support for the UpdateParticipantAuthentication API used for customer authentication within Amazon Connect chats. ([4e1a96b](https://github.com/aws/aws-sdk-js-v3/commit/4e1a96b295ea0ee861e6c5f0016b65e5cc00f169))
+
+
+
+
+
+# [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
+
+
+### Features
+
+* **clients:** profile setting for clients ([#6728](https://github.com/aws/aws-sdk-js-v3/issues/6728)) ([afd9eea](https://github.com/aws/aws-sdk-js-v3/commit/afd9eea89fd0d63a377123f1ca999daeefd904a7))
+
+
+
+
+
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.711.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.710.0...v3.711.0) (2024-12-12)
+
+
+### Features
+
+* **client-connect:** Configure holidays and other overrides to hours of operation in advance. During contact handling, Amazon Connect automatically checks for overrides and provides customers with an appropriate flow path. After an override period passes call center automatically reverts to standard hours of operation. ([6398b6f](https://github.com/aws/aws-sdk-js-v3/commit/6398b6f3ba711532872e39c5affd5b07ffb5ec80))
+
+
+
+
+
 # [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
 
 
