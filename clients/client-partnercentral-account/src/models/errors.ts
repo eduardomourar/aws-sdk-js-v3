@@ -119,6 +119,34 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The request was rejected because it would exceed a service quota or limit. This may occur when trying to create more resources than allowed by the service limits.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * <p>The specific reason for the service quota being exceeded.</p>
+   * @public
+   */
+  Reason: ServiceQuotaExceededExceptionReason | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
+}
+
+/**
  * <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
  * @public
  */
@@ -186,33 +214,5 @@ export class ValidationException extends __BaseException {
     this.Message = opts.Message;
     this.Reason = opts.Reason;
     this.ErrorDetails = opts.ErrorDetails;
-  }
-}
-
-/**
- * <p>The request was rejected because it would exceed a service quota or limit. This may occur when trying to create more resources than allowed by the service limits.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name = "ServiceQuotaExceededException" as const;
-  readonly $fault = "client" as const;
-  Message: string | undefined;
-  /**
-   * <p>The specific reason for the service quota being exceeded.</p>
-   * @public
-   */
-  Reason: ServiceQuotaExceededExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
   }
 }

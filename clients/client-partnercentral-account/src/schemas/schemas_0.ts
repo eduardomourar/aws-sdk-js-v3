@@ -339,8 +339,8 @@ export var BusinessVerificationDetails$: StaticStructureSchema = [3, n0, _BVD,
 ];
 export var BusinessVerificationResponse$: StaticStructureSchema = [3, n0, _BVR,
   0,
-  [_BVD],
-  [[() => BusinessVerificationDetails$, 0]], 1
+  [_BVD, _CU, _CUEA],
+  [[() => BusinessVerificationDetails$, 0], 0, 5], 1
 ];
 export var CancelConnectionInvitationRequest$: StaticStructureSchema = [3, n0, _CCIR,
   0,

@@ -462,6 +462,18 @@ export interface BusinessVerificationResponse {
    * @public
    */
   BusinessVerificationDetails: BusinessVerificationDetails | undefined;
+
+  /**
+   * <p>A secure URL where the registrant can complete additional verification steps, such as document upload or identity confirmation through a third-party verification service.</p>
+   * @public
+   */
+  CompletionUrl?: string | undefined;
+
+  /**
+   * <p>The timestamp when the completion URL expires and is no longer valid for accessing the verification workflow.</p>
+   * @public
+   */
+  CompletionUrlExpiresAt?: Date | undefined;
 }
 
 /**

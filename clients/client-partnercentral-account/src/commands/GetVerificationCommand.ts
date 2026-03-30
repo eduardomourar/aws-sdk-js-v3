@@ -57,6 +57,8 @@ export interface GetVerificationCommandOutput extends GetVerificationResponse, _
  * //         CountryCode: "STRING_VALUE", // required
  * //         JurisdictionOfIncorporation: "STRING_VALUE",
  * //       },
+ * //       CompletionUrl: "STRING_VALUE",
+ * //       CompletionUrlExpiresAt: new Date("TIMESTAMP"),
  * //     },
  * //     RegistrantVerificationResponse: { // RegistrantVerificationResponse
  * //       CompletionUrl: "STRING_VALUE", // required

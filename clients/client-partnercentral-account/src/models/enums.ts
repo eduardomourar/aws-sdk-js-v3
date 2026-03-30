@@ -87,6 +87,23 @@ export type ResourceNotFoundExceptionReason =
  * @public
  * @enum
  */
+export const ServiceQuotaExceededExceptionReason = {
+  LIMIT_EXCEEDED_NUMBER_OF_ACTIVE_CONNECTION: "LIMIT_EXCEEDED_NUMBER_OF_ACTIVE_CONNECTION",
+  LIMIT_EXCEEDED_NUMBER_OF_CONNECTION_INVITATION_PER_DAY: "LIMIT_EXCEEDED_NUMBER_OF_CONNECTION_INVITATION_PER_DAY",
+  LIMIT_EXCEEDED_NUMBER_OF_DOMAIN: "LIMIT_EXCEEDED_NUMBER_OF_DOMAIN",
+  LIMIT_EXCEEDED_NUMBER_OF_EMAIL: "LIMIT_EXCEEDED_NUMBER_OF_EMAIL",
+  LIMIT_EXCEEDED_NUMBER_OF_OPEN_CONNECTION_INVITATION: "LIMIT_EXCEEDED_NUMBER_OF_OPEN_CONNECTION_INVITATION",
+} as const;
+/**
+ * @public
+ */
+export type ServiceQuotaExceededExceptionReason =
+  (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const BusinessValidationCode = {
   INCOMPATIBLE_CONNECTION_INVITATION_REQUEST: "INCOMPATIBLE_CONNECTION_INVITATION_REQUEST",
   INCOMPATIBLE_DOMAIN: "INCOMPATIBLE_DOMAIN",
@@ -145,20 +162,6 @@ export const AccessType = {
  * @public
  */
 export type AccessType = (typeof AccessType)[keyof typeof AccessType];
-
-/**
- * @public
- * @enum
- */
-export const ServiceQuotaExceededExceptionReason = {
-  LIMIT_EXCEEDED_NUMBER_OF_DOMAIN: "LIMIT_EXCEEDED_NUMBER_OF_DOMAIN",
-  LIMIT_EXCEEDED_NUMBER_OF_EMAIL: "LIMIT_EXCEEDED_NUMBER_OF_EMAIL",
-} as const;
-/**
- * @public
- */
-export type ServiceQuotaExceededExceptionReason =
-  (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
 
 /**
  * @public
