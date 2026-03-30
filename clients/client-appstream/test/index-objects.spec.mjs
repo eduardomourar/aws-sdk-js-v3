@@ -58,6 +58,7 @@ import {
   ComputeCapacityStatus$,
   ConcurrentModificationException,
   ConcurrentModificationException$,
+  ContentRedirection$,
   CopyImage$,
   CopyImageCommand,
   CopyImageRequest$,
@@ -473,6 +474,7 @@ import {
   UpdateThemeForStackCommand,
   UpdateThemeForStackRequest$,
   UpdateThemeForStackResult$,
+  UrlRedirectionConfig$,
   UsageReportExecutionErrorCode,
   UsageReportSchedule,
   UsageReportSubscription$,
@@ -699,6 +701,7 @@ assert(typeof BatchDisassociateUserStackResult$ === "object");
 assert(typeof CertificateBasedAuthProperties$ === "object");
 assert(typeof ComputeCapacity$ === "object");
 assert(typeof ComputeCapacityStatus$ === "object");
+assert(typeof ContentRedirection$ === "object");
 assert(typeof CopyImageRequest$ === "object");
 assert(typeof CopyImageResponse$ === "object");
 assert(typeof CreateAppBlockBuilderRequest$ === "object");
@@ -892,6 +895,7 @@ assert(typeof UpdateStackRequest$ === "object");
 assert(typeof UpdateStackResult$ === "object");
 assert(typeof UpdateThemeForStackRequest$ === "object");
 assert(typeof UpdateThemeForStackResult$ === "object");
+assert(typeof UrlRedirectionConfig$ === "object");
 assert(typeof UsageReportSubscription$ === "object");
 assert(typeof User$ === "object");
 assert(typeof UserSetting$ === "object");

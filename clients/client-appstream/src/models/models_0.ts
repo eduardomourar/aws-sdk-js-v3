@@ -1077,6 +1077,42 @@ export interface ComputeCapacityStatus {
 }
 
 /**
+ * <p>Configuration for URL redirection in a specific direction (host-to-client or client-to-host). When enabled, URLs matching the allowed or denied patterns are redirected accordingly. The denied list takes precedence over the allowed list.</p>
+ * @public
+ */
+export interface UrlRedirectionConfig {
+  /**
+   * <p>Whether URL redirection is enabled for this direction.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>List of URL patterns that are allowed to be redirected. URLs matching these patterns will be redirected unless they also match a pattern in the denied list.</p>
+   * @public
+   */
+  AllowedUrls?: string[] | undefined;
+
+  /**
+   * <p>List of URL patterns that are denied from redirection. This list takes precedence over the allowed list.</p>
+   * @public
+   */
+  DeniedUrls?: string[] | undefined;
+}
+
+/**
+ * <p>Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.</p>
+ * @public
+ */
+export interface ContentRedirection {
+  /**
+   * <p>Configuration for redirecting URLs from the remote desktop to the local client browser.</p>
+   * @public
+   */
+  HostToClient?: UrlRedirectionConfig | undefined;
+}
+
+/**
  * @public
  */
 export interface CopyImageRequest {
@@ -3727,6 +3763,12 @@ export interface CreateStackRequest {
    * @public
    */
   StreamingExperienceSettings?: StreamingExperienceSettings | undefined;
+
+  /**
+   * <p>Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.</p>
+   * @public
+   */
+  ContentRedirection?: ContentRedirection | undefined;
 }
 
 /**
@@ -3835,6 +3877,12 @@ export interface Stack {
    * @public
    */
   StreamingExperienceSettings?: StreamingExperienceSettings | undefined;
+
+  /**
+   * <p>Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.</p>
+   * @public
+   */
+  ContentRedirection?: ContentRedirection | undefined;
 }
 
 /**

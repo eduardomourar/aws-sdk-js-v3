@@ -56,7 +56,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *   RedirectURL: "STRING_VALUE",
  *   FeedbackURL: "STRING_VALUE",
  *   AttributesToDelete: [ // StackAttributes
- *     "STORAGE_CONNECTORS" || "STORAGE_CONNECTOR_HOMEFOLDERS" || "STORAGE_CONNECTOR_GOOGLE_DRIVE" || "STORAGE_CONNECTOR_ONE_DRIVE" || "REDIRECT_URL" || "FEEDBACK_URL" || "THEME_NAME" || "USER_SETTINGS" || "EMBED_HOST_DOMAINS" || "IAM_ROLE_ARN" || "ACCESS_ENDPOINTS" || "STREAMING_EXPERIENCE_SETTINGS",
+ *     "STORAGE_CONNECTORS" || "STORAGE_CONNECTOR_HOMEFOLDERS" || "STORAGE_CONNECTOR_GOOGLE_DRIVE" || "STORAGE_CONNECTOR_ONE_DRIVE" || "REDIRECT_URL" || "FEEDBACK_URL" || "THEME_NAME" || "USER_SETTINGS" || "EMBED_HOST_DOMAINS" || "IAM_ROLE_ARN" || "ACCESS_ENDPOINTS" || "STREAMING_EXPERIENCE_SETTINGS" || "CONTENT_REDIRECTION",
  *   ],
  *   UserSettings: [ // UserSettingList
  *     { // UserSetting
@@ -134,6 +134,17 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * //     ],
  * //     StreamingExperienceSettings: { // StreamingExperienceSettings
  * //       PreferredProtocol: "TCP" || "UDP",
+ * //     },
+ * //     ContentRedirection: { // ContentRedirection
+ * //       HostToClient: { // UrlRedirectionConfig
+ * //         Enabled: true || false, // required
+ * //         AllowedUrls: [ // UrlPatternList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         DeniedUrls: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   },
  * // };

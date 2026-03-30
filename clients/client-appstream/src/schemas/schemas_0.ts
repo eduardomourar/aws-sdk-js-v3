@@ -56,6 +56,7 @@ const _ASTIBRs = "AssociateSoftwareToImageBuilderResult";
 const _ASV = "AgentSoftwareVersion";
 const _AT = "AuthenticationType";
 const _ATD = "AttributesToDelete";
+const _AU = "AllowedUrls";
 const _AUS = "AvailableUserSessions";
 const _AUSc = "ActiveUserSessions";
 const _AUSct = "ActualUserSessions";
@@ -117,6 +118,7 @@ const _CIIRr = "CreateImportedImageResult";
 const _CIR = "CopyImageRequest";
 const _CIRo = "CopyImageResponse";
 const _CME = "ConcurrentModificationException";
+const _CR = "ContentRedirection";
 const _CS = "ConnectionState";
 const _CSR = "CreateStackRequest";
 const _CSRr = "CreateStackResult";
@@ -255,7 +257,7 @@ const _DTFSRes = "DescribeThemeForStackRequest";
 const _DTFSResc = "DescribeThemeForStackResult";
 const _DTFSe = "DescribeThemeForStack";
 const _DTIS = "DisconnectTimeoutInSeconds";
-const _DU = "DeleteUser";
+const _DU = "DeniedUrls";
 const _DUR = "DeleteUserRequest";
 const _DURS = "DeleteUsageReportSubscription";
 const _DURSR = "DeleteUsageReportSubscriptionRequest";
@@ -272,7 +274,8 @@ const _DUS = "DesiredUserSessions";
 const _DUSA = "DescribeUserStackAssociations";
 const _DUSAR = "DescribeUserStackAssociationsRequest";
 const _DUSARe = "DescribeUserStackAssociationsResult";
-const _DUe = "DescribeUsers";
+const _DUe = "DeleteUser";
+const _DUes = "DescribeUsers";
 const _DUi = "DisableUser";
 const _DVC = "DeleteVpcConfig";
 const _De = "Desired";
@@ -329,6 +332,7 @@ const _Fl = "Fleets";
 const _GEIT = "GetExportImageTask";
 const _GEITR = "GetExportImageTaskRequest";
 const _GEITRe = "GetExportImageTaskResult";
+const _HTC = "HostToClient";
 const _I = "Image";
 const _IA = "ImageArn";
 const _IASE = "InvalidAccountStatusException";
@@ -542,6 +546,7 @@ const _UIPRp = "UpdateImagePermissionsResult";
 const _UL = "UserList";
 const _UN = "UserName";
 const _UR = "UntagResource";
+const _URC = "UrlRedirectionConfig";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _URS = "UsageReportSubscriptions";
@@ -871,6 +876,11 @@ export var ComputeCapacityStatus$: StaticStructureSchema = [3, n0, _CCS,
   [_De, _R, _IU, _Av, _DUS, _AUS, _AUSc, _AUSct],
   [1, 1, 1, 1, 1, 1, 1, 1], 1
 ];
+export var ContentRedirection$: StaticStructureSchema = [3, n0, _CR,
+  0,
+  [_HTC],
+  [() => UrlRedirectionConfig$]
+];
 export var CopyImageRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_SIN, _DIN, _DR, _DID],
@@ -993,8 +1003,8 @@ export var CreateImportedImageResult$: StaticStructureSchema = [3, n0, _CIIRr,
 ];
 export var CreateStackRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_N, _D, _DN, _SC, _RURL, _FURL, _US, _AS, _T, _AEc, _EHD, _SES],
-  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$], 1
+  [_N, _D, _DN, _SC, _RURL, _FURL, _US, _AS, _T, _AEc, _EHD, _SES, _CR],
+  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$], 1
 ];
 export var CreateStackResult$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -1638,8 +1648,8 @@ export var SoftwareAssociations$: StaticStructureSchema = [3, n0, _SA,
 ];
 export var Stack$: StaticStructureSchema = [3, n0, _Sta,
   0,
-  [_N, _A, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES],
-  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$], 1
+  [_N, _A, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES, _CR],
+  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$], 1
 ];
 export var StackError$: StaticStructureSchema = [3, n0, _SEt,
   0,
@@ -1836,6 +1846,11 @@ export var UpdateThemeForStackResult$: StaticStructureSchema = [3, n0, _UTFSRp,
   [_Th],
   [() => Theme$]
 ];
+export var UrlRedirectionConfig$: StaticStructureSchema = [3, n0, _URC,
+  0,
+  [_E, _AU, _DU],
+  [2, 64 | 0, 64 | 0], 1
+];
 export var UsageReportSubscription$: StaticStructureSchema = [3, n0, _URSs,
   0,
   [_SBN, _Sc, _LGRD, _SEu],
@@ -1974,6 +1989,7 @@ var ThemeAttributes = 64 | 0;
 var ThemeFooterLinks: StaticListSchema = [1, n0, _TFL,
   0, () => ThemeFooterLink$
 ];
+var UrlPatternList = 64 | 0;
 var UsageReportSubscriptionList: StaticListSchema = [1, n0, _URSL,
   0, () => UsageReportSubscription$
 ];
@@ -2106,7 +2122,7 @@ export var DeleteThemeForStack$: StaticOperationSchema = [9, n0, _DTFS,
 export var DeleteUsageReportSubscription$: StaticOperationSchema = [9, n0, _DURS,
   0, () => DeleteUsageReportSubscriptionRequest$, () => DeleteUsageReportSubscriptionResult$
 ];
-export var DeleteUser$: StaticOperationSchema = [9, n0, _DU,
+export var DeleteUser$: StaticOperationSchema = [9, n0, _DUe,
   0, () => DeleteUserRequest$, () => DeleteUserResult$
 ];
 export var DescribeAppBlockBuilderAppBlockAssociations$: StaticOperationSchema = [9, n0, _DABBABA,
@@ -2160,7 +2176,7 @@ export var DescribeThemeForStack$: StaticOperationSchema = [9, n0, _DTFSe,
 export var DescribeUsageReportSubscriptions$: StaticOperationSchema = [9, n0, _DURSe,
   0, () => DescribeUsageReportSubscriptionsRequest$, () => DescribeUsageReportSubscriptionsResult$
 ];
-export var DescribeUsers$: StaticOperationSchema = [9, n0, _DUe,
+export var DescribeUsers$: StaticOperationSchema = [9, n0, _DUes,
   0, () => DescribeUsersRequest$, () => DescribeUsersResult$
 ];
 export var DescribeUserStackAssociations$: StaticOperationSchema = [9, n0, _DUSA,

@@ -645,6 +645,7 @@ export type FleetAttribute = (typeof FleetAttribute)[keyof typeof FleetAttribute
  */
 export const StackAttribute = {
   ACCESS_ENDPOINTS: "ACCESS_ENDPOINTS",
+  CONTENT_REDIRECTION: "CONTENT_REDIRECTION",
   EMBED_HOST_DOMAINS: "EMBED_HOST_DOMAINS",
   FEEDBACK_URL: "FEEDBACK_URL",
   IAM_ROLE_ARN: "IAM_ROLE_ARN",

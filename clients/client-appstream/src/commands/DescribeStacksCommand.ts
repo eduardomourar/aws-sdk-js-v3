@@ -96,6 +96,17 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * //       StreamingExperienceSettings: { // StreamingExperienceSettings
  * //         PreferredProtocol: "TCP" || "UDP",
  * //       },
+ * //       ContentRedirection: { // ContentRedirection
+ * //         HostToClient: { // UrlRedirectionConfig
+ * //           Enabled: true || false, // required
+ * //           AllowedUrls: [ // UrlPatternList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DeniedUrls: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
