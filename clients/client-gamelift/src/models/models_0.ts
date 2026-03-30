@@ -5310,6 +5310,12 @@ export interface CreateScriptInput {
    *             <code>10.x | 24.x</code>. By default, <code>NodeJsVersion</code> is <code>10.x</code>.
    *             This value cannot be updated later.
    *         </p>
+   *          <note>
+   *             <p>Node.js 10 will reach end of support on September 30, 2026. See more details
+   *             in the <a href="http://aws.amazon.com/gamelift/faq/nodejs10/">Node.js 10 FAQs</a>. For migration guidance,
+   *             see <a href="https://docs.aws.amazon.com/gamelift/latest/realtimeguide/realtime-script.html#realtime-script-nodejs-migration">
+   *                 Migrating from Node.js 10 to 24</a>.</p>
+   *          </note>
    * @public
    */
   NodeJsVersion?: string | undefined;
@@ -5381,6 +5387,12 @@ export interface Script {
    *             <code>10.x | 24.x</code>. By default, <code>NodeJsVersion</code> is <code>10.x</code>.
    *             This value cannot be updated later.
    *         </p>
+   *          <note>
+   *             <p>Node.js 10 will reach end of support on September 30, 2026. See more details
+   *             in the <a href="http://aws.amazon.com/gamelift/faq/nodejs10/">Node.js 10 FAQs</a>. For migration guidance,
+   *             see <a href="https://docs.aws.amazon.com/gamelift/latest/realtimeguide/realtime-script.html#realtime-script-nodejs-migration">
+   *                 Migrating from Node.js 10 to 24</a>.</p>
+   *          </note>
    * @public
    */
   NodeJsVersion?: string | undefined;
@@ -8086,7 +8098,7 @@ export interface MatchedPlayerSession {
   PlayerId?: string | undefined;
 
   /**
-   * <p>A unique identifier for a player session</p>
+   * <p>A unique identifier for a player session. PlayerSessionId will only be populated for player sessions that are in ACTIVE or RESERVED status when the ticket is completed.</p>
    * @public
    */
   PlayerSessionId?: string | undefined;
