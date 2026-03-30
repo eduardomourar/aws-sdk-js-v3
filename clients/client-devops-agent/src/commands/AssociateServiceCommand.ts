@@ -1,0 +1,315 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
+import { commonParams } from "../endpoint/EndpointParameters";
+import type { AssociateServiceInput, AssociateServiceOutput } from "../models/models_0";
+import { AssociateService$ } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+export { $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateServiceCommand}.
+ */
+export interface AssociateServiceCommandInput extends AssociateServiceInput {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateServiceCommand}.
+ */
+export interface AssociateServiceCommandOutput extends AssociateServiceOutput, __MetadataBearer {}
+
+/**
+ * Adds a specific service association to an AgentSpace. It overwrites the existing association of the same service. Returns 201 Created on success.
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DevOpsAgentClient, AssociateServiceCommand } from "@aws-sdk/client-devops-agent"; // ES Modules import
+ * // const { DevOpsAgentClient, AssociateServiceCommand } = require("@aws-sdk/client-devops-agent"); // CommonJS import
+ * // import type { DevOpsAgentClientConfig } from "@aws-sdk/client-devops-agent";
+ * const config = {}; // type is DevOpsAgentClientConfig
+ * const client = new DevOpsAgentClient(config);
+ * const input = { // AssociateServiceInput
+ *   agentSpaceId: "STRING_VALUE", // required
+ *   serviceId: "STRING_VALUE", // required
+ *   configuration: { // ServiceConfiguration Union: only one key present
+ *     sourceAws: { // SourceAwsConfiguration
+ *       accountId: "STRING_VALUE", // required
+ *       accountType: "source", // required
+ *       assumableRoleArn: "STRING_VALUE", // required
+ *       externalId: "STRING_VALUE",
+ *     },
+ *     aws: { // AWSConfiguration
+ *       assumableRoleArn: "STRING_VALUE", // required
+ *       accountId: "STRING_VALUE", // required
+ *       accountType: "monitor", // required
+ *     },
+ *     github: { // GitHubConfiguration
+ *       repoName: "STRING_VALUE", // required
+ *       repoId: "STRING_VALUE", // required
+ *       owner: "STRING_VALUE", // required
+ *       ownerType: "organization" || "user", // required
+ *       instanceIdentifier: "STRING_VALUE",
+ *     },
+ *     slack: { // SlackConfiguration
+ *       workspaceId: "STRING_VALUE", // required
+ *       workspaceName: "STRING_VALUE", // required
+ *       transmissionTarget: { // SlackTransmissionTarget
+ *         opsOncallTarget: { // SlackChannel
+ *           channelName: "STRING_VALUE",
+ *           channelId: "STRING_VALUE", // required
+ *         },
+ *         opsSRETarget: {
+ *           channelName: "STRING_VALUE",
+ *           channelId: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *     dynatrace: { // DynatraceConfiguration
+ *       envId: "STRING_VALUE", // required
+ *       resources: [ // DynatraceResourceList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     servicenow: { // ServiceNowConfiguration
+ *       instanceId: "STRING_VALUE",
+ *       authScopes: [ // ServiceNowAuthenticationScopeList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     mcpservernewrelic: { // MCPServerNewRelicConfiguration
+ *       accountId: "STRING_VALUE", // required
+ *       endpoint: "STRING_VALUE", // required
+ *     },
+ *     gitlab: { // GitLabConfiguration
+ *       projectId: "STRING_VALUE", // required
+ *       projectPath: "STRING_VALUE", // required
+ *       instanceIdentifier: "STRING_VALUE",
+ *     },
+ *     eventChannel: {},
+ *     azure: { // AzureConfiguration
+ *       subscriptionId: "STRING_VALUE", // required
+ *     },
+ *     azuredevops: { // AzureDevOpsConfiguration
+ *       organizationName: "STRING_VALUE", // required
+ *       projectId: "STRING_VALUE", // required
+ *       projectName: "STRING_VALUE", // required
+ *     },
+ *     mcpservergrafana: { // MCPServerGrafanaConfiguration
+ *       endpoint: "STRING_VALUE", // required
+ *       organizationId: "STRING_VALUE",
+ *       tools: [ // MCPToolsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     pagerduty: { // PagerDutyConfiguration
+ *       services: [ // PagerDutyServicesList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       customerEmail: "STRING_VALUE", // required
+ *     },
+ *     msteams: { // MSTeamsConfiguration
+ *       teamId: "STRING_VALUE", // required
+ *       teamName: "STRING_VALUE", // required
+ *       transmissionTarget: { // MSTeamsTransmissionTarget
+ *         opsOncallTarget: { // MSTeamsChannel
+ *           channelName: "STRING_VALUE", // required
+ *           channelId: "STRING_VALUE", // required
+ *         },
+ *         opsSRETarget: {
+ *           channelName: "STRING_VALUE", // required
+ *           channelId: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ * const command = new AssociateServiceCommand(input);
+ * const response = await client.send(command);
+ * // { // AssociateServiceOutput
+ * //   association: { // Association
+ * //     agentSpaceId: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //     status: "valid" || "invalid" || "pending-confirmation",
+ * //     associationId: "STRING_VALUE", // required
+ * //     serviceId: "STRING_VALUE", // required
+ * //     configuration: { // ServiceConfiguration Union: only one key present
+ * //       sourceAws: { // SourceAwsConfiguration
+ * //         accountId: "STRING_VALUE", // required
+ * //         accountType: "source", // required
+ * //         assumableRoleArn: "STRING_VALUE", // required
+ * //         externalId: "STRING_VALUE",
+ * //       },
+ * //       aws: { // AWSConfiguration
+ * //         assumableRoleArn: "STRING_VALUE", // required
+ * //         accountId: "STRING_VALUE", // required
+ * //         accountType: "monitor", // required
+ * //       },
+ * //       github: { // GitHubConfiguration
+ * //         repoName: "STRING_VALUE", // required
+ * //         repoId: "STRING_VALUE", // required
+ * //         owner: "STRING_VALUE", // required
+ * //         ownerType: "organization" || "user", // required
+ * //         instanceIdentifier: "STRING_VALUE",
+ * //       },
+ * //       slack: { // SlackConfiguration
+ * //         workspaceId: "STRING_VALUE", // required
+ * //         workspaceName: "STRING_VALUE", // required
+ * //         transmissionTarget: { // SlackTransmissionTarget
+ * //           opsOncallTarget: { // SlackChannel
+ * //             channelName: "STRING_VALUE",
+ * //             channelId: "STRING_VALUE", // required
+ * //           },
+ * //           opsSRETarget: {
+ * //             channelName: "STRING_VALUE",
+ * //             channelId: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //       dynatrace: { // DynatraceConfiguration
+ * //         envId: "STRING_VALUE", // required
+ * //         resources: [ // DynatraceResourceList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       servicenow: { // ServiceNowConfiguration
+ * //         instanceId: "STRING_VALUE",
+ * //         authScopes: [ // ServiceNowAuthenticationScopeList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       mcpservernewrelic: { // MCPServerNewRelicConfiguration
+ * //         accountId: "STRING_VALUE", // required
+ * //         endpoint: "STRING_VALUE", // required
+ * //       },
+ * //       gitlab: { // GitLabConfiguration
+ * //         projectId: "STRING_VALUE", // required
+ * //         projectPath: "STRING_VALUE", // required
+ * //         instanceIdentifier: "STRING_VALUE",
+ * //       },
+ * //       eventChannel: {},
+ * //       azure: { // AzureConfiguration
+ * //         subscriptionId: "STRING_VALUE", // required
+ * //       },
+ * //       azuredevops: { // AzureDevOpsConfiguration
+ * //         organizationName: "STRING_VALUE", // required
+ * //         projectId: "STRING_VALUE", // required
+ * //         projectName: "STRING_VALUE", // required
+ * //       },
+ * //       mcpservergrafana: { // MCPServerGrafanaConfiguration
+ * //         endpoint: "STRING_VALUE", // required
+ * //         organizationId: "STRING_VALUE",
+ * //         tools: [ // MCPToolsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       pagerduty: { // PagerDutyConfiguration
+ * //         services: [ // PagerDutyServicesList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         customerEmail: "STRING_VALUE", // required
+ * //       },
+ * //       msteams: { // MSTeamsConfiguration
+ * //         teamId: "STRING_VALUE", // required
+ * //         teamName: "STRING_VALUE", // required
+ * //         transmissionTarget: { // MSTeamsTransmissionTarget
+ * //           opsOncallTarget: { // MSTeamsChannel
+ * //             channelName: "STRING_VALUE", // required
+ * //             channelId: "STRING_VALUE", // required
+ * //           },
+ * //           opsSRETarget: {
+ * //             channelName: "STRING_VALUE", // required
+ * //             channelId: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * //   webhook: { // GenericWebhook
+ * //     webhookUrl: "STRING_VALUE",
+ * //     webhookId: "STRING_VALUE",
+ * //     webhookType: "hmac" || "apikey" || "gitlab" || "pagerduty",
+ * //     webhookSecret: "STRING_VALUE",
+ * //     apiKey: "STRING_VALUE",
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param AssociateServiceCommandInput - {@link AssociateServiceCommandInput}
+ * @returns {@link AssociateServiceCommandOutput}
+ * @see {@link AssociateServiceCommandInput} for command's `input` shape.
+ * @see {@link AssociateServiceCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  The request conflicts with the current state of the resource.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  This exception is thrown when an unexpected error occurs in the processing of a request.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  One or more parameters provided in the request are invalid.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The requested resource could not be found.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  The request was throttled due to too many requests. Please slow down and try again.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  A standard error for input validation failures.
+ * This should be thrown by services when a member of the input structure
+ * falls outside of the modeled or documented constraints.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  Access to the requested resource is denied due to insufficient permissions.
+ *
+ * @throws {@link ContentSizeExceededException} (client fault)
+ *  This exception is thrown when the content size exceeds the allowed limit.
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  The request would exceed the service quota limit.
+ *
+ * @throws {@link DevOpsAgentServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsAgent service.</p>
+ *
+ *
+ * @public
+ */
+export class AssociateServiceCommand extends $Command
+  .classBuilder<
+    AssociateServiceCommandInput,
+    AssociateServiceCommandOutput,
+    DevOpsAgentClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep(commonParams)
+  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+  })
+  .s("DevOpsAgent", "AssociateService", {})
+  .n("DevOpsAgentClient", "AssociateServiceCommand")
+  .sc(AssociateService$)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateServiceInput;
+      output: AssociateServiceOutput;
+    };
+    sdk: {
+      input: AssociateServiceCommandInput;
+      output: AssociateServiceCommandOutput;
+    };
+  };
+}
