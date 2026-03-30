@@ -46,7 +46,6 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //   fleetId: "STRING_VALUE", // required
  * //   farmId: "STRING_VALUE", // required
  * //   displayName: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
  * //   status: "ACTIVE" || "CREATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_FAILED" || "SUSPENDED", // required
  * //   statusMessage: "STRING_VALUE",
  * //   autoScalingStatus: "GROWING" || "STEADY" || "SHRINKING",
@@ -57,6 +56,11 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //   configuration: { // FleetConfiguration Union: only one key present
  * //     customerManaged: { // CustomerManagedFleetConfiguration
  * //       mode: "NO_SCALING" || "EVENT_BASED_AUTO_SCALING", // required
+ * //       autoScalingConfiguration: { // CustomerManagedAutoScalingConfiguration
+ * //         standbyWorkerCount: Number("int"),
+ * //         workerIdleDurationSeconds: Number("int"),
+ * //         scaleOutWorkersPerMinute: Number("int"),
+ * //       },
  * //       workerCapabilities: { // CustomerManagedWorkerCapabilities
  * //         vCpuCount: { // VCpuCountRange
  * //           min: Number("int"), // required
@@ -158,8 +162,18 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //         ],
  * //       },
  * //       storageProfileId: "STRING_VALUE",
+ * //       autoScalingConfiguration: { // ServiceManagedEc2AutoScalingConfiguration
+ * //         standbyWorkerCount: Number("int"),
+ * //         workerIdleDurationSeconds: Number("int"),
+ * //         scaleOutWorkersPerMinute: Number("int"),
+ * //       },
  * //     },
  * //   },
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   createdBy: "STRING_VALUE", // required
+ * //   updatedAt: new Date("TIMESTAMP"),
+ * //   updatedBy: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
  * //   hostConfiguration: { // HostConfiguration
  * //     scriptBody: "STRING_VALUE", // required
  * //     scriptTimeoutSeconds: Number("int"),
@@ -182,10 +196,6 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //     ],
  * //   },
  * //   roleArn: "STRING_VALUE", // required
- * //   createdAt: new Date("TIMESTAMP"), // required
- * //   createdBy: "STRING_VALUE", // required
- * //   updatedAt: new Date("TIMESTAMP"),
- * //   updatedBy: "STRING_VALUE",
  * // };
  *
  * ```

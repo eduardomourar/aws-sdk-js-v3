@@ -37,12 +37,12 @@ export interface UpdateStepCommandOutput extends UpdateStepResponse, __MetadataB
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateStepRequest
- *   targetTaskRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING", // required
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE", // required
  *   stepId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   targetTaskRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING", // required
  * };
  * const command = new UpdateStepCommand(input);
  * const response = await client.send(command);

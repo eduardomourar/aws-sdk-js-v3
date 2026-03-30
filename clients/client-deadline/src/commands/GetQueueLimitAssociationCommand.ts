@@ -44,13 +44,13 @@ export interface GetQueueLimitAssociationCommandOutput extends GetQueueLimitAsso
  * const command = new GetQueueLimitAssociationCommand(input);
  * const response = await client.send(command);
  * // { // GetQueueLimitAssociationResponse
+ * //   queueId: "STRING_VALUE", // required
+ * //   limitId: "STRING_VALUE", // required
+ * //   status: "ACTIVE" || "STOP_LIMIT_USAGE_AND_COMPLETE_TASKS" || "STOP_LIMIT_USAGE_AND_CANCEL_TASKS" || "STOPPED", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   updatedBy: "STRING_VALUE",
- * //   queueId: "STRING_VALUE", // required
- * //   limitId: "STRING_VALUE", // required
- * //   status: "ACTIVE" || "STOP_LIMIT_USAGE_AND_COMPLETE_TASKS" || "STOP_LIMIT_USAGE_AND_CANCEL_TASKS" || "STOPPED", // required
  * // };
  *
  * ```

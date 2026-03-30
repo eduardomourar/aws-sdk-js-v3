@@ -37,9 +37,9 @@ export interface CreateQueueEnvironmentCommandOutput extends CreateQueueEnvironm
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateQueueEnvironmentRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   priority: Number("int"), // required
  *   templateType: "JSON" || "YAML", // required
  *   template: "STRING_VALUE", // required

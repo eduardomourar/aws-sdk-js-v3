@@ -49,6 +49,11 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //   fleetId: "STRING_VALUE", // required
  * //   workerId: "STRING_VALUE", // required
  * //   startedAt: new Date("TIMESTAMP"), // required
+ * //   lifecycleStatus: "STARTED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCEEDED" || "UPDATE_FAILED" || "ENDED", // required
+ * //   endedAt: new Date("TIMESTAMP"),
+ * //   targetLifecycleStatus: "ENDED",
+ * //   updatedAt: new Date("TIMESTAMP"),
+ * //   updatedBy: "STRING_VALUE",
  * //   log: { // LogConfiguration
  * //     logDriver: "STRING_VALUE", // required
  * //     options: { // LogOptions
@@ -59,11 +64,6 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //     },
  * //     error: "STRING_VALUE",
  * //   },
- * //   lifecycleStatus: "STARTED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCEEDED" || "UPDATE_FAILED" || "ENDED", // required
- * //   endedAt: new Date("TIMESTAMP"),
- * //   updatedAt: new Date("TIMESTAMP"),
- * //   updatedBy: "STRING_VALUE",
- * //   targetLifecycleStatus: "ENDED",
  * //   hostProperties: { // HostPropertiesResponse
  * //     ipAddresses: { // IpAddresses
  * //       ipV4Addresses: [ // IpV4Addresses

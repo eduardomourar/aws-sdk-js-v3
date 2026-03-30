@@ -37,8 +37,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateFleetRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   roleArn: "STRING_VALUE", // required
@@ -47,6 +47,11 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *   configuration: { // FleetConfiguration Union: only one key present
  *     customerManaged: { // CustomerManagedFleetConfiguration
  *       mode: "NO_SCALING" || "EVENT_BASED_AUTO_SCALING", // required
+ *       autoScalingConfiguration: { // CustomerManagedAutoScalingConfiguration
+ *         standbyWorkerCount: Number("int"),
+ *         workerIdleDurationSeconds: Number("int"),
+ *         scaleOutWorkersPerMinute: Number("int"),
+ *       },
  *       workerCapabilities: { // CustomerManagedWorkerCapabilities
  *         vCpuCount: { // VCpuCountRange
  *           min: Number("int"), // required
@@ -148,6 +153,11 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *         ],
  *       },
  *       storageProfileId: "STRING_VALUE",
+ *       autoScalingConfiguration: { // ServiceManagedEc2AutoScalingConfiguration
+ *         standbyWorkerCount: Number("int"),
+ *         workerIdleDurationSeconds: Number("int"),
+ *         scaleOutWorkersPerMinute: Number("int"),
+ *       },
  *     },
  *   },
  *   tags: { // Tags

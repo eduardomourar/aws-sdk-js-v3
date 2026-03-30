@@ -54,9 +54,9 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * //       startedAt: new Date("TIMESTAMP"), // required
  * //       lifecycleStatus: "STARTED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCEEDED" || "UPDATE_FAILED" || "ENDED", // required
  * //       endedAt: new Date("TIMESTAMP"),
+ * //       targetLifecycleStatus: "ENDED",
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       updatedBy: "STRING_VALUE",
- * //       targetLifecycleStatus: "ENDED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

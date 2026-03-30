@@ -38,23 +38,23 @@ export interface ListQueueLimitAssociationsCommandOutput extends ListQueueLimitA
  * const client = new DeadlineClient(config);
  * const input = { // ListQueueLimitAssociationsRequest
  *   farmId: "STRING_VALUE", // required
- *   queueId: "STRING_VALUE",
- *   limitId: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   queueId: "STRING_VALUE",
+ *   limitId: "STRING_VALUE",
  * };
  * const command = new ListQueueLimitAssociationsCommand(input);
  * const response = await client.send(command);
  * // { // ListQueueLimitAssociationsResponse
  * //   queueLimitAssociations: [ // QueueLimitAssociationSummaries // required
  * //     { // QueueLimitAssociationSummary
+ * //       queueId: "STRING_VALUE", // required
+ * //       limitId: "STRING_VALUE", // required
+ * //       status: "ACTIVE" || "STOP_LIMIT_USAGE_AND_COMPLETE_TASKS" || "STOP_LIMIT_USAGE_AND_CANCEL_TASKS" || "STOPPED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       createdBy: "STRING_VALUE", // required
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       updatedBy: "STRING_VALUE",
- * //       queueId: "STRING_VALUE", // required
- * //       limitId: "STRING_VALUE", // required
- * //       status: "ACTIVE" || "STOP_LIMIT_USAGE_AND_COMPLETE_TASKS" || "STOP_LIMIT_USAGE_AND_CANCEL_TASKS" || "STOPPED", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

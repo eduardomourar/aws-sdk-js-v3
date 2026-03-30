@@ -37,11 +37,11 @@ export interface CreateLimitCommandOutput extends CreateLimitResponse, __Metadat
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateLimitRequest
+ *   farmId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE", // required
  *   amountRequirementName: "STRING_VALUE", // required
  *   maxCount: Number("int"), // required
- *   farmId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  * };
  * const command = new CreateLimitCommand(input);

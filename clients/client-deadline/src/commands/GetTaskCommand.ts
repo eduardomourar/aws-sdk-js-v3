@@ -52,6 +52,11 @@ export interface GetTaskCommandOutput extends GetTaskResponse, __MetadataBearer 
  * //   runStatus: "PENDING" || "READY" || "ASSIGNED" || "STARTING" || "SCHEDULED" || "INTERRUPTING" || "RUNNING" || "SUSPENDED" || "CANCELED" || "FAILED" || "SUCCEEDED" || "NOT_COMPATIBLE", // required
  * //   targetRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING",
  * //   failureRetryCount: Number("int"),
+ * //   startedAt: new Date("TIMESTAMP"),
+ * //   endedAt: new Date("TIMESTAMP"),
+ * //   updatedAt: new Date("TIMESTAMP"),
+ * //   updatedBy: "STRING_VALUE",
+ * //   latestSessionActionId: "STRING_VALUE",
  * //   parameters: { // TaskParameters
  * //     "<keys>": { // TaskParameterValue Union: only one key present
  * //       int: "STRING_VALUE",
@@ -61,11 +66,6 @@ export interface GetTaskCommandOutput extends GetTaskResponse, __MetadataBearer 
  * //       chunkInt: "STRING_VALUE",
  * //     },
  * //   },
- * //   startedAt: new Date("TIMESTAMP"),
- * //   endedAt: new Date("TIMESTAMP"),
- * //   updatedAt: new Date("TIMESTAMP"),
- * //   updatedBy: "STRING_VALUE",
- * //   latestSessionActionId: "STRING_VALUE",
  * // };
  *
  * ```

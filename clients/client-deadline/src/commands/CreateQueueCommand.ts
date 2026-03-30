@@ -37,8 +37,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateQueueRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   defaultBudgetAction: "NONE" || "STOP_SCHEDULING_AND_COMPLETE_TASKS" || "STOP_SCHEDULING_AND_CANCEL_TASKS",

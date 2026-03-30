@@ -37,9 +37,9 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateBudgetRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   budgetId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   status: "ACTIVE" || "INACTIVE",

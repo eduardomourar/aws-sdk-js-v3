@@ -45,13 +45,11 @@ export interface ListWorkersCommandOutput extends ListWorkersResponse, __Metadat
  * const command = new ListWorkersCommand(input);
  * const response = await client.send(command);
  * // { // ListWorkersResponse
- * //   nextToken: "STRING_VALUE",
  * //   workers: [ // WorkerSummaries // required
  * //     { // WorkerSummary
- * //       workerId: "STRING_VALUE", // required
  * //       farmId: "STRING_VALUE", // required
  * //       fleetId: "STRING_VALUE", // required
- * //       status: "CREATED" || "STARTED" || "STOPPING" || "STOPPED" || "NOT_RESPONDING" || "NOT_COMPATIBLE" || "RUNNING" || "IDLE", // required
+ * //       workerId: "STRING_VALUE", // required
  * //       hostProperties: { // HostPropertiesResponse
  * //         ipAddresses: { // IpAddresses
  * //           ipV4Addresses: [ // IpV4Addresses
@@ -65,6 +63,7 @@ export interface ListWorkersCommandOutput extends ListWorkersResponse, __Metadat
  * //         ec2InstanceArn: "STRING_VALUE",
  * //         ec2InstanceType: "STRING_VALUE",
  * //       },
+ * //       status: "CREATED" || "STARTED" || "STOPPING" || "STOPPED" || "NOT_RESPONDING" || "NOT_COMPATIBLE" || "RUNNING" || "IDLE", // required
  * //       log: { // LogConfiguration
  * //         logDriver: "STRING_VALUE", // required
  * //         options: { // LogOptions
@@ -81,6 +80,7 @@ export interface ListWorkersCommandOutput extends ListWorkersResponse, __Metadat
  * //       updatedBy: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

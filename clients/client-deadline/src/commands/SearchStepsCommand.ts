@@ -38,10 +38,6 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  * const client = new DeadlineClient(config);
  * const input = { // SearchStepsRequest
  *   farmId: "STRING_VALUE", // required
- *   queueIds: [ // QueueIds // required
- *     "STRING_VALUE",
- *   ],
- *   jobId: "STRING_VALUE",
  *   filterExpressions: { // SearchGroupedFilterExpressions
  *     filters: [ // SearchFilterExpressions // required
  *       { // SearchFilterExpression Union: only one key present
@@ -126,6 +122,10 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  *   ],
  *   itemOffset: Number("int"), // required
  *   pageSize: Number("int"),
+ *   queueIds: [ // QueueIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   jobId: "STRING_VALUE",
  * };
  * const command = new SearchStepsCommand(input);
  * const response = await client.send(command);

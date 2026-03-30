@@ -37,9 +37,9 @@ export interface UpdateStorageProfileCommandOutput extends UpdateStorageProfileR
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateStorageProfileRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   storageProfileId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE",
  *   osFamily: "WINDOWS" || "LINUX" || "MACOS",
  *   fileSystemLocationsToAdd: [ // FileSystemLocationsList

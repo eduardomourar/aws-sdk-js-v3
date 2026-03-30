@@ -476,6 +476,8 @@ export interface AssignedSession {
 }
 
 /**
+ * Shared member fields for Associate inputs and \{Resource\}Member response structures.
+ * principalId is excluded because it has @httpLabel on inputs but not on responses.
  * @public
  */
 export interface AssociateMemberToFarmRequest {
@@ -484,12 +486,6 @@ export interface AssociateMemberToFarmRequest {
    * @public
    */
   farmId: string | undefined;
-
-  /**
-   * <p>The member's principal ID to associate with the farm.</p>
-   * @public
-   */
-  principalId: string | undefined;
 
   /**
    * <p>The principal type of the member to associate with the farm.</p>
@@ -508,6 +504,12 @@ export interface AssociateMemberToFarmRequest {
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
+
+  /**
+   * <p>The member's principal ID to associate with the farm.</p>
+   * @public
+   */
+  principalId: string | undefined;
 }
 
 /**
@@ -534,6 +536,8 @@ export interface ValidationExceptionField {
 }
 
 /**
+ * Shared member fields for Associate inputs and \{Resource\}Member response structures.
+ * principalId is excluded because it has @httpLabel on inputs but not on responses.
  * @public
  */
 export interface AssociateMemberToFleetRequest {
@@ -548,12 +552,6 @@ export interface AssociateMemberToFleetRequest {
    * @public
    */
   fleetId: string | undefined;
-
-  /**
-   * <p>The member's principal ID to associate with a fleet.</p>
-   * @public
-   */
-  principalId: string | undefined;
 
   /**
    * <p>The member's principal type to associate with the fleet.</p>
@@ -572,6 +570,12 @@ export interface AssociateMemberToFleetRequest {
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
+
+  /**
+   * <p>The member's principal ID to associate with a fleet.</p>
+   * @public
+   */
+  principalId: string | undefined;
 }
 
 /**
@@ -580,6 +584,8 @@ export interface AssociateMemberToFleetRequest {
 export interface AssociateMemberToFleetResponse {}
 
 /**
+ * Shared member fields for Associate inputs and \{Resource\}Member response structures.
+ * principalId is excluded because it has @httpLabel on inputs but not on responses.
  * @public
  */
 export interface AssociateMemberToJobRequest {
@@ -602,12 +608,6 @@ export interface AssociateMemberToJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>The member's principal ID to associate with the job.</p>
-   * @public
-   */
-  principalId: string | undefined;
-
-  /**
    * <p>The member's principal type to associate with the job.</p>
    * @public
    */
@@ -624,6 +624,12 @@ export interface AssociateMemberToJobRequest {
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
+
+  /**
+   * <p>The member's principal ID to associate with the job.</p>
+   * @public
+   */
+  principalId: string | undefined;
 }
 
 /**
@@ -632,6 +638,8 @@ export interface AssociateMemberToJobRequest {
 export interface AssociateMemberToJobResponse {}
 
 /**
+ * Shared member fields for Associate inputs and \{Resource\}Member response structures.
+ * principalId is excluded because it has @httpLabel on inputs but not on responses.
  * @public
  */
 export interface AssociateMemberToQueueRequest {
@@ -646,12 +654,6 @@ export interface AssociateMemberToQueueRequest {
    * @public
    */
   queueId: string | undefined;
-
-  /**
-   * <p>The member's principal ID to associate with the queue.</p>
-   * @public
-   */
-  principalId: string | undefined;
 
   /**
    * <p>The member's principal type to associate with the queue.</p>
@@ -670,6 +672,12 @@ export interface AssociateMemberToQueueRequest {
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
+
+  /**
+   * <p>The member's principal ID to associate with the queue.</p>
+   * @public
+   */
+  principalId: string | undefined;
 }
 
 /**
@@ -725,6 +733,9 @@ export interface AwsCredentials {
 }
 
 /**
+ * Shared response body for AssumeRole operations where credentials are required.
+ * AssumeQueueRoleForWorkerResponse is excluded because credentials is optional there
+ * because Queue.roleArn is optional, so the mixin's @required trait would be incorrect.
  * @public
  */
 export interface AssumeFleetRoleForReadResponse {
@@ -759,6 +770,9 @@ export interface AssumeFleetRoleForWorkerRequest {
 }
 
 /**
+ * Shared response body for AssumeRole operations where credentials are required.
+ * AssumeQueueRoleForWorkerResponse is excluded because credentials is optional there
+ * because Queue.roleArn is optional, so the mixin's @required trait would be incorrect.
  * @public
  */
 export interface AssumeFleetRoleForWorkerResponse {
@@ -787,6 +801,9 @@ export interface AssumeQueueRoleForReadRequest {
 }
 
 /**
+ * Shared response body for AssumeRole operations where credentials are required.
+ * AssumeQueueRoleForWorkerResponse is excluded because credentials is optional there
+ * because Queue.roleArn is optional, so the mixin's @required trait would be incorrect.
  * @public
  */
 export interface AssumeQueueRoleForReadResponse {
@@ -815,6 +832,9 @@ export interface AssumeQueueRoleForUserRequest {
 }
 
 /**
+ * Shared response body for AssumeRole operations where credentials are required.
+ * AssumeQueueRoleForWorkerResponse is excluded because credentials is optional there
+ * because Queue.roleArn is optional, so the mixin's @required trait would be incorrect.
  * @public
  */
 export interface AssumeQueueRoleForUserResponse {
@@ -1866,26 +1886,16 @@ export namespace UsageTrackingResource {
 }
 
 /**
+ * Shared displayName + description for Create operations where both are present.
+ * displayName is @required here - this mixin is Create-only by design (Update has optional displayName).
  * @public
  */
 export interface CreateBudgetRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
   /**
    * <p>The farm ID to include in this budget.</p>
    * @public
    */
   farmId: string | undefined;
-
-  /**
-   * <p>The queue ID provided to this budget to track usage.</p>
-   * @public
-   */
-  usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
    * <p>The display name of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -1898,6 +1908,18 @@ export interface CreateBudgetRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The queue ID provided to this budget to track usage.</p>
+   * @public
+   */
+  usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
    * <p>The dollar limit based on consumed usage.</p>
@@ -1925,6 +1947,8 @@ export interface CreateBudgetRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateBudgetResponse {
@@ -2011,6 +2035,8 @@ export interface ConsumedUsages {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetBudgetResponse {
@@ -2039,12 +2065,6 @@ export interface GetBudgetResponse {
   displayName: string | undefined;
 
   /**
-   * <p>The description of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The consumed usage limit for the budget.</p>
    * @public
    */
@@ -2055,18 +2075,6 @@ export interface GetBudgetResponse {
    * @public
    */
   usages: ConsumedUsages | undefined;
-
-  /**
-   * <p>The budget actions for the budget.</p>
-   * @public
-   */
-  actions: ResponseBudgetAction[] | undefined;
-
-  /**
-   * <p>The budget schedule.</p>
-   * @public
-   */
-  schedule: BudgetSchedule | undefined;
 
   /**
    * <p>The user or system that created this resource.</p>
@@ -2093,6 +2101,24 @@ export interface GetBudgetResponse {
   updatedAt?: Date | undefined;
 
   /**
+   * <p>The description of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The budget actions for the budget.</p>
+   * @public
+   */
+  actions: ResponseBudgetAction[] | undefined;
+
+  /**
+   * <p>The budget schedule.</p>
+   * @public
+   */
+  schedule: BudgetSchedule | undefined;
+
+  /**
    * <p>The date and time the queue stopped.</p>
    * @public
    */
@@ -2100,20 +2126,21 @@ export interface GetBudgetResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListBudgetsRequest {
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
   /**
    * <p>The farm ID associated with the budgets.</p>
    * @public
    */
   farmId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -2158,14 +2185,6 @@ export interface BudgetSummary {
   displayName: string | undefined;
 
   /**
-   * <p>The description of the budget summary.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
-   *
-   * @deprecated ListBudgets no longer supports description. Use GetBudget if description is needed.
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The approximate dollar limit of the budget.</p>
    * @public
    */
@@ -2200,35 +2219,38 @@ export interface BudgetSummary {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The description of the budget summary.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   *
+   * @deprecated ListBudgets no longer supports description. Use GetBudget if description is needed.
+   * @public
+   */
+  description?: string | undefined;
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListBudgetsResponse {
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
   /**
    * <p>The budgets to include on the list.</p>
    * @public
    */
   budgets: BudgetSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface UpdateBudgetRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
   /**
    * <p>The farm ID of the budget to update.</p>
    * @public
@@ -2240,6 +2262,12 @@ export interface UpdateBudgetRequest {
    * @public
    */
   budgetId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 
   /**
    * <p>The display name of the budget to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -2318,16 +2346,16 @@ export interface CopyJobTemplateRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The job ID to copy.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
    * <p>The queue ID to copy.</p>
    * @public
    */
   queueId: string | undefined;
+
+  /**
+   * <p>The job ID to copy.</p>
+   * @public
+   */
+  jobId: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket name and key where you would like to add a copy of the job template.</p>
@@ -2348,6 +2376,8 @@ export interface CopyJobTemplateResponse {
 }
 
 /**
+ * Shared displayName + description for Create operations where both are present.
+ * displayName is @required here - this mixin is Create-only by design (Update has optional displayName).
  * @public
  */
 export interface CreateFarmRequest {
@@ -2376,7 +2406,7 @@ export interface CreateFarmRequest {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The cost scale factor to apply on the farm.</p>
+   * <p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment. The default value is 1.</p>
    * @public
    */
   costScaleFactor?: number | undefined;
@@ -2389,6 +2419,8 @@ export interface CreateFarmRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateFarmResponse {
@@ -2397,6 +2429,30 @@ export interface CreateFarmResponse {
    * @public
    */
   farmId: string | undefined;
+}
+
+/**
+ * <p>The auto scaling configuration options for a customer managed fleet.</p>
+ * @public
+ */
+export interface CustomerManagedAutoScalingConfiguration {
+  /**
+   * <p>The number of standby workers to maintain for the fleet.</p>
+   * @public
+   */
+  standbyWorkerCount?: number | undefined;
+
+  /**
+   * <p>The duration in seconds that a worker can be idle before it is scaled down.</p>
+   * @public
+   */
+  workerIdleDurationSeconds?: number | undefined;
+
+  /**
+   * <p>The number of workers that can be scaled out per minute.</p>
+   * @public
+   */
+  scaleOutWorkersPerMinute?: number | undefined;
 }
 
 /**
@@ -2549,6 +2605,12 @@ export interface CustomerManagedFleetConfiguration {
   mode: AutoScalingMode | undefined;
 
   /**
+   * <p>The auto scaling configuration options for the customer managed fleet.</p>
+   * @public
+   */
+  autoScalingConfiguration?: CustomerManagedAutoScalingConfiguration | undefined;
+
+  /**
    * <p>The worker capabilities for the customer managed fleet.</p>
    * @public
    */
@@ -2565,6 +2627,30 @@ export interface CustomerManagedFleetConfiguration {
    * @public
    */
   tagPropagationMode?: TagPropagationMode | undefined;
+}
+
+/**
+ * <p>The auto scaling configuration options for a service managed EC2 fleet.</p>
+ * @public
+ */
+export interface ServiceManagedEc2AutoScalingConfiguration {
+  /**
+   * <p>The number of standby workers to maintain for the fleet.</p>
+   * @public
+   */
+  standbyWorkerCount?: number | undefined;
+
+  /**
+   * <p>The duration in seconds that a worker can be idle before it is scaled down.</p>
+   * @public
+   */
+  workerIdleDurationSeconds?: number | undefined;
+
+  /**
+   * <p>The number of workers that can be scaled out per minute.</p>
+   * @public
+   */
+  scaleOutWorkersPerMinute?: number | undefined;
 }
 
 /**
@@ -2709,6 +2795,12 @@ export interface ServiceManagedEc2FleetConfiguration {
    * @public
    */
   storageProfileId?: string | undefined;
+
+  /**
+   * <p>The auto scaling configuration options for the service managed EC2 fleet.</p>
+   * @public
+   */
+  autoScalingConfiguration?: ServiceManagedEc2AutoScalingConfiguration | undefined;
 }
 
 /**
@@ -2783,20 +2875,22 @@ export interface HostConfiguration {
 }
 
 /**
+ * Shared displayName + description for Create operations where both are present.
+ * displayName is @required here - this mixin is Create-only by design (Update has optional displayName).
  * @public
  */
 export interface CreateFleetRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
   /**
    * <p>The farm ID of the farm to connect to the fleet.</p>
    * @public
    */
   farmId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 
   /**
    * <p>The display name of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -2848,6 +2942,8 @@ export interface CreateFleetRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateFleetResponse {
@@ -2966,6 +3062,8 @@ export interface CreateJobRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateJobResponse {
@@ -3012,6 +3110,8 @@ export interface CreateLicenseEndpointRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateLicenseEndpointResponse {
@@ -3026,6 +3126,12 @@ export interface CreateLicenseEndpointResponse {
  * @public
  */
 export interface CreateLimitRequest {
+  /**
+   * <p>The farm ID of the farm that contains the limit.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
   /**
    * <p>The unique token which the server uses to recognize retries of the same request.</p>
    * @public
@@ -3049,12 +3155,6 @@ export interface CreateLimitRequest {
    * @public
    */
   maxCount: number | undefined;
-
-  /**
-   * <p>The farm ID of the farm that contains the limit.</p>
-   * @public
-   */
-  farmId: string | undefined;
 
   /**
    * <p>A description of the limit. A description helps you identify the purpose of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -3116,6 +3216,8 @@ export interface CreateMonitorRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateMonitorResponse {
@@ -3133,20 +3235,22 @@ export interface CreateMonitorResponse {
 }
 
 /**
+ * Shared displayName + description for Create operations where both are present.
+ * displayName is @required here - this mixin is Create-only by design (Update has optional displayName).
  * @public
  */
 export interface CreateQueueRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
   /**
    * <p>The farm ID of the farm to connect to the queue.</p>
    * @public
    */
   farmId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 
   /**
    * <p>The display name of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -3204,6 +3308,8 @@ export interface CreateQueueRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateQueueResponse {
@@ -3219,12 +3325,6 @@ export interface CreateQueueResponse {
  */
 export interface CreateQueueEnvironmentRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
    * <p>The farm ID of the farm to connect to the environment.</p>
    * @public
    */
@@ -3235,6 +3335,12 @@ export interface CreateQueueEnvironmentRequest {
    * @public
    */
   queueId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 
   /**
    * <p>Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the highest priority (activated first and deactivated last). If two environments share the same priority value, the environment created first takes higher priority.</p>
@@ -3351,16 +3457,16 @@ export interface FileSystemLocation {
  */
 export interface CreateStorageProfileRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
    * <p>The farm ID of the farm to connect to the storage profile.</p>
    * @public
    */
   farmId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 
   /**
    * <p>The display name of the storage profile.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -3464,6 +3570,8 @@ export interface CreateWorkerRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface CreateWorkerResponse {
@@ -3499,6 +3607,8 @@ export interface DateTimeFilterExpression {
 }
 
 /**
+ * Identifier mixin for queue-fleet association operations.
+ * Composes QueueIdentifierMixin (farmId + queueId) and adds fleetId.
  * @public
  */
 export interface DeleteQueueFleetAssociationRequest {
@@ -3641,12 +3751,6 @@ export interface DisassociateMemberFromFarmResponse {}
  */
 export interface DeleteFleetRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
    * <p>The farm ID of the farm to remove from the fleet.</p>
    * @public
    */
@@ -3657,6 +3761,12 @@ export interface DeleteFleetRequest {
    * @public
    */
   fleetId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3728,6 +3838,8 @@ export interface FleetCapabilities {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetFleetResponse {
@@ -3748,12 +3860,6 @@ export interface GetFleetResponse {
    * @public
    */
   displayName: string | undefined;
-
-  /**
-   * <p>The description of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
-   * @public
-   */
-  description?: string | undefined;
 
   /**
    * <p>The status of the fleet.</p>
@@ -3804,24 +3910,6 @@ export interface GetFleetResponse {
   configuration: FleetConfiguration | undefined;
 
   /**
-   * <p>The script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
-   * @public
-   */
-  hostConfiguration?: HostConfiguration | undefined;
-
-  /**
-   * <p>Outlines what the fleet is capable of for minimums, maximums, and naming, in addition to attribute names and values.</p>
-   * @public
-   */
-  capabilities?: FleetCapabilities | undefined;
-
-  /**
-   * <p>The IAM role ARN.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
    * <p>The date and time the resource was created.</p>
    * @public
    */
@@ -3844,9 +3932,34 @@ export interface GetFleetResponse {
    * @public
    */
   updatedBy?: string | undefined;
+
+  /**
+   * <p>The description of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
+   * @public
+   */
+  hostConfiguration?: HostConfiguration | undefined;
+
+  /**
+   * <p>Outlines what the fleet is capable of for minimums, maximums, and naming, in addition to attribute names and values.</p>
+   * @public
+   */
+  capabilities?: FleetCapabilities | undefined;
+
+  /**
+   * <p>The IAM role ARN.</p>
+   * @public
+   */
+  roleArn: string | undefined;
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListFleetMembersRequest {
@@ -3918,6 +4031,7 @@ export interface FleetMember {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListFleetMembersResponse {
@@ -3935,6 +4049,7 @@ export interface ListFleetMembersResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListFleetsRequest {
@@ -3943,6 +4058,18 @@ export interface ListFleetsRequest {
    * @public
    */
   farmId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
 
   /**
    * <p>The principal ID of the members to include in the fleet.</p>
@@ -3961,18 +4088,6 @@ export interface ListFleetsRequest {
    * @public
    */
   status?: FleetStatus | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }
 
 /**
@@ -4072,6 +4187,7 @@ export interface FleetSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListFleetsResponse {
@@ -4093,12 +4209,6 @@ export interface ListFleetsResponse {
  */
 export interface UpdateFleetRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
    * <p>The farm ID to update.</p>
    * @public
    */
@@ -4109,6 +4219,12 @@ export interface UpdateFleetRequest {
    * @public
    */
   fleetId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 
   /**
    * <p>The display name of the fleet to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -4240,6 +4356,8 @@ export interface HostPropertiesResponse {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetWorkerResponse {
@@ -4305,6 +4423,7 @@ export interface GetWorkerResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListSessionsForWorkerRequest {
@@ -4388,6 +4507,7 @@ export interface WorkerSessionSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListSessionsForWorkerResponse {
@@ -4405,6 +4525,7 @@ export interface ListSessionsForWorkerResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListWorkersRequest {
@@ -4439,12 +4560,6 @@ export interface ListWorkersRequest {
  */
 export interface WorkerSummary {
   /**
-   * <p>The worker ID.</p>
-   * @public
-   */
-  workerId: string | undefined;
-
-  /**
    * <p>The farm ID.</p>
    * @public
    */
@@ -4457,16 +4572,22 @@ export interface WorkerSummary {
   fleetId: string | undefined;
 
   /**
-   * <p>The status of the worker.</p>
+   * <p>The worker ID.</p>
    * @public
    */
-  status: WorkerStatus | undefined;
+  workerId: string | undefined;
 
   /**
    * <p>The host properties of the worker.</p>
    * @public
    */
   hostProperties?: HostPropertiesResponse | undefined;
+
+  /**
+   * <p>The status of the worker.</p>
+   * @public
+   */
+  status: WorkerStatus | undefined;
 
   /**
    * <p>The log configuration for the worker.</p>
@@ -4500,20 +4621,21 @@ export interface WorkerSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListWorkersResponse {
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
   /**
    * <p>The workers on the list.</p>
    * @public
    */
   workers: WorkerSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4770,6 +4892,8 @@ export interface GetFarmRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetFarmResponse {
@@ -4786,22 +4910,10 @@ export interface GetFarmResponse {
   displayName: string | undefined;
 
   /**
-   * <p>The description of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The ARN of the KMS key used on the farm.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
-
-  /**
-   * <p>The cost scale factor applied on the farm.</p>
-   * @public
-   */
-  costScaleFactor: number | undefined;
 
   /**
    * <p>The date and time the resource was created.</p>
@@ -4826,6 +4938,18 @@ export interface GetFarmResponse {
    * @public
    */
   updatedBy?: string | undefined;
+
+  /**
+   * <p>The description of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment.</p>
+   * @public
+   */
+  costScaleFactor: number | undefined;
 }
 
 /**
@@ -4846,26 +4970,27 @@ export interface GetLimitRequest {
 }
 
 /**
+ * Domain fields for Limit summary/response shapes, ordered before timestamps.
  * @public
  */
 export interface GetLimitResponse {
   /**
-   * <p>The display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * <p>The unique identifier of the farm that contains the limit.</p>
    * @public
    */
-  displayName: string | undefined;
+  farmId: string | undefined;
 
   /**
-   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
+   * <p>The unique identifier of the limit.</p>
    * @public
    */
-  amountRequirementName: string | undefined;
+  limitId: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
+   * <p>The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.</p>
    * @public
    */
-  maxCount: number | undefined;
+  currentCount: number | undefined;
 
   /**
    * <p>The Unix timestamp of the date and time that the limit was created.</p>
@@ -4892,22 +5017,22 @@ export interface GetLimitResponse {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The unique identifier of the farm that contains the limit.</p>
+   * <p>The display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
-  farmId: string | undefined;
+  displayName: string | undefined;
 
   /**
-   * <p>The unique identifier of the limit.</p>
+   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
    * @public
    */
-  limitId: string | undefined;
+  amountRequirementName: string | undefined;
 
   /**
-   * <p>The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.</p>
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
    * @public
    */
-  currentCount: number | undefined;
+  maxCount: number | undefined;
 
   /**
    * <p>The description of the limit that helps identify what the limit is used for.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -4987,6 +5112,7 @@ export interface GetStorageProfileResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListFarmMembersRequest {
@@ -5046,6 +5172,7 @@ export interface FarmMember {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListFarmMembersResponse {
@@ -5063,6 +5190,7 @@ export interface ListFarmMembersResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListFarmsRequest {
@@ -5073,16 +5201,16 @@ export interface ListFarmsRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>The principal ID of the member to list on the farm.</p>
-   * @public
-   */
-  principalId?: string | undefined;
-
-  /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>The principal ID of the member to list on the farm.</p>
+   * @public
+   */
+  principalId?: string | undefined;
 }
 
 /**
@@ -5134,23 +5262,25 @@ export interface FarmSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListFarmsResponse {
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
   /**
    * <p>Farms on the list.</p>
    * @public
    */
   farms: FarmSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListLimitsRequest {
@@ -5179,22 +5309,22 @@ export interface ListLimitsRequest {
  */
 export interface LimitSummary {
   /**
-   * <p>The name of the limit used in lists to identify the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * <p>The unique identifier of the farm that contains the limit.</p>
    * @public
    */
-  displayName: string | undefined;
+  farmId: string | undefined;
 
   /**
-   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
+   * <p>The unique identifier of the limit.</p>
    * @public
    */
-  amountRequirementName: string | undefined;
+  limitId: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
+   * <p>The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.</p>
    * @public
    */
-  maxCount: number | undefined;
+  currentCount: number | undefined;
 
   /**
    * <p>The Unix timestamp of the date and time that the limit was created.</p>
@@ -5221,25 +5351,26 @@ export interface LimitSummary {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The unique identifier of the farm that contains the limit.</p>
+   * <p>The name of the limit used in lists to identify the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
-  farmId: string | undefined;
+  displayName: string | undefined;
 
   /**
-   * <p>The unique identifier of the limit.</p>
+   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
    * @public
    */
-  limitId: string | undefined;
+  amountRequirementName: string | undefined;
 
   /**
-   * <p>The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.</p>
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
    * @public
    */
-  currentCount: number | undefined;
+  maxCount: number | undefined;
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListLimitsResponse {
@@ -5257,6 +5388,7 @@ export interface ListLimitsResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListStorageProfilesRequest {
@@ -5304,6 +5436,7 @@ export interface StorageProfileSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListStorageProfilesResponse {
@@ -5416,9 +5549,17 @@ export interface GetQueueRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetQueueResponse {
+  /**
+   * <p>The farm ID for the queue.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
   /**
    * <p>The queue ID.</p>
    * @public
@@ -5430,18 +5571,6 @@ export interface GetQueueResponse {
    * @public
    */
   displayName: string | undefined;
-
-  /**
-   * <p>The description of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The farm ID for the queue.</p>
-   * @public
-   */
-  farmId: string | undefined;
 
   /**
    * <p>The status of the queue.</p> <ul> <li> <p> <code>ACTIVE</code>–The queue is active.</p> </li> <li> <p> <code>SCHEDULING</code>–The queue is scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked. See the provided reason.</p> </li> </ul>
@@ -5460,6 +5589,36 @@ export interface GetQueueResponse {
    * @public
    */
   blockedReason?: QueueBlockedReason | undefined;
+
+  /**
+   * <p>The date and time the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user or system that created this resource.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The description of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * @public
+   */
+  description?: string | undefined;
 
   /**
    * <p>The job attachment settings for the queue.</p>
@@ -5490,30 +5649,6 @@ export interface GetQueueResponse {
    * @public
    */
   jobRunAsUser?: JobRunAsUser | undefined;
-
-  /**
-   * <p>The date and time the resource was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The user or system that created this resource.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The date and time the resource was updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The user or system that updated this resource.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
 }
 
 /**
@@ -5708,6 +5843,8 @@ export interface GetJobRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetJobResponse {
@@ -5880,6 +6017,7 @@ export interface GetSessionRequest {
 }
 
 /**
+ * Session lifecycle/status fields, ordered after IDs in session shapes.
  * @public
  */
 export interface GetSessionResponse {
@@ -5908,12 +6046,6 @@ export interface GetSessionResponse {
   startedAt: Date | undefined;
 
   /**
-   * <p>The session log.</p>
-   * @public
-   */
-  log: LogConfiguration | undefined;
-
-  /**
    * <p>The life cycle status of the session.</p>
    * @public
    */
@@ -5924,6 +6056,12 @@ export interface GetSessionResponse {
    * @public
    */
   endedAt?: Date | undefined;
+
+  /**
+   * <p>The life cycle status with which the session started.</p>
+   * @public
+   */
+  targetLifecycleStatus?: SessionLifecycleTargetStatus | undefined;
 
   /**
    * <p>The date and time the resource was updated.</p>
@@ -5938,10 +6076,10 @@ export interface GetSessionResponse {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The life cycle status with which the session started.</p>
+   * <p>The session log.</p>
    * @public
    */
-  targetLifecycleStatus?: SessionLifecycleTargetStatus | undefined;
+  log: LogConfiguration | undefined;
 
   /**
    * <p>Provides the Amazon EC2 properties of the host.</p>
@@ -6191,6 +6329,12 @@ export interface GetSessionActionResponse {
   progressPercent?: number | undefined;
 
   /**
+   * <p>The list of manifest properties that describe file attachments for the task run.</p>
+   * @public
+   */
+  manifests?: TaskRunManifestPropertiesResponse[] | undefined;
+
+  /**
    * <p>The session ID for the session action.</p>
    * @public
    */
@@ -6209,22 +6353,16 @@ export interface GetSessionActionResponse {
   progressMessage?: string | undefined;
 
   /**
-   * <p>The session action definition.</p>
-   * @public
-   */
-  definition: SessionActionDefinition | undefined;
-
-  /**
    * <p>The limits and their amounts acquired during a session action. If no limits were acquired during the session, this field isn't returned.</p>
    * @public
    */
   acquiredLimits?: AcquiredLimit[] | undefined;
 
   /**
-   * <p>The list of manifest properties that describe file attachments for the task run.</p>
+   * <p>The session action definition.</p>
    * @public
    */
-  manifests?: TaskRunManifestPropertiesResponse[] | undefined;
+  definition: SessionActionDefinition | undefined;
 }
 
 /**
@@ -6613,12 +6751,6 @@ export interface GetTaskResponse {
   failureRetryCount?: number | undefined;
 
   /**
-   * <p>The parameters for the task.</p>
-   * @public
-   */
-  parameters?: Record<string, TaskParameterValue> | undefined;
-
-  /**
    * <p>The date and time the resource started running.</p>
    * @public
    */
@@ -6647,9 +6779,16 @@ export interface GetTaskResponse {
    * @public
    */
   latestSessionActionId?: string | undefined;
+
+  /**
+   * <p>The parameters for the task.</p>
+   * @public
+   */
+  parameters?: Record<string, TaskParameterValue> | undefined;
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListJobMembersRequest {
@@ -6733,6 +6872,7 @@ export interface JobMember {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListJobMembersResponse {
@@ -6750,6 +6890,7 @@ export interface ListJobMembersResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListJobParameterDefinitionsRequest {
@@ -6760,16 +6901,16 @@ export interface ListJobParameterDefinitionsRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The job ID to include on the list.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
    * <p>The queue ID to include on the list.</p>
    * @public
    */
   queueId: string | undefined;
+
+  /**
+   * <p>The job ID to include on the list.</p>
+   * @public
+   */
+  jobId: string | undefined;
 
   /**
    * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
@@ -6785,6 +6926,7 @@ export interface ListJobParameterDefinitionsRequest {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListJobParameterDefinitionsResponse {
@@ -6802,6 +6944,7 @@ export interface ListJobParameterDefinitionsResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListJobsRequest {
@@ -6810,12 +6953,6 @@ export interface ListJobsRequest {
    * @public
    */
   farmId: string | undefined;
-
-  /**
-   * <p>The principal ID of the members on the jobs.</p>
-   * @public
-   */
-  principalId?: string | undefined;
 
   /**
    * <p>The queue ID for the job.</p>
@@ -6834,6 +6971,12 @@ export interface ListJobsRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>The principal ID of the members on the jobs.</p>
+   * @public
+   */
+  principalId?: string | undefined;
 }
 
 /**
@@ -6957,6 +7100,7 @@ export interface JobSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListJobsResponse {
@@ -6974,6 +7118,7 @@ export interface ListJobsResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListSessionActionsRequest {
@@ -6996,18 +7141,6 @@ export interface ListSessionActionsRequest {
   jobId: string | undefined;
 
   /**
-   * <p>The session ID to include on the sessions action list.</p>
-   * @public
-   */
-  sessionId?: string | undefined;
-
-  /**
-   * <p>The task ID for the session actions list.</p>
-   * @public
-   */
-  taskId?: string | undefined;
-
-  /**
    * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
    * @public
    */
@@ -7018,6 +7151,18 @@ export interface ListSessionActionsRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>The session ID to include on the sessions action list.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>The task ID for the session actions list.</p>
+   * @public
+   */
+  taskId?: string | undefined;
 }
 
 /**
@@ -7209,19 +7354,20 @@ export interface SessionActionSummary {
   progressPercent?: number | undefined;
 
   /**
-   * <p>The session action definition.</p>
-   * @public
-   */
-  definition: SessionActionDefinitionSummary | undefined;
-
-  /**
    * <p>The list of manifest properties that describe file attachments for the task run.</p>
    * @public
    */
   manifests?: TaskRunManifestPropertiesResponse[] | undefined;
+
+  /**
+   * <p>The session action definition.</p>
+   * @public
+   */
+  definition: SessionActionDefinitionSummary | undefined;
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListSessionActionsResponse {
@@ -7239,6 +7385,7 @@ export interface ListSessionActionsResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListSessionsRequest {
@@ -7315,6 +7462,12 @@ export interface SessionSummary {
   endedAt?: Date | undefined;
 
   /**
+   * <p>The target life cycle status for the session.</p>
+   * @public
+   */
+  targetLifecycleStatus?: SessionLifecycleTargetStatus | undefined;
+
+  /**
    * <p>The date and time the resource was updated.</p>
    * @public
    */
@@ -7325,15 +7478,10 @@ export interface SessionSummary {
    * @public
    */
   updatedBy?: string | undefined;
-
-  /**
-   * <p>The target life cycle status for the session.</p>
-   * @public
-   */
-  targetLifecycleStatus?: SessionLifecycleTargetStatus | undefined;
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListSessionsResponse {
@@ -7410,6 +7558,7 @@ export interface StepConsumer {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListStepConsumersResponse {
@@ -7486,6 +7635,7 @@ export interface StepDependency {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListStepDependenciesResponse {
@@ -7503,6 +7653,7 @@ export interface ListStepDependenciesResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListStepsRequest {
@@ -7634,6 +7785,7 @@ export interface StepSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListStepsResponse {
@@ -7651,6 +7803,7 @@ export interface ListStepsResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListTasksRequest {
@@ -7733,12 +7886,6 @@ export interface TaskSummary {
   failureRetryCount?: number | undefined;
 
   /**
-   * <p>The task parameters.</p>
-   * @public
-   */
-  parameters?: Record<string, TaskParameterValue> | undefined;
-
-  /**
    * <p>The date and time the resource started running.</p>
    * @public
    */
@@ -7767,9 +7914,16 @@ export interface TaskSummary {
    * @public
    */
   latestSessionActionId?: string | undefined;
+
+  /**
+   * <p>The task parameters.</p>
+   * @public
+   */
+  parameters?: Record<string, TaskParameterValue> | undefined;
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListTasksResponse {
@@ -7790,6 +7944,24 @@ export interface ListTasksResponse {
  * @public
  */
 export interface UpdateJobRequest {
+  /**
+   * <p>The farm ID of the job to update.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID of the job to update.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The job ID to update.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
   /**
    * <p>The unique token which the server uses to recognize retries of the same request.</p>
    * @public
@@ -7843,24 +8015,6 @@ export interface UpdateJobRequest {
    * @public
    */
   description?: string | undefined;
-
-  /**
-   * <p>The farm ID of the job to update.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID of the job to update.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID to update.</p>
-   * @public
-   */
-  jobId: string | undefined;
 }
 
 /**
@@ -7872,18 +8026,6 @@ export interface UpdateJobResponse {}
  * @public
  */
 export interface UpdateSessionRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The life cycle status to update in the session.</p>
-   * @public
-   */
-  targetLifecycleStatus: SessionLifecycleTargetStatus | undefined;
-
   /**
    * <p>The farm ID to update in the session.</p>
    * @public
@@ -7907,6 +8049,18 @@ export interface UpdateSessionRequest {
    * @public
    */
   sessionId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The life cycle status to update in the session.</p>
+   * @public
+   */
+  targetLifecycleStatus: SessionLifecycleTargetStatus | undefined;
 }
 
 /**
@@ -7918,18 +8072,6 @@ export interface UpdateSessionResponse {}
  * @public
  */
 export interface UpdateStepRequest {
-  /**
-   * <p>The task status to update the step's tasks to.</p>
-   * @public
-   */
-  targetTaskRunStatus: StepTargetTaskRunStatus | undefined;
-
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
   /**
    * <p>The farm ID to update.</p>
    * @public
@@ -7953,6 +8095,18 @@ export interface UpdateStepRequest {
    * @public
    */
   stepId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The task status to update the step's tasks to.</p>
+   * @public
+   */
+  targetTaskRunStatus: StepTargetTaskRunStatus | undefined;
 }
 
 /**
@@ -7964,18 +8118,6 @@ export interface UpdateStepResponse {}
  * @public
  */
 export interface UpdateTaskRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The run status with which to start the task.</p>
-   * @public
-   */
-  targetRunStatus: TaskTargetRunStatus | undefined;
-
   /**
    * <p>The farm ID to update.</p>
    * @public
@@ -8005,6 +8147,18 @@ export interface UpdateTaskRequest {
    * @public
    */
   taskId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The run status with which to start the task.</p>
+   * @public
+   */
+  targetRunStatus: TaskTargetRunStatus | undefined;
 }
 
 /**
@@ -8013,6 +8167,7 @@ export interface UpdateTaskRequest {
 export interface UpdateTaskResponse {}
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListQueueEnvironmentsRequest {
@@ -8066,6 +8221,7 @@ export interface QueueEnvironmentSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListQueueEnvironmentsResponse {
@@ -8083,6 +8239,7 @@ export interface ListQueueEnvironmentsResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListQueueMembersRequest {
@@ -8154,6 +8311,7 @@ export interface QueueMember {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListQueueMembersResponse {
@@ -8171,6 +8329,7 @@ export interface ListQueueMembersResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListQueuesRequest {
@@ -8179,18 +8338,6 @@ export interface ListQueuesRequest {
    * @public
    */
   farmId: string | undefined;
-
-  /**
-   * <p>The principal IDs to include in the list of queues.</p>
-   * @public
-   */
-  principalId?: string | undefined;
-
-  /**
-   * <p>The status of the queues listed.</p> <ul> <li> <p> <code>ACTIVE</code>–The queues are active.</p> </li> <li> <p> <code>SCHEDULING</code>–The queues are scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked for these queues.</p> </li> </ul>
-   * @public
-   */
-  status?: QueueStatus | undefined;
 
   /**
    * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
@@ -8203,6 +8350,18 @@ export interface ListQueuesRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>The principal IDs to include in the list of queues.</p>
+   * @public
+   */
+  principalId?: string | undefined;
+
+  /**
+   * <p>The status of the queues listed.</p> <ul> <li> <p> <code>ACTIVE</code>–The queues are active.</p> </li> <li> <p> <code>SCHEDULING</code>–The queues are scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked for these queues.</p> </li> </ul>
+   * @public
+   */
+  status?: QueueStatus | undefined;
 }
 
 /**
@@ -8272,6 +8431,7 @@ export interface QueueSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListQueuesResponse {
@@ -8289,6 +8449,7 @@ export interface ListQueuesResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListStorageProfilesForQueueRequest {
@@ -8318,6 +8479,7 @@ export interface ListStorageProfilesForQueueRequest {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListStorageProfilesForQueueResponse {
@@ -8339,12 +8501,6 @@ export interface ListStorageProfilesForQueueResponse {
  */
 export interface UpdateQueueRequest {
   /**
-   * <p>The idempotency token to update in the queue.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
    * <p>The farm ID to update in the queue.</p>
    * @public
    */
@@ -8355,6 +8511,12 @@ export interface UpdateQueueRequest {
    * @public
    */
   queueId: string | undefined;
+
+  /**
+   * <p>The idempotency token to update in the queue.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 
   /**
    * <p>The display name of the queue to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -8427,12 +8589,6 @@ export interface UpdateQueueResponse {}
  */
 export interface UpdateQueueEnvironmentRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
    * <p>The farm ID of the queue environment to update.</p>
    * @public
    */
@@ -8449,6 +8605,12 @@ export interface UpdateQueueEnvironmentRequest {
    * @public
    */
   queueEnvironmentId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 
   /**
    * <p>The priority to update.</p>
@@ -8497,7 +8659,7 @@ export interface UpdateFarmRequest {
   description?: string | undefined;
 
   /**
-   * <p>The cost scale factor of the farm to update.</p>
+   * <p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment.</p>
    * @public
    */
   costScaleFactor?: number | undefined;
@@ -8553,12 +8715,6 @@ export interface UpdateLimitResponse {}
  */
 export interface UpdateStorageProfileRequest {
   /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
    * <p>The farm ID to update.</p>
    * @public
    */
@@ -8569,6 +8725,12 @@ export interface UpdateStorageProfileRequest {
    * @public
    */
   storageProfileId: string | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 
   /**
    * <p>The display name of the storage profile to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
@@ -8601,6 +8763,8 @@ export interface UpdateStorageProfileRequest {
 export interface UpdateStorageProfileResponse {}
 
 /**
+ * Identifier mixin for queue-fleet association operations.
+ * Composes QueueIdentifierMixin (farmId + queueId) and adds fleetId.
  * @public
  */
 export interface GetQueueFleetAssociationRequest {
@@ -8624,6 +8788,7 @@ export interface GetQueueFleetAssociationRequest {
 }
 
 /**
+ * Domain fields for QueueFleetAssociation summary/response shapes, ordered before timestamps.
  * @public
  */
 export interface GetQueueFleetAssociationResponse {
@@ -8694,9 +8859,28 @@ export interface GetQueueLimitAssociationRequest {
 }
 
 /**
+ * Domain fields for QueueLimitAssociation summary/response shapes, ordered before timestamps.
  * @public
  */
 export interface GetQueueLimitAssociationResponse {
+  /**
+   * <p>The unique identifier of the queue associated with the limit.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit associated with the queue.</p>
+   * @public
+   */
+  limitId: string | undefined;
+
+  /**
+   * <p>The current status of the limit.</p>
+   * @public
+   */
+  status: QueueLimitAssociationStatus | undefined;
+
   /**
    * <p>The Unix timestamp of the date and time that the association was created.</p>
    * @public
@@ -8720,27 +8904,10 @@ export interface GetQueueLimitAssociationResponse {
    * @public
    */
   updatedBy?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the queue associated with the limit.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the limit associated with the queue.</p>
-   * @public
-   */
-  limitId: string | undefined;
-
-  /**
-   * <p>The current status of the limit.</p>
-   * @public
-   */
-  status: QueueLimitAssociationStatus | undefined;
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface GetSessionsStatisticsAggregationRequest {
@@ -8751,10 +8918,10 @@ export interface GetSessionsStatisticsAggregationRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation that identifies the aggregated statistics.</p>
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
    * @public
    */
-  aggregationId: string | undefined;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -8763,10 +8930,10 @@ export interface GetSessionsStatisticsAggregationRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * <p>The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation that identifies the aggregated statistics.</p>
    * @public
    */
-  nextToken?: string | undefined;
+  aggregationId: string | undefined;
 }
 
 /**
@@ -8884,6 +9051,7 @@ export interface Statistics {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface GetSessionsStatisticsAggregationResponse {
@@ -8892,12 +9060,6 @@ export interface GetSessionsStatisticsAggregationResponse {
    * @public
    */
   statistics?: Statistics[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 
   /**
    * <p>The status of the aggregated results. An aggregation may fail or time out if the results are too large. If this happens, you can call the <code>StartSessionsStatisticsAggregation</code> operation after you reduce the aggregation time frame, reduce the number of queues or fleets in the aggregation, or increase the period length.</p> <p>If you call the <code>StartSessionsStatisticsAggregation </code> operation when the status is <code>IN_PROGRESS</code>, you will receive a <code>ThrottlingException</code>.</p>
@@ -8910,6 +9072,12 @@ export interface GetSessionsStatisticsAggregationResponse {
    * @public
    */
   statusMessage?: string | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -8962,6 +9130,8 @@ export interface GetLicenseEndpointRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetLicenseEndpointResponse {
@@ -9009,6 +9179,7 @@ export interface GetLicenseEndpointResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListLicenseEndpointsRequest {
@@ -9023,51 +9194,4 @@ export interface ListLicenseEndpointsRequest {
    * @public
    */
   maxResults?: number | undefined;
-}
-
-/**
- * <p>The details for a license endpoint.</p>
- * @public
- */
-export interface LicenseEndpointSummary {
-  /**
-   * <p>The license endpoint ID.</p>
-   * @public
-   */
-  licenseEndpointId?: string | undefined;
-
-  /**
-   * <p>The status of the license endpoint.</p>
-   * @public
-   */
-  status?: LicenseEndpointStatus | undefined;
-
-  /**
-   * <p>The status message of the license endpoint.</p>
-   * @public
-   */
-  statusMessage?: string | undefined;
-
-  /**
-   * <p>The VPC (virtual private cloud) ID associated with the license endpoint.</p>
-   * @public
-   */
-  vpcId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLicenseEndpointsResponse {
-  /**
-   * <p>The license endpoints.</p>
-   * @public
-   */
-  licenseEndpoints: LicenseEndpointSummary[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

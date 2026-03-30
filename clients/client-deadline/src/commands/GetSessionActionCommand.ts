@@ -51,9 +51,21 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  * //   endedAt: new Date("TIMESTAMP"),
  * //   workerUpdatedAt: new Date("TIMESTAMP"),
  * //   progressPercent: Number("float"),
+ * //   manifests: [ // TaskRunManifestPropertiesListResponse
+ * //     { // TaskRunManifestPropertiesResponse
+ * //       outputManifestPath: "STRING_VALUE",
+ * //       outputManifestHash: "STRING_VALUE",
+ * //     },
+ * //   ],
  * //   sessionId: "STRING_VALUE", // required
  * //   processExitCode: Number("int"),
  * //   progressMessage: "STRING_VALUE",
+ * //   acquiredLimits: [ // AcquiredLimits
+ * //     { // AcquiredLimit
+ * //       limitId: "STRING_VALUE", // required
+ * //       count: Number("int"), // required
+ * //     },
+ * //   ],
  * //   definition: { // SessionActionDefinition Union: only one key present
  * //     envEnter: { // EnvironmentEnterSessionActionDefinition
  * //       environmentId: "STRING_VALUE", // required
@@ -78,18 +90,6 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  * //       stepId: "STRING_VALUE",
  * //     },
  * //   },
- * //   acquiredLimits: [ // AcquiredLimits
- * //     { // AcquiredLimit
- * //       limitId: "STRING_VALUE", // required
- * //       count: Number("int"), // required
- * //     },
- * //   ],
- * //   manifests: [ // TaskRunManifestPropertiesListResponse
- * //     { // TaskRunManifestPropertiesResponse
- * //       outputManifestPath: "STRING_VALUE",
- * //       outputManifestHash: "STRING_VALUE",
- * //     },
- * //   ],
  * // };
  *
  * ```

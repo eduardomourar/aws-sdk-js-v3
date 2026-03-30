@@ -38,13 +38,12 @@ export interface ListFarmsCommandOutput extends ListFarmsResponse, __MetadataBea
  * const client = new DeadlineClient(config);
  * const input = { // ListFarmsRequest
  *   nextToken: "STRING_VALUE",
- *   principalId: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   principalId: "STRING_VALUE",
  * };
  * const command = new ListFarmsCommand(input);
  * const response = await client.send(command);
  * // { // ListFarmsResponse
- * //   nextToken: "STRING_VALUE",
  * //   farms: [ // FarmSummaries // required
  * //     { // FarmSummary
  * //       farmId: "STRING_VALUE", // required
@@ -56,6 +55,7 @@ export interface ListFarmsCommandOutput extends ListFarmsResponse, __MetadataBea
  * //       updatedBy: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

@@ -37,9 +37,9 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateQueueRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   defaultBudgetAction: "NONE" || "STOP_SCHEDULING_AND_COMPLETE_TASKS" || "STOP_SCHEDULING_AND_CANCEL_TASKS",

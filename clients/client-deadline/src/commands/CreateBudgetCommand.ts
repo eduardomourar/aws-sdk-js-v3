@@ -37,13 +37,13 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateBudgetRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
  *   usageTrackingResource: { // UsageTrackingResource Union: only one key present
  *     queueId: "STRING_VALUE",
  *   },
- *   displayName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
  *   approximateDollarLimit: Number("float"), // required
  *   actions: [ // BudgetActionsToAdd // required
  *     { // BudgetActionToAdd

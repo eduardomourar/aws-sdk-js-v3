@@ -40,10 +40,10 @@ export interface AssociateMemberToJobCommandOutput extends AssociateMemberToJobR
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE", // required
- *   principalId: "STRING_VALUE", // required
  *   principalType: "USER" || "GROUP", // required
  *   identityStoreId: "STRING_VALUE", // required
  *   membershipLevel: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "MANAGER", // required
+ *   principalId: "STRING_VALUE", // required
  * };
  * const command = new AssociateMemberToJobCommand(input);
  * const response = await client.send(command);

@@ -43,16 +43,16 @@ export interface GetLimitCommandOutput extends GetLimitResponse, __MetadataBeare
  * const command = new GetLimitCommand(input);
  * const response = await client.send(command);
  * // { // GetLimitResponse
- * //   displayName: "STRING_VALUE", // required
- * //   amountRequirementName: "STRING_VALUE", // required
- * //   maxCount: Number("int"), // required
+ * //   farmId: "STRING_VALUE", // required
+ * //   limitId: "STRING_VALUE", // required
+ * //   currentCount: Number("int"), // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   updatedBy: "STRING_VALUE",
- * //   farmId: "STRING_VALUE", // required
- * //   limitId: "STRING_VALUE", // required
- * //   currentCount: Number("int"), // required
+ * //   displayName: "STRING_VALUE", // required
+ * //   amountRequirementName: "STRING_VALUE", // required
+ * //   maxCount: Number("int"), // required
  * //   description: "STRING_VALUE",
  * // };
  *

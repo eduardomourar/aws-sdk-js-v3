@@ -38,11 +38,11 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * const client = new DeadlineClient(config);
  * const input = { // ListFleetsRequest
  *   farmId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  *   principalId: "STRING_VALUE",
  *   displayName: "STRING_VALUE",
  *   status: "ACTIVE" || "CREATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_FAILED" || "SUSPENDED",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
@@ -62,6 +62,11 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //       configuration: { // FleetConfiguration Union: only one key present
  * //         customerManaged: { // CustomerManagedFleetConfiguration
  * //           mode: "NO_SCALING" || "EVENT_BASED_AUTO_SCALING", // required
+ * //           autoScalingConfiguration: { // CustomerManagedAutoScalingConfiguration
+ * //             standbyWorkerCount: Number("int"),
+ * //             workerIdleDurationSeconds: Number("int"),
+ * //             scaleOutWorkersPerMinute: Number("int"),
+ * //           },
  * //           workerCapabilities: { // CustomerManagedWorkerCapabilities
  * //             vCpuCount: { // VCpuCountRange
  * //               min: Number("int"), // required
@@ -163,6 +168,11 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //             ],
  * //           },
  * //           storageProfileId: "STRING_VALUE",
+ * //           autoScalingConfiguration: { // ServiceManagedEc2AutoScalingConfiguration
+ * //             standbyWorkerCount: Number("int"),
+ * //             workerIdleDurationSeconds: Number("int"),
+ * //             scaleOutWorkersPerMinute: Number("int"),
+ * //           },
  * //         },
  * //       },
  * //       createdAt: new Date("TIMESTAMP"), // required

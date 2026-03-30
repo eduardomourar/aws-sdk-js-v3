@@ -37,9 +37,9 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteFleetRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   fleetId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);

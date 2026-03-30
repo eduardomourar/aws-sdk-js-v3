@@ -38,8 +38,8 @@ export interface CopyJobTemplateCommandOutput extends CopyJobTemplateResponse, _
  * const client = new DeadlineClient(config);
  * const input = { // CopyJobTemplateRequest
  *   farmId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
  *   targetS3Location: { // S3Location
  *     bucketName: "STRING_VALUE", // required
  *     key: "STRING_VALUE", // required

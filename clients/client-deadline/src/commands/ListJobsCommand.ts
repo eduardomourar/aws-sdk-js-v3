@@ -38,10 +38,10 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * const client = new DeadlineClient(config);
  * const input = { // ListJobsRequest
  *   farmId: "STRING_VALUE", // required
- *   principalId: "STRING_VALUE",
  *   queueId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   principalId: "STRING_VALUE",
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);

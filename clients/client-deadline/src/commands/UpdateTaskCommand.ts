@@ -37,13 +37,13 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateTaskRequest
- *   clientToken: "STRING_VALUE",
- *   targetRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING", // required
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE", // required
  *   stepId: "STRING_VALUE", // required
  *   taskId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   targetRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING", // required
  * };
  * const command = new UpdateTaskCommand(input);
  * const response = await client.send(command);

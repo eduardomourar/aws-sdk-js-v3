@@ -38,9 +38,6 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * const client = new DeadlineClient(config);
  * const input = { // SearchJobsRequest
  *   farmId: "STRING_VALUE", // required
- *   queueIds: [ // QueueIds // required
- *     "STRING_VALUE",
- *   ],
  *   filterExpressions: { // SearchGroupedFilterExpressions
  *     filters: [ // SearchFilterExpressions // required
  *       { // SearchFilterExpression Union: only one key present
@@ -125,6 +122,9 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  *   ],
  *   itemOffset: Number("int"), // required
  *   pageSize: Number("int"),
+ *   queueIds: [ // QueueIds // required
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new SearchJobsCommand(input);
  * const response = await client.send(command);

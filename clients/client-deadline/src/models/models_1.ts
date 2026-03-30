@@ -3,6 +3,7 @@ import type {
   ComparisonOperator,
   JobLifecycleStatus,
   JobTargetTaskRunStatus,
+  LicenseEndpointStatus,
   LogicalOperator,
   Period,
   QueueFleetAssociationStatus,
@@ -28,6 +29,55 @@ import type {
 } from "./models_0";
 
 /**
+ * <p>The details for a license endpoint.</p>
+ * @public
+ */
+export interface LicenseEndpointSummary {
+  /**
+   * <p>The license endpoint ID.</p>
+   * @public
+   */
+  licenseEndpointId?: string | undefined;
+
+  /**
+   * <p>The status of the license endpoint.</p>
+   * @public
+   */
+  status?: LicenseEndpointStatus | undefined;
+
+  /**
+   * <p>The status message of the license endpoint.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The VPC (virtual private cloud) ID associated with the license endpoint.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+}
+
+/**
+ * Shared pagination field for List operation outputs (nextToken).
+ * @public
+ */
+export interface ListLicenseEndpointsResponse {
+  /**
+   * <p>The license endpoints.</p>
+   * @public
+   */
+  licenseEndpoints: LicenseEndpointSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListMeteredProductsRequest {
@@ -81,6 +131,7 @@ export interface MeteredProductSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListMeteredProductsResponse {
@@ -120,6 +171,7 @@ export interface PutMeteredProductRequest {
 export interface PutMeteredProductResponse {}
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListAvailableMeteredProductsRequest {
@@ -137,6 +189,7 @@ export interface ListAvailableMeteredProductsRequest {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListAvailableMeteredProductsResponse {
@@ -154,6 +207,7 @@ export interface ListAvailableMeteredProductsResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListQueueFleetAssociationsRequest {
@@ -162,18 +216,6 @@ export interface ListQueueFleetAssociationsRequest {
    * @public
    */
   farmId: string | undefined;
-
-  /**
-   * <p>The queue ID for the queue-fleet association list.</p>
-   * @public
-   */
-  queueId?: string | undefined;
-
-  /**
-   * <p>The fleet ID for the queue-fleet association list.</p>
-   * @public
-   */
-  fleetId?: string | undefined;
 
   /**
    * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
@@ -186,6 +228,18 @@ export interface ListQueueFleetAssociationsRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>The queue ID for the queue-fleet association list.</p>
+   * @public
+   */
+  queueId?: string | undefined;
+
+  /**
+   * <p>The fleet ID for the queue-fleet association list.</p>
+   * @public
+   */
+  fleetId?: string | undefined;
 }
 
 /**
@@ -237,6 +291,7 @@ export interface QueueFleetAssociationSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListQueueFleetAssociationsResponse {
@@ -254,6 +309,7 @@ export interface ListQueueFleetAssociationsResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListQueueLimitAssociationsRequest {
@@ -262,18 +318,6 @@ export interface ListQueueLimitAssociationsRequest {
    * @public
    */
   farmId: string | undefined;
-
-  /**
-   * <p>Specifies that the operation should return only the queue limit associations for the specified queue. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
-   * @public
-   */
-  queueId?: string | undefined;
-
-  /**
-   * <p>Specifies that the operation should return only the queue limit associations for the specified limit. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
-   * @public
-   */
-  limitId?: string | undefined;
 
   /**
    * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
@@ -286,6 +330,18 @@ export interface ListQueueLimitAssociationsRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>Specifies that the operation should return only the queue limit associations for the specified queue. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
+   * @public
+   */
+  queueId?: string | undefined;
+
+  /**
+   * <p>Specifies that the operation should return only the queue limit associations for the specified limit. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
+   * @public
+   */
+  limitId?: string | undefined;
 }
 
 /**
@@ -293,6 +349,24 @@ export interface ListQueueLimitAssociationsRequest {
  * @public
  */
 export interface QueueLimitAssociationSummary {
+  /**
+   * <p>The unique identifier of the queue in the association.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit in the association.</p>
+   * @public
+   */
+  limitId: string | undefined;
+
+  /**
+   * <p>The status of task scheduling in the queue-limit association.</p> <ul> <li> <p> <code>ACTIVE</code> - Association is active.</p> </li> <li> <p> <code>STOP_LIMIT_USAGE_AND_COMPLETE_TASKS</code> - Association has stopped scheduling new tasks and is completing current tasks.</p> </li> <li> <p> <code>STOP_LIMIT_USAGE_AND_CANCEL_TASKS</code> - Association has stopped scheduling new tasks and is canceling current tasks.</p> </li> <li> <p> <code>STOPPED</code> - Association has been stopped.</p> </li> </ul>
+   * @public
+   */
+  status: QueueLimitAssociationStatus | undefined;
+
   /**
    * <p>The Unix timestamp of the date and time that the association was created.</p>
    * @public
@@ -316,27 +390,10 @@ export interface QueueLimitAssociationSummary {
    * @public
    */
   updatedBy?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the queue in the association.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the limit in the association.</p>
-   * @public
-   */
-  limitId: string | undefined;
-
-  /**
-   * <p>The status of task scheduling in the queue-limit association.</p> <ul> <li> <p> <code>ACTIVE</code> - Association is active.</p> </li> <li> <p> <code>STOP_LIMIT_USAGE_AND_COMPLETE_TASKS</code> - Association has stopped scheduling new tasks and is completing current tasks.</p> </li> <li> <p> <code>STOP_LIMIT_USAGE_AND_CANCEL_TASKS</code> - Association has stopped scheduling new tasks and is canceling current tasks.</p> </li> <li> <p> <code>STOPPED</code> - Association has been stopped.</p> </li> </ul>
-   * @public
-   */
-  status: QueueLimitAssociationStatus | undefined;
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListQueueLimitAssociationsResponse {
@@ -403,6 +460,8 @@ export interface GetMonitorRequest {
 }
 
 /**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
  * @public
  */
 export interface GetMonitorResponse {
@@ -474,6 +533,7 @@ export interface GetMonitorResponse {
 }
 
 /**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
 export interface ListMonitorsRequest {
@@ -563,20 +623,21 @@ export interface MonitorSummary {
 }
 
 /**
+ * Shared pagination field for List operation outputs (nextToken).
  * @public
  */
 export interface ListMonitorsResponse {
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
   /**
    * <p>A list of <code>MonitorSummary</code> objects that describe your monitors in the Deadline Cloud.</p>
    * @public
    */
   monitors: MonitorSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -953,6 +1014,7 @@ export interface JobSearchSummary {
 }
 
 /**
+ * Shared output fields for all Search operations (nextItemOffset, totalResults).
  * @public
  */
 export interface SearchJobsResponse {
@@ -1084,6 +1146,7 @@ export interface StepSearchSummary {
 }
 
 /**
+ * Shared output fields for all Search operations (nextItemOffset, totalResults).
  * @public
  */
 export interface SearchStepsResponse {
@@ -1191,6 +1254,7 @@ export interface TaskSearchSummary {
 }
 
 /**
+ * Shared output fields for all Search operations (nextItemOffset, totalResults).
  * @public
  */
 export interface SearchTasksResponse {
@@ -1268,6 +1332,7 @@ export interface WorkerSearchSummary {
 }
 
 /**
+ * Shared output fields for all Search operations (nextItemOffset, totalResults).
  * @public
  */
 export interface SearchWorkersResponse {
@@ -1452,6 +1517,8 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
+ * Identifier mixin for queue-fleet association operations.
+ * Composes QueueIdentifierMixin (farmId + queueId) and adds fleetId.
  * @public
  */
 export interface UpdateQueueFleetAssociationRequest {
@@ -1667,6 +1734,7 @@ export interface SearchGroupedFilterExpressions {
 }
 
 /**
+ * Shared input fields for all Search operations (filterExpressions, sortExpressions, itemOffset, pageSize).
  * @public
  */
 export interface SearchJobsRequest {
@@ -1675,12 +1743,6 @@ export interface SearchJobsRequest {
    * @public
    */
   farmId: string | undefined;
-
-  /**
-   * <p>The queue ID to use in the job search.</p>
-   * @public
-   */
-  queueIds: string[] | undefined;
 
   /**
    * <p>The search terms for a resource.</p>
@@ -1705,9 +1767,16 @@ export interface SearchJobsRequest {
    * @public
    */
   pageSize?: number | undefined;
+
+  /**
+   * <p>The queue ID to use in the job search.</p>
+   * @public
+   */
+  queueIds: string[] | undefined;
 }
 
 /**
+ * Shared input fields for all Search operations (filterExpressions, sortExpressions, itemOffset, pageSize).
  * @public
  */
 export interface SearchStepsRequest {
@@ -1716,6 +1785,30 @@ export interface SearchStepsRequest {
    * @public
    */
   farmId: string | undefined;
+
+  /**
+   * <p>The search terms for a resource.</p>
+   * @public
+   */
+  filterExpressions?: SearchGroupedFilterExpressions | undefined;
+
+  /**
+   * <p>The search terms for a resource.</p>
+   * @public
+   */
+  sortExpressions?: SearchSortExpression[] | undefined;
+
+  /**
+   * <p>The offset for the search results.</p>
+   * @public
+   */
+  itemOffset: number | undefined;
+
+  /**
+   * <p>Specifies the number of results to return.</p>
+   * @public
+   */
+  pageSize?: number | undefined;
 
   /**
    * <p>The queue IDs in the step search.</p>
@@ -1728,6 +1821,18 @@ export interface SearchStepsRequest {
    * @public
    */
   jobId?: string | undefined;
+}
+
+/**
+ * Shared input fields for all Search operations (filterExpressions, sortExpressions, itemOffset, pageSize).
+ * @public
+ */
+export interface SearchTasksRequest {
+  /**
+   * <p>The farm ID of the task.</p>
+   * @public
+   */
+  farmId: string | undefined;
 
   /**
    * <p>The search terms for a resource.</p>
@@ -1752,17 +1857,6 @@ export interface SearchStepsRequest {
    * @public
    */
   pageSize?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchTasksRequest {
-  /**
-   * <p>The farm ID of the task.</p>
-   * @public
-   */
-  farmId: string | undefined;
 
   /**
    * <p>The queue IDs to include in the search.</p>
@@ -1775,33 +1869,10 @@ export interface SearchTasksRequest {
    * @public
    */
   jobId?: string | undefined;
-
-  /**
-   * <p>The search terms for a resource.</p>
-   * @public
-   */
-  filterExpressions?: SearchGroupedFilterExpressions | undefined;
-
-  /**
-   * <p>The search terms for a resource.</p>
-   * @public
-   */
-  sortExpressions?: SearchSortExpression[] | undefined;
-
-  /**
-   * <p>The offset for the search results.</p>
-   * @public
-   */
-  itemOffset: number | undefined;
-
-  /**
-   * <p>Specifies the number of results to return.</p>
-   * @public
-   */
-  pageSize?: number | undefined;
 }
 
 /**
+ * Shared input fields for all Search operations (filterExpressions, sortExpressions, itemOffset, pageSize).
  * @public
  */
 export interface SearchWorkersRequest {
@@ -1812,12 +1883,6 @@ export interface SearchWorkersRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the workers to search for.</p>
-   * @public
-   */
-  fleetIds: string[] | undefined;
-
-  /**
    * <p>The search terms for a resource.</p>
    * @public
    */
@@ -1840,4 +1905,10 @@ export interface SearchWorkersRequest {
    * @public
    */
   pageSize?: number | undefined;
+
+  /**
+   * <p>The fleet ID of the workers to search for.</p>
+   * @public
+   */
+  fleetIds: string[] | undefined;
 }

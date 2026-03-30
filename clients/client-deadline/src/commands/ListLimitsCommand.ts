@@ -46,16 +46,16 @@ export interface ListLimitsCommandOutput extends ListLimitsResponse, __MetadataB
  * // { // ListLimitsResponse
  * //   limits: [ // LimitSummaries // required
  * //     { // LimitSummary
- * //       displayName: "STRING_VALUE", // required
- * //       amountRequirementName: "STRING_VALUE", // required
- * //       maxCount: Number("int"), // required
+ * //       farmId: "STRING_VALUE", // required
+ * //       limitId: "STRING_VALUE", // required
+ * //       currentCount: Number("int"), // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       createdBy: "STRING_VALUE", // required
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       updatedBy: "STRING_VALUE",
- * //       farmId: "STRING_VALUE", // required
- * //       limitId: "STRING_VALUE", // required
- * //       currentCount: Number("int"), // required
+ * //       displayName: "STRING_VALUE", // required
+ * //       amountRequirementName: "STRING_VALUE", // required
+ * //       maxCount: Number("int"), // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

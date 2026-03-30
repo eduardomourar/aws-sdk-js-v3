@@ -37,12 +37,12 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateSessionRequest
- *   clientToken: "STRING_VALUE",
- *   targetLifecycleStatus: "ENDED", // required
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   targetLifecycleStatus: "ENDED", // required
  * };
  * const command = new UpdateSessionCommand(input);
  * const response = await client.send(command);

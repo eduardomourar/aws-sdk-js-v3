@@ -39,10 +39,10 @@ export interface AssociateMemberToFleetCommandOutput extends AssociateMemberToFl
  * const input = { // AssociateMemberToFleetRequest
  *   farmId: "STRING_VALUE", // required
  *   fleetId: "STRING_VALUE", // required
- *   principalId: "STRING_VALUE", // required
  *   principalType: "USER" || "GROUP", // required
  *   identityStoreId: "STRING_VALUE", // required
  *   membershipLevel: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "MANAGER", // required
+ *   principalId: "STRING_VALUE", // required
  * };
  * const command = new AssociateMemberToFleetCommand(input);
  * const response = await client.send(command);

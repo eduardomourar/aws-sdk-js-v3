@@ -40,10 +40,10 @@ export interface ListSessionActionsCommandOutput extends ListSessionActionsRespo
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE",
- *   taskId: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   sessionId: "STRING_VALUE",
+ *   taskId: "STRING_VALUE",
  * };
  * const command = new ListSessionActionsCommand(input);
  * const response = await client.send(command);
@@ -56,6 +56,12 @@ export interface ListSessionActionsCommandOutput extends ListSessionActionsRespo
  * //       endedAt: new Date("TIMESTAMP"),
  * //       workerUpdatedAt: new Date("TIMESTAMP"),
  * //       progressPercent: Number("float"),
+ * //       manifests: [ // TaskRunManifestPropertiesListResponse
+ * //         { // TaskRunManifestPropertiesResponse
+ * //           outputManifestPath: "STRING_VALUE",
+ * //           outputManifestHash: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       definition: { // SessionActionDefinitionSummary Union: only one key present
  * //         envEnter: { // EnvironmentEnterSessionActionDefinitionSummary
  * //           environmentId: "STRING_VALUE", // required
@@ -80,12 +86,6 @@ export interface ListSessionActionsCommandOutput extends ListSessionActionsRespo
  * //           stepId: "STRING_VALUE",
  * //         },
  * //       },
- * //       manifests: [ // TaskRunManifestPropertiesListResponse
- * //         { // TaskRunManifestPropertiesResponse
- * //           outputManifestPath: "STRING_VALUE",
- * //           outputManifestHash: "STRING_VALUE",
- * //         },
- * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -38,10 +38,10 @@ export interface ListQueueFleetAssociationsCommandOutput extends ListQueueFleetA
  * const client = new DeadlineClient(config);
  * const input = { // ListQueueFleetAssociationsRequest
  *   farmId: "STRING_VALUE", // required
- *   queueId: "STRING_VALUE",
- *   fleetId: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   queueId: "STRING_VALUE",
+ *   fleetId: "STRING_VALUE",
  * };
  * const command = new ListQueueFleetAssociationsCommand(input);
  * const response = await client.send(command);

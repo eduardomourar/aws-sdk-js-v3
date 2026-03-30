@@ -49,11 +49,15 @@ export interface GetBudgetCommandOutput extends GetBudgetResponse, __MetadataBea
  * //   },
  * //   status: "ACTIVE" || "INACTIVE", // required
  * //   displayName: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
  * //   approximateDollarLimit: Number("float"), // required
  * //   usages: { // ConsumedUsages
  * //     approximateDollarUsage: Number("float"), // required
  * //   },
+ * //   createdBy: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedBy: "STRING_VALUE",
+ * //   updatedAt: new Date("TIMESTAMP"),
+ * //   description: "STRING_VALUE",
  * //   actions: [ // ResponseBudgetActionList // required
  * //     { // ResponseBudgetAction
  * //       type: "STOP_SCHEDULING_AND_COMPLETE_TASKS" || "STOP_SCHEDULING_AND_CANCEL_TASKS", // required
@@ -67,10 +71,6 @@ export interface GetBudgetCommandOutput extends GetBudgetResponse, __MetadataBea
  * //       endTime: new Date("TIMESTAMP"), // required
  * //     },
  * //   },
- * //   createdBy: "STRING_VALUE", // required
- * //   createdAt: new Date("TIMESTAMP"), // required
- * //   updatedBy: "STRING_VALUE",
- * //   updatedAt: new Date("TIMESTAMP"),
  * //   queueStoppedAt: new Date("TIMESTAMP"),
  * // };
  *

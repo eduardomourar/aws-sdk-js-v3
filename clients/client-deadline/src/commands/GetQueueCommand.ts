@@ -43,13 +43,17 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * const command = new GetQueueCommand(input);
  * const response = await client.send(command);
  * // { // GetQueueResponse
+ * //   farmId: "STRING_VALUE", // required
  * //   queueId: "STRING_VALUE", // required
  * //   displayName: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
- * //   farmId: "STRING_VALUE", // required
  * //   status: "IDLE" || "SCHEDULING" || "SCHEDULING_BLOCKED", // required
  * //   defaultBudgetAction: "NONE" || "STOP_SCHEDULING_AND_COMPLETE_TASKS" || "STOP_SCHEDULING_AND_CANCEL_TASKS", // required
  * //   blockedReason: "NO_BUDGET_CONFIGURED" || "BUDGET_THRESHOLD_REACHED",
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   createdBy: "STRING_VALUE", // required
+ * //   updatedAt: new Date("TIMESTAMP"),
+ * //   updatedBy: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
  * //   jobAttachmentSettings: { // JobAttachmentSettings
  * //     s3BucketName: "STRING_VALUE", // required
  * //     rootPrefix: "STRING_VALUE", // required
@@ -72,10 +76,6 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * //     },
  * //     runAs: "QUEUE_CONFIGURED_USER" || "WORKER_AGENT_USER", // required
  * //   },
- * //   createdAt: new Date("TIMESTAMP"), // required
- * //   createdBy: "STRING_VALUE", // required
- * //   updatedAt: new Date("TIMESTAMP"),
- * //   updatedBy: "STRING_VALUE",
  * // };
  *
  * ```

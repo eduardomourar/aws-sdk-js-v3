@@ -38,8 +38,8 @@ export interface ListJobParameterDefinitionsCommandOutput extends ListJobParamet
  * const client = new DeadlineClient(config);
  * const input = { // ListJobParameterDefinitionsRequest
  *   farmId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

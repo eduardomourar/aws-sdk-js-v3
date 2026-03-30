@@ -37,10 +37,10 @@ export interface UpdateQueueEnvironmentCommandOutput extends UpdateQueueEnvironm
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateQueueEnvironmentRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   queueEnvironmentId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   priority: Number("int"),
  *   templateType: "JSON" || "YAML",
  *   template: "STRING_VALUE",

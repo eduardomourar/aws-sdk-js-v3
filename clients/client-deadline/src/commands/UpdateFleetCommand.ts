@@ -37,9 +37,9 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateFleetRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   fleetId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   roleArn: "STRING_VALUE",
@@ -48,6 +48,11 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  *   configuration: { // FleetConfiguration Union: only one key present
  *     customerManaged: { // CustomerManagedFleetConfiguration
  *       mode: "NO_SCALING" || "EVENT_BASED_AUTO_SCALING", // required
+ *       autoScalingConfiguration: { // CustomerManagedAutoScalingConfiguration
+ *         standbyWorkerCount: Number("int"),
+ *         workerIdleDurationSeconds: Number("int"),
+ *         scaleOutWorkersPerMinute: Number("int"),
+ *       },
  *       workerCapabilities: { // CustomerManagedWorkerCapabilities
  *         vCpuCount: { // VCpuCountRange
  *           min: Number("int"), // required
@@ -149,6 +154,11 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  *         ],
  *       },
  *       storageProfileId: "STRING_VALUE",
+ *       autoScalingConfiguration: { // ServiceManagedEc2AutoScalingConfiguration
+ *         standbyWorkerCount: Number("int"),
+ *         workerIdleDurationSeconds: Number("int"),
+ *         scaleOutWorkersPerMinute: Number("int"),
+ *       },
  *     },
  *   },
  *   hostConfiguration: { // HostConfiguration

@@ -37,15 +37,14 @@ export interface ListBudgetsCommandOutput extends ListBudgetsResponse, __Metadat
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListBudgetsRequest
- *   nextToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   status: "ACTIVE" || "INACTIVE",
  * };
  * const command = new ListBudgetsCommand(input);
  * const response = await client.send(command);
  * // { // ListBudgetsResponse
- * //   nextToken: "STRING_VALUE",
  * //   budgets: [ // BudgetSummaries // required
  * //     { // BudgetSummary
  * //       budgetId: "STRING_VALUE", // required
@@ -54,7 +53,6 @@ export interface ListBudgetsCommandOutput extends ListBudgetsResponse, __Metadat
  * //       },
  * //       status: "ACTIVE" || "INACTIVE", // required
  * //       displayName: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
  * //       approximateDollarLimit: Number("float"), // required
  * //       usages: { // ConsumedUsages
  * //         approximateDollarUsage: Number("float"), // required
@@ -63,8 +61,10 @@ export interface ListBudgetsCommandOutput extends ListBudgetsResponse, __Metadat
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedBy: "STRING_VALUE",
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       description: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

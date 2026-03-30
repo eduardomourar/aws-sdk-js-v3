@@ -44,13 +44,13 @@ export interface GetFarmCommandOutput extends GetFarmResponse, __MetadataBearer 
  * // { // GetFarmResponse
  * //   farmId: "STRING_VALUE", // required
  * //   displayName: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
  * //   kmsKeyArn: "STRING_VALUE",
- * //   costScaleFactor: Number("float"), // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   updatedBy: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   costScaleFactor: Number("float"), // required
  * // };
  *
  * ```

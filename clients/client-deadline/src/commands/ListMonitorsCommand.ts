@@ -43,7 +43,6 @@ export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __Metad
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
  * // { // ListMonitorsResponse
- * //   nextToken: "STRING_VALUE",
  * //   monitors: [ // MonitorSummaries // required
  * //     { // MonitorSummary
  * //       monitorId: "STRING_VALUE", // required
@@ -59,6 +58,7 @@ export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __Metad
  * //       updatedBy: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

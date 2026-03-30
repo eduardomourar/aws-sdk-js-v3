@@ -37,8 +37,8 @@ export interface CreateStorageProfileCommandOutput extends CreateStorageProfileR
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateStorageProfileRequest
- *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE", // required
  *   osFamily: "WINDOWS" || "LINUX" || "MACOS", // required
  *   fileSystemLocations: [ // FileSystemLocationsList

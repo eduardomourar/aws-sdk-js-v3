@@ -38,10 +38,10 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * const client = new DeadlineClient(config);
  * const input = { // ListQueuesRequest
  *   farmId: "STRING_VALUE", // required
- *   principalId: "STRING_VALUE",
- *   status: "IDLE" || "SCHEDULING" || "SCHEDULING_BLOCKED",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   principalId: "STRING_VALUE",
+ *   status: "IDLE" || "SCHEDULING" || "SCHEDULING_BLOCKED",
  * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);

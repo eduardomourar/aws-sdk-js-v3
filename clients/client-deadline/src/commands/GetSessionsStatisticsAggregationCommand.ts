@@ -41,9 +41,9 @@ export interface GetSessionsStatisticsAggregationCommandOutput extends GetSessio
  * const client = new DeadlineClient(config);
  * const input = { // GetSessionsStatisticsAggregationRequest
  *   farmId: "STRING_VALUE", // required
- *   aggregationId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   aggregationId: "STRING_VALUE", // required
  * };
  * const command = new GetSessionsStatisticsAggregationCommand(input);
  * const response = await client.send(command);
@@ -75,9 +75,9 @@ export interface GetSessionsStatisticsAggregationCommandOutput extends GetSessio
  * //       aggregationEndTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
- * //   nextToken: "STRING_VALUE",
  * //   status: "IN_PROGRESS" || "TIMEOUT" || "FAILED" || "COMPLETED", // required
  * //   statusMessage: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

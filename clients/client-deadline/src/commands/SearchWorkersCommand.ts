@@ -38,9 +38,6 @@ export interface SearchWorkersCommandOutput extends SearchWorkersResponse, __Met
  * const client = new DeadlineClient(config);
  * const input = { // SearchWorkersRequest
  *   farmId: "STRING_VALUE", // required
- *   fleetIds: [ // FleetIds // required
- *     "STRING_VALUE",
- *   ],
  *   filterExpressions: { // SearchGroupedFilterExpressions
  *     filters: [ // SearchFilterExpressions // required
  *       { // SearchFilterExpression Union: only one key present
@@ -125,6 +122,9 @@ export interface SearchWorkersCommandOutput extends SearchWorkersResponse, __Met
  *   ],
  *   itemOffset: Number("int"), // required
  *   pageSize: Number("int"),
+ *   fleetIds: [ // FleetIds // required
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new SearchWorkersCommand(input);
  * const response = await client.send(command);

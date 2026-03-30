@@ -129,6 +129,7 @@ import {
   CreateWorkerCommand,
   CreateWorkerRequest$,
   CreateWorkerResponse$,
+  CustomerManagedAutoScalingConfiguration$,
   CustomerManagedFleetConfiguration$,
   CustomerManagedFleetOperatingSystemFamily,
   CustomerManagedWorkerCapabilities$,
@@ -536,6 +537,7 @@ import {
   SearchWorkersCommand,
   SearchWorkersRequest$,
   SearchWorkersResponse$,
+  ServiceManagedEc2AutoScalingConfiguration$,
   ServiceManagedEc2FleetConfiguration$,
   ServiceManagedEc2InstanceCapabilities$,
   ServiceManagedEc2InstanceMarketOptions$,
@@ -1008,6 +1010,7 @@ assert(typeof CreateStorageProfileRequest$ === "object");
 assert(typeof CreateStorageProfileResponse$ === "object");
 assert(typeof CreateWorkerRequest$ === "object");
 assert(typeof CreateWorkerResponse$ === "object");
+assert(typeof CustomerManagedAutoScalingConfiguration$ === "object");
 assert(typeof CustomerManagedFleetConfiguration$ === "object");
 assert(typeof CustomerManagedWorkerCapabilities$ === "object");
 assert(typeof DateTimeFilterExpression$ === "object");
@@ -1213,6 +1216,7 @@ assert(typeof SearchTasksResponse$ === "object");
 assert(typeof SearchTermFilterExpression$ === "object");
 assert(typeof SearchWorkersRequest$ === "object");
 assert(typeof SearchWorkersResponse$ === "object");
+assert(typeof ServiceManagedEc2AutoScalingConfiguration$ === "object");
 assert(typeof ServiceManagedEc2FleetConfiguration$ === "object");
 assert(typeof ServiceManagedEc2InstanceCapabilities$ === "object");
 assert(typeof ServiceManagedEc2InstanceMarketOptions$ === "object");
