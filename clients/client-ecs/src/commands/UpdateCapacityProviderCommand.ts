@@ -66,6 +66,9 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  *         storageSizeGiB: Number("int"),
  *       },
  *       instanceMetadataTagsPropagation: true || false,
+ *       localStorageConfiguration: { // ManagedInstancesLocalStorageConfiguration
+ *         useLocalStorage: true || false,
+ *       },
  *       monitoring: "BASIC" || "DETAILED",
  *       instanceRequirements: { // InstanceRequirementsRequest
  *         vCpuCount: { // VCpuCountRangeRequest
@@ -181,6 +184,9 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * //         },
  * //         storageConfiguration: { // ManagedInstancesStorageConfiguration
  * //           storageSizeGiB: Number("int"),
+ * //         },
+ * //         localStorageConfiguration: { // ManagedInstancesLocalStorageConfiguration
+ * //           useLocalStorage: true || false,
  * //         },
  * //         monitoring: "BASIC" || "DETAILED",
  * //         capacityOptionType: "ON_DEMAND" || "SPOT" || "RESERVED",

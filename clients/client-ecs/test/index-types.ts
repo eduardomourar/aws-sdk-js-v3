@@ -446,6 +446,7 @@ export type {
   ManagedAutoScaling,
   ManagedCertificate,
   ManagedIngressPath,
+  ManagedInstancesLocalStorageConfiguration,
   ManagedInstancesNetworkConfiguration,
   ManagedInstancesProvider,
   ManagedInstancesStorageConfiguration,

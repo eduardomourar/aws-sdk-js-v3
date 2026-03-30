@@ -83,6 +83,9 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * //           storageConfiguration: { // ManagedInstancesStorageConfiguration
  * //             storageSizeGiB: Number("int"),
  * //           },
+ * //           localStorageConfiguration: { // ManagedInstancesLocalStorageConfiguration
+ * //             useLocalStorage: true || false,
+ * //           },
  * //           monitoring: "BASIC" || "DETAILED",
  * //           capacityOptionType: "ON_DEMAND" || "SPOT" || "RESERVED",
  * //           instanceMetadataTagsPropagation: true || false,

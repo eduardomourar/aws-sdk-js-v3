@@ -66,6 +66,9 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *       storageConfiguration: { // ManagedInstancesStorageConfiguration
  *         storageSizeGiB: Number("int"),
  *       },
+ *       localStorageConfiguration: { // ManagedInstancesLocalStorageConfiguration
+ *         useLocalStorage: true || false,
+ *       },
  *       monitoring: "BASIC" || "DETAILED",
  *       capacityOptionType: "ON_DEMAND" || "SPOT" || "RESERVED",
  *       instanceMetadataTagsPropagation: true || false,
@@ -190,6 +193,9 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * //         },
  * //         storageConfiguration: { // ManagedInstancesStorageConfiguration
  * //           storageSizeGiB: Number("int"),
+ * //         },
+ * //         localStorageConfiguration: { // ManagedInstancesLocalStorageConfiguration
+ * //           useLocalStorage: true || false,
  * //         },
  * //         monitoring: "BASIC" || "DETAILED",
  * //         capacityOptionType: "ON_DEMAND" || "SPOT" || "RESERVED",

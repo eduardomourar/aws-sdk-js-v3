@@ -315,6 +315,7 @@ import {
   ManagedCertificate$,
   ManagedDraining,
   ManagedIngressPath$,
+  ManagedInstancesLocalStorageConfiguration$,
   ManagedInstancesMonitoringOptions,
   ManagedInstancesNetworkConfiguration$,
   ManagedInstancesProvider$,
@@ -882,6 +883,7 @@ assert(typeof ManagedApplicationAutoScalingPolicy$ === "object");
 assert(typeof ManagedAutoScaling$ === "object");
 assert(typeof ManagedCertificate$ === "object");
 assert(typeof ManagedIngressPath$ === "object");
+assert(typeof ManagedInstancesLocalStorageConfiguration$ === "object");
 assert(typeof ManagedInstancesNetworkConfiguration$ === "object");
 assert(typeof ManagedInstancesProvider$ === "object");
 assert(typeof ManagedInstancesStorageConfiguration$ === "object");

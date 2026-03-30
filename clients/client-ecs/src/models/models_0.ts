@@ -535,6 +535,18 @@ export interface InstanceRequirementsRequest {
 }
 
 /**
+ * <p>The local storage configuration for Amazon ECS Managed Instances. This defines how ECS uses and configures instance store volumes available on container instance.</p>
+ * @public
+ */
+export interface ManagedInstancesLocalStorageConfiguration {
+  /**
+   * <p>Use instance store volumes for data storage when available. EBS volumes are not provisioned for data storage. If the container instance has multiple instance store volumes, a single data volume is created. Consider defining instance store requirements using the <code>localStorage</code>, <code>localStorageTypes</code> and <code>totalLocalStorageGB</code> properties.</p>
+   * @public
+   */
+  useLocalStorage?: boolean | undefined;
+}
+
+/**
  * <p>The network configuration for Amazon ECS Managed Instances. This specifies the VPC subnets and security groups that instances use for network connectivity. Amazon ECS Managed Instances support multiple network modes including <code>awsvpc</code> (instances receive ENIs for task isolation), <code>host</code> (instances share network namespace with tasks), and <code>none</code> (no external network connectivity), ensuring backward compatibility for migrating workloads from Fargate or Amazon EC2.</p>
  * @public
  */
@@ -553,12 +565,12 @@ export interface ManagedInstancesNetworkConfiguration {
 }
 
 /**
- * <p>The storage configuration for Amazon ECS Managed Instances. This defines the root volume configuration for the instances.</p>
+ * <p>The storage configuration for Amazon ECS Managed Instances. This defines the data volume configuration for the instances.</p>
  * @public
  */
 export interface ManagedInstancesStorageConfiguration {
   /**
-   * <p>The size of the tasks volume.</p>
+   * <p>The size of the data volume.</p>
    * @public
    */
   storageSizeGiB?: number | undefined;
@@ -582,10 +594,16 @@ export interface InstanceLaunchTemplate {
   networkConfiguration: ManagedInstancesNetworkConfiguration | undefined;
 
   /**
-   * <p>The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.</p>
+   * <p>The storage configuration for Amazon ECS Managed Instances. This defines the data volume properties for the instances.</p>
    * @public
    */
   storageConfiguration?: ManagedInstancesStorageConfiguration | undefined;
+
+  /**
+   * <p>The local storage configuration for Amazon ECS Managed Instances. This defines how ECS uses instance store volumes available on the container instance.</p>
+   * @public
+   */
+  localStorageConfiguration?: ManagedInstancesLocalStorageConfiguration | undefined;
 
   /**
    * <p>CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html">Detailed monitoring for Amazon ECS Managed Instances</a> in the Amazon ECS Developer Guide.</p>
@@ -976,6 +994,12 @@ export interface InstanceLaunchTemplateUpdate {
    * @public
    */
   instanceMetadataTagsPropagation?: boolean | undefined;
+
+  /**
+   * <p>The updated local storage configuration for Amazon ECS Managed Instances. Changes to local storage settings apply to new instances launched after the update.</p>
+   * @public
+   */
+  localStorageConfiguration?: ManagedInstancesLocalStorageConfiguration | undefined;
 
   /**
    * <p>CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html">Detailed monitoring for Amazon ECS Managed Instances</a> in the Amazon ECS Developer Guide.</p>

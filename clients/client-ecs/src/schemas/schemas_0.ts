@@ -257,6 +257,7 @@ const _MASCa = "ManagedAgentStateChanges";
 const _MAa = "ManagedAgents";
 const _MC = "ManagedCertificate";
 const _MGBPVCR = "MemoryGiBPerVCpuRequest";
+const _MILSC = "ManagedInstancesLocalStorageConfiguration";
 const _MINC = "ManagedInstancesNetworkConfiguration";
 const _MIP = "ManagedIngressPath";
 const _MIPa = "ManagedInstancesProvider";
@@ -730,6 +731,7 @@ const _lP = "linuxParameters";
 const _lS = "lastStatus";
 const _lSA = "lastStartedAt";
 const _lSC = "lastStatusChange";
+const _lSCo = "localStorageConfiguration";
 const _lSP = "logStreamPrefix";
 const _lST = "localStorageTypes";
 const _lSi = "lifecycleStages";
@@ -974,6 +976,7 @@ const _tl = "tls";
 const _tm = "tmpfs";
 const _u = "user";
 const _uA = "updatedAt";
+const _uLS = "useLocalStorage";
 const _uS = "updateStatus";
 const _uSR = "updateStatusReason";
 const _ul = "ulimits";
@@ -1838,13 +1841,13 @@ export var InstanceHealthCheckResult$: StaticStructureSchema = [3, n0, _IHCR,
 ];
 export var InstanceLaunchTemplate$: StaticStructureSchema = [3, n0, _ILT,
   0,
-  [_eIPA, _nC, _sCto, _mo, _cOT, _iMTP, _iR, _fE, _cR],
-  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, 0, 2, [() => InstanceRequirementsRequest$, 0], 2, () => CapacityReservationRequest$], 2
+  [_eIPA, _nC, _sCto, _lSCo, _mo, _cOT, _iMTP, _iR, _fE, _cR],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, () => ManagedInstancesLocalStorageConfiguration$, 0, 0, 2, [() => InstanceRequirementsRequest$, 0], 2, () => CapacityReservationRequest$], 2
 ];
 export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
   0,
-  [_eIPA, _nC, _sCto, _iMTP, _mo, _iR, _cR],
-  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 2, 0, [() => InstanceRequirementsRequest$, 0], () => CapacityReservationRequest$]
+  [_eIPA, _nC, _sCto, _iMTP, _lSCo, _mo, _iR, _cR],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 2, () => ManagedInstancesLocalStorageConfiguration$, 0, [() => InstanceRequirementsRequest$, 0], () => CapacityReservationRequest$]
 ];
 export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
   0,
@@ -2020,6 +2023,11 @@ export var ManagedIngressPath$: StaticStructureSchema = [3, n0, _MIP,
   0,
   [_aT, _end, _lBo, _lBSG, _ce, _li, _ru, _tG],
   [0, 0, () => ManagedLoadBalancer$, () => ManagedSecurityGroups, () => ManagedCertificate$, () => ManagedListener$, () => ManagedListenerRule$, () => ManagedTargetGroups], 2
+];
+export var ManagedInstancesLocalStorageConfiguration$: StaticStructureSchema = [3, n0, _MILSC,
+  0,
+  [_uLS],
+  [2]
 ];
 export var ManagedInstancesNetworkConfiguration$: StaticStructureSchema = [3, n0, _MINC,
   0,
