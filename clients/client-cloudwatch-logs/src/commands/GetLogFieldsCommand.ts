@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetLogFieldsRequest, GetLogFieldsResponse } from "../models/models_0";
+import type { GetLogFieldsRequest } from "../models/models_0";
+import type { GetLogFieldsResponse } from "../models/models_1";
 import { GetLogFields$ } from "../schemas/schemas_0";
 
 /**

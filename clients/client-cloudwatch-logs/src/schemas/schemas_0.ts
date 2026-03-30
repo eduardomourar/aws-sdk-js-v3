@@ -38,6 +38,9 @@ const _CLG = "CreateLogGroup";
 const _CLGR = "CreateLogGroupRequest";
 const _CLS = "CreateLogStream";
 const _CLSR = "CreateLogStreamRequest";
+const _CLT = "CreateLookupTable";
+const _CLTR = "CreateLookupTableRequest";
+const _CLTRr = "CreateLookupTableResponse";
 const _CSQ = "CreateScheduledQuery";
 const _CSQR = "CreateScheduledQueryRequest";
 const _CSQRr = "CreateScheduledQueryResponse";
@@ -122,6 +125,11 @@ const _DLSR = "DeleteLogStreamRequest";
 const _DLSRe = "DescribeLogStreamsRequest";
 const _DLSRes = "DescribeLogStreamsResponse";
 const _DLSe = "DescribeLogStreams";
+const _DLT = "DeleteLookupTable";
+const _DLTR = "DeleteLookupTableRequest";
+const _DLTRe = "DescribeLookupTablesRequest";
+const _DLTRes = "DescribeLookupTablesResponse";
+const _DLTe = "DescribeLookupTables";
 const _DMF = "DeleteMetricFilter";
 const _DMFR = "DeleteMetricFilterRequest";
 const _DMFRe = "DescribeMetricFiltersRequest";
@@ -219,6 +227,9 @@ const _GLORe = "GetLogObjectResponse";
 const _GLR = "GetLogRecord";
 const _GLRR = "GetLogRecordRequest";
 const _GLRRe = "GetLogRecordResponse";
+const _GLT = "GetLookupTable";
+const _GLTR = "GetLookupTableRequest";
+const _GLTRe = "GetLookupTableResponse";
 const _GQR = "GetQueryResults";
 const _GQRR = "GetQueryResultsRequest";
 const _GQRRe = "GetQueryResultsResponse";
@@ -288,6 +299,7 @@ const _LSQR = "ListScheduledQueriesRequest";
 const _LSQRi = "ListScheduledQueriesResponse";
 const _LSo = "LogSamples";
 const _LSog = "LogStreams";
+const _LT = "LookupTable";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -300,6 +312,7 @@ const _LTSM = "LiveTailSessionMetadata";
 const _LTSR = "LiveTailSessionResults";
 const _LTSS = "LiveTailSessionStart";
 const _LTSU = "LiveTailSessionUpdate";
+const _LTo = "LookupTables";
 const _MF = "MetricFilter";
 const _MFM = "MetricFilterMatches";
 const _MFMR = "MetricFilterMatchRecord";
@@ -471,6 +484,9 @@ const _ULAD = "UpdateLogAnomalyDetector";
 const _ULADR = "UpdateLogAnomalyDetectorRequest";
 const _ULG = "UntagLogGroup";
 const _ULGR = "UntagLogGroupRequest";
+const _ULT = "UpdateLookupTable";
+const _ULTR = "UpdateLookupTableRequest";
+const _ULTRp = "UpdateLookupTableResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _USQ = "UpdateScheduledQuery";
@@ -510,7 +526,8 @@ const _bIy = "bytesImported";
 const _bS = "bytesScanned";
 const _bTAE = "bearerTokenAuthenticationEnabled";
 const _c = "client";
-const _cA = "collectionArn";
+const _cA = "createdAt";
+const _cAo = "collectionArn";
 const _cE = "collectionEndpoint";
 const _cT = "creationTime";
 const _cTS = "creationTimeStamp";
@@ -699,9 +716,13 @@ const _lST = "lastScanTime";
 const _lSo = "logSamples";
 const _lSog = "logStreams";
 const _lT = "logType";
+const _lTA = "lookupTableArn";
 const _lTM = "listToMap";
+const _lTN = "lookupTableName";
+const _lTNP = "lookupTableNamePrefix";
 const _lTT = "lastTriggeredTime";
 const _lTo = "logTypes";
+const _lToo = "lookupTables";
 const _lUT = "lastUpdatedTime";
 const _lUTa = "lastUpdateTime";
 const _li = "limit";
@@ -768,7 +789,8 @@ const _r = "results";
 const _rA = "resourceArn";
 const _rAe = "resourceArns";
 const _rAo = "roleArn";
-const _rC = "resourceConfig";
+const _rC = "recordsCount";
+const _rCe = "resourceConfig";
 const _rD = "retentionDays";
 const _rEI = "rejectedEntityInfo";
 const _rF = "recordFields";
@@ -788,7 +810,8 @@ const _rT = "resourceType";
 const _rTe = "resourceTypes";
 const _rTen = "renameTo";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudwatchlogs";
-const _sB = "storedBytes";
+const _sB = "sizeBytes";
+const _sBt = "storedBytes";
 const _sC = "selectionCriteria";
 const _sCO = "startCharOffset";
 const _sCe = "searchedCompletely";
@@ -838,10 +861,12 @@ const _su = "suppressed";
 const _suc = "success";
 const _t = "target";
 const _tA = "targetArn";
+const _tB = "tableBody";
 const _tC = "transformerConfig";
 const _tCy = "typeConverter";
 const _tEM = "transformedEventMessage";
 const _tF = "targetFormat";
+const _tFa = "tableFields";
 const _tH = "triggerHistory";
 const _tI = "taskId";
 const _tK = "tagKeys";
@@ -1176,6 +1201,16 @@ export var CreateLogStreamRequest$: StaticStructureSchema = [3, n0, _CLSR,
   [_lGN, _lSN],
   [0, 0], 2
 ];
+export var CreateLookupTableRequest$: StaticStructureSchema = [3, n0, _CLTR,
+  0,
+  [_lTN, _tB, _d, _kKI, _ta],
+  [0, 0, 0, 0, 128 | 0], 2
+];
+export var CreateLookupTableResponse$: StaticStructureSchema = [3, n0, _CLTRr,
+  0,
+  [_lTA, _cA],
+  [0, 1]
+];
 export var CreateScheduledQueryRequest$: StaticStructureSchema = [3, n0, _CSQR,
   0,
   [_n, _qL, _qS, _sE, _eRA, _d, _lGI, _ti, _sTO, _dC, _sST, _sET, _st, _ta],
@@ -1280,6 +1315,11 @@ export var DeleteLogStreamRequest$: StaticStructureSchema = [3, n0, _DLSR,
   0,
   [_lGN, _lSN],
   [0, 0], 2
+];
+export var DeleteLookupTableRequest$: StaticStructureSchema = [3, n0, _DLTR,
+  0,
+  [_lTA],
+  [0], 1
 ];
 export var DeleteMetricFilterRequest$: StaticStructureSchema = [3, n0, _DMFR,
   0,
@@ -1475,6 +1515,16 @@ export var DescribeLogStreamsResponse$: StaticStructureSchema = [3, n0, _DLSRes,
   0,
   [_lSog, _nT],
   [() => LogStreams, 0]
+];
+export var DescribeLookupTablesRequest$: StaticStructureSchema = [3, n0, _DLTRe,
+  0,
+  [_lTNP, _mR, _nT],
+  [0, 1, 0]
+];
+export var DescribeLookupTablesResponse$: StaticStructureSchema = [3, n0, _DLTRes,
+  0,
+  [_lToo, _nT],
+  [() => LookupTables, 0]
 ];
 export var DescribeMetricFiltersRequest$: StaticStructureSchema = [3, n0, _DMFRe,
   0,
@@ -1716,6 +1766,16 @@ export var GetLogRecordResponse$: StaticStructureSchema = [3, n0, _GLRRe,
   [_lR],
   [128 | 0]
 ];
+export var GetLookupTableRequest$: StaticStructureSchema = [3, n0, _GLTR,
+  0,
+  [_lTA],
+  [0], 1
+];
+export var GetLookupTableResponse$: StaticStructureSchema = [3, n0, _GLTRe,
+  0,
+  [_lTA, _lTN, _d, _tB, _sB, _lUT, _kKI],
+  [0, 0, 0, 0, 1, 1, 0]
+];
 export var GetQueryResultsRequest$: StaticStructureSchema = [3, n0, _GQRR,
   0,
   [_qI],
@@ -1943,7 +2003,7 @@ export var LogFieldType$: StaticStructureSchema = [3, n0, _LFT,
 ];
 export var LogGroup$: StaticStructureSchema = [3, n0, _LG,
   0,
-  [_lGN, _cT, _rID, _mFC, _ar, _sB, _kKI, _dPS, _iPn, _lGCo, _lGA, _dPE, _bTAE],
+  [_lGN, _cT, _rID, _mFC, _ar, _sBt, _kKI, _dPS, _iPn, _lGCo, _lGA, _dPE, _bTAE],
   [0, 1, 1, 1, 0, 1, 0, 0, 64 | 0, 0, 0, 2, 2]
 ];
 export var LogGroupField$: StaticStructureSchema = [3, n0, _LGF,
@@ -1958,8 +2018,13 @@ export var LogGroupSummary$: StaticStructureSchema = [3, n0, _LGS,
 ];
 export var LogStream$: StaticStructureSchema = [3, n0, _LS,
   0,
-  [_lSN, _cT, _fETi, _lETa, _lIT, _uST, _ar, _sB],
+  [_lSN, _cT, _fETi, _lETa, _lIT, _uST, _ar, _sBt],
   [0, 1, 1, 1, 1, 0, 0, 1]
+];
+export var LookupTable$: StaticStructureSchema = [3, n0, _LT,
+  0,
+  [_lTA, _lTN, _d, _tFa, _rC, _sB, _lUT, _kKI],
+  [0, 0, 0, 64 | 0, 1, 1, 1, 0]
 ];
 export var LowerCaseString$: StaticStructureSchema = [3, n0, _LCS,
   0,
@@ -1998,7 +2063,7 @@ export var OpenSearchApplication$: StaticStructureSchema = [3, n0, _OSA,
 ];
 export var OpenSearchCollection$: StaticStructureSchema = [3, n0, _OSC,
   0,
-  [_cE, _cA, _sta],
+  [_cE, _cAo, _sta],
   [0, 0, () => OpenSearchResourceStatus$]
 ];
 export var OpenSearchDataAccessPolicy$: StaticStructureSchema = [3, n0, _OSDAP,
@@ -2188,7 +2253,7 @@ export var PutIndexPolicyResponse$: StaticStructureSchema = [3, n0, _PIPRu,
 ];
 export var PutIntegrationRequest$: StaticStructureSchema = [3, n0, _PIR,
   0,
-  [_iN, _rC, _iTn],
+  [_iN, _rCe, _iTn],
   [0, () => ResourceConfig$, 0], 3
 ];
 export var PutIntegrationResponse$: StaticStructureSchema = [3, n0, _PIRu,
@@ -2491,6 +2556,16 @@ export var UpdateLogAnomalyDetectorRequest$: StaticStructureSchema = [3, n0, _UL
   [_aDA, _ena, _eF, _fP, _aVT],
   [0, 2, 0, 0, 1], 2
 ];
+export var UpdateLookupTableRequest$: StaticStructureSchema = [3, n0, _ULTR,
+  0,
+  [_lTA, _tB, _d, _kKI],
+  [0, 0, 0, 0], 2
+];
+export var UpdateLookupTableResponse$: StaticStructureSchema = [3, n0, _ULTRp,
+  0,
+  [_lTA, _lUT],
+  [0, 1]
+];
 export var UpdateScheduledQueryRequest$: StaticStructureSchema = [3, n0, _USQR,
   0,
   [_i, _qL, _qS, _sE, _eRA, _d, _lGI, _ti, _sTO, _dC, _sST, _sET, _st],
@@ -2613,6 +2688,9 @@ var LogStreams: StaticListSchema = [1, n0, _LSog,
   0, () => LogStream$
 ];
 var LogTypes = 64 | 0;
+var LookupTables: StaticListSchema = [1, n0, _LTo,
+  0, () => LookupTable$
+];
 var LowerCaseStringWithKeys = 64 | 0;
 var MatchPatterns = 64 | 0;
 var MetricFilterMatches: StaticListSchema = [1, n0, _MFM,
@@ -2684,6 +2762,7 @@ var SubscriptionFilters: StaticListSchema = [1, n0, _SFu,
 var SubstituteStringEntries: StaticListSchema = [1, n0, _SSEub,
   0, () => SubstituteStringEntry$
 ];
+var TableFields = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagList = 64 | 0;
 var TestEventMessages = 64 | 0;
@@ -2756,6 +2835,9 @@ export var CreateLogGroup$: StaticOperationSchema = [9, n0, _CLG,
 export var CreateLogStream$: StaticOperationSchema = [9, n0, _CLS,
   0, () => CreateLogStreamRequest$, () => __Unit
 ];
+export var CreateLookupTable$: StaticOperationSchema = [9, n0, _CLT,
+  0, () => CreateLookupTableRequest$, () => CreateLookupTableResponse$
+];
 export var CreateScheduledQuery$: StaticOperationSchema = [9, n0, _CSQ,
   0, () => CreateScheduledQueryRequest$, () => CreateScheduledQueryResponse$
 ];
@@ -2794,6 +2876,9 @@ export var DeleteLogGroup$: StaticOperationSchema = [9, n0, _DLG,
 ];
 export var DeleteLogStream$: StaticOperationSchema = [9, n0, _DLS,
   0, () => DeleteLogStreamRequest$, () => __Unit
+];
+export var DeleteLookupTable$: StaticOperationSchema = [9, n0, _DLT,
+  0, () => DeleteLookupTableRequest$, () => __Unit
 ];
 export var DeleteMetricFilter$: StaticOperationSchema = [9, n0, _DMF,
   0, () => DeleteMetricFilterRequest$, () => __Unit
@@ -2855,6 +2940,9 @@ export var DescribeLogGroups$: StaticOperationSchema = [9, n0, _DLGe,
 export var DescribeLogStreams$: StaticOperationSchema = [9, n0, _DLSe,
   0, () => DescribeLogStreamsRequest$, () => DescribeLogStreamsResponse$
 ];
+export var DescribeLookupTables$: StaticOperationSchema = [9, n0, _DLTe,
+  0, () => DescribeLookupTablesRequest$, () => DescribeLookupTablesResponse$
+];
 export var DescribeMetricFilters$: StaticOperationSchema = [9, n0, _DMFe,
   0, () => DescribeMetricFiltersRequest$, () => DescribeMetricFiltersResponse$
 ];
@@ -2914,6 +3002,9 @@ export var GetLogObject$: StaticOperationSchema = [9, n0, _GLO,
 ];
 export var GetLogRecord$: StaticOperationSchema = [9, n0, _GLR,
   0, () => GetLogRecordRequest$, () => GetLogRecordResponse$
+];
+export var GetLookupTable$: StaticOperationSchema = [9, n0, _GLT,
+  0, () => GetLookupTableRequest$, () => GetLookupTableResponse$
 ];
 export var GetQueryResults$: StaticOperationSchema = [9, n0, _GQR,
   0, () => GetQueryResultsRequest$, () => GetQueryResultsResponse$
@@ -3046,6 +3137,9 @@ export var UpdateDeliveryConfiguration$: StaticOperationSchema = [9, n0, _UDC,
 ];
 export var UpdateLogAnomalyDetector$: StaticOperationSchema = [9, n0, _ULAD,
   0, () => UpdateLogAnomalyDetectorRequest$, () => __Unit
+];
+export var UpdateLookupTable$: StaticOperationSchema = [9, n0, _ULT,
+  0, () => UpdateLookupTableRequest$, () => UpdateLookupTableResponse$
 ];
 export var UpdateScheduledQuery$: StaticOperationSchema = [9, n0, _USQ,
   0, () => UpdateScheduledQueryRequest$, () => UpdateScheduledQueryResponse$

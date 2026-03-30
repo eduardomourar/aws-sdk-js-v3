@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateScheduledQueryRequest, UpdateScheduledQueryResponse } from "../models/models_0";
+import type { UpdateScheduledQueryRequest, UpdateScheduledQueryResponse } from "../models/models_1";
 import { UpdateScheduledQuery$ } from "../schemas/schemas_0";
 
 /**

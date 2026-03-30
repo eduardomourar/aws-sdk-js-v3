@@ -54,6 +54,11 @@ import {
   CreateLogStreamCommand,
 } from "./commands/CreateLogStreamCommand";
 import {
+  type CreateLookupTableCommandInput,
+  type CreateLookupTableCommandOutput,
+  CreateLookupTableCommand,
+} from "./commands/CreateLookupTableCommand";
+import {
   type CreateScheduledQueryCommandInput,
   type CreateScheduledQueryCommandOutput,
   CreateScheduledQueryCommand,
@@ -118,6 +123,11 @@ import {
   type DeleteLogStreamCommandOutput,
   DeleteLogStreamCommand,
 } from "./commands/DeleteLogStreamCommand";
+import {
+  type DeleteLookupTableCommandInput,
+  type DeleteLookupTableCommandOutput,
+  DeleteLookupTableCommand,
+} from "./commands/DeleteLookupTableCommand";
 import {
   type DeleteMetricFilterCommandInput,
   type DeleteMetricFilterCommandOutput,
@@ -219,6 +229,11 @@ import {
   DescribeLogStreamsCommand,
 } from "./commands/DescribeLogStreamsCommand";
 import {
+  type DescribeLookupTablesCommandInput,
+  type DescribeLookupTablesCommandOutput,
+  DescribeLookupTablesCommand,
+} from "./commands/DescribeLookupTablesCommand";
+import {
   type DescribeMetricFiltersCommandInput,
   type DescribeMetricFiltersCommandOutput,
   DescribeMetricFiltersCommand,
@@ -318,6 +333,11 @@ import {
   type GetLogRecordCommandOutput,
   GetLogRecordCommand,
 } from "./commands/GetLogRecordCommand";
+import {
+  type GetLookupTableCommandInput,
+  type GetLookupTableCommandOutput,
+  GetLookupTableCommand,
+} from "./commands/GetLookupTableCommand";
 import {
   type GetQueryResultsCommandInput,
   type GetQueryResultsCommandOutput,
@@ -535,6 +555,11 @@ import {
   UpdateLogAnomalyDetectorCommand,
 } from "./commands/UpdateLogAnomalyDetectorCommand";
 import {
+  type UpdateLookupTableCommandInput,
+  type UpdateLookupTableCommandOutput,
+  UpdateLookupTableCommand,
+} from "./commands/UpdateLookupTableCommand";
+import {
   type UpdateScheduledQueryCommandInput,
   type UpdateScheduledQueryCommandOutput,
   UpdateScheduledQueryCommand,
@@ -569,6 +594,7 @@ const commands = {
   CreateLogAnomalyDetectorCommand,
   CreateLogGroupCommand,
   CreateLogStreamCommand,
+  CreateLookupTableCommand,
   CreateScheduledQueryCommand,
   DeleteAccountPolicyCommand,
   DeleteDataProtectionPolicyCommand,
@@ -582,6 +608,7 @@ const commands = {
   DeleteLogAnomalyDetectorCommand,
   DeleteLogGroupCommand,
   DeleteLogStreamCommand,
+  DeleteLookupTableCommand,
   DeleteMetricFilterCommand,
   DeleteQueryDefinitionCommand,
   DeleteResourcePolicyCommand,
@@ -602,6 +629,7 @@ const commands = {
   DescribeIndexPoliciesCommand,
   DescribeLogGroupsCommand,
   DescribeLogStreamsCommand,
+  DescribeLookupTablesCommand,
   DescribeMetricFiltersCommand,
   DescribeQueriesCommand,
   DescribeQueryDefinitionsCommand,
@@ -622,6 +650,7 @@ const commands = {
   GetLogGroupFieldsCommand,
   GetLogObjectCommand,
   GetLogRecordCommand,
+  GetLookupTableCommand,
   GetQueryResultsCommand,
   GetScheduledQueryCommand,
   GetScheduledQueryHistoryCommand,
@@ -666,6 +695,7 @@ const commands = {
   UpdateAnomalyCommand,
   UpdateDeliveryConfigurationCommand,
   UpdateLogAnomalyDetectorCommand,
+  UpdateLookupTableCommand,
   UpdateScheduledQueryCommand,
 };
 const paginators = {
@@ -858,6 +888,23 @@ export interface CloudWatchLogs {
     args: CreateLogStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLogStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLookupTableCommand}
+   */
+  createLookupTable(
+    args: CreateLookupTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLookupTableCommandOutput>;
+  createLookupTable(
+    args: CreateLookupTableCommandInput,
+    cb: (err: any, data?: CreateLookupTableCommandOutput) => void
+  ): void;
+  createLookupTable(
+    args: CreateLookupTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLookupTableCommandOutput) => void
   ): void;
 
   /**
@@ -1079,6 +1126,23 @@ export interface CloudWatchLogs {
     args: DeleteLogStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLogStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLookupTableCommand}
+   */
+  deleteLookupTable(
+    args: DeleteLookupTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLookupTableCommandOutput>;
+  deleteLookupTable(
+    args: DeleteLookupTableCommandInput,
+    cb: (err: any, data?: DeleteLookupTableCommandOutput) => void
+  ): void;
+  deleteLookupTable(
+    args: DeleteLookupTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLookupTableCommandOutput) => void
   ): void;
 
   /**
@@ -1432,6 +1496,24 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link DescribeLookupTablesCommand}
+   */
+  describeLookupTables(): Promise<DescribeLookupTablesCommandOutput>;
+  describeLookupTables(
+    args: DescribeLookupTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLookupTablesCommandOutput>;
+  describeLookupTables(
+    args: DescribeLookupTablesCommandInput,
+    cb: (err: any, data?: DescribeLookupTablesCommandOutput) => void
+  ): void;
+  describeLookupTables(
+    args: DescribeLookupTablesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLookupTablesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeMetricFiltersCommand}
    */
   describeMetricFilters(): Promise<DescribeMetricFiltersCommandOutput>;
@@ -1776,6 +1858,23 @@ export interface CloudWatchLogs {
     args: GetLogRecordCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLogRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLookupTableCommand}
+   */
+  getLookupTable(
+    args: GetLookupTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLookupTableCommandOutput>;
+  getLookupTable(
+    args: GetLookupTableCommandInput,
+    cb: (err: any, data?: GetLookupTableCommandOutput) => void
+  ): void;
+  getLookupTable(
+    args: GetLookupTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLookupTableCommandOutput) => void
   ): void;
 
   /**
@@ -2530,6 +2629,23 @@ export interface CloudWatchLogs {
     args: UpdateLogAnomalyDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLogAnomalyDetectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLookupTableCommand}
+   */
+  updateLookupTable(
+    args: UpdateLookupTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLookupTableCommandOutput>;
+  updateLookupTable(
+    args: UpdateLookupTableCommandInput,
+    cb: (err: any, data?: UpdateLookupTableCommandOutput) => void
+  ): void;
+  updateLookupTable(
+    args: UpdateLookupTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLookupTableCommandOutput) => void
   ): void;
 
   /**

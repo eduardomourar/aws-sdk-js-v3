@@ -54,6 +54,10 @@ import {
   CreateLogStream$,
   CreateLogStreamCommand,
   CreateLogStreamRequest$,
+  CreateLookupTable$,
+  CreateLookupTableCommand,
+  CreateLookupTableRequest$,
+  CreateLookupTableResponse$,
   CreateScheduledQuery$,
   CreateScheduledQueryCommand,
   CreateScheduledQueryRequest$,
@@ -104,6 +108,9 @@ import {
   DeleteLogStream$,
   DeleteLogStreamCommand,
   DeleteLogStreamRequest$,
+  DeleteLookupTable$,
+  DeleteLookupTableCommand,
+  DeleteLookupTableRequest$,
   DeleteMetricFilter$,
   DeleteMetricFilterCommand,
   DeleteMetricFilterRequest$,
@@ -184,6 +191,10 @@ import {
   DescribeLogStreamsCommand,
   DescribeLogStreamsRequest$,
   DescribeLogStreamsResponse$,
+  DescribeLookupTables$,
+  DescribeLookupTablesCommand,
+  DescribeLookupTablesRequest$,
+  DescribeLookupTablesResponse$,
   DescribeMetricFilters$,
   DescribeMetricFiltersCommand,
   DescribeMetricFiltersRequest$,
@@ -280,6 +291,10 @@ import {
   GetLogRecordCommand,
   GetLogRecordRequest$,
   GetLogRecordResponse$,
+  GetLookupTable$,
+  GetLookupTableCommand,
+  GetLookupTableRequest$,
+  GetLookupTableResponse$,
   GetQueryResults$,
   GetQueryResultsCommand,
   GetQueryResultsRequest$,
@@ -378,6 +393,7 @@ import {
   LogGroupField$,
   LogGroupSummary$,
   LogStream$,
+  LookupTable$,
   LowerCaseString$,
   MalformedQueryException,
   MalformedQueryException$,
@@ -604,6 +620,10 @@ import {
   UpdateLogAnomalyDetector$,
   UpdateLogAnomalyDetectorCommand,
   UpdateLogAnomalyDetectorRequest$,
+  UpdateLookupTable$,
+  UpdateLookupTableCommand,
+  UpdateLookupTableRequest$,
+  UpdateLookupTableResponse$,
   UpdateScheduledQuery$,
   UpdateScheduledQueryCommand,
   UpdateScheduledQueryRequest$,
@@ -637,6 +657,8 @@ assert(typeof CreateLogGroupCommand === "function");
 assert(typeof CreateLogGroup$ === "object");
 assert(typeof CreateLogStreamCommand === "function");
 assert(typeof CreateLogStream$ === "object");
+assert(typeof CreateLookupTableCommand === "function");
+assert(typeof CreateLookupTable$ === "object");
 assert(typeof CreateScheduledQueryCommand === "function");
 assert(typeof CreateScheduledQuery$ === "object");
 assert(typeof DeleteAccountPolicyCommand === "function");
@@ -663,6 +685,8 @@ assert(typeof DeleteLogGroupCommand === "function");
 assert(typeof DeleteLogGroup$ === "object");
 assert(typeof DeleteLogStreamCommand === "function");
 assert(typeof DeleteLogStream$ === "object");
+assert(typeof DeleteLookupTableCommand === "function");
+assert(typeof DeleteLookupTable$ === "object");
 assert(typeof DeleteMetricFilterCommand === "function");
 assert(typeof DeleteMetricFilter$ === "object");
 assert(typeof DeleteQueryDefinitionCommand === "function");
@@ -703,6 +727,8 @@ assert(typeof DescribeLogGroupsCommand === "function");
 assert(typeof DescribeLogGroups$ === "object");
 assert(typeof DescribeLogStreamsCommand === "function");
 assert(typeof DescribeLogStreams$ === "object");
+assert(typeof DescribeLookupTablesCommand === "function");
+assert(typeof DescribeLookupTables$ === "object");
 assert(typeof DescribeMetricFiltersCommand === "function");
 assert(typeof DescribeMetricFilters$ === "object");
 assert(typeof DescribeQueriesCommand === "function");
@@ -743,6 +769,8 @@ assert(typeof GetLogObjectCommand === "function");
 assert(typeof GetLogObject$ === "object");
 assert(typeof GetLogRecordCommand === "function");
 assert(typeof GetLogRecord$ === "object");
+assert(typeof GetLookupTableCommand === "function");
+assert(typeof GetLookupTable$ === "object");
 assert(typeof GetQueryResultsCommand === "function");
 assert(typeof GetQueryResults$ === "object");
 assert(typeof GetScheduledQueryCommand === "function");
@@ -831,6 +859,8 @@ assert(typeof UpdateDeliveryConfigurationCommand === "function");
 assert(typeof UpdateDeliveryConfiguration$ === "object");
 assert(typeof UpdateLogAnomalyDetectorCommand === "function");
 assert(typeof UpdateLogAnomalyDetector$ === "object");
+assert(typeof UpdateLookupTableCommand === "function");
+assert(typeof UpdateLookupTable$ === "object");
 assert(typeof UpdateScheduledQueryCommand === "function");
 assert(typeof UpdateScheduledQuery$ === "object");
 // structural schemas
@@ -860,6 +890,8 @@ assert(typeof CreateLogAnomalyDetectorRequest$ === "object");
 assert(typeof CreateLogAnomalyDetectorResponse$ === "object");
 assert(typeof CreateLogGroupRequest$ === "object");
 assert(typeof CreateLogStreamRequest$ === "object");
+assert(typeof CreateLookupTableRequest$ === "object");
+assert(typeof CreateLookupTableResponse$ === "object");
 assert(typeof CreateScheduledQueryRequest$ === "object");
 assert(typeof CreateScheduledQueryResponse$ === "object");
 assert(typeof CSV$ === "object");
@@ -881,6 +913,7 @@ assert(typeof DeleteKeys$ === "object");
 assert(typeof DeleteLogAnomalyDetectorRequest$ === "object");
 assert(typeof DeleteLogGroupRequest$ === "object");
 assert(typeof DeleteLogStreamRequest$ === "object");
+assert(typeof DeleteLookupTableRequest$ === "object");
 assert(typeof DeleteMetricFilterRequest$ === "object");
 assert(typeof DeleteQueryDefinitionRequest$ === "object");
 assert(typeof DeleteQueryDefinitionResponse$ === "object");
@@ -920,6 +953,8 @@ assert(typeof DescribeLogGroupsRequest$ === "object");
 assert(typeof DescribeLogGroupsResponse$ === "object");
 assert(typeof DescribeLogStreamsRequest$ === "object");
 assert(typeof DescribeLogStreamsResponse$ === "object");
+assert(typeof DescribeLookupTablesRequest$ === "object");
+assert(typeof DescribeLookupTablesResponse$ === "object");
 assert(typeof DescribeMetricFiltersRequest$ === "object");
 assert(typeof DescribeMetricFiltersResponse$ === "object");
 assert(typeof DescribeQueriesRequest$ === "object");
@@ -969,6 +1004,8 @@ assert(typeof GetLogObjectResponse$ === "object");
 assert(typeof GetLogObjectResponseStream$ === "object");
 assert(typeof GetLogRecordRequest$ === "object");
 assert(typeof GetLogRecordResponse$ === "object");
+assert(typeof GetLookupTableRequest$ === "object");
+assert(typeof GetLookupTableResponse$ === "object");
 assert(typeof GetQueryResultsRequest$ === "object");
 assert(typeof GetQueryResultsResponse$ === "object");
 assert(typeof GetScheduledQueryHistoryRequest$ === "object");
@@ -1019,6 +1056,7 @@ assert(typeof LogGroup$ === "object");
 assert(typeof LogGroupField$ === "object");
 assert(typeof LogGroupSummary$ === "object");
 assert(typeof LogStream$ === "object");
+assert(typeof LookupTable$ === "object");
 assert(typeof LowerCaseString$ === "object");
 assert(typeof MetricFilter$ === "object");
 assert(typeof MetricFilterMatchRecord$ === "object");
@@ -1127,6 +1165,8 @@ assert(typeof UpdateAnomalyRequest$ === "object");
 assert(typeof UpdateDeliveryConfigurationRequest$ === "object");
 assert(typeof UpdateDeliveryConfigurationResponse$ === "object");
 assert(typeof UpdateLogAnomalyDetectorRequest$ === "object");
+assert(typeof UpdateLookupTableRequest$ === "object");
+assert(typeof UpdateLookupTableResponse$ === "object");
 assert(typeof UpdateScheduledQueryRequest$ === "object");
 assert(typeof UpdateScheduledQueryResponse$ === "object");
 assert(typeof UpperCaseString$ === "object");

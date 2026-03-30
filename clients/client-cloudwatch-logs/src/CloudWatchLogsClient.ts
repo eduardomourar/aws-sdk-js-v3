@@ -84,6 +84,10 @@ import type {
 import type { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "./commands/CreateLogGroupCommand";
 import type { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "./commands/CreateLogStreamCommand";
 import type {
+  CreateLookupTableCommandInput,
+  CreateLookupTableCommandOutput,
+} from "./commands/CreateLookupTableCommand";
+import type {
   CreateScheduledQueryCommandInput,
   CreateScheduledQueryCommandOutput,
 } from "./commands/CreateScheduledQueryCommand";
@@ -126,6 +130,10 @@ import type {
 } from "./commands/DeleteLogAnomalyDetectorCommand";
 import type { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "./commands/DeleteLogGroupCommand";
 import type { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "./commands/DeleteLogStreamCommand";
+import type {
+  DeleteLookupTableCommandInput,
+  DeleteLookupTableCommandOutput,
+} from "./commands/DeleteLookupTableCommand";
 import type {
   DeleteMetricFilterCommandInput,
   DeleteMetricFilterCommandOutput,
@@ -207,6 +215,10 @@ import type {
   DescribeLogStreamsCommandOutput,
 } from "./commands/DescribeLogStreamsCommand";
 import type {
+  DescribeLookupTablesCommandInput,
+  DescribeLookupTablesCommandOutput,
+} from "./commands/DescribeLookupTablesCommand";
+import type {
   DescribeMetricFiltersCommandInput,
   DescribeMetricFiltersCommandOutput,
 } from "./commands/DescribeMetricFiltersCommand";
@@ -262,6 +274,7 @@ import type {
 } from "./commands/GetLogGroupFieldsCommand";
 import type { GetLogObjectCommandInput, GetLogObjectCommandOutput } from "./commands/GetLogObjectCommand";
 import type { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
+import type { GetLookupTableCommandInput, GetLookupTableCommandOutput } from "./commands/GetLookupTableCommand";
 import type { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
 import type {
   GetScheduledQueryCommandInput,
@@ -370,6 +383,10 @@ import type {
   UpdateLogAnomalyDetectorCommandOutput,
 } from "./commands/UpdateLogAnomalyDetectorCommand";
 import type {
+  UpdateLookupTableCommandInput,
+  UpdateLookupTableCommandOutput,
+} from "./commands/UpdateLookupTableCommand";
+import type {
   UpdateScheduledQueryCommandInput,
   UpdateScheduledQueryCommandOutput,
 } from "./commands/UpdateScheduledQueryCommand";
@@ -398,6 +415,7 @@ export type ServiceInputTypes =
   | CreateLogAnomalyDetectorCommandInput
   | CreateLogGroupCommandInput
   | CreateLogStreamCommandInput
+  | CreateLookupTableCommandInput
   | CreateScheduledQueryCommandInput
   | DeleteAccountPolicyCommandInput
   | DeleteDataProtectionPolicyCommandInput
@@ -411,6 +429,7 @@ export type ServiceInputTypes =
   | DeleteLogAnomalyDetectorCommandInput
   | DeleteLogGroupCommandInput
   | DeleteLogStreamCommandInput
+  | DeleteLookupTableCommandInput
   | DeleteMetricFilterCommandInput
   | DeleteQueryDefinitionCommandInput
   | DeleteResourcePolicyCommandInput
@@ -431,6 +450,7 @@ export type ServiceInputTypes =
   | DescribeIndexPoliciesCommandInput
   | DescribeLogGroupsCommandInput
   | DescribeLogStreamsCommandInput
+  | DescribeLookupTablesCommandInput
   | DescribeMetricFiltersCommandInput
   | DescribeQueriesCommandInput
   | DescribeQueryDefinitionsCommandInput
@@ -451,6 +471,7 @@ export type ServiceInputTypes =
   | GetLogGroupFieldsCommandInput
   | GetLogObjectCommandInput
   | GetLogRecordCommandInput
+  | GetLookupTableCommandInput
   | GetQueryResultsCommandInput
   | GetScheduledQueryCommandInput
   | GetScheduledQueryHistoryCommandInput
@@ -495,6 +516,7 @@ export type ServiceInputTypes =
   | UpdateAnomalyCommandInput
   | UpdateDeliveryConfigurationCommandInput
   | UpdateLogAnomalyDetectorCommandInput
+  | UpdateLookupTableCommandInput
   | UpdateScheduledQueryCommandInput;
 
 /**
@@ -511,6 +533,7 @@ export type ServiceOutputTypes =
   | CreateLogAnomalyDetectorCommandOutput
   | CreateLogGroupCommandOutput
   | CreateLogStreamCommandOutput
+  | CreateLookupTableCommandOutput
   | CreateScheduledQueryCommandOutput
   | DeleteAccountPolicyCommandOutput
   | DeleteDataProtectionPolicyCommandOutput
@@ -524,6 +547,7 @@ export type ServiceOutputTypes =
   | DeleteLogAnomalyDetectorCommandOutput
   | DeleteLogGroupCommandOutput
   | DeleteLogStreamCommandOutput
+  | DeleteLookupTableCommandOutput
   | DeleteMetricFilterCommandOutput
   | DeleteQueryDefinitionCommandOutput
   | DeleteResourcePolicyCommandOutput
@@ -544,6 +568,7 @@ export type ServiceOutputTypes =
   | DescribeIndexPoliciesCommandOutput
   | DescribeLogGroupsCommandOutput
   | DescribeLogStreamsCommandOutput
+  | DescribeLookupTablesCommandOutput
   | DescribeMetricFiltersCommandOutput
   | DescribeQueriesCommandOutput
   | DescribeQueryDefinitionsCommandOutput
@@ -564,6 +589,7 @@ export type ServiceOutputTypes =
   | GetLogGroupFieldsCommandOutput
   | GetLogObjectCommandOutput
   | GetLogRecordCommandOutput
+  | GetLookupTableCommandOutput
   | GetQueryResultsCommandOutput
   | GetScheduledQueryCommandOutput
   | GetScheduledQueryHistoryCommandOutput
@@ -608,6 +634,7 @@ export type ServiceOutputTypes =
   | UpdateAnomalyCommandOutput
   | UpdateDeliveryConfigurationCommandOutput
   | UpdateLogAnomalyDetectorCommandOutput
+  | UpdateLookupTableCommandOutput
   | UpdateScheduledQueryCommandOutput;
 
 /**

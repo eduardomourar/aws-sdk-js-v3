@@ -1235,6 +1235,66 @@ export interface CreateLogStreamRequest {
 }
 
 /**
+ * @public
+ */
+export interface CreateLookupTableRequest {
+  /**
+   * <p>The name of the lookup table. The name must be unique within your account and Region.
+   *       The name can contain only alphanumeric characters and underscores, and can be up to
+   *       256 characters long.</p>
+   * @public
+   */
+  lookupTableName: string | undefined;
+
+  /**
+   * <p>A description of the lookup table. The description can be up to 1024 characters
+   *       long.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The CSV content of the lookup table. The first row must be a header row with column
+   *       names. The content must use UTF-8 encoding and not exceed 10 MB.</p>
+   * @public
+   */
+  tableBody: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key to use to encrypt the lookup table data. If you
+   *       don't specify a key, the data is encrypted with an Amazon Web Services-owned key.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the lookup table. You can associate as many
+   *       as 50 tags with a lookup table. Tags can help you organize and categorize your
+   *       resources.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLookupTableResponse {
+  /**
+   * <p>The ARN of the lookup table that was created.</p>
+   * @public
+   */
+  lookupTableArn?: string | undefined;
+
+  /**
+   * <p>The time when the lookup table was created, expressed as the number of milliseconds
+   *       after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+   * @public
+   */
+  createdAt?: number | undefined;
+}
+
+/**
  * <p>Configuration for Amazon S3 destination where scheduled query results are delivered.</p>
  * @public
  */
@@ -1689,6 +1749,17 @@ export interface DeleteLogStreamRequest {
    * @public
    */
   logStreamName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLookupTableRequest {
+  /**
+   * <p>The ARN of the lookup table to delete.</p>
+   * @public
+   */
+  lookupTableArn: string | undefined;
 }
 
 /**
@@ -3217,6 +3288,107 @@ export interface DescribeLogStreamsResponse {
   /**
    * <p>The token for the next set of items to return. The token expires after 24
    *       hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLookupTablesRequest {
+  /**
+   * <p>A prefix to filter lookup tables by name. Only tables whose names start with this
+   *       prefix are returned. If you don't specify a prefix, all tables in the account and Region are
+   *       returned.</p>
+   * @public
+   */
+  lookupTableNamePrefix?: string | undefined;
+
+  /**
+   * <p>The maximum number of lookup tables to return in the response. The default value is 50
+   *       and the maximum value is 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains metadata about a lookup table returned by <code>DescribeLookupTables</code>.</p>
+ * @public
+ */
+export interface LookupTable {
+  /**
+   * <p>The ARN of the lookup table.</p>
+   * @public
+   */
+  lookupTableArn?: string | undefined;
+
+  /**
+   * <p>The name of the lookup table.</p>
+   * @public
+   */
+  lookupTableName?: string | undefined;
+
+  /**
+   * <p>The description of the lookup table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The column headers from the first row of the CSV file.</p>
+   * @public
+   */
+  tableFields?: string[] | undefined;
+
+  /**
+   * <p>The number of data rows in the lookup table, excluding the header row.</p>
+   * @public
+   */
+  recordsCount?: number | undefined;
+
+  /**
+   * <p>The size of the lookup table in bytes.</p>
+   * @public
+   */
+  sizeBytes?: number | undefined;
+
+  /**
+   * <p>The time when the lookup table was last updated, expressed as the number of
+   *       milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+   * @public
+   */
+  lastUpdatedTime?: number | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt the lookup table data, if
+   *       applicable.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLookupTablesResponse {
+  /**
+   * <p>An array of structures, where each structure contains metadata about one lookup
+   *       table.</p>
+   * @public
+   */
+  lookupTables?: LookupTable[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5128,6 +5300,66 @@ export interface GetLogRecordResponse {
    * @public
    */
   logRecord?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLookupTableRequest {
+  /**
+   * <p>The ARN of the lookup table to retrieve.</p>
+   * @public
+   */
+  lookupTableArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLookupTableResponse {
+  /**
+   * <p>The ARN of the lookup table.</p>
+   * @public
+   */
+  lookupTableArn?: string | undefined;
+
+  /**
+   * <p>The name of the lookup table.</p>
+   * @public
+   */
+  lookupTableName?: string | undefined;
+
+  /**
+   * <p>The description of the lookup table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The full CSV content of the lookup table.</p>
+   * @public
+   */
+  tableBody?: string | undefined;
+
+  /**
+   * <p>The size of the lookup table in bytes.</p>
+   * @public
+   */
+  sizeBytes?: number | undefined;
+
+  /**
+   * <p>The time when the lookup table was last updated, expressed as the number of
+   *       milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+   * @public
+   */
+  lastUpdatedTime?: number | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt the lookup table data, if
+   *       applicable.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -9044,252 +9276,31 @@ export interface UpdateLogAnomalyDetectorRequest {
 /**
  * @public
  */
-export interface UpdateScheduledQueryRequest {
+export interface UpdateLookupTableRequest {
   /**
-   * <p>The ARN or name of the scheduled query to update.</p>
+   * <p>The ARN of the lookup table to update.</p>
    * @public
    */
-  identifier: string | undefined;
+  lookupTableArn: string | undefined;
 
   /**
-   * <p>An updated description for the scheduled query.</p>
+   * <p>An updated description of the lookup table.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated query language for the scheduled query.</p>
+   * <p>The new CSV content to replace the existing data. The first row must be a header row
+   *       with column names. The content must use UTF-8 encoding and not exceed 10 MB.</p>
    * @public
    */
-  queryLanguage: QueryLanguage | undefined;
+  tableBody: string | undefined;
 
   /**
-   * <p>The updated query string to execute.</p>
+   * <p>The ARN of the KMS key to use to encrypt the lookup table data. You can
+   *       use this parameter to add, update, or remove the KMS key. To remove the KMS key and use an
+   *       Amazon Web Services-owned key instead, specify an empty string.</p>
    * @public
    */
-  queryString: string | undefined;
-
-  /**
-   * <p>The updated array of log group names or ARNs to query.</p>
-   * @public
-   */
-  logGroupIdentifiers?: string[] | undefined;
-
-  /**
-   * <p>The updated cron expression that defines when the scheduled query runs.</p>
-   * @public
-   */
-  scheduleExpression: string | undefined;
-
-  /**
-   * <p>The updated timezone for evaluating the schedule expression.</p>
-   * @public
-   */
-  timezone?: string | undefined;
-
-  /**
-   * <p>The updated time offset in seconds that defines the lookback period for the query.</p>
-   * @public
-   */
-  startTimeOffset?: number | undefined;
-
-  /**
-   * <p>The updated configuration for where to deliver query results.</p>
-   * @public
-   */
-  destinationConfiguration?: DestinationConfiguration | undefined;
-
-  /**
-   * <p>The updated start time for the scheduled query in Unix epoch format.</p>
-   * @public
-   */
-  scheduleStartTime?: number | undefined;
-
-  /**
-   * <p>The updated end time for the scheduled query in Unix epoch format.</p>
-   * @public
-   */
-  scheduleEndTime?: number | undefined;
-
-  /**
-   * <p>The updated ARN of the IAM role that grants permissions to execute the query and deliver
-   *       results.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The updated state of the scheduled query.</p>
-   * @public
-   */
-  state?: ScheduledQueryState | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateScheduledQueryResponse {
-  /**
-   * <p>The ARN of the updated scheduled query.</p>
-   * @public
-   */
-  scheduledQueryArn?: string | undefined;
-
-  /**
-   * <p>The name of the updated scheduled query.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description of the updated scheduled query.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The query language of the updated scheduled query.</p>
-   * @public
-   */
-  queryLanguage?: QueryLanguage | undefined;
-
-  /**
-   * <p>The query string of the updated scheduled query.</p>
-   * @public
-   */
-  queryString?: string | undefined;
-
-  /**
-   * <p>The log groups queried by the updated scheduled query.</p>
-   * @public
-   */
-  logGroupIdentifiers?: string[] | undefined;
-
-  /**
-   * <p>The cron expression of the updated scheduled query.</p>
-   * @public
-   */
-  scheduleExpression?: string | undefined;
-
-  /**
-   * <p>The timezone of the updated scheduled query.</p>
-   * @public
-   */
-  timezone?: string | undefined;
-
-  /**
-   * <p>The time offset of the updated scheduled query.</p>
-   * @public
-   */
-  startTimeOffset?: number | undefined;
-
-  /**
-   * <p>The destination configuration of the updated scheduled query.</p>
-   * @public
-   */
-  destinationConfiguration?: DestinationConfiguration | undefined;
-
-  /**
-   * <p>The state of the updated scheduled query.</p>
-   * @public
-   */
-  state?: ScheduledQueryState | undefined;
-
-  /**
-   * <p>The timestamp when the updated scheduled query was last executed.</p>
-   * @public
-   */
-  lastTriggeredTime?: number | undefined;
-
-  /**
-   * <p>The status of the most recent execution of the updated scheduled query.</p>
-   * @public
-   */
-  lastExecutionStatus?: ExecutionStatus | undefined;
-
-  /**
-   * <p>The start time of the updated scheduled query.</p>
-   * @public
-   */
-  scheduleStartTime?: number | undefined;
-
-  /**
-   * <p>The end time of the updated scheduled query.</p>
-   * @public
-   */
-  scheduleEndTime?: number | undefined;
-
-  /**
-   * <p>The execution role ARN of the updated scheduled query.</p>
-   * @public
-   */
-  executionRoleArn?: string | undefined;
-
-  /**
-   * <p>The timestamp when the scheduled query was originally created.</p>
-   * @public
-   */
-  creationTime?: number | undefined;
-
-  /**
-   * <p>The timestamp when the scheduled query was last updated.</p>
-   * @public
-   */
-  lastUpdatedTime?: number | undefined;
-}
-
-/**
- * <p>Defines the data type structure for a log field, including the type, element information,
- *       and nested fields for complex types.</p>
- * @public
- */
-export interface LogFieldType {
-  /**
-   * <p>The data type of the log field.</p>
-   * @public
-   */
-  type?: string | undefined;
-
-  /**
-   * <p>For array or collection types, specifies the element type information.</p>
-   * @public
-   */
-  element?: LogFieldType | undefined;
-
-  /**
-   * <p>For complex types, contains the nested field definitions.</p>
-   * @public
-   */
-  fields?: LogFieldsListItem[] | undefined;
-}
-
-/**
- * <p>Represents a log field with its name and data type information for a specific data
- *       source.</p>
- * @public
- */
-export interface LogFieldsListItem {
-  /**
-   * <p>The name of the log field.</p>
-   * @public
-   */
-  logFieldName?: string | undefined;
-
-  /**
-   * <p>The data type information for the log field.</p>
-   * @public
-   */
-  logFieldType?: LogFieldType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetLogFieldsResponse {
-  /**
-   * <p>The list of log fields for the specified data source, including field names and their data
-   *       types.</p>
-   * @public
-   */
-  logFields?: LogFieldsListItem[] | undefined;
+  kmsKeyId?: string | undefined;
 }
