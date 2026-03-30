@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1020.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1019.0...v3.1020.0) (2026-03-30)
+
+
+### Features
+
+* **client-auto-scaling:** Adds support for new instance lifecycle states introduced by the instance lifecycle policy and replace root volume features. ([ba89a3d](https://github.com/aws/aws-sdk-js-v3/commit/ba89a3d5e34b5b4253eca348e6781450a77168f4))
+
+
+
+
+
 # [3.1019.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1018.0...v3.1019.0) (2026-03-27)
 
 **Note:** Version bump only for package @aws-sdk/client-auto-scaling

@@ -29,6 +29,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.26 (2026-03-30)
+### Chores
+* **codegen:** update smithy package versions ([#7903](https://github.com/aws/aws-sdk-js-v3/issues/7903)) ([c702a75](https://github.com/aws/aws-sdk-js-v3/commit/c702a7595037829166db776cffdfea785588d78a))
+
+
+
 # 3.973.25 (2026-03-25)
 ### Docs
 * **packages-internal:** readme updates for internal packages ([#7885](https://github.com/aws/aws-sdk-js-v3/issues/7885)) ([2da8b4c](https://github.com/aws/aws-sdk-js-v3/commit/2da8b4cd3ee660dcb14ca79d77cf942bd3405349))

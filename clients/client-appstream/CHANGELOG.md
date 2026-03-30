@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1020.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1019.0...v3.1020.0) (2026-03-30)
+
+
+### Features
+
+* **client-appstream:** Add support for URL Redirection ([16a9f16](https://github.com/aws/aws-sdk-js-v3/commit/16a9f16e6fe4b5e6c31e0dd85747bf3282cd6b4a))
+
+
+
+
+
 # [3.1019.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1018.0...v3.1019.0) (2026-03-27)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

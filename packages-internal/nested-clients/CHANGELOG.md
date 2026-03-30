@@ -19,6 +19,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.17 (2026-03-30)
+### Chores
+* **codegen:** update smithy package versions ([#7903](https://github.com/aws/aws-sdk-js-v3/issues/7903)) ([c702a75](https://github.com/aws/aws-sdk-js-v3/commit/c702a7595037829166db776cffdfea785588d78a))
+* **codegen:** differentiate type imports ([#7897](https://github.com/aws/aws-sdk-js-v3/issues/7897)) ([7f8c031](https://github.com/aws/aws-sdk-js-v3/commit/7f8c031600f8c396ab8cc25da8b32ee8414312d9))
+
+
+
 # 3.996.16 (2026-03-27)
 ### Chores
 * **codegen:** import from core submodules instead of root ([#7896](https://github.com/aws/aws-sdk-js-v3/issues/7896)) ([e35edfc](https://github.com/aws/aws-sdk-js-v3/commit/e35edfcd0522060f7c544085c32c88fb0ba3cccb))

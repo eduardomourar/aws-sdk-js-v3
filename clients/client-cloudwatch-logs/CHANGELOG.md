@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1020.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1019.0...v3.1020.0) (2026-03-30)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Adds Lookup Tables to CloudWatch Logs for log enrichment using CSV key-value data with KMS encryption support. ([fb89aea](https://github.com/aws/aws-sdk-js-v3/commit/fb89aeac17441432e30766761117aa3ce9aeef24))
+
+
+
+
+
 # [3.1019.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1018.0...v3.1019.0) (2026-03-27)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

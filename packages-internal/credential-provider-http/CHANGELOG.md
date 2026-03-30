@@ -28,6 +28,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.26 (2026-03-30)
+### Chores
+* **codegen:** update smithy package versions ([#7903](https://github.com/aws/aws-sdk-js-v3/issues/7903)) ([c702a75](https://github.com/aws/aws-sdk-js-v3/commit/c702a7595037829166db776cffdfea785588d78a))
+
+
+
 # 3.972.25 (2026-03-26)
 ### Chores
 * **credential-provider-http:** update dependencies.

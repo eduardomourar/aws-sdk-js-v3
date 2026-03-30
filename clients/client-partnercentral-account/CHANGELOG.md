@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1020.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1019.0...v3.1020.0) (2026-03-30)
+
+
+### Features
+
+* **client-partnercentral-account:** KYB Supplemental Form enables partners who fail business verification to submit additional details and supporting documentation through a self-service form, triggering an automated re-verification without requiring manual intervention from support teams. ([3b4f484](https://github.com/aws/aws-sdk-js-v3/commit/3b4f484fd757953f40a2dc566314f68a5bbb65e8))
+
+
+
+
+
 # [3.1019.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1018.0...v3.1019.0) (2026-03-27)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-account

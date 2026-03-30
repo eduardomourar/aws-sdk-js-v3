@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1020.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1019.0...v3.1020.0) (2026-03-30)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Adds Ground Truth support for AgentCore Evaluations (Evaluate) ([7d2bcbf](https://github.com/aws/aws-sdk-js-v3/commit/7d2bcbf65452c9b6285f9e26b539a9c2b1c74051))
+
+
+
+
+
 # [3.1019.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1018.0...v3.1019.0) (2026-03-27)
 
 

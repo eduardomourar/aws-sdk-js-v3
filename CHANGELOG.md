@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1020.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1019.0...v3.1020.0) (2026-03-30)
+
+
+### Features
+
+* **client-appstream:** Add support for URL Redirection ([16a9f16](https://github.com/aws/aws-sdk-js-v3/commit/16a9f16e6fe4b5e6c31e0dd85747bf3282cd6b4a))
+* **client-auto-scaling:** Adds support for new instance lifecycle states introduced by the instance lifecycle policy and replace root volume features. ([ba89a3d](https://github.com/aws/aws-sdk-js-v3/commit/ba89a3d5e34b5b4253eca348e6781450a77168f4))
+* **client-bedrock-agentcore:** Adds Ground Truth support for AgentCore Evaluations (Evaluate) ([7d2bcbf](https://github.com/aws/aws-sdk-js-v3/commit/7d2bcbf65452c9b6285f9e26b539a9c2b1c74051))
+* **client-cloudwatch-logs:** Adds Lookup Tables to CloudWatch Logs for log enrichment using CSV key-value data with KMS encryption support. ([fb89aea](https://github.com/aws/aws-sdk-js-v3/commit/fb89aeac17441432e30766761117aa3ce9aeef24))
+* **client-deadline:** AWS Deadline Cloud now supports three new fleet auto scaling settings. With scale out rate, you can configure how quickly workers launch. With worker idle duration, you can set how long workers wait before shutting down. With standby worker count, you can keep idle workers ready for fast job start. ([6010b7a](https://github.com/aws/aws-sdk-js-v3/commit/6010b7a8ec4ae563b8fb71315836b6297ed1e523))
+* **client-devops-agent:** AWS DevOps Agent General Availability. ([44e4c21](https://github.com/aws/aws-sdk-js-v3/commit/44e4c21623d87bbe944dfb0f2504a787897dd894))
+* **client-ecs:** Adding Local Storage support for ECS Managed Instances by introducing a new field "localStorageConfiguration" for CreateCapacityProvider and UpdateCapacityProvider APIs. ([4b1dba9](https://github.com/aws/aws-sdk-js-v3/commit/4b1dba9774e3cb803aa73d377acdb487e3c692ef))
+* **client-opensearch:** Added Cluster Insights API's In OpenSearch Service SDK. ([90168a0](https://github.com/aws/aws-sdk-js-v3/commit/90168a0000cd23b8daa5d34ac07a552f090530fd))
+* **client-partnercentral-account:** KYB Supplemental Form enables partners who fail business verification to submit additional details and supporting documentation through a self-service form, triggering an automated re-verification without requiring manual intervention from support teams. ([3b4f484](https://github.com/aws/aws-sdk-js-v3/commit/3b4f484fd757953f40a2dc566314f68a5bbb65e8))
+* **client-sagemaker:** Added support for placement strategy and consolidation for SageMaker inference component endpoints. Customers can now configure how inference component copies are distributed across instances and availability zones (AZs), and enable automatic consolidation to optimizes resource utilization. ([77f2e66](https://github.com/aws/aws-sdk-js-v3/commit/77f2e662173a298f92ea0ffc747f10cbf3ce03e1))
+* **clients:** update client endpoints as of 2026-03-30 ([2b7cac6](https://github.com/aws/aws-sdk-js-v3/commit/2b7cac68884aa566fb6cc7680957a511c48524f5))
+
+
+
+
+
 # [3.1019.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1018.0...v3.1019.0) (2026-03-27)
 
 
