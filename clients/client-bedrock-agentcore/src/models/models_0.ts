@@ -262,25 +262,25 @@ export interface InvokeAgentRuntimeResponse {
 }
 
 /**
- * Request body for InvokeAgentRuntimeCommand
+ * <p>The request body structure for the <code>InvokeAgentRuntimeCommand</code> operation, containing the command to execute and optional configuration parameters.</p>
  * @public
  */
 export interface InvokeAgentRuntimeCommandRequestBody {
   /**
-   * The command to execute in the runtime container
+   * <p>The shell command to execute on the agent runtime. This command is executed in the runtime environment and its output is streamed back to the caller.</p>
    * @public
    */
   command: string | undefined;
 
   /**
-   * Command timeout in seconds (default: 300, min:1, max: 3600)
+   * <p>The maximum duration in seconds to wait for the command to complete. If the command execution exceeds this timeout, it will be terminated. Default is 300 seconds. Minimum is 1 second. Maximum is 3600 seconds.</p>
    * @public
    */
   timeout?: number | undefined;
 }
 
 /**
- * Request for InvokeAgentRuntimeCommand operation
+ * <p>Request for InvokeAgentRuntimeCommand operation.</p>
  * @public
  */
 export interface InvokeAgentRuntimeCommandRequest {
@@ -297,7 +297,7 @@ export interface InvokeAgentRuntimeCommandRequest {
   accept?: string | undefined;
 
   /**
-   * Runtime session identifier
+   * <p>The unique identifier of the runtime session in which to execute the command. This session ID is used to maintain state and context across multiple command invocations.</p>
    * @public
    */
   runtimeSessionId?: string | undefined;
@@ -327,99 +327,98 @@ export interface InvokeAgentRuntimeCommandRequest {
   baggage?: string | undefined;
 
   /**
-   * ARN of the agent runtime
+   * <p>The Amazon Resource Name (ARN) of the agent runtime on which to execute the command. This identifies the specific agent runtime environment where the command will run.</p>
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * Version or alias qualifier
+   * <p>The qualifier to use for the agent runtime. This is an endpoint name that points to a specific version. If not specified, Amazon Bedrock AgentCore uses the default endpoint of the agent runtime.</p>
    * @public
    */
   qualifier?: string | undefined;
 
   /**
-   * Account ID (12 digits)
+   * <p>The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for <code>agentRuntimeArn</code>.</p>
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * Request body containing command and timeout
+   * <p>The request body containing the command to execute and optional configuration parameters such as timeout settings.</p>
    * @public
    */
   body: InvokeAgentRuntimeCommandRequestBody | undefined;
 }
 
 /**
- * Content event containing stdout or stderr output
+ * <p>An event that contains incremental output from a command execution. This event streams standard output and standard error content as it becomes available during command execution.</p>
  * @public
  */
 export interface ContentDeltaEvent {
   /**
-   * Standard output content
+   * <p>The standard output content from the command execution. This field contains the incremental output written to stdout by the executing command.</p>
    * @public
    */
   stdout?: string | undefined;
 
   /**
-   * Standard error content
+   * <p>The standard error content from the command execution. This field contains the incremental output written to stderr by the executing command.</p>
    * @public
    */
   stderr?: string | undefined;
 }
 
 /**
- * First event indicating command execution has started
+ * <p>An event that signals the start of content streaming from a command execution. This event is sent when the command begins producing output.</p>
  * @public
  */
 export interface ContentStartEvent {}
 
 /**
- * Final event indicating command execution has completed
+ * <p>An event that signals the completion of a command execution. This event contains the final status and exit code of the executed command.</p>
  * @public
  */
 export interface ContentStopEvent {
   /**
-   * Exit code: 0 = success, -1 = platform error, >0 = command error
+   * <p>The exit code returned by the executed command. An exit code of 0 indicates successful execution, -1 indicates a platform error, and values greater than 0 indicate command-specific errors.</p>
    * @public
    */
   exitCode: number | undefined;
 
   /**
-   * Execution status
+   * <p>The final status of the command execution. Valid values are <code>COMPLETED</code> for successful completion or <code>TIMED_OUT</code> if the command exceeded the specified timeout.</p>
    * @public
    */
   status: CommandExecutionStatus | undefined;
 }
 
 /**
- * Response chunk containing exactly one of: contentStart, contentDelta, or contentStop
+ * <p>A structure representing a response chunk that contains exactly one of the possible event types: <code>contentStart</code>, <code>contentDelta</code>, or <code>contentStop</code>.</p>
  * @public
  */
 export interface ResponseChunk {
   /**
-   * First chunk - indicates command execution has started
+   * <p>An event indicating the start of content streaming from the command execution. This is the first chunk received.</p>
    * @public
    */
   contentStart?: ContentStartEvent | undefined;
 
   /**
-   * Middle chunks - stdout/stderr output
+   * <p>An event containing incremental output (stdout or stderr) from the command execution. These are the middle chunks.</p>
    * @public
    */
   contentDelta?: ContentDeltaEvent | undefined;
 
   /**
-   * Last chunk - indicates command execution has completed
+   * <p>An event indicating the completion of the command execution, including the exit code and final status. This is the last chunk received.</p>
    * @public
    */
   contentStop?: ContentStopEvent | undefined;
 }
 
 /**
- * Streaming output for InvokeAgentRuntimeCommand operation
- * Delivers typed events: contentStart (first), contentDelta (middle), contentStop (last)
+ * <p>The streaming output union for the <code>InvokeAgentRuntimeCommand</code> operation. This union delivers typed events: <code>contentStart</code> (first), <code>contentDelta</code> (middle), and <code>contentStop</code> (last).</p>
  * @public
  */
 export type InvokeAgentRuntimeCommandStreamOutput =
@@ -438,7 +437,7 @@ export type InvokeAgentRuntimeCommandStreamOutput =
  */
 export namespace InvokeAgentRuntimeCommandStreamOutput {
   /**
-   * Response chunk containing command execution events
+   * <p>A response chunk containing command execution events such as content start, content delta, or content stop events.</p>
    * @public
    */
   export interface ChunkMember {
@@ -454,7 +453,7 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
   }
 
   /**
-   * Exception events for error streaming
+   * <p>Exception events for error streaming.</p>
    * @public
    */
   export interface AccessDeniedExceptionMember {
@@ -598,12 +597,12 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
 }
 
 /**
- * Response for InvokeAgentRuntimeCommand operation
+ * <p>Response for InvokeAgentRuntimeCommand operation.</p>
  * @public
  */
 export interface InvokeAgentRuntimeCommandResponse {
   /**
-   * Runtime session identifier
+   * <p>The unique identifier of the runtime session in which the command was executed.</p>
    * @public
    */
   runtimeSessionId?: string | undefined;
@@ -645,7 +644,7 @@ export interface InvokeAgentRuntimeCommandResponse {
   statusCode?: number | undefined;
 
   /**
-   * Streaming output containing command execution events
+   * <p>The streaming output from the command execution. This stream contains events that provide real-time updates including standard output, standard error, and completion status.</p>
    * @public
    */
   stream: AsyncIterable<InvokeAgentRuntimeCommandStreamOutput> | undefined;
@@ -2019,6 +2018,150 @@ export namespace EvaluationInput {
 }
 
 /**
+ * <p> A content block for ground truth data in evaluation reference inputs. Supports text content for expected responses and assertions. </p>
+ * @public
+ */
+export type EvaluationContent =
+  | EvaluationContent.TextMember
+  | EvaluationContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationContent {
+  /**
+   * <p> The text content of the ground truth data. Used for expected response text and assertion statements. </p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> The contextual information that uniquely identifies a span within the distributed tracing system. Contains session, trace, and span identifiers used to correlate evaluation results with specific agent execution points. </p>
+ * @public
+ */
+export interface SpanContext {
+  /**
+   * <p> The unique identifier of the session containing this span. Sessions represent complete conversation flows and are detected using configurable <code>SessionTimeoutMinutes</code> (default 15 minutes). </p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p> The unique identifier of the trace containing this span. Traces represent individual request-response interactions within a session and group related spans together. </p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p> The unique identifier of the specific span being referenced. Spans represent individual operations like tool calls, model invocations, or other discrete actions within the agent's execution. </p>
+   * @public
+   */
+  spanId?: string | undefined;
+}
+
+/**
+ * <p> The contextual information associated with an evaluation, including span context details that identify the specific traces and sessions being evaluated within the agent's execution flow. </p>
+ * @public
+ */
+export type Context =
+  | Context.SpanContextMember
+  | Context.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Context {
+  /**
+   * <p> The span context information that uniquely identifies the trace and span being evaluated, including session ID, trace ID, and span ID for precise targeting within the agent's execution flow. </p>
+   * @public
+   */
+  export interface SpanContextMember {
+    spanContext: SpanContext;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    spanContext?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    spanContext: (value: SpanContext) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> The expected tool call trajectory for trajectory-based evaluation. </p>
+ * @public
+ */
+export interface EvaluationExpectedTrajectory {
+  /**
+   * <p> The list of tool names representing the expected tool call sequence. </p>
+   * @public
+   */
+  toolNames?: string[] | undefined;
+}
+
+/**
+ * <p> A reference input containing ground truth data for evaluation, scoped to a specific context level (session or trace) through its span context. </p>
+ * @public
+ */
+export interface EvaluationReferenceInput {
+  /**
+   * <p> The contextual information associated with an evaluation, including span context details that identify the specific traces and sessions being evaluated within the agent's execution flow. </p>
+   * @public
+   */
+  context: Context | undefined;
+
+  /**
+   * <p> The expected response for trace-level evaluation. Built-in evaluators that support this field compare the agent's actual response against this value for assessment. Custom evaluators can access it through the <code>\{expected_response\}</code> placeholder in their instructions. </p>
+   * @public
+   */
+  expectedResponse?: EvaluationContent | undefined;
+
+  /**
+   * <p> A list of assertion statements for session-level evaluation. Each assertion describes an expected behavior or outcome the agent should demonstrate during the session. </p>
+   * @public
+   */
+  assertions?: EvaluationContent[] | undefined;
+
+  /**
+   * <p> The expected tool call sequence for session-level trajectory evaluation. Contains a list of tool names representing the tools the agent is expected to invoke. </p>
+   * @public
+   */
+  expectedTrajectory?: EvaluationExpectedTrajectory | undefined;
+}
+
+/**
  * <p> The specification of which trace or span IDs to evaluate within the provided input data. Allows precise targeting of evaluation at different levels: tool calls, traces, or sessions. </p>
  * @public
  */
@@ -2092,69 +2235,12 @@ export interface EvaluateRequest {
    * @public
    */
   evaluationTarget?: EvaluationTarget | undefined;
-}
 
-/**
- * <p> The contextual information that uniquely identifies a span within the distributed tracing system. Contains session, trace, and span identifiers used to correlate evaluation results with specific agent execution points. </p>
- * @public
- */
-export interface SpanContext {
   /**
-   * <p> The unique identifier of the session containing this span. Sessions represent complete conversation flows and are detected using configurable <code>SessionTimeoutMinutes</code> (default 15 minutes). </p>
+   * <p> Ground truth data to compare against agent responses during evaluation. Allows to provide expected responses, assertions, and expected tool trajectories at different evaluation levels. Session-level reference inputs apply to the entire conversation, while trace-level reference inputs target specific request-response interactions identified by trace ID. </p>
    * @public
    */
-  sessionId: string | undefined;
-
-  /**
-   * <p> The unique identifier of the trace containing this span. Traces represent individual request-response interactions within a session and group related spans together. </p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p> The unique identifier of the specific span being referenced. Spans represent individual operations like tool calls, model invocations, or other discrete actions within the agent's execution. </p>
-   * @public
-   */
-  spanId?: string | undefined;
-}
-
-/**
- * <p> The contextual information associated with an evaluation, including span context details that identify the specific traces and sessions being evaluated within the agent's execution flow. </p>
- * @public
- */
-export type Context =
-  | Context.SpanContextMember
-  | Context.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Context {
-  /**
-   * <p> The span context information that uniquely identifies the trace and span being evaluated, including session ID, trace ID, and span ID for precise targeting within the agent's execution flow. </p>
-   * @public
-   */
-  export interface SpanContextMember {
-    spanContext: SpanContext;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    spanContext?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    spanContext: (value: SpanContext) => T;
-    _: (name: string, value: any) => T;
-  }
+  evaluationReferenceInputs?: EvaluationReferenceInput[] | undefined;
 }
 
 /**
@@ -2245,6 +2331,12 @@ export interface EvaluationResultContent {
    * @public
    */
   errorCode?: string | undefined;
+
+  /**
+   * <p> The list of reference input field names that were provided but not used by the evaluator. Helps identify which ground truth data was not consumed during evaluation. </p>
+   * @public
+   */
+  ignoredReferenceInputFields?: string[] | undefined;
 }
 
 /**

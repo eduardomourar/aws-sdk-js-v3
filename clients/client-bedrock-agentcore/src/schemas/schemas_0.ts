@@ -62,7 +62,10 @@ const _DMR = "DeleteMemoryRecord";
 const _DMRI = "DeleteMemoryRecordInput";
 const _DMRO = "DeleteMemoryRecordOutput";
 const _E = "Event";
+const _EC = "EvaluationContent";
+const _ECL = "EvaluationContentList";
 const _EE = "EvaluationExplanation";
+const _EET = "EvaluationExpectedTrajectory";
 const _EI = "EvaluationInput";
 const _EJ = "ExtractionJob";
 const _EJFI = "ExtractionJobFilterInput";
@@ -75,6 +78,8 @@ const _EMFL = "EventMetadataFilterList";
 const _EP = "ExternalProxy";
 const _ER = "EvaluateRequest";
 const _ERC = "EvaluationResultContent";
+const _ERI = "EvaluationReferenceInput";
+const _ERIv = "EvaluationReferenceInputs";
 const _ERv = "EvaluateResponse";
 const _ERva = "EvaluationResults";
 const _ET = "EvaluationTarget";
@@ -238,7 +243,7 @@ const _WITT = "WorkloadIdentityTokenType";
 const _XABARSI = "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id";
 const _XABARUI = "X-Amzn-Bedrock-AgentCore-Runtime-User-Id";
 const _XATI = "X-Amzn-Trace-Id";
-const _a = "accept";
+const _a = "assertions";
 const _aC = "agentCard";
 const _aDE = "accessDeniedException";
 const _aI = "actorId";
@@ -250,6 +255,7 @@ const _aSU = "automationStreamUpdate";
 const _aSc = "actorSummaries";
 const _aT = "accessToken";
 const _aU = "authorizationUrl";
+const _ac = "accept";
 const _ar = "arguments";
 const _b = "branch";
 const _bA = "basicAuth";
@@ -297,9 +303,12 @@ const _eN = "evaluatorName";
 const _eP = "enterprisePolicies";
 const _ePx = "externalProxy";
 const _eR = "evaluationResults";
+const _eRI = "evaluationReferenceInputs";
+const _eRx = "expectedResponse";
 const _eT = "eventTimestamp";
 const _eTv = "evaluationTarget";
-const _eTx = "executionTime";
+const _eTx = "expectedTrajectory";
+const _eTxe = "executionTime";
 const _ev = "event";
 const _eve = "events";
 const _ex = "explanation";
@@ -318,6 +327,7 @@ const _i = "items";
 const _iE = "isError";
 const _iP = "includePayloads";
 const _iPB = "includeParentBranches";
+const _iRIF = "ignoredReferenceInputFields";
 const _iSE = "internalServerException";
 const _iT = "idempotencyToken";
 const _iTn = "inputTokens";
@@ -422,6 +432,7 @@ const _tI = "traceId";
 const _tIa = "taskId";
 const _tIr = "traceIds";
 const _tK = "topK";
+const _tN = "toolNames";
 const _tP = "traceParent";
 const _tS = "traceState";
 const _tSa = "taskStatus";
@@ -755,18 +766,28 @@ export var DeleteMemoryRecordOutput$: StaticStructureSchema = [3, n0, _DMRO,
 ];
 export var EvaluateRequest$: StaticStructureSchema = [3, n0, _ER,
   0,
-  [_eIv, _eIva, _eTv],
-  [[0, 1], [() => EvaluationInput$, 0], () => EvaluationTarget$], 2
+  [_eIv, _eIva, _eTv, _eRI],
+  [[0, 1], [() => EvaluationInput$, 0], () => EvaluationTarget$, [() => EvaluationReferenceInputs, 0]], 2
 ];
 export var EvaluateResponse$: StaticStructureSchema = [3, n0, _ERv,
   0,
   [_eR],
   [[() => EvaluationResults, 0]], 1
 ];
+export var EvaluationExpectedTrajectory$: StaticStructureSchema = [3, n0, _EET,
+  0,
+  [_tN],
+  [64 | 0]
+];
+export var EvaluationReferenceInput$: StaticStructureSchema = [3, n0, _ERI,
+  0,
+  [_con, _eRx, _a, _eTx],
+  [() => Context$, () => EvaluationContent$, () => EvaluationContentList, () => EvaluationExpectedTrajectory$], 1
+];
 export var EvaluationResultContent$: StaticStructureSchema = [3, n0, _ERC,
   0,
-  [_eA, _eIv, _eN, _con, _ex, _v, _la, _tU, _eM, _eCr],
-  [0, 0, 0, () => Context$, [() => EvaluationExplanation, 0], 1, 0, () => TokenUsage$, 0, 0], 4
+  [_eA, _eIv, _eN, _con, _ex, _v, _la, _tU, _eM, _eCr, _iRIF],
+  [0, 0, 0, () => Context$, [() => EvaluationExplanation, 0], 1, 0, () => TokenUsage$, 0, 0, 64 | 0], 4
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -910,7 +931,7 @@ export var InputContentBlock$: StaticStructureSchema = [3, n0, _ICB,
 ];
 export var InvokeAgentRuntimeCommandRequest$: StaticStructureSchema = [3, n0, _IARCR,
   0,
-  [_aRA, _bo, _cTo, _a, _rSI, _tI, _tP, _tS, _ba, _q, _aIc],
+  [_aRA, _bo, _cTo, _ac, _rSI, _tI, _tP, _tS, _ba, _q, _aIc],
   [[0, 1], [() => InvokeAgentRuntimeCommandRequestBody$, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _A }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeCommandRequestBody$: StaticStructureSchema = [3, n0, _IARCRB,
@@ -925,7 +946,7 @@ export var InvokeAgentRuntimeCommandResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var InvokeAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _IARR,
   0,
-  [_aRA, _p, _cTo, _a, _mSI, _rSI, _mPV, _rUI, _tI, _tP, _tS, _ba, _q, _aIc],
+  [_aRA, _p, _cTo, _ac, _mSI, _rSI, _mPV, _rUI, _tI, _tP, _tS, _ba, _q, _aIc],
   [[0, 1], [() => Body, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _A }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _IARRn,
@@ -1195,7 +1216,7 @@ export var ToolArguments$: StaticStructureSchema = [3, n0, _TA,
 ];
 export var ToolResultStructuredContent$: StaticStructureSchema = [3, n0, _TRSC,
   0,
-  [_tIa, _tSa, _std, _stde, _eC, _eTx],
+  [_tIa, _tSa, _std, _stde, _eC, _eTxe],
   [0, 0, 0, 0, 1, 1]
 ];
 export var UpdateBrowserStreamRequest$: StaticStructureSchema = [3, n0, _UBSR,
@@ -1240,10 +1261,17 @@ var ContentBlockList: StaticListSchema = [1, n0, _CBL,
   0, () => ContentBlock$
 ];
 var DomainPatterns = 64 | 0;
+var EvaluationContentList: StaticListSchema = [1, n0, _ECL,
+  0, () => EvaluationContent$
+];
+var EvaluationReferenceInputs: StaticListSchema = [1, n0, _ERIv,
+  8, () => EvaluationReferenceInput$
+];
 var EvaluationResults: StaticListSchema = [1, n0, _ERva,
   0, [() => EvaluationResultContent$,
     0]
 ];
+var EvaluationToolNames = 64 | 0;
 var EventList: StaticListSchema = [1, n0, _EL,
   0, [() => Event$,
     0]
@@ -1254,6 +1282,7 @@ var EventMetadataFilterList: StaticListSchema = [1, n0, _EMFL,
 var ExtractionJobMetadataList: StaticListSchema = [1, n0, _EJML,
   0, () => ExtractionJobMetadata$
 ];
+var IgnoredReferenceInputFields = 64 | 0;
 var InputContentBlockList: StaticListSchema = [1, n0, _ICBL,
   0, [() => InputContentBlock$,
     0]
@@ -1331,6 +1360,11 @@ export var Context$: StaticUnionSchema = [4, n0, _Cont,
   0,
   [_sCp],
   [() => SpanContext$]
+];
+export var EvaluationContent$: StaticUnionSchema = [4, n0, _EC,
+  0,
+  [_te],
+  [0]
 ];
 export var EvaluationInput$: StaticUnionSchema = [4, n0, _EI,
   0,

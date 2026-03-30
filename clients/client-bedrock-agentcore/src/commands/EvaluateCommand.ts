@@ -55,6 +55,30 @@ export interface EvaluateCommandOutput extends EvaluateResponse, __MetadataBeare
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   evaluationReferenceInputs: [ // EvaluationReferenceInputs
+ *     { // EvaluationReferenceInput
+ *       context: { // Context Union: only one key present
+ *         spanContext: { // SpanContext
+ *           sessionId: "STRING_VALUE", // required
+ *           traceId: "STRING_VALUE",
+ *           spanId: "STRING_VALUE",
+ *         },
+ *       },
+ *       expectedResponse: { // EvaluationContent Union: only one key present
+ *         text: "STRING_VALUE",
+ *       },
+ *       assertions: [ // EvaluationContentList
+ *         {//  Union: only one key present
+ *           text: "STRING_VALUE",
+ *         },
+ *       ],
+ *       expectedTrajectory: { // EvaluationExpectedTrajectory
+ *         toolNames: [ // EvaluationToolNames
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new EvaluateCommand(input);
  * const response = await client.send(command);
@@ -81,6 +105,9 @@ export interface EvaluateCommandOutput extends EvaluateResponse, __MetadataBeare
  * //       },
  * //       errorMessage: "STRING_VALUE",
  * //       errorCode: "STRING_VALUE",
+ * //       ignoredReferenceInputFields: [ // IgnoredReferenceInputFields
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };

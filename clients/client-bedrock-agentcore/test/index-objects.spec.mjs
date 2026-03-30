@@ -69,7 +69,10 @@ import {
   EvaluateCommand,
   EvaluateRequest$,
   EvaluateResponse$,
+  EvaluationContent$,
+  EvaluationExpectedTrajectory$,
   EvaluationInput$,
+  EvaluationReferenceInput$,
   EvaluationResultContent$,
   EvaluationTarget$,
   Event$,
@@ -392,7 +395,10 @@ assert(typeof DeleteMemoryRecordInput$ === "object");
 assert(typeof DeleteMemoryRecordOutput$ === "object");
 assert(typeof EvaluateRequest$ === "object");
 assert(typeof EvaluateResponse$ === "object");
+assert(typeof EvaluationContent$ === "object");
+assert(typeof EvaluationExpectedTrajectory$ === "object");
 assert(typeof EvaluationInput$ === "object");
+assert(typeof EvaluationReferenceInput$ === "object");
 assert(typeof EvaluationResultContent$ === "object");
 assert(typeof EvaluationTarget$ === "object");
 assert(typeof Event$ === "object");

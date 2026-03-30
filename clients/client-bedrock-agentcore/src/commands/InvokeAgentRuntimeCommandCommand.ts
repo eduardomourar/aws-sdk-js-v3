@@ -31,8 +31,7 @@ export interface InvokeAgentRuntimeCommandCommandInput extends InvokeAgentRuntim
 export interface InvokeAgentRuntimeCommandCommandOutput extends InvokeAgentRuntimeCommandResponse, __MetadataBearer {}
 
 /**
- * Executes a command in a runtime session container.
- * Returns streaming output with contentStart, contentDelta, and contentStop events.
+ * <p>Executes a command in a runtime session container and streams the output back to the caller. This operation allows you to run shell commands within the agent runtime environment and receive real-time streaming responses including standard output and standard error.</p> <p>To invoke a command, you must specify the agent runtime ARN and a runtime session ID. The command execution supports streaming responses, allowing you to receive output as it becomes available through <code>contentStart</code>, <code>contentDelta</code>, and <code>contentStop</code> events.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntimeCommand</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
