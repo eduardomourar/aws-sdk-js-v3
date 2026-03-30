@@ -116,6 +116,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "BaseInferenceComponentName": "__BaseInferenceComponentName__",
     "DataCacheConfig": {
       "EnableCaching": false
+    },
+    "SchedulingConfig": {
+      "PlacementStrategy": "__PlacementStrategy__",
+      "AvailabilityZoneBalance": {
+        "EnforcementMode": "__EnforcementMode__",
+        "MaxImbalance": 0
+      }
     }
   },
   "RuntimeConfig": {
@@ -190,6 +197,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     BaseInferenceComponentName: "__BaseInferenceComponentName__",
     DataCacheConfig: {
       EnableCaching: (boolean) false
+    },
+    SchedulingConfig: {
+      PlacementStrategy: "__PlacementStrategy__",
+      AvailabilityZoneBalance: {
+        EnforcementMode: "__EnforcementMode__",
+        MaxImbalance: (number) 0
+      }
     }
   },
   RuntimeConfig: {

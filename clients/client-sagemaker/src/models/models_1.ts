@@ -11,6 +11,7 @@ import type {
   AppType,
   AuthMode,
   AutoMountHomeEFS,
+  AvailabilityZoneBalanceEnforcementMode,
   AwsManagedHumanLoopRequestSource,
   CapacityReservationPreference,
   CollectionType,
@@ -29,11 +30,13 @@ import type {
   HyperParameterTuningAllocationStrategy,
   HyperParameterTuningJobStrategyType,
   HyperParameterTuningJobWarmStartType,
+  InferenceComponentPlacementStrategy,
   InferenceExecutionMode,
   InferenceExperimentType,
   InputMode,
   IPAddressType,
   JobType,
+  ManagedInstanceScalingScaleInStrategy,
   ManagedInstanceScalingStatus,
   MetricPublishFrequencyInSeconds,
   MlTools,
@@ -2089,6 +2092,30 @@ export interface ProductionVariantCoreDumpConfig {
 }
 
 /**
+ * <p>Configures the scale-in behavior for managed instance scaling.</p>
+ * @public
+ */
+export interface ProductionVariantManagedInstanceScalingScaleInPolicy {
+  /**
+   * <p>The strategy for scaling in instances.</p> <dl> <dt>IDLE_RELEASE</dt> <dd> <p>Releases instances that have no hosted inference component copies.</p> </dd> <dt>CONSOLIDATION</dt> <dd> <p>Consolidates inference component copies onto fewer instances to release more instances. Consolidation honors the scheduling configuration of each inference component. For example, if an inference component specifies Availability Zone balance, consolidation only proceeds when the resulting distribution does not increase the imbalance.</p> </dd> </dl>
+   * @public
+   */
+  Strategy: ManagedInstanceScalingScaleInStrategy | undefined;
+
+  /**
+   * <p>The maximum number of instances that the endpoint can terminate at a time during a consolidation scale-in operation.</p> <p>Default value: <code>1</code>.</p>
+   * @public
+   */
+  MaximumStepSize?: number | undefined;
+
+  /**
+   * <p>The cooldown period, in minutes, after the last endpoint operation before the endpoint evaluates consolidation scale-in opportunities.</p> <p>Default value: <code>20</code>.</p>
+   * @public
+   */
+  CooldownInMinutes?: number | undefined;
+}
+
+/**
  * <p>Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic. </p>
  * @public
  */
@@ -2110,6 +2137,12 @@ export interface ProductionVariantManagedInstanceScaling {
    * @public
    */
   MaxInstanceCount?: number | undefined;
+
+  /**
+   * <p>Configures the scale-in behavior for managed instance scaling.</p>
+   * @public
+   */
+  ScaleInPolicy?: ProductionVariantManagedInstanceScalingScaleInPolicy | undefined;
 }
 
 /**
@@ -3807,6 +3840,42 @@ export interface InferenceComponentDataCacheConfig {
 }
 
 /**
+ * <p>Configuration for balancing inference component copies across Availability Zones.</p>
+ * @public
+ */
+export interface InferenceComponentAvailabilityZoneBalance {
+  /**
+   * <p>Determines how strictly the Availability Zone balance constraint is enforced.</p> <dl> <dt>PERMISSIVE</dt> <dd> <p>The endpoint attempts to balance copies across Availability Zones but proceeds with scheduling even if balance can't be achieved due to available capacity or instance distribution across Availability Zones.</p> </dd> </dl>
+   * @public
+   */
+  EnforcementMode: AvailabilityZoneBalanceEnforcementMode | undefined;
+
+  /**
+   * <p>The maximum allowed difference in the number of inference component copies between any two Availability Zones. This parameter applies only when the endpoint has instances across two or more Availability Zones. A copy placement is allowed if it reduces imbalance or the resulting imbalance is within this value.</p> <p>Default value: <code>0</code>.</p>
+   * @public
+   */
+  MaxImbalance?: number | undefined;
+}
+
+/**
+ * <p>The scheduling configuration that determines how inference component copies are placed across available instances when copies are added or removed.</p>
+ * @public
+ */
+export interface InferenceComponentSchedulingConfig {
+  /**
+   * <p>The strategy for placing inference component copies across available instances. If you also set <code>AvailabilityZoneBalance</code>, this strategy applies to placement within each Availability Zone.</p> <dl> <dt>SPREAD</dt> <dd> <p>Distributes copies evenly across available instances for better resilience.</p> </dd> <dt>BINPACK</dt> <dd> <p>Packs copies onto fewer instances to optimize resource utilization.</p> </dd> </dl>
+   * @public
+   */
+  PlacementStrategy: InferenceComponentPlacementStrategy | undefined;
+
+  /**
+   * <p>Configuration for balancing inference component copies across Availability Zones.</p>
+   * @public
+   */
+  AvailabilityZoneBalance?: InferenceComponentAvailabilityZoneBalance | undefined;
+}
+
+/**
  * <p>Settings that take effect while the model container starts up.</p>
  * @public
  */
@@ -3864,6 +3933,12 @@ export interface InferenceComponentSpecification {
    * @public
    */
   DataCacheConfig?: InferenceComponentDataCacheConfig | undefined;
+
+  /**
+   * <p>The scheduling configuration that determines how inference component copies are placed across available instances when copies are added or removed.</p>
+   * @public
+   */
+  SchedulingConfig?: InferenceComponentSchedulingConfig | undefined;
 }
 
 /**
@@ -8079,109 +8154,4 @@ export interface S3FileSystem {
    * @public
    */
   S3Uri: string | undefined;
-}
-
-/**
- * <p>A file system, created by you, that you assign to a user profile or space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</p>
- * @public
- */
-export type CustomFileSystem =
-  | CustomFileSystem.EFSFileSystemMember
-  | CustomFileSystem.FSxLustreFileSystemMember
-  | CustomFileSystem.S3FileSystemMember
-  | CustomFileSystem.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomFileSystem {
-  /**
-   * <p>A custom file system in Amazon EFS.</p>
-   * @public
-   */
-  export interface EFSFileSystemMember {
-    EFSFileSystem: EFSFileSystem;
-    FSxLustreFileSystem?: never;
-    S3FileSystem?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A custom file system in Amazon FSx for Lustre.</p>
-   * @public
-   */
-  export interface FSxLustreFileSystemMember {
-    EFSFileSystem?: never;
-    FSxLustreFileSystem: FSxLustreFileSystem;
-    S3FileSystem?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A custom file system in Amazon S3. This is only supported in Amazon SageMaker Unified Studio.</p>
-   * @public
-   */
-  export interface S3FileSystemMember {
-    EFSFileSystem?: never;
-    FSxLustreFileSystem?: never;
-    S3FileSystem: S3FileSystem;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    EFSFileSystem?: never;
-    FSxLustreFileSystem?: never;
-    S3FileSystem?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    EFSFileSystem: (value: EFSFileSystem) => T;
-    FSxLustreFileSystem: (value: FSxLustreFileSystem) => T;
-    S3FileSystem: (value: S3FileSystem) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The settings for the JupyterLab application within a space.</p>
- * @public
- */
-export interface SpaceJupyterLabAppSettings {
-  /**
-   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that the version runs on.</p> <note> <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p> </note>
-   * @public
-   */
-  DefaultResourceSpec?: ResourceSpec | undefined;
-
-  /**
-   * <p>A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application.</p>
-   * @public
-   */
-  CodeRepositories?: CodeRepository[] | undefined;
-
-  /**
-   * <p>Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.</p>
-   * @public
-   */
-  AppLifecycleManagement?: SpaceAppLifecycleManagement | undefined;
-}
-
-/**
- * <p>A collection of EBS storage settings that apply to both private and shared spaces.</p>
- * @public
- */
-export interface EbsStorageSettings {
-  /**
-   * <p>The size of an EBS storage volume for a space.</p>
-   * @public
-   */
-  EbsVolumeSizeInGb: number | undefined;
 }

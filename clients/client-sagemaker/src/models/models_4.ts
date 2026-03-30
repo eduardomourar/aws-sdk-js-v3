@@ -54,6 +54,7 @@ import type {
   SkipModelValidation,
   SortBy,
   SortOrder,
+  SortPipelinesBy,
   SortTrialComponentsBy,
   SortTrialsBy,
   SpaceSortKey,
@@ -170,7 +171,6 @@ import type {
   MonitoringExecutionSummary,
   NotificationConfiguration,
   OidcConfig,
-  PipelineExperimentConfig,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   SourceIpConfig,
@@ -199,7 +199,7 @@ import type {
   MetricData,
   MonitoringAlertSummary,
   Parameter,
-  PipelineSummary,
+  PipelineExperimentConfig,
   ReservedCapacitySummary,
   SecondaryStatusTransition,
   SelectiveExecutionConfig,
@@ -213,6 +213,124 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListPipelineParametersForExecutionResponse {
+  /**
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   * @public
+   */
+  PipelineParameters?: Parameter[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelinesRequest {
+  /**
+   * <p>The prefix of the pipeline name.</p>
+   * @public
+   */
+  PipelineNamePrefix?: string | undefined;
+
+  /**
+   * <p>A filter that returns the pipelines that were created after a specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the pipelines that were created before a specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortPipelinesBy | undefined;
+
+  /**
+   * <p>The sort order for results.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelines</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of pipelines to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of a pipeline.</p>
+ * @public
+ */
+export interface PipelineSummary {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   * @public
+   */
+  PipelineName?: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline.</p>
+   * @public
+   */
+  PipelineDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the pipeline.</p>
+   * @public
+   */
+  PipelineDescription?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that the pipeline used to execute.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The creation time of the pipeline.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time that the pipeline was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The last time that a pipeline execution began.</p>
+   * @public
+   */
+  LastExecutionTime?: Date | undefined;
+}
 
 /**
  * @public

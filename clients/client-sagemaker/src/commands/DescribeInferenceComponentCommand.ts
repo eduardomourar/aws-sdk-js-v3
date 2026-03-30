@@ -75,6 +75,13 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * //     DataCacheConfig: { // InferenceComponentDataCacheConfigSummary
  * //       EnableCaching: true || false, // required
  * //     },
+ * //     SchedulingConfig: { // InferenceComponentSchedulingConfig
+ * //       PlacementStrategy: "SPREAD" || "BINPACK", // required
+ * //       AvailabilityZoneBalance: { // InferenceComponentAvailabilityZoneBalance
+ * //         EnforcementMode: "PERMISSIVE", // required
+ * //         MaxImbalance: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * //   RuntimeConfig: { // InferenceComponentRuntimeConfigSummary
  * //     DesiredCopyCount: Number("int"),

@@ -1532,7 +1532,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -1618,7 +1623,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -1704,7 +1714,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -2488,7 +2503,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -2574,7 +2594,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -2660,7 +2685,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -8653,7 +8683,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -8739,7 +8774,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -8825,7 +8865,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -9609,7 +9654,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -9695,7 +9745,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -9781,7 +9836,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -15774,7 +15834,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -15860,7 +15925,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -15946,7 +16016,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -16730,7 +16805,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -16816,7 +16896,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -16902,7 +16987,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ManagedInstanceScaling": {
               "Status": "__Status__",
               "MinInstanceCount": 0,
-              "MaxInstanceCount": 0
+              "MaxInstanceCount": 0,
+              "ScaleInPolicy": {
+                "Strategy": "__Strategy__",
+                "MaximumStepSize": 0,
+                "CooldownInMinutes": 0
+              }
             },
             "RoutingConfig": {
               "RoutingStrategy": "__RoutingStrategy__"
@@ -22907,7 +22997,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -22993,7 +23088,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -23079,7 +23179,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -23863,7 +23968,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -23949,7 +24059,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -24035,7 +24150,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -30028,7 +30148,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -30114,7 +30239,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -30200,7 +30330,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -30984,7 +31119,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -31070,7 +31210,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -31156,7 +31301,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -37149,7 +37299,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -37235,7 +37390,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -37321,7 +37481,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -38105,7 +38270,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -38191,7 +38361,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"
@@ -38277,7 +38452,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ManagedInstanceScaling: {
               Status: "__Status__",
               MinInstanceCount: (number) 0,
-              MaxInstanceCount: (number) 0
+              MaxInstanceCount: (number) 0,
+              ScaleInPolicy: {
+                Strategy: "__Strategy__",
+                MaximumStepSize: (number) 0,
+                CooldownInMinutes: (number) 0
+              }
             },
             RoutingConfig: {
               RoutingStrategy: "__RoutingStrategy__"

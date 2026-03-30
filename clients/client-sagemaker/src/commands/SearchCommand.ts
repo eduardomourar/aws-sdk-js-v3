@@ -928,6 +928,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               Status: "ENABLED" || "DISABLED",
  * //               MinInstanceCount: Number("int"),
  * //               MaxInstanceCount: Number("int"),
+ * //               ScaleInPolicy: { // ProductionVariantManagedInstanceScalingScaleInPolicy
+ * //                 Strategy: "IDLE_RELEASE" || "CONSOLIDATION", // required
+ * //                 MaximumStepSize: Number("int"),
+ * //                 CooldownInMinutes: Number("int"),
+ * //               },
  * //             },
  * //             RoutingConfig: { // ProductionVariantRoutingConfig
  * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
@@ -1123,6 +1128,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               Status: "ENABLED" || "DISABLED",
  * //               MinInstanceCount: Number("int"),
  * //               MaxInstanceCount: Number("int"),
+ * //               ScaleInPolicy: {
+ * //                 Strategy: "IDLE_RELEASE" || "CONSOLIDATION", // required
+ * //                 MaximumStepSize: Number("int"),
+ * //                 CooldownInMinutes: Number("int"),
+ * //               },
  * //             },
  * //             RoutingConfig: {
  * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required

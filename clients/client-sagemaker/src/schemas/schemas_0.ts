@@ -181,6 +181,7 @@ const _AVg = "AgentVersions";
 const _AVp = "AppVersion";
 const _AW = "AssembleWith";
 const _AZ = "AvailabilityZone";
+const _AZB = "AvailabilityZoneBalance";
 const _AZI = "AvailabilityZoneId";
 const _Ac = "Accelerators";
 const _Acc = "Accelerator";
@@ -434,6 +435,7 @@ const _CIGDL = "ClusterInstanceGroupDetailsList";
 const _CIGS = "ClusterInstanceGroupSpecification";
 const _CIGSl = "ClusterInstanceGroupSpecifications";
 const _CII = "CurrentImageId";
+const _CIM = "CooldownInMinutes";
 const _CIP = "ClusterInstancePlacement";
 const _CIR = "CreateImageRequest";
 const _CIRJ = "CreateInferenceRecommendationsJob";
@@ -1308,7 +1310,8 @@ const _EMSdg = "EdgeModelStats";
 const _EMSdge = "EdgeModelSummaries";
 const _EMd = "EdgeModel";
 const _EMdg = "EdgeModels";
-const _EMn = "EndpointMetrics";
+const _EMn = "EnforcementMode";
+const _EMnd = "EndpointMetrics";
 const _EMr = "ErrorMessage";
 const _EMv = "EventMetadata";
 const _EMx = "ExitMessage";
@@ -1579,6 +1582,7 @@ const _IAs = "IsActive";
 const _IB = "InferenceBenchmark";
 const _IC = "InferenceContainers";
 const _ICA = "InferenceComponentArn";
+const _ICAZB = "InferenceComponentAvailabilityZoneBalance";
 const _ICC = "InfraCheckConfig";
 const _ICCRR = "InferenceComponentComputeResourceRequirements";
 const _ICCS = "InferenceComponentCapacitySize";
@@ -1595,6 +1599,7 @@ const _ICRC = "InferenceComponentRuntimeConfig";
 const _ICRCS = "InferenceComponentRuntimeConfigSummary";
 const _ICRUP = "InferenceComponentRollingUpdatePolicy";
 const _ICS = "InferenceComponentStatus";
+const _ICSC = "InferenceComponentSchedulingConfig";
 const _ICSL = "InferenceComponentSummaryList";
 const _ICSP = "InferenceComponentStartupParameters";
 const _ICSS = "InferenceComponentSpecificationSummary";
@@ -2179,7 +2184,8 @@ const _MIPMa = "MaxInvocationsPerMinute";
 const _MIS = "ManagedInstanceScaling";
 const _MITIM = "MinIdleTimeoutInMinutes";
 const _MITIMa = "MaxIdleTimeoutInMinutes";
-const _MIa = "MaxInvocations";
+const _MIa = "MaxImbalance";
+const _MIax = "MaxInvocations";
 const _MIo = "ModelId";
 const _MIod = "ModelInput";
 const _MIon = "MonitoringInput";
@@ -2298,6 +2304,7 @@ const _MSO = "MonitoringS3Output";
 const _MSR = "MonitoringStatisticsResource";
 const _MSS = "MonitoringScheduleStatus";
 const _MSSL = "MonitoringScheduleSummaryList";
+const _MSSa = "MaximumStepSize";
 const _MSSo = "MonitoringScheduleSummaries";
 const _MSSon = "MonitoringScheduleSummary";
 const _MST = "ModelSetupTime";
@@ -2573,8 +2580,9 @@ const _PST = "ProcessingStartTime";
 const _PSa = "PaymentStatus";
 const _PSi = "PipelineSummaries";
 const _PSip = "PipelineSummary";
-const _PSl = "PlacementSpecifications";
-const _PSla = "PlacementSpecification";
+const _PSl = "PlacementStrategy";
+const _PSla = "PlacementSpecifications";
+const _PSlac = "PlacementSpecification";
 const _PSr = "ProjectStatus";
 const _PSri = "PrimaryStatus";
 const _PSro = "ProfilingStatus";
@@ -2599,6 +2607,7 @@ const _PVDN = "PipelineVersionDisplayName";
 const _PVI = "PipelineVersionId";
 const _PVL = "ProductionVariantList";
 const _PVMIS = "ProductionVariantManagedInstanceScaling";
+const _PVMISSIP = "ProductionVariantManagedInstanceScalingScaleInPolicy";
 const _PVRC = "ProductionVariantRoutingConfig";
 const _PVS = "PipelineVersionSummaries";
 const _PVSC = "ProductionVariantServerlessConfig";
@@ -2796,7 +2805,8 @@ const _SCT = "SupportedContentTypes";
 const _SCTo = "S3CompressionType";
 const _SCTu = "SupportedCompressionTypes";
 const _SCc = "SchedulerConfig";
-const _SCch = "ScheduleConfig";
+const _SCch = "SchedulingConfig";
+const _SCche = "ScheduleConfig";
 const _SCe = "ServerlessConfig";
 const _SCh = "ShuffleConfig";
 const _SCha = "ShapConfig";
@@ -2861,6 +2871,7 @@ const _SIEt = "StopInferenceExperiment";
 const _SIGB = "SizeInGiB";
 const _SIM = "S3InputMode";
 const _SIMu = "SupportedInputModes";
+const _SIP = "ScaleInPolicy";
 const _SIRJ = "StopInferenceRecommendationsJob";
 const _SIRJR = "StopInferenceRecommendationsJobRequest";
 const _SIS = "SpaceIdleSettings";
@@ -7025,6 +7036,11 @@ export var ImportHubContentResponse$: StaticStructureSchema = [3, n0, _IHCRm,
   [_HA, _HCA],
   [0, 0], 2
 ];
+export var InferenceComponentAvailabilityZoneBalance$: StaticStructureSchema = [3, n0, _ICAZB,
+  0,
+  [_EMn, _MIa],
+  [0, 1], 1
+];
 export var InferenceComponentCapacitySize$: StaticStructureSchema = [3, n0, _ICCS,
   0,
   [_T, _Va],
@@ -7080,15 +7096,20 @@ export var InferenceComponentRuntimeConfigSummary$: StaticStructureSchema = [3, 
   [_DCCe, _CCC],
   [1, 1]
 ];
+export var InferenceComponentSchedulingConfig$: StaticStructureSchema = [3, n0, _ICSC,
+  0,
+  [_PSl, _AZB],
+  [0, () => InferenceComponentAvailabilityZoneBalance$], 1
+];
 export var InferenceComponentSpecification$: StaticStructureSchema = [3, n0, _ICSn,
   0,
-  [_MNod, _Cont, _SPt, _CRR, _BICN, _DCCat],
-  [0, () => InferenceComponentContainerSpecification$, () => InferenceComponentStartupParameters$, () => InferenceComponentComputeResourceRequirements$, 0, () => InferenceComponentDataCacheConfig$]
+  [_MNod, _Cont, _SPt, _CRR, _BICN, _DCCat, _SCch],
+  [0, () => InferenceComponentContainerSpecification$, () => InferenceComponentStartupParameters$, () => InferenceComponentComputeResourceRequirements$, 0, () => InferenceComponentDataCacheConfig$, () => InferenceComponentSchedulingConfig$]
 ];
 export var InferenceComponentSpecificationSummary$: StaticStructureSchema = [3, n0, _ICSS,
   0,
-  [_MNod, _Cont, _SPt, _CRR, _BICN, _DCCat],
-  [0, () => InferenceComponentContainerSpecificationSummary$, () => InferenceComponentStartupParameters$, () => InferenceComponentComputeResourceRequirements$, 0, () => InferenceComponentDataCacheConfigSummary$]
+  [_MNod, _Cont, _SPt, _CRR, _BICN, _DCCat, _SCch],
+  [0, () => InferenceComponentContainerSpecificationSummary$, () => InferenceComponentStartupParameters$, () => InferenceComponentComputeResourceRequirements$, 0, () => InferenceComponentDataCacheConfigSummary$, () => InferenceComponentSchedulingConfig$]
 ];
 export var InferenceComponentStartupParameters$: StaticStructureSchema = [3, n0, _ICSP,
   0,
@@ -7127,7 +7148,7 @@ export var InferenceHubAccessConfig$: StaticStructureSchema = [3, n0, _IHAC,
 ];
 export var InferenceMetrics$: StaticStructureSchema = [3, n0, _IMn,
   0,
-  [_MIa, _ML],
+  [_MIax, _ML],
   [1, 1], 2
 ];
 export var InferenceRecommendation$: StaticStructureSchema = [3, n0, _IRnf,
@@ -7187,7 +7208,7 @@ export var InstanceMetadataServiceConfiguration$: StaticStructureSchema = [3, n0
 ];
 export var InstancePlacementConfig$: StaticStructureSchema = [3, n0, _IPCn,
   0,
-  [_EMJ, _PSl],
+  [_EMJ, _PSla],
   [2, () => PlacementSpecifications]
 ];
 export var IntegerParameterRange$: StaticStructureSchema = [3, n0, _IPR,
@@ -8652,7 +8673,7 @@ export var MonitoringSchedule$: StaticStructureSchema = [3, n0, _MSoni,
 ];
 export var MonitoringScheduleConfig$: StaticStructureSchema = [3, n0, _MSC,
   0,
-  [_SCch, _MJD, _MJDN, _MTo],
+  [_SCche, _MJD, _MJDN, _MTo],
   [() => ScheduleConfig$, () => MonitoringJobDefinition$, 0, 0]
 ];
 export var MonitoringScheduleSummary$: StaticStructureSchema = [3, n0, _MSSon,
@@ -8935,7 +8956,7 @@ export var PipelineVersionSummary$: StaticStructureSchema = [3, n0, _PVSi,
   [_PAi, _PVI, _CT, _PVD, _PVDN, _LEPEAa],
   [0, 1, 4, 0, 0, 0]
 ];
-export var PlacementSpecification$: StaticStructureSchema = [3, n0, _PSla,
+export var PlacementSpecification$: StaticStructureSchema = [3, n0, _PSlac,
   0,
   [_ICns, _USIl],
   [1, 0], 1
@@ -9037,8 +9058,13 @@ export var ProductionVariantCoreDumpConfig$: StaticStructureSchema = [3, n0, _PV
 ];
 export var ProductionVariantManagedInstanceScaling$: StaticStructureSchema = [3, n0, _PVMIS,
   0,
-  [_St, _MIC, _MICa],
-  [0, 1, 1]
+  [_St, _MIC, _MICa, _SIP],
+  [0, 1, 1, () => ProductionVariantManagedInstanceScalingScaleInPolicy$]
+];
+export var ProductionVariantManagedInstanceScalingScaleInPolicy$: StaticStructureSchema = [3, n0, _PVMISSIP,
+  0,
+  [_Str, _MSSa, _CIM],
+  [0, 1, 1], 1
 ];
 export var ProductionVariantRoutingConfig$: StaticStructureSchema = [3, n0, _PVRC,
   0,
@@ -9167,7 +9193,7 @@ export var RecommendationJobContainerConfig$: StaticStructureSchema = [3, n0, _R
 ];
 export var RecommendationJobInferenceBenchmark$: StaticStructureSchema = [3, n0, _RJIB,
   0,
-  [_MCode, _Me, _EMn, _ECnd, _FR, _IET, _IST],
+  [_MCode, _Me, _EMnd, _ECnd, _FR, _IET, _IST],
   [() => ModelConfiguration$, () => RecommendationMetrics$, () => InferenceMetrics$, () => EndpointOutputConfiguration$, 0, 4, 4], 1
 ];
 export var RecommendationJobInputConfig$: StaticStructureSchema = [3, n0, _RJIC,
@@ -9192,7 +9218,7 @@ export var RecommendationJobResourceLimit$: StaticStructureSchema = [3, n0, _RJR
 ];
 export var RecommendationJobStoppingConditions$: StaticStructureSchema = [3, n0, _RJSC,
   0,
-  [_MIa, _MLTo, _FI],
+  [_MIax, _MLTo, _FI],
   [1, () => ModelLatencyThresholds, 0]
 ];
 export var RecommendationJobVpcConfig$: StaticStructureSchema = [3, n0, _RJVC,
@@ -9202,7 +9228,7 @@ export var RecommendationJobVpcConfig$: StaticStructureSchema = [3, n0, _RJVC,
 ];
 export var RecommendationMetrics$: StaticStructureSchema = [3, n0, _RMec,
   0,
-  [_CPH, _CPIo, _MIa, _ML, _CUp, _MU, _MST],
+  [_CPH, _CPIo, _MIax, _ML, _CUp, _MU, _MST],
   [1, 1, 1, 1, 1, 1, 1]
 ];
 export var RedshiftDatasetDefinition$: StaticStructureSchema = [3, n0, _RDD,
@@ -9395,7 +9421,7 @@ export var ScalingPolicyObjective$: StaticStructureSchema = [3, n0, _SPO,
   [_MIPM, _MIPMa],
   [1, 1]
 ];
-export var ScheduleConfig$: StaticStructureSchema = [3, n0, _SCch,
+export var ScheduleConfig$: StaticStructureSchema = [3, n0, _SCche,
   0,
   [_SEc, _DAST, _DAET],
   [0, 0, 0], 1
@@ -11203,7 +11229,7 @@ var PipelineSummaryList: StaticListSchema = [1, n0, _PSLi,
 var PipelineVersionSummaryList: StaticListSchema = [1, n0, _PVSL,
   0, () => PipelineVersionSummary$
 ];
-var PlacementSpecifications: StaticListSchema = [1, n0, _PSl,
+var PlacementSpecifications: StaticListSchema = [1, n0, _PSla,
   0, () => PlacementSpecification$
 ];
 var PriorityClassList: StaticListSchema = [1, n0, _PCL,

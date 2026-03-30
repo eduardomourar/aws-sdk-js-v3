@@ -1804,6 +1804,19 @@ export type AutotuneMode = (typeof AutotuneMode)[keyof typeof AutotuneMode];
  * @public
  * @enum
  */
+export const AvailabilityZoneBalanceEnforcementMode = {
+  PERMISSIVE: "PERMISSIVE",
+} as const;
+/**
+ * @public
+ */
+export type AvailabilityZoneBalanceEnforcementMode =
+  (typeof AvailabilityZoneBalanceEnforcementMode)[keyof typeof AvailabilityZoneBalanceEnforcementMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const AwsManagedHumanLoopRequestSource = {
   REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3: "AWS/Rekognition/DetectModerationLabels/Image/V3",
   TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1: "AWS/Textract/AnalyzeDocument/Forms/V1",
@@ -3170,6 +3183,20 @@ export type ProductionVariantInferenceAmiVersion =
  * @public
  * @enum
  */
+export const ManagedInstanceScalingScaleInStrategy = {
+  CONSOLIDATION: "CONSOLIDATION",
+  IDLE_RELEASE: "IDLE_RELEASE",
+} as const;
+/**
+ * @public
+ */
+export type ManagedInstanceScalingScaleInStrategy =
+  (typeof ManagedInstanceScalingScaleInStrategy)[keyof typeof ManagedInstanceScalingScaleInStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const ManagedInstanceScalingStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -3377,6 +3404,20 @@ export const VendorGuidance = {
  * @public
  */
 export type VendorGuidance = (typeof VendorGuidance)[keyof typeof VendorGuidance];
+
+/**
+ * @public
+ * @enum
+ */
+export const InferenceComponentPlacementStrategy = {
+  BINPACK: "BINPACK",
+  SPREAD: "SPREAD",
+} as const;
+/**
+ * @public
+ */
+export type InferenceComponentPlacementStrategy =
+  (typeof InferenceComponentPlacementStrategy)[keyof typeof InferenceComponentPlacementStrategy];
 
 /**
  * @public

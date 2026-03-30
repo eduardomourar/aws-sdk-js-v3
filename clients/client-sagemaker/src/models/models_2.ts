@@ -144,6 +144,7 @@ import type {
   ClusterRestrictedInstanceGroupDetails,
   ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
+  CodeRepository,
   CognitoConfig,
   CognitoMemberDefinition,
   CollectionConfiguration,
@@ -172,7 +173,6 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
-  CustomFileSystem,
   DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
@@ -182,15 +182,16 @@ import type {
   DeviceSelectionConfig,
   DomainSettings,
   DriftCheckBaselines,
-  EbsStorageSettings,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
+  EFSFileSystem,
   EndpointInfo,
   ExperimentConfig,
   ExplainerConfig,
   FeatureDefinition,
   FlowDefinitionOutputConfig,
+  FSxLustreFileSystem,
   HubS3StorageConfig,
   HumanLoopActivationConfig,
   HumanLoopConfig,
@@ -200,6 +201,7 @@ import type {
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobWarmStartConfig,
   InferenceComponentComputeResourceRequirements,
+  InferenceComponentSchedulingConfig,
   InferenceComponentStartupParameters,
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
@@ -254,12 +256,118 @@ import type {
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RetryStrategy,
+  S3FileSystem,
   ShadowModeConfig,
   SourceAlgorithmSpecification,
+  SpaceAppLifecycleManagement,
   SpaceCodeEditorAppSettings,
-  SpaceJupyterLabAppSettings,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>A file system, created by you, that you assign to a user profile or space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</p>
+ * @public
+ */
+export type CustomFileSystem =
+  | CustomFileSystem.EFSFileSystemMember
+  | CustomFileSystem.FSxLustreFileSystemMember
+  | CustomFileSystem.S3FileSystemMember
+  | CustomFileSystem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CustomFileSystem {
+  /**
+   * <p>A custom file system in Amazon EFS.</p>
+   * @public
+   */
+  export interface EFSFileSystemMember {
+    EFSFileSystem: EFSFileSystem;
+    FSxLustreFileSystem?: never;
+    S3FileSystem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A custom file system in Amazon FSx for Lustre.</p>
+   * @public
+   */
+  export interface FSxLustreFileSystemMember {
+    EFSFileSystem?: never;
+    FSxLustreFileSystem: FSxLustreFileSystem;
+    S3FileSystem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A custom file system in Amazon S3. This is only supported in Amazon SageMaker Unified Studio.</p>
+   * @public
+   */
+  export interface S3FileSystemMember {
+    EFSFileSystem?: never;
+    FSxLustreFileSystem?: never;
+    S3FileSystem: S3FileSystem;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    EFSFileSystem?: never;
+    FSxLustreFileSystem?: never;
+    S3FileSystem?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    EFSFileSystem: (value: EFSFileSystem) => T;
+    FSxLustreFileSystem: (value: FSxLustreFileSystem) => T;
+    S3FileSystem: (value: S3FileSystem) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The settings for the JupyterLab application within a space.</p>
+ * @public
+ */
+export interface SpaceJupyterLabAppSettings {
+  /**
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that the version runs on.</p> <note> <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p> </note>
+   * @public
+   */
+  DefaultResourceSpec?: ResourceSpec | undefined;
+
+  /**
+   * <p>A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application.</p>
+   * @public
+   */
+  CodeRepositories?: CodeRepository[] | undefined;
+
+  /**
+   * <p>Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.</p>
+   * @public
+   */
+  AppLifecycleManagement?: SpaceAppLifecycleManagement | undefined;
+}
+
+/**
+ * <p>A collection of EBS storage settings that apply to both private and shared spaces.</p>
+ * @public
+ */
+export interface EbsStorageSettings {
+  /**
+   * <p>The size of an EBS storage volume for a space.</p>
+   * @public
+   */
+  EbsVolumeSizeInGb: number | undefined;
+}
 
 /**
  * <p>The storage settings for a space.</p>
@@ -6910,6 +7018,12 @@ export interface InferenceComponentSpecificationSummary {
    * @public
    */
   DataCacheConfig?: InferenceComponentDataCacheConfigSummary | undefined;
+
+  /**
+   * <p>The scheduling configuration that determines how inference component copies are placed across available instances when copies are added or removed.</p>
+   * @public
+   */
+  SchedulingConfig?: InferenceComponentSchedulingConfig | undefined;
 }
 
 /**
@@ -9524,52 +9638,4 @@ export interface DescribePipelineExecutionRequest {
    * @public
    */
   PipelineExecutionArn: string | undefined;
-}
-
-/**
- * <p> The MLflow configuration. </p>
- * @public
- */
-export interface MLflowConfiguration {
-  /**
-   * <p> The Amazon Resource Name (ARN) of MLflow configuration resource. </p>
-   * @public
-   */
-  MlflowResourceArn?: string | undefined;
-
-  /**
-   * <p> The name of the MLflow configuration. </p>
-   * @public
-   */
-  MlflowExperimentName?: string | undefined;
-}
-
-/**
- * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
- * @public
- */
-export interface PipelineExperimentConfig {
-  /**
-   * <p>The name of the experiment.</p>
-   * @public
-   */
-  ExperimentName?: string | undefined;
-
-  /**
-   * <p>The name of the trial.</p>
-   * @public
-   */
-  TrialName?: string | undefined;
-}
-
-/**
- * <p>A step selected to run in selective execution mode.</p>
- * @public
- */
-export interface SelectedStep {
-  /**
-   * <p>The name of the pipeline step.</p>
-   * @public
-   */
-  StepName: string | undefined;
 }

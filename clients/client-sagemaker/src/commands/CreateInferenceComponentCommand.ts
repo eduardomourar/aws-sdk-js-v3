@@ -63,6 +63,13 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  *     DataCacheConfig: { // InferenceComponentDataCacheConfig
  *       EnableCaching: true || false, // required
  *     },
+ *     SchedulingConfig: { // InferenceComponentSchedulingConfig
+ *       PlacementStrategy: "SPREAD" || "BINPACK", // required
+ *       AvailabilityZoneBalance: { // InferenceComponentAvailabilityZoneBalance
+ *         EnforcementMode: "PERMISSIVE", // required
+ *         MaxImbalance: Number("int"),
+ *       },
+ *     },
  *   },
  *   RuntimeConfig: { // InferenceComponentRuntimeConfig
  *     CopyCount: Number("int"), // required

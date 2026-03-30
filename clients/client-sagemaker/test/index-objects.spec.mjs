@@ -113,6 +113,7 @@ import {
   AutoRollbackConfig$,
   Autotune$,
   AutotuneMode,
+  AvailabilityZoneBalanceEnforcementMode,
   AvailableUpgrade$,
   AwsManagedHumanLoopRequestSource,
   BaseModel$,
@@ -1282,6 +1283,7 @@ import {
   ImportHubContentCommand,
   ImportHubContentRequest$,
   ImportHubContentResponse$,
+  InferenceComponentAvailabilityZoneBalance$,
   InferenceComponentCapacitySize$,
   InferenceComponentCapacitySizeType,
   InferenceComponentComputeResourceRequirements$,
@@ -1291,9 +1293,11 @@ import {
   InferenceComponentDataCacheConfigSummary$,
   InferenceComponentDeploymentConfig$,
   InferenceComponentMetadata$,
+  InferenceComponentPlacementStrategy,
   InferenceComponentRollingUpdatePolicy$,
   InferenceComponentRuntimeConfig$,
   InferenceComponentRuntimeConfigSummary$,
+  InferenceComponentSchedulingConfig$,
   InferenceComponentSortKey,
   InferenceComponentSpecification$,
   InferenceComponentSpecificationSummary$,
@@ -1709,6 +1713,7 @@ import {
   ListWorkteamsResponse$,
   ListWorkteamsSortByOptions,
   MaintenanceStatus,
+  ManagedInstanceScalingScaleInStrategy,
   ManagedInstanceScalingStatus,
   MemberDefinition$,
   MetadataProperties$,
@@ -2043,6 +2048,7 @@ import {
   ProductionVariantInferenceAmiVersion,
   ProductionVariantInstanceType,
   ProductionVariantManagedInstanceScaling$,
+  ProductionVariantManagedInstanceScalingScaleInPolicy$,
   ProductionVariantRoutingConfig$,
   ProductionVariantServerlessConfig$,
   ProductionVariantServerlessUpdateConfig$,
@@ -4132,6 +4138,7 @@ assert(typeof ImageConfig$ === "object");
 assert(typeof ImageVersion$ === "object");
 assert(typeof ImportHubContentRequest$ === "object");
 assert(typeof ImportHubContentResponse$ === "object");
+assert(typeof InferenceComponentAvailabilityZoneBalance$ === "object");
 assert(typeof InferenceComponentCapacitySize$ === "object");
 assert(typeof InferenceComponentComputeResourceRequirements$ === "object");
 assert(typeof InferenceComponentContainerSpecification$ === "object");
@@ -4143,6 +4150,7 @@ assert(typeof InferenceComponentMetadata$ === "object");
 assert(typeof InferenceComponentRollingUpdatePolicy$ === "object");
 assert(typeof InferenceComponentRuntimeConfig$ === "object");
 assert(typeof InferenceComponentRuntimeConfigSummary$ === "object");
+assert(typeof InferenceComponentSchedulingConfig$ === "object");
 assert(typeof InferenceComponentSpecification$ === "object");
 assert(typeof InferenceComponentSpecificationSummary$ === "object");
 assert(typeof InferenceComponentStartupParameters$ === "object");
@@ -4537,6 +4545,7 @@ assert(typeof ProductionVariantCapacityReservationConfig$ === "object");
 assert(typeof ProductionVariantCapacityReservationSummary$ === "object");
 assert(typeof ProductionVariantCoreDumpConfig$ === "object");
 assert(typeof ProductionVariantManagedInstanceScaling$ === "object");
+assert(typeof ProductionVariantManagedInstanceScalingScaleInPolicy$ === "object");
 assert(typeof ProductionVariantRoutingConfig$ === "object");
 assert(typeof ProductionVariantServerlessConfig$ === "object");
 assert(typeof ProductionVariantServerlessUpdateConfig$ === "object");
@@ -4895,6 +4904,7 @@ assert(typeof AutoMLSortBy === "object");
 assert(typeof AutoMLSortOrder === "object");
 assert(typeof AutoMountHomeEFS === "object");
 assert(typeof AutotuneMode === "object");
+assert(typeof AvailabilityZoneBalanceEnforcementMode === "object");
 assert(typeof AwsManagedHumanLoopRequestSource === "object");
 assert(typeof BatchAddClusterNodesErrorCode === "object");
 assert(typeof BatchDeleteClusterNodesErrorCode === "object");
@@ -4995,6 +5005,7 @@ assert(typeof ImageVersionSortBy === "object");
 assert(typeof ImageVersionSortOrder === "object");
 assert(typeof ImageVersionStatus === "object");
 assert(typeof InferenceComponentCapacitySizeType === "object");
+assert(typeof InferenceComponentPlacementStrategy === "object");
 assert(typeof InferenceComponentSortKey === "object");
 assert(typeof InferenceComponentStatus === "object");
 assert(typeof InferenceExecutionMode === "object");
@@ -5022,6 +5033,7 @@ assert(typeof ListOptimizationJobsSortBy === "object");
 assert(typeof ListWorkforcesSortByOptions === "object");
 assert(typeof ListWorkteamsSortByOptions === "object");
 assert(typeof MaintenanceStatus === "object");
+assert(typeof ManagedInstanceScalingScaleInStrategy === "object");
 assert(typeof ManagedInstanceScalingStatus === "object");
 assert(typeof MetricPublishFrequencyInSeconds === "object");
 assert(typeof MetricSetSource === "object");
