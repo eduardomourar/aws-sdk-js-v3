@@ -2118,6 +2118,12 @@ export interface CreateAutoScalingGroupType {
    *          <p>
    *             Default: <code>none</code>
    *          </p>
+   *          <p>
+   *             For more information, see
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/resource-deletion-protection.html">
+   *                 Configure deletion protection for your Amazon EC2 Auto Scaling resources</a>
+   *             in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+   *         </p>
    * @public
    */
   DeletionProtection?: DeletionProtection | undefined;
@@ -2968,6 +2974,22 @@ export interface Filter {
    *                 </p>
    *             </li>
    *          </ul>
+   *          <p>
+   *             <code>StartTimeLowerBound</code> and <code>StartTimeUpperBound</code> accept ISO 8601 formatted timestamps.
+   *             Timestamps without a timezone offset are assumed to be UTC.
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>2000-01-18T08:15:00Z</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>2000-01-18T16:15:00+08:00</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Name?: string | undefined;
@@ -3674,13 +3696,14 @@ export interface AutoScalingInstanceDetails {
    *          <p>Valid values: <code>Pending</code> | <code>Pending:Wait</code> |
    *                 <code>Pending:Proceed</code> | <code>Quarantined</code> | <code>InService</code> |
    *                 <code>Terminating</code> | <code>Terminating:Wait</code> |
-   *                 <code>Terminating:Proceed</code> | <code>Terminating:Retained</code> | <code>Terminated</code> | <code>Detaching</code>
-   *             | <code>Detached</code> | <code>EnteringStandby</code> | <code>Standby</code> |
+   *                 <code>Terminating:Proceed</code> | <code>Terminating:Retained</code> | <code>Terminated</code> | <code>Detaching</code> |
+   *                 <code>Detached</code> | <code>EnteringStandby</code> | <code>Standby</code> |
+   *                 <code>ReplacingRootVolume</code> | <code>ReplacingRootVolume:Wait</code> | <code>ReplacingRootVolume:Proceed</code> | <code>RootVolumeReplaced</code> |
    *                 <code>Warmed:Pending</code> | <code>Warmed:Pending:Wait</code> |
    *                 <code>Warmed:Pending:Proceed</code> | <code>Warmed:Pending:Retained</code> | <code>Warmed:Terminating</code> |
    *                 <code>Warmed:Terminating:Wait</code> | <code>Warmed:Terminating:Proceed</code> | <code>Warmed:Terminating:Retained</code> |
    *                 <code>Warmed:Terminated</code> | <code>Warmed:Stopped</code> |
-   *                 <code>Warmed:Running</code>
+   *                 <code>Warmed:Running</code> | <code>Warmed:Hibernated</code>
    *          </p>
    * @public
    */
@@ -6195,6 +6218,22 @@ export interface DescribeScalingActivitiesType {
    *                 </p>
    *             </li>
    *          </ul>
+   *          <p>
+   *             <code>StartTimeLowerBound</code> and <code>StartTimeUpperBound</code> accept ISO 8601 formatted timestamps.
+   *             Timestamps without a timezone offset are assumed to be UTC.
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>2000-01-18T08:15:00Z</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>2000-01-18T16:15:00+08:00</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -8534,6 +8573,12 @@ export interface UpdateAutoScalingGroupType {
    *          <p>
    *             Default: <code>none</code>
    *          </p>
+   *          <p>
+   *             For more information, see
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/resource-deletion-protection.html">
+   *                 Configure deletion protection for your Amazon EC2 Auto Scaling resources</a>
+   *             in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+   *         </p>
    * @public
    */
   DeletionProtection?: DeletionProtection | undefined;
