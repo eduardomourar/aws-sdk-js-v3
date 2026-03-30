@@ -416,6 +416,13 @@ DescribeInboundConnections
 </details>
 <details>
 <summary>
+DescribeInsightDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/DescribeInsightDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DescribeInsightDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DescribeInsightDetailsCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeInstanceTypeLimits
 </summary>
 
@@ -581,6 +588,13 @@ ListDomainsForPackage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/ListDomainsForPackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListDomainsForPackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListDomainsForPackageCommandOutput/)
+</details>
+<details>
+<summary>
+ListInsights
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/ListInsightsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListInsightsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListInsightsCommandOutput/)
 </details>
 <details>
 <summary>

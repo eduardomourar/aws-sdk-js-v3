@@ -191,6 +191,10 @@ import {
   DescribeInboundConnectionsCommand,
   DescribeInboundConnectionsRequest$,
   DescribeInboundConnectionsResponse$,
+  DescribeInsightDetails$,
+  DescribeInsightDetailsCommand,
+  DescribeInsightDetailsRequest$,
+  DescribeInsightDetailsResponse$,
   DescribeInstanceTypeLimits$,
   DescribeInstanceTypeLimitsCommand,
   DescribeInstanceTypeLimitsRequest$,
@@ -306,6 +310,16 @@ import {
   InboundConnectionStatusCode,
   IndexStatus,
   InitiatedBy,
+  Insight$,
+  InsightEntity$,
+  InsightEntityType,
+  InsightField$,
+  InsightFieldType,
+  InsightPriorityLevel,
+  InsightSortOrder,
+  InsightStatus,
+  InsightTimeRange$,
+  InsightType,
   InstanceCountLimits$,
   InstanceLimits$,
   InstanceTypeDetails$,
@@ -347,6 +361,10 @@ import {
   ListDomainsForPackageCommand,
   ListDomainsForPackageRequest$,
   ListDomainsForPackageResponse$,
+  ListInsights$,
+  ListInsightsCommand,
+  ListInsightsRequest$,
+  ListInsightsResponse$,
   ListInstanceTypeDetails$,
   ListInstanceTypeDetailsCommand,
   ListInstanceTypeDetailsRequest$,
@@ -641,6 +659,8 @@ assert(typeof DescribeDryRunProgressCommand === "function");
 assert(typeof DescribeDryRunProgress$ === "object");
 assert(typeof DescribeInboundConnectionsCommand === "function");
 assert(typeof DescribeInboundConnections$ === "object");
+assert(typeof DescribeInsightDetailsCommand === "function");
+assert(typeof DescribeInsightDetails$ === "object");
 assert(typeof DescribeInstanceTypeLimitsCommand === "function");
 assert(typeof DescribeInstanceTypeLimits$ === "object");
 assert(typeof DescribeOutboundConnectionsCommand === "function");
@@ -689,6 +709,8 @@ assert(typeof ListDomainNamesCommand === "function");
 assert(typeof ListDomainNames$ === "object");
 assert(typeof ListDomainsForPackageCommand === "function");
 assert(typeof ListDomainsForPackage$ === "object");
+assert(typeof ListInsightsCommand === "function");
+assert(typeof ListInsights$ === "object");
 assert(typeof ListInstanceTypeDetailsCommand === "function");
 assert(typeof ListInstanceTypeDetails$ === "object");
 assert(typeof ListPackagesForDomainCommand === "function");
@@ -844,6 +866,8 @@ assert(typeof DescribeDryRunProgressRequest$ === "object");
 assert(typeof DescribeDryRunProgressResponse$ === "object");
 assert(typeof DescribeInboundConnectionsRequest$ === "object");
 assert(typeof DescribeInboundConnectionsResponse$ === "object");
+assert(typeof DescribeInsightDetailsRequest$ === "object");
+assert(typeof DescribeInsightDetailsResponse$ === "object");
 assert(typeof DescribeInstanceTypeLimitsRequest$ === "object");
 assert(typeof DescribeInstanceTypeLimitsResponse$ === "object");
 assert(typeof DescribeOutboundConnectionsRequest$ === "object");
@@ -911,6 +935,10 @@ assert(typeof IdentityCenterOptionsInput$ === "object");
 assert(typeof IdentityCenterOptionsStatus$ === "object");
 assert(typeof InboundConnection$ === "object");
 assert(typeof InboundConnectionStatus$ === "object");
+assert(typeof Insight$ === "object");
+assert(typeof InsightEntity$ === "object");
+assert(typeof InsightField$ === "object");
+assert(typeof InsightTimeRange$ === "object");
 assert(typeof InstanceCountLimits$ === "object");
 assert(typeof InstanceLimits$ === "object");
 assert(typeof InstanceTypeDetails$ === "object");
@@ -931,6 +959,8 @@ assert(typeof ListDomainNamesRequest$ === "object");
 assert(typeof ListDomainNamesResponse$ === "object");
 assert(typeof ListDomainsForPackageRequest$ === "object");
 assert(typeof ListDomainsForPackageResponse$ === "object");
+assert(typeof ListInsightsRequest$ === "object");
+assert(typeof ListInsightsResponse$ === "object");
 assert(typeof ListInstanceTypeDetailsRequest$ === "object");
 assert(typeof ListInstanceTypeDetailsResponse$ === "object");
 assert(typeof ListPackagesForDomainRequest$ === "object");
@@ -1063,6 +1093,12 @@ assert(typeof EngineType === "object");
 assert(typeof InboundConnectionStatusCode === "object");
 assert(typeof IndexStatus === "object");
 assert(typeof InitiatedBy === "object");
+assert(typeof InsightEntityType === "object");
+assert(typeof InsightFieldType === "object");
+assert(typeof InsightPriorityLevel === "object");
+assert(typeof InsightSortOrder === "object");
+assert(typeof InsightStatus === "object");
+assert(typeof InsightType === "object");
 assert(typeof IPAddressType === "object");
 assert(typeof LogType === "object");
 assert(typeof MaintenanceStatus === "object");

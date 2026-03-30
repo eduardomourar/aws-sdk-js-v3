@@ -144,6 +144,7 @@ const _CSSUR = "CancelServiceSoftwareUpdateRequest";
 const _CSSURa = "CancelServiceSoftwareUpdateResponse";
 const _CSu = "CurrentState";
 const _CT = "ClientToken";
+const _CTr = "CreationTime";
 const _CV = "CancelledValue";
 const _CVE = "CreateVpcEndpoint";
 const _CVER = "CreateVpcEndpointRequest";
@@ -210,6 +211,9 @@ const _DICRes = "DescribeInboundConnectionsRequest";
 const _DICResc = "DescribeInboundConnectionsResponse";
 const _DICe = "DeleteInboundConnection";
 const _DICes = "DescribeInboundConnections";
+const _DID = "DescribeInsightDetails";
+const _DIDR = "DescribeInsightDetailsRequest";
+const _DIDRe = "DescribeInsightDetailsResponse";
 const _DIL = "DomainInfoList";
 const _DIR = "DeleteIndexRequest";
 const _DIRe = "DeleteIndexResponse";
@@ -229,6 +233,7 @@ const _DN = "DomainName";
 const _DNC = "DataNodeCount";
 const _DNS = "DomainNodesStatus";
 const _DNSL = "DomainNodesStatusList";
+const _DNi = "DisplayName";
 const _DNo = "DomainNames";
 const _DOC = "DeleteOutboundConnection";
 const _DOCR = "DeleteOutboundConnectionRequest";
@@ -320,10 +325,13 @@ const _EV = "EngineVersion";
 const _EVn = "EndpointV2";
 const _En = "Endpoint";
 const _End = "Endpoints";
+const _Ent = "Entity";
 const _F = "Filters";
 const _FL = "FilterList";
 const _FP = "FixedPrice";
-const _Fi = "Filter";
+const _Fi = "Fields";
+const _Fil = "Filter";
+const _Fr = "From";
 const _GA = "GetApplication";
 const _GAR = "GetApplicationRequest";
 const _GARe = "GetApplicationResponse";
@@ -371,9 +379,15 @@ const _ICS = "InboundConnectionStatus";
 const _ICn = "InboundConnection";
 const _ICnb = "InboundConnections";
 const _IE = "InternalException";
+const _IEn = "InsightEntity";
+const _IEs = "IsExperimental";
+const _IF = "InsightField";
+const _IFL = "InsightFieldList";
+const _II = "InsightId";
 const _IICO = "IamIdentityCenterOptions";
 const _IICOI = "IamIdentityCenterOptionsInput";
 const _IL = "InstanceLimits";
+const _ILn = "InsightList";
 const _IN = "IndexName";
 const _IPAT = "IPAddressType";
 const _IPATS = "IPAddressTypeStatus";
@@ -386,9 +400,12 @@ const _IT = "InstanceType";
 const _ITD = "InstanceTypeDetails";
 const _ITDL = "InstanceTypeDetailsList";
 const _ITE = "InvalidTypeException";
+const _ITR = "InsightTimeRange";
 const _IUDE = "InternalUserDatabaseEnabled";
 const _Id = "Idp";
 const _Id_ = "Id";
+const _In = "Insight";
+const _Ins = "Insights";
 const _Is = "Issues";
 const _JWTO = "JWTOptions";
 const _JWTOI = "JWTOptionsInput";
@@ -423,6 +440,9 @@ const _LDSR = "ListDataSourcesRequest";
 const _LDSRi = "ListDataSourcesResponse";
 const _LEE = "LimitExceededException";
 const _LF = "LicenseFilepath";
+const _LI = "ListInsights";
+const _LIR = "ListInsightsRequest";
+const _LIRi = "ListInsightsResponse";
 const _LITD = "ListInstanceTypeDetails";
 const _LITDR = "ListInstanceTypeDetailsRequest";
 const _LITDRi = "ListInstanceTypeDetailsResponse";
@@ -542,6 +562,7 @@ const _PVHL = "PackageVersionHistoryList";
 const _PVO = "PackageVendingOptions";
 const _PVe = "PendingValue";
 const _Pr = "Principal";
+const _Pri = "Priority";
 const _Pro = "Processing";
 const _Prom = "Prometheus";
 const _R = "Region";
@@ -596,6 +617,7 @@ const _SDMR = "StartDomainMaintenanceRequest";
 const _SDMRt = "StartDomainMaintenanceResponse";
 const _SGDC = "S3GlueDataCatalog";
 const _SGI = "SecurityGroupIds";
+const _SHC = "ShowHtmlContent";
 const _SI = "SubnetIds";
 const _SK = "SubjectKey";
 const _SKe = "S3Key";
@@ -606,6 +628,7 @@ const _SM = "StatusMessage";
 const _SNAE = "SlotNotAvailableException";
 const _SO = "SnapshotOptions";
 const _SOS = "SnapshotOptionsStatus";
+const _SOo = "SortOrder";
 const _SS = "SlotSuggestions";
 const _SSO = "ServiceSoftwareOptions";
 const _SSSU = "StartServiceSoftwareUpdate";
@@ -641,11 +664,13 @@ const _TK = "TagKeys";
 const _TL = "TagList";
 const _TLSSP = "TLSSecurityPolicy";
 const _TNOS = "TotalNumberOfStages";
+const _TR = "TimeRange";
 const _TS = "TotalShards";
 const _TUAS = "TotalUnAssignedShards";
 const _TV = "TargetVersions";
 const _TVa = "TargetVersion";
 const _Ta = "Tag";
+const _To = "To";
 const _Ty = "Type";
 const _U = "Username";
 const _UA = "UpdatedAt";
@@ -694,6 +719,7 @@ const _USL = "UpgradeStepsList";
 const _USS = "UpgradeStepStatus";
 const _USp = "UpdateStatus";
 const _USpg = "UpgradeStatus";
+const _UT = "UpdateTime";
 const _UV = "UpdateVersion";
 const _UVE = "UpdateVpcEndpoint";
 const _UVER = "UpdateVpcEndpointRequest";
@@ -1430,6 +1456,16 @@ export var DescribeInboundConnectionsResponse$: StaticStructureSchema = [3, n0, 
   [_Co, _NT],
   [() => InboundConnections, 0]
 ];
+export var DescribeInsightDetailsRequest$: StaticStructureSchema = [3, n0, _DIDR,
+  0,
+  [_Ent, _II, _SHC],
+  [() => InsightEntity$, 0, 2], 2
+];
+export var DescribeInsightDetailsResponse$: StaticStructureSchema = [3, n0, _DIDRe,
+  0,
+  [_Fi],
+  [() => InsightFieldList], 1
+];
 export var DescribeInstanceTypeLimitsRequest$: StaticStructureSchema = [3, n0, _DITLR,
   0,
   [_IT, _EV, _DN],
@@ -1610,7 +1646,7 @@ export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
   [_ETr, _EM],
   [0, 0]
 ];
-export var Filter$: StaticStructureSchema = [3, n0, _Fi,
+export var Filter$: StaticStructureSchema = [3, n0, _Fil,
   0,
   [_N, _Va],
   [0, 64 | 0]
@@ -1760,6 +1796,26 @@ export var InboundConnectionStatus$: StaticStructureSchema = [3, n0, _ICS,
   [_SC, _M],
   [0, 0]
 ];
+export var Insight$: StaticStructureSchema = [3, n0, _In,
+  0,
+  [_II, _DNi, _Ty, _Pri, _S, _CTr, _UT, _IEs],
+  [0, 0, 0, 0, 0, 4, 4, 2]
+];
+export var InsightEntity$: StaticStructureSchema = [3, n0, _IEn,
+  0,
+  [_Ty, _V],
+  [0, 0], 1
+];
+export var InsightField$: StaticStructureSchema = [3, n0, _IF,
+  0,
+  [_N, _Ty, _V],
+  [0, 0, 0], 3
+];
+export var InsightTimeRange$: StaticStructureSchema = [3, n0, _ITR,
+  0,
+  [_Fr, _To],
+  [1, 1], 2
+];
 export var InstanceCountLimits$: StaticStructureSchema = [3, n0, _ICL,
   0,
   [_MIC, _MICa],
@@ -1859,6 +1915,16 @@ export var ListDomainsForPackageResponse$: StaticStructureSchema = [3, n0, _LDFP
   0,
   [_DPDL, _NT],
   [() => DomainPackageDetailsList, 0]
+];
+export var ListInsightsRequest$: StaticStructureSchema = [3, n0, _LIR,
+  0,
+  [_Ent, _TR, _SOo, _MR, _NT],
+  [() => InsightEntity$, () => InsightTimeRange$, 0, 1, 0], 1
+];
+export var ListInsightsResponse$: StaticStructureSchema = [3, n0, _LIRi,
+  0,
+  [_Ins, _NT],
+  [() => InsightList, 0]
 ];
 export var ListInstanceTypeDetailsRequest$: StaticStructureSchema = [3, n0, _LITDR,
   0,
@@ -2468,6 +2534,12 @@ var GUIDList = 64 | 0;
 var InboundConnections: StaticListSchema = [1, n0, _ICnb,
   0, () => InboundConnection$
 ];
+var InsightFieldList: StaticListSchema = [1, n0, _IFL,
+  0, () => InsightField$
+];
+var InsightList: StaticListSchema = [1, n0, _ILn,
+  0, () => Insight$
+];
 var InstanceRoleList = 64 | 0;
 var InstanceTypeDetailsList: StaticListSchema = [1, n0, _ITDL,
   0, () => InstanceTypeDetails$
@@ -2658,6 +2730,9 @@ export var DescribeDryRunProgress$: StaticOperationSchema = [9, n0, _DDRP,
 export var DescribeInboundConnections$: StaticOperationSchema = [9, n0, _DICes,
   { [_h]: ["POST", "/2021-01-01/opensearch/cc/inboundConnection/search", 200] }, () => DescribeInboundConnectionsRequest$, () => DescribeInboundConnectionsResponse$
 ];
+export var DescribeInsightDetails$: StaticOperationSchema = [9, n0, _DID,
+  { [_h]: ["POST", "/2021-01-01/opensearch/insight-details", 200] }, () => DescribeInsightDetailsRequest$, () => DescribeInsightDetailsResponse$
+];
 export var DescribeInstanceTypeLimits$: StaticOperationSchema = [9, n0, _DITL,
   { [_h]: ["GET", "/2021-01-01/opensearch/instanceTypeLimits/{EngineVersion}/{InstanceType}", 200] }, () => DescribeInstanceTypeLimitsRequest$, () => DescribeInstanceTypeLimitsResponse$
 ];
@@ -2729,6 +2804,9 @@ export var ListDomainNames$: StaticOperationSchema = [9, n0, _LDN,
 ];
 export var ListDomainsForPackage$: StaticOperationSchema = [9, n0, _LDFP,
   { [_h]: ["GET", "/2021-01-01/packages/{PackageID}/domains", 200] }, () => ListDomainsForPackageRequest$, () => ListDomainsForPackageResponse$
+];
+export var ListInsights$: StaticOperationSchema = [9, n0, _LI,
+  { [_h]: ["POST", "/2021-01-01/opensearch/insights", 200] }, () => ListInsightsRequest$, () => ListInsightsResponse$
 ];
 export var ListInstanceTypeDetails$: StaticOperationSchema = [9, n0, _LITD,
   { [_h]: ["GET", "/2021-01-01/opensearch/instanceTypeDetails/{EngineVersion}", 200] }, () => ListInstanceTypeDetailsRequest$, () => ListInstanceTypeDetailsResponse$

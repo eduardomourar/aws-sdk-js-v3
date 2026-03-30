@@ -158,6 +158,10 @@ import type {
   DescribeInboundConnectionsCommandOutput,
 } from "./commands/DescribeInboundConnectionsCommand";
 import type {
+  DescribeInsightDetailsCommandInput,
+  DescribeInsightDetailsCommandOutput,
+} from "./commands/DescribeInsightDetailsCommand";
+import type {
   DescribeInstanceTypeLimitsCommandInput,
   DescribeInstanceTypeLimitsCommandOutput,
 } from "./commands/DescribeInstanceTypeLimitsCommand";
@@ -229,6 +233,7 @@ import type {
   ListDomainsForPackageCommandInput,
   ListDomainsForPackageCommandOutput,
 } from "./commands/ListDomainsForPackageCommand";
+import type { ListInsightsCommandInput, ListInsightsCommandOutput } from "./commands/ListInsightsCommand";
 import type {
   ListInstanceTypeDetailsCommandInput,
   ListInstanceTypeDetailsCommandOutput,
@@ -353,6 +358,7 @@ export type ServiceInputTypes =
   | DescribeDomainsCommandInput
   | DescribeDryRunProgressCommandInput
   | DescribeInboundConnectionsCommandInput
+  | DescribeInsightDetailsCommandInput
   | DescribeInstanceTypeLimitsCommandInput
   | DescribeOutboundConnectionsCommandInput
   | DescribePackagesCommandInput
@@ -377,6 +383,7 @@ export type ServiceInputTypes =
   | ListDomainMaintenancesCommandInput
   | ListDomainNamesCommandInput
   | ListDomainsForPackageCommandInput
+  | ListInsightsCommandInput
   | ListInstanceTypeDetailsCommandInput
   | ListPackagesForDomainCommandInput
   | ListScheduledActionsCommandInput
@@ -440,6 +447,7 @@ export type ServiceOutputTypes =
   | DescribeDomainsCommandOutput
   | DescribeDryRunProgressCommandOutput
   | DescribeInboundConnectionsCommandOutput
+  | DescribeInsightDetailsCommandOutput
   | DescribeInstanceTypeLimitsCommandOutput
   | DescribeOutboundConnectionsCommandOutput
   | DescribePackagesCommandOutput
@@ -464,6 +472,7 @@ export type ServiceOutputTypes =
   | ListDomainMaintenancesCommandOutput
   | ListDomainNamesCommandOutput
   | ListDomainsForPackageCommandOutput
+  | ListInsightsCommandOutput
   | ListInstanceTypeDetailsCommandOutput
   | ListPackagesForDomainCommandOutput
   | ListScheduledActionsCommandOutput

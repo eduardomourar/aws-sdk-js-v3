@@ -814,6 +814,32 @@ export type NodeType = (typeof NodeType)[keyof typeof NodeType];
  * @public
  * @enum
  */
+export const InsightEntityType = {
+  ACCOUNT: "Account",
+  DOMAIN: "DomainName",
+} as const;
+/**
+ * @public
+ */
+export type InsightEntityType = (typeof InsightEntityType)[keyof typeof InsightEntityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightFieldType = {
+  METRIC: "metric",
+  TEXT: "text",
+} as const;
+/**
+ * @public
+ */
+export type InsightFieldType = (typeof InsightFieldType)[keyof typeof InsightFieldType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DescribePackagesFilterName = {
   EngineVersion: "EngineVersion",
   PackageID: "PackageID",
@@ -955,6 +981,61 @@ export const EngineType = {
  * @public
  */
 export type EngineType = (typeof EngineType)[keyof typeof EngineType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightSortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+/**
+ * @public
+ */
+export type InsightSortOrder = (typeof InsightSortOrder)[keyof typeof InsightSortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightPriorityLevel = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type InsightPriorityLevel = (typeof InsightPriorityLevel)[keyof typeof InsightPriorityLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightStatus = {
+  ACTIVE: "ACTIVE",
+  DISMISSED: "DISMISSED",
+  RESOLVED: "RESOLVED",
+} as const;
+/**
+ * @public
+ */
+export type InsightStatus = (typeof InsightStatus)[keyof typeof InsightStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightType = {
+  EVENT: "EVENT",
+  RECOMMENDATION: "RECOMMENDATION",
+} as const;
+/**
+ * @public
+ */
+export type InsightType = (typeof InsightType)[keyof typeof InsightType];
 
 /**
  * @public

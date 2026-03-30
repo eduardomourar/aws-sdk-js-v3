@@ -164,6 +164,11 @@ import {
   DescribeInboundConnectionsCommand,
 } from "./commands/DescribeInboundConnectionsCommand";
 import {
+  type DescribeInsightDetailsCommandInput,
+  type DescribeInsightDetailsCommandOutput,
+  DescribeInsightDetailsCommand,
+} from "./commands/DescribeInsightDetailsCommand";
+import {
   type DescribeInstanceTypeLimitsCommandInput,
   type DescribeInstanceTypeLimitsCommandOutput,
   DescribeInstanceTypeLimitsCommand,
@@ -279,6 +284,11 @@ import {
   type ListDomainsForPackageCommandOutput,
   ListDomainsForPackageCommand,
 } from "./commands/ListDomainsForPackageCommand";
+import {
+  type ListInsightsCommandInput,
+  type ListInsightsCommandOutput,
+  ListInsightsCommand,
+} from "./commands/ListInsightsCommand";
 import {
   type ListInstanceTypeDetailsCommandInput,
   type ListInstanceTypeDetailsCommandOutput,
@@ -451,6 +461,7 @@ const commands = {
   DescribeDomainsCommand,
   DescribeDryRunProgressCommand,
   DescribeInboundConnectionsCommand,
+  DescribeInsightDetailsCommand,
   DescribeInstanceTypeLimitsCommand,
   DescribeOutboundConnectionsCommand,
   DescribePackagesCommand,
@@ -475,6 +486,7 @@ const commands = {
   ListDomainMaintenancesCommand,
   ListDomainNamesCommand,
   ListDomainsForPackageCommand,
+  ListInsightsCommand,
   ListInstanceTypeDetailsCommand,
   ListPackagesForDomainCommand,
   ListScheduledActionsCommand,
@@ -1083,6 +1095,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link DescribeInsightDetailsCommand}
+   */
+  describeInsightDetails(
+    args: DescribeInsightDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInsightDetailsCommandOutput>;
+  describeInsightDetails(
+    args: DescribeInsightDetailsCommandInput,
+    cb: (err: any, data?: DescribeInsightDetailsCommandOutput) => void
+  ): void;
+  describeInsightDetails(
+    args: DescribeInsightDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInsightDetailsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeInstanceTypeLimitsCommand}
    */
   describeInstanceTypeLimits(
@@ -1497,6 +1526,23 @@ export interface OpenSearch {
     args: ListDomainsForPackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDomainsForPackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInsightsCommand}
+   */
+  listInsights(
+    args: ListInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInsightsCommandOutput>;
+  listInsights(
+    args: ListInsightsCommandInput,
+    cb: (err: any, data?: ListInsightsCommandOutput) => void
+  ): void;
+  listInsights(
+    args: ListInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInsightsCommandOutput) => void
   ): void;
 
   /**

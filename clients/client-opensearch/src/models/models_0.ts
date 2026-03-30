@@ -26,6 +26,12 @@ import type {
   InboundConnectionStatusCode,
   IndexStatus,
   InitiatedBy,
+  InsightEntityType,
+  InsightFieldType,
+  InsightPriorityLevel,
+  InsightSortOrder,
+  InsightStatus,
+  InsightType,
   IPAddressType,
   LogType,
   MaintenanceStatus,
@@ -5317,6 +5323,92 @@ export interface DescribeInboundConnectionsResponse {
 }
 
 /**
+ * <p>Specifies the entity for which to retrieve insights. An entity can be an Amazon
+ *             OpenSearch Service domain or an Amazon Web Services account.</p>
+ * @public
+ */
+export interface InsightEntity {
+  /**
+   * <p>The type of the entity. Possible values are <code>Account</code> and
+   *             <code>DomainName</code>.</p>
+   * @public
+   */
+  Type: InsightEntityType | undefined;
+
+  /**
+   * <p>The value of the entity. For <code>DomainName</code>, this is the domain name. For
+   *             <code>Account</code>, this is the Amazon Web Services account ID.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Container for the parameters to the <code>DescribeInsightDetails</code>
+ *             operation.</p>
+ * @public
+ */
+export interface DescribeInsightDetailsRequest {
+  /**
+   * <p>The entity for which to retrieve insight details. Specifies the type and value of the
+   *             entity, such as a domain name or Amazon Web Services account ID.</p>
+   * @public
+   */
+  Entity: InsightEntity | undefined;
+
+  /**
+   * <p>The unique identifier of the insight to describe.</p>
+   * @public
+   */
+  InsightId: string | undefined;
+
+  /**
+   * <p>Specifies whether to show response with HTML content in response or not.</p>
+   * @public
+   */
+  ShowHtmlContent?: boolean | undefined;
+}
+
+/**
+ * <p>Represents a field in the detailed view of an insight, returned by the
+ *             <code>DescribeInsightDetails</code> operation.</p>
+ * @public
+ */
+export interface InsightField {
+  /**
+   * <p>The name of the insight field.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the insight field. Possible values are <code>text</code> and
+   *             <code>metric</code>.</p>
+   * @public
+   */
+  Type: InsightFieldType | undefined;
+
+  /**
+   * <p>The value of the insight field.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>The result of a <code>DescribeInsightDetails</code> request. Contains the detailed
+ *             fields associated with the specified insight.</p>
+ * @public
+ */
+export interface DescribeInsightDetailsResponse {
+  /**
+   * <p>The list of fields that contain detailed information about the insight.</p>
+   * @public
+   */
+  Fields: InsightField[] | undefined;
+}
+
+/**
  * <p>Container for the parameters to the <code>DescribeInstanceTypeLimits</code>
  *             operation.</p>
  * @public
@@ -7070,6 +7162,146 @@ export interface ListDomainsForPackageResponse {
 }
 
 /**
+ * <p>Specifies the time range for filtering insights.</p>
+ * @public
+ */
+export interface InsightTimeRange {
+  /**
+   * <p>The start of the time range, in epoch milliseconds.</p>
+   * @public
+   */
+  From: number | undefined;
+
+  /**
+   * <p>The end of the time range, in epoch milliseconds.</p>
+   * @public
+   */
+  To: number | undefined;
+}
+
+/**
+ * <p>Container for the parameters to the <code>ListInsights</code> operation.</p>
+ * @public
+ */
+export interface ListInsightsRequest {
+  /**
+   * <p>The entity for which to list insights. Specifies the type and value of the entity,
+   *             such as a domain name or Amazon Web Services account ID.</p>
+   * @public
+   */
+  Entity: InsightEntity | undefined;
+
+  /**
+   * <p>The time range for filtering insights, specified as epoch millisecond timestamps.</p>
+   * @public
+   */
+  TimeRange?: InsightTimeRange | undefined;
+
+  /**
+   * <p>The sort order for the results. Possible values are <code>ASC</code> (ascending) and
+   *             <code>DESC</code> (descending).</p>
+   * @public
+   */
+  SortOrder?: InsightSortOrder | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can
+   *             use <code>NextToken</code> to get the next page of results. Valid values are 1 to
+   *             500.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListInsights</code> operation returns a
+   *             <code>NextToken</code>, include the returned <code>NextToken</code> in subsequent
+   *             <code>ListInsights</code> operations to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents an insight returned by the <code>ListInsights</code> operation. An insight
+ *             is a notification about a domain event or recommendation that helps you optimize your
+ *             Amazon OpenSearch Service domain.</p>
+ * @public
+ */
+export interface Insight {
+  /**
+   * <p>The unique identifier of the insight.</p>
+   * @public
+   */
+  InsightId?: string | undefined;
+
+  /**
+   * <p>The display name of the insight.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The type of the insight. Possible values are <code>EVENT</code> and
+   *             <code>RECOMMENDATION</code>.</p>
+   * @public
+   */
+  Type?: InsightType | undefined;
+
+  /**
+   * <p>The priority level of the insight. Possible values are <code>CRITICAL</code>,
+   *             <code>HIGH</code>, <code>MEDIUM</code>, and <code>LOW</code>.</p>
+   * @public
+   */
+  Priority?: InsightPriorityLevel | undefined;
+
+  /**
+   * <p>The current status of the insight. Possible values are <code>ACTIVE</code>,
+   *             <code>RESOLVED</code>, and <code>DISMISSED</code>.</p>
+   * @public
+   */
+  Status?: InsightStatus | undefined;
+
+  /**
+   * <p>The timestamp when the insight was created, in epoch milliseconds.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the insight was last updated, in epoch milliseconds.</p>
+   * @public
+   */
+  UpdateTime?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the insight is experimental.</p>
+   * @public
+   */
+  IsExperimental?: boolean | undefined;
+}
+
+/**
+ * <p>The result of a <code>ListInsights</code> request. Contains the list of insights and
+ *             a pagination token for retrieving the next page of results.</p>
+ * @public
+ */
+export interface ListInsightsResponse {
+  /**
+   * <p>The list of insights returned for the specified entity.</p>
+   * @public
+   */
+  Insights?: Insight[] | undefined;
+
+  /**
+   * <p>When <code>NextToken</code> is returned, there are more results available. The value
+   *             of <code>NextToken</code> is a unique pagination token for each page. Send the request
+   *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListInstanceTypeDetailsRequest {
@@ -8308,179 +8540,4 @@ export interface UpdatePackageScopeResponse {
    * @public
    */
   PackageUserList?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateScheduledActionRequest {
-  /**
-   * <p>The name of the domain to reschedule an action for.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique identifier of the action to reschedule. To retrieve this ID, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
-   * @public
-   */
-  ActionID: string | undefined;
-
-  /**
-   * <p>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>,
-   *                 <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve
-   *             this value, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
-   * @public
-   */
-  ActionType: ActionType | undefined;
-
-  /**
-   * <p>When to schedule the action.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NOW</code> - Immediately schedules the update to happen in the current
-   *                     hour if there's capacity available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the
-   *                     update. If you specify this value, you must also provide a value for
-   *                         <code>DesiredStartTime</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OFF_PEAK_WINDOW</code> - Marks the action to be picked up during an
-   *                     upcoming off-peak window. There's no guarantee that the change will be
-   *                     implemented during the next immediate window. Depending on capacity, it might
-   *                     happen in subsequent days.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ScheduleAt: ScheduleAt | undefined;
-
-  /**
-   * <p>The time to implement the change, in Coordinated Universal Time (UTC). Only specify
-   *             this parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
-   * @public
-   */
-  DesiredStartTime?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateScheduledActionResponse {
-  /**
-   * <p>Information about the rescheduled action.</p>
-   * @public
-   */
-  ScheduledAction?: ScheduledAction | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateVpcEndpointRequest {
-  /**
-   * <p>The unique identifier of the endpoint.</p>
-   * @public
-   */
-  VpcEndpointId: string | undefined;
-
-  /**
-   * <p>The security groups and/or subnets to add, remove, or modify.</p>
-   * @public
-   */
-  VpcOptions: VPCOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateVpcEndpointResponse {
-  /**
-   * <p>The endpoint to be updated.</p>
-   * @public
-   */
-  VpcEndpoint: VpcEndpoint | undefined;
-}
-
-/**
- * <p>Container for the request parameters to the <code>UpgradeDomain</code>
- *             operation.</p>
- * @public
- */
-export interface UpgradeDomainRequest {
-  /**
-   * <p>Name of the OpenSearch Service domain that you want to upgrade.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>OpenSearch or Elasticsearch version to which you want to upgrade, in the format
-   *             Opensearch_X.Y or Elasticsearch_X.Y.</p>
-   * @public
-   */
-  TargetVersion: string | undefined;
-
-  /**
-   * <p>When true, indicates that an upgrade eligibility check needs to be performed. Does not
-   *             actually perform the upgrade.</p>
-   * @public
-   */
-  PerformCheckOnly?: boolean | undefined;
-
-  /**
-   * <p>Only supports the <code>override_main_response_version</code> parameter and not other
-   *             advanced options. You can only include this option when upgrading to an OpenSearch
-   *             version. Specifies whether the domain reports its version as 7.10 so that it continues
-   *             to work with Elasticsearch OSS clients and plugins.</p>
-   * @public
-   */
-  AdvancedOptions?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Container for the response returned by <code>UpgradeDomain</code> operation.</p>
- * @public
- */
-export interface UpgradeDomainResponse {
-  /**
-   * <p>The unique identifier of the domain upgrade.</p>
-   * @public
-   */
-  UpgradeId?: string | undefined;
-
-  /**
-   * <p>The name of the domain that was upgraded.</p>
-   * @public
-   */
-  DomainName?: string | undefined;
-
-  /**
-   * <p>OpenSearch or Elasticsearch version that the domain was upgraded to.</p>
-   * @public
-   */
-  TargetVersion?: string | undefined;
-
-  /**
-   * <p>When true, indicates that an upgrade eligibility check was performed.</p>
-   * @public
-   */
-  PerformCheckOnly?: boolean | undefined;
-
-  /**
-   * <p>The advanced options configuration for the domain.</p>
-   * @public
-   */
-  AdvancedOptions?: Record<string, string> | undefined;
-
-  /**
-   * <p>Container for information about a configuration change happening on a domain.</p>
-   * @public
-   */
-  ChangeProgressDetails?: ChangeProgressDetails | undefined;
 }
