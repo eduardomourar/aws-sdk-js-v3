@@ -425,6 +425,7 @@ const _E = "Engine";
 const _EA = "EndpointArn";
 const _EALDI = "ExtraArchivedLogDestIds";
 const _EAN = "EmptyAsNull";
+const _EAn = "EncryptionAlgorithm";
 const _EBO = "ExpectedBucketOwner";
 const _EC = "EventCategories";
 const _ECA = "ExtraConnectionAttributes";
@@ -981,6 +982,7 @@ const _SMSDEARA = "SecretsManagerSecurityDbEncryptionAccessRoleArn";
 const _SMSDESI = "SecretsManagerSecurityDbEncryptionSecretId";
 const _SMSI = "SecretsManagerSecretId";
 const _SMa = "SaslMechanism";
+const _SMe = "SecurityMechanism";
 const _SN = "ServerName";
 const _SNSITF = "SNSInvalidTopicFault";
 const _SNSNAF = "SNSNoAuthorizationFault";
@@ -2350,8 +2352,8 @@ export var GetTargetSelectionRulesResponse$: StaticStructureSchema = [3, n0, _GT
 ];
 export var IbmDb2LuwDataProviderSettings$: StaticStructureSchema = [3, n0, _IDLDPS,
   0,
-  [_SN, _Po, _DN, _SM, _CA, _SPa, _SARAc],
-  [0, 1, 0, 0, 0, 0, 0]
+  [_SN, _Po, _DN, _SM, _CA, _EAn, _SMe, _SPa, _SARAc],
+  [0, 1, 0, 0, 0, 1, 1, 0, 0]
 ];
 export var IBMDb2Settings$: StaticStructureSchema = [3, n0, _IBMDS,
   0,

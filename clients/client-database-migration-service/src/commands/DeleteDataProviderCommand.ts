@@ -134,6 +134,8 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         EncryptionAlgorithm: Number("int"),
+ * //         SecurityMechanism: Number("int"),
  * //         S3Path: "STRING_VALUE",
  * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },

@@ -1276,6 +1276,26 @@ export interface IbmDb2LuwDataProviderSettings {
   CertificateArn?: string | undefined;
 
   /**
+   * <p>
+   *          The encryption algorithm used for securing the connection to the IBM DB2 LUW database server.
+   *          You can provide an integer value corresponding to a specific encryption algorithm,
+   *          or leave this parameter empty to use the default behavior.
+   *       </p>
+   * @public
+   */
+  EncryptionAlgorithm?: number | undefined;
+
+  /**
+   * <p>
+   *          The security mechanism used for authenticating the connection to the IBM DB2 LUW database server.
+   *          You can provide an integer value corresponding to a specific security mechanism,
+   *          or leave this parameter empty to use the default behavior.
+   *       </p>
+   * @public
+   */
+  SecurityMechanism?: number | undefined;
+
+  /**
    * <p>The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.</p>
    * @public
    */
