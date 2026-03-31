@@ -27,8 +27,7 @@ export interface ListDataSetRevisionsCommandInput extends ListDataSetRevisionsRe
 export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists a data set's revisions sorted by CreatedAt in descending
- *          order.</p>
+ * <p>This operation lists a data set's revisions sorted by CreatedAt in descending order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -122,6 +122,9 @@ export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBeare
  * //   Name: "STRING_VALUE",
  * //   RevisionId: "STRING_VALUE",
  * //   SourceId: "STRING_VALUE",
+ * //   Tags: { // MapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * //   UpdatedAt: new Date("TIMESTAMP"),
  * // };
  *

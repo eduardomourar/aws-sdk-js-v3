@@ -8,6 +8,7 @@ import {
   AccessDeniedException$,
   Action$,
   ApiGatewayApiAsset$,
+  AssetConfiguration$,
   AssetDestinationEntry$,
   AssetDetails$,
   AssetEntry$,
@@ -224,6 +225,7 @@ import {
   TableLFTagPolicy$,
   TableLFTagPolicyAndPermissions$,
   TableTagPolicyLFPermission,
+  Tag$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -336,6 +338,7 @@ assert(typeof AcceptDataGrantRequest$ === "object");
 assert(typeof AcceptDataGrantResponse$ === "object");
 assert(typeof Action$ === "object");
 assert(typeof ApiGatewayApiAsset$ === "object");
+assert(typeof AssetConfiguration$ === "object");
 assert(typeof AssetDestinationEntry$ === "object");
 assert(typeof AssetDetails$ === "object");
 assert(typeof AssetEntry$ === "object");
@@ -454,6 +457,7 @@ assert(typeof StartJobRequest$ === "object");
 assert(typeof StartJobResponse$ === "object");
 assert(typeof TableLFTagPolicy$ === "object");
 assert(typeof TableLFTagPolicyAndPermissions$ === "object");
+assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UpdateAssetRequest$ === "object");

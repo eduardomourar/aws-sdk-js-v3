@@ -37,6 +37,14 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // CreateJobRequest
+ *   AssetConfiguration: { // AssetConfiguration
+ *     Tags: [ // ListOfTag
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  *   Details: { // RequestDetails
  *     ExportAssetToSignedUrl: { // ExportAssetToSignedUrlRequestDetails
  *       AssetId: "STRING_VALUE", // required
@@ -165,6 +173,14 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * const response = await client.send(command);
  * // { // CreateJobResponse
  * //   Arn: "STRING_VALUE",
+ * //   AssetConfiguration: { // AssetConfiguration
+ * //     Tags: [ // ListOfTag
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   Details: { // ResponseDetails
  * //     ExportAssetToSignedUrl: { // ExportAssetToSignedUrlResponseDetails
@@ -334,8 +350,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *  <p>Access to the resource is denied.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the
- *          resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>

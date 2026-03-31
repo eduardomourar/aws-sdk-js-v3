@@ -1,6 +1,7 @@
 const _ = "";
 const _A = "Arn";
 const _AA = "AcceptedAt";
+const _AC = "AssetConfiguration";
 const _AD = "ApiDescription";
 const _ADE = "AccessDeniedException";
 const _ADEs = "AssetDestinationEntry";
@@ -208,6 +209,7 @@ const _LORDSASE = "ListOfRedshiftDataShareAssetSourceEntry";
 const _LORE = "ListOfRevisionEntry";
 const _LOSCD = "ListOfSchemaChangeDetails";
 const _LOSDA = "ListOfS3DataAccesses";
+const _LOT = "ListOfTag";
 const _LRA = "ListRevisionAssets";
 const _LRAR = "ListRevisionAssetsRequest";
 const _LRARi = "ListRevisionAssetsResponse";
@@ -303,6 +305,7 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TV = "TagValues";
 const _Ta = "Table";
+const _Tag = "Tag";
 const _Ty = "Type";
 const _UA = "UpdatedAt";
 const _UAR = "UpdateAssetRequest";
@@ -321,6 +324,7 @@ const _URRpd = "UpdateRevisionResponse";
 const _URp = "UpdateRevision";
 const _V = "View";
 const _VE = "ValidationException";
+const _Va = "Value";
 const _aS = "acceptanceState";
 const _c = "client";
 const _dSI = "dataSetId";
@@ -446,6 +450,11 @@ export var ApiGatewayApiAsset$: StaticStructureSchema = [3, n0, _AGAA,
   [_AD, _AE, _AI, _AK, _AN, _ASDU, _ASDUEA, _PT, _S],
   [0, 0, 0, 0, 0, 0, 5, 0, 0]
 ];
+export var AssetConfiguration$: StaticStructureSchema = [3, n0, _AC,
+  0,
+  [_T],
+  [() => ListOfTag]
+];
 export var AssetDestinationEntry$: StaticStructureSchema = [3, n0, _ADEs,
   0,
   [_AIs, _B, _K],
@@ -513,13 +522,13 @@ export var CreateEventActionResponse$: StaticStructureSchema = [3, n0, _CEARr,
 ];
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJRr,
   0,
-  [_De, _Ty],
-  [() => RequestDetails$, 0], 2
+  [_De, _Ty, _AC],
+  [() => RequestDetails$, 0, () => AssetConfiguration$], 2
 ];
 export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre,
   0,
-  [_A, _CA, _De, _Er, _I, _St, _Ty, _UA],
-  [0, 5, () => ResponseDetails$, () => ListOfJobError, 0, 0, 0, 5]
+  [_A, _AC, _CA, _De, _Er, _I, _St, _Ty, _UA],
+  [0, () => AssetConfiguration$, 5, () => ResponseDetails$, () => ListOfJobError, 0, 0, 0, 5]
 ];
 export var CreateRevisionRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
@@ -653,8 +662,8 @@ export var GetAssetRequest$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GetAssetResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RIe, _SI, _UA],
-  [0, () => AssetDetails$, 0, 5, 0, 0, 0, 0, 0, 5]
+  [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RIe, _SI, _T, _UA],
+  [0, () => AssetDetails$, 0, 5, 0, 0, 0, 0, 0, 128 | 0, 5]
 ];
 export var GetDataGrantRequest$: StaticStructureSchema = [3, n0, _GDGR,
   0,
@@ -693,8 +702,8 @@ export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
 ];
 export var GetJobResponse$: StaticStructureSchema = [3, n0, _GJRe,
   0,
-  [_A, _CA, _De, _Er, _I, _St, _Ty, _UA],
-  [0, 5, () => ResponseDetails$, () => ListOfJobError, 0, 0, 0, 5]
+  [_A, _AC, _CA, _De, _Er, _I, _St, _Ty, _UA],
+  [0, () => AssetConfiguration$, 5, () => ResponseDetails$, () => ListOfJobError, 0, 0, 0, 5]
 ];
 export var GetReceivedDataGrantRequest$: StaticStructureSchema = [3, n0, _GRDGR,
   0,
@@ -773,8 +782,8 @@ export var ImportAssetsFromS3ResponseDetails$: StaticStructureSchema = [3, n0, _
 ];
 export var JobEntry$: StaticStructureSchema = [3, n0, _JE,
   0,
-  [_A, _CA, _De, _I, _St, _Ty, _UA, _Er],
-  [0, 5, () => ResponseDetails$, 0, 0, 0, 5, () => ListOfJobError], 7
+  [_A, _CA, _De, _I, _St, _Ty, _UA, _AC, _Er],
+  [0, 5, () => ResponseDetails$, 0, 0, 0, 5, () => AssetConfiguration$, () => ListOfJobError], 7
 ];
 export var JobError$: StaticStructureSchema = [3, n0, _JEo,
   0,
@@ -1036,6 +1045,11 @@ export var TableLFTagPolicyAndPermissions$: StaticStructureSchema = [3, n0, _TLF
   [_Ex, _P],
   [() => ListOfLFTags, 64 | 0], 2
 ];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag,
+  0,
+  [_K, _Va],
+  [0, 0], 2
+];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _T],
@@ -1147,6 +1161,9 @@ var ListOfSchemaChangeDetails: StaticListSchema = [1, n0, _LOSCD,
   0, () => SchemaChangeDetails$
 ];
 var ListOfTableTagPolicyLFPermissions = 64 | 0;
+var ListOfTag: StaticListSchema = [1, n0, _LOT,
+  0, () => Tag$
+];
 var MapOf__string = 128 | 0;
 export var AcceptDataGrant$: StaticOperationSchema = [9, n0, _ADG,
   { [_h]: ["POST", "/v1/data-grants/{DataGrantArn}/accept", 200] }, () => AcceptDataGrantRequest$, () => AcceptDataGrantResponse$

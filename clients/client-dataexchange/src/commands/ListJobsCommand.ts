@@ -48,6 +48,14 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //   Jobs: [ // ListOfJobEntry
  * //     { // JobEntry
  * //       Arn: "STRING_VALUE", // required
+ * //       AssetConfiguration: { // AssetConfiguration
+ * //         Tags: [ // ListOfTag
+ * //           { // Tag
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //       CreatedAt: new Date("TIMESTAMP"), // required
  * //       Details: { // ResponseDetails
  * //         ExportAssetToSignedUrl: { // ExportAssetToSignedUrlResponseDetails

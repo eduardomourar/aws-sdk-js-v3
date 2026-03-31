@@ -31,16 +31,14 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request couldn't be completed because it conflicted with the current state of the
- *          resource.</p>
+ * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The request couldn't be completed because it conflicted with the current state of the
-   *          resource.</p>
+   * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
    * @public
    */
   Message: string | undefined;

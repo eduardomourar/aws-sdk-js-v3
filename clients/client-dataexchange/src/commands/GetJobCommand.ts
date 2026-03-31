@@ -43,6 +43,14 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * // { // GetJobResponse
  * //   Arn: "STRING_VALUE",
+ * //   AssetConfiguration: { // AssetConfiguration
+ * //     Tags: [ // ListOfTag
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   Details: { // ResponseDetails
  * //     ExportAssetToSignedUrl: { // ExportAssetToSignedUrlResponseDetails
