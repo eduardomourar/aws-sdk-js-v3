@@ -3356,6 +3356,12 @@ export interface DeleteBucketMetadataTableConfigurationRequest {
 export interface DeleteBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket containing the metrics configuration to delete.</p>
+   *          <p>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    * @public
@@ -3371,6 +3377,10 @@ export interface DeleteBucketMetricsConfigurationRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   *          <note>
+   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
+   * <code>501 Not Implemented</code>.</p>
+   *          </note>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -8158,6 +8168,10 @@ export interface MetricsAndOperator {
 
   /**
    * <p>The list of tags used when evaluating an AND predicate.</p>
+   *          <note>
+   *             <p>
+   *                <code>Tag</code> filters are not supported for directory buckets.</p>
+   *          </note>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8200,6 +8214,10 @@ export namespace MetricsFilter {
 
   /**
    * <p>The tag used when evaluating a metrics filter.</p>
+   *          <note>
+   *             <p>
+   *                <code>Tag</code> filters are not supported for directory buckets.</p>
+   *          </note>
    * @public
    */
   export interface TagMember {
@@ -8279,6 +8297,9 @@ export interface MetricsConfiguration {
    * <p>Specifies a metrics configuration filter. The metrics configuration will only include objects that
    *       meet the filter's criteria. A filter must be a prefix, an object tag, an access point ARN, or a
    *       conjunction (MetricsAndOperator).</p>
+   *          <note>
+   *             <p>Metrics configurations for directory buckets do not support tag filters.</p>
+   *          </note>
    * @public
    */
   Filter?: MetricsFilter | undefined;
@@ -8301,6 +8322,12 @@ export interface GetBucketMetricsConfigurationOutput {
 export interface GetBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket containing the metrics configuration to retrieve.</p>
+   *          <p>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    * @public
@@ -8316,6 +8343,10 @@ export interface GetBucketMetricsConfigurationRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   *          <note>
+   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
+   * <code>501 Not Implemented</code>.</p>
+   *          </note>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -12012,6 +12043,12 @@ export interface ListBucketMetricsConfigurationsOutput {
 export interface ListBucketMetricsConfigurationsRequest {
   /**
    * <p>The name of the bucket containing the metrics configurations to retrieve.</p>
+   *          <p>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    * @public
@@ -12028,6 +12065,10 @@ export interface ListBucketMetricsConfigurationsRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   *          <note>
+   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
+   * <code>501 Not Implemented</code>.</p>
+   *          </note>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -14413,6 +14454,12 @@ export interface PutBucketLoggingRequest {
 export interface PutBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket for which the metrics configuration is set.</p>
+   *          <p>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    * @public
@@ -14434,6 +14481,10 @@ export interface PutBucketMetricsConfigurationRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   *          <note>
+   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
+   * <code>501 Not Implemented</code>.</p>
+   *          </note>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
