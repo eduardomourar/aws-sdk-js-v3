@@ -114,6 +114,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * //   },
  * //   environmentBlueprintId: "STRING_VALUE",
  * //   environmentConfigurationId: "STRING_VALUE",
+ * //   environmentConfigurationName: "STRING_VALUE",
  * // };
  *
  * ```

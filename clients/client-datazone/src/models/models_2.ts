@@ -768,6 +768,12 @@ export interface UpdateEnvironmentInput {
    * @public
    */
   userParameters?: EnvironmentParameter[] | undefined;
+
+  /**
+   * <p>The configuration name of the environment.</p>
+   * @public
+   */
+  environmentConfigurationName?: string | undefined;
 }
 
 /**
@@ -905,6 +911,12 @@ export interface UpdateEnvironmentOutput {
    * @public
    */
   environmentConfigurationId?: string | undefined;
+
+  /**
+   * <p>The configuration name of the environment.</p>
+   * @public
+   */
+  environmentConfigurationName?: string | undefined;
 }
 
 /**

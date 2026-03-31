@@ -2244,13 +2244,13 @@ export var CreateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
-  [_pIr, _dI, _n, _de, _ePI, _uP, _gT, _eAI, _eAR, _eBI, _dO, _eCI],
-  [0, [0, 1], 0, 0, 0, () => EnvironmentParametersList, 64 | 0, 0, 0, 0, 1, 0], 3
+  [_pIr, _dI, _n, _de, _ePI, _uP, _gT, _eAI, _eAR, _eBI, _dO, _eCI, _eCNn],
+  [0, [0, 1], 0, 0, 0, () => EnvironmentParametersList, 64 | 0, 0, 0, 0, 1, 0, [() => EnvironmentConfigurationName, 0]], 3
 ];
 export var CreateEnvironmentOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI],
-  [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0]], 5
+  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
+  [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var CreateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _CEPI,
   0,
@@ -2864,8 +2864,8 @@ export var EnvironmentResolvedAccount$: StaticStructureSchema = [3, n0, _ERA,
 ];
 export var EnvironmentSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _st, _eCI],
-  [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, 0, [() => EnvironmentConfigurationId, 0]], 5
+  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _st, _eCI, _eCNn],
+  [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var EqualToExpression$: StaticStructureSchema = [3, n0, _ETE,
   0,
@@ -3069,8 +3069,8 @@ export var GetEnvironmentInput$: StaticStructureSchema = [3, n0, _GEI,
 ];
 export var GetEnvironmentOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI],
-  [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0]], 5
+  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
+  [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var GetEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _GEPI,
   0,
@@ -4619,13 +4619,13 @@ export var UpdateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
   0,
-  [_dI, _i, _n, _de, _gT, _bV, _uP],
-  [[0, 1], [0, 1], 0, 0, 64 | 0, 0, () => EnvironmentParametersList], 2
+  [_dI, _i, _n, _de, _gT, _bV, _uP, _eCNn],
+  [[0, 1], [0, 1], 0, 0, 64 | 0, 0, () => EnvironmentParametersList, [() => EnvironmentConfigurationName, 0]], 2
 ];
 export var UpdateEnvironmentOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI],
-  [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0]], 5
+  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
+  [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var UpdateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _UEPI,
   0,

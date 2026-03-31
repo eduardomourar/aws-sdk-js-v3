@@ -51,6 +51,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *       value: "STRING_VALUE",
  *     },
  *   ],
+ *   environmentConfigurationName: "STRING_VALUE",
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -126,6 +127,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * //   },
  * //   environmentBlueprintId: "STRING_VALUE",
  * //   environmentConfigurationId: "STRING_VALUE",
+ * //   environmentConfigurationName: "STRING_VALUE",
  * // };
  *
  * ```

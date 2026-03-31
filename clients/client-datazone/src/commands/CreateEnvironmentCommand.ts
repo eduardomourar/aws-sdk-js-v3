@@ -56,6 +56,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   environmentBlueprintIdentifier: "STRING_VALUE",
  *   deploymentOrder: Number("int"),
  *   environmentConfigurationId: "STRING_VALUE",
+ *   environmentConfigurationName: "STRING_VALUE",
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -131,6 +132,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * //   },
  * //   environmentBlueprintId: "STRING_VALUE",
  * //   environmentConfigurationId: "STRING_VALUE",
+ * //   environmentConfigurationName: "STRING_VALUE",
  * // };
  *
  * ```

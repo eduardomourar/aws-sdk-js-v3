@@ -8864,6 +8864,12 @@ export interface CreateEnvironmentInput {
    * @public
    */
   environmentConfigurationId?: string | undefined;
+
+  /**
+   * <p>The configuration name of the environment.</p>
+   * @public
+   */
+  environmentConfigurationName?: string | undefined;
 }
 
 /**
@@ -9196,6 +9202,12 @@ export interface CreateEnvironmentOutput {
    * @public
    */
   environmentConfigurationId?: string | undefined;
+
+  /**
+   * <p>The configuration name of the environment.</p>
+   * @public
+   */
+  environmentConfigurationName?: string | undefined;
 }
 
 /**

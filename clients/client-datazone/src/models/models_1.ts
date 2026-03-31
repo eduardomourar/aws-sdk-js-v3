@@ -4106,6 +4106,12 @@ export interface GetEnvironmentOutput {
    * @public
    */
   environmentConfigurationId?: string | undefined;
+
+  /**
+   * <p>The configuration name that is used to create the environment.</p>
+   * @public
+   */
+  environmentConfigurationName?: string | undefined;
 }
 
 /**
@@ -7089,6 +7095,12 @@ export interface EnvironmentSummary {
    * @public
    */
   environmentConfigurationId?: string | undefined;
+
+  /**
+   * <p>The configuration name with which the environment is created.</p>
+   * @public
+   */
+  environmentConfigurationName?: string | undefined;
 }
 
 /**

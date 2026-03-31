@@ -6519,6 +6519,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The configuration ID of the environment.</p>"
           }
+        },
+        "environmentConfigurationName": {
+          "target": "com.amazonaws.datazone#EnvironmentConfigurationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration name of the environment.</p>"
+          }
         }
       },
       "traits": {
@@ -6667,6 +6673,12 @@
           "target": "com.amazonaws.datazone#EnvironmentConfigurationId",
           "traits": {
             "smithy.api#documentation": "<p>The configuration ID of the environment.</p>"
+          }
+        },
+        "environmentConfigurationName": {
+          "target": "com.amazonaws.datazone#EnvironmentConfigurationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration name of the environment.</p>"
           }
         }
       },
@@ -15227,6 +15239,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The configuration ID with which the environment is created.</p>"
           }
+        },
+        "environmentConfigurationName": {
+          "target": "com.amazonaws.datazone#EnvironmentConfigurationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration name with which the environment is created.</p>"
+          }
         }
       },
       "traits": {
@@ -18300,6 +18318,12 @@
           "target": "com.amazonaws.datazone#EnvironmentConfigurationId",
           "traits": {
             "smithy.api#documentation": "<p>The configuration ID that is used to create the environment.</p>"
+          }
+        },
+        "environmentConfigurationName": {
+          "target": "com.amazonaws.datazone#EnvironmentConfigurationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration name that is used to create the environment.</p>"
           }
         }
       },
@@ -37963,6 +37987,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The user parameters of the environment.</p>"
           }
+        },
+        "environmentConfigurationName": {
+          "target": "com.amazonaws.datazone#EnvironmentConfigurationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration name of the environment.</p>"
+          }
         }
       },
       "traits": {
@@ -38111,6 +38141,12 @@
           "target": "com.amazonaws.datazone#EnvironmentConfigurationId",
           "traits": {
             "smithy.api#documentation": "<p>The configuration ID of the environment.</p>"
+          }
+        },
+        "environmentConfigurationName": {
+          "target": "com.amazonaws.datazone#EnvironmentConfigurationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration name of the environment.</p>"
           }
         }
       },
