@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { AssociateOriginationIdentityRequest, AssociateOriginationIdentityResult } from "../models/models_0";
+import type { DeleteRcsAgentRequest, DeleteRcsAgentResult } from "../models/models_0";
 import type {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { AssociateOriginationIdentity$ } from "../schemas/schemas_0";
+import { DeleteRcsAgent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,48 +20,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link AssociateOriginationIdentityCommand}.
+ * The input for {@link DeleteRcsAgentCommand}.
  */
-export interface AssociateOriginationIdentityCommandInput extends AssociateOriginationIdentityRequest {}
+export interface DeleteRcsAgentCommandInput extends DeleteRcsAgentRequest {}
 /**
  * @public
  *
- * The output of {@link AssociateOriginationIdentityCommand}.
+ * The output of {@link DeleteRcsAgentCommand}.
  */
-export interface AssociateOriginationIdentityCommandOutput extends AssociateOriginationIdentityResult, __MetadataBearer {}
+export interface DeleteRcsAgentCommandOutput extends DeleteRcsAgentResult, __MetadataBearer {}
 
 /**
- * <p>Associates the specified origination identity with a pool.</p> <p>If the origination identity is a phone number and is already associated with another pool, an error is returned. A sender ID can be associated with multiple pools.</p> <p>If the origination identity configuration doesn't match the pool's configuration, an error is returned.</p>
+ * <p>Deletes an existing RCS agent. If deletion protection is enabled, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DeleteRcsAgentCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DeleteRcsAgentCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * // import type { PinpointSMSVoiceV2ClientConfig } from "@aws-sdk/client-pinpoint-sms-voice-v2";
  * const config = {}; // type is PinpointSMSVoiceV2ClientConfig
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = { // AssociateOriginationIdentityRequest
- *   PoolId: "STRING_VALUE", // required
- *   OriginationIdentity: "STRING_VALUE", // required
- *   IsoCountryCode: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ * const input = { // DeleteRcsAgentRequest
+ *   RcsAgentId: "STRING_VALUE", // required
  * };
- * const command = new AssociateOriginationIdentityCommand(input);
+ * const command = new DeleteRcsAgentCommand(input);
  * const response = await client.send(command);
- * // { // AssociateOriginationIdentityResult
- * //   PoolArn: "STRING_VALUE",
- * //   PoolId: "STRING_VALUE",
- * //   OriginationIdentityArn: "STRING_VALUE",
- * //   OriginationIdentity: "STRING_VALUE",
- * //   IsoCountryCode: "STRING_VALUE",
+ * // { // DeleteRcsAgentResult
+ * //   RcsAgentArn: "STRING_VALUE", // required
+ * //   RcsAgentId: "STRING_VALUE", // required
+ * //   Status: "STRING_VALUE", // required
+ * //   CreatedTimestamp: new Date("TIMESTAMP"), // required
+ * //   DeletionProtectionEnabled: true || false, // required
+ * //   OptOutListName: "STRING_VALUE",
+ * //   SelfManagedOptOutsEnabled: true || false, // required
+ * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   TwoWayChannelRole: "STRING_VALUE",
+ * //   TwoWayEnabled: true || false, // required
  * // };
  *
  * ```
  *
- * @param AssociateOriginationIdentityCommandInput - {@link AssociateOriginationIdentityCommandInput}
- * @returns {@link AssociateOriginationIdentityCommandOutput}
- * @see {@link AssociateOriginationIdentityCommandInput} for command's `input` shape.
- * @see {@link AssociateOriginationIdentityCommandOutput} for command's `response` shape.
+ * @param DeleteRcsAgentCommandInput - {@link DeleteRcsAgentCommandInput}
+ * @returns {@link DeleteRcsAgentCommandOutput}
+ * @see {@link DeleteRcsAgentCommandInput} for command's `input` shape.
+ * @see {@link DeleteRcsAgentCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -76,9 +78,6 @@ export interface AssociateOriginationIdentityCommandOutput extends AssociateOrig
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
@@ -91,10 +90,10 @@ export interface AssociateOriginationIdentityCommandOutput extends AssociateOrig
  *
  * @public
  */
-export class AssociateOriginationIdentityCommand extends $Command
+export class DeleteRcsAgentCommand extends $Command
   .classBuilder<
-    AssociateOriginationIdentityCommandInput,
-    AssociateOriginationIdentityCommandOutput,
+    DeleteRcsAgentCommandInput,
+    DeleteRcsAgentCommandOutput,
     PinpointSMSVoiceV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,19 +102,19 @@ export class AssociateOriginationIdentityCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("PinpointSMSVoiceV2", "AssociateOriginationIdentity", {})
-  .n("PinpointSMSVoiceV2Client", "AssociateOriginationIdentityCommand")
-  .sc(AssociateOriginationIdentity$)
+  .s("PinpointSMSVoiceV2", "DeleteRcsAgent", {})
+  .n("PinpointSMSVoiceV2Client", "DeleteRcsAgentCommand")
+  .sc(DeleteRcsAgent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: AssociateOriginationIdentityRequest;
-      output: AssociateOriginationIdentityResult;
+      input: DeleteRcsAgentRequest;
+      output: DeleteRcsAgentResult;
     };
     sdk: {
-      input: AssociateOriginationIdentityCommandInput;
-      output: AssociateOriginationIdentityCommandOutput;
+      input: DeleteRcsAgentCommandInput;
+      output: DeleteRcsAgentCommandOutput;
     };
   };
 }

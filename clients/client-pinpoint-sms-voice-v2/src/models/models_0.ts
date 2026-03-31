@@ -4,7 +4,10 @@ import type {
   AccountLimitName,
   AttachmentStatus,
   AttachmentUploadErrorReason,
+  CarrierStatus,
   ConfigurationSetFilterName,
+  CountryLaunchStatus,
+  CountryLaunchStatusFilterName,
   DestinationCountryParameterKey,
   EventType,
   FieldRequirement,
@@ -14,6 +17,13 @@ import type {
   LanguageCode,
   MessageFeedbackStatus,
   MessageType,
+  NotifyConfigurationFilterName,
+  NotifyConfigurationStatus,
+  NotifyConfigurationTier,
+  NotifyConfigurationUseCase,
+  NotifyTemplateFilterName,
+  NotifyTemplateStatus,
+  NotifyTemplateType,
   NumberCapability,
   NumberStatus,
   NumberType,
@@ -28,6 +38,8 @@ import type {
   ProtectConfigurationRuleOverrideAction,
   ProtectConfigurationRuleSetNumberOverrideFilterName,
   ProtectStatus,
+  RcsAgentFilterName,
+  RcsAgentStatus,
   RegistrationAssociationBehavior,
   RegistrationAssociationFilterName,
   RegistrationAttachmentFilterName,
@@ -40,6 +52,10 @@ import type {
   RequestableNumberType,
   SenderIdFilterName,
   SpendLimitName,
+  TemplateVariableSource,
+  TemplateVariableType,
+  TestingAgentStatus,
+  TierUpgradeStatus,
   VerificationChannel,
   VerificationStatus,
   VerifiedDestinationNumberFilterName,
@@ -106,10 +122,10 @@ export interface AssociateOriginationIdentityRequest {
   OriginationIdentity: string | undefined;
 
   /**
-   * <p>The new two-character code, in ISO 3166-1 alpha-2 format, for the country or region of the origination identity.</p>
+   * <p>The new two-character code, in ISO 3166-1 alpha-2 format, for the country or region of the origination identity. This field is optional and is not required for origination identity types that are not country-specific, such as RCS agents.</p>
    * @public
    */
-  IsoCountryCode: string | undefined;
+  IsoCountryCode?: string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
@@ -282,6 +298,24 @@ export interface CarrierLookupResult {
 }
 
 /**
+ * <p>Contains carrier-level launch status details for an RCS agent within a country.</p>
+ * @public
+ */
+export interface CarrierStatusInformation {
+  /**
+   * <p>The name of the carrier.</p>
+   * @public
+   */
+  CarrierName: string | undefined;
+
+  /**
+   * <p>The launch status for this carrier.</p>
+   * @public
+   */
+  Status: CarrierStatus | undefined;
+}
+
+/**
  * <p>Contains the destination configuration to use when publishing message sending events. </p>
  * @public
  */
@@ -444,6 +478,60 @@ export interface ConfigurationSetInformation {
 }
 
 /**
+ * <p>The information for a country launch status that meets a specified criteria.</p>
+ * @public
+ */
+export interface CountryLaunchStatusFilter {
+  /**
+   * <p>The name of the attribute to filter on.</p>
+   * @public
+   */
+  Name: CountryLaunchStatusFilterName | undefined;
+
+  /**
+   * <p>An array values to filter for.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>Contains per-country launch status details for an RCS agent.</p>
+ * @public
+ */
+export interface CountryLaunchStatusInformation {
+  /**
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * @public
+   */
+  IsoCountryCode: string | undefined;
+
+  /**
+   * <p>The launch status for this country.</p>
+   * @public
+   */
+  Status: CountryLaunchStatus | undefined;
+
+  /**
+   * <p>The RCS platform identifier for this country.</p>
+   * @public
+   */
+  RcsPlatformId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registration associated with this country launch.</p>
+   * @public
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * <p>An array of CarrierStatusInformation objects containing carrier-level launch status details.</p>
+   * @public
+   */
+  CarrierStatus: CarrierStatusInformation[] | undefined;
+}
+
+/**
  * <p>The list of tags to be added to the specified topic.</p>
  * @public
  */
@@ -586,6 +674,160 @@ export interface CreateEventDestinationResult {
 /**
  * @public
  */
+export interface CreateNotifyConfigurationRequest {
+  /**
+   * <p>The display name to associate with the notify configuration.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The use case for the notify configuration.</p>
+   * @public
+   */
+  UseCase: NotifyConfigurationUseCase | undefined;
+
+  /**
+   * <p>The default template identifier to associate with the notify configuration. If specified, this template is used when sending messages without an explicit template identifier.</p>
+   * @public
+   */
+  DefaultTemplateId?: string | undefined;
+
+  /**
+   * <p>The identifier of the pool to associate with the notify configuration.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>An array of two-character ISO country codes, in ISO 3166-1 alpha-2 format, that are enabled for the notify configuration.</p>
+   * @public
+   */
+  EnabledCountries?: string[] | undefined;
+
+  /**
+   * <p>An array of channels to enable for the notify configuration. Supported values include <code>SMS</code> and <code>VOICE</code>.</p>
+   * @public
+   */
+  EnabledChannels: NumberCapability[] | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true the notify configuration can't be deleted. You can change this value using the <a>UpdateNotifyConfiguration</a> action.</p>
+   * @public
+   */
+  DeletionProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>An array of tags (key and value pairs) associated with the notify configuration.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNotifyConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the notify configuration.</p>
+   * @public
+   */
+  NotifyConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the notify configuration.</p>
+   * @public
+   */
+  NotifyConfigurationId: string | undefined;
+
+  /**
+   * <p>The display name associated with the notify configuration.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The use case for the notify configuration.</p>
+   * @public
+   */
+  UseCase: NotifyConfigurationUseCase | undefined;
+
+  /**
+   * <p>The default template identifier associated with the notify configuration.</p>
+   * @public
+   */
+  DefaultTemplateId?: string | undefined;
+
+  /**
+   * <p>The identifier of the pool associated with the notify configuration.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>An array of two-character ISO country codes, in ISO 3166-1 alpha-2 format, that are enabled for the notify configuration.</p>
+   * @public
+   */
+  EnabledCountries?: string[] | undefined;
+
+  /**
+   * <p>An array of channels enabled for the notify configuration. Supported values include <code>SMS</code> and <code>VOICE</code>.</p>
+   * @public
+   */
+  EnabledChannels: NumberCapability[] | undefined;
+
+  /**
+   * <p>The tier of the notify configuration.</p>
+   * @public
+   */
+  Tier: NotifyConfigurationTier | undefined;
+
+  /**
+   * <p>The tier upgrade status of the notify configuration.</p>
+   * @public
+   */
+  TierUpgradeStatus: TierUpgradeStatus | undefined;
+
+  /**
+   * <p>The current status of the notify configuration.</p>
+   * @public
+   */
+  Status: NotifyConfigurationStatus | undefined;
+
+  /**
+   * <p>The reason the notify configuration was rejected, if applicable.</p>
+   * @public
+   */
+  RejectionReason?: string | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>An array of tags (key and value pairs) associated with the notify configuration.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The time when the notify configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateOptOutListRequest {
   /**
    * <p>The name of the new OptOutList.</p>
@@ -646,10 +888,10 @@ export interface CreatePoolRequest {
   OriginationIdentity: string | undefined;
 
   /**
-   * <p>The new two-character code, in ISO 3166-1 alpha-2 format, for the country or region of the new pool.</p>
+   * <p>The new two-character code, in ISO 3166-1 alpha-2 format, for the country or region of the new pool. This field is optional and is not required for origination identity types that are not country-specific, such as RCS agents.</p>
    * @public
    */
-  IsoCountryCode: string | undefined;
+  IsoCountryCode?: string | undefined;
 
   /**
    * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive. After the pool is created the MessageType can't be changed.</p>
@@ -818,6 +1060,106 @@ export interface CreateProtectConfigurationResult {
 
   /**
    * <p>An array of key and value pair tags that are associated with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRcsAgentRequest {
+  /**
+   * <p>By default this is set to false. When set to true the RCS agent can't be deleted. You can change this value using the <a>UpdateRcsAgent</a> action.</p>
+   * @public
+   */
+  DeletionProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>The OptOutList to associate with the RCS agent. Valid values are either OptOutListName or OptOutListArn.</p>
+   * @public
+   */
+  OptOutListName?: string | undefined;
+
+  /**
+   * <p>An array of tags (key and value pairs) associated with the RCS agent.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRcsAgentResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the newly created RCS agent.</p>
+   * @public
+   */
+  RcsAgentArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the RCS agent.</p>
+   * @public
+   */
+  RcsAgentId: string | undefined;
+
+  /**
+   * <p>The current status of the RCS agent.</p>
+   * @public
+   */
+  Status: RcsAgentStatus | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false.</p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>The name of the OptOutList associated with the RCS agent.</p>
+   * @public
+   */
+  OptOutListName?: string | undefined;
+
+  /**
+   * <p>The time when the RCS agent was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * @public
+   */
+  SelfManagedOptOutsEnabled: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
+   * @public
+   */
+  TwoWayChannelArn?: string | undefined;
+
+  /**
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   * @public
+   */
+  TwoWayChannelRole?: string | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
+   * @public
+   */
+  TwoWayEnabled: boolean | undefined;
+
+  /**
+   * <p>An array of tags (key and value pairs) associated with the RCS agent.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1156,6 +1498,12 @@ export interface CreateVerifiedDestinationNumberRequest {
   DestinationPhoneNumber: string | undefined;
 
   /**
+   * <p>The unique identifier of the RCS agent to associate with the verified destination number. You can use either the RcsAgentId or RcsAgentArn.</p>
+   * @public
+   */
+  RcsAgentId?: string | undefined;
+
+  /**
    * <p>An array of tags (key and value pairs) to associate with the destination number.</p>
    * @public
    */
@@ -1195,6 +1543,12 @@ export interface CreateVerifiedDestinationNumberResult {
    * @public
    */
   Status: VerificationStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the RCS agent associated with the verified destination number.</p>
+   * @public
+   */
+  RcsAgentId?: string | undefined;
 
   /**
    * <p>An array of tags (key and value pairs) to associate with the destination number.</p>
@@ -1458,6 +1812,122 @@ export interface DeleteMediaMessageSpendLimitOverrideRequest {}
  * @public
  */
 export interface DeleteMediaMessageSpendLimitOverrideResult {
+  /**
+   * <p>The current monthly limit, in US dollars.</p>
+   * @public
+   */
+  MonthlyLimit?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNotifyConfigurationRequest {
+  /**
+   * <p>The identifier of the notify configuration to delete. The NotifyConfigurationId can be found using the <a>DescribeNotifyConfigurations</a> operation.</p>
+   * @public
+   */
+  NotifyConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNotifyConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the notify configuration.</p>
+   * @public
+   */
+  NotifyConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the notify configuration.</p>
+   * @public
+   */
+  NotifyConfigurationId: string | undefined;
+
+  /**
+   * <p>The display name associated with the notify configuration.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The use case for the notify configuration.</p>
+   * @public
+   */
+  UseCase: NotifyConfigurationUseCase | undefined;
+
+  /**
+   * <p>The default template identifier associated with the notify configuration.</p>
+   * @public
+   */
+  DefaultTemplateId?: string | undefined;
+
+  /**
+   * <p>The identifier of the pool associated with the notify configuration.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>An array of two-character ISO country codes, in ISO 3166-1 alpha-2 format, that are enabled for the notify configuration.</p>
+   * @public
+   */
+  EnabledCountries?: string[] | undefined;
+
+  /**
+   * <p>An array of channels enabled for the notify configuration. Supported values include <code>SMS</code> and <code>VOICE</code>.</p>
+   * @public
+   */
+  EnabledChannels: NumberCapability[] | undefined;
+
+  /**
+   * <p>The tier of the notify configuration.</p>
+   * @public
+   */
+  Tier: NotifyConfigurationTier | undefined;
+
+  /**
+   * <p>The tier upgrade status of the notify configuration.</p>
+   * @public
+   */
+  TierUpgradeStatus: TierUpgradeStatus | undefined;
+
+  /**
+   * <p>The current status of the notify configuration.</p>
+   * @public
+   */
+  Status: NotifyConfigurationStatus | undefined;
+
+  /**
+   * <p>The reason the notify configuration was rejected, if applicable.</p>
+   * @public
+   */
+  RejectionReason?: string | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>The time when the notify configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNotifyMessageSpendLimitOverrideRequest {}
+
+/**
+ * @public
+ */
+export interface DeleteNotifyMessageSpendLimitOverrideResult {
   /**
    * <p>The current monthly limit, in US dollars.</p>
    * @public
@@ -1741,6 +2211,82 @@ export interface DeleteProtectConfigurationRuleSetNumberOverrideResult {
    * @public
    */
   ExpirationTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRcsAgentRequest {
+  /**
+   * <p>The unique identifier of the RCS agent to delete. You can use either the RcsAgentId or RcsAgentArn.</p>
+   * @public
+   */
+  RcsAgentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRcsAgentResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted RCS agent.</p>
+   * @public
+   */
+  RcsAgentArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the deleted RCS agent.</p>
+   * @public
+   */
+  RcsAgentId: string | undefined;
+
+  /**
+   * <p>The current status of the RCS agent.</p>
+   * @public
+   */
+  Status: RcsAgentStatus | undefined;
+
+  /**
+   * <p>The time when the RCS agent was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false.</p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>The name of the OptOutList that was associated with the deleted RCS agent.</p>
+   * @public
+   */
+  OptOutListName?: string | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * @public
+   */
+  SelfManagedOptOutsEnabled: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
+   * @public
+   */
+  TwoWayChannelArn?: string | undefined;
+
+  /**
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   * @public
+   */
+  TwoWayChannelRole?: string | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
+   * @public
+   */
+  TwoWayEnabled: boolean | undefined;
 }
 
 /**
@@ -2241,6 +2787,368 @@ export interface DescribeKeywordsResult {
    * @public
    */
   Keywords?: KeywordInformation[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The information for notify configurations that meet a specified criteria.</p>
+ * @public
+ */
+export interface NotifyConfigurationFilter {
+  /**
+   * <p>The name of the attribute to filter on.</p>
+   * @public
+   */
+  Name: NotifyConfigurationFilterName | undefined;
+
+  /**
+   * <p>An array values to filter for.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNotifyConfigurationsRequest {
+  /**
+   * <p>An array of notify configuration IDs to describe.</p>
+   * @public
+   */
+  NotifyConfigurationIds?: string[] | undefined;
+
+  /**
+   * <p>An array of NotifyConfigurationFilter objects to filter the results on.</p>
+   * @public
+   */
+  Filters?: NotifyConfigurationFilter[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per each request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The information for a notify configuration in an Amazon Web Services account.</p>
+ * @public
+ */
+export interface NotifyConfigurationInformation {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the notify configuration.</p>
+   * @public
+   */
+  NotifyConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the notify configuration.</p>
+   * @public
+   */
+  NotifyConfigurationId: string | undefined;
+
+  /**
+   * <p>The display name associated with the notify configuration.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The use case for the notify configuration.</p>
+   * @public
+   */
+  UseCase: NotifyConfigurationUseCase | undefined;
+
+  /**
+   * <p>The default template identifier associated with the notify configuration.</p>
+   * @public
+   */
+  DefaultTemplateId?: string | undefined;
+
+  /**
+   * <p>The identifier of the pool associated with the notify configuration.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>An array of two-character ISO country codes, in ISO 3166-1 alpha-2 format, that are enabled for the notify configuration.</p>
+   * @public
+   */
+  EnabledCountries?: string[] | undefined;
+
+  /**
+   * <p>An array of channels enabled for the notify configuration. Supported values include <code>SMS</code> and <code>VOICE</code>.</p>
+   * @public
+   */
+  EnabledChannels: NumberCapability[] | undefined;
+
+  /**
+   * <p>The tier of the notify configuration.</p>
+   * @public
+   */
+  Tier: NotifyConfigurationTier | undefined;
+
+  /**
+   * <p>The tier upgrade status of the notify configuration.</p>
+   * @public
+   */
+  TierUpgradeStatus: TierUpgradeStatus | undefined;
+
+  /**
+   * <p>The current status of the notify configuration.</p>
+   * @public
+   */
+  Status: NotifyConfigurationStatus | undefined;
+
+  /**
+   * <p>The reason the notify configuration was rejected, if applicable.</p>
+   * @public
+   */
+  RejectionReason?: string | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>The time when the notify configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNotifyConfigurationsResult {
+  /**
+   * <p>An array of NotifyConfigurationInformation objects that contain the results.</p>
+   * @public
+   */
+  NotifyConfigurations?: NotifyConfigurationInformation[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The information for notify templates that meet a specified criteria.</p>
+ * @public
+ */
+export interface NotifyTemplateFilter {
+  /**
+   * <p>The name of the attribute to filter on.</p>
+   * @public
+   */
+  Name: NotifyTemplateFilterName | undefined;
+
+  /**
+   * <p>An array values to filter for.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNotifyTemplatesRequest {
+  /**
+   * <p>An array of template IDs to describe.</p>
+   * @public
+   */
+  TemplateIds?: string[] | undefined;
+
+  /**
+   * <p>An array of NotifyTemplateFilter objects to filter the results on.</p>
+   * @public
+   */
+  Filters?: NotifyTemplateFilter[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per each request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains metadata about a template variable.</p>
+ * @public
+ */
+export interface TemplateVariableMetadata {
+  /**
+   * <p>The type of the variable.</p>
+   * @public
+   */
+  Type: TemplateVariableType | undefined;
+
+  /**
+   * <p>Whether the variable is required.</p>
+   * @public
+   */
+  Required: boolean | undefined;
+
+  /**
+   * <p>A description of the variable.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The maximum length for string variables.</p>
+   * @public
+   */
+  MaxLength?: number | undefined;
+
+  /**
+   * <p>The minimum value for numeric variables.</p>
+   * @public
+   */
+  MinValue?: number | undefined;
+
+  /**
+   * <p>The maximum value for numeric variables.</p>
+   * @public
+   */
+  MaxValue?: number | undefined;
+
+  /**
+   * <p>The default value for the variable.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+
+  /**
+   * <p>The regex pattern the variable value must match.</p>
+   * @public
+   */
+  Pattern?: string | undefined;
+
+  /**
+   * <p>A sample value for the variable.</p>
+   * @public
+   */
+  Sample?: string | undefined;
+
+  /**
+   * <p>The source of the variable, either <code>CUSTOMER</code> or <code>SYSTEM</code>.</p>
+   * @public
+   */
+  Source?: TemplateVariableSource | undefined;
+}
+
+/**
+ * <p>The information for a system-managed notify template in an Amazon Web Services account.</p>
+ * @public
+ */
+export interface NotifyTemplateInformation {
+  /**
+   * <p>The unique identifier for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The version of the template.</p>
+   * @public
+   */
+  Version: number | undefined;
+
+  /**
+   * <p>The type of the template.</p>
+   * @public
+   */
+  TemplateType: NotifyTemplateType | undefined;
+
+  /**
+   * <p>The channels for the template. Supported values are <code>SMS</code> and <code>VOICE</code>.</p>
+   * @public
+   */
+  Channels: NumberCapability[] | undefined;
+
+  /**
+   * <p>The tier access level for the template.</p>
+   * @public
+   */
+  TierAccess?: NotifyConfigurationTier[] | undefined;
+
+  /**
+   * <p>The current status of the template.</p>
+   * @public
+   */
+  Status?: NotifyTemplateStatus | undefined;
+
+  /**
+   * <p>An array of supported country codes for the template.</p>
+   * @public
+   */
+  SupportedCountries?: string[] | undefined;
+
+  /**
+   * <p>The language code for the template.</p>
+   * @public
+   */
+  LanguageCode?: string | undefined;
+
+  /**
+   * <p>The content of the template.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>An array of template variable metadata for the template.</p>
+   * @public
+   */
+  Variables?: Record<string, TemplateVariableMetadata> | undefined;
+
+  /**
+   * <p>An array of supported voice IDs for voice templates.</p>
+   * @public
+   */
+  SupportedVoiceIds?: VoiceId[] | undefined;
+
+  /**
+   * <p>The time when the notify template was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNotifyTemplatesResult {
+  /**
+   * <p>An array of NotifyTemplateInformation objects that contain the results.</p>
+   * @public
+   */
+  NotifyTemplates?: NotifyTemplateInformation[] | undefined;
 
   /**
    * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
@@ -2864,6 +3772,242 @@ export interface DescribeProtectConfigurationsResult {
 }
 
 /**
+ * @public
+ */
+export interface DescribeRcsAgentCountryLaunchStatusRequest {
+  /**
+   * <p>The unique identifier of the RCS agent. You can use either the RcsAgentId or RcsAgentArn.</p>
+   * @public
+   */
+  RcsAgentId: string | undefined;
+
+  /**
+   * <p>An array of two-character ISO country codes, in ISO 3166-1 alpha-2 format, to filter the results.</p>
+   * @public
+   */
+  IsoCountryCodes?: string[] | undefined;
+
+  /**
+   * <p>An array of CountryLaunchStatusFilter objects to filter the results.</p>
+   * @public
+   */
+  Filters?: CountryLaunchStatusFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return per each request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRcsAgentCountryLaunchStatusResult {
+  /**
+   * <p>The unique identifier for the RCS agent.</p>
+   * @public
+   */
+  RcsAgentId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the RCS agent.</p>
+   * @public
+   */
+  RcsAgentArn: string | undefined;
+
+  /**
+   * <p>An array of CountryLaunchStatusInformation objects that contain the per-country launch status details.</p>
+   * @public
+   */
+  CountryLaunchStatus?: CountryLaunchStatusInformation[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The information for an RCS agent that meets a specified criteria.</p>
+ * @public
+ */
+export interface RcsAgentFilter {
+  /**
+   * <p>The name of the attribute to filter on.</p>
+   * @public
+   */
+  Name: RcsAgentFilterName | undefined;
+
+  /**
+   * <p>An array values to filter for.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRcsAgentsRequest {
+  /**
+   * <p>An array of unique identifiers for the RCS agents. This is an array of strings that can be either the RcsAgentId or RcsAgentArn.</p>
+   * @public
+   */
+  RcsAgentIds?: string[] | undefined;
+
+  /**
+   * <p>Use <code>SELF</code> to filter the list of RCS agents to ones your account owns or use <code>SHARED</code> to filter on RCS agents shared with your account. The <code>Owner</code> and <code>RcsAgentIds</code> parameters can't be used at the same time.</p>
+   * @public
+   */
+  Owner?: Owner | undefined;
+
+  /**
+   * <p>An array of RcsAgentFilter objects to filter the results.</p>
+   * @public
+   */
+  Filters?: RcsAgentFilter[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per each request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains details about the testing agent associated with an RCS agent.</p>
+ * @public
+ */
+export interface TestingAgentInformation {
+  /**
+   * <p>The current status of the testing agent.</p>
+   * @public
+   */
+  Status: TestingAgentStatus | undefined;
+
+  /**
+   * <p>The unique identifier for the testing agent.</p>
+   * @public
+   */
+  TestingAgentId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registration associated with the testing agent.</p>
+   * @public
+   */
+  RegistrationId: string | undefined;
+}
+
+/**
+ * <p>The information for an RCS agent in an Amazon Web Services account.</p>
+ * @public
+ */
+export interface RcsAgentInformation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the RCS agent.</p>
+   * @public
+   */
+  RcsAgentArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the RCS agent.</p>
+   * @public
+   */
+  RcsAgentId: string | undefined;
+
+  /**
+   * <p>The current status of the RCS agent.</p>
+   * @public
+   */
+  Status: RcsAgentStatus | undefined;
+
+  /**
+   * <p>The time when the RCS agent was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>When set to true the RCS agent can't be deleted.</p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>The name of the OptOutList associated with the RCS agent.</p>
+   * @public
+   */
+  OptOutListName?: string | undefined;
+
+  /**
+   * <p>When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * @public
+   */
+  SelfManagedOptOutsEnabled: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
+   * @public
+   */
+  TwoWayChannelArn?: string | undefined;
+
+  /**
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   * @public
+   */
+  TwoWayChannelRole?: string | undefined;
+
+  /**
+   * <p>When set to true you can receive incoming text messages from your end recipients using the TwoWayChannelArn.</p>
+   * @public
+   */
+  TwoWayEnabled: boolean | undefined;
+
+  /**
+   * <p>The unique identifier of the pool associated with the RCS agent.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>The testing agent information associated with the RCS agent.</p>
+   * @public
+   */
+  TestingAgent?: TestingAgentInformation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRcsAgentsResult {
+  /**
+   * <p>An array of RcsAgentInformation objects that contain the details for the requested RCS agents.</p>
+   * @public
+   */
+  RcsAgents?: RcsAgentInformation[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>The filter definition for filtering registration attachments that meets a specified criteria.</p>
  * @public
  */
@@ -2944,6 +4088,12 @@ export interface RegistrationAttachmentsInformation {
    * @public
    */
   CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The URL to the document that's associated with the registration attachment.</p>
+   * @public
+   */
+  AttachmentUrl?: string | undefined;
 }
 
 /**
@@ -3272,7 +4422,7 @@ export interface RegistrationFieldValueInformation {
   DeniedReason?: string | undefined;
 
   /**
-   * <p>Feedback provided for this specific field during the registration review process. This may include validation errors, suggestions for improvement, or additional requirements.</p>
+   * <p>Generative AI feedback information provided for this specific field during the registration review process. This may include validation errors, suggestions for improvement, or additional requirements.</p>
    * @public
    */
   Feedback?: string | undefined;
@@ -3816,7 +4966,7 @@ export interface RegistrationVersionInformation {
   DeniedReasons?: RegistrationDeniedReasonInformation[] | undefined;
 
   /**
-   * <p>Feedback information provided during the registration review process. This includes comments, suggestions, or additional requirements.</p>
+   * <p>Generative AI feedback information provided during the registration review process. This includes comments, suggestions, or additional requirements.</p>
    * @public
    */
   Feedback?: string | undefined;
@@ -4140,6 +5290,12 @@ export interface VerifiedDestinationNumberInformation {
   Status: VerificationStatus | undefined;
 
   /**
+   * <p>The unique identifier of the RCS agent associated with the verified destination number.</p>
+   * @public
+   */
+  RcsAgentId?: string | undefined;
+
+  /**
    * <p>The time when the destination phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
@@ -4180,10 +5336,10 @@ export interface DisassociateOriginationIdentityRequest {
   OriginationIdentity: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. This field is optional and is not required for origination identity types that are not country-specific, such as RCS agents.</p>
    * @public
    */
-  IsoCountryCode: string | undefined;
+  IsoCountryCode?: string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
@@ -4412,6 +5568,100 @@ export interface GetResourcePolicyResult {
 }
 
 /**
+ * @public
+ */
+export interface ListNotifyCountriesRequest {
+  /**
+   * <p>An array of channels to filter the results by.</p>
+   * @public
+   */
+  Channels?: NumberCapability[] | undefined;
+
+  /**
+   * <p>An array of use cases to filter the results by.</p>
+   * @public
+   */
+  UseCases?: NotifyConfigurationUseCase[] | undefined;
+
+  /**
+   * <p>The tier to filter the results by.</p>
+   * @public
+   */
+  Tier?: NotifyConfigurationTier | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per each request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The information for a country that supports notify messaging.</p>
+ * @public
+ */
+export interface NotifyCountryInformation {
+  /**
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * @public
+   */
+  IsoCountryCode: string | undefined;
+
+  /**
+   * <p>The name of the country.</p>
+   * @public
+   */
+  CountryName: string | undefined;
+
+  /**
+   * <p>An array of supported channels for the country. Supported values include <code>SMS</code> and <code>VOICE</code>.</p>
+   * @public
+   */
+  SupportedChannels: NumberCapability[] | undefined;
+
+  /**
+   * <p>An array of supported use cases for the country.</p>
+   * @public
+   */
+  SupportedUseCases: NotifyConfigurationUseCase[] | undefined;
+
+  /**
+   * <p>An array of supported tiers for the country.</p>
+   * @public
+   */
+  SupportedTiers: NotifyConfigurationTier[] | undefined;
+
+  /**
+   * <p>Whether a customer-owned identity is required to send notify messages to this country.</p>
+   * @public
+   */
+  CustomerOwnedIdentityRequired: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNotifyCountriesResult {
+  /**
+   * <p>An array of NotifyCountryInformation objects that contain the results.</p>
+   * @public
+   */
+  NotifyCountries?: NotifyCountryInformation[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>Information about origination identities associated with a pool that meets a specified criteria.</p>
  * @public
  */
@@ -4476,7 +5726,7 @@ export interface OriginationIdentityMetadata {
   OriginationIdentity: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. This field is optional and may not be present for origination identity types that are not country-specific, such as RCS agents.</p>
    * @public
    */
   IsoCountryCode: string | undefined;
@@ -5744,6 +6994,176 @@ export interface SendMediaMessageResult {
 /**
  * @public
  */
+export interface SendNotifyTextMessageRequest {
+  /**
+   * <p>The unique identifier of the notify configuration to use for sending the message. This can be either the NotifyConfigurationId or NotifyConfigurationArn.</p>
+   * @public
+   */
+  NotifyConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The unique identifier of the template to use for the message.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>A map of template variable names and their values. All variable values are passed as strings regardless of the declared variable type. For example, pass <code>INTEGER</code> values as <code>"42"</code> and <code>BOOLEAN</code> values as <code>"true"</code> or <code>"false"</code>.</p>
+   * @public
+   */
+  TemplateVariables: Record<string, string> | undefined;
+
+  /**
+   * <p>How long the text message is valid for, in seconds. By default this is 72 hours.</p>
+   * @public
+   */
+  TimeToLive?: number | undefined;
+
+  /**
+   * <p>You can specify custom data in this field. If you do, that data is logged to the event destination.</p>
+   * @public
+   */
+  Context?: Record<string, string> | undefined;
+
+  /**
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>When set to true, the message is checked and validated, but isn't sent to the end recipient.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendNotifyTextMessageResult {
+  /**
+   * <p>The unique identifier for the message.</p>
+   * @public
+   */
+  MessageId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the template used for the message.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The message body after template variable substitution has been applied.</p>
+   * @public
+   */
+  ResolvedMessageBody?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendNotifyVoiceMessageRequest {
+  /**
+   * <p>The unique identifier of the notify configuration to use for sending the message. This can be either the NotifyConfigurationId or NotifyConfigurationArn.</p>
+   * @public
+   */
+  NotifyConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The unique identifier of the template to use for the message.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>A map of template variable names and their values. All variable values are passed as strings regardless of the declared variable type. For example, pass <code>INTEGER</code> values as <code>"42"</code> and <code>BOOLEAN</code> values as <code>"true"</code> or <code>"false"</code>.</p>
+   * @public
+   */
+  TemplateVariables: Record<string, string> | undefined;
+
+  /**
+   * <p>The voice ID to use for the voice message.</p>
+   * @public
+   */
+  VoiceId?: VoiceId | undefined;
+
+  /**
+   * <p>How long the voice message is valid for, in seconds. By default this is 72 hours.</p>
+   * @public
+   */
+  TimeToLive?: number | undefined;
+
+  /**
+   * <p>You can specify custom data in this field. If you do, that data is logged to the event destination.</p>
+   * @public
+   */
+  Context?: Record<string, string> | undefined;
+
+  /**
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>When set to true, the message is checked and validated, but isn't sent to the end recipient.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendNotifyVoiceMessageResult {
+  /**
+   * <p>The unique identifier for the message.</p>
+   * @public
+   */
+  MessageId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the template used for the message.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The message body after template variable substitution has been applied.</p>
+   * @public
+   */
+  ResolvedMessageBody?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface SendTextMessageRequest {
   /**
    * <p>The destination phone number in E.164 format.</p>
@@ -6096,6 +7516,28 @@ export interface SetMediaMessageSpendLimitOverrideResult {
 /**
  * @public
  */
+export interface SetNotifyMessageSpendLimitOverrideRequest {
+  /**
+   * <p>The new monthly limit to enforce on notify messages.</p>
+   * @public
+   */
+  MonthlyLimit: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetNotifyMessageSpendLimitOverrideResult {
+  /**
+   * <p>The current monthly limit, in US dollars.</p>
+   * @public
+   */
+  MonthlyLimit?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface SetTextMessageSpendLimitOverrideRequest {
   /**
    * <p>The new monthly limit to enforce on text messages.</p>
@@ -6307,6 +7749,138 @@ export interface UpdateEventDestinationResult {
    * @public
    */
   EventDestination?: EventDestination | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateNotifyConfigurationRequest {
+  /**
+   * <p>The identifier of the notify configuration to update. The NotifyConfigurationId can be found using the <a>DescribeNotifyConfigurations</a> operation.</p>
+   * @public
+   */
+  NotifyConfigurationId: string | undefined;
+
+  /**
+   * The template ID to set as the default, or the special value
+   * UNSET_DEFAULT_TEMPLATE to clear the current default template.
+   * @public
+   */
+  DefaultTemplateId?: string | undefined;
+
+  /**
+   * The pool ID or ARN to associate, or the special value
+   * UNSET_DEFAULT_POOL_FOR_NOTIFY to clear the current default pool.
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>An array of two-character ISO country codes, in ISO 3166-1 alpha-2 format, that are enabled for the notify configuration.</p>
+   * @public
+   */
+  EnabledCountries?: string[] | undefined;
+
+  /**
+   * <p>An array of channels to enable for the notify configuration. Supported values include <code>SMS</code> and <code>VOICE</code>.</p>
+   * @public
+   */
+  EnabledChannels?: NumberCapability[] | undefined;
+
+  /**
+   * <p>When set to true the notify configuration can't be deleted.</p>
+   * @public
+   */
+  DeletionProtectionEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateNotifyConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the notify configuration.</p>
+   * @public
+   */
+  NotifyConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the notify configuration.</p>
+   * @public
+   */
+  NotifyConfigurationId: string | undefined;
+
+  /**
+   * <p>The display name associated with the notify configuration.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The use case for the notify configuration.</p>
+   * @public
+   */
+  UseCase: NotifyConfigurationUseCase | undefined;
+
+  /**
+   * <p>The default template identifier associated with the notify configuration.</p>
+   * @public
+   */
+  DefaultTemplateId?: string | undefined;
+
+  /**
+   * <p>The identifier of the pool associated with the notify configuration.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>An array of two-character ISO country codes, in ISO 3166-1 alpha-2 format, that are enabled for the notify configuration.</p>
+   * @public
+   */
+  EnabledCountries?: string[] | undefined;
+
+  /**
+   * <p>An array of channels enabled for the notify configuration. Supported values include <code>SMS</code> and <code>VOICE</code>.</p>
+   * @public
+   */
+  EnabledChannels: NumberCapability[] | undefined;
+
+  /**
+   * <p>The tier of the notify configuration.</p>
+   * @public
+   */
+  Tier: NotifyConfigurationTier | undefined;
+
+  /**
+   * <p>The tier upgrade status of the notify configuration.</p>
+   * @public
+   */
+  TierUpgradeStatus: TierUpgradeStatus | undefined;
+
+  /**
+   * <p>The current status of the notify configuration.</p>
+   * @public
+   */
+  Status: NotifyConfigurationStatus | undefined;
+
+  /**
+   * <p>The reason the notify configuration was rejected, if applicable.</p>
+   * @public
+   */
+  RejectionReason?: string | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>The time when the notify configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
 }
 
 /**
@@ -6707,6 +8281,118 @@ export interface UpdateProtectConfigurationCountryRuleSetResult {
    * @public
    */
   CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRcsAgentRequest {
+  /**
+   * <p>The unique identifier of the RCS agent to update. You can use either the RcsAgentId or RcsAgentArn.</p>
+   * @public
+   */
+  RcsAgentId: string | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true the RCS agent can't be deleted.</p>
+   * @public
+   */
+  DeletionProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>The OptOutList to associate with the RCS agent. Valid values are either OptOutListName or OptOutListArn.</p>
+   * @public
+   */
+  OptOutListName?: string | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * @public
+   */
+  SelfManagedOptOutsEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
+   * @public
+   */
+  TwoWayChannelArn?: string | undefined;
+
+  /**
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   * @public
+   */
+  TwoWayChannelRole?: string | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
+   * @public
+   */
+  TwoWayEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRcsAgentResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated RCS agent.</p>
+   * @public
+   */
+  RcsAgentArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the RCS agent.</p>
+   * @public
+   */
+  RcsAgentId: string | undefined;
+
+  /**
+   * <p>The current status of the RCS agent.</p>
+   * @public
+   */
+  Status: RcsAgentStatus | undefined;
+
+  /**
+   * <p>The time when the RCS agent was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false.</p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>The name of the OptOutList associated with the RCS agent.</p>
+   * @public
+   */
+  OptOutListName?: string | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * @public
+   */
+  SelfManagedOptOutsEnabled: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
+   * @public
+   */
+  TwoWayChannelArn?: string | undefined;
+
+  /**
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   * @public
+   */
+  TwoWayChannelRole?: string | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
+   * @public
+   */
+  TwoWayEnabled: boolean | undefined;
 }
 
 /**

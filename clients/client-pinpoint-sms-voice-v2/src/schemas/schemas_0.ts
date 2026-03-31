@@ -35,6 +35,17 @@ const _CEDRr = "CreateEventDestinationResult";
 const _CL = "CarrierLookup";
 const _CLR = "CarrierLookupRequest";
 const _CLRa = "CarrierLookupResult";
+const _CLS = "CountryLaunchStatus";
+const _CLSF = "CountryLaunchStatusFilter";
+const _CLSFL = "CountryLaunchStatusFilterList";
+const _CLSI = "CountryLaunchStatusInformation";
+const _CLSIL = "CountryLaunchStatusInformationList";
+const _CN = "CarrierName";
+const _CNC = "CreateNotifyConfiguration";
+const _CNCR = "CreateNotifyConfigurationRequest";
+const _CNCRr = "CreateNotifyConfigurationResult";
+const _CNo = "CountryName";
+const _COIR = "CustomerOwnedIdentityRequired";
 const _COOL = "CreateOptOutList";
 const _COOLR = "CreateOptOutListRequest";
 const _COOLRr = "CreateOptOutListResult";
@@ -45,12 +56,15 @@ const _CPCRr = "CreateProtectConfigurationResult";
 const _CPR = "CreatePoolRequest";
 const _CPRr = "CreatePoolResult";
 const _CR = "CreateRegistration";
-const _CRA = "CreateRegistrationAssociation";
-const _CRAR = "CreateRegistrationAssociationRequest";
-const _CRARr = "CreateRegistrationAssociationResult";
-const _CRARre = "CreateRegistrationAttachmentRequest";
-const _CRARrea = "CreateRegistrationAttachmentResult";
-const _CRAr = "CreateRegistrationAttachment";
+const _CRA = "CreateRcsAgent";
+const _CRAR = "CreateRcsAgentRequest";
+const _CRARr = "CreateRcsAgentResult";
+const _CRARre = "CreateRegistrationAssociationRequest";
+const _CRARrea = "CreateRegistrationAssociationResult";
+const _CRARreat = "CreateRegistrationAttachmentRequest";
+const _CRARreate = "CreateRegistrationAttachmentResult";
+const _CRAr = "CreateRegistrationAssociation";
+const _CRAre = "CreateRegistrationAttachment";
 const _CRR = "CreateRegistrationRequest";
 const _CRRr = "CreateRegistrationResult";
 const _CRS = "CountryRuleSet";
@@ -58,14 +72,17 @@ const _CRSU = "CountryRuleSetUpdates";
 const _CRV = "CreateRegistrationVersion";
 const _CRVR = "CreateRegistrationVersionRequest";
 const _CRVRr = "CreateRegistrationVersionResult";
-const _CS = "ConfigurationSets";
+const _CS = "CarrierStatus";
 const _CSA = "ConfigurationSetArn";
 const _CSF = "ConfigurationSetFilter";
 const _CSFL = "ConfigurationSetFilterList";
-const _CSI = "ConfigurationSetInformation";
-const _CSIL = "ConfigurationSetInformationList";
+const _CSI = "CarrierStatusInformation";
+const _CSIL = "CarrierStatusInformationList";
+const _CSILo = "ConfigurationSetInformationList";
+const _CSIo = "ConfigurationSetInformation";
 const _CSN = "ConfigurationSetName";
 const _CSNo = "ConfigurationSetNames";
+const _CSo = "ConfigurationSets";
 const _CT = "ClientToken";
 const _CTr = "CreatedTimestamp";
 const _CVDN = "CreateVerifiedDestinationNumber";
@@ -74,7 +91,9 @@ const _CVDNRr = "CreateVerifiedDestinationNumberResult";
 const _CVN = "CurrentVersionNumber";
 const _CWLD = "CloudWatchLogsDestination";
 const _Ca = "Carrier";
-const _Co = "Context";
+const _Ch = "Channels";
+const _Co = "Content";
+const _Con = "Context";
 const _D = "Description";
 const _DAA = "DescribeAccountAttributes";
 const _DAAR = "DescribeAccountAttributesRequest";
@@ -116,6 +135,19 @@ const _DMMSLO = "DeleteMediaMessageSpendLimitOverride";
 const _DMMSLOR = "DeleteMediaMessageSpendLimitOverrideRequest";
 const _DMMSLORe = "DeleteMediaMessageSpendLimitOverrideResult";
 const _DMT = "DefaultMessageType";
+const _DN = "DisplayName";
+const _DNC = "DeleteNotifyConfiguration";
+const _DNCR = "DeleteNotifyConfigurationRequest";
+const _DNCRe = "DeleteNotifyConfigurationResult";
+const _DNCRes = "DescribeNotifyConfigurationsRequest";
+const _DNCResc = "DescribeNotifyConfigurationsResult";
+const _DNCe = "DescribeNotifyConfigurations";
+const _DNMSLO = "DeleteNotifyMessageSpendLimitOverride";
+const _DNMSLOR = "DeleteNotifyMessageSpendLimitOverrideRequest";
+const _DNMSLORe = "DeleteNotifyMessageSpendLimitOverrideResult";
+const _DNT = "DescribeNotifyTemplates";
+const _DNTR = "DescribeNotifyTemplatesRequest";
+const _DNTRe = "DescribeNotifyTemplatesResult";
 const _DOI = "DisassociateOriginationIdentity";
 const _DOIR = "DisassociateOriginationIdentityRequest";
 const _DOIRi = "DisassociateOriginationIdentityResult";
@@ -158,12 +190,21 @@ const _DPRes = "DescribePoolsRequest";
 const _DPResc = "DescribePoolsResult";
 const _DPe = "DescribePools";
 const _DR = "DeniedReason";
-const _DRA = "DeleteRegistrationAttachment";
-const _DRAR = "DeleteRegistrationAttachmentRequest";
-const _DRARe = "DeleteRegistrationAttachmentResult";
-const _DRARes = "DescribeRegistrationAttachmentsRequest";
-const _DRAResc = "DescribeRegistrationAttachmentsResult";
-const _DRAe = "DescribeRegistrationAttachments";
+const _DRA = "DeleteRcsAgent";
+const _DRACLS = "DescribeRcsAgentCountryLaunchStatus";
+const _DRACLSR = "DescribeRcsAgentCountryLaunchStatusRequest";
+const _DRACLSRe = "DescribeRcsAgentCountryLaunchStatusResult";
+const _DRAR = "DeleteRcsAgentRequest";
+const _DRARe = "DeleteRcsAgentResult";
+const _DRARel = "DeleteRegistrationAttachmentRequest";
+const _DRARele = "DeleteRegistrationAttachmentResult";
+const _DRARes = "DescribeRcsAgentsRequest";
+const _DRAResc = "DescribeRcsAgentsResult";
+const _DRARescr = "DescribeRegistrationAttachmentsRequest";
+const _DRARescri = "DescribeRegistrationAttachmentsResult";
+const _DRAe = "DeleteRegistrationAttachment";
+const _DRAes = "DescribeRcsAgents";
+const _DRAesc = "DescribeRegistrationAttachments";
 const _DRFD = "DescribeRegistrationFieldDefinitions";
 const _DRFDR = "DescribeRegistrationFieldDefinitionsRequest";
 const _DRFDRe = "DescribeRegistrationFieldDefinitionsResult";
@@ -205,12 +246,14 @@ const _DSL = "DescribeSpendLimits";
 const _DSLR = "DescribeSpendLimitsRequest";
 const _DSLRe = "DescribeSpendLimitsResult";
 const _DT = "DocumentationTitle";
+const _DTI = "DefaultTemplateId";
 const _DTMSLO = "DeleteTextMessageSpendLimitOverride";
 const _DTMSLOR = "DeleteTextMessageSpendLimitOverrideRequest";
 const _DTMSLORe = "DeleteTextMessageSpendLimitOverrideResult";
 const _DTe = "DeniedTimestamp";
 const _DTi = "DiscardedTimestamp";
 const _DTr = "DraftTimestamp";
+const _DV = "DefaultValue";
 const _DVDN = "DeleteVerifiedDestinationNumber";
 const _DVDNR = "DeleteVerifiedDestinationNumberRequest";
 const _DVDNRe = "DeleteVerifiedDestinationNumberResult";
@@ -221,6 +264,8 @@ const _DVMSLO = "DeleteVoiceMessageSpendLimitOverride";
 const _DVMSLOR = "DeleteVoiceMessageSpendLimitOverrideRequest";
 const _DVMSLORe = "DeleteVoiceMessageSpendLimitOverrideResult";
 const _E = "Enabled";
+const _EC = "EnabledChannels";
+const _ECn = "EnabledCountries";
 const _ED = "EventDestinations";
 const _EDL = "EventDestinationList";
 const _EDN = "EventDestinationName";
@@ -244,6 +289,7 @@ const _GRP = "GetResourcePolicy";
 const _GRPR = "GetResourcePolicyRequest";
 const _GRPRe = "GetResourcePolicyResult";
 const _ICC = "IsoCountryCode";
+const _ICCs = "IsoCountryCodes";
 const _IRA = "IamRoleArn";
 const _ISE = "InternalServerException";
 const _ISEn = "InternationalSendingEnabled";
@@ -261,6 +307,9 @@ const _LC = "LanguageCode";
 const _LD = "LongDescription";
 const _LDVN = "LatestDeniedVersionNumber";
 const _LGA = "LogGroupArn";
+const _LNC = "ListNotifyCountries";
+const _LNCR = "ListNotifyCountriesRequest";
+const _LNCRi = "ListNotifyCountriesResult";
 const _LPCRSNO = "ListProtectConfigurationRuleSetNumberOverrides";
 const _LPCRSNOF = "ListProtectConfigurationRuleSetNumberOverrideFilter";
 const _LPCRSNOR = "ListProtectConfigurationRuleSetNumberOverridesRequest";
@@ -296,12 +345,30 @@ const _MR = "MaxResults";
 const _MT = "MessageType";
 const _MTe = "MessageTypes";
 const _MU = "MediaUrls";
+const _MV = "MinValue";
+const _MVa = "MaxValue";
 const _Ma = "Max";
 const _N = "Name";
-const _NC = "NumberCapability";
-const _NCu = "NumberCapabilities";
+const _NC = "NotifyConfigurations";
+const _NCA = "NotifyConfigurationArn";
+const _NCF = "NotifyConfigurationFilter";
+const _NCFL = "NotifyConfigurationFilterList";
+const _NCI = "NotifyConfigurationId";
+const _NCIL = "NotifyConfigurationInformationList";
+const _NCILo = "NotifyCountryInformationList";
+const _NCIo = "NotifyConfigurationIds";
+const _NCIot = "NotifyConfigurationInformation";
+const _NCIoti = "NotifyCountryInformation";
+const _NCo = "NotifyCountries";
+const _NCu = "NumberCapability";
+const _NCum = "NumberCapabilities";
 const _NETL = "NonEmptyTagList";
 const _NT = "NextToken";
+const _NTF = "NotifyTemplateFilter";
+const _NTFL = "NotifyTemplateFilterList";
+const _NTI = "NotifyTemplateInformation";
+const _NTIL = "NotifyTemplateInformationList";
+const _NTo = "NotifyTemplates";
 const _NTu = "NumberType";
 const _O = "Owner";
 const _OI = "OriginationIdentity";
@@ -381,18 +448,26 @@ const _Pa = "Pattern";
 const _Po = "Pools";
 const _R = "Reason";
 const _RA = "RegistrationArn";
-const _RAA = "RegistrationAttachmentArn";
-const _RAF = "RegistrationAssociationFilter";
-const _RAFL = "RegistrationAssociationFilterList";
-const _RAFLe = "RegistrationAttachmentFilterList";
-const _RAFe = "RegistrationAttachmentFilter";
-const _RAI = "RegistrationAttachmentId";
-const _RAIL = "RegistrationAttachmentsInformationList";
-const _RAIe = "RegistrationAttachmentIds";
-const _RAIeg = "RegistrationAttachmentsInformation";
+const _RAA = "RcsAgentArn";
+const _RAAe = "RegistrationAttachmentArn";
+const _RAF = "RcsAgentFilter";
+const _RAFL = "RcsAgentFilterList";
+const _RAFLe = "RegistrationAssociationFilterList";
+const _RAFLeg = "RegistrationAttachmentFilterList";
+const _RAFe = "RegistrationAssociationFilter";
+const _RAFeg = "RegistrationAttachmentFilter";
+const _RAI = "RcsAgentId";
+const _RAIL = "RcsAgentInformationList";
+const _RAILe = "RegistrationAttachmentsInformationList";
+const _RAIc = "RcsAgentIds";
+const _RAIcs = "RcsAgentInformation";
+const _RAIe = "RegistrationAttachmentId";
+const _RAIeg = "RegistrationAttachmentIds";
+const _RAIegi = "RegistrationAttachmentsInformation";
 const _RAM = "RegistrationAssociationMetadata";
 const _RAML = "RegistrationAssociationMetadataList";
 const _RAT = "RequiresAuthenticationTimestamp";
+const _RAc = "RcsAgents";
 const _RAe = "ResourceArn";
 const _RAeg = "RegistrationAttachments";
 const _RAegi = "RegistrationAssociations";
@@ -413,13 +488,16 @@ const _RIe = "RequestId";
 const _RIeg = "RegistrationId";
 const _RIegi = "RegistrationIds";
 const _RIegis = "RegistrationInformation";
+const _RMB = "ResolvedMessageBody";
 const _RNFE = "ResourceNotFoundException";
+const _RPI = "RcsPlatformId";
 const _RPN = "ReleasePhoneNumber";
 const _RPNR = "ReleasePhoneNumberRequest";
 const _RPNRe = "ReleasePhoneNumberResult";
 const _RPNReq = "RequestPhoneNumberRequest";
 const _RPNRequ = "RequestPhoneNumberResult";
 const _RPNe = "RequestPhoneNumber";
+const _RR = "RejectionReason";
 const _RS = "RegistrationStatus";
 const _RSD = "RegistrationSectionDefinitions";
 const _RSDH = "RegistrationSectionDisplayHints";
@@ -452,6 +530,7 @@ const _RVS = "RegistrationVersionStatus";
 const _RVSH = "RegistrationVersionStatusHistory";
 const _Re = "Registrations";
 const _Reg = "Registered";
+const _Req = "Required";
 const _S = "Status";
 const _SA = "SupportedAssociations";
 const _SADPC = "SetAccountDefaultProtectConfiguration";
@@ -460,6 +539,8 @@ const _SADPCRe = "SetAccountDefaultProtectConfigurationResult";
 const _SAL = "SupportedAssociationList";
 const _SAu = "SupportedAssociation";
 const _SC = "SelectChoices";
+const _SCu = "SupportedChannels";
+const _SCup = "SupportedCountries";
 const _SD = "SnsDestination";
 const _SDMFE = "SetDefaultMessageFeedbackEnabled";
 const _SDMFER = "SetDefaultMessageFeedbackEnabledRequest";
@@ -493,6 +574,15 @@ const _SMMSLO = "SetMediaMessageSpendLimitOverride";
 const _SMMSLOR = "SetMediaMessageSpendLimitOverrideRequest";
 const _SMMSLORe = "SetMediaMessageSpendLimitOverrideResult";
 const _SMOOE = "SelfManagedOptOutsEnabled";
+const _SNMSLO = "SetNotifyMessageSpendLimitOverride";
+const _SNMSLOR = "SetNotifyMessageSpendLimitOverrideRequest";
+const _SNMSLORe = "SetNotifyMessageSpendLimitOverrideResult";
+const _SNTM = "SendNotifyTextMessage";
+const _SNTMR = "SendNotifyTextMessageRequest";
+const _SNTMRe = "SendNotifyTextMessageResult";
+const _SNVM = "SendNotifyVoiceMessage";
+const _SNVMR = "SendNotifyVoiceMessageRequest";
+const _SNVMRe = "SendNotifyVoiceMessageResult";
 const _SOD = "SelectOptionDescriptions";
 const _SODL = "SelectOptionDescriptionsList";
 const _SODe = "SelectOptionDescription";
@@ -503,41 +593,64 @@ const _SRE = "SharedRoutesEnabled";
 const _SRV = "SubmitRegistrationVersion";
 const _SRVR = "SubmitRegistrationVersionRequest";
 const _SRVRu = "SubmitRegistrationVersionResult";
-const _ST = "SubmittedTimestamp";
+const _ST = "SupportedTiers";
 const _STM = "SendTextMessage";
 const _STMR = "SendTextMessageRequest";
 const _STMRe = "SendTextMessageResult";
 const _STMSLO = "SetTextMessageSpendLimitOverride";
 const _STMSLOR = "SetTextMessageSpendLimitOverrideRequest";
 const _STMSLORe = "SetTextMessageSpendLimitOverrideResult";
+const _STu = "SubmittedTimestamp";
+const _SUC = "SupportedUseCases";
 const _SV = "SelectValidation";
+const _SVI = "SupportedVoiceIds";
 const _SVM = "SendVoiceMessage";
 const _SVMR = "SendVoiceMessageRequest";
 const _SVMRe = "SendVoiceMessageResult";
 const _SVMSLO = "SetVoiceMessageSpendLimitOverride";
 const _SVMSLOR = "SetVoiceMessageSpendLimitOverrideRequest";
 const _SVMSLORe = "SetVoiceMessageSpendLimitOverrideResult";
+const _Sa = "Sample";
+const _So = "Source";
 const _T = "Tags";
-const _TA = "TopicArn";
+const _TA = "TierAccess";
+const _TAI = "TestingAgentInformation";
+const _TAIe = "TestingAgentId";
+const _TAe = "TestingAgent";
+const _TAo = "TopicArn";
 const _TE = "ThrottlingException";
+const _TI = "TemplateIds";
+const _TIe = "TemplateId";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResult";
+const _TT = "TemplateType";
 const _TTL = "TimeToLive";
+const _TUS = "TierUpgradeStatus";
 const _TV = "TextValue";
 const _TVD = "TextValidationDescription";
+const _TVM = "TemplateVariableMetadata";
+const _TVMe = "TemplateVariablesMap";
 const _TVe = "TextValidation";
+const _TVem = "TemplateVariables";
 const _TWCA = "TwoWayChannelArn";
 const _TWCR = "TwoWayChannelRole";
 const _TWE = "TwoWayEnabled";
 const _Ta = "Tag";
-const _Ti = "Title";
+const _Ti = "Tier";
+const _Tit = "Title";
+const _Ty = "Type";
 const _U = "Used";
+const _UC = "UseCase";
+const _UCs = "UseCases";
 const _UED = "UpdateEventDestination";
 const _UEDR = "UpdateEventDestinationRequest";
 const _UEDRp = "UpdateEventDestinationResult";
+const _UNC = "UpdateNotifyConfiguration";
+const _UNCR = "UpdateNotifyConfigurationRequest";
+const _UNCRp = "UpdateNotifyConfigurationResult";
 const _UP = "UpdatePool";
 const _UPC = "UpdateProtectConfiguration";
 const _UPCCRS = "UpdateProtectConfigurationCountryRuleSet";
@@ -551,6 +664,9 @@ const _UPNRp = "UpdatePhoneNumberResult";
 const _UPR = "UpdatePoolRequest";
 const _UPRp = "UpdatePoolResult";
 const _UR = "UntagResource";
+const _URA = "UpdateRcsAgent";
+const _URAR = "UpdateRcsAgentRequest";
+const _URARp = "UpdateRcsAgentResult";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResult";
 const _USI = "UpdateSenderId";
@@ -577,6 +693,8 @@ const _VI = "VoiceId";
 const _VN = "VersionNumber";
 const _VNe = "VersionNumbers";
 const _Va = "Values";
+const _Var = "Variables";
+const _Ve = "Version";
 const _c = "client";
 const _e = "error";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pinpointsmsvoicev2";
@@ -673,7 +791,7 @@ export var AccountLimit$: StaticStructureSchema = [3, n0, _AL,
 export var AssociateOriginationIdentityRequest$: StaticStructureSchema = [3, n0, _AOIR,
   0,
   [_PI, _OI, _ICC, _CT],
-  [0, 0, 0, [0, 4]], 3
+  [0, 0, 0, [0, 4]], 2
 ];
 export var AssociateOriginationIdentityResult$: StaticStructureSchema = [3, n0, _AOIRs,
   0,
@@ -700,6 +818,11 @@ export var CarrierLookupResult$: StaticStructureSchema = [3, n0, _CLRa,
   [_EPN, _PNT, _DCC, _ICC, _C, _MCC, _MNC, _Ca],
   [0, 0, 0, 0, 0, 0, 0, 0], 2
 ];
+export var CarrierStatusInformation$: StaticStructureSchema = [3, n0, _CSI,
+  0,
+  [_CN, _S],
+  [0, 0], 2
+];
 export var CloudWatchLogsDestination$: StaticStructureSchema = [3, n0, _CWLD,
   0,
   [_IRA, _LGA],
@@ -710,10 +833,20 @@ export var ConfigurationSetFilter$: StaticStructureSchema = [3, n0, _CSF,
   [_N, _Va],
   [0, 64 | 0], 2
 ];
-export var ConfigurationSetInformation$: StaticStructureSchema = [3, n0, _CSI,
+export var ConfigurationSetInformation$: StaticStructureSchema = [3, n0, _CSIo,
   0,
   [_CSA, _CSN, _ED, _CTr, _DMT, _DSI, _DMFE, _PCI],
   [0, 0, () => EventDestinationList, 4, 0, 0, 2, 0], 4
+];
+export var CountryLaunchStatusFilter$: StaticStructureSchema = [3, n0, _CLSF,
+  0,
+  [_N, _Va],
+  [0, 64 | 0], 2
+];
+export var CountryLaunchStatusInformation$: StaticStructureSchema = [3, n0, _CLSI,
+  0,
+  [_ICC, _S, _RIeg, _CS, _RPI],
+  [0, 0, 0, () => CarrierStatusInformationList, 0], 4
 ];
 export var CreateConfigurationSetRequest$: StaticStructureSchema = [3, n0, _CCSR,
   0,
@@ -735,6 +868,16 @@ export var CreateEventDestinationResult$: StaticStructureSchema = [3, n0, _CEDRr
   [_CSA, _CSN, _EDv],
   [0, 0, () => EventDestination$]
 ];
+export var CreateNotifyConfigurationRequest$: StaticStructureSchema = [3, n0, _CNCR,
+  0,
+  [_DN, _UC, _EC, _DTI, _PI, _ECn, _DPE, _CT, _T],
+  [0, 0, 64 | 0, 0, 0, 64 | 0, 2, [0, 4], () => TagList], 3
+];
+export var CreateNotifyConfigurationResult$: StaticStructureSchema = [3, n0, _CNCRr,
+  0,
+  [_NCA, _NCI, _DN, _UC, _EC, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECn, _RR, _T],
+  [0, 0, 0, 0, 64 | 0, 0, 0, 0, 2, 4, 0, 0, 64 | 0, 0, () => TagList], 10
+];
 export var CreateOptOutListRequest$: StaticStructureSchema = [3, n0, _COOLR,
   0,
   [_OOLN, _T, _CT],
@@ -747,8 +890,8 @@ export var CreateOptOutListResult$: StaticStructureSchema = [3, n0, _COOLRr,
 ];
 export var CreatePoolRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_OI, _ICC, _MT, _DPE, _T, _CT],
-  [0, 0, 0, 2, () => TagList, [0, 4]], 3
+  [_OI, _MT, _ICC, _DPE, _T, _CT],
+  [0, 0, 0, 2, () => TagList, [0, 4]], 2
 ];
 export var CreatePoolResult$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -765,24 +908,34 @@ export var CreateProtectConfigurationResult$: StaticStructureSchema = [3, n0, _C
   [_PCA, _PCI, _CTr, _AD, _DPE, _T],
   [0, 0, 4, 2, 2, () => TagList], 5
 ];
-export var CreateRegistrationAssociationRequest$: StaticStructureSchema = [3, n0, _CRAR,
+export var CreateRcsAgentRequest$: StaticStructureSchema = [3, n0, _CRAR,
+  0,
+  [_DPE, _OOLN, _T, _CT],
+  [2, 0, () => TagList, [0, 4]]
+];
+export var CreateRcsAgentResult$: StaticStructureSchema = [3, n0, _CRARr,
+  0,
+  [_RAA, _RAI, _S, _DPE, _CTr, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _T],
+  [0, 0, 0, 2, 4, 2, 2, 0, 0, 0, () => TagList], 7
+];
+export var CreateRegistrationAssociationRequest$: StaticStructureSchema = [3, n0, _CRARre,
   0,
   [_RIeg, _RI],
   [0, 0], 2
 ];
-export var CreateRegistrationAssociationResult$: StaticStructureSchema = [3, n0, _CRARr,
+export var CreateRegistrationAssociationResult$: StaticStructureSchema = [3, n0, _CRARrea,
   0,
   [_RA, _RIeg, _RTe, _RAe, _RI, _RT, _ICC, _PN],
   [0, 0, 0, 0, 0, 0, 0, 0], 6
 ];
-export var CreateRegistrationAttachmentRequest$: StaticStructureSchema = [3, n0, _CRARre,
+export var CreateRegistrationAttachmentRequest$: StaticStructureSchema = [3, n0, _CRARreat,
   0,
   [_AB, _AU, _T, _CT],
   [21, 0, () => TagList, [0, 4]]
 ];
-export var CreateRegistrationAttachmentResult$: StaticStructureSchema = [3, n0, _CRARrea,
+export var CreateRegistrationAttachmentResult$: StaticStructureSchema = [3, n0, _CRARreate,
   0,
-  [_RAA, _RAI, _AS, _CTr, _T],
+  [_RAAe, _RAIe, _AS, _CTr, _T],
   [0, 0, 0, 4, () => TagList], 4
 ];
 export var CreateRegistrationRequest$: StaticStructureSchema = [3, n0, _CRR,
@@ -807,13 +960,13 @@ export var CreateRegistrationVersionResult$: StaticStructureSchema = [3, n0, _CR
 ];
 export var CreateVerifiedDestinationNumberRequest$: StaticStructureSchema = [3, n0, _CVDNR,
   0,
-  [_DPN, _T, _CT],
-  [0, () => TagList, [0, 4]], 1
+  [_DPN, _RAI, _T, _CT],
+  [0, 0, () => TagList, [0, 4]], 1
 ];
 export var CreateVerifiedDestinationNumberResult$: StaticStructureSchema = [3, n0, _CVDNRr,
   0,
-  [_VDNA, _VDNI, _DPN, _S, _CTr, _T],
-  [0, 0, 0, 0, 4, () => TagList], 5
+  [_VDNA, _VDNI, _DPN, _S, _CTr, _RAI, _T],
+  [0, 0, 0, 0, 4, 0, () => TagList], 5
 ];
 export var DeleteAccountDefaultProtectConfigurationRequest$: StaticStructureSchema = [3, n0, _DADPCR,
   0,
@@ -885,6 +1038,26 @@ export var DeleteMediaMessageSpendLimitOverrideResult$: StaticStructureSchema = 
   [_ML],
   [1]
 ];
+export var DeleteNotifyConfigurationRequest$: StaticStructureSchema = [3, n0, _DNCR,
+  0,
+  [_NCI],
+  [0], 1
+];
+export var DeleteNotifyConfigurationResult$: StaticStructureSchema = [3, n0, _DNCRe,
+  0,
+  [_NCA, _NCI, _DN, _UC, _EC, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECn, _RR],
+  [0, 0, 0, 0, 64 | 0, 0, 0, 0, 2, 4, 0, 0, 64 | 0, 0], 10
+];
+export var DeleteNotifyMessageSpendLimitOverrideRequest$: StaticStructureSchema = [3, n0, _DNMSLOR,
+  0,
+  [],
+  []
+];
+export var DeleteNotifyMessageSpendLimitOverrideResult$: StaticStructureSchema = [3, n0, _DNMSLORe,
+  0,
+  [_ML],
+  [1]
+];
 export var DeleteOptedOutNumberRequest$: StaticStructureSchema = [3, n0, _DOONR,
   0,
   [_OOLN, _OON],
@@ -935,14 +1108,24 @@ export var DeleteProtectConfigurationRuleSetNumberOverrideResult$: StaticStructu
   [_PCA, _PCI, _DPN, _CTr, _A, _ICC, _ET],
   [0, 0, 0, 4, 0, 0, 4], 5
 ];
-export var DeleteRegistrationAttachmentRequest$: StaticStructureSchema = [3, n0, _DRAR,
+export var DeleteRcsAgentRequest$: StaticStructureSchema = [3, n0, _DRAR,
   0,
   [_RAI],
   [0], 1
 ];
-export var DeleteRegistrationAttachmentResult$: StaticStructureSchema = [3, n0, _DRARe,
+export var DeleteRcsAgentResult$: StaticStructureSchema = [3, n0, _DRARe,
   0,
-  [_RAA, _RAI, _AS, _CTr, _AUER],
+  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR],
+  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0], 7
+];
+export var DeleteRegistrationAttachmentRequest$: StaticStructureSchema = [3, n0, _DRARel,
+  0,
+  [_RAIe],
+  [0], 1
+];
+export var DeleteRegistrationAttachmentResult$: StaticStructureSchema = [3, n0, _DRARele,
+  0,
+  [_RAAe, _RAIe, _AS, _CTr, _AUER],
   [0, 0, 0, 4, 0], 4
 ];
 export var DeleteRegistrationFieldValueRequest$: StaticStructureSchema = [3, n0, _DRFVR,
@@ -952,7 +1135,7 @@ export var DeleteRegistrationFieldValueRequest$: StaticStructureSchema = [3, n0,
 ];
 export var DeleteRegistrationFieldValueResult$: StaticStructureSchema = [3, n0, _DRFVRe,
   0,
-  [_RA, _RIeg, _VN, _FP, _SC, _TV, _RAI],
+  [_RA, _RIeg, _VN, _FP, _SC, _TV, _RAIe],
   [0, 0, 1, 0, 64 | 0, 0, 0], 4
 ];
 export var DeleteRegistrationRequest$: StaticStructureSchema = [3, n0, _DRR,
@@ -1032,7 +1215,7 @@ export var DescribeConfigurationSetsRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeConfigurationSetsResult$: StaticStructureSchema = [3, n0, _DCSResc,
   0,
-  [_CS, _NT],
+  [_CSo, _NT],
   [() => ConfigurationSetInformationList, 0]
 ];
 export var DescribeKeywordsRequest$: StaticStructureSchema = [3, n0, _DKRes,
@@ -1044,6 +1227,26 @@ export var DescribeKeywordsResult$: StaticStructureSchema = [3, n0, _DKResc,
   0,
   [_OIA, _OI, _Ke, _NT],
   [0, 0, () => KeywordInformationList, 0]
+];
+export var DescribeNotifyConfigurationsRequest$: StaticStructureSchema = [3, n0, _DNCRes,
+  0,
+  [_NCIo, _Fi, _NT, _MR],
+  [64 | 0, () => NotifyConfigurationFilterList, 0, 1]
+];
+export var DescribeNotifyConfigurationsResult$: StaticStructureSchema = [3, n0, _DNCResc,
+  0,
+  [_NC, _NT],
+  [() => NotifyConfigurationInformationList, 0]
+];
+export var DescribeNotifyTemplatesRequest$: StaticStructureSchema = [3, n0, _DNTR,
+  0,
+  [_TI, _Fi, _NT, _MR],
+  [64 | 0, () => NotifyTemplateFilterList, 0, 1]
+];
+export var DescribeNotifyTemplatesResult$: StaticStructureSchema = [3, n0, _DNTRe,
+  0,
+  [_NTo, _NT],
+  [() => NotifyTemplateInformationList, 0]
 ];
 export var DescribeOptedOutNumbersRequest$: StaticStructureSchema = [3, n0, _DOONRes,
   0,
@@ -1095,12 +1298,32 @@ export var DescribeProtectConfigurationsResult$: StaticStructureSchema = [3, n0,
   [_PC, _NT],
   [() => ProtectConfigurationInformationList, 0]
 ];
-export var DescribeRegistrationAttachmentsRequest$: StaticStructureSchema = [3, n0, _DRARes,
+export var DescribeRcsAgentCountryLaunchStatusRequest$: StaticStructureSchema = [3, n0, _DRACLSR,
   0,
-  [_RAIe, _Fi, _NT, _MR],
+  [_RAI, _ICCs, _Fi, _MR, _NT],
+  [0, 64 | 0, () => CountryLaunchStatusFilterList, 1, 0], 1
+];
+export var DescribeRcsAgentCountryLaunchStatusResult$: StaticStructureSchema = [3, n0, _DRACLSRe,
+  0,
+  [_RAI, _RAA, _CLS, _NT],
+  [0, 0, () => CountryLaunchStatusInformationList, 0], 2
+];
+export var DescribeRcsAgentsRequest$: StaticStructureSchema = [3, n0, _DRARes,
+  0,
+  [_RAIc, _O, _Fi, _NT, _MR],
+  [64 | 0, 0, () => RcsAgentFilterList, 0, 1]
+];
+export var DescribeRcsAgentsResult$: StaticStructureSchema = [3, n0, _DRAResc,
+  0,
+  [_RAc, _NT],
+  [() => RcsAgentInformationList, 0]
+];
+export var DescribeRegistrationAttachmentsRequest$: StaticStructureSchema = [3, n0, _DRARescr,
+  0,
+  [_RAIeg, _Fi, _NT, _MR],
   [64 | 0, () => RegistrationAttachmentFilterList, 0, 1]
 ];
-export var DescribeRegistrationAttachmentsResult$: StaticStructureSchema = [3, n0, _DRAResc,
+export var DescribeRegistrationAttachmentsResult$: StaticStructureSchema = [3, n0, _DRARescri,
   0,
   [_RAeg, _NT],
   [() => RegistrationAttachmentsInformationList, 0], 1
@@ -1198,7 +1421,7 @@ export var DescribeVerifiedDestinationNumbersResult$: StaticStructureSchema = [3
 export var DisassociateOriginationIdentityRequest$: StaticStructureSchema = [3, n0, _DOIR,
   0,
   [_PI, _OI, _ICC, _CT],
-  [0, 0, 0, [0, 4]], 3
+  [0, 0, 0, [0, 4]], 2
 ];
 export var DisassociateOriginationIdentityResult$: StaticStructureSchema = [3, n0, _DOIRi,
   0,
@@ -1232,12 +1455,12 @@ export var EventDestination$: StaticStructureSchema = [3, n0, _EDv,
 ];
 export var GetProtectConfigurationCountryRuleSetRequest$: StaticStructureSchema = [3, n0, _GPCCRSR,
   0,
-  [_PCI, _NC],
+  [_PCI, _NCu],
   [0, 0], 2
 ];
 export var GetProtectConfigurationCountryRuleSetResult$: StaticStructureSchema = [3, n0, _GPCCRSRe,
   0,
-  [_PCA, _PCI, _NC, _CRS],
+  [_PCA, _PCI, _NCu, _CRS],
   [0, 0, 0, () => ProtectConfigurationCountryRuleSet], 4
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
@@ -1264,6 +1487,16 @@ export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD,
   0,
   [_IRA, _DSA],
   [0, 0], 2
+];
+export var ListNotifyCountriesRequest$: StaticStructureSchema = [3, n0, _LNCR,
+  0,
+  [_Ch, _UCs, _Ti, _NT, _MR],
+  [64 | 0, 64 | 0, 0, 0, 1]
+];
+export var ListNotifyCountriesResult$: StaticStructureSchema = [3, n0, _LNCRi,
+  0,
+  [_NCo, _NT],
+  [() => NotifyCountryInformationList, 0]
 ];
 export var ListPoolOriginationIdentitiesRequest$: StaticStructureSchema = [3, n0, _LPOIR,
   0,
@@ -1305,6 +1538,31 @@ export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
   [_RAe, _T],
   [0, () => TagList]
 ];
+export var NotifyConfigurationFilter$: StaticStructureSchema = [3, n0, _NCF,
+  0,
+  [_N, _Va],
+  [0, 64 | 0], 2
+];
+export var NotifyConfigurationInformation$: StaticStructureSchema = [3, n0, _NCIot,
+  0,
+  [_NCA, _NCI, _DN, _UC, _EC, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECn, _RR],
+  [0, 0, 0, 0, 64 | 0, 0, 0, 0, 2, 4, 0, 0, 64 | 0, 0], 10
+];
+export var NotifyCountryInformation$: StaticStructureSchema = [3, n0, _NCIoti,
+  0,
+  [_ICC, _CNo, _SCu, _SUC, _ST, _COIR],
+  [0, 0, 64 | 0, 64 | 0, 64 | 0, 2], 6
+];
+export var NotifyTemplateFilter$: StaticStructureSchema = [3, n0, _NTF,
+  0,
+  [_N, _Va],
+  [0, 64 | 0], 2
+];
+export var NotifyTemplateInformation$: StaticStructureSchema = [3, n0, _NTI,
+  0,
+  [_TIe, _Ve, _TT, _Ch, _CTr, _TA, _S, _SCup, _LC, _Co, _Var, _SVI],
+  [0, 1, 0, 64 | 0, 4, 64 | 0, 0, 64 | 0, 0, 0, () => TemplateVariablesMap, 64 | 0], 5
+];
 export var OptedOutFilter$: StaticStructureSchema = [3, n0, _OOF,
   0,
   [_N, _Va],
@@ -1322,7 +1580,7 @@ export var OptOutListInformation$: StaticStructureSchema = [3, n0, _OOLI,
 ];
 export var OriginationIdentityMetadata$: StaticStructureSchema = [3, n0, _OIM,
   0,
-  [_OIA, _OI, _ICC, _NCu, _PN],
+  [_OIA, _OI, _ICC, _NCum, _PN],
   [0, 0, 0, 64 | 0, 0], 4
 ];
 export var PhoneNumberFilter$: StaticStructureSchema = [3, n0, _PNF,
@@ -1332,7 +1590,7 @@ export var PhoneNumberFilter$: StaticStructureSchema = [3, n0, _PNF,
 ];
 export var PhoneNumberInformation$: StaticStructureSchema = [3, n0, _PNIh,
   0,
-  [_PNA, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _SMOOE, _OOLN, _DPE, _CTr, _PNIho, _TWCA, _TWCR, _ISEn, _PI, _RIeg],
+  [_PNA, _PN, _S, _ICC, _MT, _NCum, _NTu, _MLP, _TWE, _SMOOE, _OOLN, _DPE, _CTr, _PNIho, _TWCA, _TWCR, _ISEn, _PI, _RIeg],
   [0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 2, 0, 2, 4, 0, 0, 0, 2, 0, 0], 13
 ];
 export var PoolFilter$: StaticStructureSchema = [3, n0, _PF,
@@ -1417,12 +1675,12 @@ export var PutProtectConfigurationRuleSetNumberOverrideResult$: StaticStructureS
 ];
 export var PutRegistrationFieldValueRequest$: StaticStructureSchema = [3, n0, _PRFVR,
   0,
-  [_RIeg, _FP, _SC, _TV, _RAI],
+  [_RIeg, _FP, _SC, _TV, _RAIe],
   [0, 0, 64 | 0, 0, 0], 2
 ];
 export var PutRegistrationFieldValueResult$: StaticStructureSchema = [3, n0, _PRFVRu,
   0,
-  [_RA, _RIeg, _VN, _FP, _SC, _TV, _RAI],
+  [_RA, _RIeg, _VN, _FP, _SC, _TV, _RAIe],
   [0, 0, 1, 0, 64 | 0, 0, 0], 4
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
@@ -1435,7 +1693,17 @@ export var PutResourcePolicyResult$: StaticStructureSchema = [3, n0, _PRPRu,
   [_RAe, _P, _CTr],
   [0, 0, 4]
 ];
-export var RegistrationAssociationFilter$: StaticStructureSchema = [3, n0, _RAF,
+export var RcsAgentFilter$: StaticStructureSchema = [3, n0, _RAF,
+  0,
+  [_N, _Va],
+  [0, 64 | 0], 2
+];
+export var RcsAgentInformation$: StaticStructureSchema = [3, n0, _RAIcs,
+  0,
+  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _PI, _TAe],
+  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0, 0, () => TestingAgentInformation$], 7
+];
+export var RegistrationAssociationFilter$: StaticStructureSchema = [3, n0, _RAFe,
   0,
   [_N, _Va],
   [0, 64 | 0], 2
@@ -1445,15 +1713,15 @@ export var RegistrationAssociationMetadata$: StaticStructureSchema = [3, n0, _RA
   [_RAe, _RI, _RT, _ICC, _PN],
   [0, 0, 0, 0, 0], 3
 ];
-export var RegistrationAttachmentFilter$: StaticStructureSchema = [3, n0, _RAFe,
+export var RegistrationAttachmentFilter$: StaticStructureSchema = [3, n0, _RAFeg,
   0,
   [_N, _Va],
   [0, 64 | 0], 2
 ];
-export var RegistrationAttachmentsInformation$: StaticStructureSchema = [3, n0, _RAIeg,
+export var RegistrationAttachmentsInformation$: StaticStructureSchema = [3, n0, _RAIegi,
   0,
-  [_RAA, _RAI, _AS, _CTr, _AUER],
-  [0, 0, 0, 4, 0], 4
+  [_RAAe, _RAIe, _AS, _CTr, _AUER, _AU],
+  [0, 0, 0, 4, 0, 0], 4
 ];
 export var RegistrationDeniedReasonInformation$: StaticStructureSchema = [3, n0, _RDRI,
   0,
@@ -1467,12 +1735,12 @@ export var RegistrationFieldDefinition$: StaticStructureSchema = [3, n0, _RFDe,
 ];
 export var RegistrationFieldDisplayHints$: StaticStructureSchema = [3, n0, _RFDH,
   0,
-  [_Ti, _SDh, _LD, _DT, _DL, _SOD, _TVD, _ETV],
+  [_Tit, _SDh, _LD, _DT, _DL, _SOD, _TVD, _ETV],
   [0, 0, 0, 0, 0, () => SelectOptionDescriptionsList, 0, 0], 2
 ];
 export var RegistrationFieldValueInformation$: StaticStructureSchema = [3, n0, _RFVI,
   0,
-  [_FP, _SC, _TV, _RAI, _DR, _Fe],
+  [_FP, _SC, _TV, _RAIe, _DR, _Fe],
   [0, 64 | 0, 0, 0, 0, 0], 1
 ];
 export var RegistrationFilter$: StaticStructureSchema = [3, n0, _RF,
@@ -1492,7 +1760,7 @@ export var RegistrationSectionDefinition$: StaticStructureSchema = [3, n0, _RSDe
 ];
 export var RegistrationSectionDisplayHints$: StaticStructureSchema = [3, n0, _RSDH,
   0,
-  [_Ti, _SDh, _LD, _DT, _DL],
+  [_Tit, _SDh, _LD, _DT, _DL],
   [0, 0, 0, 0, 0], 2
 ];
 export var RegistrationTypeDefinition$: StaticStructureSchema = [3, n0, _RTDe,
@@ -1502,7 +1770,7 @@ export var RegistrationTypeDefinition$: StaticStructureSchema = [3, n0, _RTDe,
 ];
 export var RegistrationTypeDisplayHints$: StaticStructureSchema = [3, n0, _RTDH,
   0,
-  [_Ti, _SDh, _LD, _DT, _DL],
+  [_Tit, _SDh, _LD, _DT, _DL],
   [0, 0, 0, 0, 0], 1
 ];
 export var RegistrationTypeFilter$: StaticStructureSchema = [3, n0, _RTF,
@@ -1522,7 +1790,7 @@ export var RegistrationVersionInformation$: StaticStructureSchema = [3, n0, _RVI
 ];
 export var RegistrationVersionStatusHistory$: StaticStructureSchema = [3, n0, _RVSH,
   0,
-  [_DTr, _ST, _ART, _RTev, _RAT, _AT, _DTi, _DTe, _RTevo, _ATr],
+  [_DTr, _STu, _ART, _RTev, _RAT, _AT, _DTi, _DTe, _RTevo, _ATr],
   [4, 4, 4, 4, 4, 4, 4, 4, 4, 4], 1
 ];
 export var ReleasePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR,
@@ -1532,7 +1800,7 @@ export var ReleasePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR,
 ];
 export var ReleasePhoneNumberResult$: StaticStructureSchema = [3, n0, _RPNRe,
   0,
-  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _RIeg, _CTr],
+  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCum, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _RIeg, _CTr],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 0, 0, 2, 0, 0, 4]
 ];
 export var ReleaseSenderIdRequest$: StaticStructureSchema = [3, n0, _RSIR,
@@ -1547,12 +1815,12 @@ export var ReleaseSenderIdResult$: StaticStructureSchema = [3, n0, _RSIRe,
 ];
 export var RequestPhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNReq,
   0,
-  [_ICC, _MT, _NCu, _NTu, _OOLN, _PI, _RIeg, _ISEn, _DPE, _T, _CT],
+  [_ICC, _MT, _NCum, _NTu, _OOLN, _PI, _RIeg, _ISEn, _DPE, _T, _CT],
   [0, 0, 64 | 0, 0, 0, 0, 0, 2, 2, () => TagList, [0, 4]], 4
 ];
 export var RequestPhoneNumberResult$: StaticStructureSchema = [3, n0, _RPNRequ,
   0,
-  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _ISEn, _DPE, _PI, _RIeg, _T, _CTr],
+  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCum, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _ISEn, _DPE, _PI, _RIeg, _T, _CTr],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 0, 0, 2, 0, 2, 2, 0, 0, () => TagList, 4]
 ];
 export var RequestSenderIdRequest$: StaticStructureSchema = [3, n0, _RSIReq,
@@ -1567,7 +1835,7 @@ export var RequestSenderIdResult$: StaticStructureSchema = [3, n0, _RSIRequ,
 ];
 export var SelectOptionDescription$: StaticStructureSchema = [3, n0, _SODe,
   0,
-  [_Op, _Ti, _D],
+  [_Op, _Tit, _D],
   [0, 0, 0], 1
 ];
 export var SelectValidation$: StaticStructureSchema = [3, n0, _SV,
@@ -1577,7 +1845,7 @@ export var SelectValidation$: StaticStructureSchema = [3, n0, _SV,
 ];
 export var SendDestinationNumberVerificationCodeRequest$: StaticStructureSchema = [3, n0, _SDNVCR,
   0,
-  [_VDNI, _VC, _LC, _OI, _CSN, _Co, _DCP],
+  [_VDNI, _VC, _LC, _OI, _CSN, _Con, _DCP],
   [0, 0, 0, 0, 0, 128 | 0, 128 | 0], 2
 ];
 export var SendDestinationNumberVerificationCodeResult$: StaticStructureSchema = [3, n0, _SDNVCRe,
@@ -1602,7 +1870,7 @@ export var SenderIdInformation$: StaticStructureSchema = [3, n0, _SII,
 ];
 export var SendMediaMessageRequest$: StaticStructureSchema = [3, n0, _SMMR,
   0,
-  [_DPN, _OI, _MB, _MU, _CSN, _MP, _TTL, _Co, _DRr, _PCI, _MFE],
+  [_DPN, _OI, _MB, _MU, _CSN, _MP, _TTL, _Con, _DRr, _PCI, _MFE],
   [0, 0, 0, 64 | 0, 0, 0, 1, 128 | 0, 2, 0, 2], 2
 ];
 export var SendMediaMessageResult$: StaticStructureSchema = [3, n0, _SMMRe,
@@ -1610,9 +1878,29 @@ export var SendMediaMessageResult$: StaticStructureSchema = [3, n0, _SMMRe,
   [_MI],
   [0]
 ];
+export var SendNotifyTextMessageRequest$: StaticStructureSchema = [3, n0, _SNTMR,
+  0,
+  [_NCI, _DPN, _TVem, _TIe, _TTL, _Con, _CSN, _DRr, _MFE],
+  [0, 0, 128 | 0, 0, 1, 128 | 0, 0, 2, 2], 3
+];
+export var SendNotifyTextMessageResult$: StaticStructureSchema = [3, n0, _SNTMRe,
+  0,
+  [_MI, _TIe, _RMB],
+  [0, 0, 0]
+];
+export var SendNotifyVoiceMessageRequest$: StaticStructureSchema = [3, n0, _SNVMR,
+  0,
+  [_NCI, _DPN, _TVem, _TIe, _VI, _TTL, _Con, _CSN, _DRr, _MFE],
+  [0, 0, 128 | 0, 0, 0, 1, 128 | 0, 0, 2, 2], 3
+];
+export var SendNotifyVoiceMessageResult$: StaticStructureSchema = [3, n0, _SNVMRe,
+  0,
+  [_MI, _TIe, _RMB],
+  [0, 0, 0]
+];
 export var SendTextMessageRequest$: StaticStructureSchema = [3, n0, _STMR,
   0,
-  [_DPN, _OI, _MB, _MT, _K, _CSN, _MP, _TTL, _Co, _DCP, _DRr, _PCI, _MFE],
+  [_DPN, _OI, _MB, _MT, _K, _CSN, _MP, _TTL, _Con, _DCP, _DRr, _PCI, _MFE],
   [0, 0, 0, 0, 0, 0, 0, 1, 128 | 0, 128 | 0, 2, 0, 2], 1
 ];
 export var SendTextMessageResult$: StaticStructureSchema = [3, n0, _STMRe,
@@ -1622,7 +1910,7 @@ export var SendTextMessageResult$: StaticStructureSchema = [3, n0, _STMRe,
 ];
 export var SendVoiceMessageRequest$: StaticStructureSchema = [3, n0, _SVMR,
   0,
-  [_DPN, _OI, _MB, _MBTT, _VI, _CSN, _MPPM, _TTL, _Co, _DRr, _PCI, _MFE],
+  [_DPN, _OI, _MB, _MBTT, _VI, _CSN, _MPPM, _TTL, _Con, _DRr, _PCI, _MFE],
   [0, 0, 0, 0, 0, 0, 0, 1, 128 | 0, 2, 0, 2], 2
 ];
 export var SendVoiceMessageResult$: StaticStructureSchema = [3, n0, _SVMRe,
@@ -1680,6 +1968,16 @@ export var SetMediaMessageSpendLimitOverrideResult$: StaticStructureSchema = [3,
   [_ML],
   [1]
 ];
+export var SetNotifyMessageSpendLimitOverrideRequest$: StaticStructureSchema = [3, n0, _SNMSLOR,
+  0,
+  [_ML],
+  [1], 1
+];
+export var SetNotifyMessageSpendLimitOverrideResult$: StaticStructureSchema = [3, n0, _SNMSLORe,
+  0,
+  [_ML],
+  [1]
+];
 export var SetTextMessageSpendLimitOverrideRequest$: StaticStructureSchema = [3, n0, _STMSLOR,
   0,
   [_ML],
@@ -1702,7 +2000,7 @@ export var SetVoiceMessageSpendLimitOverrideResult$: StaticStructureSchema = [3,
 ];
 export var SnsDestination$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_TA],
+  [_TAo],
   [0], 1
 ];
 export var SpendLimit$: StaticStructureSchema = [3, n0, _SLp,
@@ -1740,6 +2038,16 @@ export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
+export var TemplateVariableMetadata$: StaticStructureSchema = [3, n0, _TVM,
+  0,
+  [_Ty, _Req, _D, _MLax, _MV, _MVa, _DV, _Pa, _Sa, _So],
+  [0, 2, 0, 1, 1, 1, 0, 0, 0, 0], 2
+];
+export var TestingAgentInformation$: StaticStructureSchema = [3, n0, _TAI,
+  0,
+  [_S, _RIeg, _TAIe],
+  [0, 0, 0], 2
+];
 export var TextValidation$: StaticStructureSchema = [3, n0, _TVe,
   0,
   [_MLi, _MLax, _Pa],
@@ -1765,6 +2073,16 @@ export var UpdateEventDestinationResult$: StaticStructureSchema = [3, n0, _UEDRp
   [_CSA, _CSN, _EDv],
   [0, 0, () => EventDestination$]
 ];
+export var UpdateNotifyConfigurationRequest$: StaticStructureSchema = [3, n0, _UNCR,
+  0,
+  [_NCI, _DTI, _PI, _ECn, _EC, _DPE],
+  [0, 0, 0, 64 | 0, 64 | 0, 2], 1
+];
+export var UpdateNotifyConfigurationResult$: StaticStructureSchema = [3, n0, _UNCRp,
+  0,
+  [_NCA, _NCI, _DN, _UC, _EC, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECn, _RR],
+  [0, 0, 0, 0, 64 | 0, 0, 0, 0, 2, 4, 0, 0, 64 | 0, 0], 10
+];
 export var UpdatePhoneNumberRequest$: StaticStructureSchema = [3, n0, _UPNR,
   0,
   [_PNIho, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _ISEn, _DPE],
@@ -1772,7 +2090,7 @@ export var UpdatePhoneNumberRequest$: StaticStructureSchema = [3, n0, _UPNR,
 ];
 export var UpdatePhoneNumberResult$: StaticStructureSchema = [3, n0, _UPNRp,
   0,
-  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _ISEn, _DPE, _RIeg, _CTr],
+  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCum, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _ISEn, _DPE, _RIeg, _CTr],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 0, 0, 2, 0, 2, 2, 0, 4]
 ];
 export var UpdatePoolRequest$: StaticStructureSchema = [3, n0, _UPR,
@@ -1787,12 +2105,12 @@ export var UpdatePoolResult$: StaticStructureSchema = [3, n0, _UPRp,
 ];
 export var UpdateProtectConfigurationCountryRuleSetRequest$: StaticStructureSchema = [3, n0, _UPCCRSR,
   0,
-  [_PCI, _NC, _CRSU],
+  [_PCI, _NCu, _CRSU],
   [0, 0, () => ProtectConfigurationCountryRuleSet], 3
 ];
 export var UpdateProtectConfigurationCountryRuleSetResult$: StaticStructureSchema = [3, n0, _UPCCRSRp,
   0,
-  [_PCA, _PCI, _NC, _CRS],
+  [_PCA, _PCI, _NCu, _CRS],
   [0, 0, 0, () => ProtectConfigurationCountryRuleSet], 4
 ];
 export var UpdateProtectConfigurationRequest$: StaticStructureSchema = [3, n0, _UPCR,
@@ -1804,6 +2122,16 @@ export var UpdateProtectConfigurationResult$: StaticStructureSchema = [3, n0, _U
   0,
   [_PCA, _PCI, _CTr, _AD, _DPE],
   [0, 0, 4, 2, 2], 5
+];
+export var UpdateRcsAgentRequest$: StaticStructureSchema = [3, n0, _URAR,
+  0,
+  [_RAI, _DPE, _OOLN, _SMOOE, _TWCA, _TWCR, _TWE],
+  [0, 2, 0, 2, 0, 0, 2], 1
+];
+export var UpdateRcsAgentResult$: StaticStructureSchema = [3, n0, _URARp,
+  0,
+  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR],
+  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0], 7
 ];
 export var UpdateSenderIdRequest$: StaticStructureSchema = [3, n0, _USIR,
   0,
@@ -1827,8 +2155,8 @@ export var VerifiedDestinationNumberFilter$: StaticStructureSchema = [3, n0, _VD
 ];
 export var VerifiedDestinationNumberInformation$: StaticStructureSchema = [3, n0, _VDNIer,
   0,
-  [_VDNA, _VDNI, _DPN, _S, _CTr],
-  [0, 0, 0, 0, 4], 5
+  [_VDNA, _VDNI, _DPN, _S, _CTr, _RAI],
+  [0, 0, 0, 0, 4, 0], 5
 ];
 export var VerifyDestinationNumberRequest$: StaticStructureSchema = [3, n0, _VDNR,
   0,
@@ -1846,13 +2174,22 @@ var AccountAttributeList: StaticListSchema = [1, n0, _AAL,
 var AccountLimitList: StaticListSchema = [1, n0, _ALL,
   0, () => AccountLimit$
 ];
+var CarrierStatusInformationList: StaticListSchema = [1, n0, _CSIL,
+  0, () => CarrierStatusInformation$
+];
 var ConfigurationSetFilterList: StaticListSchema = [1, n0, _CSFL,
   0, () => ConfigurationSetFilter$
 ];
-var ConfigurationSetInformationList: StaticListSchema = [1, n0, _CSIL,
+var ConfigurationSetInformationList: StaticListSchema = [1, n0, _CSILo,
   0, () => ConfigurationSetInformation$
 ];
 var ConfigurationSetNameList = 64 | 0;
+var CountryLaunchStatusFilterList: StaticListSchema = [1, n0, _CLSFL,
+  0, () => CountryLaunchStatusFilter$
+];
+var CountryLaunchStatusInformationList: StaticListSchema = [1, n0, _CLSIL,
+  0, () => CountryLaunchStatusInformation$
+];
 var DestinationPhoneNumberList = 64 | 0;
 var EventDestinationList: StaticListSchema = [1, n0, _EDL,
   0, () => EventDestination$
@@ -1860,6 +2197,7 @@ var EventDestinationList: StaticListSchema = [1, n0, _EDL,
 var EventTypeList = 64 | 0;
 var FieldPathList = 64 | 0;
 var FilterValueList = 64 | 0;
+var IsoCountryCodeList = 64 | 0;
 var KeywordFilterList: StaticListSchema = [1, n0, _KFL,
   0, () => KeywordFilter$
 ];
@@ -1875,6 +2213,27 @@ var MessageTypeList = 64 | 0;
 var NonEmptyTagList: StaticListSchema = [1, n0, _NETL,
   0, () => Tag$
 ];
+var NotifyConfigurationFilterList: StaticListSchema = [1, n0, _NCFL,
+  0, () => NotifyConfigurationFilter$
+];
+var NotifyConfigurationIdList = 64 | 0;
+var NotifyConfigurationInformationList: StaticListSchema = [1, n0, _NCIL,
+  0, () => NotifyConfigurationInformation$
+];
+var NotifyConfigurationTierList = 64 | 0;
+var NotifyCountryInformationList: StaticListSchema = [1, n0, _NCILo,
+  0, () => NotifyCountryInformation$
+];
+var NotifyEnabledChannelsList = 64 | 0;
+var NotifyTemplateFilterList: StaticListSchema = [1, n0, _NTFL,
+  0, () => NotifyTemplateFilter$
+];
+var NotifyTemplateIdList = 64 | 0;
+var NotifyTemplateInformationList: StaticListSchema = [1, n0, _NTIL,
+  0, () => NotifyTemplateInformation$
+];
+var NotifyTierList = 64 | 0;
+var NotifyUseCaseList = 64 | 0;
 var NumberCapabilityList = 64 | 0;
 var OptedOutFilterList: StaticListSchema = [1, n0, _OOFL,
   0, () => OptedOutFilter$
@@ -1917,17 +2276,24 @@ var ProtectConfigurationInformationList: StaticListSchema = [1, n0, _PCIL,
 var ProtectConfigurationRuleSetNumberOverrideList: StaticListSchema = [1, n0, _PCRSNOL,
   0, () => ProtectConfigurationRuleSetNumberOverride$
 ];
-var RegistrationAssociationFilterList: StaticListSchema = [1, n0, _RAFL,
+var RcsAgentFilterList: StaticListSchema = [1, n0, _RAFL,
+  0, () => RcsAgentFilter$
+];
+var RcsAgentIdList = 64 | 0;
+var RcsAgentInformationList: StaticListSchema = [1, n0, _RAIL,
+  0, () => RcsAgentInformation$
+];
+var RegistrationAssociationFilterList: StaticListSchema = [1, n0, _RAFLe,
   0, () => RegistrationAssociationFilter$
 ];
 var RegistrationAssociationMetadataList: StaticListSchema = [1, n0, _RAML,
   0, () => RegistrationAssociationMetadata$
 ];
-var RegistrationAttachmentFilterList: StaticListSchema = [1, n0, _RAFLe,
+var RegistrationAttachmentFilterList: StaticListSchema = [1, n0, _RAFLeg,
   0, () => RegistrationAttachmentFilter$
 ];
 var RegistrationAttachmentIdList = 64 | 0;
-var RegistrationAttachmentsInformationList: StaticListSchema = [1, n0, _RAIL,
+var RegistrationAttachmentsInformationList: StaticListSchema = [1, n0, _RAILe,
   0, () => RegistrationAttachmentsInformation$
 ];
 var RegistrationDeniedReasonInformationList: StaticListSchema = [1, n0, _RDRIL,
@@ -1998,12 +2364,17 @@ var VerifiedDestinationNumberIdList = 64 | 0;
 var VerifiedDestinationNumberInformationList: StaticListSchema = [1, n0, _VDNIL,
   0, () => VerifiedDestinationNumberInformation$
 ];
+var VoiceIdList = 64 | 0;
 var ContextMap = 128 | 0;
 var DestinationCountryParameters = 128 | 0;
 var ProtectConfigurationCountryRuleSet: StaticMapSchema = [2, n0, _PCCRS,
   0, 0, () => ProtectConfigurationCountryRuleSetInformation$
 ];
 var StringMap = 128 | 0;
+var TemplateVariablesMap: StaticMapSchema = [2, n0, _TVMe,
+  0, 0, () => TemplateVariableMetadata$
+];
+var TemplateVariableSubstitutionMap = 128 | 0;
 export var AssociateOriginationIdentity$: StaticOperationSchema = [9, n0, _AOI,
   0, () => AssociateOriginationIdentityRequest$, () => AssociateOriginationIdentityResult$
 ];
@@ -2019,6 +2390,9 @@ export var CreateConfigurationSet$: StaticOperationSchema = [9, n0, _CCS,
 export var CreateEventDestination$: StaticOperationSchema = [9, n0, _CED,
   0, () => CreateEventDestinationRequest$, () => CreateEventDestinationResult$
 ];
+export var CreateNotifyConfiguration$: StaticOperationSchema = [9, n0, _CNC,
+  0, () => CreateNotifyConfigurationRequest$, () => CreateNotifyConfigurationResult$
+];
 export var CreateOptOutList$: StaticOperationSchema = [9, n0, _COOL,
   0, () => CreateOptOutListRequest$, () => CreateOptOutListResult$
 ];
@@ -2028,13 +2402,16 @@ export var CreatePool$: StaticOperationSchema = [9, n0, _CP,
 export var CreateProtectConfiguration$: StaticOperationSchema = [9, n0, _CPC,
   0, () => CreateProtectConfigurationRequest$, () => CreateProtectConfigurationResult$
 ];
+export var CreateRcsAgent$: StaticOperationSchema = [9, n0, _CRA,
+  0, () => CreateRcsAgentRequest$, () => CreateRcsAgentResult$
+];
 export var CreateRegistration$: StaticOperationSchema = [9, n0, _CR,
   0, () => CreateRegistrationRequest$, () => CreateRegistrationResult$
 ];
-export var CreateRegistrationAssociation$: StaticOperationSchema = [9, n0, _CRA,
+export var CreateRegistrationAssociation$: StaticOperationSchema = [9, n0, _CRAr,
   0, () => CreateRegistrationAssociationRequest$, () => CreateRegistrationAssociationResult$
 ];
-export var CreateRegistrationAttachment$: StaticOperationSchema = [9, n0, _CRAr,
+export var CreateRegistrationAttachment$: StaticOperationSchema = [9, n0, _CRAre,
   0, () => CreateRegistrationAttachmentRequest$, () => CreateRegistrationAttachmentResult$
 ];
 export var CreateRegistrationVersion$: StaticOperationSchema = [9, n0, _CRV,
@@ -2064,6 +2441,12 @@ export var DeleteKeyword$: StaticOperationSchema = [9, n0, _DK,
 export var DeleteMediaMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _DMMSLO,
   0, () => DeleteMediaMessageSpendLimitOverrideRequest$, () => DeleteMediaMessageSpendLimitOverrideResult$
 ];
+export var DeleteNotifyConfiguration$: StaticOperationSchema = [9, n0, _DNC,
+  0, () => DeleteNotifyConfigurationRequest$, () => DeleteNotifyConfigurationResult$
+];
+export var DeleteNotifyMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _DNMSLO,
+  0, () => DeleteNotifyMessageSpendLimitOverrideRequest$, () => DeleteNotifyMessageSpendLimitOverrideResult$
+];
 export var DeleteOptedOutNumber$: StaticOperationSchema = [9, n0, _DOON,
   0, () => DeleteOptedOutNumberRequest$, () => DeleteOptedOutNumberResult$
 ];
@@ -2079,10 +2462,13 @@ export var DeleteProtectConfiguration$: StaticOperationSchema = [9, n0, _DPC,
 export var DeleteProtectConfigurationRuleSetNumberOverride$: StaticOperationSchema = [9, n0, _DPCRSNO,
   0, () => DeleteProtectConfigurationRuleSetNumberOverrideRequest$, () => DeleteProtectConfigurationRuleSetNumberOverrideResult$
 ];
+export var DeleteRcsAgent$: StaticOperationSchema = [9, n0, _DRA,
+  0, () => DeleteRcsAgentRequest$, () => DeleteRcsAgentResult$
+];
 export var DeleteRegistration$: StaticOperationSchema = [9, n0, _DRel,
   0, () => DeleteRegistrationRequest$, () => DeleteRegistrationResult$
 ];
-export var DeleteRegistrationAttachment$: StaticOperationSchema = [9, n0, _DRA,
+export var DeleteRegistrationAttachment$: StaticOperationSchema = [9, n0, _DRAe,
   0, () => DeleteRegistrationAttachmentRequest$, () => DeleteRegistrationAttachmentResult$
 ];
 export var DeleteRegistrationFieldValue$: StaticOperationSchema = [9, n0, _DRFV,
@@ -2112,6 +2498,12 @@ export var DescribeConfigurationSets$: StaticOperationSchema = [9, n0, _DCSe,
 export var DescribeKeywords$: StaticOperationSchema = [9, n0, _DKe,
   0, () => DescribeKeywordsRequest$, () => DescribeKeywordsResult$
 ];
+export var DescribeNotifyConfigurations$: StaticOperationSchema = [9, n0, _DNCe,
+  0, () => DescribeNotifyConfigurationsRequest$, () => DescribeNotifyConfigurationsResult$
+];
+export var DescribeNotifyTemplates$: StaticOperationSchema = [9, n0, _DNT,
+  0, () => DescribeNotifyTemplatesRequest$, () => DescribeNotifyTemplatesResult$
+];
 export var DescribeOptedOutNumbers$: StaticOperationSchema = [9, n0, _DOONe,
   0, () => DescribeOptedOutNumbersRequest$, () => DescribeOptedOutNumbersResult$
 ];
@@ -2127,7 +2519,13 @@ export var DescribePools$: StaticOperationSchema = [9, n0, _DPe,
 export var DescribeProtectConfigurations$: StaticOperationSchema = [9, n0, _DPCe,
   0, () => DescribeProtectConfigurationsRequest$, () => DescribeProtectConfigurationsResult$
 ];
-export var DescribeRegistrationAttachments$: StaticOperationSchema = [9, n0, _DRAe,
+export var DescribeRcsAgentCountryLaunchStatus$: StaticOperationSchema = [9, n0, _DRACLS,
+  0, () => DescribeRcsAgentCountryLaunchStatusRequest$, () => DescribeRcsAgentCountryLaunchStatusResult$
+];
+export var DescribeRcsAgents$: StaticOperationSchema = [9, n0, _DRAes,
+  0, () => DescribeRcsAgentsRequest$, () => DescribeRcsAgentsResult$
+];
+export var DescribeRegistrationAttachments$: StaticOperationSchema = [9, n0, _DRAesc,
   0, () => DescribeRegistrationAttachmentsRequest$, () => DescribeRegistrationAttachmentsResult$
 ];
 export var DescribeRegistrationFieldDefinitions$: StaticOperationSchema = [9, n0, _DRFD,
@@ -2171,6 +2569,9 @@ export var GetProtectConfigurationCountryRuleSet$: StaticOperationSchema = [9, n
 ];
 export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
   0, () => GetResourcePolicyRequest$, () => GetResourcePolicyResult$
+];
+export var ListNotifyCountries$: StaticOperationSchema = [9, n0, _LNC,
+  0, () => ListNotifyCountriesRequest$, () => ListNotifyCountriesResult$
 ];
 export var ListPoolOriginationIdentities$: StaticOperationSchema = [9, n0, _LPOI,
   0, () => ListPoolOriginationIdentitiesRequest$, () => ListPoolOriginationIdentitiesResult$
@@ -2220,6 +2621,12 @@ export var SendDestinationNumberVerificationCode$: StaticOperationSchema = [9, n
 export var SendMediaMessage$: StaticOperationSchema = [9, n0, _SMM,
   0, () => SendMediaMessageRequest$, () => SendMediaMessageResult$
 ];
+export var SendNotifyTextMessage$: StaticOperationSchema = [9, n0, _SNTM,
+  0, () => SendNotifyTextMessageRequest$, () => SendNotifyTextMessageResult$
+];
+export var SendNotifyVoiceMessage$: StaticOperationSchema = [9, n0, _SNVM,
+  0, () => SendNotifyVoiceMessageRequest$, () => SendNotifyVoiceMessageResult$
+];
 export var SendTextMessage$: StaticOperationSchema = [9, n0, _STM,
   0, () => SendTextMessageRequest$, () => SendTextMessageResult$
 ];
@@ -2241,6 +2648,9 @@ export var SetDefaultSenderId$: StaticOperationSchema = [9, n0, _SDSI,
 export var SetMediaMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _SMMSLO,
   0, () => SetMediaMessageSpendLimitOverrideRequest$, () => SetMediaMessageSpendLimitOverrideResult$
 ];
+export var SetNotifyMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _SNMSLO,
+  0, () => SetNotifyMessageSpendLimitOverrideRequest$, () => SetNotifyMessageSpendLimitOverrideResult$
+];
 export var SetTextMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _STMSLO,
   0, () => SetTextMessageSpendLimitOverrideRequest$, () => SetTextMessageSpendLimitOverrideResult$
 ];
@@ -2259,6 +2669,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 export var UpdateEventDestination$: StaticOperationSchema = [9, n0, _UED,
   0, () => UpdateEventDestinationRequest$, () => UpdateEventDestinationResult$
 ];
+export var UpdateNotifyConfiguration$: StaticOperationSchema = [9, n0, _UNC,
+  0, () => UpdateNotifyConfigurationRequest$, () => UpdateNotifyConfigurationResult$
+];
 export var UpdatePhoneNumber$: StaticOperationSchema = [9, n0, _UPN,
   0, () => UpdatePhoneNumberRequest$, () => UpdatePhoneNumberResult$
 ];
@@ -2270,6 +2683,9 @@ export var UpdateProtectConfiguration$: StaticOperationSchema = [9, n0, _UPC,
 ];
 export var UpdateProtectConfigurationCountryRuleSet$: StaticOperationSchema = [9, n0, _UPCCRS,
   0, () => UpdateProtectConfigurationCountryRuleSetRequest$, () => UpdateProtectConfigurationCountryRuleSetResult$
+];
+export var UpdateRcsAgent$: StaticOperationSchema = [9, n0, _URA,
+  0, () => UpdateRcsAgentRequest$, () => UpdateRcsAgentResult$
 ];
 export var UpdateSenderId$: StaticOperationSchema = [9, n0, _USI,
   0, () => UpdateSenderIdRequest$, () => UpdateSenderIdResult$

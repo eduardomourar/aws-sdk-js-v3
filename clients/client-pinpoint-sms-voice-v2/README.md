@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PinpointSMSVoiceV2Client` and
-the commands you need, for example `ListTagsForResourceCommand`:
+the commands you need, for example `ListNotifyCountriesCommand`:
 
 ```js
 // ES5 example
-const { PinpointSMSVoiceV2Client, ListTagsForResourceCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2");
+const { PinpointSMSVoiceV2Client, ListNotifyCountriesCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2");
 ```
 
 ```ts
 // ES6+ example
-import { PinpointSMSVoiceV2Client, ListTagsForResourceCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2";
+import { PinpointSMSVoiceV2Client, ListNotifyCountriesCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new PinpointSMSVoiceV2Client({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListTagsForResourceCommand(params);
+const command = new ListNotifyCountriesCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new PinpointSMSVoiceV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listTagsForResource(params);
+  const data = await client.listNotifyCountries(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listTagsForResource(params)
+  .listNotifyCountries(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listTagsForResource(params, (err, data) => {
+client.listNotifyCountries(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -216,6 +216,13 @@ CreateEventDestination
 </details>
 <details>
 <summary>
+CreateNotifyConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/CreateNotifyConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreateNotifyConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreateNotifyConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 CreateOptOutList
 </summary>
 
@@ -234,6 +241,13 @@ CreateProtectConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/CreateProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreateProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreateProtectConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+CreateRcsAgent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/CreateRcsAgentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreateRcsAgentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreateRcsAgentCommandOutput/)
 </details>
 <details>
 <summary>
@@ -321,6 +335,20 @@ DeleteMediaMessageSpendLimitOverride
 </details>
 <details>
 <summary>
+DeleteNotifyConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteNotifyConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteNotifyConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteNotifyConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteNotifyMessageSpendLimitOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteNotifyMessageSpendLimitOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteNotifyMessageSpendLimitOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteNotifyMessageSpendLimitOverrideCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteOptedOutNumber
 </summary>
 
@@ -353,6 +381,13 @@ DeleteProtectConfigurationRuleSetNumberOverride
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteProtectConfigurationRuleSetNumberOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteProtectConfigurationRuleSetNumberOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteRcsAgent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteRcsAgentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteRcsAgentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteRcsAgentCommandOutput/)
 </details>
 <details>
 <summary>
@@ -433,6 +468,20 @@ DescribeKeywords
 </details>
 <details>
 <summary>
+DescribeNotifyConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DescribeNotifyConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeNotifyConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeNotifyConfigurationsCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeNotifyTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DescribeNotifyTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeNotifyTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeNotifyTemplatesCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeOptedOutNumbers
 </summary>
 
@@ -465,6 +514,20 @@ DescribeProtectConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DescribeProtectConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeProtectConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeProtectConfigurationsCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeRcsAgentCountryLaunchStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DescribeRcsAgentCountryLaunchStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeRcsAgentCountryLaunchStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeRcsAgentCountryLaunchStatusCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeRcsAgents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DescribeRcsAgentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeRcsAgentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeRcsAgentsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -570,6 +633,13 @@ GetResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/GetResourcePolicyCommandOutput/)
+</details>
+<details>
+<summary>
+ListNotifyCountries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/ListNotifyCountriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListNotifyCountriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListNotifyCountriesCommandOutput/)
 </details>
 <details>
 <summary>
@@ -685,6 +755,20 @@ SendMediaMessage
 </details>
 <details>
 <summary>
+SendNotifyTextMessage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SendNotifyTextMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SendNotifyTextMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SendNotifyTextMessageCommandOutput/)
+</details>
+<details>
+<summary>
+SendNotifyVoiceMessage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SendNotifyVoiceMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SendNotifyVoiceMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SendNotifyVoiceMessageCommandOutput/)
+</details>
+<details>
+<summary>
 SendTextMessage
 </summary>
 
@@ -734,6 +818,13 @@ SetMediaMessageSpendLimitOverride
 </details>
 <details>
 <summary>
+SetNotifyMessageSpendLimitOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetNotifyMessageSpendLimitOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetNotifyMessageSpendLimitOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetNotifyMessageSpendLimitOverrideCommandOutput/)
+</details>
+<details>
+<summary>
 SetTextMessageSpendLimitOverride
 </summary>
 
@@ -776,6 +867,13 @@ UpdateEventDestination
 </details>
 <details>
 <summary>
+UpdateNotifyConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/UpdateNotifyConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateNotifyConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateNotifyConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 UpdatePhoneNumber
 </summary>
 
@@ -801,6 +899,13 @@ UpdateProtectConfigurationCountryRuleSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/UpdateProtectConfigurationCountryRuleSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateProtectConfigurationCountryRuleSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateProtectConfigurationCountryRuleSetCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateRcsAgent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/UpdateRcsAgentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateRcsAgentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateRcsAgentCommandOutput/)
 </details>
 <details>
 <summary>

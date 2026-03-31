@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateVerifiedDestinationNumberRequest, CreateVerifiedDestinationNumberResult } from "../models/models_0";
+import type { SendNotifyTextMessageRequest, SendNotifyTextMessageResult } from "../models/models_0";
 import type {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { CreateVerifiedDestinationNumber$ } from "../schemas/schemas_0";
+import { SendNotifyTextMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,60 +20,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateVerifiedDestinationNumberCommand}.
+ * The input for {@link SendNotifyTextMessageCommand}.
  */
-export interface CreateVerifiedDestinationNumberCommandInput extends CreateVerifiedDestinationNumberRequest {}
+export interface SendNotifyTextMessageCommandInput extends SendNotifyTextMessageRequest {}
 /**
  * @public
  *
- * The output of {@link CreateVerifiedDestinationNumberCommand}.
+ * The output of {@link SendNotifyTextMessageCommand}.
  */
-export interface CreateVerifiedDestinationNumberCommandOutput extends CreateVerifiedDestinationNumberResult, __MetadataBearer {}
+export interface SendNotifyTextMessageCommandOutput extends SendNotifyTextMessageResult, __MetadataBearer {}
 
 /**
- * <p>You can only send messages to verified destination numbers when your account is in the sandbox. You can add up to 10 verified destination numbers.</p>
+ * <p>Sends a templated text message through a notify configuration to a recipient's phone number.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, CreateVerifiedDestinationNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, CreateVerifiedDestinationNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, SendNotifyTextMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, SendNotifyTextMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * // import type { PinpointSMSVoiceV2ClientConfig } from "@aws-sdk/client-pinpoint-sms-voice-v2";
  * const config = {}; // type is PinpointSMSVoiceV2ClientConfig
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = { // CreateVerifiedDestinationNumberRequest
+ * const input = { // SendNotifyTextMessageRequest
+ *   NotifyConfigurationId: "STRING_VALUE", // required
  *   DestinationPhoneNumber: "STRING_VALUE", // required
- *   RcsAgentId: "STRING_VALUE",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   ClientToken: "STRING_VALUE",
+ *   TemplateId: "STRING_VALUE",
+ *   TemplateVariables: { // TemplateVariableSubstitutionMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TimeToLive: Number("int"),
+ *   Context: { // ContextMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   MessageFeedbackEnabled: true || false,
  * };
- * const command = new CreateVerifiedDestinationNumberCommand(input);
+ * const command = new SendNotifyTextMessageCommand(input);
  * const response = await client.send(command);
- * // { // CreateVerifiedDestinationNumberResult
- * //   VerifiedDestinationNumberArn: "STRING_VALUE", // required
- * //   VerifiedDestinationNumberId: "STRING_VALUE", // required
- * //   DestinationPhoneNumber: "STRING_VALUE", // required
- * //   Status: "STRING_VALUE", // required
- * //   RcsAgentId: "STRING_VALUE",
- * //   Tags: [ // TagList
- * //     { // Tag
- * //       Key: "STRING_VALUE", // required
- * //       Value: "STRING_VALUE", // required
- * //     },
- * //   ],
- * //   CreatedTimestamp: new Date("TIMESTAMP"), // required
+ * // { // SendNotifyTextMessageResult
+ * //   MessageId: "STRING_VALUE",
+ * //   TemplateId: "STRING_VALUE",
+ * //   ResolvedMessageBody: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateVerifiedDestinationNumberCommandInput - {@link CreateVerifiedDestinationNumberCommandInput}
- * @returns {@link CreateVerifiedDestinationNumberCommandOutput}
- * @see {@link CreateVerifiedDestinationNumberCommandInput} for command's `input` shape.
- * @see {@link CreateVerifiedDestinationNumberCommandOutput} for command's `response` shape.
+ * @param SendNotifyTextMessageCommandInput - {@link SendNotifyTextMessageCommandInput}
+ * @returns {@link SendNotifyTextMessageCommandOutput}
+ * @see {@link SendNotifyTextMessageCommandInput} for command's `input` shape.
+ * @see {@link SendNotifyTextMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -101,12 +96,34 @@ export interface CreateVerifiedDestinationNumberCommandOutput extends CreateVeri
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  *
+ * @example SendNotifyTextMessage
+ * ```javascript
+ * // Send an OTP verification code via SMS using a notify configuration.
+ * const input = {
+ *   DestinationPhoneNumber: "+12065550100",
+ *   NotifyConfigurationId: "nc-1234567890abcdef0",
+ *   TemplateVariables: {
+ *     code: "123456",
+ *     expiry: "10"
+ *   }
+ * };
+ * const command = new SendNotifyTextMessageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   MessageId: "msg-1234567890abcdef0",
+ *   ResolvedMessageBody: "Your verification code is 123456. It expires in 10 minutes.",
+ *   TemplateId: "nt-1234567890abcdef0"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
-export class CreateVerifiedDestinationNumberCommand extends $Command
+export class SendNotifyTextMessageCommand extends $Command
   .classBuilder<
-    CreateVerifiedDestinationNumberCommandInput,
-    CreateVerifiedDestinationNumberCommandOutput,
+    SendNotifyTextMessageCommandInput,
+    SendNotifyTextMessageCommandOutput,
     PinpointSMSVoiceV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -115,19 +132,19 @@ export class CreateVerifiedDestinationNumberCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("PinpointSMSVoiceV2", "CreateVerifiedDestinationNumber", {})
-  .n("PinpointSMSVoiceV2Client", "CreateVerifiedDestinationNumberCommand")
-  .sc(CreateVerifiedDestinationNumber$)
+  .s("PinpointSMSVoiceV2", "SendNotifyTextMessage", {})
+  .n("PinpointSMSVoiceV2Client", "SendNotifyTextMessageCommand")
+  .sc(SendNotifyTextMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateVerifiedDestinationNumberRequest;
-      output: CreateVerifiedDestinationNumberResult;
+      input: SendNotifyTextMessageRequest;
+      output: SendNotifyTextMessageResult;
     };
     sdk: {
-      input: CreateVerifiedDestinationNumberCommandInput;
-      output: CreateVerifiedDestinationNumberCommandOutput;
+      input: SendNotifyTextMessageCommandInput;
+      output: SendNotifyTextMessageCommandOutput;
     };
   };
 }

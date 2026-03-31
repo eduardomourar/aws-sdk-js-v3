@@ -28,6 +28,11 @@ import {
   CreateEventDestinationCommand,
 } from "./commands/CreateEventDestinationCommand";
 import {
+  type CreateNotifyConfigurationCommandInput,
+  type CreateNotifyConfigurationCommandOutput,
+  CreateNotifyConfigurationCommand,
+} from "./commands/CreateNotifyConfigurationCommand";
+import {
   type CreateOptOutListCommandInput,
   type CreateOptOutListCommandOutput,
   CreateOptOutListCommand,
@@ -42,6 +47,11 @@ import {
   type CreateProtectConfigurationCommandOutput,
   CreateProtectConfigurationCommand,
 } from "./commands/CreateProtectConfigurationCommand";
+import {
+  type CreateRcsAgentCommandInput,
+  type CreateRcsAgentCommandOutput,
+  CreateRcsAgentCommand,
+} from "./commands/CreateRcsAgentCommand";
 import {
   type CreateRegistrationAssociationCommandInput,
   type CreateRegistrationAssociationCommandOutput,
@@ -103,6 +113,16 @@ import {
   DeleteMediaMessageSpendLimitOverrideCommand,
 } from "./commands/DeleteMediaMessageSpendLimitOverrideCommand";
 import {
+  type DeleteNotifyConfigurationCommandInput,
+  type DeleteNotifyConfigurationCommandOutput,
+  DeleteNotifyConfigurationCommand,
+} from "./commands/DeleteNotifyConfigurationCommand";
+import {
+  type DeleteNotifyMessageSpendLimitOverrideCommandInput,
+  type DeleteNotifyMessageSpendLimitOverrideCommandOutput,
+  DeleteNotifyMessageSpendLimitOverrideCommand,
+} from "./commands/DeleteNotifyMessageSpendLimitOverrideCommand";
+import {
   type DeleteOptedOutNumberCommandInput,
   type DeleteOptedOutNumberCommandOutput,
   DeleteOptedOutNumberCommand,
@@ -127,6 +147,11 @@ import {
   type DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput,
   DeleteProtectConfigurationRuleSetNumberOverrideCommand,
 } from "./commands/DeleteProtectConfigurationRuleSetNumberOverrideCommand";
+import {
+  type DeleteRcsAgentCommandInput,
+  type DeleteRcsAgentCommandOutput,
+  DeleteRcsAgentCommand,
+} from "./commands/DeleteRcsAgentCommand";
 import {
   type DeleteRegistrationAttachmentCommandInput,
   type DeleteRegistrationAttachmentCommandOutput,
@@ -183,6 +208,16 @@ import {
   DescribeKeywordsCommand,
 } from "./commands/DescribeKeywordsCommand";
 import {
+  type DescribeNotifyConfigurationsCommandInput,
+  type DescribeNotifyConfigurationsCommandOutput,
+  DescribeNotifyConfigurationsCommand,
+} from "./commands/DescribeNotifyConfigurationsCommand";
+import {
+  type DescribeNotifyTemplatesCommandInput,
+  type DescribeNotifyTemplatesCommandOutput,
+  DescribeNotifyTemplatesCommand,
+} from "./commands/DescribeNotifyTemplatesCommand";
+import {
   type DescribeOptedOutNumbersCommandInput,
   type DescribeOptedOutNumbersCommandOutput,
   DescribeOptedOutNumbersCommand,
@@ -207,6 +242,16 @@ import {
   type DescribeProtectConfigurationsCommandOutput,
   DescribeProtectConfigurationsCommand,
 } from "./commands/DescribeProtectConfigurationsCommand";
+import {
+  type DescribeRcsAgentCountryLaunchStatusCommandInput,
+  type DescribeRcsAgentCountryLaunchStatusCommandOutput,
+  DescribeRcsAgentCountryLaunchStatusCommand,
+} from "./commands/DescribeRcsAgentCountryLaunchStatusCommand";
+import {
+  type DescribeRcsAgentsCommandInput,
+  type DescribeRcsAgentsCommandOutput,
+  DescribeRcsAgentsCommand,
+} from "./commands/DescribeRcsAgentsCommand";
 import {
   type DescribeRegistrationAttachmentsCommandInput,
   type DescribeRegistrationAttachmentsCommandOutput,
@@ -282,6 +327,11 @@ import {
   type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
 } from "./commands/GetResourcePolicyCommand";
+import {
+  type ListNotifyCountriesCommandInput,
+  type ListNotifyCountriesCommandOutput,
+  ListNotifyCountriesCommand,
+} from "./commands/ListNotifyCountriesCommand";
 import {
   type ListPoolOriginationIdentitiesCommandInput,
   type ListPoolOriginationIdentitiesCommandOutput,
@@ -363,6 +413,16 @@ import {
   SendMediaMessageCommand,
 } from "./commands/SendMediaMessageCommand";
 import {
+  type SendNotifyTextMessageCommandInput,
+  type SendNotifyTextMessageCommandOutput,
+  SendNotifyTextMessageCommand,
+} from "./commands/SendNotifyTextMessageCommand";
+import {
+  type SendNotifyVoiceMessageCommandInput,
+  type SendNotifyVoiceMessageCommandOutput,
+  SendNotifyVoiceMessageCommand,
+} from "./commands/SendNotifyVoiceMessageCommand";
+import {
   type SendTextMessageCommandInput,
   type SendTextMessageCommandOutput,
   SendTextMessageCommand,
@@ -398,6 +458,11 @@ import {
   SetMediaMessageSpendLimitOverrideCommand,
 } from "./commands/SetMediaMessageSpendLimitOverrideCommand";
 import {
+  type SetNotifyMessageSpendLimitOverrideCommandInput,
+  type SetNotifyMessageSpendLimitOverrideCommandOutput,
+  SetNotifyMessageSpendLimitOverrideCommand,
+} from "./commands/SetNotifyMessageSpendLimitOverrideCommand";
+import {
   type SetTextMessageSpendLimitOverrideCommandInput,
   type SetTextMessageSpendLimitOverrideCommandOutput,
   SetTextMessageSpendLimitOverrideCommand,
@@ -428,6 +493,11 @@ import {
   UpdateEventDestinationCommand,
 } from "./commands/UpdateEventDestinationCommand";
 import {
+  type UpdateNotifyConfigurationCommandInput,
+  type UpdateNotifyConfigurationCommandOutput,
+  UpdateNotifyConfigurationCommand,
+} from "./commands/UpdateNotifyConfigurationCommand";
+import {
   type UpdatePhoneNumberCommandInput,
   type UpdatePhoneNumberCommandOutput,
   UpdatePhoneNumberCommand,
@@ -448,6 +518,11 @@ import {
   UpdateProtectConfigurationCountryRuleSetCommand,
 } from "./commands/UpdateProtectConfigurationCountryRuleSetCommand";
 import {
+  type UpdateRcsAgentCommandInput,
+  type UpdateRcsAgentCommandOutput,
+  UpdateRcsAgentCommand,
+} from "./commands/UpdateRcsAgentCommand";
+import {
   type UpdateSenderIdCommandInput,
   type UpdateSenderIdCommandOutput,
   UpdateSenderIdCommand,
@@ -461,11 +536,15 @@ import { paginateDescribeAccountAttributes } from "./pagination/DescribeAccountA
 import { paginateDescribeAccountLimits } from "./pagination/DescribeAccountLimitsPaginator";
 import { paginateDescribeConfigurationSets } from "./pagination/DescribeConfigurationSetsPaginator";
 import { paginateDescribeKeywords } from "./pagination/DescribeKeywordsPaginator";
+import { paginateDescribeNotifyConfigurations } from "./pagination/DescribeNotifyConfigurationsPaginator";
+import { paginateDescribeNotifyTemplates } from "./pagination/DescribeNotifyTemplatesPaginator";
 import { paginateDescribeOptedOutNumbers } from "./pagination/DescribeOptedOutNumbersPaginator";
 import { paginateDescribeOptOutLists } from "./pagination/DescribeOptOutListsPaginator";
 import { paginateDescribePhoneNumbers } from "./pagination/DescribePhoneNumbersPaginator";
 import { paginateDescribePools } from "./pagination/DescribePoolsPaginator";
 import { paginateDescribeProtectConfigurations } from "./pagination/DescribeProtectConfigurationsPaginator";
+import { paginateDescribeRcsAgentCountryLaunchStatus } from "./pagination/DescribeRcsAgentCountryLaunchStatusPaginator";
+import { paginateDescribeRcsAgents } from "./pagination/DescribeRcsAgentsPaginator";
 import { paginateDescribeRegistrationAttachments } from "./pagination/DescribeRegistrationAttachmentsPaginator";
 import {
   paginateDescribeRegistrationFieldDefinitions,
@@ -480,6 +559,7 @@ import { paginateDescribeRegistrationVersions } from "./pagination/DescribeRegis
 import { paginateDescribeSenderIds } from "./pagination/DescribeSenderIdsPaginator";
 import { paginateDescribeSpendLimits } from "./pagination/DescribeSpendLimitsPaginator";
 import { paginateDescribeVerifiedDestinationNumbers } from "./pagination/DescribeVerifiedDestinationNumbersPaginator";
+import { paginateListNotifyCountries } from "./pagination/ListNotifyCountriesPaginator";
 import { paginateListPoolOriginationIdentities } from "./pagination/ListPoolOriginationIdentitiesPaginator";
 import {
   paginateListProtectConfigurationRuleSetNumberOverrides,
@@ -493,9 +573,11 @@ const commands = {
   CarrierLookupCommand,
   CreateConfigurationSetCommand,
   CreateEventDestinationCommand,
+  CreateNotifyConfigurationCommand,
   CreateOptOutListCommand,
   CreatePoolCommand,
   CreateProtectConfigurationCommand,
+  CreateRcsAgentCommand,
   CreateRegistrationCommand,
   CreateRegistrationAssociationCommand,
   CreateRegistrationAttachmentCommand,
@@ -508,11 +590,14 @@ const commands = {
   DeleteEventDestinationCommand,
   DeleteKeywordCommand,
   DeleteMediaMessageSpendLimitOverrideCommand,
+  DeleteNotifyConfigurationCommand,
+  DeleteNotifyMessageSpendLimitOverrideCommand,
   DeleteOptedOutNumberCommand,
   DeleteOptOutListCommand,
   DeletePoolCommand,
   DeleteProtectConfigurationCommand,
   DeleteProtectConfigurationRuleSetNumberOverrideCommand,
+  DeleteRcsAgentCommand,
   DeleteRegistrationCommand,
   DeleteRegistrationAttachmentCommand,
   DeleteRegistrationFieldValueCommand,
@@ -524,11 +609,15 @@ const commands = {
   DescribeAccountLimitsCommand,
   DescribeConfigurationSetsCommand,
   DescribeKeywordsCommand,
+  DescribeNotifyConfigurationsCommand,
+  DescribeNotifyTemplatesCommand,
   DescribeOptedOutNumbersCommand,
   DescribeOptOutListsCommand,
   DescribePhoneNumbersCommand,
   DescribePoolsCommand,
   DescribeProtectConfigurationsCommand,
+  DescribeRcsAgentCountryLaunchStatusCommand,
+  DescribeRcsAgentsCommand,
   DescribeRegistrationAttachmentsCommand,
   DescribeRegistrationFieldDefinitionsCommand,
   DescribeRegistrationFieldValuesCommand,
@@ -544,6 +633,7 @@ const commands = {
   DiscardRegistrationVersionCommand,
   GetProtectConfigurationCountryRuleSetCommand,
   GetResourcePolicyCommand,
+  ListNotifyCountriesCommand,
   ListPoolOriginationIdentitiesCommand,
   ListProtectConfigurationRuleSetNumberOverridesCommand,
   ListRegistrationAssociationsCommand,
@@ -560,6 +650,8 @@ const commands = {
   RequestSenderIdCommand,
   SendDestinationNumberVerificationCodeCommand,
   SendMediaMessageCommand,
+  SendNotifyTextMessageCommand,
+  SendNotifyVoiceMessageCommand,
   SendTextMessageCommand,
   SendVoiceMessageCommand,
   SetAccountDefaultProtectConfigurationCommand,
@@ -567,16 +659,19 @@ const commands = {
   SetDefaultMessageTypeCommand,
   SetDefaultSenderIdCommand,
   SetMediaMessageSpendLimitOverrideCommand,
+  SetNotifyMessageSpendLimitOverrideCommand,
   SetTextMessageSpendLimitOverrideCommand,
   SetVoiceMessageSpendLimitOverrideCommand,
   SubmitRegistrationVersionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateEventDestinationCommand,
+  UpdateNotifyConfigurationCommand,
   UpdatePhoneNumberCommand,
   UpdatePoolCommand,
   UpdateProtectConfigurationCommand,
   UpdateProtectConfigurationCountryRuleSetCommand,
+  UpdateRcsAgentCommand,
   UpdateSenderIdCommand,
   VerifyDestinationNumberCommand,
 };
@@ -585,11 +680,15 @@ const paginators = {
   paginateDescribeAccountLimits,
   paginateDescribeConfigurationSets,
   paginateDescribeKeywords,
+  paginateDescribeNotifyConfigurations,
+  paginateDescribeNotifyTemplates,
   paginateDescribeOptedOutNumbers,
   paginateDescribeOptOutLists,
   paginateDescribePhoneNumbers,
   paginateDescribePools,
   paginateDescribeProtectConfigurations,
+  paginateDescribeRcsAgentCountryLaunchStatus,
+  paginateDescribeRcsAgents,
   paginateDescribeRegistrationAttachments,
   paginateDescribeRegistrationFieldDefinitions,
   paginateDescribeRegistrationFieldValues,
@@ -600,6 +699,7 @@ const paginators = {
   paginateDescribeSenderIds,
   paginateDescribeSpendLimits,
   paginateDescribeVerifiedDestinationNumbers,
+  paginateListNotifyCountries,
   paginateListPoolOriginationIdentities,
   paginateListProtectConfigurationRuleSetNumberOverrides,
   paginateListRegistrationAssociations,
@@ -692,6 +792,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link CreateNotifyConfigurationCommand}
+   */
+  createNotifyConfiguration(
+    args: CreateNotifyConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNotifyConfigurationCommandOutput>;
+  createNotifyConfiguration(
+    args: CreateNotifyConfigurationCommandInput,
+    cb: (err: any, data?: CreateNotifyConfigurationCommandOutput) => void
+  ): void;
+  createNotifyConfiguration(
+    args: CreateNotifyConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNotifyConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateOptOutListCommand}
    */
   createOptOutList(
@@ -741,6 +858,24 @@ export interface PinpointSMSVoiceV2 {
     args: CreateProtectConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateProtectConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRcsAgentCommand}
+   */
+  createRcsAgent(): Promise<CreateRcsAgentCommandOutput>;
+  createRcsAgent(
+    args: CreateRcsAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRcsAgentCommandOutput>;
+  createRcsAgent(
+    args: CreateRcsAgentCommandInput,
+    cb: (err: any, data?: CreateRcsAgentCommandOutput) => void
+  ): void;
+  createRcsAgent(
+    args: CreateRcsAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRcsAgentCommandOutput) => void
   ): void;
 
   /**
@@ -951,6 +1086,41 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DeleteNotifyConfigurationCommand}
+   */
+  deleteNotifyConfiguration(
+    args: DeleteNotifyConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNotifyConfigurationCommandOutput>;
+  deleteNotifyConfiguration(
+    args: DeleteNotifyConfigurationCommandInput,
+    cb: (err: any, data?: DeleteNotifyConfigurationCommandOutput) => void
+  ): void;
+  deleteNotifyConfiguration(
+    args: DeleteNotifyConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNotifyConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNotifyMessageSpendLimitOverrideCommand}
+   */
+  deleteNotifyMessageSpendLimitOverride(): Promise<DeleteNotifyMessageSpendLimitOverrideCommandOutput>;
+  deleteNotifyMessageSpendLimitOverride(
+    args: DeleteNotifyMessageSpendLimitOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNotifyMessageSpendLimitOverrideCommandOutput>;
+  deleteNotifyMessageSpendLimitOverride(
+    args: DeleteNotifyMessageSpendLimitOverrideCommandInput,
+    cb: (err: any, data?: DeleteNotifyMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+  deleteNotifyMessageSpendLimitOverride(
+    args: DeleteNotifyMessageSpendLimitOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNotifyMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteOptedOutNumberCommand}
    */
   deleteOptedOutNumber(
@@ -1033,6 +1203,23 @@ export interface PinpointSMSVoiceV2 {
     args: DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRcsAgentCommand}
+   */
+  deleteRcsAgent(
+    args: DeleteRcsAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRcsAgentCommandOutput>;
+  deleteRcsAgent(
+    args: DeleteRcsAgentCommandInput,
+    cb: (err: any, data?: DeleteRcsAgentCommandOutput) => void
+  ): void;
+  deleteRcsAgent(
+    args: DeleteRcsAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRcsAgentCommandOutput) => void
   ): void;
 
   /**
@@ -1228,6 +1415,42 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DescribeNotifyConfigurationsCommand}
+   */
+  describeNotifyConfigurations(): Promise<DescribeNotifyConfigurationsCommandOutput>;
+  describeNotifyConfigurations(
+    args: DescribeNotifyConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNotifyConfigurationsCommandOutput>;
+  describeNotifyConfigurations(
+    args: DescribeNotifyConfigurationsCommandInput,
+    cb: (err: any, data?: DescribeNotifyConfigurationsCommandOutput) => void
+  ): void;
+  describeNotifyConfigurations(
+    args: DescribeNotifyConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNotifyConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeNotifyTemplatesCommand}
+   */
+  describeNotifyTemplates(): Promise<DescribeNotifyTemplatesCommandOutput>;
+  describeNotifyTemplates(
+    args: DescribeNotifyTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNotifyTemplatesCommandOutput>;
+  describeNotifyTemplates(
+    args: DescribeNotifyTemplatesCommandInput,
+    cb: (err: any, data?: DescribeNotifyTemplatesCommandOutput) => void
+  ): void;
+  describeNotifyTemplates(
+    args: DescribeNotifyTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNotifyTemplatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeOptedOutNumbersCommand}
    */
   describeOptedOutNumbers(
@@ -1314,6 +1537,41 @@ export interface PinpointSMSVoiceV2 {
     args: DescribeProtectConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeProtectConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRcsAgentCountryLaunchStatusCommand}
+   */
+  describeRcsAgentCountryLaunchStatus(
+    args: DescribeRcsAgentCountryLaunchStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRcsAgentCountryLaunchStatusCommandOutput>;
+  describeRcsAgentCountryLaunchStatus(
+    args: DescribeRcsAgentCountryLaunchStatusCommandInput,
+    cb: (err: any, data?: DescribeRcsAgentCountryLaunchStatusCommandOutput) => void
+  ): void;
+  describeRcsAgentCountryLaunchStatus(
+    args: DescribeRcsAgentCountryLaunchStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRcsAgentCountryLaunchStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRcsAgentsCommand}
+   */
+  describeRcsAgents(): Promise<DescribeRcsAgentsCommandOutput>;
+  describeRcsAgents(
+    args: DescribeRcsAgentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRcsAgentsCommandOutput>;
+  describeRcsAgents(
+    args: DescribeRcsAgentsCommandInput,
+    cb: (err: any, data?: DescribeRcsAgentsCommandOutput) => void
+  ): void;
+  describeRcsAgents(
+    args: DescribeRcsAgentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRcsAgentsCommandOutput) => void
   ): void;
 
   /**
@@ -1575,6 +1833,24 @@ export interface PinpointSMSVoiceV2 {
     args: GetResourcePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNotifyCountriesCommand}
+   */
+  listNotifyCountries(): Promise<ListNotifyCountriesCommandOutput>;
+  listNotifyCountries(
+    args: ListNotifyCountriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNotifyCountriesCommandOutput>;
+  listNotifyCountries(
+    args: ListNotifyCountriesCommandInput,
+    cb: (err: any, data?: ListNotifyCountriesCommandOutput) => void
+  ): void;
+  listNotifyCountries(
+    args: ListNotifyCountriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNotifyCountriesCommandOutput) => void
   ): void;
 
   /**
@@ -1850,6 +2126,40 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link SendNotifyTextMessageCommand}
+   */
+  sendNotifyTextMessage(
+    args: SendNotifyTextMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendNotifyTextMessageCommandOutput>;
+  sendNotifyTextMessage(
+    args: SendNotifyTextMessageCommandInput,
+    cb: (err: any, data?: SendNotifyTextMessageCommandOutput) => void
+  ): void;
+  sendNotifyTextMessage(
+    args: SendNotifyTextMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendNotifyTextMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendNotifyVoiceMessageCommand}
+   */
+  sendNotifyVoiceMessage(
+    args: SendNotifyVoiceMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendNotifyVoiceMessageCommandOutput>;
+  sendNotifyVoiceMessage(
+    args: SendNotifyVoiceMessageCommandInput,
+    cb: (err: any, data?: SendNotifyVoiceMessageCommandOutput) => void
+  ): void;
+  sendNotifyVoiceMessage(
+    args: SendNotifyVoiceMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendNotifyVoiceMessageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SendTextMessageCommand}
    */
   sendTextMessage(
@@ -1969,6 +2279,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link SetNotifyMessageSpendLimitOverrideCommand}
+   */
+  setNotifyMessageSpendLimitOverride(
+    args: SetNotifyMessageSpendLimitOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetNotifyMessageSpendLimitOverrideCommandOutput>;
+  setNotifyMessageSpendLimitOverride(
+    args: SetNotifyMessageSpendLimitOverrideCommandInput,
+    cb: (err: any, data?: SetNotifyMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+  setNotifyMessageSpendLimitOverride(
+    args: SetNotifyMessageSpendLimitOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetNotifyMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SetTextMessageSpendLimitOverrideCommand}
    */
   setTextMessageSpendLimitOverride(
@@ -2071,6 +2398,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link UpdateNotifyConfigurationCommand}
+   */
+  updateNotifyConfiguration(
+    args: UpdateNotifyConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNotifyConfigurationCommandOutput>;
+  updateNotifyConfiguration(
+    args: UpdateNotifyConfigurationCommandInput,
+    cb: (err: any, data?: UpdateNotifyConfigurationCommandOutput) => void
+  ): void;
+  updateNotifyConfiguration(
+    args: UpdateNotifyConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNotifyConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePhoneNumberCommand}
    */
   updatePhoneNumber(
@@ -2136,6 +2480,23 @@ export interface PinpointSMSVoiceV2 {
     args: UpdateProtectConfigurationCountryRuleSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProtectConfigurationCountryRuleSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRcsAgentCommand}
+   */
+  updateRcsAgent(
+    args: UpdateRcsAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRcsAgentCommandOutput>;
+  updateRcsAgent(
+    args: UpdateRcsAgentCommandInput,
+    cb: (err: any, data?: UpdateRcsAgentCommandOutput) => void
+  ): void;
+  updateRcsAgent(
+    args: UpdateRcsAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRcsAgentCommandOutput) => void
   ): void;
 
   /**
@@ -2217,6 +2578,28 @@ export interface PinpointSMSVoiceV2 {
   ): Paginator<DescribeKeywordsCommandOutput>;
 
   /**
+   * @see {@link DescribeNotifyConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNotifyConfigurationsCommandOutput}.
+   */
+  paginateDescribeNotifyConfigurations(
+    args?: DescribeNotifyConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNotifyConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeNotifyTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNotifyTemplatesCommandOutput}.
+   */
+  paginateDescribeNotifyTemplates(
+    args?: DescribeNotifyTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNotifyTemplatesCommandOutput>;
+
+  /**
    * @see {@link DescribeOptedOutNumbersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2270,6 +2653,28 @@ export interface PinpointSMSVoiceV2 {
     args?: DescribeProtectConfigurationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeProtectConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRcsAgentCountryLaunchStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRcsAgentCountryLaunchStatusCommandOutput}.
+   */
+  paginateDescribeRcsAgentCountryLaunchStatus(
+    args: DescribeRcsAgentCountryLaunchStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRcsAgentCountryLaunchStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeRcsAgentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRcsAgentsCommandOutput}.
+   */
+  paginateDescribeRcsAgents(
+    args?: DescribeRcsAgentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRcsAgentsCommandOutput>;
 
   /**
    * @see {@link DescribeRegistrationAttachmentsCommand}
@@ -2380,6 +2785,17 @@ export interface PinpointSMSVoiceV2 {
     args?: DescribeVerifiedDestinationNumbersCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeVerifiedDestinationNumbersCommandOutput>;
+
+  /**
+   * @see {@link ListNotifyCountriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotifyCountriesCommandOutput}.
+   */
+  paginateListNotifyCountries(
+    args?: ListNotifyCountriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotifyCountriesCommandOutput>;
 
   /**
    * @see {@link ListPoolOriginationIdentitiesCommand}

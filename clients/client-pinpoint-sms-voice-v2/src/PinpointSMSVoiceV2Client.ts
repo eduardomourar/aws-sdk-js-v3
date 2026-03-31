@@ -78,12 +78,17 @@ import type {
   CreateEventDestinationCommandInput,
   CreateEventDestinationCommandOutput,
 } from "./commands/CreateEventDestinationCommand";
+import type {
+  CreateNotifyConfigurationCommandInput,
+  CreateNotifyConfigurationCommandOutput,
+} from "./commands/CreateNotifyConfigurationCommand";
 import type { CreateOptOutListCommandInput, CreateOptOutListCommandOutput } from "./commands/CreateOptOutListCommand";
 import type { CreatePoolCommandInput, CreatePoolCommandOutput } from "./commands/CreatePoolCommand";
 import type {
   CreateProtectConfigurationCommandInput,
   CreateProtectConfigurationCommandOutput,
 } from "./commands/CreateProtectConfigurationCommand";
+import type { CreateRcsAgentCommandInput, CreateRcsAgentCommandOutput } from "./commands/CreateRcsAgentCommand";
 import type {
   CreateRegistrationAssociationCommandInput,
   CreateRegistrationAssociationCommandOutput,
@@ -130,6 +135,14 @@ import type {
   DeleteMediaMessageSpendLimitOverrideCommandOutput,
 } from "./commands/DeleteMediaMessageSpendLimitOverrideCommand";
 import type {
+  DeleteNotifyConfigurationCommandInput,
+  DeleteNotifyConfigurationCommandOutput,
+} from "./commands/DeleteNotifyConfigurationCommand";
+import type {
+  DeleteNotifyMessageSpendLimitOverrideCommandInput,
+  DeleteNotifyMessageSpendLimitOverrideCommandOutput,
+} from "./commands/DeleteNotifyMessageSpendLimitOverrideCommand";
+import type {
   DeleteOptedOutNumberCommandInput,
   DeleteOptedOutNumberCommandOutput,
 } from "./commands/DeleteOptedOutNumberCommand";
@@ -143,6 +156,7 @@ import type {
   DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
   DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput,
 } from "./commands/DeleteProtectConfigurationRuleSetNumberOverrideCommand";
+import type { DeleteRcsAgentCommandInput, DeleteRcsAgentCommandOutput } from "./commands/DeleteRcsAgentCommand";
 import type {
   DeleteRegistrationAttachmentCommandInput,
   DeleteRegistrationAttachmentCommandOutput,
@@ -185,6 +199,14 @@ import type {
 } from "./commands/DescribeConfigurationSetsCommand";
 import type { DescribeKeywordsCommandInput, DescribeKeywordsCommandOutput } from "./commands/DescribeKeywordsCommand";
 import type {
+  DescribeNotifyConfigurationsCommandInput,
+  DescribeNotifyConfigurationsCommandOutput,
+} from "./commands/DescribeNotifyConfigurationsCommand";
+import type {
+  DescribeNotifyTemplatesCommandInput,
+  DescribeNotifyTemplatesCommandOutput,
+} from "./commands/DescribeNotifyTemplatesCommand";
+import type {
   DescribeOptedOutNumbersCommandInput,
   DescribeOptedOutNumbersCommandOutput,
 } from "./commands/DescribeOptedOutNumbersCommand";
@@ -201,6 +223,14 @@ import type {
   DescribeProtectConfigurationsCommandInput,
   DescribeProtectConfigurationsCommandOutput,
 } from "./commands/DescribeProtectConfigurationsCommand";
+import type {
+  DescribeRcsAgentCountryLaunchStatusCommandInput,
+  DescribeRcsAgentCountryLaunchStatusCommandOutput,
+} from "./commands/DescribeRcsAgentCountryLaunchStatusCommand";
+import type {
+  DescribeRcsAgentsCommandInput,
+  DescribeRcsAgentsCommandOutput,
+} from "./commands/DescribeRcsAgentsCommand";
 import type {
   DescribeRegistrationAttachmentsCommandInput,
   DescribeRegistrationAttachmentsCommandOutput,
@@ -262,6 +292,10 @@ import type {
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import type {
+  ListNotifyCountriesCommandInput,
+  ListNotifyCountriesCommandOutput,
+} from "./commands/ListNotifyCountriesCommand";
+import type {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
 } from "./commands/ListPoolOriginationIdentitiesCommand";
@@ -313,6 +347,14 @@ import type {
   SendDestinationNumberVerificationCodeCommandOutput,
 } from "./commands/SendDestinationNumberVerificationCodeCommand";
 import type { SendMediaMessageCommandInput, SendMediaMessageCommandOutput } from "./commands/SendMediaMessageCommand";
+import type {
+  SendNotifyTextMessageCommandInput,
+  SendNotifyTextMessageCommandOutput,
+} from "./commands/SendNotifyTextMessageCommand";
+import type {
+  SendNotifyVoiceMessageCommandInput,
+  SendNotifyVoiceMessageCommandOutput,
+} from "./commands/SendNotifyVoiceMessageCommand";
 import type { SendTextMessageCommandInput, SendTextMessageCommandOutput } from "./commands/SendTextMessageCommand";
 import type { SendVoiceMessageCommandInput, SendVoiceMessageCommandOutput } from "./commands/SendVoiceMessageCommand";
 import type {
@@ -336,6 +378,10 @@ import type {
   SetMediaMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetMediaMessageSpendLimitOverrideCommand";
 import type {
+  SetNotifyMessageSpendLimitOverrideCommandInput,
+  SetNotifyMessageSpendLimitOverrideCommandOutput,
+} from "./commands/SetNotifyMessageSpendLimitOverrideCommand";
+import type {
   SetTextMessageSpendLimitOverrideCommandInput,
   SetTextMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetTextMessageSpendLimitOverrideCommand";
@@ -354,6 +400,10 @@ import type {
   UpdateEventDestinationCommandOutput,
 } from "./commands/UpdateEventDestinationCommand";
 import type {
+  UpdateNotifyConfigurationCommandInput,
+  UpdateNotifyConfigurationCommandOutput,
+} from "./commands/UpdateNotifyConfigurationCommand";
+import type {
   UpdatePhoneNumberCommandInput,
   UpdatePhoneNumberCommandOutput,
 } from "./commands/UpdatePhoneNumberCommand";
@@ -366,6 +416,7 @@ import type {
   UpdateProtectConfigurationCountryRuleSetCommandInput,
   UpdateProtectConfigurationCountryRuleSetCommandOutput,
 } from "./commands/UpdateProtectConfigurationCountryRuleSetCommand";
+import type { UpdateRcsAgentCommandInput, UpdateRcsAgentCommandOutput } from "./commands/UpdateRcsAgentCommand";
 import type { UpdateSenderIdCommandInput, UpdateSenderIdCommandOutput } from "./commands/UpdateSenderIdCommand";
 import type {
   VerifyDestinationNumberCommandInput,
@@ -391,9 +442,11 @@ export type ServiceInputTypes =
   | CarrierLookupCommandInput
   | CreateConfigurationSetCommandInput
   | CreateEventDestinationCommandInput
+  | CreateNotifyConfigurationCommandInput
   | CreateOptOutListCommandInput
   | CreatePoolCommandInput
   | CreateProtectConfigurationCommandInput
+  | CreateRcsAgentCommandInput
   | CreateRegistrationAssociationCommandInput
   | CreateRegistrationAttachmentCommandInput
   | CreateRegistrationCommandInput
@@ -406,11 +459,14 @@ export type ServiceInputTypes =
   | DeleteEventDestinationCommandInput
   | DeleteKeywordCommandInput
   | DeleteMediaMessageSpendLimitOverrideCommandInput
+  | DeleteNotifyConfigurationCommandInput
+  | DeleteNotifyMessageSpendLimitOverrideCommandInput
   | DeleteOptOutListCommandInput
   | DeleteOptedOutNumberCommandInput
   | DeletePoolCommandInput
   | DeleteProtectConfigurationCommandInput
   | DeleteProtectConfigurationRuleSetNumberOverrideCommandInput
+  | DeleteRcsAgentCommandInput
   | DeleteRegistrationAttachmentCommandInput
   | DeleteRegistrationCommandInput
   | DeleteRegistrationFieldValueCommandInput
@@ -422,11 +478,15 @@ export type ServiceInputTypes =
   | DescribeAccountLimitsCommandInput
   | DescribeConfigurationSetsCommandInput
   | DescribeKeywordsCommandInput
+  | DescribeNotifyConfigurationsCommandInput
+  | DescribeNotifyTemplatesCommandInput
   | DescribeOptOutListsCommandInput
   | DescribeOptedOutNumbersCommandInput
   | DescribePhoneNumbersCommandInput
   | DescribePoolsCommandInput
   | DescribeProtectConfigurationsCommandInput
+  | DescribeRcsAgentCountryLaunchStatusCommandInput
+  | DescribeRcsAgentsCommandInput
   | DescribeRegistrationAttachmentsCommandInput
   | DescribeRegistrationFieldDefinitionsCommandInput
   | DescribeRegistrationFieldValuesCommandInput
@@ -442,6 +502,7 @@ export type ServiceInputTypes =
   | DiscardRegistrationVersionCommandInput
   | GetProtectConfigurationCountryRuleSetCommandInput
   | GetResourcePolicyCommandInput
+  | ListNotifyCountriesCommandInput
   | ListPoolOriginationIdentitiesCommandInput
   | ListProtectConfigurationRuleSetNumberOverridesCommandInput
   | ListRegistrationAssociationsCommandInput
@@ -458,6 +519,8 @@ export type ServiceInputTypes =
   | RequestSenderIdCommandInput
   | SendDestinationNumberVerificationCodeCommandInput
   | SendMediaMessageCommandInput
+  | SendNotifyTextMessageCommandInput
+  | SendNotifyVoiceMessageCommandInput
   | SendTextMessageCommandInput
   | SendVoiceMessageCommandInput
   | SetAccountDefaultProtectConfigurationCommandInput
@@ -465,16 +528,19 @@ export type ServiceInputTypes =
   | SetDefaultMessageTypeCommandInput
   | SetDefaultSenderIdCommandInput
   | SetMediaMessageSpendLimitOverrideCommandInput
+  | SetNotifyMessageSpendLimitOverrideCommandInput
   | SetTextMessageSpendLimitOverrideCommandInput
   | SetVoiceMessageSpendLimitOverrideCommandInput
   | SubmitRegistrationVersionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateEventDestinationCommandInput
+  | UpdateNotifyConfigurationCommandInput
   | UpdatePhoneNumberCommandInput
   | UpdatePoolCommandInput
   | UpdateProtectConfigurationCommandInput
   | UpdateProtectConfigurationCountryRuleSetCommandInput
+  | UpdateRcsAgentCommandInput
   | UpdateSenderIdCommandInput
   | VerifyDestinationNumberCommandInput;
 
@@ -487,9 +553,11 @@ export type ServiceOutputTypes =
   | CarrierLookupCommandOutput
   | CreateConfigurationSetCommandOutput
   | CreateEventDestinationCommandOutput
+  | CreateNotifyConfigurationCommandOutput
   | CreateOptOutListCommandOutput
   | CreatePoolCommandOutput
   | CreateProtectConfigurationCommandOutput
+  | CreateRcsAgentCommandOutput
   | CreateRegistrationAssociationCommandOutput
   | CreateRegistrationAttachmentCommandOutput
   | CreateRegistrationCommandOutput
@@ -502,11 +570,14 @@ export type ServiceOutputTypes =
   | DeleteEventDestinationCommandOutput
   | DeleteKeywordCommandOutput
   | DeleteMediaMessageSpendLimitOverrideCommandOutput
+  | DeleteNotifyConfigurationCommandOutput
+  | DeleteNotifyMessageSpendLimitOverrideCommandOutput
   | DeleteOptOutListCommandOutput
   | DeleteOptedOutNumberCommandOutput
   | DeletePoolCommandOutput
   | DeleteProtectConfigurationCommandOutput
   | DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput
+  | DeleteRcsAgentCommandOutput
   | DeleteRegistrationAttachmentCommandOutput
   | DeleteRegistrationCommandOutput
   | DeleteRegistrationFieldValueCommandOutput
@@ -518,11 +589,15 @@ export type ServiceOutputTypes =
   | DescribeAccountLimitsCommandOutput
   | DescribeConfigurationSetsCommandOutput
   | DescribeKeywordsCommandOutput
+  | DescribeNotifyConfigurationsCommandOutput
+  | DescribeNotifyTemplatesCommandOutput
   | DescribeOptOutListsCommandOutput
   | DescribeOptedOutNumbersCommandOutput
   | DescribePhoneNumbersCommandOutput
   | DescribePoolsCommandOutput
   | DescribeProtectConfigurationsCommandOutput
+  | DescribeRcsAgentCountryLaunchStatusCommandOutput
+  | DescribeRcsAgentsCommandOutput
   | DescribeRegistrationAttachmentsCommandOutput
   | DescribeRegistrationFieldDefinitionsCommandOutput
   | DescribeRegistrationFieldValuesCommandOutput
@@ -538,6 +613,7 @@ export type ServiceOutputTypes =
   | DiscardRegistrationVersionCommandOutput
   | GetProtectConfigurationCountryRuleSetCommandOutput
   | GetResourcePolicyCommandOutput
+  | ListNotifyCountriesCommandOutput
   | ListPoolOriginationIdentitiesCommandOutput
   | ListProtectConfigurationRuleSetNumberOverridesCommandOutput
   | ListRegistrationAssociationsCommandOutput
@@ -554,6 +630,8 @@ export type ServiceOutputTypes =
   | RequestSenderIdCommandOutput
   | SendDestinationNumberVerificationCodeCommandOutput
   | SendMediaMessageCommandOutput
+  | SendNotifyTextMessageCommandOutput
+  | SendNotifyVoiceMessageCommandOutput
   | SendTextMessageCommandOutput
   | SendVoiceMessageCommandOutput
   | SetAccountDefaultProtectConfigurationCommandOutput
@@ -561,16 +639,19 @@ export type ServiceOutputTypes =
   | SetDefaultMessageTypeCommandOutput
   | SetDefaultSenderIdCommandOutput
   | SetMediaMessageSpendLimitOverrideCommandOutput
+  | SetNotifyMessageSpendLimitOverrideCommandOutput
   | SetTextMessageSpendLimitOverrideCommandOutput
   | SetVoiceMessageSpendLimitOverrideCommandOutput
   | SubmitRegistrationVersionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateEventDestinationCommandOutput
+  | UpdateNotifyConfigurationCommandOutput
   | UpdatePhoneNumberCommandOutput
   | UpdatePoolCommandOutput
   | UpdateProtectConfigurationCommandOutput
   | UpdateProtectConfigurationCountryRuleSetCommandOutput
+  | UpdateRcsAgentCommandOutput
   | UpdateSenderIdCommandOutput
   | VerifyDestinationNumberCommandOutput;
 

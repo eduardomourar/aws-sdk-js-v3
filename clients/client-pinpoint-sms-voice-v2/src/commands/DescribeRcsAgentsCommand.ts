@@ -4,16 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  DescribeVerifiedDestinationNumbersRequest,
-  DescribeVerifiedDestinationNumbersResult,
-} from "../models/models_0";
+import type { DescribeRcsAgentsRequest, DescribeRcsAgentsResult } from "../models/models_0";
 import type {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DescribeVerifiedDestinationNumbers$ } from "../schemas/schemas_0";
+import { DescribeRcsAgents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -23,35 +20,33 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DescribeVerifiedDestinationNumbersCommand}.
+ * The input for {@link DescribeRcsAgentsCommand}.
  */
-export interface DescribeVerifiedDestinationNumbersCommandInput extends DescribeVerifiedDestinationNumbersRequest {}
+export interface DescribeRcsAgentsCommandInput extends DescribeRcsAgentsRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeVerifiedDestinationNumbersCommand}.
+ * The output of {@link DescribeRcsAgentsCommand}.
  */
-export interface DescribeVerifiedDestinationNumbersCommandOutput extends DescribeVerifiedDestinationNumbersResult, __MetadataBearer {}
+export interface DescribeRcsAgentsCommandOutput extends DescribeRcsAgentsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the specified verified destination numbers.</p>
+ * <p>Retrieves the specified RCS agents or all RCS agents associated with your Amazon Web Services account.</p> <p>If you specify RCS agent IDs, the output includes information for only the specified RCS agents. If you specify filters, the output includes information for only those RCS agents that meet the filter criteria. If you don't specify RCS agent IDs or filters, the output includes information for all RCS agents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DescribeVerifiedDestinationNumbersCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DescribeVerifiedDestinationNumbersCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DescribeRcsAgentsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DescribeRcsAgentsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * // import type { PinpointSMSVoiceV2ClientConfig } from "@aws-sdk/client-pinpoint-sms-voice-v2";
  * const config = {}; // type is PinpointSMSVoiceV2ClientConfig
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = { // DescribeVerifiedDestinationNumbersRequest
- *   VerifiedDestinationNumberIds: [ // VerifiedDestinationNumberIdList
+ * const input = { // DescribeRcsAgentsRequest
+ *   RcsAgentIds: [ // RcsAgentIdList
  *     "STRING_VALUE",
  *   ],
- *   DestinationPhoneNumbers: [ // DestinationPhoneNumberList
- *     "STRING_VALUE",
- *   ],
- *   Filters: [ // VerifiedDestinationNumberFilterList
- *     { // VerifiedDestinationNumberFilter
+ *   Owner: "STRING_VALUE",
+ *   Filters: [ // RcsAgentFilterList
+ *     { // RcsAgentFilter
  *       Name: "STRING_VALUE", // required
  *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
@@ -61,17 +56,27 @@ export interface DescribeVerifiedDestinationNumbersCommandOutput extends Describ
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
- * const command = new DescribeVerifiedDestinationNumbersCommand(input);
+ * const command = new DescribeRcsAgentsCommand(input);
  * const response = await client.send(command);
- * // { // DescribeVerifiedDestinationNumbersResult
- * //   VerifiedDestinationNumbers: [ // VerifiedDestinationNumberInformationList // required
- * //     { // VerifiedDestinationNumberInformation
- * //       VerifiedDestinationNumberArn: "STRING_VALUE", // required
- * //       VerifiedDestinationNumberId: "STRING_VALUE", // required
- * //       DestinationPhoneNumber: "STRING_VALUE", // required
+ * // { // DescribeRcsAgentsResult
+ * //   RcsAgents: [ // RcsAgentInformationList
+ * //     { // RcsAgentInformation
+ * //       RcsAgentArn: "STRING_VALUE", // required
+ * //       RcsAgentId: "STRING_VALUE", // required
  * //       Status: "STRING_VALUE", // required
- * //       RcsAgentId: "STRING_VALUE",
  * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
+ * //       DeletionProtectionEnabled: true || false, // required
+ * //       OptOutListName: "STRING_VALUE",
+ * //       SelfManagedOptOutsEnabled: true || false, // required
+ * //       TwoWayChannelArn: "STRING_VALUE",
+ * //       TwoWayChannelRole: "STRING_VALUE",
+ * //       TwoWayEnabled: true || false, // required
+ * //       PoolId: "STRING_VALUE",
+ * //       TestingAgent: { // TestingAgentInformation
+ * //         Status: "STRING_VALUE", // required
+ * //         TestingAgentId: "STRING_VALUE",
+ * //         RegistrationId: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -79,10 +84,10 @@ export interface DescribeVerifiedDestinationNumbersCommandOutput extends Describ
  *
  * ```
  *
- * @param DescribeVerifiedDestinationNumbersCommandInput - {@link DescribeVerifiedDestinationNumbersCommandInput}
- * @returns {@link DescribeVerifiedDestinationNumbersCommandOutput}
- * @see {@link DescribeVerifiedDestinationNumbersCommandInput} for command's `input` shape.
- * @see {@link DescribeVerifiedDestinationNumbersCommandOutput} for command's `response` shape.
+ * @param DescribeRcsAgentsCommandInput - {@link DescribeRcsAgentsCommandInput}
+ * @returns {@link DescribeRcsAgentsCommandOutput}
+ * @see {@link DescribeRcsAgentsCommandInput} for command's `input` shape.
+ * @see {@link DescribeRcsAgentsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -106,10 +111,10 @@ export interface DescribeVerifiedDestinationNumbersCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeVerifiedDestinationNumbersCommand extends $Command
+export class DescribeRcsAgentsCommand extends $Command
   .classBuilder<
-    DescribeVerifiedDestinationNumbersCommandInput,
-    DescribeVerifiedDestinationNumbersCommandOutput,
+    DescribeRcsAgentsCommandInput,
+    DescribeRcsAgentsCommandOutput,
     PinpointSMSVoiceV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,19 +123,19 @@ export class DescribeVerifiedDestinationNumbersCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("PinpointSMSVoiceV2", "DescribeVerifiedDestinationNumbers", {})
-  .n("PinpointSMSVoiceV2Client", "DescribeVerifiedDestinationNumbersCommand")
-  .sc(DescribeVerifiedDestinationNumbers$)
+  .s("PinpointSMSVoiceV2", "DescribeRcsAgents", {})
+  .n("PinpointSMSVoiceV2Client", "DescribeRcsAgentsCommand")
+  .sc(DescribeRcsAgents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeVerifiedDestinationNumbersRequest;
-      output: DescribeVerifiedDestinationNumbersResult;
+      input: DescribeRcsAgentsRequest;
+      output: DescribeRcsAgentsResult;
     };
     sdk: {
-      input: DescribeVerifiedDestinationNumbersCommandInput;
-      output: DescribeVerifiedDestinationNumbersCommandOutput;
+      input: DescribeRcsAgentsCommandInput;
+      output: DescribeRcsAgentsCommandOutput;
     };
   };
 }

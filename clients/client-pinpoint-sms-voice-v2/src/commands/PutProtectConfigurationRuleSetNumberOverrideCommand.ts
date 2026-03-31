@@ -79,6 +79,9 @@ export interface PutProtectConfigurationRuleSetNumberOverrideCommandOutput exten
  * @throws {@link InternalServerException} (server fault)
  *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource couldn't be found.</p>
+ *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would cause a service quota to be exceeded.</p>
  *

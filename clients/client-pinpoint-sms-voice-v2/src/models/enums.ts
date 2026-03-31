@@ -63,6 +63,7 @@ export const ConflictExceptionReason = {
   KEYWORD_MISMATCH: "KEYWORD_MISMATCH",
   LAST_PHONE_NUMBER: "LAST_PHONE_NUMBER",
   MESSAGE_TYPE_MISMATCH: "MESSAGE_TYPE_MISMATCH",
+  NOTIFY_CONFIGURATION_NOT_ACTIVE: "NOTIFY_CONFIGURATION_NOT_ACTIVE",
   NO_ORIGINATION_IDENTITIES_FOUND: "NO_ORIGINATION_IDENTITIES_FOUND",
   NUMBER_CAPABILITIES_MISMATCH: "NUMBER_CAPABILITIES_MISMATCH",
   OPT_OUT_LIST_MISMATCH: "OPT_OUT_LIST_MISMATCH",
@@ -70,11 +71,15 @@ export const ConflictExceptionReason = {
   PHONE_NUMBER_ASSOCIATED_TO_REGISTRATION: "PHONE_NUMBER_ASSOCIATED_TO_REGISTRATION",
   PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL: "PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL",
   PHONE_NUMBER_NOT_IN_REGISTRATION_REGION: "PHONE_NUMBER_NOT_IN_REGISTRATION_REGION",
+  POOL_ASSOCIATED_TO_NOTIFY_CONFIGURATION: "POOL_ASSOCIATED_TO_NOTIFY_CONFIGURATION",
   PROTECT_CONFIGURATION_ASSOCIATED_WITH_CONFIGURATION_SET: "PROTECT_CONFIGURATION_ASSOCIATED_WITH_CONFIGURATION_SET",
   PROTECT_CONFIGURATION_IS_ACCOUNT_DEFAULT: "PROTECT_CONFIGURATION_IS_ACCOUNT_DEFAULT",
   PROTECT_CONFIGURATION_NOT_ASSOCIATED_WITH_CONFIGURATION_SET: "PROTECT_CONFIGURATION_NOT_ASSOCIATED_WITH_CONFIGURATION_SET",
+  RCS_AGENT_ALREADY_ASSOCIATED_TO_REGISTRATION_TYPE: "RCS_AGENT_ALREADY_ASSOCIATED_TO_REGISTRATION_TYPE",
+  RCS_AGENT_ASSOCIATED_TO_POOL: "RCS_AGENT_ASSOCIATED_TO_POOL",
   REGISTRATION_ALREADY_SUBMITTED: "REGISTRATION_ALREADY_SUBMITTED",
   REGISTRATION_NOT_COMPLETE: "REGISTRATION_NOT_COMPLETE",
+  RESOURCE_ALREADY_ASSOCIATED: "RESOURCE_ALREADY_ASSOCIATED",
   RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
   RESOURCE_DELETION_NOT_ALLOWED: "RESOURCE_DELETION_NOT_ALLOWED",
   RESOURCE_MODIFICATION_NOT_ALLOWED: "RESOURCE_MODIFICATION_NOT_ALLOWED",
@@ -103,12 +108,15 @@ export const ResourceType = {
   KEYWORD: "keyword",
   MESSAGE: "message",
   MESSAGE_TEMPLATE: "message-template",
+  NOTIFY_CONFIGURATION: "notify-configuration",
+  NOTIFY_TEMPLATE: "notify-template",
   OPTED_OUT_NUMBER: "opted-out-number",
   OPT_OUT_LIST: "opt-out-list",
   PHONE_NUMBER: "phone-number",
   POLICY: "policy",
   POOL: "pool",
   PROTECT_CONFIGURATION: "protect-configuration",
+  RCS_AGENT: "rcs-agent",
   REGISTRATION: "registration",
   REGISTRATION_ATTACHMENT: "registration-attachment",
   SENDER_ID: "sender-id",
@@ -127,18 +135,22 @@ export const ServiceQuotaExceededExceptionReason = {
   ASSOCIATIONS_PER_REGISTRATION: "ASSOCIATIONS_PER_REGISTRATION",
   CONFIGURATION_SETS_PER_ACCOUNT: "CONFIGURATION_SETS_PER_ACCOUNT",
   DAILY_DESTINATION_CALL_LIMIT: "DAILY_DESTINATION_CALL_LIMIT",
+  DAILY_NOTIFY_TIER_MESSAGE_LIMIT: "DAILY_NOTIFY_TIER_MESSAGE_LIMIT",
   EVENT_DESTINATIONS_PER_CONFIGURATION_SET: "EVENT_DESTINATIONS_PER_CONFIGURATION_SET",
   KEYWORDS_PER_PHONE_NUMBER: "KEYWORDS_PER_PHONE_NUMBER",
   KEYWORDS_PER_POOL: "KEYWORDS_PER_POOL",
   MONTHLY_SPEND_LIMIT_REACHED_FOR_MEDIA: "MONTHLY_SPEND_LIMIT_REACHED_FOR_MEDIA",
+  MONTHLY_SPEND_LIMIT_REACHED_FOR_NOTIFY: "MONTHLY_SPEND_LIMIT_REACHED_FOR_NOTIFY",
   MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT: "MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT",
   MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE: "MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE",
+  NOTIFY_CONFIGURATIONS_PER_ACCOUNT: "NOTIFY_CONFIGURATIONS_PER_ACCOUNT",
   OPT_OUT_LISTS_PER_ACCOUNT: "OPT_OUT_LISTS_PER_ACCOUNT",
   ORIGINATION_IDENTITIES_PER_POOL: "ORIGINATION_IDENTITIES_PER_POOL",
   PHONE_NUMBERS_PER_ACCOUNT: "PHONE_NUMBERS_PER_ACCOUNT",
   PHONE_NUMBERS_PER_REGISTRATION: "PHONE_NUMBERS_PER_REGISTRATION",
   POOLS_PER_ACCOUNT: "POOLS_PER_ACCOUNT",
   PROTECT_CONFIGURATIONS_PER_ACCOUNT: "PROTECT_CONFIGURATIONS_PER_ACCOUNT",
+  RCS_AGENTS_PER_ACCOUNT: "RCS_AGENTS_PER_ACCOUNT",
   REGISTRATIONS_PER_ACCOUNT: "REGISTRATIONS_PER_ACCOUNT",
   REGISTRATION_ATTACHMENTS_CREATED_PER_DAY: "REGISTRATION_ATTACHMENTS_CREATED_PER_DAY",
   REGISTRATION_ATTACHMENTS_PER_ACCOUNT: "REGISTRATION_ATTACHMENTS_PER_ACCOUNT",
@@ -162,7 +174,9 @@ export const ValidationExceptionReason = {
   ATTACHMENT_TYPE_NOT_SUPPORTED: "ATTACHMENT_TYPE_NOT_SUPPORTED",
   CANNOT_ADD_OPTED_OUT_NUMBER: "CANNOT_ADD_OPTED_OUT_NUMBER",
   CANNOT_PARSE: "CANNOT_PARSE",
+  CHANNEL_NOT_ENABLED: "CHANNEL_NOT_ENABLED",
   COUNTRY_CODE_MISMATCH: "COUNTRY_CODE_MISMATCH",
+  COUNTRY_NOT_ENABLED: "COUNTRY_NOT_ENABLED",
   DESTINATION_COUNTRY_BLOCKED: "DESTINATION_COUNTRY_BLOCKED",
   FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
   INTERNATIONAL_SENDING_NOT_SUPPORTED: "INTERNATIONAL_SENDING_NOT_SUPPORTED",
@@ -253,6 +267,20 @@ export type PhoneNumberType = (typeof PhoneNumberType)[keyof typeof PhoneNumberT
  * @public
  * @enum
  */
+export const CarrierStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
+/**
+ * @public
+ */
+export type CarrierStatus = (typeof CarrierStatus)[keyof typeof CarrierStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConfigurationSetFilterName = {
   DEFAULT_MESSAGE_FEEDBACK_ENABLED: "default-message-feedback-enabled",
   DEFAULT_MESSAGE_TYPE: "default-message-type",
@@ -337,6 +365,105 @@ export type EventType = (typeof EventType)[keyof typeof EventType];
  * @public
  * @enum
  */
+export const CountryLaunchStatus = {
+  ACTIVE: "ACTIVE",
+  CREATED: "CREATED",
+  PARTIAL: "PARTIAL",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
+/**
+ * @public
+ */
+export type CountryLaunchStatus = (typeof CountryLaunchStatus)[keyof typeof CountryLaunchStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CountryLaunchStatusFilterName = {
+  COUNTRY_LAUNCH_STATUS: "country-launch-status",
+} as const;
+/**
+ * @public
+ */
+export type CountryLaunchStatusFilterName =
+  (typeof CountryLaunchStatusFilterName)[keyof typeof CountryLaunchStatusFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const NumberCapability = {
+  MMS: "MMS",
+  RCS: "RCS",
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
+/**
+ * @public
+ */
+export type NumberCapability = (typeof NumberCapability)[keyof typeof NumberCapability];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotifyConfigurationUseCase = {
+  CODE_VERIFICATION: "CODE_VERIFICATION",
+} as const;
+/**
+ * @public
+ */
+export type NotifyConfigurationUseCase = (typeof NotifyConfigurationUseCase)[keyof typeof NotifyConfigurationUseCase];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotifyConfigurationStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+  REQUIRES_VERIFICATION: "REQUIRES_VERIFICATION",
+} as const;
+/**
+ * @public
+ */
+export type NotifyConfigurationStatus = (typeof NotifyConfigurationStatus)[keyof typeof NotifyConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotifyConfigurationTier = {
+  ADVANCED: "ADVANCED",
+  BASIC: "BASIC",
+} as const;
+/**
+ * @public
+ */
+export type NotifyConfigurationTier = (typeof NotifyConfigurationTier)[keyof typeof NotifyConfigurationTier];
+
+/**
+ * @public
+ * @enum
+ */
+export const TierUpgradeStatus = {
+  ADVANCED: "ADVANCED",
+  BASIC: "BASIC",
+  PENDING_UPGRADE: "PENDING_UPGRADE",
+  REJECTED: "REJECTED",
+} as const;
+/**
+ * @public
+ */
+export type TierUpgradeStatus = (typeof TierUpgradeStatus)[keyof typeof TierUpgradeStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const PoolStatus = {
   ACTIVE: "ACTIVE",
   CREATING: "CREATING",
@@ -346,6 +473,23 @@ export const PoolStatus = {
  * @public
  */
 export type PoolStatus = (typeof PoolStatus)[keyof typeof PoolStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RcsAgentStatus = {
+  ACTIVE: "ACTIVE",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  PARTIAL: "PARTIAL",
+  PENDING: "PENDING",
+  TESTING: "TESTING",
+} as const;
+/**
+ * @public
+ */
+export type RcsAgentStatus = (typeof RcsAgentStatus)[keyof typeof RcsAgentStatus];
 
 /**
  * @public
@@ -380,6 +524,7 @@ export const RegistrationVersionStatus = {
   DISCARDED: "DISCARDED",
   DRAFT: "DRAFT",
   REQUIRES_AUTHENTICATION: "REQUIRES_AUTHENTICATION",
+  REQUIRES_OFFLINE_REVIEW: "REQUIRES_OFFLINE_REVIEW",
   REVIEWING: "REVIEWING",
   REVOKED: "REVOKED",
   SUBMITTED: "SUBMITTED",
@@ -395,6 +540,7 @@ export type RegistrationVersionStatus = (typeof RegistrationVersionStatus)[keyof
  */
 export const VerificationStatus = {
   PENDING: "PENDING",
+  UNSUPPORTED: "UNSUPPORTED",
   VERIFIED: "VERIFIED",
 } as const;
 /**
@@ -446,6 +592,166 @@ export type KeywordFilterName = (typeof KeywordFilterName)[keyof typeof KeywordF
  * @public
  * @enum
  */
+export const NotifyConfigurationFilterName = {
+  DEFAULT_POOL: "default-pool",
+  DEFAULT_TEMPLATE: "default-template",
+  DELETION_PROTECTION_ENABLED: "deletion-protection-enabled",
+  DISPLAY_NAME: "display-name",
+  ENABLED_CHANNELS: "enabled-channels",
+  ENABLED_COUNTRIES: "enabled-countries",
+  STATUS: "status",
+  TIER_UPGRADE_STATUS: "tier-upgrade-status",
+  USE_CASE: "use-case",
+} as const;
+/**
+ * @public
+ */
+export type NotifyConfigurationFilterName =
+  (typeof NotifyConfigurationFilterName)[keyof typeof NotifyConfigurationFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotifyTemplateFilterName = {
+  CHANNELS: "channels",
+  LANGUAGE_CODE: "language-code",
+  SUPPORTED_COUNTRIES: "supported-countries",
+  SUPPORTED_VOICE_IDS: "supported-voice-ids",
+  TEMPLATE_TYPE: "template-type",
+  TIER_ACCESS: "tier-access",
+} as const;
+/**
+ * @public
+ */
+export type NotifyTemplateFilterName = (typeof NotifyTemplateFilterName)[keyof typeof NotifyTemplateFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotifyTemplateStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type NotifyTemplateStatus = (typeof NotifyTemplateStatus)[keyof typeof NotifyTemplateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VoiceId = {
+  AMY: "AMY",
+  ASTRID: "ASTRID",
+  BIANCA: "BIANCA",
+  BRIAN: "BRIAN",
+  CAMILA: "CAMILA",
+  CARLA: "CARLA",
+  CARMEN: "CARMEN",
+  CELINE: "CELINE",
+  CHANTAL: "CHANTAL",
+  CONCHITA: "CONCHITA",
+  CRISTIANO: "CRISTIANO",
+  DORA: "DORA",
+  EMMA: "EMMA",
+  ENRIQUE: "ENRIQUE",
+  EWA: "EWA",
+  FILIZ: "FILIZ",
+  GERAINT: "GERAINT",
+  GIORGIO: "GIORGIO",
+  GWYNETH: "GWYNETH",
+  HANS: "HANS",
+  INES: "INES",
+  IVY: "IVY",
+  JACEK: "JACEK",
+  JAN: "JAN",
+  JOANNA: "JOANNA",
+  JOEY: "JOEY",
+  JUSTIN: "JUSTIN",
+  KARL: "KARL",
+  KENDRA: "KENDRA",
+  KIMBERLY: "KIMBERLY",
+  LEA: "LEA",
+  LIV: "LIV",
+  LOTTE: "LOTTE",
+  LUCIA: "LUCIA",
+  LUPE: "LUPE",
+  MADS: "MADS",
+  MAJA: "MAJA",
+  MARLENE: "MARLENE",
+  MATHIEU: "MATHIEU",
+  MATTHEW: "MATTHEW",
+  MAXIM: "MAXIM",
+  MIA: "MIA",
+  MIGUEL: "MIGUEL",
+  MIZUKI: "MIZUKI",
+  NAJA: "NAJA",
+  NICOLE: "NICOLE",
+  PENELOPE: "PENELOPE",
+  RAVEENA: "RAVEENA",
+  RICARDO: "RICARDO",
+  RUBEN: "RUBEN",
+  RUSSELL: "RUSSELL",
+  SALLI: "SALLI",
+  SEOYEON: "SEOYEON",
+  TAKUMI: "TAKUMI",
+  TATYANA: "TATYANA",
+  VICKI: "VICKI",
+  VITORIA: "VITORIA",
+  ZEINA: "ZEINA",
+  ZHIYU: "ZHIYU",
+} as const;
+/**
+ * @public
+ */
+export type VoiceId = (typeof VoiceId)[keyof typeof VoiceId];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotifyTemplateType = {
+  OTP_VERIFICATION: "OTP_VERIFICATION",
+} as const;
+/**
+ * @public
+ */
+export type NotifyTemplateType = (typeof NotifyTemplateType)[keyof typeof NotifyTemplateType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TemplateVariableSource = {
+  CUSTOMER: "CUSTOMER",
+  SYSTEM: "SYSTEM",
+} as const;
+/**
+ * @public
+ */
+export type TemplateVariableSource = (typeof TemplateVariableSource)[keyof typeof TemplateVariableSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const TemplateVariableType = {
+  BOOLEAN: "BOOLEAN",
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+} as const;
+/**
+ * @public
+ */
+export type TemplateVariableType = (typeof TemplateVariableType)[keyof typeof TemplateVariableType];
+
+/**
+ * @public
+ * @enum
+ */
 export const OptedOutFilterName = {
   END_USER_OPTED_OUT: "end-user-opted-out",
 } as const;
@@ -487,20 +793,6 @@ export const PhoneNumberFilterName = {
  * @public
  */
 export type PhoneNumberFilterName = (typeof PhoneNumberFilterName)[keyof typeof PhoneNumberFilterName];
-
-/**
- * @public
- * @enum
- */
-export const NumberCapability = {
-  MMS: "MMS",
-  SMS: "SMS",
-  VOICE: "VOICE",
-} as const;
-/**
- * @public
- */
-export type NumberCapability = (typeof NumberCapability)[keyof typeof NumberCapability];
 
 /**
  * @public
@@ -566,6 +858,37 @@ export const ProtectConfigurationFilterName = {
  */
 export type ProtectConfigurationFilterName =
   (typeof ProtectConfigurationFilterName)[keyof typeof ProtectConfigurationFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const RcsAgentFilterName = {
+  DELETION_PROTECTION_ENABLED: "deletion-protection-enabled",
+  OPT_OUT_LIST_NAME: "opt-out-list-name",
+  SELF_MANAGED_OPT_OUTS_ENABLED: "self-managed-opt-outs-enabled",
+  STATUS: "status",
+  TWO_WAY_CHANNEL_ARN: "two-way-channel-arn",
+  TWO_WAY_ENABLED: "two-way-enabled",
+} as const;
+/**
+ * @public
+ */
+export type RcsAgentFilterName = (typeof RcsAgentFilterName)[keyof typeof RcsAgentFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestingAgentStatus = {
+  ACTIVE: "ACTIVE",
+  CREATED: "CREATED",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type TestingAgentStatus = (typeof TestingAgentStatus)[keyof typeof TestingAgentStatus];
 
 /**
  * @public
@@ -699,6 +1022,7 @@ export type SenderIdFilterName = (typeof SenderIdFilterName)[keyof typeof Sender
  */
 export const SpendLimitName = {
   MEDIA_MESSAGE_MONTHLY_SPEND_LIMIT: "MEDIA_MESSAGE_MONTHLY_SPEND_LIMIT",
+  NOTIFY_MESSAGE_MONTHLY_SPEND_LIMIT: "NOTIFY_MESSAGE_MONTHLY_SPEND_LIMIT",
   TEXT_MESSAGE_MONTHLY_SPEND_LIMIT: "TEXT_MESSAGE_MONTHLY_SPEND_LIMIT",
   VOICE_MESSAGE_MONTHLY_SPEND_LIMIT: "VOICE_MESSAGE_MONTHLY_SPEND_LIMIT",
 } as const;
@@ -712,6 +1036,7 @@ export type SpendLimitName = (typeof SpendLimitName)[keyof typeof SpendLimitName
  * @enum
  */
 export const VerifiedDestinationNumberFilterName = {
+  RCS_AGENT_ID: "rcs-agent-id",
   STATUS: "status",
 } as const;
 /**
@@ -873,73 +1198,3 @@ export const VoiceMessageBodyTextType = {
  * @public
  */
 export type VoiceMessageBodyTextType = (typeof VoiceMessageBodyTextType)[keyof typeof VoiceMessageBodyTextType];
-
-/**
- * @public
- * @enum
- */
-export const VoiceId = {
-  AMY: "AMY",
-  ASTRID: "ASTRID",
-  BIANCA: "BIANCA",
-  BRIAN: "BRIAN",
-  CAMILA: "CAMILA",
-  CARLA: "CARLA",
-  CARMEN: "CARMEN",
-  CELINE: "CELINE",
-  CHANTAL: "CHANTAL",
-  CONCHITA: "CONCHITA",
-  CRISTIANO: "CRISTIANO",
-  DORA: "DORA",
-  EMMA: "EMMA",
-  ENRIQUE: "ENRIQUE",
-  EWA: "EWA",
-  FILIZ: "FILIZ",
-  GERAINT: "GERAINT",
-  GIORGIO: "GIORGIO",
-  GWYNETH: "GWYNETH",
-  HANS: "HANS",
-  INES: "INES",
-  IVY: "IVY",
-  JACEK: "JACEK",
-  JAN: "JAN",
-  JOANNA: "JOANNA",
-  JOEY: "JOEY",
-  JUSTIN: "JUSTIN",
-  KARL: "KARL",
-  KENDRA: "KENDRA",
-  KIMBERLY: "KIMBERLY",
-  LEA: "LEA",
-  LIV: "LIV",
-  LOTTE: "LOTTE",
-  LUCIA: "LUCIA",
-  LUPE: "LUPE",
-  MADS: "MADS",
-  MAJA: "MAJA",
-  MARLENE: "MARLENE",
-  MATHIEU: "MATHIEU",
-  MATTHEW: "MATTHEW",
-  MAXIM: "MAXIM",
-  MIA: "MIA",
-  MIGUEL: "MIGUEL",
-  MIZUKI: "MIZUKI",
-  NAJA: "NAJA",
-  NICOLE: "NICOLE",
-  PENELOPE: "PENELOPE",
-  RAVEENA: "RAVEENA",
-  RICARDO: "RICARDO",
-  RUBEN: "RUBEN",
-  RUSSELL: "RUSSELL",
-  SALLI: "SALLI",
-  SEOYEON: "SEOYEON",
-  TAKUMI: "TAKUMI",
-  TATYANA: "TATYANA",
-  VICKI: "VICKI",
-  VITORIA: "VITORIA",
-  ZEINA: "ZEINA",
-  ZHIYU: "ZHIYU",
-} as const;
-/**
- * @public
- */
-export type VoiceId = (typeof VoiceId)[keyof typeof VoiceId];

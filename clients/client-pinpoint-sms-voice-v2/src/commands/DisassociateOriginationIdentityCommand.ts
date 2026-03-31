@@ -43,7 +43,7 @@ export interface DisassociateOriginationIdentityCommandOutput extends Disassocia
  * const input = { // DisassociateOriginationIdentityRequest
  *   PoolId: "STRING_VALUE", // required
  *   OriginationIdentity: "STRING_VALUE", // required
- *   IsoCountryCode: "STRING_VALUE", // required
+ *   IsoCountryCode: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DisassociateOriginationIdentityCommand(input);

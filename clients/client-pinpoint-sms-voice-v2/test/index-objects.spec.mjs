@@ -20,6 +20,8 @@ import {
   CarrierLookupCommand,
   CarrierLookupRequest$,
   CarrierLookupResult$,
+  CarrierStatus,
+  CarrierStatusInformation$,
   CloudWatchLogsDestination$,
   ConfigurationSetFilter$,
   ConfigurationSetFilterName,
@@ -27,6 +29,10 @@ import {
   ConflictException,
   ConflictException$,
   ConflictExceptionReason,
+  CountryLaunchStatus,
+  CountryLaunchStatusFilter$,
+  CountryLaunchStatusFilterName,
+  CountryLaunchStatusInformation$,
   CreateConfigurationSet$,
   CreateConfigurationSetCommand,
   CreateConfigurationSetRequest$,
@@ -35,6 +41,10 @@ import {
   CreateEventDestinationCommand,
   CreateEventDestinationRequest$,
   CreateEventDestinationResult$,
+  CreateNotifyConfiguration$,
+  CreateNotifyConfigurationCommand,
+  CreateNotifyConfigurationRequest$,
+  CreateNotifyConfigurationResult$,
   CreateOptOutList$,
   CreateOptOutListCommand,
   CreateOptOutListRequest$,
@@ -47,6 +57,10 @@ import {
   CreateProtectConfigurationCommand,
   CreateProtectConfigurationRequest$,
   CreateProtectConfigurationResult$,
+  CreateRcsAgent$,
+  CreateRcsAgentCommand,
+  CreateRcsAgentRequest$,
+  CreateRcsAgentResult$,
   CreateRegistration$,
   CreateRegistrationAssociation$,
   CreateRegistrationAssociationCommand,
@@ -95,6 +109,14 @@ import {
   DeleteMediaMessageSpendLimitOverrideCommand,
   DeleteMediaMessageSpendLimitOverrideRequest$,
   DeleteMediaMessageSpendLimitOverrideResult$,
+  DeleteNotifyConfiguration$,
+  DeleteNotifyConfigurationCommand,
+  DeleteNotifyConfigurationRequest$,
+  DeleteNotifyConfigurationResult$,
+  DeleteNotifyMessageSpendLimitOverride$,
+  DeleteNotifyMessageSpendLimitOverrideCommand,
+  DeleteNotifyMessageSpendLimitOverrideRequest$,
+  DeleteNotifyMessageSpendLimitOverrideResult$,
   DeleteOptedOutNumber$,
   DeleteOptedOutNumberCommand,
   DeleteOptedOutNumberRequest$,
@@ -115,6 +137,10 @@ import {
   DeleteProtectConfigurationRuleSetNumberOverrideCommand,
   DeleteProtectConfigurationRuleSetNumberOverrideRequest$,
   DeleteProtectConfigurationRuleSetNumberOverrideResult$,
+  DeleteRcsAgent$,
+  DeleteRcsAgentCommand,
+  DeleteRcsAgentRequest$,
+  DeleteRcsAgentResult$,
   DeleteRegistration$,
   DeleteRegistrationAttachment$,
   DeleteRegistrationAttachmentCommand,
@@ -159,6 +185,14 @@ import {
   DescribeKeywordsCommand,
   DescribeKeywordsRequest$,
   DescribeKeywordsResult$,
+  DescribeNotifyConfigurations$,
+  DescribeNotifyConfigurationsCommand,
+  DescribeNotifyConfigurationsRequest$,
+  DescribeNotifyConfigurationsResult$,
+  DescribeNotifyTemplates$,
+  DescribeNotifyTemplatesCommand,
+  DescribeNotifyTemplatesRequest$,
+  DescribeNotifyTemplatesResult$,
   DescribeOptedOutNumbers$,
   DescribeOptedOutNumbersCommand,
   DescribeOptedOutNumbersRequest$,
@@ -179,6 +213,14 @@ import {
   DescribeProtectConfigurationsCommand,
   DescribeProtectConfigurationsRequest$,
   DescribeProtectConfigurationsResult$,
+  DescribeRcsAgentCountryLaunchStatus$,
+  DescribeRcsAgentCountryLaunchStatusCommand,
+  DescribeRcsAgentCountryLaunchStatusRequest$,
+  DescribeRcsAgentCountryLaunchStatusResult$,
+  DescribeRcsAgents$,
+  DescribeRcsAgentsCommand,
+  DescribeRcsAgentsRequest$,
+  DescribeRcsAgentsResult$,
   DescribeRegistrationAttachments$,
   DescribeRegistrationAttachmentsCommand,
   DescribeRegistrationAttachmentsRequest$,
@@ -252,6 +294,10 @@ import {
   KeywordInformation$,
   KinesisFirehoseDestination$,
   LanguageCode,
+  ListNotifyCountries$,
+  ListNotifyCountriesCommand,
+  ListNotifyCountriesRequest$,
+  ListNotifyCountriesResult$,
   ListPoolOriginationIdentities$,
   ListPoolOriginationIdentitiesCommand,
   ListPoolOriginationIdentitiesRequest$,
@@ -270,6 +316,18 @@ import {
   ListTagsForResourceResult$,
   MessageFeedbackStatus,
   MessageType,
+  NotifyConfigurationFilter$,
+  NotifyConfigurationFilterName,
+  NotifyConfigurationInformation$,
+  NotifyConfigurationStatus,
+  NotifyConfigurationTier,
+  NotifyConfigurationUseCase,
+  NotifyCountryInformation$,
+  NotifyTemplateFilter$,
+  NotifyTemplateFilterName,
+  NotifyTemplateInformation$,
+  NotifyTemplateStatus,
+  NotifyTemplateType,
   NumberCapability,
   NumberStatus,
   NumberType,
@@ -283,11 +341,15 @@ import {
   paginateDescribeAccountLimits,
   paginateDescribeConfigurationSets,
   paginateDescribeKeywords,
+  paginateDescribeNotifyConfigurations,
+  paginateDescribeNotifyTemplates,
   paginateDescribeOptedOutNumbers,
   paginateDescribeOptOutLists,
   paginateDescribePhoneNumbers,
   paginateDescribePools,
   paginateDescribeProtectConfigurations,
+  paginateDescribeRcsAgentCountryLaunchStatus,
+  paginateDescribeRcsAgents,
   paginateDescribeRegistrationAttachments,
   paginateDescribeRegistrationFieldDefinitions,
   paginateDescribeRegistrationFieldValues,
@@ -298,6 +360,7 @@ import {
   paginateDescribeSenderIds,
   paginateDescribeSpendLimits,
   paginateDescribeVerifiedDestinationNumbers,
+  paginateListNotifyCountries,
   paginateListPoolOriginationIdentities,
   paginateListProtectConfigurationRuleSetNumberOverrides,
   paginateListRegistrationAssociations,
@@ -347,6 +410,10 @@ import {
   PutResourcePolicyCommand,
   PutResourcePolicyRequest$,
   PutResourcePolicyResult$,
+  RcsAgentFilter$,
+  RcsAgentFilterName,
+  RcsAgentInformation$,
+  RcsAgentStatus,
   RegistrationAssociationBehavior,
   RegistrationAssociationFilter$,
   RegistrationAssociationFilterName,
@@ -408,6 +475,14 @@ import {
   SendMediaMessageCommand,
   SendMediaMessageRequest$,
   SendMediaMessageResult$,
+  SendNotifyTextMessage$,
+  SendNotifyTextMessageCommand,
+  SendNotifyTextMessageRequest$,
+  SendNotifyTextMessageResult$,
+  SendNotifyVoiceMessage$,
+  SendNotifyVoiceMessageCommand,
+  SendNotifyVoiceMessageRequest$,
+  SendNotifyVoiceMessageResult$,
   SendTextMessage$,
   SendTextMessageCommand,
   SendTextMessageRequest$,
@@ -439,6 +514,10 @@ import {
   SetMediaMessageSpendLimitOverrideCommand,
   SetMediaMessageSpendLimitOverrideRequest$,
   SetMediaMessageSpendLimitOverrideResult$,
+  SetNotifyMessageSpendLimitOverride$,
+  SetNotifyMessageSpendLimitOverrideCommand,
+  SetNotifyMessageSpendLimitOverrideRequest$,
+  SetNotifyMessageSpendLimitOverrideResult$,
   SetTextMessageSpendLimitOverride$,
   SetTextMessageSpendLimitOverrideCommand,
   SetTextMessageSpendLimitOverrideRequest$,
@@ -460,9 +539,15 @@ import {
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResult$,
+  TemplateVariableMetadata$,
+  TemplateVariableSource,
+  TemplateVariableType,
+  TestingAgentInformation$,
+  TestingAgentStatus,
   TextValidation$,
   ThrottlingException,
   ThrottlingException$,
+  TierUpgradeStatus,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -471,6 +556,10 @@ import {
   UpdateEventDestinationCommand,
   UpdateEventDestinationRequest$,
   UpdateEventDestinationResult$,
+  UpdateNotifyConfiguration$,
+  UpdateNotifyConfigurationCommand,
+  UpdateNotifyConfigurationRequest$,
+  UpdateNotifyConfigurationResult$,
   UpdatePhoneNumber$,
   UpdatePhoneNumberCommand,
   UpdatePhoneNumberRequest$,
@@ -487,6 +576,10 @@ import {
   UpdateProtectConfigurationCountryRuleSetResult$,
   UpdateProtectConfigurationRequest$,
   UpdateProtectConfigurationResult$,
+  UpdateRcsAgent$,
+  UpdateRcsAgentCommand,
+  UpdateRcsAgentRequest$,
+  UpdateRcsAgentResult$,
   UpdateSenderId$,
   UpdateSenderIdCommand,
   UpdateSenderIdRequest$,
@@ -522,12 +615,16 @@ assert(typeof CreateConfigurationSetCommand === "function");
 assert(typeof CreateConfigurationSet$ === "object");
 assert(typeof CreateEventDestinationCommand === "function");
 assert(typeof CreateEventDestination$ === "object");
+assert(typeof CreateNotifyConfigurationCommand === "function");
+assert(typeof CreateNotifyConfiguration$ === "object");
 assert(typeof CreateOptOutListCommand === "function");
 assert(typeof CreateOptOutList$ === "object");
 assert(typeof CreatePoolCommand === "function");
 assert(typeof CreatePool$ === "object");
 assert(typeof CreateProtectConfigurationCommand === "function");
 assert(typeof CreateProtectConfiguration$ === "object");
+assert(typeof CreateRcsAgentCommand === "function");
+assert(typeof CreateRcsAgent$ === "object");
 assert(typeof CreateRegistrationCommand === "function");
 assert(typeof CreateRegistration$ === "object");
 assert(typeof CreateRegistrationAssociationCommand === "function");
@@ -552,6 +649,10 @@ assert(typeof DeleteKeywordCommand === "function");
 assert(typeof DeleteKeyword$ === "object");
 assert(typeof DeleteMediaMessageSpendLimitOverrideCommand === "function");
 assert(typeof DeleteMediaMessageSpendLimitOverride$ === "object");
+assert(typeof DeleteNotifyConfigurationCommand === "function");
+assert(typeof DeleteNotifyConfiguration$ === "object");
+assert(typeof DeleteNotifyMessageSpendLimitOverrideCommand === "function");
+assert(typeof DeleteNotifyMessageSpendLimitOverride$ === "object");
 assert(typeof DeleteOptedOutNumberCommand === "function");
 assert(typeof DeleteOptedOutNumber$ === "object");
 assert(typeof DeleteOptOutListCommand === "function");
@@ -562,6 +663,8 @@ assert(typeof DeleteProtectConfigurationCommand === "function");
 assert(typeof DeleteProtectConfiguration$ === "object");
 assert(typeof DeleteProtectConfigurationRuleSetNumberOverrideCommand === "function");
 assert(typeof DeleteProtectConfigurationRuleSetNumberOverride$ === "object");
+assert(typeof DeleteRcsAgentCommand === "function");
+assert(typeof DeleteRcsAgent$ === "object");
 assert(typeof DeleteRegistrationCommand === "function");
 assert(typeof DeleteRegistration$ === "object");
 assert(typeof DeleteRegistrationAttachmentCommand === "function");
@@ -584,6 +687,10 @@ assert(typeof DescribeConfigurationSetsCommand === "function");
 assert(typeof DescribeConfigurationSets$ === "object");
 assert(typeof DescribeKeywordsCommand === "function");
 assert(typeof DescribeKeywords$ === "object");
+assert(typeof DescribeNotifyConfigurationsCommand === "function");
+assert(typeof DescribeNotifyConfigurations$ === "object");
+assert(typeof DescribeNotifyTemplatesCommand === "function");
+assert(typeof DescribeNotifyTemplates$ === "object");
 assert(typeof DescribeOptedOutNumbersCommand === "function");
 assert(typeof DescribeOptedOutNumbers$ === "object");
 assert(typeof DescribeOptOutListsCommand === "function");
@@ -594,6 +701,10 @@ assert(typeof DescribePoolsCommand === "function");
 assert(typeof DescribePools$ === "object");
 assert(typeof DescribeProtectConfigurationsCommand === "function");
 assert(typeof DescribeProtectConfigurations$ === "object");
+assert(typeof DescribeRcsAgentCountryLaunchStatusCommand === "function");
+assert(typeof DescribeRcsAgentCountryLaunchStatus$ === "object");
+assert(typeof DescribeRcsAgentsCommand === "function");
+assert(typeof DescribeRcsAgents$ === "object");
 assert(typeof DescribeRegistrationAttachmentsCommand === "function");
 assert(typeof DescribeRegistrationAttachments$ === "object");
 assert(typeof DescribeRegistrationFieldDefinitionsCommand === "function");
@@ -624,6 +735,8 @@ assert(typeof GetProtectConfigurationCountryRuleSetCommand === "function");
 assert(typeof GetProtectConfigurationCountryRuleSet$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
+assert(typeof ListNotifyCountriesCommand === "function");
+assert(typeof ListNotifyCountries$ === "object");
 assert(typeof ListPoolOriginationIdentitiesCommand === "function");
 assert(typeof ListPoolOriginationIdentities$ === "object");
 assert(typeof ListProtectConfigurationRuleSetNumberOverridesCommand === "function");
@@ -656,6 +769,10 @@ assert(typeof SendDestinationNumberVerificationCodeCommand === "function");
 assert(typeof SendDestinationNumberVerificationCode$ === "object");
 assert(typeof SendMediaMessageCommand === "function");
 assert(typeof SendMediaMessage$ === "object");
+assert(typeof SendNotifyTextMessageCommand === "function");
+assert(typeof SendNotifyTextMessage$ === "object");
+assert(typeof SendNotifyVoiceMessageCommand === "function");
+assert(typeof SendNotifyVoiceMessage$ === "object");
 assert(typeof SendTextMessageCommand === "function");
 assert(typeof SendTextMessage$ === "object");
 assert(typeof SendVoiceMessageCommand === "function");
@@ -670,6 +787,8 @@ assert(typeof SetDefaultSenderIdCommand === "function");
 assert(typeof SetDefaultSenderId$ === "object");
 assert(typeof SetMediaMessageSpendLimitOverrideCommand === "function");
 assert(typeof SetMediaMessageSpendLimitOverride$ === "object");
+assert(typeof SetNotifyMessageSpendLimitOverrideCommand === "function");
+assert(typeof SetNotifyMessageSpendLimitOverride$ === "object");
 assert(typeof SetTextMessageSpendLimitOverrideCommand === "function");
 assert(typeof SetTextMessageSpendLimitOverride$ === "object");
 assert(typeof SetVoiceMessageSpendLimitOverrideCommand === "function");
@@ -682,6 +801,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateEventDestinationCommand === "function");
 assert(typeof UpdateEventDestination$ === "object");
+assert(typeof UpdateNotifyConfigurationCommand === "function");
+assert(typeof UpdateNotifyConfiguration$ === "object");
 assert(typeof UpdatePhoneNumberCommand === "function");
 assert(typeof UpdatePhoneNumber$ === "object");
 assert(typeof UpdatePoolCommand === "function");
@@ -690,6 +811,8 @@ assert(typeof UpdateProtectConfigurationCommand === "function");
 assert(typeof UpdateProtectConfiguration$ === "object");
 assert(typeof UpdateProtectConfigurationCountryRuleSetCommand === "function");
 assert(typeof UpdateProtectConfigurationCountryRuleSet$ === "object");
+assert(typeof UpdateRcsAgentCommand === "function");
+assert(typeof UpdateRcsAgent$ === "object");
 assert(typeof UpdateSenderIdCommand === "function");
 assert(typeof UpdateSenderId$ === "object");
 assert(typeof VerifyDestinationNumberCommand === "function");
@@ -703,19 +826,26 @@ assert(typeof AssociateProtectConfigurationRequest$ === "object");
 assert(typeof AssociateProtectConfigurationResult$ === "object");
 assert(typeof CarrierLookupRequest$ === "object");
 assert(typeof CarrierLookupResult$ === "object");
+assert(typeof CarrierStatusInformation$ === "object");
 assert(typeof CloudWatchLogsDestination$ === "object");
 assert(typeof ConfigurationSetFilter$ === "object");
 assert(typeof ConfigurationSetInformation$ === "object");
+assert(typeof CountryLaunchStatusFilter$ === "object");
+assert(typeof CountryLaunchStatusInformation$ === "object");
 assert(typeof CreateConfigurationSetRequest$ === "object");
 assert(typeof CreateConfigurationSetResult$ === "object");
 assert(typeof CreateEventDestinationRequest$ === "object");
 assert(typeof CreateEventDestinationResult$ === "object");
+assert(typeof CreateNotifyConfigurationRequest$ === "object");
+assert(typeof CreateNotifyConfigurationResult$ === "object");
 assert(typeof CreateOptOutListRequest$ === "object");
 assert(typeof CreateOptOutListResult$ === "object");
 assert(typeof CreatePoolRequest$ === "object");
 assert(typeof CreatePoolResult$ === "object");
 assert(typeof CreateProtectConfigurationRequest$ === "object");
 assert(typeof CreateProtectConfigurationResult$ === "object");
+assert(typeof CreateRcsAgentRequest$ === "object");
+assert(typeof CreateRcsAgentResult$ === "object");
 assert(typeof CreateRegistrationAssociationRequest$ === "object");
 assert(typeof CreateRegistrationAssociationResult$ === "object");
 assert(typeof CreateRegistrationAttachmentRequest$ === "object");
@@ -740,6 +870,10 @@ assert(typeof DeleteKeywordRequest$ === "object");
 assert(typeof DeleteKeywordResult$ === "object");
 assert(typeof DeleteMediaMessageSpendLimitOverrideRequest$ === "object");
 assert(typeof DeleteMediaMessageSpendLimitOverrideResult$ === "object");
+assert(typeof DeleteNotifyConfigurationRequest$ === "object");
+assert(typeof DeleteNotifyConfigurationResult$ === "object");
+assert(typeof DeleteNotifyMessageSpendLimitOverrideRequest$ === "object");
+assert(typeof DeleteNotifyMessageSpendLimitOverrideResult$ === "object");
 assert(typeof DeleteOptedOutNumberRequest$ === "object");
 assert(typeof DeleteOptedOutNumberResult$ === "object");
 assert(typeof DeleteOptOutListRequest$ === "object");
@@ -750,6 +884,8 @@ assert(typeof DeleteProtectConfigurationRequest$ === "object");
 assert(typeof DeleteProtectConfigurationResult$ === "object");
 assert(typeof DeleteProtectConfigurationRuleSetNumberOverrideRequest$ === "object");
 assert(typeof DeleteProtectConfigurationRuleSetNumberOverrideResult$ === "object");
+assert(typeof DeleteRcsAgentRequest$ === "object");
+assert(typeof DeleteRcsAgentResult$ === "object");
 assert(typeof DeleteRegistrationAttachmentRequest$ === "object");
 assert(typeof DeleteRegistrationAttachmentResult$ === "object");
 assert(typeof DeleteRegistrationFieldValueRequest$ === "object");
@@ -772,6 +908,10 @@ assert(typeof DescribeConfigurationSetsRequest$ === "object");
 assert(typeof DescribeConfigurationSetsResult$ === "object");
 assert(typeof DescribeKeywordsRequest$ === "object");
 assert(typeof DescribeKeywordsResult$ === "object");
+assert(typeof DescribeNotifyConfigurationsRequest$ === "object");
+assert(typeof DescribeNotifyConfigurationsResult$ === "object");
+assert(typeof DescribeNotifyTemplatesRequest$ === "object");
+assert(typeof DescribeNotifyTemplatesResult$ === "object");
 assert(typeof DescribeOptedOutNumbersRequest$ === "object");
 assert(typeof DescribeOptedOutNumbersResult$ === "object");
 assert(typeof DescribeOptOutListsRequest$ === "object");
@@ -782,6 +922,10 @@ assert(typeof DescribePoolsRequest$ === "object");
 assert(typeof DescribePoolsResult$ === "object");
 assert(typeof DescribeProtectConfigurationsRequest$ === "object");
 assert(typeof DescribeProtectConfigurationsResult$ === "object");
+assert(typeof DescribeRcsAgentCountryLaunchStatusRequest$ === "object");
+assert(typeof DescribeRcsAgentCountryLaunchStatusResult$ === "object");
+assert(typeof DescribeRcsAgentsRequest$ === "object");
+assert(typeof DescribeRcsAgentsResult$ === "object");
 assert(typeof DescribeRegistrationAttachmentsRequest$ === "object");
 assert(typeof DescribeRegistrationAttachmentsResult$ === "object");
 assert(typeof DescribeRegistrationFieldDefinitionsRequest$ === "object");
@@ -816,6 +960,8 @@ assert(typeof GetResourcePolicyResult$ === "object");
 assert(typeof KeywordFilter$ === "object");
 assert(typeof KeywordInformation$ === "object");
 assert(typeof KinesisFirehoseDestination$ === "object");
+assert(typeof ListNotifyCountriesRequest$ === "object");
+assert(typeof ListNotifyCountriesResult$ === "object");
 assert(typeof ListPoolOriginationIdentitiesRequest$ === "object");
 assert(typeof ListPoolOriginationIdentitiesResult$ === "object");
 assert(typeof ListProtectConfigurationRuleSetNumberOverridesRequest$ === "object");
@@ -824,6 +970,11 @@ assert(typeof ListRegistrationAssociationsRequest$ === "object");
 assert(typeof ListRegistrationAssociationsResult$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResult$ === "object");
+assert(typeof NotifyConfigurationFilter$ === "object");
+assert(typeof NotifyConfigurationInformation$ === "object");
+assert(typeof NotifyCountryInformation$ === "object");
+assert(typeof NotifyTemplateFilter$ === "object");
+assert(typeof NotifyTemplateInformation$ === "object");
 assert(typeof OptedOutFilter$ === "object");
 assert(typeof OptedOutNumberInformation$ === "object");
 assert(typeof OptOutListInformation$ === "object");
@@ -850,6 +1001,8 @@ assert(typeof PutRegistrationFieldValueRequest$ === "object");
 assert(typeof PutRegistrationFieldValueResult$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResult$ === "object");
+assert(typeof RcsAgentFilter$ === "object");
+assert(typeof RcsAgentInformation$ === "object");
 assert(typeof RegistrationAssociationFilter$ === "object");
 assert(typeof RegistrationAssociationMetadata$ === "object");
 assert(typeof RegistrationAttachmentFilter$ === "object");
@@ -885,6 +1038,10 @@ assert(typeof SenderIdFilter$ === "object");
 assert(typeof SenderIdInformation$ === "object");
 assert(typeof SendMediaMessageRequest$ === "object");
 assert(typeof SendMediaMessageResult$ === "object");
+assert(typeof SendNotifyTextMessageRequest$ === "object");
+assert(typeof SendNotifyTextMessageResult$ === "object");
+assert(typeof SendNotifyVoiceMessageRequest$ === "object");
+assert(typeof SendNotifyVoiceMessageResult$ === "object");
 assert(typeof SendTextMessageRequest$ === "object");
 assert(typeof SendTextMessageResult$ === "object");
 assert(typeof SendVoiceMessageRequest$ === "object");
@@ -899,6 +1056,8 @@ assert(typeof SetDefaultSenderIdRequest$ === "object");
 assert(typeof SetDefaultSenderIdResult$ === "object");
 assert(typeof SetMediaMessageSpendLimitOverrideRequest$ === "object");
 assert(typeof SetMediaMessageSpendLimitOverrideResult$ === "object");
+assert(typeof SetNotifyMessageSpendLimitOverrideRequest$ === "object");
+assert(typeof SetNotifyMessageSpendLimitOverrideResult$ === "object");
 assert(typeof SetTextMessageSpendLimitOverrideRequest$ === "object");
 assert(typeof SetTextMessageSpendLimitOverrideResult$ === "object");
 assert(typeof SetVoiceMessageSpendLimitOverrideRequest$ === "object");
@@ -911,11 +1070,15 @@ assert(typeof SupportedAssociation$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResult$ === "object");
+assert(typeof TemplateVariableMetadata$ === "object");
+assert(typeof TestingAgentInformation$ === "object");
 assert(typeof TextValidation$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResult$ === "object");
 assert(typeof UpdateEventDestinationRequest$ === "object");
 assert(typeof UpdateEventDestinationResult$ === "object");
+assert(typeof UpdateNotifyConfigurationRequest$ === "object");
+assert(typeof UpdateNotifyConfigurationResult$ === "object");
 assert(typeof UpdatePhoneNumberRequest$ === "object");
 assert(typeof UpdatePhoneNumberResult$ === "object");
 assert(typeof UpdatePoolRequest$ === "object");
@@ -924,6 +1087,8 @@ assert(typeof UpdateProtectConfigurationCountryRuleSetRequest$ === "object");
 assert(typeof UpdateProtectConfigurationCountryRuleSetResult$ === "object");
 assert(typeof UpdateProtectConfigurationRequest$ === "object");
 assert(typeof UpdateProtectConfigurationResult$ === "object");
+assert(typeof UpdateRcsAgentRequest$ === "object");
+assert(typeof UpdateRcsAgentResult$ === "object");
 assert(typeof UpdateSenderIdRequest$ === "object");
 assert(typeof UpdateSenderIdResult$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
@@ -937,8 +1102,11 @@ assert(typeof AccountAttributeName === "object");
 assert(typeof AccountLimitName === "object");
 assert(typeof AttachmentStatus === "object");
 assert(typeof AttachmentUploadErrorReason === "object");
+assert(typeof CarrierStatus === "object");
 assert(typeof ConfigurationSetFilterName === "object");
 assert(typeof ConflictExceptionReason === "object");
+assert(typeof CountryLaunchStatus === "object");
+assert(typeof CountryLaunchStatusFilterName === "object");
 assert(typeof DestinationCountryParameterKey === "object");
 assert(typeof EventType === "object");
 assert(typeof FieldRequirement === "object");
@@ -948,6 +1116,13 @@ assert(typeof KeywordFilterName === "object");
 assert(typeof LanguageCode === "object");
 assert(typeof MessageFeedbackStatus === "object");
 assert(typeof MessageType === "object");
+assert(typeof NotifyConfigurationFilterName === "object");
+assert(typeof NotifyConfigurationStatus === "object");
+assert(typeof NotifyConfigurationTier === "object");
+assert(typeof NotifyConfigurationUseCase === "object");
+assert(typeof NotifyTemplateFilterName === "object");
+assert(typeof NotifyTemplateStatus === "object");
+assert(typeof NotifyTemplateType === "object");
 assert(typeof NumberCapability === "object");
 assert(typeof NumberStatus === "object");
 assert(typeof NumberType === "object");
@@ -962,6 +1137,8 @@ assert(typeof ProtectConfigurationFilterName === "object");
 assert(typeof ProtectConfigurationRuleOverrideAction === "object");
 assert(typeof ProtectConfigurationRuleSetNumberOverrideFilterName === "object");
 assert(typeof ProtectStatus === "object");
+assert(typeof RcsAgentFilterName === "object");
+assert(typeof RcsAgentStatus === "object");
 assert(typeof RegistrationAssociationBehavior === "object");
 assert(typeof RegistrationAssociationFilterName === "object");
 assert(typeof RegistrationAttachmentFilterName === "object");
@@ -976,6 +1153,10 @@ assert(typeof ResourceType === "object");
 assert(typeof SenderIdFilterName === "object");
 assert(typeof ServiceQuotaExceededExceptionReason === "object");
 assert(typeof SpendLimitName === "object");
+assert(typeof TemplateVariableSource === "object");
+assert(typeof TemplateVariableType === "object");
+assert(typeof TestingAgentStatus === "object");
+assert(typeof TierUpgradeStatus === "object");
 assert(typeof ValidationExceptionReason === "object");
 assert(typeof VerificationChannel === "object");
 assert(typeof VerificationStatus === "object");
@@ -1003,11 +1184,15 @@ assert(typeof paginateDescribeAccountAttributes === "function");
 assert(typeof paginateDescribeAccountLimits === "function");
 assert(typeof paginateDescribeConfigurationSets === "function");
 assert(typeof paginateDescribeKeywords === "function");
+assert(typeof paginateDescribeNotifyConfigurations === "function");
+assert(typeof paginateDescribeNotifyTemplates === "function");
 assert(typeof paginateDescribeOptOutLists === "function");
 assert(typeof paginateDescribeOptedOutNumbers === "function");
 assert(typeof paginateDescribePhoneNumbers === "function");
 assert(typeof paginateDescribePools === "function");
 assert(typeof paginateDescribeProtectConfigurations === "function");
+assert(typeof paginateDescribeRcsAgentCountryLaunchStatus === "function");
+assert(typeof paginateDescribeRcsAgents === "function");
 assert(typeof paginateDescribeRegistrationAttachments === "function");
 assert(typeof paginateDescribeRegistrationFieldDefinitions === "function");
 assert(typeof paginateDescribeRegistrationFieldValues === "function");
@@ -1018,6 +1203,7 @@ assert(typeof paginateDescribeRegistrations === "function");
 assert(typeof paginateDescribeSenderIds === "function");
 assert(typeof paginateDescribeSpendLimits === "function");
 assert(typeof paginateDescribeVerifiedDestinationNumbers === "function");
+assert(typeof paginateListNotifyCountries === "function");
 assert(typeof paginateListPoolOriginationIdentities === "function");
 assert(typeof paginateListProtectConfigurationRuleSetNumberOverrides === "function");
 assert(typeof paginateListRegistrationAssociations === "function");

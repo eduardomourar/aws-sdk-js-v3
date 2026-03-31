@@ -65,6 +65,7 @@ export interface DescribeRegistrationAttachmentsCommandOutput extends DescribeRe
  * //       AttachmentStatus: "STRING_VALUE", // required
  * //       AttachmentUploadErrorReason: "STRING_VALUE",
  * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
+ * //       AttachmentUrl: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
