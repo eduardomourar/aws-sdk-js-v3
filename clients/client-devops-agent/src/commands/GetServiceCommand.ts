@@ -44,7 +44,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * // { // GetServiceOutput
  * //   service: { // RegisteredService
  * //     serviceId: "STRING_VALUE", // required
- * //     serviceType: "github" || "slack" || "azure" || "azuredevops" || "msteams" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4", // required
+ * //     serviceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity", // required
  * //     name: "STRING_VALUE",
  * //     accessibleResources: [ // DocumentList
  * //       "DOCUMENT_VALUE",
@@ -112,14 +112,6 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //         scopes: [ // PagerDutyScopesList // required
  * //           "STRING_VALUE",
  * //         ],
- * //       },
- * //       mcpserversigv4: { // RegisteredMCPServerSigV4Details
- * //         name: "STRING_VALUE", // required
- * //         endpoint: "STRING_VALUE", // required
- * //         description: "STRING_VALUE",
- * //         region: "STRING_VALUE", // required
- * //         service: "STRING_VALUE", // required
- * //         roleArn: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     kmsKeyArn: "STRING_VALUE",

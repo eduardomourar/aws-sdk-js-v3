@@ -30,10 +30,9 @@ const _CE = "ConflictException";
 const _CEL = "ChatExecutionList";
 const _CEh = "ChatExecution";
 const _CI = "ClientId";
-const _CPC = "ChatParticipantConnection";
+const _CPC = "CreatePrivateConnection";
 const _CPCI = "CreatePrivateConnectionInput";
 const _CPCO = "CreatePrivateConnectionOutput";
-const _CPCr = "CreatePrivateConnection";
 const _CS = "ClientSecret";
 const _CSEE = "ContentSizeExceededException";
 const _D = "Description";
@@ -57,9 +56,6 @@ const _DSD = "DatadogServiceDetails";
 const _DSDy = "DynatraceServiceDetails";
 const _DSI = "DeregisterServiceInput";
 const _DSIi = "DisassociateServiceInput";
-const _DSL = "DescribeSupportLevel";
-const _DSLR = "DescribeSupportLevelRequest";
-const _DSLRe = "DescribeSupportLevelResponse";
 const _DSO = "DeregisterServiceOutput";
 const _DSOi = "DisassociateServiceOutput";
 const _DSi = "DisassociateService";
@@ -67,9 +63,6 @@ const _E = "Execution";
 const _EA = "EmailAddress";
 const _ECC = "EventChannelConfiguration";
 const _ECD = "EventChannelDetails";
-const _ECFC = "EndChatForCase";
-const _ECFCR = "EndChatForCaseRequest";
-const _ECFCRn = "EndChatForCaseResponse";
 const _EL = "ExecutionList";
 const _EOA = "EnableOperatorApp";
 const _EOAI = "EnableOperatorAppInput";
@@ -110,9 +103,6 @@ const _GW = "GenericWebhook";
 const _IAC = "IamAuthConfiguration";
 const _IACd = "IdcAuthConfiguration";
 const _IACdp = "IdpAuthConfiguration";
-const _ICFC = "InitiateChatForCase";
-const _ICFCR = "InitiateChatForCaseRequest";
-const _ICFCRn = "InitiateChatForCaseResponse";
 const _ICS = "IdpClientSecret";
 const _ICSE = "IdentityCenterServiceException";
 const _IPE = "InvalidParameterException";
@@ -168,11 +158,6 @@ const _MCPSGC = "MCPServerGrafanaConfiguration";
 const _MCPSNRC = "MCPServerNewRelicConfiguration";
 const _MCPSOACCC = "MCPServerOAuthClientCredentialsConfig";
 const _MCPSOALOC = "MCPServerOAuth3LOConfig";
-const _MCPSSVAC = "MCPServerSigV4AuthorizationConfig";
-const _MCPSSVSD = "MCPServerSigV4ServiceDetails";
-const _MSTC = "MSTeamsChannel";
-const _MSTCe = "MSTeamsConfiguration";
-const _MSTTT = "MSTeamsTransmissionTarget";
 const _NRAKC = "NewRelicApiKeyConfig";
 const _NRSAC = "NewRelicServiceAuthorizationConfig";
 const _NRSD = "NewRelicServiceDetails";
@@ -196,7 +181,6 @@ const _RGSDe = "RegisteredGrafanaServerDetails";
 const _RI = "ReferenceInput";
 const _RL = "RecommendationList";
 const _RMCPSD = "RegisteredMCPServerDetails";
-const _RMCPSSVD = "RegisteredMCPServerSigV4Details";
 const _RNFE = "ResourceNotFoundException";
 const _RNRD = "RegisteredNewRelicDetails";
 const _RO = "ReferenceOutput";
@@ -213,7 +197,6 @@ const _SC = "SlackChannel";
 const _SCe = "ServiceConfiguration";
 const _SCl = "SlackConfiguration";
 const _SD = "ServiceDetails";
-const _SL = "SupportLevel";
 const _SM = "SendMessage";
 const _SMC = "SendMessageContext";
 const _SMCBD = "SendMessageContentBlockDelta";
@@ -308,7 +291,6 @@ const _aSA = "agentSpaceArn";
 const _aSD = "additionalServiceDetails";
 const _aSI = "agentSpaceId";
 const _aST = "agentSubTask";
-const _aSc = "activeSubscription";
 const _aSd = "additionalStep";
 const _aSg = "agentSpaces";
 const _aSu = "authScopes";
@@ -336,12 +318,10 @@ const _cIh = "channelId";
 const _cN = "clientName";
 const _cNh = "channelName";
 const _cP = "currentPage";
-const _cPC = "chatParticipantConnection";
 const _cS = "clientSecret";
 const _cT = "clientToken";
 const _ce = "certificate";
 const _co = "configuration";
-const _cod = "code";
 const _con = "content";
 const _cont = "context";
 const _d = "description";
@@ -387,10 +367,8 @@ const _i = "iam";
 const _iAA = "idcApplicationArn";
 const _iAPE = "ipv4AddressesPerEni";
 const _iAT = "ipAddressType";
-const _iCI = "initialContactId";
-const _iCId = "idpClientId";
+const _iCI = "idpClientId";
 const _iCS = "idpClientSecret";
-const _iD = "isDisconnected";
 const _iI = "instanceIdentifier";
 const _iIA = "idcInstanceArn";
 const _iIn = "instanceId";
@@ -414,20 +392,18 @@ const _li = "limit";
 const _m = "message";
 const _mAEH = "monthlyAccountEvaluationHours";
 const _mAIH = "monthlyAccountInvestigationHours";
+const _mAODH = "monthlyAccountOnDemandHours";
 const _mASLH = "monthlyAccountSystemLearningHours";
 const _mI = "messageId";
 const _mR = "maxResults";
-const _mSL = "mosaicSupportLevel";
 const _mc = "mcpserverdatadog";
 const _mcp = "mcpserver";
 const _mcps = "mcpserversplunk";
 const _mcpse = "mcpservernewrelic";
 const _mcpser = "mcpservergrafana";
-const _mcpserv = "mcpserversigv4";
 const _me = "messages";
 const _met = "metadata";
 const _mo = "mode";
-const _ms = "msteams";
 const _n = "name";
 const _nT = "nextToken";
 const _o = "owner";
@@ -448,13 +424,11 @@ const _pC = "privateConnections";
 const _pCN = "privateConnectionName";
 const _pEI = "parentExecutionId";
 const _pI = "projectId";
-const _pIa = "participantId";
-const _pIar = "parentId";
+const _pIa = "parentId";
 const _pJ = "partialJson";
 const _pN = "projectName";
 const _pP = "projectPath";
 const _pR = "portRanges";
-const _pT = "participantToken";
 const _pTI = "primaryTaskId";
 const _pa = "path";
 const _pag = "pagerduty";
@@ -462,7 +436,6 @@ const _pr = "provider";
 const _r = "reference";
 const _rA = "resourceArn";
 const _rABA = "resourceArnBeingAuthorized";
-const _rAo = "roleArn";
 const _rC = "responseCreated";
 const _rCI = "resourceConfigurationId";
 const _rCe = "responseCompleted";
@@ -480,12 +453,10 @@ const _rTE = "returnToEndpoint";
 const _rU = "referenceUrl";
 const _rV = "recommendationVersion";
 const _re = "resources";
-const _rea = "reason";
 const _rec = "recommendation";
 const _reco = "records";
 const _recom = "recommendations";
 const _reg = "region";
-const _req = "requester";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.devopsagent";
 const _sA = "sourceAws";
 const _sCC = "supportCodeChallenge";
@@ -495,7 +466,6 @@ const _sGI = "securityGroupIds";
 const _sI = "serviceId";
 const _sIu = "subscriptionId";
 const _sIub = "subnetIds";
-const _sL = "supportLevel";
 const _sM = "supportMetadata";
 const _sMe = "serviceManaged";
 const _sMel = "selfManaged";
@@ -517,8 +487,8 @@ const _sy = "system";
 const _t = "tags";
 const _tD = "textDelta";
 const _tI = "taskId";
-const _tIe = "teamId";
-const _tIen = "tenantId";
+const _tIe = "tenantId";
+const _tIea = "teamId";
 const _tK = "tagKeys";
 const _tN = "tokenName";
 const _tNe = "teamName";
@@ -722,11 +692,6 @@ export var ChatExecution$: StaticStructureSchema = [3, n0, _CEh,
   [_eI, _cA, _uA, _su],
   [0, 4, 4, 0], 2
 ];
-export var ChatParticipantConnection$: StaticStructureSchema = [3, n0, _CPC,
-  0,
-  [_iCI, _pIa, _pT],
-  [0, 0, 0], 3
-];
 export var CreateAgentSpaceInput$: StaticStructureSchema = [3, n0, _CASI,
   0,
   [_n, _d, _l, _kKA, _cT, _t],
@@ -812,16 +777,6 @@ export var DescribePrivateConnectionOutput$: StaticStructureSchema = [3, n0, _DP
   [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _t],
   [0, 0, 0, 0, 0, 0, 0, 5, 128 | 0], 3
 ];
-export var DescribeSupportLevelRequest$: StaticStructureSchema = [3, n0, _DSLR,
-  0,
-  [_aSI, _tI],
-  [[0, 1], [0, 1]], 2
-];
-export var DescribeSupportLevelResponse$: StaticStructureSchema = [3, n0, _DSLRe,
-  0,
-  [_sL, _mSL, _aSc],
-  [() => SupportLevel$, () => SupportLevel$, 2], 1
-];
 export var DisableOperatorAppInput$: StaticStructureSchema = [3, n0, _DOAI,
   0,
   [_aSI, _aF],
@@ -854,23 +809,13 @@ export var DynatraceServiceDetails$: StaticStructureSchema = [3, n0, _DSDy,
 ];
 export var EnableOperatorAppInput$: StaticStructureSchema = [3, n0, _EOAI,
   0,
-  [_aSI, _aF, _oARA, _iIA, _iU, _iCId, _iCS, _pr],
+  [_aSI, _aF, _oARA, _iIA, _iU, _iCI, _iCS, _pr],
   [[0, 1], 0, 0, 0, 0, 0, [() => IdpClientSecret, 0], 0], 3
 ];
 export var EnableOperatorAppOutput$: StaticStructureSchema = [3, n0, _EOAO,
   0,
   [_aSI, _i, _id, _idp],
   [0, () => IamAuthConfiguration$, () => IdcAuthConfiguration$, () => IdpAuthConfiguration$], 1
-];
-export var EndChatForCaseRequest$: StaticStructureSchema = [3, n0, _ECFCR,
-  0,
-  [_aSI, _tI, _rea, _req, _cT],
-  [[0, 1], [0, 1], 0, 0, [0, 4]], 2
-];
-export var EndChatForCaseResponse$: StaticStructureSchema = [3, n0, _ECFCRn,
-  0,
-  [_iD, _eI, _eM],
-  [2, 0, 0], 1
 ];
 export var EventChannelConfiguration$: StaticStructureSchema = [3, n0, _ECC,
   0,
@@ -899,8 +844,8 @@ export var GetAccountUsageInput$: StaticStructureSchema = [3, n0, _GAUI,
 ];
 export var GetAccountUsageOutput$: StaticStructureSchema = [3, n0, _GAUO,
   0,
-  [_uPST, _uPET, _mAIH, _mAEH, _mASLH],
-  [5, 5, () => UsageMetric$, () => UsageMetric$, () => UsageMetric$], 2
+  [_uPST, _uPET, _mAIH, _mAEH, _mASLH, _mAODH],
+  [5, 5, () => UsageMetric$, () => UsageMetric$, () => UsageMetric$, () => UsageMetric$], 2
 ];
 export var GetAgentSpaceInput$: StaticStructureSchema = [3, n0, _GASI,
   0,
@@ -1016,16 +961,6 @@ export var IdpAuthConfiguration$: StaticStructureSchema = [3, n0, _IACdp,
   0,
   [_iU, _cI, _oARA, _pr, _cA, _uA],
   [0, 0, 0, 0, 5, 5], 5
-];
-export var InitiateChatForCaseRequest$: StaticStructureSchema = [3, n0, _ICFCR,
-  0,
-  [_aSI, _tI, _cT],
-  [[0, 1], [0, 1], [0, 4]], 2
-];
-export var InitiateChatForCaseResponse$: StaticStructureSchema = [3, n0, _ICFCRn,
-  0,
-  [_cPC],
-  [() => ChatParticipantConnection$], 1
 ];
 export var JournalRecord$: StaticStructureSchema = [3, n0, _JR,
   0,
@@ -1202,31 +1137,6 @@ export var MCPServerOAuthClientCredentialsConfig$: StaticStructureSchema = [3, n
   [_cI, _cS, _eU, _cN, _eP, _sc],
   [[() => ClientId, 0], [() => ClientSecret, 0], 0, 0, [() => ExchangeParameters, 0], 64 | 0], 3
 ];
-export var MCPServerSigV4AuthorizationConfig$: StaticStructureSchema = [3, n0, _MCPSSVAC,
-  0,
-  [_reg, _ser, _rAo],
-  [0, 0, 0], 3
-];
-export var MCPServerSigV4ServiceDetails$: StaticStructureSchema = [3, n0, _MCPSSVSD,
-  0,
-  [_n, _en, _aC, _d],
-  [0, 0, () => MCPServerSigV4AuthorizationConfig$, [() => Description, 0]], 3
-];
-export var MSTeamsChannel$: StaticStructureSchema = [3, n0, _MSTC,
-  0,
-  [_cNh, _cIh],
-  [0, 0], 2
-];
-export var MSTeamsConfiguration$: StaticStructureSchema = [3, n0, _MSTCe,
-  0,
-  [_tIe, _tNe, _tTr],
-  [0, 0, () => MSTeamsTransmissionTarget$], 3
-];
-export var MSTeamsTransmissionTarget$: StaticStructureSchema = [3, n0, _MSTTT,
-  0,
-  [_oOT, _oSRET],
-  [() => MSTeamsChannel$, () => MSTeamsChannel$]
-];
 export var NewRelicApiKeyConfig$: StaticStructureSchema = [3, n0, _NRAKC,
   0,
   [_aK, _aIc, _reg, _aIp, _eG, _aPI],
@@ -1294,7 +1204,7 @@ export var RegisteredAzureDevOpsServiceDetails$: StaticStructureSchema = [3, n0,
 ];
 export var RegisteredAzureIdentityDetails$: StaticStructureSchema = [3, n0, _RAID,
   0,
-  [_tIen, _cI, _wIRA, _wITA],
+  [_tIe, _cI, _wIRA, _wITA],
   [0, 0, 0, 64 | 0], 4
 ];
 export var RegisteredGithubServiceDetails$: StaticStructureSchema = [3, n0, _RGSD,
@@ -1316,11 +1226,6 @@ export var RegisteredMCPServerDetails$: StaticStructureSchema = [3, n0, _RMCPSD,
   0,
   [_n, _en, _aM, _d, _aKH],
   [0, 0, 0, [() => Description, 0], 0], 3
-];
-export var RegisteredMCPServerSigV4Details$: StaticStructureSchema = [3, n0, _RMCPSSVD,
-  0,
-  [_n, _en, _reg, _ser, _rAo, _d],
-  [0, 0, 0, 0, 0, [() => Description, 0]], 5
 ];
 export var RegisteredNewRelicDetails$: StaticStructureSchema = [3, n0, _RNRD,
   0,
@@ -1344,7 +1249,7 @@ export var RegisteredServiceNowDetails$: StaticStructureSchema = [3, n0, _RSND,
 ];
 export var RegisteredSlackServiceDetails$: StaticStructureSchema = [3, n0, _RSSD,
   0,
-  [_tIe, _tNe],
+  [_tIea, _tNe],
   [0, 0], 2
 ];
 export var RegisterServiceInput$: StaticStructureSchema = [3, n0, _RSI,
@@ -1369,7 +1274,7 @@ export var SendMessageContentBlockDeltaEvent$: StaticStructureSchema = [3, n0, _
 ];
 export var SendMessageContentBlockStartEvent$: StaticStructureSchema = [3, n0, _SMCBSE,
   0,
-  [_in, _ty, _id_, _pIar, _sN],
+  [_in, _ty, _id_, _pIa, _sN],
   [1, 0, 0, 0, 1]
 ];
 export var SendMessageContentBlockStopEvent$: StaticStructureSchema = [3, n0, _SMCBSEe,
@@ -1476,11 +1381,6 @@ export var SourceAwsConfiguration$: StaticStructureSchema = [3, n0, _SAC,
   0,
   [_aIc, _aT, _aRA, _eIx],
   [0, 0, 0, 0], 3
-];
-export var SupportLevel$: StaticStructureSchema = [3, n0, _SL,
-  0,
-  [_cod, _n],
-  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -1689,8 +1589,8 @@ var ExchangeParameters: StaticMapSchema = [2, n0, _EP,
 var Tags = 128 | 0;
 export var AdditionalServiceDetails$: StaticUnionSchema = [4, n0, _ASD,
   0,
-  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pag, _mcpserv],
-  [() => RegisteredGithubServiceDetails$, () => RegisteredSlackServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredMCPServerDetails$, 0], () => RegisteredServiceNowDetails$, () => RegisteredGitLabServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredNewRelicDetails$, 0], () => RegisteredAzureDevOpsServiceDetails$, () => RegisteredAzureIdentityDetails$, () => RegisteredGrafanaServerDetails$, () => RegisteredPagerDutyDetails$, [() => RegisteredMCPServerSigV4Details$, 0]]
+  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pag],
+  [() => RegisteredGithubServiceDetails$, () => RegisteredSlackServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredMCPServerDetails$, 0], () => RegisteredServiceNowDetails$, () => RegisteredGitLabServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredNewRelicDetails$, 0], () => RegisteredAzureDevOpsServiceDetails$, () => RegisteredAzureIdentityDetails$, () => RegisteredGrafanaServerDetails$, () => RegisteredPagerDutyDetails$]
 ];
 export var AdditionalServiceRegistrationStep$: StaticUnionSchema = [4, n0, _ASRS,
   0,
@@ -1749,13 +1649,13 @@ export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
 ];
 export var ServiceConfiguration$: StaticUnionSchema = [4, n0, _SCe,
   0,
-  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _git, _eCv, _azur, _az, _mcpser, _pag, _ms],
-  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => GitLabConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MSTeamsConfiguration$]
+  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _git, _eCv, _azur, _az, _mcpser, _pag],
+  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => GitLabConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0]]
 ];
 export var ServiceDetails$: StaticUnionSchema = [4, n0, _SD,
   0,
-  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pag, _azu, _mcpserv],
-  [[() => DynatraceServiceDetails$, 0], [() => ServiceNowServiceDetails$, 0], [() => DatadogServiceDetails$, 0], [() => MCPServerDetails$, 0], [() => GitLabDetails$, 0], [() => MCPServerDetails$, 0], [() => NewRelicServiceDetails$, 0], () => EventChannelDetails$, [() => GrafanaServiceDetails$, 0], [() => PagerDutyDetails$, 0], () => RegisteredAzureIdentityDetails$, [() => MCPServerSigV4ServiceDetails$, 0]]
+  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pag, _azu],
+  [[() => DynatraceServiceDetails$, 0], [() => ServiceNowServiceDetails$, 0], [() => DatadogServiceDetails$, 0], [() => MCPServerDetails$, 0], [() => GitLabDetails$, 0], [() => MCPServerDetails$, 0], [() => NewRelicServiceDetails$, 0], () => EventChannelDetails$, [() => GrafanaServiceDetails$, 0], [() => PagerDutyDetails$, 0], () => RegisteredAzureIdentityDetails$]
 ];
 export var ServiceNowServiceAuthorizationConfig$: StaticUnionSchema = [4, n0, _SNSAC,
   0,
@@ -1782,7 +1682,7 @@ export var CreateBacklogTask$: StaticOperationSchema = [9, n0, _CBT,
 export var CreateChat$: StaticOperationSchema = [9, n0, _CC,
   { [_en]: ["dp."], [_ht]: ["POST", "/agents/agent-space/{agentSpaceId}/chat/create", 200] }, () => CreateChatRequest$, () => CreateChatResponse$
 ];
-export var CreatePrivateConnection$: StaticOperationSchema = [9, n0, _CPCr,
+export var CreatePrivateConnection$: StaticOperationSchema = [9, n0, _CPC,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/private-connections", 200] }, () => CreatePrivateConnectionInput$, () => CreatePrivateConnectionOutput$
 ];
 export var DeleteAgentSpace$: StaticOperationSchema = [9, n0, _DAS,
@@ -1797,9 +1697,6 @@ export var DeregisterService$: StaticOperationSchema = [9, n0, _DS,
 export var DescribePrivateConnection$: StaticOperationSchema = [9, n0, _DPCe,
   { [_en]: ["cp."], [_ht]: ["GET", "/v1/private-connections/{name}", 200] }, () => DescribePrivateConnectionInput$, () => DescribePrivateConnectionOutput$
 ];
-export var DescribeSupportLevel$: StaticOperationSchema = [9, n0, _DSL,
-  { [_en]: ["dp."], [_ht]: ["POST", "/support/agent-space/{agentSpaceId}/tasks/{taskId}/supportLevel", 201] }, () => DescribeSupportLevelRequest$, () => DescribeSupportLevelResponse$
-];
 export var DisableOperatorApp$: StaticOperationSchema = [9, n0, _DOA,
   { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/agentspaces/{agentSpaceId}/operator", 200] }, () => DisableOperatorAppInput$, () => __Unit
 ];
@@ -1808,9 +1705,6 @@ export var DisassociateService$: StaticOperationSchema = [9, n0, _DSi,
 ];
 export var EnableOperatorApp$: StaticOperationSchema = [9, n0, _EOA,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/operator", 200] }, () => EnableOperatorAppInput$, () => EnableOperatorAppOutput$
-];
-export var EndChatForCase$: StaticOperationSchema = [9, n0, _ECFC,
-  { [_en]: ["dp."], [_ht]: ["POST", "/support/agent-space/{agentSpaceId}/tasks/{taskId}/end-chat-for-case", 200] }, () => EndChatForCaseRequest$, () => EndChatForCaseResponse$
 ];
 export var GetAccountUsage$: StaticOperationSchema = [9, n0, _GAU,
   { [_en]: ["dp."], [_ht]: ["GET", "/usage/account", 200] }, () => GetAccountUsageInput$, () => GetAccountUsageOutput$
@@ -1832,9 +1726,6 @@ export var GetRecommendation$: StaticOperationSchema = [9, n0, _GR,
 ];
 export var GetService$: StaticOperationSchema = [9, n0, _GSe,
   { [_en]: ["cp."], [_ht]: ["GET", "/v1/services/{serviceId}", 200] }, () => GetServiceInput$, () => GetServiceOutput$
-];
-export var InitiateChatForCase$: StaticOperationSchema = [9, n0, _ICFC,
-  { [_en]: ["dp."], [_ht]: ["POST", "/support/agent-space/{agentSpaceId}/tasks/{taskId}/chats", 201] }, () => InitiateChatForCaseRequest$, () => InitiateChatForCaseResponse$
 ];
 export var ListAgentSpaces$: StaticOperationSchema = [9, n0, _LAS,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/list", 200] }, () => ListAgentSpacesInput$, () => ListAgentSpacesOutput$

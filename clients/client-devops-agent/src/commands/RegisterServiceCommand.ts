@@ -37,7 +37,7 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  * const config = {}; // type is DevOpsAgentClientConfig
  * const client = new DevOpsAgentClient(config);
  * const input = { // RegisterServiceInput
- *   service: "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4", // required
+ *   service: "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity", // required
  *   serviceDetails: { // ServiceDetails Union: only one key present
  *     dynatrace: { // DynatraceServiceDetails
  *       accountUrn: "STRING_VALUE", // required
@@ -255,16 +255,6 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *       webIdentityTokenAudiences: [ // WebIdentityTokenAudienceList // required
  *         "STRING_VALUE",
  *       ],
- *     },
- *     mcpserversigv4: { // MCPServerSigV4ServiceDetails
- *       name: "STRING_VALUE", // required
- *       endpoint: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       authorizationConfig: { // MCPServerSigV4AuthorizationConfig
- *         region: "STRING_VALUE", // required
- *         service: "STRING_VALUE", // required
- *         roleArn: "STRING_VALUE", // required
- *       },
  *     },
  *   },
  *   kmsKeyArn: "STRING_VALUE",

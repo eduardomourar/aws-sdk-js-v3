@@ -19,7 +19,6 @@ import {
   AzureConfiguration$,
   AzureDevOpsConfiguration$,
   ChatExecution$,
-  ChatParticipantConnection$,
   ConflictException,
   ConflictException$,
   ContentSizeExceededException,
@@ -58,10 +57,6 @@ import {
   DescribePrivateConnectionCommand,
   DescribePrivateConnectionInput$,
   DescribePrivateConnectionOutput$,
-  DescribeSupportLevel$,
-  DescribeSupportLevelCommand,
-  DescribeSupportLevelRequest$,
-  DescribeSupportLevelResponse$,
   DevOpsAgent,
   DevOpsAgentClient,
   DevOpsAgentServiceException,
@@ -80,10 +75,6 @@ import {
   EnableOperatorAppCommand,
   EnableOperatorAppInput$,
   EnableOperatorAppOutput$,
-  EndChatForCase$,
-  EndChatForCaseCommand,
-  EndChatForCaseRequest$,
-  EndChatForCaseResponse$,
   EventChannelConfiguration$,
   EventChannelDetails$,
   EventChannelType,
@@ -135,10 +126,6 @@ import {
   IdentityCenterServiceException,
   IdentityCenterServiceException$,
   IdpAuthConfiguration$,
-  InitiateChatForCase$,
-  InitiateChatForCaseCommand,
-  InitiateChatForCaseRequest$,
-  InitiateChatForCaseResponse$,
   InternalServerException,
   InternalServerException$,
   InvalidParameterException,
@@ -207,13 +194,8 @@ import {
   MCPServerNewRelicConfiguration$,
   MCPServerOAuth3LOConfig$,
   MCPServerOAuthClientCredentialsConfig$,
-  MCPServerSigV4AuthorizationConfig$,
-  MCPServerSigV4ServiceDetails$,
   Message$,
   MonitorAccountType,
-  MSTeamsChannel$,
-  MSTeamsConfiguration$,
-  MSTeamsTransmissionTarget$,
   NewRelicApiKeyConfig$,
   NewRelicRegion,
   NewRelicServiceAuthorizationConfig$,
@@ -250,7 +232,6 @@ import {
   RegisteredGitLabServiceDetails$,
   RegisteredGrafanaServerDetails$,
   RegisteredMCPServerDetails$,
-  RegisteredMCPServerSigV4Details$,
   RegisteredNewRelicDetails$,
   RegisteredPagerDutyDetails$,
   RegisteredService$,
@@ -298,7 +279,6 @@ import {
   SlackTransmissionTarget$,
   SourceAccountType,
   SourceAwsConfiguration$,
-  SupportLevel$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -383,16 +363,12 @@ assert(typeof DeregisterServiceCommand === "function");
 assert(typeof DeregisterService$ === "object");
 assert(typeof DescribePrivateConnectionCommand === "function");
 assert(typeof DescribePrivateConnection$ === "object");
-assert(typeof DescribeSupportLevelCommand === "function");
-assert(typeof DescribeSupportLevel$ === "object");
 assert(typeof DisableOperatorAppCommand === "function");
 assert(typeof DisableOperatorApp$ === "object");
 assert(typeof DisassociateServiceCommand === "function");
 assert(typeof DisassociateService$ === "object");
 assert(typeof EnableOperatorAppCommand === "function");
 assert(typeof EnableOperatorApp$ === "object");
-assert(typeof EndChatForCaseCommand === "function");
-assert(typeof EndChatForCase$ === "object");
 assert(typeof GetAccountUsageCommand === "function");
 assert(typeof GetAccountUsage$ === "object");
 assert(typeof GetAgentSpaceCommand === "function");
@@ -407,8 +383,6 @@ assert(typeof GetRecommendationCommand === "function");
 assert(typeof GetRecommendation$ === "object");
 assert(typeof GetServiceCommand === "function");
 assert(typeof GetService$ === "object");
-assert(typeof InitiateChatForCaseCommand === "function");
-assert(typeof InitiateChatForCase$ === "object");
 assert(typeof ListAgentSpacesCommand === "function");
 assert(typeof ListAgentSpaces$ === "object");
 assert(typeof ListAssociationsCommand === "function");
@@ -473,7 +447,6 @@ assert(typeof AWSConfiguration$ === "object");
 assert(typeof AzureConfiguration$ === "object");
 assert(typeof AzureDevOpsConfiguration$ === "object");
 assert(typeof ChatExecution$ === "object");
-assert(typeof ChatParticipantConnection$ === "object");
 assert(typeof CreateAgentSpaceInput$ === "object");
 assert(typeof CreateAgentSpaceOutput$ === "object");
 assert(typeof CreateBacklogTaskRequest$ === "object");
@@ -492,8 +465,6 @@ assert(typeof DeregisterServiceInput$ === "object");
 assert(typeof DeregisterServiceOutput$ === "object");
 assert(typeof DescribePrivateConnectionInput$ === "object");
 assert(typeof DescribePrivateConnectionOutput$ === "object");
-assert(typeof DescribeSupportLevelRequest$ === "object");
-assert(typeof DescribeSupportLevelResponse$ === "object");
 assert(typeof DisableOperatorAppInput$ === "object");
 assert(typeof DisassociateServiceInput$ === "object");
 assert(typeof DisassociateServiceOutput$ === "object");
@@ -503,8 +474,6 @@ assert(typeof DynatraceServiceAuthorizationConfig$ === "object");
 assert(typeof DynatraceServiceDetails$ === "object");
 assert(typeof EnableOperatorAppInput$ === "object");
 assert(typeof EnableOperatorAppOutput$ === "object");
-assert(typeof EndChatForCaseRequest$ === "object");
-assert(typeof EndChatForCaseResponse$ === "object");
 assert(typeof EventChannelConfiguration$ === "object");
 assert(typeof EventChannelDetails$ === "object");
 assert(typeof Execution$ === "object");
@@ -534,8 +503,6 @@ assert(typeof GrafanaServiceDetails$ === "object");
 assert(typeof IamAuthConfiguration$ === "object");
 assert(typeof IdcAuthConfiguration$ === "object");
 assert(typeof IdpAuthConfiguration$ === "object");
-assert(typeof InitiateChatForCaseRequest$ === "object");
-assert(typeof InitiateChatForCaseResponse$ === "object");
 assert(typeof JournalRecord$ === "object");
 assert(typeof ListAgentSpacesInput$ === "object");
 assert(typeof ListAgentSpacesOutput$ === "object");
@@ -572,12 +539,7 @@ assert(typeof MCPServerGrafanaConfiguration$ === "object");
 assert(typeof MCPServerNewRelicConfiguration$ === "object");
 assert(typeof MCPServerOAuth3LOConfig$ === "object");
 assert(typeof MCPServerOAuthClientCredentialsConfig$ === "object");
-assert(typeof MCPServerSigV4AuthorizationConfig$ === "object");
-assert(typeof MCPServerSigV4ServiceDetails$ === "object");
 assert(typeof Message$ === "object");
-assert(typeof MSTeamsChannel$ === "object");
-assert(typeof MSTeamsConfiguration$ === "object");
-assert(typeof MSTeamsTransmissionTarget$ === "object");
 assert(typeof NewRelicApiKeyConfig$ === "object");
 assert(typeof NewRelicServiceAuthorizationConfig$ === "object");
 assert(typeof NewRelicServiceDetails$ === "object");
@@ -599,7 +561,6 @@ assert(typeof RegisteredGithubServiceDetails$ === "object");
 assert(typeof RegisteredGitLabServiceDetails$ === "object");
 assert(typeof RegisteredGrafanaServerDetails$ === "object");
 assert(typeof RegisteredMCPServerDetails$ === "object");
-assert(typeof RegisteredMCPServerSigV4Details$ === "object");
 assert(typeof RegisteredNewRelicDetails$ === "object");
 assert(typeof RegisteredPagerDutyDetails$ === "object");
 assert(typeof RegisteredService$ === "object");
@@ -636,7 +597,6 @@ assert(typeof SlackChannel$ === "object");
 assert(typeof SlackConfiguration$ === "object");
 assert(typeof SlackTransmissionTarget$ === "object");
 assert(typeof SourceAwsConfiguration$ === "object");
-assert(typeof SupportLevel$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof Task$ === "object");

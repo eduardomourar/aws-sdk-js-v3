@@ -53,11 +53,6 @@ import {
   DescribePrivateConnectionCommand,
 } from "./commands/DescribePrivateConnectionCommand";
 import {
-  type DescribeSupportLevelCommandInput,
-  type DescribeSupportLevelCommandOutput,
-  DescribeSupportLevelCommand,
-} from "./commands/DescribeSupportLevelCommand";
-import {
   type DisableOperatorAppCommandInput,
   type DisableOperatorAppCommandOutput,
   DisableOperatorAppCommand,
@@ -72,11 +67,6 @@ import {
   type EnableOperatorAppCommandOutput,
   EnableOperatorAppCommand,
 } from "./commands/EnableOperatorAppCommand";
-import {
-  type EndChatForCaseCommandInput,
-  type EndChatForCaseCommandOutput,
-  EndChatForCaseCommand,
-} from "./commands/EndChatForCaseCommand";
 import {
   type GetAccountUsageCommandInput,
   type GetAccountUsageCommandOutput,
@@ -112,11 +102,6 @@ import {
   type GetServiceCommandOutput,
   GetServiceCommand,
 } from "./commands/GetServiceCommand";
-import {
-  type InitiateChatForCaseCommandInput,
-  type InitiateChatForCaseCommandOutput,
-  InitiateChatForCaseCommand,
-} from "./commands/InitiateChatForCaseCommand";
 import {
   type ListAgentSpacesCommandInput,
   type ListAgentSpacesCommandOutput,
@@ -254,11 +239,9 @@ const commands = {
   DeletePrivateConnectionCommand,
   DeregisterServiceCommand,
   DescribePrivateConnectionCommand,
-  DescribeSupportLevelCommand,
   DisableOperatorAppCommand,
   DisassociateServiceCommand,
   EnableOperatorAppCommand,
-  EndChatForCaseCommand,
   GetAccountUsageCommand,
   GetAgentSpaceCommand,
   GetAssociationCommand,
@@ -266,7 +249,6 @@ const commands = {
   GetOperatorAppCommand,
   GetRecommendationCommand,
   GetServiceCommand,
-  InitiateChatForCaseCommand,
   ListAgentSpacesCommand,
   ListAssociationsCommand,
   ListBacklogTasksCommand,
@@ -475,23 +457,6 @@ export interface DevOpsAgent {
   ): void;
 
   /**
-   * @see {@link DescribeSupportLevelCommand}
-   */
-  describeSupportLevel(
-    args: DescribeSupportLevelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeSupportLevelCommandOutput>;
-  describeSupportLevel(
-    args: DescribeSupportLevelCommandInput,
-    cb: (err: any, data?: DescribeSupportLevelCommandOutput) => void
-  ): void;
-  describeSupportLevel(
-    args: DescribeSupportLevelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeSupportLevelCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link DisableOperatorAppCommand}
    */
   disableOperatorApp(
@@ -540,23 +505,6 @@ export interface DevOpsAgent {
     args: EnableOperatorAppCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableOperatorAppCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link EndChatForCaseCommand}
-   */
-  endChatForCase(
-    args: EndChatForCaseCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EndChatForCaseCommandOutput>;
-  endChatForCase(
-    args: EndChatForCaseCommandInput,
-    cb: (err: any, data?: EndChatForCaseCommandOutput) => void
-  ): void;
-  endChatForCase(
-    args: EndChatForCaseCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: EndChatForCaseCommandOutput) => void
   ): void;
 
   /**
@@ -677,23 +625,6 @@ export interface DevOpsAgent {
     args: GetServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link InitiateChatForCaseCommand}
-   */
-  initiateChatForCase(
-    args: InitiateChatForCaseCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<InitiateChatForCaseCommandOutput>;
-  initiateChatForCase(
-    args: InitiateChatForCaseCommandInput,
-    cb: (err: any, data?: InitiateChatForCaseCommandOutput) => void
-  ): void;
-  initiateChatForCase(
-    args: InitiateChatForCaseCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: InitiateChatForCaseCommandOutput) => void
   ): void;
 
   /**

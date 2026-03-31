@@ -30,7 +30,7 @@ export interface AllowVendedLogDeliveryForResourceCommandInput extends AllowVend
 export interface AllowVendedLogDeliveryForResourceCommandOutput extends AllowVendedLogDeliveryForResourceOutput, __MetadataBearer {}
 
 /**
- * Authorize Ingestion Hub subscription operation. Looks to see if the derived accountId from FAS has an AgentSpace.
+ * Authorize Ingestion Hub subscription operation.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

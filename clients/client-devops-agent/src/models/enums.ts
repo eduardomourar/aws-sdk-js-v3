@@ -583,14 +583,9 @@ export const Service = {
    */
   MCP_SERVER_NEWRELIC: "mcpservernewrelic",
   /**
-   * SigV4-authenticated MCP server.
-   */
-  MCP_SERVER_SIGV4: "mcpserversigv4",
-  /**
    * Splunk MCP server.
    */
   MCP_SERVER_SPLUNK: "mcpserversplunk",
-  MS_TEAMS: "msteams",
   PAGERDUTY: "pagerduty",
   SERVICENOW: "servicenow",
   SLACK: "slack",
@@ -628,10 +623,6 @@ export const PostRegisterServiceSupportedService = {
    * NewRelic MCP server.
    */
   MCP_SERVER_NEWRELIC: "mcpservernewrelic",
-  /**
-   * SigV4-authenticated MCP server.
-   */
-  MCP_SERVER_SIGV4: "mcpserversigv4",
   /**
    * Splunk MCP server.
    */

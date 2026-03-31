@@ -39,7 +39,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * const input = { // ListServicesInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filterServiceType: "github" || "slack" || "azure" || "azuredevops" || "msteams" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4",
+ *   filterServiceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity",
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
@@ -48,7 +48,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //   services: [ // RegisteredServicesList // required
  * //     { // RegisteredService
  * //       serviceId: "STRING_VALUE", // required
- * //       serviceType: "github" || "slack" || "azure" || "azuredevops" || "msteams" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4", // required
+ * //       serviceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity", // required
  * //       name: "STRING_VALUE",
  * //       accessibleResources: [ // DocumentList
  * //         "DOCUMENT_VALUE",
@@ -116,14 +116,6 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //           scopes: [ // PagerDutyScopesList // required
  * //             "STRING_VALUE",
  * //           ],
- * //         },
- * //         mcpserversigv4: { // RegisteredMCPServerSigV4Details
- * //           name: "STRING_VALUE", // required
- * //           endpoint: "STRING_VALUE", // required
- * //           description: "STRING_VALUE",
- * //           region: "STRING_VALUE", // required
- * //           service: "STRING_VALUE", // required
- * //           roleArn: "STRING_VALUE", // required
  * //         },
  * //       },
  * //       kmsKeyArn: "STRING_VALUE",

@@ -96,10 +96,6 @@ import type {
   DescribePrivateConnectionCommandOutput,
 } from "./commands/DescribePrivateConnectionCommand";
 import type {
-  DescribeSupportLevelCommandInput,
-  DescribeSupportLevelCommandOutput,
-} from "./commands/DescribeSupportLevelCommand";
-import type {
   DisableOperatorAppCommandInput,
   DisableOperatorAppCommandOutput,
 } from "./commands/DisableOperatorAppCommand";
@@ -111,7 +107,6 @@ import type {
   EnableOperatorAppCommandInput,
   EnableOperatorAppCommandOutput,
 } from "./commands/EnableOperatorAppCommand";
-import type { EndChatForCaseCommandInput, EndChatForCaseCommandOutput } from "./commands/EndChatForCaseCommand";
 import type { GetAccountUsageCommandInput, GetAccountUsageCommandOutput } from "./commands/GetAccountUsageCommand";
 import type { GetAgentSpaceCommandInput, GetAgentSpaceCommandOutput } from "./commands/GetAgentSpaceCommand";
 import type { GetAssociationCommandInput, GetAssociationCommandOutput } from "./commands/GetAssociationCommand";
@@ -122,10 +117,6 @@ import type {
   GetRecommendationCommandOutput,
 } from "./commands/GetRecommendationCommand";
 import type { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
-import type {
-  InitiateChatForCaseCommandInput,
-  InitiateChatForCaseCommandOutput,
-} from "./commands/InitiateChatForCaseCommand";
 import type { ListAgentSpacesCommandInput, ListAgentSpacesCommandOutput } from "./commands/ListAgentSpacesCommand";
 import type { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
 import type { ListBacklogTasksCommandInput, ListBacklogTasksCommandOutput } from "./commands/ListBacklogTasksCommand";
@@ -209,11 +200,9 @@ export type ServiceInputTypes =
   | DeletePrivateConnectionCommandInput
   | DeregisterServiceCommandInput
   | DescribePrivateConnectionCommandInput
-  | DescribeSupportLevelCommandInput
   | DisableOperatorAppCommandInput
   | DisassociateServiceCommandInput
   | EnableOperatorAppCommandInput
-  | EndChatForCaseCommandInput
   | GetAccountUsageCommandInput
   | GetAgentSpaceCommandInput
   | GetAssociationCommandInput
@@ -221,7 +210,6 @@ export type ServiceInputTypes =
   | GetOperatorAppCommandInput
   | GetRecommendationCommandInput
   | GetServiceCommandInput
-  | InitiateChatForCaseCommandInput
   | ListAgentSpacesCommandInput
   | ListAssociationsCommandInput
   | ListBacklogTasksCommandInput
@@ -262,11 +250,9 @@ export type ServiceOutputTypes =
   | DeletePrivateConnectionCommandOutput
   | DeregisterServiceCommandOutput
   | DescribePrivateConnectionCommandOutput
-  | DescribeSupportLevelCommandOutput
   | DisableOperatorAppCommandOutput
   | DisassociateServiceCommandOutput
   | EnableOperatorAppCommandOutput
-  | EndChatForCaseCommandOutput
   | GetAccountUsageCommandOutput
   | GetAgentSpaceCommandOutput
   | GetAssociationCommandOutput
@@ -274,7 +260,6 @@ export type ServiceOutputTypes =
   | GetOperatorAppCommandOutput
   | GetRecommendationCommandOutput
   | GetServiceCommandOutput
-  | InitiateChatForCaseCommandOutput
   | ListAgentSpacesCommandOutput
   | ListAssociationsCommandOutput
   | ListBacklogTasksCommandOutput

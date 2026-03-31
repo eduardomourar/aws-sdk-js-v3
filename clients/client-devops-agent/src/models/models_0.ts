@@ -201,48 +201,6 @@ export interface RegisteredNewRelicDetails {
 }
 
 /**
- * Details specific to a registered SigV4-authenticated MCP server.
- * @public
- */
-export interface RegisteredMCPServerSigV4Details {
-  /**
-   * MCP server name.
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * MCP server endpoint URL.
-   * @public
-   */
-  endpoint: string | undefined;
-
-  /**
-   * Optional description for the MCP server.
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * AWS region for SigV4 signing.
-   * @public
-   */
-  region: string | undefined;
-
-  /**
-   * AWS service name for SigV4 signing.
-   * @public
-   */
-  service: string | undefined;
-
-  /**
-   * IAM role ARN to assume for SigV4 signing.
-   * @public
-   */
-  roleArn: string | undefined;
-}
-
-/**
  * Details specific to a registered PagerDuty service.
  * @public
  */
@@ -297,7 +255,6 @@ export type AdditionalServiceDetails =
   | AdditionalServiceDetails.McpserverdatadogMember
   | AdditionalServiceDetails.McpservergrafanaMember
   | AdditionalServiceDetails.McpservernewrelicMember
-  | AdditionalServiceDetails.Mcpserversigv4Member
   | AdditionalServiceDetails.McpserversplunkMember
   | AdditionalServiceDetails.PagerdutyMember
   | AdditionalServiceDetails.ServicenowMember
@@ -325,7 +282,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -346,7 +302,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -367,7 +322,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -388,7 +342,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -409,7 +362,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -430,7 +382,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -451,7 +402,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -472,7 +422,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -493,7 +442,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -514,7 +462,6 @@ export namespace AdditionalServiceDetails {
     azureidentity: RegisteredAzureIdentityDetails;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -535,7 +482,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana: RegisteredGrafanaServerDetails;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -556,28 +502,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty: RegisteredPagerDutyDetails;
-    mcpserversigv4?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * SigV4-authenticated MCP server-specific service details.
-   * @public
-   */
-  export interface Mcpserversigv4Member {
-    github?: never;
-    slack?: never;
-    mcpserverdatadog?: never;
-    mcpserver?: never;
-    servicenow?: never;
-    gitlab?: never;
-    mcpserversplunk?: never;
-    mcpservernewrelic?: never;
-    azuredevops?: never;
-    azureidentity?: never;
-    mcpservergrafana?: never;
-    pagerduty?: never;
-    mcpserversigv4: RegisteredMCPServerSigV4Details;
     $unknown?: never;
   }
 
@@ -597,7 +521,6 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    mcpserversigv4?: never;
     $unknown: [string, any];
   }
 
@@ -618,7 +541,6 @@ export namespace AdditionalServiceDetails {
     azureidentity: (value: RegisteredAzureIdentityDetails) => T;
     mcpservergrafana: (value: RegisteredGrafanaServerDetails) => T;
     pagerduty: (value: RegisteredPagerDutyDetails) => T;
-    mcpserversigv4: (value: RegisteredMCPServerSigV4Details) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -909,66 +831,6 @@ export interface MCPServerNewRelicConfiguration {
 }
 
 /**
- * Represents a Teams channel with its ID and name.
- * @public
- */
-export interface MSTeamsChannel {
-  /**
-   * MS Teams channel name
-   * @public
-   */
-  channelName: string | undefined;
-
-  /**
-   * MS Teams Channel ID
-   * @public
-   */
-  channelId: string | undefined;
-}
-
-/**
- * Defines MS Teams channels for different types of agent notifications.
- * @public
- */
-export interface MSTeamsTransmissionTarget {
-  /**
-   * Destination for On-call Agent(Ops1)
-   * @public
-   */
-  opsOncallTarget?: MSTeamsChannel | undefined;
-
-  /**
-   * Destination for SRE Agent (Ops1.5)
-   * @public
-   */
-  opsSRETarget?: MSTeamsChannel | undefined;
-}
-
-/**
- * Configuration for MS Teams workspace integration.
- * @public
- */
-export interface MSTeamsConfiguration {
-  /**
-   * Associated MS Teams teams ID
-   * @public
-   */
-  teamId: string | undefined;
-
-  /**
-   * Associated MS Teams team name
-   * @public
-   */
-  teamName: string | undefined;
-
-  /**
-   * Transmission targets for agent notification
-   * @public
-   */
-  transmissionTarget: MSTeamsTransmissionTarget | undefined;
-}
-
-/**
  * Configuration for Pagerduty integration.
  * @public
  */
@@ -1108,7 +970,6 @@ export type ServiceConfiguration =
   | ServiceConfiguration.GitlabMember
   | ServiceConfiguration.McpservergrafanaMember
   | ServiceConfiguration.McpservernewrelicMember
-  | ServiceConfiguration.MsteamsMember
   | ServiceConfiguration.PagerdutyMember
   | ServiceConfiguration.ServicenowMember
   | ServiceConfiguration.SlackMember
@@ -1137,7 +998,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1159,7 +1019,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1181,7 +1040,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1203,7 +1061,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1225,7 +1082,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1247,7 +1103,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1269,7 +1124,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1291,7 +1145,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1313,7 +1166,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1335,7 +1187,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1357,7 +1208,6 @@ export namespace ServiceConfiguration {
     azuredevops: AzureDevOpsConfiguration;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1379,7 +1229,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana: MCPServerGrafanaConfiguration;
     pagerduty?: never;
-    msteams?: never;
     $unknown?: never;
   }
 
@@ -1401,29 +1250,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty: PagerDutyConfiguration;
-    msteams?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * MS Teams integration configuration
-   * @public
-   */
-  export interface MsteamsMember {
-    sourceAws?: never;
-    aws?: never;
-    github?: never;
-    slack?: never;
-    dynatrace?: never;
-    servicenow?: never;
-    mcpservernewrelic?: never;
-    gitlab?: never;
-    eventChannel?: never;
-    azure?: never;
-    azuredevops?: never;
-    mcpservergrafana?: never;
-    pagerduty?: never;
-    msteams: MSTeamsConfiguration;
     $unknown?: never;
   }
 
@@ -1444,7 +1270,6 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
-    msteams?: never;
     $unknown: [string, any];
   }
 
@@ -1466,7 +1291,6 @@ export namespace ServiceConfiguration {
     azuredevops: (value: AzureDevOpsConfiguration) => T;
     mcpservergrafana: (value: MCPServerGrafanaConfiguration) => T;
     pagerduty: (value: PagerDutyConfiguration) => T;
-    msteams: (value: MSTeamsConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2413,30 +2237,6 @@ export interface ChatExecution {
 }
 
 /**
- * Represents a chat participant connection with all its properties and metadata
- * @public
- */
-export interface ChatParticipantConnection {
-  /**
-   * The identifier of the contact in this instance of Amazon Connect
-   * @public
-   */
-  initialContactId: string | undefined;
-
-  /**
-   * The identifier for a chat participant
-   * @public
-   */
-  participantId: string | undefined;
-
-  /**
-   * The token used by the chat participant to call CreateParticipantConnection
-   * @public
-   */
-  participantToken: string | undefined;
-}
-
-/**
  * Reference information linking a task to external systems - for input with validation
  * @public
  */
@@ -3129,126 +2929,6 @@ export interface DescribePrivateConnectionOutput {
 }
 
 /**
- * Request structure for desribing support level for an account
- * @public
- */
-export interface DescribeSupportLevelRequest {
-  /**
-   * The unique identifier for the agent space containing the task
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * The unique identifier for this task
-   * @public
-   */
-  taskId: string | undefined;
-}
-
-/**
- * Represents a support level with all its properties and metadata
- * @public
- */
-export interface SupportLevel {
-  /**
-   * The support level code
-   * @public
-   */
-  code: string | undefined;
-
-  /**
-   * The support level name
-   * @public
-   */
-  name: string | undefined;
-}
-
-/**
- * Response structure containing detailed support level for an account
- * @public
- */
-export interface DescribeSupportLevelResponse {
-  /**
-   * The account's support level
-   * @public
-   */
-  supportLevel: SupportLevel | undefined;
-
-  /**
-   * The account's Mosaic equivalent support level
-   * @public
-   */
-  mosaicSupportLevel?: SupportLevel | undefined;
-
-  /**
-   * Whether or not the account's subscription is active
-   * @public
-   */
-  activeSubscription?: boolean | undefined;
-}
-
-/**
- * Request structure for ending a chat session
- * @public
- */
-export interface EndChatForCaseRequest {
-  /**
-   * The unique identifier for the agent space containing the task
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * The unique identifier for the task execution to end
-   * @public
-   */
-  taskId: string | undefined;
-
-  /**
-   * Reason for ending the chat session (optional, defaults to 'Chat Ended by CloudSmith')
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * Who initiated the chat end request (optional, defaults to 'CloudSmith')
-   * @public
-   */
-  requester?: string | undefined;
-
-  /**
-   * Client-provided token for idempotent operations
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * Response structure for end chat operation
- * @public
- */
-export interface EndChatForCaseResponse {
-  /**
-   * Whether the chat session was successfully ended
-   * @public
-   */
-  isDisconnected: boolean | undefined;
-
-  /**
-   * The execution ID that was ended
-   * @public
-   */
-  executionId?: string | undefined;
-
-  /**
-   * Error message if the disconnect failed
-   * @public
-   */
-  errorMessage?: string | undefined;
-}
-
-/**
  * @public
  */
 export interface GetAccountUsageInput {}
@@ -3292,6 +2972,12 @@ export interface GetAccountUsageOutput {
    * @public
    */
   monthlyAccountSystemLearningHours?: UsageMetric | undefined;
+
+  /**
+   * Monthly on-demand hours usage and limit for an account
+   * @public
+   */
+  monthlyAccountOnDemandHours?: UsageMetric | undefined;
 
   /**
    * The start time of the usage tracking period
@@ -3472,42 +3158,6 @@ export interface GetRecommendationResponse {
    * @public
    */
   recommendation: Recommendation | undefined;
-}
-
-/**
- * Request structure for initiating a chat for support case
- * @public
- */
-export interface InitiateChatForCaseRequest {
-  /**
-   * The unique identifier for the agent space containing the task
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * The unique identifier for this task
-   * @public
-   */
-  taskId: string | undefined;
-
-  /**
-   * Client-provided token for idempotent operations
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * Response structure containing the chat participant connection
- * @public
- */
-export interface InitiateChatForCaseResponse {
-  /**
-   * The newly created chat participant connection
-   * @public
-   */
-  chatParticipantConnection: ChatParticipantConnection | undefined;
 }
 
 /**
@@ -5738,60 +5388,6 @@ export interface NewRelicServiceDetails {
 }
 
 /**
- * Authorization configuration for SigV4-authenticated MCP server.
- * @public
- */
-export interface MCPServerSigV4AuthorizationConfig {
-  /**
-   * AWS region for SigV4 signing.
-   * @public
-   */
-  region: string | undefined;
-
-  /**
-   * AWS service name for SigV4 signing.
-   * @public
-   */
-  service: string | undefined;
-
-  /**
-   * IAM role ARN to assume for SigV4 signing.
-   * @public
-   */
-  roleArn: string | undefined;
-}
-
-/**
- * Complete service details for SigV4-authenticated MCP server integration.
- * @public
- */
-export interface MCPServerSigV4ServiceDetails {
-  /**
-   * MCP server name.
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * MCP server endpoint URL.
-   * @public
-   */
-  endpoint: string | undefined;
-
-  /**
-   * Optional description for the MCP server.
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * MCP Server SigV4 authorization configuration.
-   * @public
-   */
-  authorizationConfig: MCPServerSigV4AuthorizationConfig | undefined;
-}
-
-/**
  * OAuth client credentials configuration for PagerDuty.
  * @public
  */
@@ -5978,7 +5574,6 @@ export type ServiceDetails =
   | ServiceDetails.McpserverdatadogMember
   | ServiceDetails.McpservergrafanaMember
   | ServiceDetails.McpservernewrelicMember
-  | ServiceDetails.Mcpserversigv4Member
   | ServiceDetails.McpserversplunkMember
   | ServiceDetails.PagerdutyMember
   | ServiceDetails.ServicenowMember
@@ -6004,7 +5599,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6024,7 +5618,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6044,7 +5637,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6064,7 +5656,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6084,7 +5675,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6104,7 +5694,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6124,7 +5713,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6144,7 +5732,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6164,7 +5751,6 @@ export namespace ServiceDetails {
     mcpservergrafana: GrafanaServiceDetails;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6184,7 +5770,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty: PagerDutyDetails;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown?: never;
   }
 
@@ -6204,27 +5789,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity: RegisteredAzureIdentityDetails;
-    mcpserversigv4?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * SigV4-authenticated MCP server-specific service details.
-   * @public
-   */
-  export interface Mcpserversigv4Member {
-    dynatrace?: never;
-    servicenow?: never;
-    mcpserverdatadog?: never;
-    mcpserver?: never;
-    gitlab?: never;
-    mcpserversplunk?: never;
-    mcpservernewrelic?: never;
-    eventChannel?: never;
-    mcpservergrafana?: never;
-    pagerduty?: never;
-    azureidentity?: never;
-    mcpserversigv4: MCPServerSigV4ServiceDetails;
     $unknown?: never;
   }
 
@@ -6243,7 +5807,6 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
-    mcpserversigv4?: never;
     $unknown: [string, any];
   }
 
@@ -6263,7 +5826,6 @@ export namespace ServiceDetails {
     mcpservergrafana: (value: GrafanaServiceDetails) => T;
     pagerduty: (value: PagerDutyDetails) => T;
     azureidentity: (value: RegisteredAzureIdentityDetails) => T;
-    mcpserversigv4: (value: MCPServerSigV4ServiceDetails) => T;
     _: (name: string, value: any) => T;
   }
 }

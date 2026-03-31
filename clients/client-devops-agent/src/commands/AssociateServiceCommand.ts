@@ -115,20 +115,6 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  *       ],
  *       customerEmail: "STRING_VALUE", // required
  *     },
- *     msteams: { // MSTeamsConfiguration
- *       teamId: "STRING_VALUE", // required
- *       teamName: "STRING_VALUE", // required
- *       transmissionTarget: { // MSTeamsTransmissionTarget
- *         opsOncallTarget: { // MSTeamsChannel
- *           channelName: "STRING_VALUE", // required
- *           channelId: "STRING_VALUE", // required
- *         },
- *         opsSRETarget: {
- *           channelName: "STRING_VALUE", // required
- *           channelId: "STRING_VALUE", // required
- *         },
- *       },
- *     },
  *   },
  * };
  * const command = new AssociateServiceCommand(input);
@@ -216,20 +202,6 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  * //           "STRING_VALUE",
  * //         ],
  * //         customerEmail: "STRING_VALUE", // required
- * //       },
- * //       msteams: { // MSTeamsConfiguration
- * //         teamId: "STRING_VALUE", // required
- * //         teamName: "STRING_VALUE", // required
- * //         transmissionTarget: { // MSTeamsTransmissionTarget
- * //           opsOncallTarget: { // MSTeamsChannel
- * //             channelName: "STRING_VALUE", // required
- * //             channelId: "STRING_VALUE", // required
- * //           },
- * //           opsSRETarget: {
- * //             channelName: "STRING_VALUE", // required
- * //             channelId: "STRING_VALUE", // required
- * //           },
- * //         },
  * //       },
  * //     },
  * //   },

@@ -260,13 +260,6 @@ DescribePrivateConnection
 </details>
 <details>
 <summary>
-DescribeSupportLevel
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/DescribeSupportLevelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/DescribeSupportLevelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/DescribeSupportLevelCommandOutput/)
-</details>
-<details>
-<summary>
 DisableOperatorApp
 </summary>
 
@@ -285,13 +278,6 @@ EnableOperatorApp
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/EnableOperatorAppCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/EnableOperatorAppCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/EnableOperatorAppCommandOutput/)
-</details>
-<details>
-<summary>
-EndChatForCase
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/EndChatForCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/EndChatForCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/EndChatForCaseCommandOutput/)
 </details>
 <details>
 <summary>
@@ -341,13 +327,6 @@ GetService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/GetServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/GetServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/GetServiceCommandOutput/)
-</details>
-<details>
-<summary>
-InitiateChatForCase
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/InitiateChatForCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/InitiateChatForCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/InitiateChatForCaseCommandOutput/)
 </details>
 <details>
 <summary>
