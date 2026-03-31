@@ -117,6 +117,9 @@ export interface ListOdbNetworksCommandOutput extends ListOdbNetworksOutput, __M
  * //           },
  * //         ],
  * //       },
+ * //       ec2PlacementGroupIds: [ // ResourceIdList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };

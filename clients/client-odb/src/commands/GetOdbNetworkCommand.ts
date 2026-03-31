@@ -114,6 +114,9 @@ export interface GetOdbNetworkCommandOutput extends GetOdbNetworkOutput, __Metad
  * //         },
  * //       ],
  * //     },
+ * //     ec2PlacementGroupIds: [ // ResourceIdList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

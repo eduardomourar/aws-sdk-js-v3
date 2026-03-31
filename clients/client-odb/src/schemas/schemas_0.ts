@@ -291,6 +291,7 @@ const _do = "domain";
 const _e = "error";
 const _eII = "exadataInfrastructureId";
 const _ePD = "estimatedPatchDuration";
+const _ePGI = "ec2PlacementGroupIds";
 const _eSITB = "exadataStorageInTBs";
 const _eSITBLSV = "exadataStorageInTBsLowestScaledValue";
 const _eTAL = "existingTenancyActivationLink";
@@ -1050,13 +1051,13 @@ export var OciIdentityDomain$: StaticStructureSchema = [3, n0, _OID,
 ];
 export var OdbNetwork$: StaticStructureSchema = [3, n0, _ON,
   0,
-  [_oNI, _dN, _st, _sR, _oNA, _aZ, _aZI, _cSC, _bSC, _cDN, _dDP, _pCe, _oNAI, _oNAU, _oRAN, _oVI, _oVU, _oDFC, _cA, _pP, _mS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, () => OciDnsForwardingConfigList, 5, 1, () => ManagedServices$], 1
+  [_oNI, _dN, _st, _sR, _oNA, _aZ, _aZI, _cSC, _bSC, _cDN, _dDP, _pCe, _oNAI, _oNAU, _oRAN, _oVI, _oVU, _oDFC, _cA, _pP, _mS, _ePGI],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, () => OciDnsForwardingConfigList, 5, 1, () => ManagedServices$, 64 | 0], 1
 ];
 export var OdbNetworkSummary$: StaticStructureSchema = [3, n0, _ONS,
   0,
-  [_oNI, _dN, _st, _sR, _oNA, _aZ, _aZI, _cSC, _bSC, _cDN, _dDP, _pCe, _oNAI, _oNAU, _oRAN, _oVI, _oVU, _oDFC, _cA, _pP, _mS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, () => OciDnsForwardingConfigList, 5, 1, () => ManagedServices$], 1
+  [_oNI, _dN, _st, _sR, _oNA, _aZ, _aZI, _cSC, _bSC, _cDN, _dDP, _pCe, _oNAI, _oNAU, _oRAN, _oVI, _oVU, _oDFC, _cA, _pP, _mS, _ePGI],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, () => OciDnsForwardingConfigList, 5, 1, () => ManagedServices$, 64 | 0], 1
 ];
 export var OdbPeeringConnection$: StaticStructureSchema = [3, n0, _OPC,
   0,
@@ -1238,6 +1239,7 @@ var OdbPeeringConnectionList: StaticListSchema = [1, n0, _OPCL,
 ];
 var PeeredCidrList = 64 | 0;
 var PeerNetworkRouteTableIdList = 64 | 0;
+var ResourceIdList = 64 | 0;
 var SensitiveStringList: StaticListSchema = [1, n0, _SSL,
   0, [() => SensitiveString,
     0]

@@ -4591,6 +4591,12 @@ export interface OdbNetwork {
    * @public
    */
   managedServices?: ManagedServices | undefined;
+
+  /**
+   * <p>The list of EC2 Placement Group IDs associated with your ODB network.</p>
+   * @public
+   */
+  ec2PlacementGroupIds?: string[] | undefined;
 }
 
 /**
@@ -4959,6 +4965,12 @@ export interface OdbNetworkSummary {
    * @public
    */
   managedServices?: ManagedServices | undefined;
+
+  /**
+   * <p>The list of EC2 Placement Group IDs associated with your ODB network.</p>
+   * @public
+   */
+  ec2PlacementGroupIds?: string[] | undefined;
 }
 
 /**
