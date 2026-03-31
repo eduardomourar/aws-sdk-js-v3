@@ -47,8 +47,8 @@ export interface ListIngressPointsCommandOutput extends ListIngressPointsRespons
  * //     { // IngressPoint
  * //       IngressPointName: "STRING_VALUE", // required
  * //       IngressPointId: "STRING_VALUE", // required
- * //       Status: "PROVISIONING" || "DEPROVISIONING" || "UPDATING" || "ACTIVE" || "CLOSED" || "FAILED", // required
- * //       Type: "OPEN" || "AUTH", // required
+ * //       Status: "PROVISIONING" || "DEPROVISIONING" || "UPDATING" || "ACTIVE" || "CLOSED" || "FAILED" || "ASSOCIATED_VPC_ENDPOINT_DOES_NOT_EXIST", // required
+ * //       Type: "OPEN" || "AUTH" || "MTLS", // required
  * //       ARecord: "STRING_VALUE",
  * //     },
  * //   ],

@@ -24,11 +24,13 @@ import type {
   IngressTlsProtocolAttribute,
   IngressTlsProtocolOperator,
   IpType,
+  LambdaInvocationType,
   MailFrom,
   RetentionPeriod,
   RuleAddressListEmailAttribute,
   RuleBooleanEmailAttribute,
   RuleBooleanOperator,
+  RuleClientCertificateAttribute,
   RuleDmarcOperator,
   RuleDmarcPolicy,
   RuleIpEmailAttribute,
@@ -43,6 +45,8 @@ import type {
   SearchState,
   SnsNotificationEncoding,
   SnsNotificationPayloadType,
+  TlsPolicy,
+  TrustStoreResponseOption,
 } from "./enums";
 
 /**
@@ -1062,6 +1066,54 @@ export interface UpdateArchiveRequest {
 export interface UpdateArchiveResponse {}
 
 /**
+ * <p>The action to send a bounce response for the email. When executed, this action generates a non-delivery report (bounce) back to the sender.</p>
+ * @public
+ */
+export interface BounceAction {
+  /**
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are configuration errors. For example, the caller does not have the permissions to call the SendBounce API.</p>
+   * @public
+   */
+  ActionFailurePolicy?: ActionFailurePolicy | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to use to send the bounce message.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The sender email address of the bounce message.</p>
+   * @public
+   */
+  Sender: string | undefined;
+
+  /**
+   * <p>The enhanced status code for the bounce, in the format of x.y.z (e.g. 5.1.1).</p>
+   * @public
+   */
+  StatusCode: string | undefined;
+
+  /**
+   * <p>The SMTP reply code for the bounce, as defined by RFC 5321.</p>
+   * @public
+   */
+  SmtpReplyCode: string | undefined;
+
+  /**
+   * <p>The diagnostic message included in the Diagnostic-Code header of the bounce.</p>
+   * @public
+   */
+  DiagnosticMessage: string | undefined;
+
+  /**
+   * <p>The human-readable text to include in the bounce message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
  * <p>The import data format contains the specifications of the input file that would be passed to the address list import job.</p>
  * @public
  */
@@ -1120,12 +1172,49 @@ export interface CreateAddressListImportJobResponse {
 }
 
 /**
+ * <p>The trust store used for mutual TLS authentication. It contains the certificate authority (CA) certificates and optional certificate revocation list (CRL).</p>
+ * @public
+ */
+export interface TrustStore {
+  /**
+   * <p>The PEM-encoded certificate authority (CA) certificates bundle for the trust store.</p>
+   * @public
+   */
+  CAContent: string | undefined;
+
+  /**
+   * <p>The PEM-encoded certificate revocation lists (CRLs) for the trust store. There can be one CRL per certificate authority (CA) in the trust store.</p>
+   * @public
+   */
+  CrlContent?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the trust store contents.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+}
+
+/**
+ * <p>The mutual TLS authentication configuration for an ingress endpoint.</p>
+ * @public
+ */
+export interface TlsAuthConfiguration {
+  /**
+   * <p>The trust store configuration for mutual TLS authentication.</p>
+   * @public
+   */
+  TrustStore?: TrustStore | undefined;
+}
+
+/**
  * <p>The configuration of the ingress endpoint resource.</p>
  * @public
  */
 export type IngressPointConfiguration =
   | IngressPointConfiguration.SecretArnMember
   | IngressPointConfiguration.SmtpPasswordMember
+  | IngressPointConfiguration.TlsAuthConfigurationMember
   | IngressPointConfiguration.$UnknownMember;
 
 /**
@@ -1139,6 +1228,7 @@ export namespace IngressPointConfiguration {
   export interface SmtpPasswordMember {
     SmtpPassword: string;
     SecretArn?: never;
+    TlsAuthConfiguration?: never;
     $unknown?: never;
   }
 
@@ -1149,6 +1239,18 @@ export namespace IngressPointConfiguration {
   export interface SecretArnMember {
     SmtpPassword?: never;
     SecretArn: string;
+    TlsAuthConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The mutual TLS authentication configuration of the ingress endpoint resource.</p>
+   * @public
+   */
+  export interface TlsAuthConfigurationMember {
+    SmtpPassword?: never;
+    SecretArn?: never;
+    TlsAuthConfiguration: TlsAuthConfiguration;
     $unknown?: never;
   }
 
@@ -1158,6 +1260,7 @@ export namespace IngressPointConfiguration {
   export interface $UnknownMember {
     SmtpPassword?: never;
     SecretArn?: never;
+    TlsAuthConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -1168,6 +1271,7 @@ export namespace IngressPointConfiguration {
   export interface Visitor<T> {
     SmtpPassword: (value: string) => T;
     SecretArn: (value: string) => T;
+    TlsAuthConfiguration: (value: TlsAuthConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1294,6 +1398,12 @@ export interface CreateIngressPointRequest {
    * @public
    */
   NetworkConfiguration?: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The Transport Layer Security (TLS) policy for the ingress point. The FIPS value is only valid in US and Canada regions.</p>
+   * @public
+   */
+  TlsPolicy?: TlsPolicy | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -1485,6 +1595,42 @@ export interface DeliverToQBusinessAction {
 export interface DropAction {}
 
 /**
+ * <p>The action to invoke an Amazon Web Services Lambda function for processing the email.</p>
+ * @public
+ */
+export interface InvokeLambdaAction {
+  /**
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are configuration errors. For example, the Amazon Web Services Lambda function no longer exists.</p>
+   * @public
+   */
+  ActionFailurePolicy?: ActionFailurePolicy | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function to invoke.</p>
+   * @public
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The invocation type of the Lambda function. Use EVENT for asynchronous invocation or REQUEST_RESPONSE for synchronous invocation.</p>
+   * @public
+   */
+  InvocationType: LambdaInvocationType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to use to invoke the Lambda function.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The maximum time in minutes that the email processing can be retried if the Lambda invocation fails. The maximum value is 2160 minutes (36 hours).</p>
+   * @public
+   */
+  RetryTimeMinutes?: number | undefined;
+}
+
+/**
  * <p>The action to publish the email content to an Amazon SNS topic. When executed, this action will send the email as a notification to the specified SNS topic.</p>
  * @public
  */
@@ -1617,9 +1763,11 @@ export interface S3Action {
 export type RuleAction =
   | RuleAction.AddHeaderMember
   | RuleAction.ArchiveMember
+  | RuleAction.BounceMember
   | RuleAction.DeliverToMailboxMember
   | RuleAction.DeliverToQBusinessMember
   | RuleAction.DropMember
+  | RuleAction.InvokeLambdaMember
   | RuleAction.PublishToSnsMember
   | RuleAction.RelayMember
   | RuleAction.ReplaceRecipientMember
@@ -1646,6 +1794,8 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown?: never;
   }
 
@@ -1664,6 +1814,8 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown?: never;
   }
 
@@ -1682,6 +1834,8 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown?: never;
   }
 
@@ -1700,6 +1854,8 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown?: never;
   }
 
@@ -1718,6 +1874,8 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown?: never;
   }
 
@@ -1736,6 +1894,8 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown?: never;
   }
 
@@ -1754,6 +1914,8 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown?: never;
   }
 
@@ -1772,6 +1934,8 @@ export namespace RuleAction {
     DeliverToMailbox: DeliverToMailboxAction;
     DeliverToQBusiness?: never;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown?: never;
   }
 
@@ -1790,6 +1954,8 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness: DeliverToQBusinessAction;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown?: never;
   }
 
@@ -1808,6 +1974,48 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
     PublishToSns: SnsAction;
+    Bounce?: never;
+    InvokeLambda?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>This action sends a bounce response for the email.</p>
+   * @public
+   */
+  export interface BounceMember {
+    Drop?: never;
+    Relay?: never;
+    Archive?: never;
+    WriteToS3?: never;
+    Send?: never;
+    AddHeader?: never;
+    ReplaceRecipient?: never;
+    DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
+    PublishToSns?: never;
+    Bounce: BounceAction;
+    InvokeLambda?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>This action invokes an Amazon Web Services Lambda function to process the email.</p>
+   * @public
+   */
+  export interface InvokeLambdaMember {
+    Drop?: never;
+    Relay?: never;
+    Archive?: never;
+    WriteToS3?: never;
+    Send?: never;
+    AddHeader?: never;
+    ReplaceRecipient?: never;
+    DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
+    PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda: InvokeLambdaAction;
     $unknown?: never;
   }
 
@@ -1825,6 +2033,8 @@ export namespace RuleAction {
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
     PublishToSns?: never;
+    Bounce?: never;
+    InvokeLambda?: never;
     $unknown: [string, any];
   }
 
@@ -1843,6 +2053,8 @@ export namespace RuleAction {
     DeliverToMailbox: (value: DeliverToMailboxAction) => T;
     DeliverToQBusiness: (value: DeliverToQBusinessAction) => T;
     PublishToSns: (value: SnsAction) => T;
+    Bounce: (value: BounceAction) => T;
+    InvokeLambda: (value: InvokeLambdaAction) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2103,6 +2315,7 @@ export interface RuleNumberExpression {
 export type RuleStringToEvaluate =
   | RuleStringToEvaluate.AnalysisMember
   | RuleStringToEvaluate.AttributeMember
+  | RuleStringToEvaluate.ClientCertificateAttributeMember
   | RuleStringToEvaluate.MimeHeaderAttributeMember
   | RuleStringToEvaluate.$UnknownMember;
 
@@ -2118,6 +2331,7 @@ export namespace RuleStringToEvaluate {
     Attribute: RuleStringEmailAttribute;
     MimeHeaderAttribute?: never;
     Analysis?: never;
+    ClientCertificateAttribute?: never;
     $unknown?: never;
   }
 
@@ -2129,6 +2343,7 @@ export namespace RuleStringToEvaluate {
     Attribute?: never;
     MimeHeaderAttribute: string;
     Analysis?: never;
+    ClientCertificateAttribute?: never;
     $unknown?: never;
   }
 
@@ -2140,6 +2355,19 @@ export namespace RuleStringToEvaluate {
     Attribute?: never;
     MimeHeaderAttribute?: never;
     Analysis: Analysis;
+    ClientCertificateAttribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The client certificate attribute to evaluate in a string condition expression.</p>
+   * @public
+   */
+  export interface ClientCertificateAttributeMember {
+    Attribute?: never;
+    MimeHeaderAttribute?: never;
+    Analysis?: never;
+    ClientCertificateAttribute: RuleClientCertificateAttribute;
     $unknown?: never;
   }
 
@@ -2150,6 +2378,7 @@ export namespace RuleStringToEvaluate {
     Attribute?: never;
     MimeHeaderAttribute?: never;
     Analysis?: never;
+    ClientCertificateAttribute?: never;
     $unknown: [string, any];
   }
 
@@ -2161,6 +2390,7 @@ export namespace RuleStringToEvaluate {
     Attribute: (value: RuleStringEmailAttribute) => T;
     MimeHeaderAttribute: (value: string) => T;
     Analysis: (value: Analysis) => T;
+    ClientCertificateAttribute: (value: RuleClientCertificateAttribute) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3777,6 +4007,12 @@ export interface GetIngressPointRequest {
    * @public
    */
   IngressPointId: string | undefined;
+
+  /**
+   * <p>Whether to include the trust store contents in the response. Use INCLUDE to retrieve trust store certificate and CRL contents.</p>
+   * @public
+   */
+  IncludeTrustStoreContents?: TrustStoreResponseOption | undefined;
 }
 
 /**
@@ -3819,6 +4055,12 @@ export interface IngressPointAuthConfiguration {
    * @public
    */
   SecretArn?: string | undefined;
+
+  /**
+   * <p>The mutual TLS authentication configuration for the ingress endpoint resource.</p>
+   * @public
+   */
+  TlsAuthConfiguration?: TlsAuthConfiguration | undefined;
 }
 
 /**
@@ -3884,6 +4126,12 @@ export interface GetIngressPointResponse {
    * @public
    */
   NetworkConfiguration?: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The selected Transport Layer Security (TLS) policy of the ingress point.</p>
+   * @public
+   */
+  TlsPolicy?: TlsPolicy | undefined;
 
   /**
    * <p>The timestamp of when the ingress endpoint was created.</p>
@@ -4299,6 +4547,12 @@ export interface UpdateIngressPointRequest {
    * @public
    */
   IngressPointConfiguration?: IngressPointConfiguration | undefined;
+
+  /**
+   * <p>The Transport Layer Security (TLS) policy for the ingress point. Valid values are REQUIRED, OPTIONAL. Only ingress endpoints using REQUIRED or OPTIONAL as TlsPolicy can be updated.</p>
+   * @public
+   */
+  TlsPolicy?: TlsPolicy | undefined;
 }
 
 /**

@@ -60,6 +60,9 @@ export interface DeleteAddressListCommandOutput extends DeleteAddressListRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *

@@ -23,6 +23,7 @@ import {
   ArchiveStringExpression$,
   ArchiveStringOperator,
   ArchiveStringToEvaluate$,
+  BounceAction$,
   ConflictException,
   ConflictException$,
   CreateAddonInstance$,
@@ -198,7 +199,9 @@ import {
   IngressTlsProtocolExpression$,
   IngressTlsProtocolOperator,
   IngressTlsProtocolToEvaluate$,
+  InvokeLambdaAction$,
   IpType,
+  LambdaInvocationType,
   ListAddonInstances$,
   ListAddonInstancesCommand,
   ListAddonInstancesRequest$,
@@ -294,6 +297,7 @@ import {
   RuleBooleanExpression$,
   RuleBooleanOperator,
   RuleBooleanToEvaluate$,
+  RuleClientCertificateAttribute,
   RuleCondition$,
   RuleDmarcExpression$,
   RuleDmarcOperator,
@@ -360,7 +364,11 @@ import {
   TagResourceResponse$,
   ThrottlingException,
   ThrottlingException$,
+  TlsAuthConfiguration$,
+  TlsPolicy,
   TrafficPolicy$,
+  TrustStore$,
+  TrustStoreResponseOption,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -529,6 +537,7 @@ assert(typeof ArchiveFilters$ === "object");
 assert(typeof ArchiveRetention$ === "object");
 assert(typeof ArchiveStringExpression$ === "object");
 assert(typeof ArchiveStringToEvaluate$ === "object");
+assert(typeof BounceAction$ === "object");
 assert(typeof CreateAddonInstanceRequest$ === "object");
 assert(typeof CreateAddonInstanceResponse$ === "object");
 assert(typeof CreateAddonSubscriptionRequest$ === "object");
@@ -620,6 +629,7 @@ assert(typeof IngressStringExpression$ === "object");
 assert(typeof IngressStringToEvaluate$ === "object");
 assert(typeof IngressTlsProtocolExpression$ === "object");
 assert(typeof IngressTlsProtocolToEvaluate$ === "object");
+assert(typeof InvokeLambdaAction$ === "object");
 assert(typeof ListAddonInstancesRequest$ === "object");
 assert(typeof ListAddonInstancesResponse$ === "object");
 assert(typeof ListAddonSubscriptionsRequest$ === "object");
@@ -699,7 +709,9 @@ assert(typeof StopArchiveSearchResponse$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
+assert(typeof TlsAuthConfiguration$ === "object");
 assert(typeof TrafficPolicy$ === "object");
+assert(typeof TrustStore$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateArchiveRequest$ === "object");
@@ -737,11 +749,13 @@ assert(typeof IngressTlsAttribute === "object");
 assert(typeof IngressTlsProtocolAttribute === "object");
 assert(typeof IngressTlsProtocolOperator === "object");
 assert(typeof IpType === "object");
+assert(typeof LambdaInvocationType === "object");
 assert(typeof MailFrom === "object");
 assert(typeof RetentionPeriod === "object");
 assert(typeof RuleAddressListEmailAttribute === "object");
 assert(typeof RuleBooleanEmailAttribute === "object");
 assert(typeof RuleBooleanOperator === "object");
+assert(typeof RuleClientCertificateAttribute === "object");
 assert(typeof RuleDmarcOperator === "object");
 assert(typeof RuleDmarcPolicy === "object");
 assert(typeof RuleIpEmailAttribute === "object");
@@ -756,6 +770,8 @@ assert(typeof RuleVerdictOperator === "object");
 assert(typeof SearchState === "object");
 assert(typeof SnsNotificationEncoding === "object");
 assert(typeof SnsNotificationPayloadType === "object");
+assert(typeof TlsPolicy === "object");
+assert(typeof TrustStoreResponseOption === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof MailManagerServiceException);
 assert(typeof AccessDeniedException$ === "object");

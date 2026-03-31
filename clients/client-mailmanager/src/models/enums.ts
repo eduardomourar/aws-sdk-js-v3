@@ -151,14 +151,42 @@ export type IpType = (typeof IpType)[keyof typeof IpType];
  * @public
  * @enum
  */
+export const TlsPolicy = {
+  FIPS: "FIPS",
+  OPTIONAL: "OPTIONAL",
+  REQUIRED: "REQUIRED",
+} as const;
+/**
+ * @public
+ */
+export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
+
+/**
+ * @public
+ * @enum
+ */
 export const IngressPointType = {
   AUTH: "AUTH",
+  MTLS: "MTLS",
   OPEN: "OPEN",
 } as const;
 /**
  * @public
  */
 export type IngressPointType = (typeof IngressPointType)[keyof typeof IngressPointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaInvocationType = {
+  EVENT: "EVENT",
+  REQUEST_RESPONSE: "REQUEST_RESPONSE",
+} as const;
+/**
+ * @public
+ */
+export type LambdaInvocationType = (typeof LambdaInvocationType)[keyof typeof LambdaInvocationType];
 
 /**
  * @public
@@ -343,6 +371,26 @@ export const RuleStringEmailAttribute = {
  * @public
  */
 export type RuleStringEmailAttribute = (typeof RuleStringEmailAttribute)[keyof typeof RuleStringEmailAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleClientCertificateAttribute = {
+  CN: "CN",
+  SAN_DIRECTORY_NAME: "SAN_DIRECTORY_NAME",
+  SAN_DNS_NAME: "SAN_DNS_NAME",
+  SAN_IP_ADDRESS: "SAN_IP_ADDRESS",
+  SAN_REGISTERED_ID: "SAN_REGISTERED_ID",
+  SAN_RFC822_NAME: "SAN_RFC822_NAME",
+  SAN_UNIFORM_RESOURCE_IDENTIFIER: "SAN_UNIFORM_RESOURCE_IDENTIFIER",
+  SERIAL_NUMBER: "SERIAL_NUMBER",
+} as const;
+/**
+ * @public
+ */
+export type RuleClientCertificateAttribute =
+  (typeof RuleClientCertificateAttribute)[keyof typeof RuleClientCertificateAttribute];
 
 /**
  * @public
@@ -585,8 +633,22 @@ export type SearchState = (typeof SearchState)[keyof typeof SearchState];
  * @public
  * @enum
  */
+export const TrustStoreResponseOption = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+/**
+ * @public
+ */
+export type TrustStoreResponseOption = (typeof TrustStoreResponseOption)[keyof typeof TrustStoreResponseOption];
+
+/**
+ * @public
+ * @enum
+ */
 export const IngressPointStatus = {
   ACTIVE: "ACTIVE",
+  ASSOCIATED_VPC_ENDPOINT_DOES_NOT_EXIST: "ASSOCIATED_VPC_ENDPOINT_DOES_NOT_EXIST",
   CLOSED: "CLOSED",
   DEPROVISIONING: "DEPROVISIONING",
   FAILED: "FAILED",

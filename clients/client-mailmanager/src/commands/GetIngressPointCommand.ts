@@ -38,6 +38,7 @@ export interface GetIngressPointCommandOutput extends GetIngressPointResponse, _
  * const client = new MailManagerClient(config);
  * const input = { // GetIngressPointRequest
  *   IngressPointId: "STRING_VALUE", // required
+ *   IncludeTrustStoreContents: "EXCLUDE" || "INCLUDE",
  * };
  * const command = new GetIngressPointCommand(input);
  * const response = await client.send(command);
@@ -45,8 +46,8 @@ export interface GetIngressPointCommandOutput extends GetIngressPointResponse, _
  * //   IngressPointId: "STRING_VALUE", // required
  * //   IngressPointName: "STRING_VALUE", // required
  * //   IngressPointArn: "STRING_VALUE",
- * //   Status: "PROVISIONING" || "DEPROVISIONING" || "UPDATING" || "ACTIVE" || "CLOSED" || "FAILED",
- * //   Type: "OPEN" || "AUTH",
+ * //   Status: "PROVISIONING" || "DEPROVISIONING" || "UPDATING" || "ACTIVE" || "CLOSED" || "FAILED" || "ASSOCIATED_VPC_ENDPOINT_DOES_NOT_EXIST",
+ * //   Type: "OPEN" || "AUTH" || "MTLS",
  * //   ARecord: "STRING_VALUE",
  * //   RuleSetId: "STRING_VALUE",
  * //   TrafficPolicyId: "STRING_VALUE",
@@ -57,6 +58,13 @@ export interface GetIngressPointCommandOutput extends GetIngressPointResponse, _
  * //       PreviousSmtpPasswordExpiryTimestamp: new Date("TIMESTAMP"),
  * //     },
  * //     SecretArn: "STRING_VALUE",
+ * //     TlsAuthConfiguration: { // TlsAuthConfiguration
+ * //       TrustStore: { // TrustStore
+ * //         CAContent: "STRING_VALUE", // required
+ * //         CrlContent: "STRING_VALUE",
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   NetworkConfiguration: { // NetworkConfiguration Union: only one key present
  * //     PublicNetworkConfiguration: { // PublicNetworkConfiguration
@@ -66,6 +74,7 @@ export interface GetIngressPointCommandOutput extends GetIngressPointResponse, _
  * //       VpcEndpointId: "STRING_VALUE", // required
  * //     },
  * //   },
+ * //   TlsPolicy: "REQUIRED" || "OPTIONAL" || "FIPS",
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * //   LastUpdatedTimestamp: new Date("TIMESTAMP"),
  * // };

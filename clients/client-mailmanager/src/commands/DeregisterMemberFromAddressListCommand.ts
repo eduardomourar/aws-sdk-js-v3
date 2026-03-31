@@ -58,6 +58,9 @@ export interface DeregisterMemberFromAddressListCommandOutput extends Deregister
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Occurs when a user is denied access to a specific resource or action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Occurs when a requested resource is not found.</p>
  *

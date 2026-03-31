@@ -46,9 +46,13 @@ const _Arc = "Archives";
 const _At = "Attribute";
 const _Au = "Authentication";
 const _B = "Body";
+const _BA = "BounceAction";
 const _BE = "BooleanExpression";
+const _BM = "BounceMessage";
+const _Bo = "Bounce";
 const _C = "Conditions";
 const _CA = "CreateArchive";
+const _CAC = "CAContent";
 const _CAI = "CreateAddonInstance";
 const _CAIR = "CreateAddonInstanceRequest";
 const _CAIRr = "CreateAddonInstanceResponse";
@@ -63,6 +67,8 @@ const _CARr = "CreateArchiveResponse";
 const _CAS = "CreateAddonSubscription";
 const _CASR = "CreateAddonSubscriptionRequest";
 const _CASRr = "CreateAddonSubscriptionResponse";
+const _CC = "CrlContent";
+const _CCA = "ClientCertificateAttribute";
 const _CD = "CreatedDate";
 const _CE = "ConflictException";
 const _CIP = "CreateIngressPoint";
@@ -102,6 +108,7 @@ const _DE = "DmarcExpression";
 const _DIP = "DeleteIngressPoint";
 const _DIPR = "DeleteIngressPointRequest";
 const _DIPRe = "DeleteIngressPointResponse";
+const _DM = "DiagnosticMessage";
 const _DMFAL = "DeregisterMemberFromAddressList";
 const _DMFALR = "DeregisterMemberFromAddressListRequest";
 const _DMFALRe = "DeregisterMemberFromAddressListResponse";
@@ -132,6 +139,7 @@ const _Enc = "Encoding";
 const _Er = "Error";
 const _Ex = "Exports";
 const _F = "From";
+const _FA = "FunctionArn";
 const _FIC = "FailedItemsCount";
 const _FT = "FromTimestamp";
 const _Fi = "Filters";
@@ -204,6 +212,8 @@ const _IITE = "IngressIpToEvaluate";
 const _IITEn = "IngressIpv6ToEvaluate";
 const _IJ = "ImportJob";
 const _IJm = "ImportJobs";
+const _IL = "InvokeLambda";
+const _ILA = "InvokeLambdaAction";
 const _IM = "IncludeMetadata";
 const _IP = "IngressPoint";
 const _IPA = "IngressPointArn";
@@ -217,9 +227,11 @@ const _IPn = "IngressPoints";
 const _IRT = "InReplyTo";
 const _ISE = "IngressStringExpression";
 const _ISTE = "IngressStringToEvaluate";
-const _IT = "IpType";
+const _IT = "InvocationType";
 const _ITPE = "IngressTlsProtocolExpression";
 const _ITPTE = "IngressTlsProtocolToEvaluate";
+const _ITSC = "IncludeTrustStoreContents";
+const _ITp = "IpType";
 const _JI = "JobId";
 const _K = "Key";
 const _KKA = "KmsKeyArn";
@@ -329,10 +341,13 @@ const _RS = "RuleSets";
 const _RSA = "RuleSetArn";
 const _RSE = "RuleStringExpression";
 const _RSI = "RuleSetId";
+const _RSL = "RuleStringList";
 const _RSN = "RuleSetName";
 const _RSTE = "RuleStringToEvaluate";
+const _RSV = "RuleStringValue";
 const _RSu = "RuleSet";
 const _RT = "ReceivedTimestamp";
+const _RTM = "RetryTimeMinutes";
 const _RVE = "RuleVerdictExpression";
 const _RVTE = "RuleVerdictToEvaluate";
 const _RW = "ReplaceWith";
@@ -343,7 +358,7 @@ const _Ro = "Rows";
 const _Row = "Row";
 const _Ru = "Rules";
 const _Rul = "Rule";
-const _S = "State";
+const _S = "Sender";
 const _SA = "SecretArn";
 const _SAE = "StartArchiveExport";
 const _SAER = "StartArchiveExportRequest";
@@ -370,6 +385,7 @@ const _SAe = "SendAction";
 const _SAn = "SnsAction";
 const _SAo = "SourceArn";
 const _SB = "S3Bucket";
+const _SC = "StatusCode";
 const _SE = "StringExpression";
 const _SEDC = "S3ExportDestinationConfiguration";
 const _SH = "SenderHostname";
@@ -385,6 +401,7 @@ const _SPe = "ServerPort";
 const _SPen = "SendingPool";
 const _SPr = "S3Prefix";
 const _SQEE = "ServiceQuotaExceededException";
+const _SRC = "SmtpReplyCode";
 const _SS = "SearchStatus";
 const _SSKKI = "S3SseKmsKeyId";
 const _SSL = "SearchSummaryList";
@@ -395,26 +412,30 @@ const _STt = "StartTimestamp";
 const _S_ = "S3";
 const _Se = "Searches";
 const _Sen = "Send";
-const _St = "Status";
+const _St = "State";
+const _Sta = "Status";
 const _Su = "Subject";
 const _T = "Tags";
 const _TA = "TargetArchive";
+const _TAC = "TlsAuthConfiguration";
 const _TAo = "TopicArn";
 const _TCS = "TlsCipherSuite";
 const _TE = "ThrottlingException";
 const _TEl = "TlsExpression";
 const _TK = "TagKeys";
 const _TL = "TagList";
-const _TP = "TrafficPolicies";
+const _TP = "TlsPolicy";
 const _TPA = "TrafficPolicyArn";
 const _TPI = "TrafficPolicyId";
 const _TPL = "TrafficPolicyList";
 const _TPN = "TrafficPolicyName";
 const _TPl = "TlsProtocol";
-const _TPr = "TrafficPolicy";
+const _TPr = "TrafficPolicies";
+const _TPra = "TrafficPolicy";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
+const _TS = "TrustStore";
 const _TT = "ToTimestamp";
 const _Ta = "Tag";
 const _Te = "Text";
@@ -528,8 +549,13 @@ export const errorTypeRegistries = [
 ]
 var Address: StaticSimpleSchema = [0, n0, _A, 8, 0];
 var AddressPrefix: StaticSimpleSchema = [0, n0, _AP, 8, 0];
+var BounceMessage: StaticSimpleSchema = [0, n0, _BM, 8, 0];
+var CAContent: StaticSimpleSchema = [0, n0, _CAC, 8, 0];
+var CrlContent: StaticSimpleSchema = [0, n0, _CC, 8, 0];
+var DiagnosticMessage: StaticSimpleSchema = [0, n0, _DM, 8, 0];
 var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 var PreSignedUrl: StaticSimpleSchema = [0, n0, _PSU, 8, 0];
+var RuleStringValue: StaticSimpleSchema = [0, n0, _RSV, 8, 0];
 var SenderIpAddress: StaticSimpleSchema = [0, n0, _SIA, 8, 0];
 var SmtpPassword: StaticSimpleSchema = [0, n0, _SP, 8, 0];
 export var AddHeaderAction$: StaticStructureSchema = [3, n0, _AHA,
@@ -587,6 +613,11 @@ export var ArchiveStringExpression$: StaticStructureSchema = [3, n0, _ASE,
   [_E, _O, _V],
   [() => ArchiveStringToEvaluate$, 0, 64 | 0], 3
 ];
+export var BounceAction$: StaticStructureSchema = [3, n0, _BA,
+  0,
+  [_RA, _S, _SC, _SRC, _DM, _AFP, _M],
+  [0, [() => EmailAddress, 0], 0, 0, [() => DiagnosticMessage, 0], 0, [() => BounceMessage, 0]], 5
+];
 export var CreateAddonInstanceRequest$: StaticStructureSchema = [3, n0, _CAIR,
   0,
   [_ASI, _CTl, _T],
@@ -639,8 +670,8 @@ export var CreateArchiveResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateIngressPointRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
-  [_IPN, _Ty, _RSI, _TPI, _CTl, _IPC, _NC, _T],
-  [0, 0, 0, 0, [0, 4], [() => IngressPointConfiguration$, 0], () => NetworkConfiguration$, () => TagList], 4
+  [_IPN, _Ty, _RSI, _TPI, _CTl, _IPC, _NC, _TP, _T],
+  [0, 0, 0, 0, [0, 4], [() => IngressPointConfiguration$, 0], () => NetworkConfiguration$, 0, () => TagList], 4
 ];
 export var CreateIngressPointResponse$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
@@ -789,12 +820,12 @@ export var Envelope$: StaticStructureSchema = [3, n0, _En,
 ];
 export var ExportStatus$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_ST, _CTo, _S, _EM],
+  [_ST, _CTo, _St, _EM],
   [4, 4, 0, 0]
 ];
 export var ExportSummary$: StaticStructureSchema = [3, n0, _ESx,
   0,
-  [_EI, _St],
+  [_EI, _Sta],
   [0, () => ExportStatus$]
 ];
 export var GetAddonInstanceRequest$: StaticStructureSchema = [3, n0, _GAIR,
@@ -824,7 +855,7 @@ export var GetAddressListImportJobRequest$: StaticStructureSchema = [3, n0, _GAL
 ];
 export var GetAddressListImportJobResponse$: StaticStructureSchema = [3, n0, _GALIJRe,
   0,
-  [_JI, _N, _St, _PSU, _IDF, _ALI, _CT, _IIC, _FIC, _STt, _CTom, _Er],
+  [_JI, _N, _Sta, _PSU, _IDF, _ALI, _CT, _IIC, _FIC, _STt, _CTom, _Er],
   [0, 0, 0, [() => PreSignedUrl, 0], () => ImportDataFormat$, 0, 4, 1, 1, 4, 4, 0], 7
 ];
 export var GetAddressListRequest$: StaticStructureSchema = [3, n0, _GALR,
@@ -844,7 +875,7 @@ export var GetArchiveExportRequest$: StaticStructureSchema = [3, n0, _GAER,
 ];
 export var GetArchiveExportResponse$: StaticStructureSchema = [3, n0, _GAERe,
   0,
-  [_AIr, _Fi, _FT, _TT, _MR, _EDC, _St],
+  [_AIr, _Fi, _FT, _TT, _MR, _EDC, _Sta],
   [0, () => ArchiveFilters$, 4, 4, 1, () => ExportDestinationConfiguration$, () => ExportStatus$]
 ];
 export var GetArchiveMessageContentRequest$: StaticStructureSchema = [3, n0, _GAMCR,
@@ -884,7 +915,7 @@ export var GetArchiveSearchRequest$: StaticStructureSchema = [3, n0, _GASRet,
 ];
 export var GetArchiveSearchResponse$: StaticStructureSchema = [3, n0, _GASRetr,
   0,
-  [_AIr, _Fi, _FT, _TT, _MR, _St],
+  [_AIr, _Fi, _FT, _TT, _MR, _Sta],
   [0, () => ArchiveFilters$, 4, 4, 1, () => SearchStatus$]
 ];
 export var GetArchiveSearchResultsRequest$: StaticStructureSchema = [3, n0, _GASRR,
@@ -899,13 +930,13 @@ export var GetArchiveSearchResultsResponse$: StaticStructureSchema = [3, n0, _GA
 ];
 export var GetIngressPointRequest$: StaticStructureSchema = [3, n0, _GIPR,
   0,
-  [_IPI],
-  [0], 1
+  [_IPI, _ITSC],
+  [0, 0], 1
 ];
 export var GetIngressPointResponse$: StaticStructureSchema = [3, n0, _GIPRe,
   0,
-  [_IPI, _IPN, _IPA, _St, _Ty, _AR, _RSI, _TPI, _IPAC, _NC, _CT, _LUT],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => IngressPointAuthConfiguration$, () => NetworkConfiguration$, 4, 4], 2
+  [_IPI, _IPN, _IPA, _Sta, _Ty, _AR, _RSI, _TPI, _IPAC, _NC, _TP, _CT, _LUT],
+  [0, 0, 0, 0, 0, 0, 0, 0, [() => IngressPointAuthConfiguration$, 0], () => NetworkConfiguration$, 0, 4, 4], 2
 ];
 export var GetMemberOfAddressListRequest$: StaticStructureSchema = [3, n0, _GMOALR,
   0,
@@ -954,7 +985,7 @@ export var ImportDataFormat$: StaticStructureSchema = [3, n0, _IDF,
 ];
 export var ImportJob$: StaticStructureSchema = [3, n0, _IJ,
   0,
-  [_JI, _N, _St, _PSU, _IDF, _ALI, _CT, _IIC, _FIC, _STt, _CTom, _Er],
+  [_JI, _N, _Sta, _PSU, _IDF, _ALI, _CT, _IIC, _FIC, _STt, _CTom, _Er],
   [0, 0, 0, [() => PreSignedUrl, 0], () => ImportDataFormat$, 0, 4, 1, 1, 4, 4, 0], 7
 ];
 export var IngressAnalysis$: StaticStructureSchema = [3, n0, _IA,
@@ -984,13 +1015,13 @@ export var IngressIsInAddressList$: StaticStructureSchema = [3, n0, _IIIAL,
 ];
 export var IngressPoint$: StaticStructureSchema = [3, n0, _IP,
   0,
-  [_IPN, _IPI, _St, _Ty, _AR],
+  [_IPN, _IPI, _Sta, _Ty, _AR],
   [0, 0, 0, 0, 0], 4
 ];
 export var IngressPointAuthConfiguration$: StaticStructureSchema = [3, n0, _IPAC,
   0,
-  [_IPPC, _SA],
-  [() => IngressPointPasswordConfiguration$, 0]
+  [_IPPC, _SA, _TAC],
+  [() => IngressPointPasswordConfiguration$, 0, [() => TlsAuthConfiguration$, 0]]
 ];
 export var IngressPointPasswordConfiguration$: StaticStructureSchema = [3, n0, _IPPC,
   0,
@@ -1006,6 +1037,11 @@ export var IngressTlsProtocolExpression$: StaticStructureSchema = [3, n0, _ITPE,
   0,
   [_E, _O, _Va],
   [() => IngressTlsProtocolToEvaluate$, 0, 0], 3
+];
+export var InvokeLambdaAction$: StaticStructureSchema = [3, n0, _ILA,
+  0,
+  [_FA, _IT, _RA, _AFP, _RTM],
+  [0, 0, 0, 0, 1], 3
 ];
 export var ListAddonInstancesRequest$: StaticStructureSchema = [3, n0, _LAIR,
   0,
@@ -1134,7 +1170,7 @@ export var ListTrafficPoliciesRequest$: StaticStructureSchema = [3, n0, _LTPR,
 ];
 export var ListTrafficPoliciesResponse$: StaticStructureSchema = [3, n0, _LTPRi,
   0,
-  [_TP, _NT],
+  [_TPr, _NT],
   [() => TrafficPolicyList, 0]
 ];
 export var MessageBody$: StaticStructureSchema = [3, n0, _MB,
@@ -1164,7 +1200,7 @@ export var PrivateNetworkConfiguration$: StaticStructureSchema = [3, n0, _PNC,
 ];
 export var PublicNetworkConfiguration$: StaticStructureSchema = [3, n0, _PNCu,
   0,
-  [_IT],
+  [_ITp],
   [0], 1
 ];
 export var RegisterMemberToAddressListRequest$: StaticStructureSchema = [3, n0, _RMTALR,
@@ -1200,7 +1236,7 @@ export var Row$: StaticStructureSchema = [3, n0, _Row,
 export var Rule$: StaticStructureSchema = [3, n0, _Rul,
   0,
   [_Act, _N, _C, _U],
-  [[() => RuleActions, 0], 0, () => RuleConditions, () => RuleConditions], 1
+  [[() => RuleActions, 0], 0, [() => RuleConditions, 0], [() => RuleConditions, 0]], 1
 ];
 export var RuleBooleanExpression$: StaticStructureSchema = [3, n0, _RBE,
   0,
@@ -1235,7 +1271,7 @@ export var RuleSet$: StaticStructureSchema = [3, n0, _RSu,
 export var RuleStringExpression$: StaticStructureSchema = [3, n0, _RSE,
   0,
   [_E, _O, _V],
-  [() => RuleStringToEvaluate$, 0, 64 | 0], 3
+  [() => RuleStringToEvaluate$, 0, [() => RuleStringList, 0]], 3
 ];
 export var RuleVerdictExpression$: StaticStructureSchema = [3, n0, _RVE,
   0,
@@ -1259,12 +1295,12 @@ export var SavedAddress$: StaticStructureSchema = [3, n0, _SAa,
 ];
 export var SearchStatus$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_ST, _CTo, _S, _EM],
+  [_ST, _CTo, _St, _EM],
   [4, 4, 0, 0]
 ];
 export var SearchSummary$: StaticStructureSchema = [3, n0, _SSe,
   0,
-  [_SI, _St],
+  [_SI, _Sta],
   [0, () => SearchStatus$]
 ];
 export var SendAction$: StaticStructureSchema = [3, n0, _SAe,
@@ -1352,10 +1388,20 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TrafficPolicy$: StaticStructureSchema = [3, n0, _TPr,
+export var TlsAuthConfiguration$: StaticStructureSchema = [3, n0, _TAC,
+  0,
+  [_TS],
+  [[() => TrustStore$, 0]]
+];
+export var TrafficPolicy$: StaticStructureSchema = [3, n0, _TPra,
   0,
   [_TPN, _TPI, _DA],
   [0, 0, 0], 3
+];
+export var TrustStore$: StaticStructureSchema = [3, n0, _TS,
+  0,
+  [_CAC, _CC, _KKA],
+  [[() => CAContent, 0], [() => CrlContent, 0], 0], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
@@ -1379,8 +1425,8 @@ export var UpdateArchiveResponse$: StaticStructureSchema = [3, n0, _UARp,
 ];
 export var UpdateIngressPointRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
-  [_IPI, _IPN, _STU, _RSI, _TPI, _IPC],
-  [0, 0, 0, 0, 0, [() => IngressPointConfiguration$, 0]], 1
+  [_IPI, _IPN, _STU, _RSI, _TPI, _IPC, _TP],
+  [0, 0, 0, 0, 0, [() => IngressPointConfiguration$, 0], 0], 1
 ];
 export var UpdateIngressPointResponse$: StaticStructureSchema = [3, n0, _UIPRp,
   0,
@@ -1469,7 +1515,8 @@ var RuleActions: StaticListSchema = [1, n0, _RAu,
 ];
 var RuleAddressListArnList = 64 | 0;
 var RuleConditions: StaticListSchema = [1, n0, _RC,
-  0, () => RuleCondition$
+  0, [() => RuleCondition$,
+    0]
 ];
 var RuleDmarcValueList = 64 | 0;
 var RuleIpValueList = 64 | 0;
@@ -1480,7 +1527,10 @@ var Rules: StaticListSchema = [1, n0, _Ru,
 var RuleSets: StaticListSchema = [1, n0, _RS,
   0, () => RuleSet$
 ];
-var RuleStringList = 64 | 0;
+var RuleStringList: StaticListSchema = [1, n0, _RSL,
+  0, [() => RuleStringValue,
+    0]
+];
 var RuleVerdictValueList = 64 | 0;
 var SavedAddresses: StaticListSchema = [1, n0, _SAav,
   0, [() => SavedAddress$,
@@ -1540,8 +1590,8 @@ export var IngressIpv6ToEvaluate$: StaticUnionSchema = [4, n0, _IITEn,
 ];
 export var IngressPointConfiguration$: StaticUnionSchema = [4, n0, _IPC,
   0,
-  [_SP, _SA],
-  [[() => SmtpPassword, 0], 0]
+  [_SP, _SA, _TAC],
+  [[() => SmtpPassword, 0], 0, [() => TlsAuthConfiguration$, 0]]
 ];
 export var IngressStringToEvaluate$: StaticUnionSchema = [4, n0, _ISTE,
   0,
@@ -1570,8 +1620,8 @@ export var RelayAuthentication$: StaticUnionSchema = [4, n0, _RAela,
 ];
 export var RuleAction$: StaticUnionSchema = [4, n0, _RAul,
   0,
-  [_Dr, _Rel, _Ar, _WTS, _Sen, _AH, _RR, _DTM, _DTQB, _PTS],
-  [() => DropAction$, () => RelayAction$, () => ArchiveAction$, () => S3Action$, () => SendAction$, () => AddHeaderAction$, [() => ReplaceRecipientAction$, 0], () => DeliverToMailboxAction$, () => DeliverToQBusinessAction$, () => SnsAction$]
+  [_Dr, _Rel, _Ar, _WTS, _Sen, _AH, _RR, _DTM, _DTQB, _PTS, _Bo, _IL],
+  [() => DropAction$, () => RelayAction$, () => ArchiveAction$, () => S3Action$, () => SendAction$, () => AddHeaderAction$, [() => ReplaceRecipientAction$, 0], () => DeliverToMailboxAction$, () => DeliverToQBusinessAction$, () => SnsAction$, [() => BounceAction$, 0], () => InvokeLambdaAction$]
 ];
 export var RuleBooleanToEvaluate$: StaticUnionSchema = [4, n0, _RBTE,
   0,
@@ -1581,7 +1631,7 @@ export var RuleBooleanToEvaluate$: StaticUnionSchema = [4, n0, _RBTE,
 export var RuleCondition$: StaticUnionSchema = [4, n0, _RCu,
   0,
   [_BE, _SE, _NE, _IE, _VEe, _DE],
-  [() => RuleBooleanExpression$, () => RuleStringExpression$, () => RuleNumberExpression$, () => RuleIpExpression$, () => RuleVerdictExpression$, () => RuleDmarcExpression$]
+  [() => RuleBooleanExpression$, [() => RuleStringExpression$, 0], () => RuleNumberExpression$, () => RuleIpExpression$, () => RuleVerdictExpression$, () => RuleDmarcExpression$]
 ];
 export var RuleIpToEvaluate$: StaticUnionSchema = [4, n0, _RITE,
   0,
@@ -1595,8 +1645,8 @@ export var RuleNumberToEvaluate$: StaticUnionSchema = [4, n0, _RNTE,
 ];
 export var RuleStringToEvaluate$: StaticUnionSchema = [4, n0, _RSTE,
   0,
-  [_At, _MHA, _An],
-  [0, 0, () => Analysis$]
+  [_At, _MHA, _An, _CCA],
+  [0, 0, () => Analysis$, 0]
 ];
 export var RuleVerdictToEvaluate$: StaticUnionSchema = [4, n0, _RVTE,
   0,

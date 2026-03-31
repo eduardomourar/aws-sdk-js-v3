@@ -68,6 +68,7 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *                 Analyzer: "STRING_VALUE", // required
  *                 ResultField: "STRING_VALUE", // required
  *               },
+ *               ClientCertificateAttribute: "CN" || "SAN_RFC822_NAME" || "SAN_DNS_NAME" || "SAN_DIRECTORY_NAME" || "SAN_UNIFORM_RESOURCE_IDENTIFIER" || "SAN_IP_ADDRESS" || "SAN_REGISTERED_ID" || "SERIAL_NUMBER",
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // RuleStringList // required
@@ -137,6 +138,7 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *                 Analyzer: "STRING_VALUE", // required
  *                 ResultField: "STRING_VALUE", // required
  *               },
+ *               ClientCertificateAttribute: "CN" || "SAN_RFC822_NAME" || "SAN_DNS_NAME" || "SAN_DIRECTORY_NAME" || "SAN_UNIFORM_RESOURCE_IDENTIFIER" || "SAN_IP_ADDRESS" || "SAN_REGISTERED_ID" || "SERIAL_NUMBER",
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // required
@@ -226,6 +228,22 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *             RoleArn: "STRING_VALUE", // required
  *             Encoding: "UTF-8" || "BASE64",
  *             PayloadType: "HEADERS" || "CONTENT",
+ *           },
+ *           Bounce: { // BounceAction
+ *             ActionFailurePolicy: "CONTINUE" || "DROP",
+ *             RoleArn: "STRING_VALUE", // required
+ *             Sender: "STRING_VALUE", // required
+ *             StatusCode: "STRING_VALUE", // required
+ *             SmtpReplyCode: "STRING_VALUE", // required
+ *             DiagnosticMessage: "STRING_VALUE", // required
+ *             Message: "STRING_VALUE",
+ *           },
+ *           InvokeLambda: { // InvokeLambdaAction
+ *             ActionFailurePolicy: "CONTINUE" || "DROP",
+ *             FunctionArn: "STRING_VALUE", // required
+ *             InvocationType: "EVENT" || "REQUEST_RESPONSE", // required
+ *             RoleArn: "STRING_VALUE", // required
+ *             RetryTimeMinutes: Number("int"),
  *           },
  *         },
  *       ],

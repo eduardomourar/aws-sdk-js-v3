@@ -39,12 +39,19 @@ export interface CreateIngressPointCommandOutput extends CreateIngressPointRespo
  * const input = { // CreateIngressPointRequest
  *   ClientToken: "STRING_VALUE",
  *   IngressPointName: "STRING_VALUE", // required
- *   Type: "OPEN" || "AUTH", // required
+ *   Type: "OPEN" || "AUTH" || "MTLS", // required
  *   RuleSetId: "STRING_VALUE", // required
  *   TrafficPolicyId: "STRING_VALUE", // required
  *   IngressPointConfiguration: { // IngressPointConfiguration Union: only one key present
  *     SmtpPassword: "STRING_VALUE",
  *     SecretArn: "STRING_VALUE",
+ *     TlsAuthConfiguration: { // TlsAuthConfiguration
+ *       TrustStore: { // TrustStore
+ *         CAContent: "STRING_VALUE", // required
+ *         CrlContent: "STRING_VALUE",
+ *         KmsKeyArn: "STRING_VALUE",
+ *       },
+ *     },
  *   },
  *   NetworkConfiguration: { // NetworkConfiguration Union: only one key present
  *     PublicNetworkConfiguration: { // PublicNetworkConfiguration
@@ -54,6 +61,7 @@ export interface CreateIngressPointCommandOutput extends CreateIngressPointRespo
  *       VpcEndpointId: "STRING_VALUE", // required
  *     },
  *   },
+ *   TlsPolicy: "REQUIRED" || "OPTIONAL" || "FIPS",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

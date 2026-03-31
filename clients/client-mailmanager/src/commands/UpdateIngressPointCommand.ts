@@ -45,7 +45,15 @@ export interface UpdateIngressPointCommandOutput extends UpdateIngressPointRespo
  *   IngressPointConfiguration: { // IngressPointConfiguration Union: only one key present
  *     SmtpPassword: "STRING_VALUE",
  *     SecretArn: "STRING_VALUE",
+ *     TlsAuthConfiguration: { // TlsAuthConfiguration
+ *       TrustStore: { // TrustStore
+ *         CAContent: "STRING_VALUE", // required
+ *         CrlContent: "STRING_VALUE",
+ *         KmsKeyArn: "STRING_VALUE",
+ *       },
+ *     },
  *   },
+ *   TlsPolicy: "REQUIRED" || "OPTIONAL" || "FIPS",
  * };
  * const command = new UpdateIngressPointCommand(input);
  * const response = await client.send(command);

@@ -66,6 +66,9 @@ export interface CreateAddonSubscriptionCommandOutput extends CreateAddonSubscri
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request validation has failed. For details, see the accompanying error message.</p>
  *
