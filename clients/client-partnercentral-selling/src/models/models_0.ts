@@ -465,7 +465,7 @@ export interface AwsProductDetails {
  */
 export interface AwsProductInsights {
   /**
-   * <p>ISO 4217 currency code.</p>
+   * <p>ISO 4217 currency code. Supported values are <code>USD</code> and <code>EUR</code>. Returns <code>EUR</code> when the opportunity is in the <code>aws-eusc</code> (AWS European Sovereign Cloud) partition.</p>
    * @public
    */
   CurrencyCode: CurrencyCode | undefined;
@@ -615,7 +615,7 @@ export interface ExpectedCustomerSpend {
   Amount?: string | undefined;
 
   /**
-   * <p>Indicates the currency in which the revenue estimate is provided. This helps in understanding the financial impact across different markets.</p>
+   * Currency code for the expected customer spend. Supported currencies: USD, EUR
    * @public
    */
   CurrencyCode: CurrencyCode | undefined;
@@ -2987,7 +2987,7 @@ export interface MonetaryValue {
   Amount: string | undefined;
 
   /**
-   * <p>Specifies the payment currency.</p>
+   * <p>Specifies the payment currency. Accepted values are <code>USD</code> (US Dollars) and <code>EUR</code> (Euros). If the AWS Partition is <code>aws-eusc</code> (AWS European Sovereign Cloud), the currency code must be <code>EUR</code>.</p>
    * @public
    */
   CurrencyCode: CurrencyCode | undefined;
