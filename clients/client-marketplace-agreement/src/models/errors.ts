@@ -101,47 +101,6 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Request references a resource which does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The unique identifier for the error.</p>
-   * @public
-   */
-  requestId?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the resource.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of resource.</p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.requestId = opts.requestId;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
  * <p>Request was denied due to request throttling.</p>
  * @public
  */
@@ -206,5 +165,46 @@ export class ValidationException extends __BaseException {
     this.requestId = opts.requestId;
     this.reason = opts.reason;
     this.fields = opts.fields;
+  }
+}
+
+/**
+ * <p>Request references a resource which does not exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The unique identifier for the error.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the resource.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.requestId = opts.requestId;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
   }
 }

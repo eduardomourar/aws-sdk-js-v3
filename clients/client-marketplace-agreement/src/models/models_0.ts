@@ -1,5 +1,17 @@
 // smithy-typescript generated code
-import type { AgreementStatus, PaymentRequestApprovalStrategy, PaymentRequestStatus, SortOrder } from "./enums";
+import type {
+  AgreementCancellationRequestReasonCode,
+  AgreementCancellationRequestStatus,
+  AgreementStatus,
+  BillingAdjustmentErrorCode,
+  BillingAdjustmentReasonCode,
+  BillingAdjustmentStatus,
+  InvoiceType,
+  LineItemGroupBy,
+  PaymentRequestApprovalStrategy,
+  PaymentRequestStatus,
+  SortOrder,
+} from "./enums";
 
 /**
  * <p>Enables you and your customers to move your existing agreements to AWS Marketplace. The customer won't be charged for product usage in AWS Marketplace because they already paid for the product outside of AWS Marketplace.</p>
@@ -827,6 +839,168 @@ export interface Acceptor {
 }
 
 /**
+ * <p>Summary view of an agreement cancellation request.</p>
+ * @public
+ */
+export interface AgreementCancellationRequestSummary {
+  /**
+   * <p>The unique identifier of the cancellation request.</p>
+   * @public
+   */
+  agreementCancellationRequestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with this cancellation request.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The current status of the cancellation request. Possible values include <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>CANCELLED</code>, and <code>VALIDATION_FAILED</code>.</p>
+   * @public
+   */
+  status?: AgreementCancellationRequestStatus | undefined;
+
+  /**
+   * <p>The reason code provided for the cancellation.</p>
+   * @public
+   */
+  reasonCode?: AgreementCancellationRequestReasonCode | undefined;
+
+  /**
+   * <p>The type of agreement.</p>
+   * @public
+   */
+  agreementType?: string | undefined;
+
+  /**
+   * <p>The catalog in which the agreement was created.</p>
+   * @public
+   */
+  catalog?: string | undefined;
+
+  /**
+   * <p>The date and time when the cancellation request was created, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the cancellation request was last updated, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>The billing period for an invoice, specified by month and year.</p>
+ * @public
+ */
+export interface InvoiceBillingPeriod {
+  /**
+   * <p>The billing period month. Valid range: 1-12.</p>
+   * @public
+   */
+  month: number | undefined;
+
+  /**
+   * <p>The billing period year.</p>
+   * @public
+   */
+  year: number | undefined;
+}
+
+/**
+ * <p>The entity that issues the AWS invoice.</p>
+ * @public
+ */
+export interface InvoicingEntity {
+  /**
+   * <p>The legal name of the invoicing entity.</p>
+   * @public
+   */
+  legalName?: string | undefined;
+
+  /**
+   * <p>The branch name of the invoicing entity.</p>
+   * @public
+   */
+  branchName?: string | undefined;
+}
+
+/**
+ * <p>Monetary amounts associated with an invoice line item group.</p>
+ * @public
+ */
+export interface PricingCurrencyAmount {
+  /**
+   * <p>The monetary amount before tax.</p>
+   * @public
+   */
+  amount?: string | undefined;
+
+  /**
+   * <p>The maximum refundable amount as a string representation of a decimal number.</p>
+   * @public
+   */
+  maxAdjustmentAmount?: string | undefined;
+
+  /**
+   * <p>The 3-letter ISO 4217 currency code (e.g., <code>USD</code>, <code>EUR</code>, <code>JPY</code>).</p>
+   * @public
+   */
+  currencyCode?: string | undefined;
+}
+
+/**
+ * <p>A summary of grouped billing data for an agreement invoice line item.</p>
+ * @public
+ */
+export interface AgreementInvoiceLineItemGroupSummary {
+  /**
+   * <p>The unique identifier of the agreement.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The identifier of the invoice for this group.</p>
+   * @public
+   */
+  invoiceId?: string | undefined;
+
+  /**
+   * <p>Monetary amounts for this invoice group.</p>
+   * @public
+   */
+  pricingCurrencyAmount?: PricingCurrencyAmount | undefined;
+
+  /**
+   * <p>The billing period associated with this group.</p>
+   * @public
+   */
+  invoiceBillingPeriod?: InvoiceBillingPeriod | undefined;
+
+  /**
+   * <p>The timestamp when the invoice containing this group was created.</p>
+   * @public
+   */
+  issuedTime?: Date | undefined;
+
+  /**
+   * <p>The type of invoice. Valid values are <code>INVOICE</code> and <code>CREDIT_MEMO</code>.</p>
+   * @public
+   */
+  invoiceType?: InvoiceType | undefined;
+
+  /**
+   * <p>The entity that issues the invoice.</p>
+   * @public
+   */
+  invoicingEntity?: InvoicingEntity | undefined;
+}
+
+/**
  * <p>The list of resources involved in the agreement.</p>
  * @public
  */
@@ -910,7 +1084,7 @@ export interface AgreementViewSummary {
   endTime?: Date | undefined;
 
   /**
-   * <p>The type of agreement. Value is <code>PurchaseAgreement</code>.</p>
+   * <p>The type of agreement.</p>
    * @public
    */
   agreementType?: string | undefined;
@@ -938,6 +1112,218 @@ export interface AgreementViewSummary {
    * @public
    */
   status?: AgreementStatus | undefined;
+}
+
+/**
+ * <p>An individual entry in a batch billing adjustment request, specifying the invoice and adjustment details.</p>
+ * @public
+ */
+export interface BatchCreateBillingAdjustmentRequestEntry {
+  /**
+   * <p>The unique identifier of the agreement associated with the invoice.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+
+  /**
+   * <p>The identifier of the original invoice to adjust.</p>
+   * @public
+   */
+  originalInvoiceId: string | undefined;
+
+  /**
+   * <p>The adjustment amount as a string representation of a decimal number in the currency of the invoice.</p>
+   * @public
+   */
+  adjustmentAmount: string | undefined;
+
+  /**
+   * <p>The 3-letter ISO 4217 currency code for the adjustment amount (e.g., <code>USD</code>).</p>
+   * @public
+   */
+  currencyCode: string | undefined;
+
+  /**
+   * <p>The reason code for the billing adjustment. Valid values include <code>INCORRECT_TERMS_ACCEPTED</code>, <code>INCORRECT_METERING</code>, <code>TEST_ENVIRONMENT_CHARGES</code>, <code>ALTERNATIVE_PROCUREMENT_CHANNEL</code>, <code>UNINTENDED_RENEWAL</code>, <code>BUYER_DISSATISFACTION</code>, and <code>OTHER</code>.</p>
+   * @public
+   */
+  adjustmentReasonCode: BillingAdjustmentReasonCode | undefined;
+
+  /**
+   * <p>An optional detailed description of the adjustment reason.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateBillingAdjustmentRequestInput {
+  /**
+   * <p>A list of billing adjustment request entries. Each entry specifies the invoice and adjustment details.</p>
+   * @public
+   */
+  billingAdjustmentRequestEntries: BatchCreateBillingAdjustmentRequestEntry[] | undefined;
+}
+
+/**
+ * <p>An error for a billing adjustment request entry that failed validation.</p>
+ * @public
+ */
+export interface BatchCreateBillingAdjustmentError {
+  /**
+   * <p>The error code indicating the reason for failure.</p>
+   * @public
+   */
+  code: BillingAdjustmentErrorCode | undefined;
+
+  /**
+   * <p>A human-readable message describing the error.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>The client token of the request entry that failed.</p>
+   * @public
+   */
+  clientToken: string | undefined;
+}
+
+/**
+ * <p>A successfully created billing adjustment request item.</p>
+ * @public
+ */
+export interface BatchCreateBillingAdjustmentItem {
+  /**
+   * <p>The unique identifier of the created billing adjustment request.</p>
+   * @public
+   */
+  billingAdjustmentRequestId: string | undefined;
+
+  /**
+   * <p>The client token provided in the corresponding request entry.</p>
+   * @public
+   */
+  clientToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateBillingAdjustmentRequestOutput {
+  /**
+   * <p>A list of successfully created billing adjustment items, each containing the <code>billingAdjustmentRequestId</code> and <code>clientToken</code>.</p>
+   * @public
+   */
+  items: BatchCreateBillingAdjustmentItem[] | undefined;
+
+  /**
+   * <p>A list of errors for entries that failed validation, each containing the <code>clientToken</code>, error <code>code</code>, and <code>message</code>.</p>
+   * @public
+   */
+  errors: BatchCreateBillingAdjustmentError[] | undefined;
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field associated with the error.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>See applicable actions.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelAgreementCancellationRequestInput {
+  /**
+   * <p>The unique identifier of the agreement associated with the cancellation request.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the cancellation request to cancel.</p>
+   * @public
+   */
+  agreementCancellationRequestId: string | undefined;
+
+  /**
+   * <p>A required message explaining why the cancellation request is being withdrawn (1-2000 characters).</p>
+   * @public
+   */
+  cancellationReason: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelAgreementCancellationRequestOutput {
+  /**
+   * <p>The unique identifier of the cancelled cancellation request.</p>
+   * @public
+   */
+  agreementCancellationRequestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with this cancellation request.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The original reason code provided when the cancellation request was created.</p>
+   * @public
+   */
+  reasonCode?: AgreementCancellationRequestReasonCode | undefined;
+
+  /**
+   * <p>The detailed description of the original cancellation reason, if provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated status of the cancellation request, which is <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status?: AgreementCancellationRequestStatus | undefined;
+
+  /**
+   * <p>A message providing additional context about the cancellation request status.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The date and time when the cancellation request was originally created, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the cancellation request was cancelled, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -1014,24 +1400,6 @@ export interface CancelAgreementPaymentRequestOutput {
    * @public
    */
   updatedAt?: Date | undefined;
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the field associated with the error.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>See applicable actions.</p>
-   * @public
-   */
-  message: string | undefined;
 }
 
 /**
@@ -1126,6 +1494,76 @@ export interface DescribeAgreementOutput {
    * @public
    */
   status?: AgreementStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementCancellationRequestInput {
+  /**
+   * <p>The unique identifier of the cancellation request.</p>
+   * @public
+   */
+  agreementCancellationRequestId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with the cancellation request.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgreementCancellationRequestOutput {
+  /**
+   * <p>The unique identifier of the cancellation request.</p>
+   * @public
+   */
+  agreementCancellationRequestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with this cancellation request. Use <code>DescribeAgreement</code> to retrieve full agreement details.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The reason code provided for the cancellation.</p>
+   * @public
+   */
+  reasonCode?: AgreementCancellationRequestReasonCode | undefined;
+
+  /**
+   * <p>The detailed description of the cancellation reason, if provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The current status of the cancellation request. Possible values include <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>CANCELLED</code>, and <code>VALIDATION_FAILED</code>.</p>
+   * @public
+   */
+  status?: AgreementCancellationRequestStatus | undefined;
+
+  /**
+   * <p>A message providing additional context about the cancellation request status.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The date and time when the cancellation request was created, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the cancellation request was last updated, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -1259,6 +1697,234 @@ export interface GetAgreementTermsOutput {
 /**
  * @public
  */
+export interface GetBillingAdjustmentRequestInput {
+  /**
+   * <p>The unique identifier of the agreement associated with the billing adjustment request.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the billing adjustment request.</p>
+   * @public
+   */
+  billingAdjustmentRequestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBillingAdjustmentRequestOutput {
+  /**
+   * <p>The unique identifier of the billing adjustment request.</p>
+   * @public
+   */
+  billingAdjustmentRequestId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with this billing adjustment request.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+
+  /**
+   * <p>The reason code for the billing adjustment.</p>
+   * @public
+   */
+  adjustmentReasonCode: BillingAdjustmentReasonCode | undefined;
+
+  /**
+   * <p>The detailed description of the billing adjustment reason, if provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The identifier of the original invoice being adjusted.</p>
+   * @public
+   */
+  originalInvoiceId: string | undefined;
+
+  /**
+   * <p>The adjustment amount as a string representation of a decimal number.</p>
+   * @public
+   */
+  adjustmentAmount: string | undefined;
+
+  /**
+   * <p>The currency code for the adjustment amount (e.g., <code>USD</code>).</p>
+   * @public
+   */
+  currencyCode: string | undefined;
+
+  /**
+   * <p>The current status of the billing adjustment request.</p>
+   * @public
+   */
+  status: BillingAdjustmentStatus | undefined;
+
+  /**
+   * <p>A message providing additional context about the billing adjustment request status. This field is populated only when the status is <code>VALIDATION_FAILED</code>.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The date and time when the billing adjustment request was created, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the billing adjustment request was last updated, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementCancellationRequestsInput {
+  /**
+   * <p>The party type for the cancellation requests. Required parameter. Use <code>Proposer</code> to list cancellation requests where you are the seller, or <code>Acceptor</code> to list cancellation requests where you are the buyer.</p>
+   * @public
+   */
+  partyType: string | undefined;
+
+  /**
+   * <p>An optional parameter to filter cancellation requests for a specific agreement.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>An optional parameter to filter cancellation requests by status. Valid values include <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>CANCELLED</code>, and <code>VALIDATION_FAILED</code>.</p>
+   * @public
+   */
+  status?: AgreementCancellationRequestStatus | undefined;
+
+  /**
+   * <p>An optional parameter to filter cancellation requests by agreement type (e.g., <code>PurchaseAgreement</code>).</p>
+   * @public
+   */
+  agreementType?: string | undefined;
+
+  /**
+   * <p>An optional parameter to filter cancellation requests by catalog (e.g., <code>AWSMarketplace</code>).</p>
+   * @public
+   */
+  catalog?: string | undefined;
+
+  /**
+   * <p>The maximum number of cancellation requests to return in the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to specify where to start pagination. Use the <code>nextToken</code> value from a previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementCancellationRequestsOutput {
+  /**
+   * <p>A token to retrieve the next page of results. If <code>null</code>, there are no more results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of <code>AgreementCancellationRequestSummary</code> objects containing summary information about each cancellation request.</p>
+   * @public
+   */
+  items?: AgreementCancellationRequestSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementInvoiceLineItemsInput {
+  /**
+   * <p>The unique identifier of the agreement.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+
+  /**
+   * <p>Specifies a grouping strategy for line items. Currently supports <code>INVOICE_ID</code>.</p>
+   * @public
+   */
+  groupBy: LineItemGroupBy | undefined;
+
+  /**
+   * <p>An optional filter to retrieve invoice information for a specific invoice.</p>
+   * @public
+   */
+  invoiceId?: string | undefined;
+
+  /**
+   * <p>An optional filter for the type of invoice. Valid values are <code>INVOICE</code> and <code>CREDIT_MEMO</code>.</p>
+   * @public
+   */
+  invoiceType?: InvoiceType | undefined;
+
+  /**
+   * <p>An optional filter for the billing period associated with the invoice.</p>
+   * @public
+   */
+  invoiceBillingPeriod?: InvoiceBillingPeriod | undefined;
+
+  /**
+   * <p>An optional filter for invoices issued before the specified timestamp.</p>
+   * @public
+   */
+  beforeIssuedTime?: Date | undefined;
+
+  /**
+   * <p>An optional filter for invoices issued after the specified timestamp.</p>
+   * @public
+   */
+  afterIssuedTime?: Date | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to specify where to start pagination.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementInvoiceLineItemsOutput {
+  /**
+   * <p>A list of grouped billing data objects.</p>
+   * @public
+   */
+  agreementInvoiceLineItemGroupSummaries?: AgreementInvoiceLineItemGroupSummary[] | undefined;
+
+  /**
+   * <p>A token to retrieve the next page of results. If not present, there are no more results available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAgreementPaymentRequestsInput {
   /**
    * <p>The party type for the payment requests. Required parameter. Use <code>Proposer</code> to list payment requests where you are the seller, or <code>Acceptor</code> to list payment requests where you are the buyer.</p>
@@ -1381,6 +2047,142 @@ export interface ListAgreementPaymentRequestsOutput {
 }
 
 /**
+ * @public
+ */
+export interface ListBillingAdjustmentRequestsInput {
+  /**
+   * <p>The unique identifier of the agreement to list billing adjustment requests for.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>An optional filter to return billing adjustment requests with the specified status.</p>
+   * @public
+   */
+  status?: BillingAdjustmentStatus | undefined;
+
+  /**
+   * <p>An optional filter to return billing adjustment requests created after the specified POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  createdAfter?: Date | undefined;
+
+  /**
+   * <p>An optional filter to return billing adjustment requests created before the specified POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  createdBefore?: Date | undefined;
+
+  /**
+   * <p>The maximum number of billing adjustment requests to return in the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>An optional filter to return billing adjustment requests by catalog (e.g., <code>AWSMarketplace</code>).</p>
+   * @public
+   */
+  catalog?: string | undefined;
+
+  /**
+   * <p>An optional filter to return billing adjustment requests by agreement type (e.g., <code>PurchaseAgreement</code>).</p>
+   * @public
+   */
+  agreementType?: string | undefined;
+
+  /**
+   * <p>A token to specify where to start pagination. Use the <code>nextToken</code> value from a previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary view of a billing adjustment request.</p>
+ * @public
+ */
+export interface BillingAdjustmentSummary {
+  /**
+   * <p>The unique identifier of the billing adjustment request.</p>
+   * @public
+   */
+  billingAdjustmentRequestId: string | undefined;
+
+  /**
+   * <p>The identifier of the original invoice being adjusted.</p>
+   * @public
+   */
+  originalInvoiceId: string | undefined;
+
+  /**
+   * <p>The adjustment amount as a string representation of a decimal number.</p>
+   * @public
+   */
+  adjustmentAmount: string | undefined;
+
+  /**
+   * <p>The currency code for the adjustment amount.</p>
+   * @public
+   */
+  currencyCode: string | undefined;
+
+  /**
+   * <p>The current status of the billing adjustment request.</p>
+   * @public
+   */
+  status: BillingAdjustmentStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the agreement associated with this billing adjustment request.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+
+  /**
+   * <p>The date and time when the billing adjustment request was created, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the billing adjustment request was last updated, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The type of agreement.</p>
+   * @public
+   */
+  agreementType: string | undefined;
+
+  /**
+   * <p>The catalog in which the agreement was created.</p>
+   * @public
+   */
+  catalog: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBillingAdjustmentRequestsOutput {
+  /**
+   * <p>A token to retrieve the next page of results. If <code>null</code>, there are no more results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of <code>BillingAdjustmentSummary</code> objects containing summary information about each billing adjustment request.</p>
+   * @public
+   */
+  items: BillingAdjustmentSummary[] | undefined;
+}
+
+/**
  * <p>The filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria, such as <code>offerId</code> or <code>productId</code>.</p>
  * @public
  */
@@ -1466,6 +2268,82 @@ export interface SearchAgreementsOutput {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendAgreementCancellationRequestInput {
+  /**
+   * <p>The unique identifier of the agreement for which the cancellation request is being submitted.</p>
+   * @public
+   */
+  agreementId: string | undefined;
+
+  /**
+   * <p>The reason code for the cancellation request. Valid values include <code>INCORRECT_TERMS_ACCEPTED</code>, <code>REPLACING_AGREEMENT</code>, <code>TEST_AGREEMENT</code>, <code>ALTERNATIVE_PROCUREMENT_CHANNEL</code>, <code>PRODUCT_DISCONTINUED</code>, <code>UNINTENDED_RENEWAL</code>, <code>BUYER_DISSATISFACTION</code>, and <code>OTHER</code>.</p>
+   * @public
+   */
+  reasonCode: AgreementCancellationRequestReasonCode | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>An optional detailed description of the cancellation reason (1-2000 characters).</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendAgreementCancellationRequestOutput {
+  /**
+   * <p>The unique identifier of the agreement.</p>
+   * @public
+   */
+  agreementId?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the created cancellation request.</p>
+   * @public
+   */
+  agreementCancellationRequestId?: string | undefined;
+
+  /**
+   * <p>The current status of the cancellation request. The initial status is <code>PENDING_APPROVAL</code>.</p>
+   * @public
+   */
+  status?: AgreementCancellationRequestStatus | undefined;
+
+  /**
+   * <p>The reason code provided for the cancellation.</p>
+   * @public
+   */
+  reasonCode?: AgreementCancellationRequestReasonCode | undefined;
+
+  /**
+   * <p>The detailed description of the cancellation reason, if provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time when the cancellation request was created, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The time when the cancellation request was last updated, as a POSIX timestamp (Unix epoch seconds).</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**

@@ -3,9 +3,28 @@ import {
   Acceptor$,
   AccessDeniedException,
   AccessDeniedException$,
+  AgreementCancellationRequestReasonCode,
+  AgreementCancellationRequestStatus,
+  AgreementCancellationRequestSummary$,
+  AgreementInvoiceLineItemGroupSummary$,
   AgreementStatus,
   AgreementViewSummary$,
+  BatchCreateBillingAdjustmentError$,
+  BatchCreateBillingAdjustmentItem$,
+  BatchCreateBillingAdjustmentRequest$,
+  BatchCreateBillingAdjustmentRequestCommand,
+  BatchCreateBillingAdjustmentRequestEntry$,
+  BatchCreateBillingAdjustmentRequestInput$,
+  BatchCreateBillingAdjustmentRequestOutput$,
+  BillingAdjustmentErrorCode,
+  BillingAdjustmentReasonCode,
+  BillingAdjustmentStatus,
+  BillingAdjustmentSummary$,
   ByolPricingTerm$,
+  CancelAgreementCancellationRequest$,
+  CancelAgreementCancellationRequestCommand,
+  CancelAgreementCancellationRequestInput$,
+  CancelAgreementCancellationRequestOutput$,
   CancelAgreementPaymentRequest$,
   CancelAgreementPaymentRequestCommand,
   CancelAgreementPaymentRequestInput$,
@@ -26,6 +45,10 @@ import {
   Filter$,
   FixedUpfrontPricingTerm$,
   FreeTrialPricingTerm$,
+  GetAgreementCancellationRequest$,
+  GetAgreementCancellationRequestCommand,
+  GetAgreementCancellationRequestInput$,
+  GetAgreementCancellationRequestOutput$,
   GetAgreementPaymentRequest$,
   GetAgreementPaymentRequestCommand,
   GetAgreementPaymentRequestInput$,
@@ -34,24 +57,48 @@ import {
   GetAgreementTermsCommand,
   GetAgreementTermsInput$,
   GetAgreementTermsOutput$,
+  GetBillingAdjustmentRequest$,
+  GetBillingAdjustmentRequestCommand,
+  GetBillingAdjustmentRequestInput$,
+  GetBillingAdjustmentRequestOutput$,
   GrantItem$,
   InternalServerException,
   InternalServerException$,
+  InvoiceBillingPeriod$,
+  InvoiceType,
+  InvoicingEntity$,
   LegalTerm$,
+  LineItemGroupBy,
+  ListAgreementCancellationRequests$,
+  ListAgreementCancellationRequestsCommand,
+  ListAgreementCancellationRequestsInput$,
+  ListAgreementCancellationRequestsOutput$,
+  ListAgreementInvoiceLineItems$,
+  ListAgreementInvoiceLineItemsCommand,
+  ListAgreementInvoiceLineItemsInput$,
+  ListAgreementInvoiceLineItemsOutput$,
   ListAgreementPaymentRequests$,
   ListAgreementPaymentRequestsCommand,
   ListAgreementPaymentRequestsInput$,
   ListAgreementPaymentRequestsOutput$,
+  ListBillingAdjustmentRequests$,
+  ListBillingAdjustmentRequestsCommand,
+  ListBillingAdjustmentRequestsInput$,
+  ListBillingAdjustmentRequestsOutput$,
   MarketplaceAgreement,
   MarketplaceAgreementClient,
   MarketplaceAgreementServiceException,
   paginateGetAgreementTerms,
+  paginateListAgreementCancellationRequests,
+  paginateListAgreementInvoiceLineItems,
   paginateListAgreementPaymentRequests,
+  paginateListBillingAdjustmentRequests,
   paginateSearchAgreements,
   PaymentRequestApprovalStrategy,
   PaymentRequestStatus,
   PaymentRequestSummary$,
   PaymentScheduleTerm$,
+  PricingCurrencyAmount$,
   ProposalSummary$,
   Proposer$,
   RateCardItem$,
@@ -68,6 +115,10 @@ import {
   SearchAgreementsInput$,
   SearchAgreementsOutput$,
   Selector$,
+  SendAgreementCancellationRequest$,
+  SendAgreementCancellationRequestCommand,
+  SendAgreementCancellationRequestInput$,
+  SendAgreementCancellationRequestOutput$,
   SendAgreementPaymentRequest$,
   SendAgreementPaymentRequestCommand,
   SendAgreementPaymentRequestInput$,
@@ -92,25 +143,51 @@ import assert from "node:assert";
 assert(typeof MarketplaceAgreementClient === "function");
 assert(typeof MarketplaceAgreement === "function");
 // commands
+assert(typeof BatchCreateBillingAdjustmentRequestCommand === "function");
+assert(typeof BatchCreateBillingAdjustmentRequest$ === "object");
+assert(typeof CancelAgreementCancellationRequestCommand === "function");
+assert(typeof CancelAgreementCancellationRequest$ === "object");
 assert(typeof CancelAgreementPaymentRequestCommand === "function");
 assert(typeof CancelAgreementPaymentRequest$ === "object");
 assert(typeof DescribeAgreementCommand === "function");
 assert(typeof DescribeAgreement$ === "object");
+assert(typeof GetAgreementCancellationRequestCommand === "function");
+assert(typeof GetAgreementCancellationRequest$ === "object");
 assert(typeof GetAgreementPaymentRequestCommand === "function");
 assert(typeof GetAgreementPaymentRequest$ === "object");
 assert(typeof GetAgreementTermsCommand === "function");
 assert(typeof GetAgreementTerms$ === "object");
+assert(typeof GetBillingAdjustmentRequestCommand === "function");
+assert(typeof GetBillingAdjustmentRequest$ === "object");
+assert(typeof ListAgreementCancellationRequestsCommand === "function");
+assert(typeof ListAgreementCancellationRequests$ === "object");
+assert(typeof ListAgreementInvoiceLineItemsCommand === "function");
+assert(typeof ListAgreementInvoiceLineItems$ === "object");
 assert(typeof ListAgreementPaymentRequestsCommand === "function");
 assert(typeof ListAgreementPaymentRequests$ === "object");
+assert(typeof ListBillingAdjustmentRequestsCommand === "function");
+assert(typeof ListBillingAdjustmentRequests$ === "object");
 assert(typeof SearchAgreementsCommand === "function");
 assert(typeof SearchAgreements$ === "object");
+assert(typeof SendAgreementCancellationRequestCommand === "function");
+assert(typeof SendAgreementCancellationRequest$ === "object");
 assert(typeof SendAgreementPaymentRequestCommand === "function");
 assert(typeof SendAgreementPaymentRequest$ === "object");
 // structural schemas
 assert(typeof AcceptedTerm$ === "object");
 assert(typeof Acceptor$ === "object");
+assert(typeof AgreementCancellationRequestSummary$ === "object");
+assert(typeof AgreementInvoiceLineItemGroupSummary$ === "object");
 assert(typeof AgreementViewSummary$ === "object");
+assert(typeof BatchCreateBillingAdjustmentError$ === "object");
+assert(typeof BatchCreateBillingAdjustmentItem$ === "object");
+assert(typeof BatchCreateBillingAdjustmentRequestEntry$ === "object");
+assert(typeof BatchCreateBillingAdjustmentRequestInput$ === "object");
+assert(typeof BatchCreateBillingAdjustmentRequestOutput$ === "object");
+assert(typeof BillingAdjustmentSummary$ === "object");
 assert(typeof ByolPricingTerm$ === "object");
+assert(typeof CancelAgreementCancellationRequestInput$ === "object");
+assert(typeof CancelAgreementCancellationRequestOutput$ === "object");
 assert(typeof CancelAgreementPaymentRequestInput$ === "object");
 assert(typeof CancelAgreementPaymentRequestOutput$ === "object");
 assert(typeof ConfigurableUpfrontPricingTerm$ === "object");
@@ -125,16 +202,29 @@ assert(typeof EstimatedCharges$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FixedUpfrontPricingTerm$ === "object");
 assert(typeof FreeTrialPricingTerm$ === "object");
+assert(typeof GetAgreementCancellationRequestInput$ === "object");
+assert(typeof GetAgreementCancellationRequestOutput$ === "object");
 assert(typeof GetAgreementPaymentRequestInput$ === "object");
 assert(typeof GetAgreementPaymentRequestOutput$ === "object");
 assert(typeof GetAgreementTermsInput$ === "object");
 assert(typeof GetAgreementTermsOutput$ === "object");
+assert(typeof GetBillingAdjustmentRequestInput$ === "object");
+assert(typeof GetBillingAdjustmentRequestOutput$ === "object");
 assert(typeof GrantItem$ === "object");
+assert(typeof InvoiceBillingPeriod$ === "object");
+assert(typeof InvoicingEntity$ === "object");
 assert(typeof LegalTerm$ === "object");
+assert(typeof ListAgreementCancellationRequestsInput$ === "object");
+assert(typeof ListAgreementCancellationRequestsOutput$ === "object");
+assert(typeof ListAgreementInvoiceLineItemsInput$ === "object");
+assert(typeof ListAgreementInvoiceLineItemsOutput$ === "object");
 assert(typeof ListAgreementPaymentRequestsInput$ === "object");
 assert(typeof ListAgreementPaymentRequestsOutput$ === "object");
+assert(typeof ListBillingAdjustmentRequestsInput$ === "object");
+assert(typeof ListBillingAdjustmentRequestsOutput$ === "object");
 assert(typeof PaymentRequestSummary$ === "object");
 assert(typeof PaymentScheduleTerm$ === "object");
+assert(typeof PricingCurrencyAmount$ === "object");
 assert(typeof ProposalSummary$ === "object");
 assert(typeof Proposer$ === "object");
 assert(typeof RateCardItem$ === "object");
@@ -146,6 +236,8 @@ assert(typeof ScheduleItem$ === "object");
 assert(typeof SearchAgreementsInput$ === "object");
 assert(typeof SearchAgreementsOutput$ === "object");
 assert(typeof Selector$ === "object");
+assert(typeof SendAgreementCancellationRequestInput$ === "object");
+assert(typeof SendAgreementCancellationRequestOutput$ === "object");
 assert(typeof SendAgreementPaymentRequestInput$ === "object");
 assert(typeof SendAgreementPaymentRequestOutput$ === "object");
 assert(typeof Sort$ === "object");
@@ -157,7 +249,14 @@ assert(typeof ValidityTerm$ === "object");
 assert(typeof VariablePaymentTerm$ === "object");
 assert(typeof VariablePaymentTermConfiguration$ === "object");
 // enums
+assert(typeof AgreementCancellationRequestReasonCode === "object");
+assert(typeof AgreementCancellationRequestStatus === "object");
 assert(typeof AgreementStatus === "object");
+assert(typeof BillingAdjustmentErrorCode === "object");
+assert(typeof BillingAdjustmentReasonCode === "object");
+assert(typeof BillingAdjustmentStatus === "object");
+assert(typeof InvoiceType === "object");
+assert(typeof LineItemGroupBy === "object");
 assert(typeof PaymentRequestApprovalStrategy === "object");
 assert(typeof PaymentRequestStatus === "object");
 assert(typeof ResourceType === "object");
@@ -179,6 +278,9 @@ assert(typeof ValidationException$ === "object");
 assert(MarketplaceAgreementServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetAgreementTerms === "function");
+assert(typeof paginateListAgreementCancellationRequests === "function");
+assert(typeof paginateListAgreementInvoiceLineItems === "function");
 assert(typeof paginateListAgreementPaymentRequests === "function");
+assert(typeof paginateListBillingAdjustmentRequests === "function");
 assert(typeof paginateSearchAgreements === "function");
 console.log(`MarketplaceAgreement index test passed.`);

@@ -62,6 +62,14 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  BatchCreateBillingAdjustmentRequestCommandInput,
+  BatchCreateBillingAdjustmentRequestCommandOutput,
+} from "./commands/BatchCreateBillingAdjustmentRequestCommand";
+import type {
+  CancelAgreementCancellationRequestCommandInput,
+  CancelAgreementCancellationRequestCommandOutput,
+} from "./commands/CancelAgreementCancellationRequestCommand";
+import type {
   CancelAgreementPaymentRequestCommandInput,
   CancelAgreementPaymentRequestCommandOutput,
 } from "./commands/CancelAgreementPaymentRequestCommand";
@@ -69,6 +77,10 @@ import type {
   DescribeAgreementCommandInput,
   DescribeAgreementCommandOutput,
 } from "./commands/DescribeAgreementCommand";
+import type {
+  GetAgreementCancellationRequestCommandInput,
+  GetAgreementCancellationRequestCommandOutput,
+} from "./commands/GetAgreementCancellationRequestCommand";
 import type {
   GetAgreementPaymentRequestCommandInput,
   GetAgreementPaymentRequestCommandOutput,
@@ -78,10 +90,30 @@ import type {
   GetAgreementTermsCommandOutput,
 } from "./commands/GetAgreementTermsCommand";
 import type {
+  GetBillingAdjustmentRequestCommandInput,
+  GetBillingAdjustmentRequestCommandOutput,
+} from "./commands/GetBillingAdjustmentRequestCommand";
+import type {
+  ListAgreementCancellationRequestsCommandInput,
+  ListAgreementCancellationRequestsCommandOutput,
+} from "./commands/ListAgreementCancellationRequestsCommand";
+import type {
+  ListAgreementInvoiceLineItemsCommandInput,
+  ListAgreementInvoiceLineItemsCommandOutput,
+} from "./commands/ListAgreementInvoiceLineItemsCommand";
+import type {
   ListAgreementPaymentRequestsCommandInput,
   ListAgreementPaymentRequestsCommandOutput,
 } from "./commands/ListAgreementPaymentRequestsCommand";
+import type {
+  ListBillingAdjustmentRequestsCommandInput,
+  ListBillingAdjustmentRequestsCommandOutput,
+} from "./commands/ListBillingAdjustmentRequestsCommand";
 import type { SearchAgreementsCommandInput, SearchAgreementsCommandOutput } from "./commands/SearchAgreementsCommand";
+import type {
+  SendAgreementCancellationRequestCommandInput,
+  SendAgreementCancellationRequestCommandOutput,
+} from "./commands/SendAgreementCancellationRequestCommand";
 import type {
   SendAgreementPaymentRequestCommandInput,
   SendAgreementPaymentRequestCommandOutput,
@@ -101,24 +133,40 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchCreateBillingAdjustmentRequestCommandInput
+  | CancelAgreementCancellationRequestCommandInput
   | CancelAgreementPaymentRequestCommandInput
   | DescribeAgreementCommandInput
+  | GetAgreementCancellationRequestCommandInput
   | GetAgreementPaymentRequestCommandInput
   | GetAgreementTermsCommandInput
+  | GetBillingAdjustmentRequestCommandInput
+  | ListAgreementCancellationRequestsCommandInput
+  | ListAgreementInvoiceLineItemsCommandInput
   | ListAgreementPaymentRequestsCommandInput
+  | ListBillingAdjustmentRequestsCommandInput
   | SearchAgreementsCommandInput
+  | SendAgreementCancellationRequestCommandInput
   | SendAgreementPaymentRequestCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchCreateBillingAdjustmentRequestCommandOutput
+  | CancelAgreementCancellationRequestCommandOutput
   | CancelAgreementPaymentRequestCommandOutput
   | DescribeAgreementCommandOutput
+  | GetAgreementCancellationRequestCommandOutput
   | GetAgreementPaymentRequestCommandOutput
   | GetAgreementTermsCommandOutput
+  | GetBillingAdjustmentRequestCommandOutput
+  | ListAgreementCancellationRequestsCommandOutput
+  | ListAgreementInvoiceLineItemsCommandOutput
   | ListAgreementPaymentRequestsCommandOutput
+  | ListBillingAdjustmentRequestsCommandOutput
   | SearchAgreementsCommandOutput
+  | SendAgreementCancellationRequestCommandOutput
   | SendAgreementPaymentRequestCommandOutput;
 
 /**
