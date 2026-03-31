@@ -5647,6 +5647,12 @@ export interface GetDataAccessRequest {
    * @public
    */
   TargetType?: S3PrefixType | undefined;
+
+  /**
+   * <p>The context to identify the job or query associated with the credential request. This information will be displayed in CloudTrail log in your account.</p>
+   * @public
+   */
+  AuditContext?: string | undefined;
 }
 
 /**

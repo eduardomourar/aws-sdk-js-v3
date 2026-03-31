@@ -55,6 +55,7 @@ export interface GetDataAccessCommandOutput extends GetDataAccessResult, __Metad
  *   DurationSeconds: Number("int"),
  *   Privilege: "Minimal" || "Default",
  *   TargetType: "Object",
+ *   AuditContext: "STRING_VALUE",
  * };
  * const command = new GetDataAccessCommand(input);
  * const response = await client.send(command);

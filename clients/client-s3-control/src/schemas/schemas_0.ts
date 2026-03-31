@@ -3,6 +3,7 @@ const _AA = "ApplicationArn";
 const _AAGIC = "AssociateAccessGrantsIdentityCenter";
 const _AAGICR = "AssociateAccessGrantsIdentityCenterRequest";
 const _ABA = "AllowedByApplication";
+const _AC = "AuditContext";
 const _ACG = "AccessControlGrants";
 const _ACL = "ACL";
 const _ACLc = "AccessControlList";
@@ -734,6 +735,7 @@ const _VC = "VpcConfiguration";
 const _VCe = "VersioningConfiguration";
 const _VI = "VpcId";
 const _aBA = "allowedByApplication";
+const _aC = "auditContext";
 const _aa = "application_arn";
 const _b = "bucket";
 const _c = "client";
@@ -1466,8 +1468,8 @@ export var GetBucketVersioningResult$: StaticStructureSchema = [3, n0, _GBVRe,
 ];
 export var GetDataAccessRequest$: StaticStructureSchema = [3, n0, _GDAR,
   0,
-  [_Ta, _P, _AI, _DS, _Pri, _TT],
-  [[0, { [_hQ]: _t }], [0, { [_hQ]: _p }], [0, { [_hL]: 1, [_hH]: _xaai }], [1, { [_hQ]: _dS }], [0, { [_hQ]: _pr }], [0, { [_hQ]: _tT }]], 2
+  [_Ta, _P, _AI, _DS, _Pri, _TT, _AC],
+  [[0, { [_hQ]: _t }], [0, { [_hQ]: _p }], [0, { [_hL]: 1, [_hH]: _xaai }], [1, { [_hQ]: _dS }], [0, { [_hQ]: _pr }], [0, { [_hQ]: _tT }], [0, { [_hQ]: _aC }]], 2
 ];
 export var GetDataAccessResult$: StaticStructureSchema = [3, n0, _GDARe,
   0,
