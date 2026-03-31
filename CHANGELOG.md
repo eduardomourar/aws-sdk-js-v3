@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1021.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1020.0...v3.1021.0) (2026-03-31)
+
+
+### Bug Fixes
+
+* **codegen:** sync for adaptive retry throttling detection fix ([#7905](https://github.com/aws/aws-sdk-js-v3/issues/7905)) ([03f108d](https://github.com/aws/aws-sdk-js-v3/commit/03f108d08c37fcde9de0a62c29887458e980d84e))
+
+
+### Features
+
+* **client-acm:** Adds support for searching for ACM certificates using the new SearchCertificates API. ([4fd3187](https://github.com/aws/aws-sdk-js-v3/commit/4fd3187c31bf7dbb98b68a31e838c9b5e16308da))
+* **client-cloudfront:** This release adds bring your own IP (BYOIP) IPv6 support to CloudFront's CreateAnycastIpList and UpdateAnycastIpList API through the IpamCidrConfigs field. ([5d0f730](https://github.com/aws/aws-sdk-js-v3/commit/5d0f730026a83ab34f9c315b74216cc57c729ced))
+* **client-database-migration-service:** To successfully connect to the IBM DB2 LUW database server, you may need to specify additional security parameters that are passed to the JDBC driver. These parameters are EncryptionAlgorithm and SecurityMechanism. Both parameters accept integer values. ([6cdf668](https://github.com/aws/aws-sdk-js-v3/commit/6cdf6680aa99ade511f23256e6e3158a7a0d06f6))
+* **client-dataexchange:** Support Tags for AWS Data Exchange resource Assets ([43896f5](https://github.com/aws/aws-sdk-js-v3/commit/43896f5010bf3044056142fdc1cc5ae1f66f33e8))
+* **client-datazone:** Adds environmentConfigurationName field to CreateEnvironmentInput and UpdateEnvironmentInput, so that Domain Owners can now recover orphaned environments by recreating deleted configurations with the same name, and will auto-recover orphaned environments ([e372358](https://github.com/aws/aws-sdk-js-v3/commit/e372358f3fc176b24c39dff58f1962eccc08e480))
+* **client-devops-agent:** AWS DevOps Agent service General Availability release. ([85d0436](https://github.com/aws/aws-sdk-js-v3/commit/85d0436b1a31878ba4a5d70bc10cd99571d1cf95))
+* **client-geo-maps:** This release expands map customization options with adjustable contour line density, dark mode support for Hybrid and Satellite views, enhanced traffic information across multiple map styles, and transit and truck travel modes for Monochrome and Hybrid map styles. ([f7e1a71](https://github.com/aws/aws-sdk-js-v3/commit/f7e1a7162cbd1060f3aa91e5e652f0f73ad210e3))
+* **client-kinesis-analytics-v2:** Support for Flink 2.2 in Managed Service for Apache Flink ([62c491f](https://github.com/aws/aws-sdk-js-v3/commit/62c491f2980040aafd8d427d36ca8fcad9efe9ce))
+* **client-mailmanager:** Amazon SES Mail Manager now supports optional TLS policy for accepting unencrypted connections and mTLS authentication for ingress endpoints with configurable trust stores. Two new rule actions are available, Bounce for sending non-delivery reports and Lambda invocation for custom email processing. ([1fc4082](https://github.com/aws/aws-sdk-js-v3/commit/1fc4082695a946d537f893f5b7e90d032210ac28))
+* **client-marketplace-agreement:** This release adds 8 new APIs for AWS Marketplace sellers. 4 APIs for Cancellations (Send, List, Get, Cancel action on AgreementCancellationRequest), 3 APIs for Billing Adjustments (BatchCreate, List, Get action on BillingAdjustmentRequest), and 1 API to List Invoices (ListAgreementInvoiceLineItems) ([4ac5471](https://github.com/aws/aws-sdk-js-v3/commit/4ac54712b6d369a86c275fcde12b74eb9d1a44b3))
+* **client-observabilityadmin:** This release adds the Bedrock and Security Hub resource types for Omnia Enablement launch for March 31. ([6614c09](https://github.com/aws/aws-sdk-js-v3/commit/6614c09e028ea6e89526c53af149144894e16a05))
+* **client-odb:** Adds support for EC2 Placement Group integration with ODB Network. The GetOdbNetwork and ListOdbNetworks API responses now include the ec2PlacementGroupIds field. ([33da2f5](https://github.com/aws/aws-sdk-js-v3/commit/33da2f5adc47677e228d714c014883fec39d928d))
+* **client-opensearch:** Support RegisterCapability, GetCapability, DeregisterCapability API for AI Assistant feature management for OpenSearch UI Applications ([e1738b0](https://github.com/aws/aws-sdk-js-v3/commit/e1738b0aea7f04d6dcb89b79cb7fcdef145b5be3))
+* **client-organizations:** Added Path field to Account and OrganizationalUnit objects in AWS Organizations API responses. ([8699003](https://github.com/aws/aws-sdk-js-v3/commit/8699003ab4a532bf8421e0dd91d527640ac59e7e))
+* **client-partnercentral-selling:** Adding EURO Currency for MRR Amount ([807094b](https://github.com/aws/aws-sdk-js-v3/commit/807094be97f4fe5968115509bbb90f2f6483f6ca))
+* **client-pinpoint-sms-voice-v2:** This release adds RCS for Business messaging and Notify support. RCS lets you create and manage agents, send and receive messages in the US and Canada via SendTextMessage API, and configure SMS fallback. Notify lets you send templated OTP messages globally in minutes with no phone number required. ([11d660c](https://github.com/aws/aws-sdk-js-v3/commit/11d660ce020103aa83663bdacde51d73a762940c))
+* **client-quicksight:** Adds StartAutomationJob and DescribeAutomationJob APIs for automation jobs. Adds three custom permission capabilities that allow admins to control whether users can manage Spaces and chat agents. Adds an OAuthClientCredentials structure to provide OAuth 2.0 client credentials inline to data sources. ([4f13aba](https://github.com/aws/aws-sdk-js-v3/commit/4f13aba28d3aae9e6c164de6e5f778567a776cac))
+* **client-s3-control:** Adding an optional auditContext parameter to S3 Access Grants credential vending API GetDataAccess to enable job-level audit correlation in S3 CloudTrail logs ([78652f0](https://github.com/aws/aws-sdk-js-v3/commit/78652f0bae7e808c0b72cbccdf999e242948047b))
+* **client-s3:** Add Bucket Metrics configuration support to directory buckets ([67ff7cc](https://github.com/aws/aws-sdk-js-v3/commit/67ff7cc5dd608937694b7d1e10aceef09e611011))
+* **client-s3tables:** S3 Tables now supports nested types when creating tables. Users can define complex column schemas using struct, list, and map types. These types can be composed together to model complex, hierarchical data structures within table schemas. ([b105320](https://github.com/aws/aws-sdk-js-v3/commit/b105320b3b115e52d285f8ed2a3f271d6888b66d))
+* **client-securityagent:** AWS Security Agent is a service that proactively secures applications throughout the development lifecycle with automated security reviews and on-demand penetration testing. ([744d89a](https://github.com/aws/aws-sdk-js-v3/commit/744d89a126f05c7c05ccc1802da794966a526508))
+* **client-sustainability:** This is the first release of the AWS Sustainability SDK, which enables customers to access their sustainability impact data via API. ([bfa7251](https://github.com/aws/aws-sdk-js-v3/commit/bfa725183ddc7b787e2d38f6fadd937e783aa812))
+* **clients:** update client endpoints as of 2026-03-31 ([461ac73](https://github.com/aws/aws-sdk-js-v3/commit/461ac73c52d096342eccc733e232d339e8942ab8))
+
+
+
+
+
 # [3.1020.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1019.0...v3.1020.0) (2026-03-30)
 
 
