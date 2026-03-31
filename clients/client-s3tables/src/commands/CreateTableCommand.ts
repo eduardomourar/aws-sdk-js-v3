@@ -53,6 +53,22 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *           },
  *         ],
  *       },
+ *       schemaV2: { // IcebergSchemaV2
+ *         type: "struct", // required
+ *         fields: [ // SchemaV2FieldList // required
+ *           { // SchemaV2Field
+ *             id: Number("int"), // required
+ *             name: "STRING_VALUE", // required
+ *             type: "DOCUMENT_VALUE", // required
+ *             required: true || false, // required
+ *             doc: "STRING_VALUE",
+ *           },
+ *         ],
+ *         schemaId: Number("int"),
+ *         identifierFieldIds: [ // IntegerList
+ *           Number("int"),
+ *         ],
+ *       },
  *       partitionSpec: { // IcebergPartitionSpec
  *         fields: [ // IcebergPartitionFieldList // required
  *           { // IcebergPartitionField

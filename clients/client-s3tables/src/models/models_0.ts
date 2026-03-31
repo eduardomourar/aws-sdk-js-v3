@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import type { DocumentType as __DocumentType } from "@smithy/types";
+
 import type {
   IcebergCompactionStrategy,
   IcebergNullOrder,
@@ -7,6 +9,7 @@ import type {
   MaintenanceStatus,
   OpenTableFormat,
   ReplicationStatus,
+  SchemaV2FieldType,
   SSEAlgorithm,
   StorageClass,
   TableBucketMaintenanceType,
@@ -161,6 +164,72 @@ export interface IcebergSchema {
 }
 
 /**
+ * <p>Contains details about a schema field in the V2 format. This field format supports nested and complex data types such as <code>struct</code>, <code>list</code>, and <code>map</code>, in addition to primitive types.</p>
+ * @public
+ */
+export interface SchemaV2Field {
+  /**
+   * <p>The unique identifier for the schema field. Field IDs are used by Apache Iceberg to track schema evolution and maintain compatibility across schema changes.</p>
+   * @public
+   */
+  id: number | undefined;
+
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The data type of the field. This can be a primitive type string such as <code>boolean</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>string</code>, <code>binary</code>, <code>date</code>, <code>timestamp</code>, or <code>timestamptz</code>, or a complex type represented as a JSON object for nested types such as <code>struct</code>, <code>list</code>, or <code>map</code>. For more information, see the <a href="https://iceberg.apache.org/spec/#schemas-and-data-types">Apache Iceberg schemas and data types documentation</a>.</p>
+   * @public
+   */
+  type: __DocumentType | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether values are required for each row in this field. If this is <code>true</code>, the field does not allow null values.</p>
+   * @public
+   */
+  required: boolean | undefined;
+
+  /**
+   * <p>An optional description of the field.</p>
+   * @public
+   */
+  doc?: string | undefined;
+}
+
+/**
+ * <p>Contains details about the schema for an Iceberg table using the V2 format. This schema format supports nested and complex data types such as <code>struct</code>, <code>list</code>, and <code>map</code>, in addition to primitive types.</p>
+ * @public
+ */
+export interface IcebergSchemaV2 {
+  /**
+   * <p>The type of the top-level schema, which is always a <code>struct</code> type as defined in the <a href="https://iceberg.apache.org/spec/#schemas-and-data-types">Apache Iceberg specification</a>. This value must be <code>struct</code>.</p>
+   * @public
+   */
+  type: SchemaV2FieldType | undefined;
+
+  /**
+   * <p>The schema fields for the table. Each field defines a column in the table, including its name, type, and whether it is required.</p>
+   * @public
+   */
+  fields: SchemaV2Field[] | undefined;
+
+  /**
+   * <p>An optional unique identifier for the schema. Schema IDs are used by Apache Iceberg to track schema evolution.</p>
+   * @public
+   */
+  schemaId?: number | undefined;
+
+  /**
+   * <p>A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.</p>
+   * @public
+   */
+  identifierFieldIds?: number[] | undefined;
+}
+
+/**
  * <p>Defines a single sort field in an Iceberg sort order specification.</p>
  * @public
  */
@@ -214,10 +283,16 @@ export interface IcebergSortOrder {
  */
 export interface IcebergMetadata {
   /**
-   * <p>The schema for an Iceberg table.</p>
+   * <p>The schema for an Iceberg table. Use this property to define table schemas with primitive types only. For schemas that include nested or complex types such as <code>struct</code>, <code>list</code>, or <code>map</code>, use <code>schemaV2</code> instead.</p>
    * @public
    */
-  schema: IcebergSchema | undefined;
+  schema?: IcebergSchema | undefined;
+
+  /**
+   * <p>The schema for an Iceberg table using the V2 format. Use this property to define table schemas that include nested or complex data types such as <code>struct</code>, <code>list</code>, or <code>map</code>, in addition to primitive types. For schemas with only primitive types, you can use either <code>schema</code> or <code>schemaV2</code>.</p>
+   * @public
+   */
+  schemaV2?: IcebergSchemaV2 | undefined;
 
   /**
    * <p>The partition specification for the Iceberg table. Partitioning organizes data into separate files based on the values of one or more fields, which can improve query performance by reducing the amount of data scanned. Each partition field applies a transform (such as identity, year, month, or bucket) to a single field.</p>

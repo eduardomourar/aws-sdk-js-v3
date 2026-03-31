@@ -98,6 +98,7 @@ const _ISF = "IcebergSortField";
 const _ISFL = "IcebergSortFieldList";
 const _ISMS = "IcebergSnapshotManagementSettings";
 const _ISO = "IcebergSortOrder";
+const _ISV = "IcebergSchemaV2";
 const _IUFRS = "IcebergUnreferencedFileRemovalSettings";
 const _LN = "ListNamespaces";
 const _LNR = "ListNamespacesRequest";
@@ -149,6 +150,8 @@ const _RTR = "RenameTableRequest";
 const _SCC = "StorageClassConfiguration";
 const _SF = "SchemaField";
 const _SFL = "SchemaFieldList";
+const _SVF = "SchemaV2Field";
+const _SVFL = "SchemaV2FieldList";
 const _TBMC = "TableBucketMaintenanceConfiguration";
 const _TBMCV = "TableBucketMaintenanceConfigurationValue";
 const _TBMS = "TableBucketMaintenanceSettings";
@@ -195,6 +198,7 @@ const _dTBA = "destinationTableBucketArn";
 const _dTBARN = "destinationTableBucketARN";
 const _da = "days";
 const _di = "direction";
+const _do = "doc";
 const _e = "error";
 const _eC = "encryptionConfiguration";
 const _f = "format";
@@ -207,9 +211,11 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "id";
 const _iC = "icebergCompaction";
+const _iFI = "identifierFieldIds";
 const _iSM = "icebergSnapshotManagement";
 const _iUFR = "icebergUnreferencedFileRemoval";
 const _ic = "iceberg";
+const _ifi = "identifier-field-ids";
 const _jN = "jsonName";
 const _kKA = "kmsKeyArn";
 const _lRT = "lastRunTimestamp";
@@ -255,14 +261,17 @@ const _sA = "sseAlgorithm";
 const _sC = "storageClass";
 const _sCC = "storageClassConfiguration";
 const _sI = "sourceId";
+const _sIc = "schemaId";
 const _sIp = "specId";
 const _sTA = "sourceTableArn";
 const _sTARN = "sourceTableARN";
+const _sV = "schemaV2";
 const _sc = "schema";
 const _se = "server";
 const _set = "settings";
 const _si = "source-id";
 const _si_ = "spec-id";
+const _si__ = "schema-id";
 const _st = "status";
 const _str = "strategy";
 const _t = "tags";
@@ -646,8 +655,8 @@ export var IcebergCompactionSettings$: StaticStructureSchema = [3, n0, _ICS,
 ];
 export var IcebergMetadata$: StaticStructureSchema = [3, n0, _IM,
   0,
-  [_sc, _pS, _wO, _p],
-  [() => IcebergSchema$, [() => IcebergPartitionSpec$, 0], [() => IcebergSortOrder$, 0], 128 | 0], 1
+  [_sc, _sV, _pS, _wO, _p],
+  [() => IcebergSchema$, [() => IcebergSchemaV2$, 0], [() => IcebergPartitionSpec$, 0], [() => IcebergSortOrder$, 0], 128 | 0]
 ];
 export var IcebergPartitionField$: StaticStructureSchema = [3, n0, _IPF,
   0,
@@ -663,6 +672,11 @@ export var IcebergSchema$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_fie],
   [() => SchemaFieldList], 1
+];
+export var IcebergSchemaV2$: StaticStructureSchema = [3, n0, _ISV,
+  0,
+  [_ty, _fie, _sIc, _iFI],
+  [0, () => SchemaV2FieldList, [1, { [_jN]: _si__ }], [64 | 1, { [_jN]: _ifi }]], 2
 ];
 export var IcebergSnapshotManagementSettings$: StaticStructureSchema = [3, n0, _ISMS,
   0,
@@ -824,6 +838,11 @@ export var SchemaField$: StaticStructureSchema = [3, n0, _SF,
   [_na, _ty, _i, _r],
   [0, 0, 1, 2], 2
 ];
+export var SchemaV2Field$: StaticStructureSchema = [3, n0, _SVF,
+  0,
+  [_i, _na, _ty, _r, _do],
+  [1, 0, 15, 2, 0], 4
+];
 export var StorageClassConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
   [_sC],
@@ -928,6 +947,7 @@ var IcebergSortFieldList: StaticListSchema = [1, n0, _ISFL,
   0, [() => IcebergSortField$,
     0]
 ];
+var IntegerList = 64 | 1;
 var NamespaceList = 64 | 0;
 var NamespaceSummaryList: StaticListSchema = [1, n0, _NSL,
   0, () => NamespaceSummary$
@@ -940,6 +960,9 @@ var ReplicationDestinationStatuses: StaticListSchema = [1, n0, _RDS,
 ];
 var SchemaFieldList: StaticListSchema = [1, n0, _SFL,
   0, () => SchemaField$
+];
+var SchemaV2FieldList: StaticListSchema = [1, n0, _SVFL,
+  0, () => SchemaV2Field$
 ];
 var TableBucketReplicationRules: StaticListSchema = [1, n0, _TBRRa,
   0, () => TableBucketReplicationRule$

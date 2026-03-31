@@ -2,14 +2,14 @@ PUT https://s3tables.us-east-1.amazonaws.com
 /tables/__tableBucketARN__/__namespace__
 
 content-type: application/json
-content-length: 1136
+content-length: 1742
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/s3tables#_.__ m/E,e
 host: s3tables.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 195c17bf19969c607648c3fcd73b9aeec730398f8c03c7d33cc7971b12db6760
+x-amz-content-sha256: 67beba5a99e684096db2b1b08ec8ae69a6fcf72b12ffa100dc2afcc892d3c39e
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -38,6 +38,71 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_
             "id": 0,
             "required": false
           }
+        ]
+      },
+      "schemaV2": {
+        "type": "__type__",
+        "fields": [
+          {
+            "id": 0,
+            "name": "__name__",
+            "type": {
+              "doc_note": "this is a document",
+              "doc_date": 946702799.999,
+              "doc_blob": "AQAAAQ==",
+              "doc_list": [
+                -7,
+                -3,
+                0,
+                1,
+                5
+              ]
+            },
+            "required": false,
+            "doc": "__doc__"
+          },
+          {
+            "id": 0,
+            "name": "__name__",
+            "type": {
+              "doc_note": "this is a document",
+              "doc_date": 946702799.999,
+              "doc_blob": "AQAAAQ==",
+              "doc_list": [
+                -7,
+                -3,
+                0,
+                1,
+                5
+              ]
+            },
+            "required": false,
+            "doc": "__doc__"
+          },
+          {
+            "id": 0,
+            "name": "__name__",
+            "type": {
+              "doc_note": "this is a document",
+              "doc_date": 946702799.999,
+              "doc_blob": "AQAAAQ==",
+              "doc_list": [
+                -7,
+                -3,
+                0,
+                1,
+                5
+              ]
+            },
+            "required": false,
+            "doc": "__doc__"
+          }
+        ],
+        "schema-id": 0,
+        "identifier-field-ids": [
+          0,
+          0,
+          0
         ]
       },
       "partitionSpec": {

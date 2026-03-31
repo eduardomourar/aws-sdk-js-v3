@@ -28,6 +28,18 @@ export type OpenTableFormat = (typeof OpenTableFormat)[keyof typeof OpenTableFor
  * @public
  * @enum
  */
+export const SchemaV2FieldType = {
+  STRUCT: "struct",
+} as const;
+/**
+ * @public
+ */
+export type SchemaV2FieldType = (typeof SchemaV2FieldType)[keyof typeof SchemaV2FieldType];
+
+/**
+ * @public
+ * @enum
+ */
 export const IcebergSortDirection = {
   ASC: "asc",
   DESC: "desc",

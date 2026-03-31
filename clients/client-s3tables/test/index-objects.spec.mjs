@@ -130,6 +130,7 @@ import {
   IcebergPartitionField$,
   IcebergPartitionSpec$,
   IcebergSchema$,
+  IcebergSchemaV2$,
   IcebergSnapshotManagementSettings$,
   IcebergSortDirection,
   IcebergSortField$,
@@ -209,6 +210,8 @@ import {
   S3TablesClient,
   S3TablesServiceException,
   SchemaField$,
+  SchemaV2Field$,
+  SchemaV2FieldType,
   SSEAlgorithm,
   StorageClass,
   StorageClassConfiguration$,
@@ -412,6 +415,7 @@ assert(typeof IcebergMetadata$ === "object");
 assert(typeof IcebergPartitionField$ === "object");
 assert(typeof IcebergPartitionSpec$ === "object");
 assert(typeof IcebergSchema$ === "object");
+assert(typeof IcebergSchemaV2$ === "object");
 assert(typeof IcebergSnapshotManagementSettings$ === "object");
 assert(typeof IcebergSortField$ === "object");
 assert(typeof IcebergSortOrder$ === "object");
@@ -444,6 +448,7 @@ assert(typeof ReplicationDestination$ === "object");
 assert(typeof ReplicationDestinationStatusModel$ === "object");
 assert(typeof ReplicationInformation$ === "object");
 assert(typeof SchemaField$ === "object");
+assert(typeof SchemaV2Field$ === "object");
 assert(typeof StorageClassConfiguration$ === "object");
 assert(typeof TableBucketMaintenanceConfigurationValue$ === "object");
 assert(typeof TableBucketMaintenanceSettings$ === "object");
@@ -474,6 +479,7 @@ assert(typeof JobStatus === "object");
 assert(typeof MaintenanceStatus === "object");
 assert(typeof OpenTableFormat === "object");
 assert(typeof ReplicationStatus === "object");
+assert(typeof SchemaV2FieldType === "object");
 assert(typeof SSEAlgorithm === "object");
 assert(typeof StorageClass === "object");
 assert(typeof TableBucketMaintenanceType === "object");
