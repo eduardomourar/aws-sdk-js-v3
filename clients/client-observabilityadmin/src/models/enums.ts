@@ -128,7 +128,10 @@ export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
  * @enum
  */
 export const LogType = {
+  ACCESS: "ACCESS_LOGS",
   APPLICATION: "APPLICATION_LOGS",
+  CONNECTION: "CONNECTION_LOGS",
+  SECURITY_FINDING: "SECURITY_FINDING_LOGS",
   USAGE: "USAGE_LOGS",
 } as const;
 /**
@@ -181,7 +184,10 @@ export type WAFLogType = (typeof WAFLogType)[keyof typeof WAFLogType];
 export const ResourceType = {
   AWS_BEDROCK_AGENTCORE_BROWSER: "AWS::BedrockAgentCore::Browser",
   AWS_BEDROCK_AGENTCORE_CODE_INTERPRETER: "AWS::BedrockAgentCore::CodeInterpreter",
+  AWS_BEDROCK_AGENTCORE_GATEWAY: "AWS::BedrockAgentCore::Gateway",
+  AWS_BEDROCK_AGENTCORE_MEMORY: "AWS::BedrockAgentCore::Memory",
   AWS_BEDROCK_AGENTCORE_RUNTIME: "AWS::BedrockAgentCore::Runtime",
+  AWS_CLOUDFRONT_DISTRIBUTION: "AWS::CloudFront::Distribution",
   AWS_CLOUDTRAIL: "AWS::CloudTrail",
   AWS_EC2_INSTANCE: "AWS::EC2::Instance",
   AWS_EC2_VPC: "AWS::EC2::VPC",
@@ -189,6 +195,7 @@ export const ResourceType = {
   AWS_ELB_LOADBALANCER: "AWS::ElasticLoadBalancingV2::LoadBalancer",
   AWS_LAMDBA_FUNCTION: "AWS::Lambda::Function",
   AWS_ROUTE53_RESOLVER_RESOLVER_ENDPOINT: "AWS::Route53Resolver::ResolverEndpoint",
+  AWS_SECURITY_HUB: "AWS::SecurityHub::Hub",
   AWS_WAF_V2_WEB_ACL: "AWS::WAFv2::WebACL",
 } as const;
 /**
