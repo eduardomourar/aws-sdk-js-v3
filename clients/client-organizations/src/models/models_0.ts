@@ -117,6 +117,12 @@ export interface Account {
   State?: AccountState | undefined;
 
   /**
+   * <p>The paths in the organization where the account exists.</p>
+   * @public
+   */
+  Paths?: string[] | undefined;
+
+  /**
    * <p>The method by which the account joined the organization.</p>
    * @public
    */
@@ -826,6 +832,12 @@ export interface OrganizationalUnit {
    * @public
    */
   Name?: string | undefined;
+
+  /**
+   * <p>The path in the organization where this OU exists.</p>
+   * @public
+   */
+  Path?: string | undefined;
 }
 
 /**

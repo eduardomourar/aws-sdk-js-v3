@@ -47,6 +47,7 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * //     Id: "STRING_VALUE",
  * //     Arn: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
+ * //     Path: "STRING_VALUE",
  * //   },
  * // };
  *

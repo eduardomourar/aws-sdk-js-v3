@@ -58,6 +58,9 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * //       Name: "STRING_VALUE",
  * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
  * //       State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
+ * //       Paths: [ // Paths
+ * //         "STRING_VALUE",
+ * //       ],
  * //       JoinedMethod: "INVITED" || "CREATED",
  * //       JoinedTimestamp: new Date("TIMESTAMP"),
  * //     },

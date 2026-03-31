@@ -251,7 +251,7 @@ const _OUI = "OrganizationalUnitId";
 const _OUNEE = "OrganizationalUnitNotEmptyException";
 const _OUNFE = "OrganizationalUnitNotFoundException";
 const _OUr = "OrganizationalUnits";
-const _P = "Policy";
+const _P = "Paths";
 const _PC = "PolicyContent";
 const _PCIPE = "PolicyChangesInProgressException";
 const _PHI = "ParentHandshakeId";
@@ -278,7 +278,8 @@ const _Pa = "Parties";
 const _Par = "Parents";
 const _Pare = "Parent";
 const _Pat = "Path";
-const _Po = "Policies";
+const _Po = "Policy";
+const _Pol = "Policies";
 const _R = "Reason";
 const _RAFO = "RemoveAccountFromOrganization";
 const _RAFOR = "RemoveAccountFromOrganizationRequest";
@@ -742,8 +743,8 @@ export var AcceptHandshakeResponse$: StaticStructureSchema = [3, n0, _AHRc,
 ];
 export var Account$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_I, _Ar, _E, _N, _S, _St, _JM, _JT],
-  [0, 0, [() => Email, 0], [() => AccountName, 0], 0, 0, 0, 4]
+  [_I, _Ar, _E, _N, _S, _St, _P, _JM, _JT],
+  [0, 0, [() => Email, 0], [() => AccountName, 0], 0, 0, 64 | 0, 0, 4]
 ];
 export var AttachPolicyRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
@@ -822,7 +823,7 @@ export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
 ];
 export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_P],
+  [_Po],
   [() => Policy$]
 ];
 export var DeclineHandshakeRequest$: StaticStructureSchema = [3, n0, _DHR,
@@ -922,7 +923,7 @@ export var DescribePolicyRequest$: StaticStructureSchema = [3, n0, _DPRe,
 ];
 export var DescribePolicyResponse$: StaticStructureSchema = [3, n0, _DPRes,
   0,
-  [_P],
+  [_Po],
   [() => Policy$]
 ];
 export var DescribeResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPR,
@@ -1197,7 +1198,7 @@ export var ListPoliciesForTargetRequest$: StaticStructureSchema = [3, n0, _LPFTR
 ];
 export var ListPoliciesForTargetResponse$: StaticStructureSchema = [3, n0, _LPFTRi,
   0,
-  [_Po, _NT],
+  [_Pol, _NT],
   [() => Policies, 0]
 ];
 export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPRis,
@@ -1207,7 +1208,7 @@ export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPRis,
 ];
 export var ListPoliciesResponse$: StaticStructureSchema = [3, n0, _LPRist,
   0,
-  [_Po, _NT],
+  [_Pol, _NT],
   [() => Policies, 0]
 ];
 export var ListRootsRequest$: StaticStructureSchema = [3, n0, _LRR,
@@ -1252,15 +1253,15 @@ export var Organization$: StaticStructureSchema = [3, n0, _O,
 ];
 export var OrganizationalUnit$: StaticStructureSchema = [3, n0, _OU,
   0,
-  [_I, _Ar, _N],
-  [0, 0, 0]
+  [_I, _Ar, _N, _Pat],
+  [0, 0, 0, 0]
 ];
 export var Parent$: StaticStructureSchema = [3, n0, _Pare,
   0,
   [_I, _T],
   [0, 0]
 ];
-export var Policy$: StaticStructureSchema = [3, n0, _P,
+export var Policy$: StaticStructureSchema = [3, n0, _Po,
   0,
   [_PS, _Co],
   [() => PolicySummary$, 0]
@@ -1367,7 +1368,7 @@ export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
 ];
 export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
-  [_P],
+  [_Po],
   [() => Policy$]
 ];
 export var UpdateResponsibilityTransferRequest$: StaticStructureSchema = [3, n0, _URTR,
@@ -1424,7 +1425,8 @@ var OrganizationalUnits: StaticListSchema = [1, n0, _OUr,
 var Parents: StaticListSchema = [1, n0, _Par,
   0, () => Parent$
 ];
-var Policies: StaticListSchema = [1, n0, _Po,
+var Paths = 64 | 0;
+var Policies: StaticListSchema = [1, n0, _Pol,
   0, () => PolicySummary$
 ];
 var PolicyIds = 64 | 0;

@@ -62,6 +62,7 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * //     Id: "STRING_VALUE",
  * //     Arn: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
+ * //     Path: "STRING_VALUE",
  * //   },
  * // };
  *

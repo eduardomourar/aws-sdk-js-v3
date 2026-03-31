@@ -50,6 +50,7 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * //     Id: "STRING_VALUE",
  * //     Arn: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
+ * //     Path: "STRING_VALUE",
  * //   },
  * // };
  *

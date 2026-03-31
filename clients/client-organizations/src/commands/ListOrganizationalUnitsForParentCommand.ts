@@ -58,6 +58,7 @@ export interface ListOrganizationalUnitsForParentCommandOutput extends ListOrgan
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       Path: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
