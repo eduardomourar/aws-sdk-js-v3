@@ -78,7 +78,7 @@ export interface GetSpritesRequest {
   Style: MapStyle | undefined;
 
   /**
-   * <p>Sets color tone for map such as dark and light for specific map styles. It applies to only vector map styles such as Standard and Monochrome.</p> <p>Example: <code>Light</code> </p> <p>Default value: <code>Light</code> </p> <note> <p>Valid values for ColorScheme are case sensitive.</p> </note>
+   * <p>Sets the color tone for the map sprites, such as dark and light.</p> <p>Example: <code>Light</code> </p> <p>Default value: <code>Light</code> </p> <note> <p>Valid values for ColorScheme are case sensitive.</p> </note>
    * @public
    */
   ColorScheme: ColorScheme | undefined;
@@ -142,7 +142,7 @@ export interface GetStaticMapRequest {
   Center?: string | undefined;
 
   /**
-   * <p>Sets color tone for map, such as dark and light for specific map styles. It only applies to vector map styles, such as Standard.</p> <p>Example: <code>Light</code> </p> <p>Default value: <code>Light</code> </p> <note> <p>Valid values for <code>ColorScheme</code> are case sensitive.</p> </note>
+   * <p>Sets the color tone for the map, such as dark and light.</p> <p>Example: <code>Light</code> </p> <p>Default value: <code>Light</code> </p> <note> <p>Valid values for <code>ColorScheme</code> are case sensitive.</p> </note>
    * @public
    */
   ColorScheme?: ColorScheme | undefined;
@@ -308,7 +308,7 @@ export interface GetStyleDescriptorRequest {
   Style: MapStyle | undefined;
 
   /**
-   * <p>Sets color tone for map such as dark and light for specific map styles. It applies to only vector map styles such as Standard and Monochrome.</p> <p>Example: <code>Light</code> </p> <p>Default value: <code>Light</code> </p> <note> <p>Valid values for ColorScheme are case sensitive.</p> </note>
+   * <p>Sets the color tone for the map, such as dark and light.</p> <p>Example: <code>Light</code> </p> <p>Default value: <code>Light</code> </p> <note> <p>Valid values for ColorScheme are case sensitive.</p> </note>
    * @public
    */
   ColorScheme?: ColorScheme | undefined;
@@ -326,19 +326,19 @@ export interface GetStyleDescriptorRequest {
   Terrain?: Terrain | undefined;
 
   /**
-   * <p>Displays the shape and steepness of terrain features using elevation lines. The density value controls how densely the available contour line information is rendered on the map.</p> <p>This parameter is valid only for the <code>Standard</code>, <code>Monochrome</code>, and <code>Hybrid</code> map styles.</p>
+   * <p>Displays the shape and steepness of terrain features using elevation lines. The density value controls how densely the available contour line information is rendered on the map.</p> <p>This parameter is valid for all map styles except <code>Satellite</code>.</p>
    * @public
    */
   ContourDensity?: ContourDensity | undefined;
 
   /**
-   * <p>Displays real-time traffic information overlay on map, such as incident events and flow events.</p> <p>This parameter is valid only for the <code>Standard</code> map style.</p>
+   * <p>Displays real-time traffic information overlay on map, such as incident events and flow events.</p> <p>This parameter is valid for all map styles except <code>Satellite</code>.</p>
    * @public
    */
   Traffic?: Traffic | undefined;
 
   /**
-   * <p>Renders additional map information relevant to selected travel modes. Information for multiple travel modes can be displayed simultaneously, although this increases the overall information density rendered on the map.</p> <p>This parameter is valid only for the <code>Standard</code> map style.</p>
+   * <p>Renders additional map information relevant to selected travel modes. Information for multiple travel modes can be displayed simultaneously, although this increases the overall information density rendered on the map.</p> <p>This parameter is valid for all map styles except <code>Satellite</code>.</p>
    * @public
    */
   TravelModes?: TravelMode[] | undefined;

@@ -29,6 +29,8 @@ export type ColorScheme = (typeof ColorScheme)[keyof typeof ColorScheme];
  * @enum
  */
 export const ContourDensity = {
+  HIGH: "High",
+  LOW: "Low",
   MEDIUM: "Medium",
 } as const;
 /**
@@ -175,6 +177,7 @@ export type Terrain = (typeof Terrain)[keyof typeof Terrain];
  */
 export const Traffic = {
   ALL: "All",
+  CONGESTION: "Congestion",
 } as const;
 /**
  * @public
