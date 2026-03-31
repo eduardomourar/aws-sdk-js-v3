@@ -85,11 +85,17 @@ import {
   RevokeCertificateCommand,
 } from "./commands/RevokeCertificateCommand";
 import {
+  type SearchCertificatesCommandInput,
+  type SearchCertificatesCommandOutput,
+  SearchCertificatesCommand,
+} from "./commands/SearchCertificatesCommand";
+import {
   type UpdateCertificateOptionsCommandInput,
   type UpdateCertificateOptionsCommandOutput,
   UpdateCertificateOptionsCommand,
 } from "./commands/UpdateCertificateOptionsCommand";
 import { paginateListCertificates } from "./pagination/ListCertificatesPaginator";
+import { paginateSearchCertificates } from "./pagination/SearchCertificatesPaginator";
 import { waitUntilCertificateValidated } from "./waiters/waitForCertificateValidated";
 
 const commands = {
@@ -108,10 +114,12 @@ const commands = {
   RequestCertificateCommand,
   ResendValidationEmailCommand,
   RevokeCertificateCommand,
+  SearchCertificatesCommand,
   UpdateCertificateOptionsCommand,
 };
 const paginators = {
   paginateListCertificates,
+  paginateSearchCertificates,
 };
 const waiters = {
   waitUntilCertificateValidated,
@@ -376,6 +384,24 @@ export interface ACM {
   ): void;
 
   /**
+   * @see {@link SearchCertificatesCommand}
+   */
+  searchCertificates(): Promise<SearchCertificatesCommandOutput>;
+  searchCertificates(
+    args: SearchCertificatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchCertificatesCommandOutput>;
+  searchCertificates(
+    args: SearchCertificatesCommandInput,
+    cb: (err: any, data?: SearchCertificatesCommandOutput) => void
+  ): void;
+  searchCertificates(
+    args: SearchCertificatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchCertificatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateCertificateOptionsCommand}
    */
   updateCertificateOptions(
@@ -402,6 +428,17 @@ export interface ACM {
     args?: ListCertificatesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListCertificatesCommandOutput>;
+
+  /**
+   * @see {@link SearchCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchCertificatesCommandOutput}.
+   */
+  paginateSearchCertificates(
+    args?: SearchCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchCertificatesCommandOutput>;
 
   /**
    * @see {@link DescribeCertificateCommand}

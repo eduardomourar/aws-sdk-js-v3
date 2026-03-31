@@ -5,6 +5,7 @@ import type {
   CertificateStatus,
   CertificateTransparencyLoggingPreference,
   CertificateType,
+  ComparisonOperator,
   DomainStatus,
   ExtendedKeyUsageName,
   FailureReason,
@@ -14,10 +15,275 @@ import type {
   RenewalEligibility,
   RenewalStatus,
   RevocationReason,
+  SearchCertificatesSortBy,
+  SearchCertificatesSortOrder,
   SortBy,
   SortOrder,
   ValidationMethod,
 } from "./enums";
+
+/**
+ * <p>Contains ACM-specific metadata about a certificate.</p>
+ * @public
+ */
+export interface AcmCertificateMetadata {
+  /**
+   * <p>The time at which the certificate was requested.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the certificate has been exported.</p>
+   * @public
+   */
+  Exported?: boolean | undefined;
+
+  /**
+   * <p>The date and time when the certificate was imported. This value exists only when the certificate type is <code>IMPORTED</code>. </p>
+   * @public
+   */
+  ImportedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the certificate is currently in use by an Amazon Web Services service.</p>
+   * @public
+   */
+  InUse?: boolean | undefined;
+
+  /**
+   * <p>The time at which the certificate was issued. This value exists only when the certificate type is <code>AMAZON_ISSUED</code>. </p>
+   * @public
+   */
+  IssuedAt?: Date | undefined;
+
+  /**
+   * <p>Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the <a>RenewCertificate</a> command.</p>
+   * @public
+   */
+  RenewalEligibility?: RenewalEligibility | undefined;
+
+  /**
+   * <p>The time at which the certificate was revoked. This value exists only when the certificate status is <code>REVOKED</code>. </p>
+   * @public
+   */
+  RevokedAt?: Date | undefined;
+
+  /**
+   * <p>The status of the certificate.</p> <p>A certificate enters status PENDING_VALIDATION upon being requested, unless it fails for any of the reasons given in the troubleshooting topic <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html">Certificate request fails</a>. ACM makes repeated attempts to validate a certificate for 72 hours and then times out. If a certificate shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with <a href="https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html">Email validation</a>, and try again. If validation succeeds, the certificate enters status ISSUED. </p>
+   * @public
+   */
+  Status?: CertificateStatus | undefined;
+
+  /**
+   * <p>The renewal status of the certificate.</p>
+   * @public
+   */
+  RenewalStatus?: RenewalStatus | undefined;
+
+  /**
+   * <p>The source of the certificate. For certificates provided by ACM, this value is <code>AMAZON_ISSUED</code>. For certificates that you imported with <a>ImportCertificate</a>, this value is <code>IMPORTED</code>. ACM does not provide <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the <i>Certificate Manager User Guide</i>. </p>
+   * @public
+   */
+  Type?: CertificateType | undefined;
+
+  /**
+   * <p>Indicates whether the certificate can be exported.</p>
+   * @public
+   */
+  ExportOption?: CertificateExport | undefined;
+
+  /**
+   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * @public
+   */
+  ManagedBy?: CertificateManagedBy | undefined;
+
+  /**
+   * <p>Specifies the domain validation method.</p>
+   * @public
+   */
+  ValidationMethod?: ValidationMethod | undefined;
+}
+
+/**
+ * <p>Filters certificates by ACM metadata.</p>
+ * @public
+ */
+export type AcmCertificateMetadataFilter =
+  | AcmCertificateMetadataFilter.ExportOptionMember
+  | AcmCertificateMetadataFilter.ExportedMember
+  | AcmCertificateMetadataFilter.InUseMember
+  | AcmCertificateMetadataFilter.ManagedByMember
+  | AcmCertificateMetadataFilter.RenewalStatusMember
+  | AcmCertificateMetadataFilter.StatusMember
+  | AcmCertificateMetadataFilter.TypeMember
+  | AcmCertificateMetadataFilter.ValidationMethodMember
+  | AcmCertificateMetadataFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AcmCertificateMetadataFilter {
+  /**
+   * <p>Filter by certificate status.</p>
+   * @public
+   */
+  export interface StatusMember {
+    Status: CertificateStatus;
+    RenewalStatus?: never;
+    Type?: never;
+    InUse?: never;
+    Exported?: never;
+    ExportOption?: never;
+    ManagedBy?: never;
+    ValidationMethod?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by certificate renewal status.</p>
+   * @public
+   */
+  export interface RenewalStatusMember {
+    Status?: never;
+    RenewalStatus: RenewalStatus;
+    Type?: never;
+    InUse?: never;
+    Exported?: never;
+    ExportOption?: never;
+    ManagedBy?: never;
+    ValidationMethod?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by certificate type.</p>
+   * @public
+   */
+  export interface TypeMember {
+    Status?: never;
+    RenewalStatus?: never;
+    Type: CertificateType;
+    InUse?: never;
+    Exported?: never;
+    ExportOption?: never;
+    ManagedBy?: never;
+    ValidationMethod?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by whether the certificate is in use.</p>
+   * @public
+   */
+  export interface InUseMember {
+    Status?: never;
+    RenewalStatus?: never;
+    Type?: never;
+    InUse: boolean;
+    Exported?: never;
+    ExportOption?: never;
+    ManagedBy?: never;
+    ValidationMethod?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by whether the certificate has been exported.</p>
+   * @public
+   */
+  export interface ExportedMember {
+    Status?: never;
+    RenewalStatus?: never;
+    Type?: never;
+    InUse?: never;
+    Exported: boolean;
+    ExportOption?: never;
+    ManagedBy?: never;
+    ValidationMethod?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by certificate export option.</p>
+   * @public
+   */
+  export interface ExportOptionMember {
+    Status?: never;
+    RenewalStatus?: never;
+    Type?: never;
+    InUse?: never;
+    Exported?: never;
+    ExportOption: CertificateExport;
+    ManagedBy?: never;
+    ValidationMethod?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by the entity that manages the certificate.</p>
+   * @public
+   */
+  export interface ManagedByMember {
+    Status?: never;
+    RenewalStatus?: never;
+    Type?: never;
+    InUse?: never;
+    Exported?: never;
+    ExportOption?: never;
+    ManagedBy: CertificateManagedBy;
+    ValidationMethod?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by validation method.</p>
+   * @public
+   */
+  export interface ValidationMethodMember {
+    Status?: never;
+    RenewalStatus?: never;
+    Type?: never;
+    InUse?: never;
+    Exported?: never;
+    ExportOption?: never;
+    ManagedBy?: never;
+    ValidationMethod: ValidationMethod;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Status?: never;
+    RenewalStatus?: never;
+    Type?: never;
+    InUse?: never;
+    Exported?: never;
+    ExportOption?: never;
+    ManagedBy?: never;
+    ValidationMethod?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Status: (value: CertificateStatus) => T;
+    RenewalStatus: (value: RenewalStatus) => T;
+    Type: (value: CertificateType) => T;
+    InUse: (value: boolean) => T;
+    Exported: (value: boolean) => T;
+    ExportOption: (value: CertificateExport) => T;
+    ManagedBy: (value: CertificateManagedBy) => T;
+    ValidationMethod: (value: ValidationMethod) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>A key-value pair that identifies or specifies metadata about an ACM resource.</p>
@@ -52,6 +318,24 @@ export interface AddTagsToCertificateRequest {
    * @public
    */
   Tags: Tag[] | undefined;
+}
+
+/**
+ * <p>A description of why a request was throttled.</p>
+ * @public
+ */
+export interface ThrottlingReason {
+  /**
+   * <p>A description of why a request was throttled.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>The resource that causes the request to be throttled.</p>
+   * @public
+   */
+  resource?: string | undefined;
 }
 
 /**
@@ -186,7 +470,7 @@ export interface CertificateOptions {
   CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | undefined;
 
   /**
-   * <p>You can opt in to allow the export of your certificates by specifying <code>ENABLED</code>.</p>
+   * <p>You can opt in to allow the export of your certificates by specifying <code>ENABLED</code>. You cannot update the value of <code>Export</code> after the the certificate is created.</p>
    * @public
    */
   Export?: CertificateExport | undefined;
@@ -388,6 +672,386 @@ export interface CertificateDetail {
    * @public
    */
   Options?: CertificateOptions | undefined;
+}
+
+/**
+ * <p>Specifies a time range for filtering certificates.</p>
+ * @public
+ */
+export interface TimestampRange {
+  /**
+   * <p>The start of the time range. This value is inclusive.</p>
+   * @public
+   */
+  Start?: Date | undefined;
+
+  /**
+   * <p>The end of the time range. This value is inclusive.</p>
+   * @public
+   */
+  End?: Date | undefined;
+}
+
+/**
+ * <p>Filters certificates by common name.</p>
+ * @public
+ */
+export interface CommonNameFilter {
+  /**
+   * <p>The value to match against.</p>
+   * @public
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>The comparison operator to use.</p>
+   * @public
+   */
+  ComparisonOperator: ComparisonOperator | undefined;
+}
+
+/**
+ * <p>Filters certificates by subject attributes.</p>
+ * @public
+ */
+export type SubjectFilter =
+  | SubjectFilter.CommonNameMember
+  | SubjectFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SubjectFilter {
+  /**
+   * <p>Filter by common name in the subject.</p>
+   * @public
+   */
+  export interface CommonNameMember {
+    CommonName: CommonNameFilter;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    CommonName?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    CommonName: (value: CommonNameFilter) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Filters certificates by DNS name.</p>
+ * @public
+ */
+export interface DnsNameFilter {
+  /**
+   * <p>The DNS name value to match against.</p>
+   * @public
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>The comparison operator to use.</p>
+   * @public
+   */
+  ComparisonOperator: ComparisonOperator | undefined;
+}
+
+/**
+ * <p>Filters certificates by subject alternative name attributes.</p>
+ * @public
+ */
+export type SubjectAlternativeNameFilter =
+  | SubjectAlternativeNameFilter.DnsNameMember
+  | SubjectAlternativeNameFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SubjectAlternativeNameFilter {
+  /**
+   * <p>Filter by DNS name in subject alternative names.</p>
+   * @public
+   */
+  export interface DnsNameMember {
+    DnsName: DnsNameFilter;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    DnsName?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    DnsName: (value: DnsNameFilter) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Filters certificates by X.509 attributes.</p>
+ * @public
+ */
+export type X509AttributeFilter =
+  | X509AttributeFilter.ExtendedKeyUsageMember
+  | X509AttributeFilter.KeyAlgorithmMember
+  | X509AttributeFilter.KeyUsageMember
+  | X509AttributeFilter.NotAfterMember
+  | X509AttributeFilter.NotBeforeMember
+  | X509AttributeFilter.SerialNumberMember
+  | X509AttributeFilter.SubjectMember
+  | X509AttributeFilter.SubjectAlternativeNameMember
+  | X509AttributeFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace X509AttributeFilter {
+  /**
+   * <p>Filter by certificate subject.</p>
+   * @public
+   */
+  export interface SubjectMember {
+    Subject: SubjectFilter;
+    SubjectAlternativeName?: never;
+    ExtendedKeyUsage?: never;
+    KeyUsage?: never;
+    KeyAlgorithm?: never;
+    SerialNumber?: never;
+    NotAfter?: never;
+    NotBefore?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by subject alternative names.</p>
+   * @public
+   */
+  export interface SubjectAlternativeNameMember {
+    Subject?: never;
+    SubjectAlternativeName: SubjectAlternativeNameFilter;
+    ExtendedKeyUsage?: never;
+    KeyUsage?: never;
+    KeyAlgorithm?: never;
+    SerialNumber?: never;
+    NotAfter?: never;
+    NotBefore?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by extended key usage.</p>
+   * @public
+   */
+  export interface ExtendedKeyUsageMember {
+    Subject?: never;
+    SubjectAlternativeName?: never;
+    ExtendedKeyUsage: ExtendedKeyUsageName;
+    KeyUsage?: never;
+    KeyAlgorithm?: never;
+    SerialNumber?: never;
+    NotAfter?: never;
+    NotBefore?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by key usage.</p>
+   * @public
+   */
+  export interface KeyUsageMember {
+    Subject?: never;
+    SubjectAlternativeName?: never;
+    ExtendedKeyUsage?: never;
+    KeyUsage: KeyUsageName;
+    KeyAlgorithm?: never;
+    SerialNumber?: never;
+    NotAfter?: never;
+    NotBefore?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by key algorithm.</p>
+   * @public
+   */
+  export interface KeyAlgorithmMember {
+    Subject?: never;
+    SubjectAlternativeName?: never;
+    ExtendedKeyUsage?: never;
+    KeyUsage?: never;
+    KeyAlgorithm: KeyAlgorithm;
+    SerialNumber?: never;
+    NotAfter?: never;
+    NotBefore?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by serial number.</p>
+   * @public
+   */
+  export interface SerialNumberMember {
+    Subject?: never;
+    SubjectAlternativeName?: never;
+    ExtendedKeyUsage?: never;
+    KeyUsage?: never;
+    KeyAlgorithm?: never;
+    SerialNumber: string;
+    NotAfter?: never;
+    NotBefore?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by certificate expiration date. The start date is inclusive.</p>
+   * @public
+   */
+  export interface NotAfterMember {
+    Subject?: never;
+    SubjectAlternativeName?: never;
+    ExtendedKeyUsage?: never;
+    KeyUsage?: never;
+    KeyAlgorithm?: never;
+    SerialNumber?: never;
+    NotAfter: TimestampRange;
+    NotBefore?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by certificate validity start date. The start date is inclusive.</p>
+   * @public
+   */
+  export interface NotBeforeMember {
+    Subject?: never;
+    SubjectAlternativeName?: never;
+    ExtendedKeyUsage?: never;
+    KeyUsage?: never;
+    KeyAlgorithm?: never;
+    SerialNumber?: never;
+    NotAfter?: never;
+    NotBefore: TimestampRange;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Subject?: never;
+    SubjectAlternativeName?: never;
+    ExtendedKeyUsage?: never;
+    KeyUsage?: never;
+    KeyAlgorithm?: never;
+    SerialNumber?: never;
+    NotAfter?: never;
+    NotBefore?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Subject: (value: SubjectFilter) => T;
+    SubjectAlternativeName: (value: SubjectAlternativeNameFilter) => T;
+    ExtendedKeyUsage: (value: ExtendedKeyUsageName) => T;
+    KeyUsage: (value: KeyUsageName) => T;
+    KeyAlgorithm: (value: KeyAlgorithm) => T;
+    SerialNumber: (value: string) => T;
+    NotAfter: (value: TimestampRange) => T;
+    NotBefore: (value: TimestampRange) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Defines a filter for searching certificates by ARN, X.509 attributes, or ACM metadata.</p>
+ * @public
+ */
+export type CertificateFilter =
+  | CertificateFilter.AcmCertificateMetadataFilterMember
+  | CertificateFilter.CertificateArnMember
+  | CertificateFilter.X509AttributeFilterMember
+  | CertificateFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CertificateFilter {
+  /**
+   * <p>Filter by certificate ARN.</p>
+   * @public
+   */
+  export interface CertificateArnMember {
+    CertificateArn: string;
+    X509AttributeFilter?: never;
+    AcmCertificateMetadataFilter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by X.509 certificate attributes.</p>
+   * @public
+   */
+  export interface X509AttributeFilterMember {
+    CertificateArn?: never;
+    X509AttributeFilter: X509AttributeFilter;
+    AcmCertificateMetadataFilter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter by ACM certificate metadata.</p>
+   * @public
+   */
+  export interface AcmCertificateMetadataFilterMember {
+    CertificateArn?: never;
+    X509AttributeFilter?: never;
+    AcmCertificateMetadataFilter: AcmCertificateMetadataFilter;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    CertificateArn?: never;
+    X509AttributeFilter?: never;
+    AcmCertificateMetadataFilter?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    CertificateArn: (value: string) => T;
+    X509AttributeFilter: (value: X509AttributeFilter) => T;
+    AcmCertificateMetadataFilter: (value: AcmCertificateMetadataFilter) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -655,13 +1319,13 @@ export interface CertificateSummary {
   DomainName?: string | undefined;
 
   /**
-   * <p>One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website. </p> <p>When called by <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_ListCertificates.html">ListCertificates</a>, this parameter will only return the first 100 subject alternative names included in the certificate. To display the full list of subject alternative names, use <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
+   * <p>One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website. </p> <p>When called by <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html">ListCertificates</a>, this parameter will only return the first 100 subject alternative names included in the certificate. To display the full list of subject alternative names, use <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
    * @public
    */
   SubjectAlternativeNameSummaries?: string[] | undefined;
 
   /**
-   * <p>When called by <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_ListCertificates.html">ListCertificates</a>, indicates whether the full list of subject alternative names has been included in the response. If false, the response includes all of the subject alternative names included in the certificate. If true, the response only includes the first 100 subject alternative names included in the certificate. To display the full list of subject alternative names, use <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
+   * <p>When called by <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html">ListCertificates</a>, indicates whether the full list of subject alternative names has been included in the response. If false, the response includes all of the subject alternative names included in the certificate. If true, the response only includes the first 100 subject alternative names included in the certificate. To display the full list of subject alternative names, use <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
    * @public
    */
   HasAdditionalSubjectAlternativeNames?: boolean | undefined;
@@ -918,7 +1582,7 @@ export interface RequestCertificateRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data. RSA is the default key algorithm for ACM certificates. Elliptic Curve Digital Signature Algorithm (ECDSA) keys are smaller, offering security comparable to RSA keys but with greater computing efficiency. However, ECDSA is not supported by all network clients. Some Amazon Web Services services may require RSA keys, or only support ECDSA keys of a particular size, while others allow the use of either RSA and ECDSA keys to ensure that compatibility is not broken. Check the requirements for the Amazon Web Services service where you plan to deploy your certificate. For more information about selecting an algorithm, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms">Key algorithms</a>.</p> <note> <p>Algorithms supported for an ACM certificate request include: </p> <ul> <li> <p> <code>RSA_2048</code> </p> </li> <li> <p> <code>EC_prime256v1</code> </p> </li> <li> <p> <code>EC_secp384r1</code> </p> </li> </ul> <p>Other listed algorithms are for imported certificates only. </p> </note> <note> <p>When you request a private PKI certificate signed by a CA from Amazon Web Services Private CA, the specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.</p> </note> <p>Default: RSA_2048</p>
+   * <p>Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data. RSA is the default key algorithm for ACM certificates. Elliptic Curve Digital Signature Algorithm (ECDSA) keys are smaller, offering security comparable to RSA keys but with greater computing efficiency. However, ECDSA is not supported by all network clients. Some Amazon Web Services services may require RSA keys, or only support ECDSA keys of a particular size, while others allow the use of either RSA and ECDSA keys to ensure that compatibility is not broken. Check the requirements for the Amazon Web Services service where you plan to deploy your certificate. For more information about selecting an algorithm, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate-characteristics.html#algorithms-term">Key algorithms</a>.</p> <note> <p>Algorithms supported for an ACM certificate request include: </p> <ul> <li> <p> <code>RSA_2048</code> </p> </li> <li> <p> <code>EC_prime256v1</code> </p> </li> <li> <p> <code>EC_secp384r1</code> </p> </li> </ul> <p>Other listed algorithms are for imported certificates only. </p> </note> <note> <p>When you request a private PKI certificate signed by a CA from Amazon Web Services Private CA, the specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.</p> </note> <p>Default: RSA_2048</p>
    * @public
    */
   KeyAlgorithm?: KeyAlgorithm | undefined;
@@ -958,7 +1622,7 @@ export interface ResendValidationEmailRequest {
   Domain: string | undefined;
 
   /**
-   * <p>The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the <code>Domain</code> value or a superdomain of the <code>Domain</code> value. For example, if you requested a certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b> of <code>subdomain.example.com</code>, ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS and the following five addresses:</p> <ul> <li> <p>admin@subdomain.example.com</p> </li> <li> <p>administrator@subdomain.example.com</p> </li> <li> <p>hostmaster@subdomain.example.com</p> </li> <li> <p>postmaster@subdomain.example.com</p> </li> <li> <p>webmaster@subdomain.example.com</p> </li> </ul>
+   * <p>The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the <code>Domain</code> value or a superdomain of the <code>Domain</code> value. For example, if you requested a certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b> of <code>subdomain.example.com</code>, ACM sends email to the the following five addresses:</p> <ul> <li> <p>admin@subdomain.example.com</p> </li> <li> <p>administrator@subdomain.example.com</p> </li> <li> <p>hostmaster@subdomain.example.com</p> </li> <li> <p>postmaster@subdomain.example.com</p> </li> <li> <p>webmaster@subdomain.example.com</p> </li> </ul>
    * @public
    */
   ValidationDomain: string | undefined;
@@ -993,6 +1657,437 @@ export interface RevokeCertificateResponse {
 }
 
 /**
+ * <p>Contains metadata about a certificate. Currently supports ACM certificate metadata.</p>
+ * @public
+ */
+export type CertificateMetadata =
+  | CertificateMetadata.AcmCertificateMetadataMember
+  | CertificateMetadata.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CertificateMetadata {
+  /**
+   * <p>Metadata for an ACM certificate.</p>
+   * @public
+   */
+  export interface AcmCertificateMetadataMember {
+    AcmCertificateMetadata: AcmCertificateMetadata;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AcmCertificateMetadata?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    AcmCertificateMetadata: (value: AcmCertificateMetadata) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Defines the X.500 relative distinguished name (RDN).</p>
+ * @public
+ */
+export interface CustomAttribute {
+  /**
+   * <p>Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).</p>
+   * @public
+   */
+  ObjectIdentifier?: string | undefined;
+
+  /**
+   * <p>Specifies the attribute value of relative distinguished name (RDN).</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Contains X.500 distinguished name information.</p>
+ * @public
+ */
+export interface DistinguishedName {
+  /**
+   * <p>The common name (CN) attribute.</p>
+   * @public
+   */
+  CommonName?: string | undefined;
+
+  /**
+   * <p>The domain component attributes.</p>
+   * @public
+   */
+  DomainComponents?: string[] | undefined;
+
+  /**
+   * <p>The country (C) attribute.</p>
+   * @public
+   */
+  Country?: string | undefined;
+
+  /**
+   * <p>A list of custom attributes in the distinguished name. Each custom attribute contains an object identifier (OID) and its corresponding value.</p>
+   * @public
+   */
+  CustomAttributes?: CustomAttribute[] | undefined;
+
+  /**
+   * <p>The distinguished name qualifier attribute.</p>
+   * @public
+   */
+  DistinguishedNameQualifier?: string | undefined;
+
+  /**
+   * <p>The generation qualifier attribute.</p>
+   * @public
+   */
+  GenerationQualifier?: string | undefined;
+
+  /**
+   * <p>The given name attribute.</p>
+   * @public
+   */
+  GivenName?: string | undefined;
+
+  /**
+   * <p>The initials attribute.</p>
+   * @public
+   */
+  Initials?: string | undefined;
+
+  /**
+   * <p>The locality (L) attribute.</p>
+   * @public
+   */
+  Locality?: string | undefined;
+
+  /**
+   * <p>The organization (O) attribute.</p>
+   * @public
+   */
+  Organization?: string | undefined;
+
+  /**
+   * <p>The organizational unit (OU) attribute.</p>
+   * @public
+   */
+  OrganizationalUnit?: string | undefined;
+
+  /**
+   * <p>The pseudonym attribute.</p>
+   * @public
+   */
+  Pseudonym?: string | undefined;
+
+  /**
+   * <p>The serial number attribute.</p>
+   * @public
+   */
+  SerialNumber?: string | undefined;
+
+  /**
+   * <p>The state or province (ST) attribute.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The surname attribute.</p>
+   * @public
+   */
+  Surname?: string | undefined;
+
+  /**
+   * <p>The title attribute.</p>
+   * @public
+   */
+  Title?: string | undefined;
+}
+
+/**
+ * <p>Defines a custom ASN.1 X.400 <code>GeneralName</code> using an object identifier (OID) and value. For more information, see NIST's definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier (OID)</a>.</p>
+ * @public
+ */
+export interface OtherName {
+  /**
+   * <p>Specifies an OID.</p>
+   * @public
+   */
+  ObjectIdentifier?: string | undefined;
+
+  /**
+   * <p>Specifies an OID value.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Describes an ASN.1 X.400 <code>GeneralName</code> as defined in <a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a>. Only one of the following naming options should be provided.</p>
+ * @public
+ */
+export type GeneralName =
+  | GeneralName.DirectoryNameMember
+  | GeneralName.DnsNameMember
+  | GeneralName.IpAddressMember
+  | GeneralName.OtherNameMember
+  | GeneralName.RegisteredIdMember
+  | GeneralName.Rfc822NameMember
+  | GeneralName.UniformResourceIdentifierMember
+  | GeneralName.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GeneralName {
+  /**
+   * <p>Contains information about the certificate subject. The <code>Subject</code> field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The <code>Subject</code> must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.</p>
+   * @public
+   */
+  export interface DirectoryNameMember {
+    DirectoryName: DistinguishedName;
+    DnsName?: never;
+    IpAddress?: never;
+    OtherName?: never;
+    RegisteredId?: never;
+    Rfc822Name?: never;
+    UniformResourceIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents <code>GeneralName</code> as a DNS name.</p>
+   * @public
+   */
+  export interface DnsNameMember {
+    DirectoryName?: never;
+    DnsName: string;
+    IpAddress?: never;
+    OtherName?: never;
+    RegisteredId?: never;
+    Rfc822Name?: never;
+    UniformResourceIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents <code>GeneralName</code> as an IPv4 or IPv6 address.</p>
+   * @public
+   */
+  export interface IpAddressMember {
+    DirectoryName?: never;
+    DnsName?: never;
+    IpAddress: string;
+    OtherName?: never;
+    RegisteredId?: never;
+    Rfc822Name?: never;
+    UniformResourceIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents <code>GeneralName</code> using an <code>OtherName</code> object.</p>
+   * @public
+   */
+  export interface OtherNameMember {
+    DirectoryName?: never;
+    DnsName?: never;
+    IpAddress?: never;
+    OtherName: OtherName;
+    RegisteredId?: never;
+    Rfc822Name?: never;
+    UniformResourceIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents <code>GeneralName</code> as an object identifier (OID).</p>
+   * @public
+   */
+  export interface RegisteredIdMember {
+    DirectoryName?: never;
+    DnsName?: never;
+    IpAddress?: never;
+    OtherName?: never;
+    RegisteredId: string;
+    Rfc822Name?: never;
+    UniformResourceIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents <code>GeneralName</code> as an <a href="https://datatracker.ietf.org/doc/html/rfc822">RFC 822</a> email address.</p>
+   * @public
+   */
+  export interface Rfc822NameMember {
+    DirectoryName?: never;
+    DnsName?: never;
+    IpAddress?: never;
+    OtherName?: never;
+    RegisteredId?: never;
+    Rfc822Name: string;
+    UniformResourceIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents <code>GeneralName</code> as a URI.</p>
+   * @public
+   */
+  export interface UniformResourceIdentifierMember {
+    DirectoryName?: never;
+    DnsName?: never;
+    IpAddress?: never;
+    OtherName?: never;
+    RegisteredId?: never;
+    Rfc822Name?: never;
+    UniformResourceIdentifier: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    DirectoryName?: never;
+    DnsName?: never;
+    IpAddress?: never;
+    OtherName?: never;
+    RegisteredId?: never;
+    Rfc822Name?: never;
+    UniformResourceIdentifier?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    DirectoryName: (value: DistinguishedName) => T;
+    DnsName: (value: string) => T;
+    IpAddress: (value: string) => T;
+    OtherName: (value: OtherName) => T;
+    RegisteredId: (value: string) => T;
+    Rfc822Name: (value: string) => T;
+    UniformResourceIdentifier: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains X.509 certificate attributes extracted from the certificate.</p>
+ * @public
+ */
+export interface X509Attributes {
+  /**
+   * <p>The distinguished name of the certificate issuer.</p>
+   * @public
+   */
+  Issuer?: DistinguishedName | undefined;
+
+  /**
+   * <p>The distinguished name of the certificate subject.</p>
+   * @public
+   */
+  Subject?: DistinguishedName | undefined;
+
+  /**
+   * <p>One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website. </p>
+   * @public
+   */
+  SubjectAlternativeNames?: GeneralName[] | undefined;
+
+  /**
+   * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID). </p>
+   * @public
+   */
+  ExtendedKeyUsages?: ExtendedKeyUsageName[] | undefined;
+
+  /**
+   * <p>The algorithm that was used to generate the public-private key pair.</p>
+   * @public
+   */
+  KeyAlgorithm?: KeyAlgorithm | undefined;
+
+  /**
+   * <p>A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
+   * @public
+   */
+  KeyUsages?: KeyUsageName[] | undefined;
+
+  /**
+   * <p>The serial number assigned by the certificate authority.</p>
+   * @public
+   */
+  SerialNumber?: string | undefined;
+
+  /**
+   * <p>The time after which the certificate is not valid.</p>
+   * @public
+   */
+  NotAfter?: Date | undefined;
+
+  /**
+   * <p>The time before which the certificate is not valid.</p>
+   * @public
+   */
+  NotBefore?: Date | undefined;
+}
+
+/**
+ * <p>Contains information about a certificate returned by the <a>SearchCertificates</a> action. This structure includes the certificate ARN, X.509 attributes, and ACM metadata.</p>
+ * @public
+ */
+export interface CertificateSearchResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+
+  /**
+   * <p>X.509 certificate attributes such as subject, issuer, and validity period.</p>
+   * @public
+   */
+  X509Attributes?: X509Attributes | undefined;
+
+  /**
+   * <p>ACM-specific metadata about the certificate.</p>
+   * @public
+   */
+  CertificateMetadata?: CertificateMetadata | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchCertificatesResponse {
+  /**
+   * <p>A list of certificate search results containing certificate ARNs, X.509 attributes, and ACM metadata.</p>
+   * @public
+   */
+  Results?: CertificateSearchResult[] | undefined;
+
+  /**
+   * <p>When the list is truncated, this value is present and contains the value to use for the <code>NextToken</code> parameter in a subsequent pagination request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateCertificateOptionsRequest {
@@ -1007,4 +2102,126 @@ export interface UpdateCertificateOptionsRequest {
    * @public
    */
   Options: CertificateOptions | undefined;
+}
+
+/**
+ * <p>A filter statement used to search for certificates. Can contain AND, OR, NOT logical operators or a single filter.</p>
+ * @public
+ */
+export type CertificateFilterStatement =
+  | CertificateFilterStatement.AndMember
+  | CertificateFilterStatement.FilterMember
+  | CertificateFilterStatement.NotMember
+  | CertificateFilterStatement.OrMember
+  | CertificateFilterStatement.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CertificateFilterStatement {
+  /**
+   * <p>A list of filter statements that must all be true.</p>
+   * @public
+   */
+  export interface AndMember {
+    And: CertificateFilterStatement[];
+    Or?: never;
+    Not?: never;
+    Filter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of filter statements where at least one must be true.</p>
+   * @public
+   */
+  export interface OrMember {
+    And?: never;
+    Or: CertificateFilterStatement[];
+    Not?: never;
+    Filter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A filter statement that must not be true.</p>
+   * @public
+   */
+  export interface NotMember {
+    And?: never;
+    Or?: never;
+    Not: CertificateFilterStatement;
+    Filter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A single certificate filter.</p>
+   * @public
+   */
+  export interface FilterMember {
+    And?: never;
+    Or?: never;
+    Not?: never;
+    Filter: CertificateFilter;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    And?: never;
+    Or?: never;
+    Not?: never;
+    Filter?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    And: (value: CertificateFilterStatement[]) => T;
+    Or: (value: CertificateFilterStatement[]) => T;
+    Not: (value: CertificateFilterStatement) => T;
+    Filter: (value: CertificateFilter) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface SearchCertificatesRequest {
+  /**
+   * <p>A filter statement that defines the search criteria. You can combine multiple filters using AND, OR, and NOT logical operators to create complex queries.</p>
+   * @public
+   */
+  FilterStatement?: CertificateFilterStatement | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. Default is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the response you just received.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Specifies the field to sort results by. Valid values are CREATED_AT, NOT_AFTER, STATUS, RENEWAL_STATUS, EXPORTED, IN_USE, NOT_BEFORE, KEY_ALGORITHM, TYPE, CERTIFICATE_ARN, COMMON_NAME, REVOKED_AT, RENEWAL_ELIGIBILITY, ISSUED_AT, MANAGED_BY, EXPORT_OPTION, VALIDATION_METHOD, and IMPORTED_AT.</p>
+   * @public
+   */
+  SortBy?: SearchCertificatesSortBy | undefined;
+
+  /**
+   * <p>Specifies the order of sorted results. Valid values are ASCENDING or DESCENDING.</p>
+   * @public
+   */
+  SortOrder?: SearchCertificatesSortOrder | undefined;
 }

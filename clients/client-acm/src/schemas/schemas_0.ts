@@ -1,32 +1,54 @@
+const _A = "And";
+const _ACM = "AcmCertificateMetadata";
+const _ACMF = "AcmCertificateMetadataFilter";
 const _ADE = "AccessDeniedException";
 const _ATTC = "AddTagsToCertificate";
 const _ATTCR = "AddTagsToCertificateRequest";
 const _C = "Certificate";
-const _CA = "CertificateArn";
+const _CA = "CreatedAt";
 const _CAA = "CertificateAuthorityArn";
-const _CAr = "CreatedAt";
+const _CAL = "CustomAttributeList";
+const _CAe = "CertificateArn";
+const _CAu = "CustomAttribute";
+const _CAus = "CustomAttributes";
 const _CC = "CertificateChain";
 const _CD = "CertificateDetail";
 const _CE = "ConflictException";
+const _CF = "CertificateFilter";
+const _CFS = "CertificateFilterStatement";
+const _CFSL = "CertificateFilterStatementList";
+const _CM = "CertificateMetadata";
+const _CN = "CommonName";
+const _CNF = "CommonNameFilter";
 const _CO = "CertificateOptions";
+const _COo = "ComparisonOperator";
 const _CS = "CertificateSummary";
 const _CSL = "CertificateSummaryList";
+const _CSR = "CertificateSearchResult";
+const _CSRL = "CertificateSearchResultList";
 const _CSe = "CertificateStatuses";
 const _CTLP = "CertificateTransparencyLoggingPreference";
+const _Co = "Country";
 const _D = "Domain";
 const _DBE = "DaysBeforeExpiry";
-const _DC = "DeleteCertificate";
+const _DC = "DomainComponents";
 const _DCR = "DeleteCertificateRequest";
 const _DCRe = "DescribeCertificateRequest";
 const _DCRes = "DescribeCertificateResponse";
-const _DCe = "DescribeCertificate";
+const _DCe = "DeleteCertificate";
+const _DCes = "DescribeCertificate";
 const _DN = "DomainName";
+const _DNF = "DnsNameFilter";
+const _DNQ = "DistinguishedNameQualifier";
+const _DNi = "DistinguishedName";
+const _DNir = "DirectoryName";
+const _DNn = "DnsName";
 const _DV = "DomainValidation";
 const _DVL = "DomainValidationList";
 const _DVO = "DomainValidationOptions";
 const _DVOL = "DomainValidationOptionList";
 const _DVOo = "DomainValidationOption";
-const _E = "Export";
+const _E = "Exported";
 const _EC = "ExportCertificate";
 const _ECR = "ExportCertificateRequest";
 const _ECRx = "ExportCertificateResponse";
@@ -36,21 +58,29 @@ const _EKU = "ExtendedKeyUsages";
 const _EKUL = "ExtendedKeyUsageList";
 const _EKUx = "ExtendedKeyUsage";
 const _EO = "ExportOption";
-const _Ex = "Exported";
+const _En = "End";
+const _Ex = "Export";
 const _F = "Filters";
 const _FR = "FailureReason";
+const _FS = "FilterStatement";
+const _Fi = "Filter";
 const _GAC = "GetAccountConfiguration";
 const _GACR = "GetAccountConfigurationResponse";
 const _GC = "GetCertificate";
 const _GCR = "GetCertificateRequest";
 const _GCRe = "GetCertificateResponse";
+const _GN = "GivenName";
+const _GNL = "GeneralNameList";
+const _GNe = "GeneralName";
+const _GQ = "GenerationQualifier";
 const _HASAN = "HasAdditionalSubjectAlternativeNames";
 const _HR = "HttpRedirect";
 const _I = "Issuer";
-const _IA = "IssuedAt";
+const _IA = "ImportedAt";
 const _IAE = "InvalidArgsException";
 const _IAEn = "InvalidArnException";
-const _IAm = "ImportedAt";
+const _IAp = "IpAddress";
+const _IAs = "IssuedAt";
 const _IC = "ImportCertificate";
 const _ICR = "ImportCertificateRequest";
 const _ICRm = "ImportCertificateResponse";
@@ -61,12 +91,14 @@ const _IT = "IdempotencyToken";
 const _ITE = "InvalidTagException";
 const _IU = "InUse";
 const _IUB = "InUseBy";
-const _In = "Includes";
+const _In = "Initials";
+const _Inc = "Includes";
 const _K = "Key";
 const _KA = "KeyAlgorithm";
 const _KU = "KeyUsages";
 const _KUL = "KeyUsageList";
 const _KUe = "KeyUsage";
+const _L = "Locality";
 const _LC = "ListCertificates";
 const _LCR = "ListCertificatesRequest";
 const _LCRi = "ListCertificatesResponse";
@@ -77,18 +109,27 @@ const _LTFCRi = "ListTagsForCertificateResponse";
 const _M = "Message";
 const _MB = "ManagedBy";
 const _MI = "MaxItems";
+const _MR = "MaxResults";
 const _N = "Name";
 const _NA = "NotAfter";
 const _NB = "NotBefore";
 const _NT = "NextToken";
+const _No = "Not";
 const _O = "Options";
+const _OI = "ObjectIdentifier";
 const _OID = "OID";
-const _P = "Passphrase";
+const _ON = "OtherName";
+const _OU = "OrganizationalUnit";
+const _Or = "Organization";
+const _Or_ = "Or";
+const _P = "Pseudonym";
 const _PAC = "PutAccountConfiguration";
 const _PACR = "PutAccountConfigurationRequest";
 const _PB = "PassphraseBlob";
 const _PK = "PrivateKey";
 const _PKB = "PrivateKeyBlob";
+const _Pa = "Passphrase";
+const _R = "Results";
 const _RA = "RevokedAt";
 const _RC = "RenewCertificate";
 const _RCR = "RenewCertificateRequest";
@@ -100,43 +141,62 @@ const _RCe = "RequestCertificate";
 const _RCev = "RevokeCertificate";
 const _RE = "RenewalEligibility";
 const _RF = "RedirectFrom";
+const _RI = "RegisteredId";
 const _RIPE = "RequestInProgressException";
 const _RIUE = "ResourceInUseException";
+const _RN = "Rfc822Name";
 const _RNFE = "ResourceNotFoundException";
 const _RR = "RevocationReason";
 const _RRe = "ResourceRecord";
-const _RS = "RenewalSummary";
+const _RS = "RenewalStatus";
 const _RSR = "RenewalStatusReason";
-const _RSe = "RenewalStatus";
+const _RSe = "RenewalSummary";
 const _RT = "RedirectTo";
 const _RTFC = "RemoveTagsFromCertificate";
 const _RTFCR = "RemoveTagsFromCertificateRequest";
 const _RVE = "ResendValidationEmail";
 const _RVER = "ResendValidationEmailRequest";
-const _S = "Serial";
+const _S = "Status";
 const _SA = "SignatureAlgorithm";
 const _SAN = "SubjectAlternativeNames";
+const _SANF = "SubjectAlternativeNameFilter";
 const _SANS = "SubjectAlternativeNameSummaries";
+const _SANu = "SubjectAlternativeName";
 const _SB = "SortBy";
+const _SC = "SearchCertificates";
+const _SCR = "SearchCertificatesRequest";
+const _SCRe = "SearchCertificatesResponse";
+const _SF = "SubjectFilter";
+const _SN = "SerialNumber";
 const _SO = "SortOrder";
-const _St = "Status";
+const _Se = "Serial";
+const _St = "State";
+const _Sta = "Start";
 const _Su = "Subject";
-const _T = "Tags";
+const _Sur = "Surname";
+const _T = "Type";
 const _TE = "ThrottlingException";
 const _TL = "TagList";
 const _TMTE = "TooManyTagsException";
 const _TPE = "TagPolicyException";
-const _Ta = "Tag";
-const _Ty = "Type";
+const _TR = "ThrottlingReason";
+const _TRL = "ThrottlingReasonList";
+const _TRi = "TimestampRange";
+const _Ta = "Tags";
+const _Tag = "Tag";
+const _Ti = "Title";
 const _UA = "UpdatedAt";
 const _UCO = "UpdateCertificateOptions";
 const _UCOR = "UpdateCertificateOptionsRequest";
+const _URI = "UniformResourceIdentifier";
 const _V = "Value";
 const _VD = "ValidationDomain";
 const _VE = "ValidationException";
 const _VEa = "ValidationEmails";
 const _VM = "ValidationMethod";
 const _VS = "ValidationStatus";
+const _XA = "X509Attributes";
+const _XAF = "X509AttributeFilter";
 const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
@@ -147,7 +207,10 @@ const _kT = "keyTypes";
 const _kU = "keyUsage";
 const _m = "message";
 const _mB = "managedBy";
+const _r = "reason";
+const _re = "resource";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.acm";
+const _tR = "throttlingReasons";
 const n0 = "com.amazonaws.acm";
 
 // smithy-typescript generated code
@@ -158,6 +221,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ACMServiceException } from "../models/ACMServiceException";
@@ -265,8 +329,8 @@ export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
 n0_registry.registerError(TagPolicyException$, TagPolicyException);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
+  [_m, _tR],
+  [0, () => ThrottlingReasonList]
 ];
 n0_registry.registerError(ThrottlingException$, ThrottlingException);
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
@@ -293,40 +357,70 @@ export const errorTypeRegistries = [
 var PassphraseBlob: StaticSimpleSchema = [0, n0, _PB, 8, 21];
 var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
 var PrivateKeyBlob: StaticSimpleSchema = [0, n0, _PKB, 8, 21];
+export var AcmCertificateMetadata$: StaticStructureSchema = [3, n0, _ACM,
+  0,
+  [_CA, _E, _IA, _IU, _IAs, _RE, _RA, _S, _RS, _T, _EO, _MB, _VM],
+  [4, 2, 4, 2, 4, 0, 4, 0, 0, 0, 0, 0, 0]
+];
 export var AddTagsToCertificateRequest$: StaticStructureSchema = [3, n0, _ATTCR,
   0,
-  [_CA, _T],
+  [_CAe, _Ta],
   [0, () => TagList], 2
 ];
 export var CertificateDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_CA, _DN, _SAN, _MB, _DVO, _S, _Su, _I, _CAr, _IA, _IAm, _St, _RA, _RR, _NB, _NA, _KA, _SA, _IUB, _FR, _Ty, _RS, _KU, _EKU, _CAA, _RE, _O],
+  [_CAe, _DN, _SAN, _MB, _DVO, _Se, _Su, _I, _CA, _IAs, _IA, _S, _RA, _RR, _NB, _NA, _KA, _SA, _IUB, _FR, _T, _RSe, _KU, _EKU, _CAA, _RE, _O],
   [0, 0, 64 | 0, 0, () => DomainValidationList, 0, 0, 0, 4, 4, 4, 0, 4, 0, 4, 4, 0, 0, 64 | 0, 0, 0, () => RenewalSummary$, () => KeyUsageList, () => ExtendedKeyUsageList, 0, 0, () => CertificateOptions$]
 ];
 export var CertificateOptions$: StaticStructureSchema = [3, n0, _CO,
   0,
-  [_CTLP, _E],
+  [_CTLP, _Ex],
   [0, 0]
+];
+export var CertificateSearchResult$: StaticStructureSchema = [3, n0, _CSR,
+  0,
+  [_CAe, _XA, _CM],
+  [0, () => X509Attributes$, () => CertificateMetadata$]
 ];
 export var CertificateSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_CA, _DN, _SANS, _HASAN, _St, _Ty, _KA, _KU, _EKU, _EO, _IU, _Ex, _RE, _NB, _NA, _CAr, _IA, _IAm, _RA, _MB],
+  [_CAe, _DN, _SANS, _HASAN, _S, _T, _KA, _KU, _EKU, _EO, _IU, _E, _RE, _NB, _NA, _CA, _IAs, _IA, _RA, _MB],
   [0, 0, 64 | 0, 2, 0, 0, 0, 64 | 0, 64 | 0, 0, 2, 2, 0, 4, 4, 4, 4, 4, 4, 0]
+];
+export var CommonNameFilter$: StaticStructureSchema = [3, n0, _CNF,
+  0,
+  [_V, _COo],
+  [0, 0], 2
+];
+export var CustomAttribute$: StaticStructureSchema = [3, n0, _CAu,
+  0,
+  [_OI, _V],
+  [0, 0]
 ];
 export var DeleteCertificateRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
-  [_CA],
+  [_CAe],
   [0], 1
 ];
 export var DescribeCertificateRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
-  [_CA],
+  [_CAe],
   [0], 1
 ];
 export var DescribeCertificateResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_C],
   [() => CertificateDetail$]
+];
+export var DistinguishedName$: StaticStructureSchema = [3, n0, _DNi,
+  0,
+  [_CN, _DC, _Co, _CAus, _DNQ, _GQ, _GN, _In, _L, _Or, _OU, _P, _SN, _St, _Sur, _Ti],
+  [0, 64 | 0, 0, () => CustomAttributeList, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+export var DnsNameFilter$: StaticStructureSchema = [3, n0, _DNF,
+  0,
+  [_V, _COo],
+  [0, 0], 2
 ];
 export var DomainValidation$: StaticStructureSchema = [3, n0, _DV,
   0,
@@ -345,7 +439,7 @@ export var ExpiryEventsConfiguration$: StaticStructureSchema = [3, n0, _EEC,
 ];
 export var ExportCertificateRequest$: StaticStructureSchema = [3, n0, _ECR,
   0,
-  [_CA, _P],
+  [_CAe, _Pa],
   [0, [() => PassphraseBlob, 0]], 2
 ];
 export var ExportCertificateResponse$: StaticStructureSchema = [3, n0, _ECRx,
@@ -370,7 +464,7 @@ export var GetAccountConfigurationResponse$: StaticStructureSchema = [3, n0, _GA
 ];
 export var GetCertificateRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
-  [_CA],
+  [_CAe],
   [0], 1
 ];
 export var GetCertificateResponse$: StaticStructureSchema = [3, n0, _GCRe,
@@ -385,12 +479,12 @@ export var HttpRedirect$: StaticStructureSchema = [3, n0, _HR,
 ];
 export var ImportCertificateRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
-  [_C, _PK, _CA, _CC, _T],
+  [_C, _PK, _CAe, _CC, _Ta],
   [21, [() => PrivateKeyBlob, 0], 0, 21, () => TagList], 2
 ];
 export var ImportCertificateResponse$: StaticStructureSchema = [3, n0, _ICRm,
   0,
-  [_CA],
+  [_CAe],
   [0]
 ];
 export var KeyUsage$: StaticStructureSchema = [3, n0, _KUe,
@@ -400,7 +494,7 @@ export var KeyUsage$: StaticStructureSchema = [3, n0, _KUe,
 ];
 export var ListCertificatesRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
-  [_CSe, _In, _NT, _MI, _SB, _SO],
+  [_CSe, _Inc, _NT, _MI, _SB, _SO],
   [64 | 0, () => Filters$, 0, 1, 0, 0]
 ];
 export var ListCertificatesResponse$: StaticStructureSchema = [3, n0, _LCRi,
@@ -410,13 +504,18 @@ export var ListCertificatesResponse$: StaticStructureSchema = [3, n0, _LCRi,
 ];
 export var ListTagsForCertificateRequest$: StaticStructureSchema = [3, n0, _LTFCR,
   0,
-  [_CA],
+  [_CAe],
   [0], 1
 ];
 export var ListTagsForCertificateResponse$: StaticStructureSchema = [3, n0, _LTFCRi,
   0,
-  [_T],
+  [_Ta],
   [() => TagList]
+];
+export var OtherName$: StaticStructureSchema = [3, n0, _ON,
+  0,
+  [_OI, _V],
+  [0, 0]
 ];
 export var PutAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _PACR,
   0,
@@ -425,64 +524,99 @@ export var PutAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _PAC
 ];
 export var RemoveTagsFromCertificateRequest$: StaticStructureSchema = [3, n0, _RTFCR,
   0,
-  [_CA, _T],
+  [_CAe, _Ta],
   [0, () => TagList], 2
 ];
-export var RenewalSummary$: StaticStructureSchema = [3, n0, _RS,
+export var RenewalSummary$: StaticStructureSchema = [3, n0, _RSe,
   0,
-  [_RSe, _DVO, _UA, _RSR],
+  [_RS, _DVO, _UA, _RSR],
   [0, () => DomainValidationList, 4, 0], 3
 ];
 export var RenewCertificateRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
-  [_CA],
+  [_CAe],
   [0], 1
 ];
 export var RequestCertificateRequest$: StaticStructureSchema = [3, n0, _RCRe,
   0,
-  [_DN, _VM, _SAN, _IT, _DVO, _O, _CAA, _T, _KA, _MB],
+  [_DN, _VM, _SAN, _IT, _DVO, _O, _CAA, _Ta, _KA, _MB],
   [0, 0, 64 | 0, 0, () => DomainValidationOptionList, () => CertificateOptions$, 0, () => TagList, 0, 0], 1
 ];
 export var RequestCertificateResponse$: StaticStructureSchema = [3, n0, _RCReq,
   0,
-  [_CA],
+  [_CAe],
   [0]
 ];
 export var ResendValidationEmailRequest$: StaticStructureSchema = [3, n0, _RVER,
   0,
-  [_CA, _D, _VD],
+  [_CAe, _D, _VD],
   [0, 0, 0], 3
 ];
 export var ResourceRecord$: StaticStructureSchema = [3, n0, _RRe,
   0,
-  [_N, _Ty, _V],
+  [_N, _T, _V],
   [0, 0, 0], 3
 ];
 export var RevokeCertificateRequest$: StaticStructureSchema = [3, n0, _RCRev,
   0,
-  [_CA, _RR],
+  [_CAe, _RR],
   [0, 0], 2
 ];
 export var RevokeCertificateResponse$: StaticStructureSchema = [3, n0, _RCRevo,
   0,
-  [_CA],
+  [_CAe],
   [0]
 ];
-export var Tag$: StaticStructureSchema = [3, n0, _Ta,
+export var SearchCertificatesRequest$: StaticStructureSchema = [3, n0, _SCR,
+  0,
+  [_FS, _MR, _NT, _SB, _SO],
+  [() => CertificateFilterStatement$, 1, 0, 0, 0]
+];
+export var SearchCertificatesResponse$: StaticStructureSchema = [3, n0, _SCRe,
+  0,
+  [_R, _NT],
+  [() => CertificateSearchResultList, 0]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
   [0, 0], 1
 ];
+export var ThrottlingReason$: StaticStructureSchema = [3, n0, _TR,
+  0,
+  [_r, _re],
+  [0, 0]
+];
+export var TimestampRange$: StaticStructureSchema = [3, n0, _TRi,
+  0,
+  [_Sta, _En],
+  [4, 4]
+];
 export var UpdateCertificateOptionsRequest$: StaticStructureSchema = [3, n0, _UCOR,
   0,
-  [_CA, _O],
+  [_CAe, _O],
   [0, () => CertificateOptions$], 2
 ];
+export var X509Attributes$: StaticStructureSchema = [3, n0, _XA,
+  0,
+  [_I, _Su, _SAN, _EKU, _KA, _KU, _SN, _NA, _NB],
+  [() => DistinguishedName$, () => DistinguishedName$, () => GeneralNameList, 64 | 0, 0, 64 | 0, 0, 4, 4]
+];
 var __Unit = "unit" as const;
+var CertificateFilterStatementList: StaticListSchema = [1, n0, _CFSL,
+  0, () => CertificateFilterStatement$
+];
+var CertificateSearchResultList: StaticListSchema = [1, n0, _CSRL,
+  0, () => CertificateSearchResult$
+];
 var CertificateStatuses = 64 | 0;
 var CertificateSummaryList: StaticListSchema = [1, n0, _CSL,
   0, () => CertificateSummary$
 ];
+var CustomAttributeList: StaticListSchema = [1, n0, _CAL,
+  0, () => CustomAttribute$
+];
+var DomainComponentList = 64 | 0;
 var DomainList = 64 | 0;
 var DomainValidationList: StaticListSchema = [1, n0, _DVL,
   0, () => DomainValidation$
@@ -495,6 +629,9 @@ var ExtendedKeyUsageList: StaticListSchema = [1, n0, _EKUL,
   0, () => ExtendedKeyUsage$
 ];
 var ExtendedKeyUsageNames = 64 | 0;
+var GeneralNameList: StaticListSchema = [1, n0, _GNL,
+  0, () => GeneralName$
+];
 var InUseList = 64 | 0;
 var KeyAlgorithmList = 64 | 0;
 var KeyUsageFilterList = 64 | 0;
@@ -505,14 +642,57 @@ var KeyUsageNames = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
 ];
+var ThrottlingReasonList: StaticListSchema = [1, n0, _TRL,
+  0, () => ThrottlingReason$
+];
 var ValidationEmailList = 64 | 0;
+export var AcmCertificateMetadataFilter$: StaticUnionSchema = [4, n0, _ACMF,
+  0,
+  [_S, _RS, _T, _IU, _E, _EO, _MB, _VM],
+  [0, 0, 0, 2, 2, 0, 0, 0]
+];
+export var CertificateFilter$: StaticUnionSchema = [4, n0, _CF,
+  0,
+  [_CAe, _XAF, _ACMF],
+  [0, () => X509AttributeFilter$, () => AcmCertificateMetadataFilter$]
+];
+export var CertificateFilterStatement$: StaticUnionSchema = [4, n0, _CFS,
+  0,
+  [_A, _Or_, _No, _Fi],
+  [() => CertificateFilterStatementList, () => CertificateFilterStatementList, () => CertificateFilterStatement$, () => CertificateFilter$]
+];
+export var CertificateMetadata$: StaticUnionSchema = [4, n0, _CM,
+  0,
+  [_ACM],
+  [() => AcmCertificateMetadata$]
+];
+export var GeneralName$: StaticUnionSchema = [4, n0, _GNe,
+  0,
+  [_DNir, _DNn, _IAp, _ON, _RI, _RN, _URI],
+  [() => DistinguishedName$, 0, 0, () => OtherName$, 0, 0, 0]
+];
+export var SubjectAlternativeNameFilter$: StaticUnionSchema = [4, n0, _SANF,
+  0,
+  [_DNn],
+  [() => DnsNameFilter$]
+];
+export var SubjectFilter$: StaticUnionSchema = [4, n0, _SF,
+  0,
+  [_CN],
+  [() => CommonNameFilter$]
+];
+export var X509AttributeFilter$: StaticUnionSchema = [4, n0, _XAF,
+  0,
+  [_Su, _SANu, _EKUx, _KUe, _KA, _SN, _NA, _NB],
+  [() => SubjectFilter$, () => SubjectAlternativeNameFilter$, 0, 0, 0, 0, () => TimestampRange$, () => TimestampRange$]
+];
 export var AddTagsToCertificate$: StaticOperationSchema = [9, n0, _ATTC,
   0, () => AddTagsToCertificateRequest$, () => __Unit
 ];
-export var DeleteCertificate$: StaticOperationSchema = [9, n0, _DC,
+export var DeleteCertificate$: StaticOperationSchema = [9, n0, _DCe,
   0, () => DeleteCertificateRequest$, () => __Unit
 ];
-export var DescribeCertificate$: StaticOperationSchema = [9, n0, _DCe,
+export var DescribeCertificate$: StaticOperationSchema = [9, n0, _DCes,
   0, () => DescribeCertificateRequest$, () => DescribeCertificateResponse$
 ];
 export var ExportCertificate$: StaticOperationSchema = [9, n0, _EC,
@@ -550,6 +730,9 @@ export var ResendValidationEmail$: StaticOperationSchema = [9, n0, _RVE,
 ];
 export var RevokeCertificate$: StaticOperationSchema = [9, n0, _RCev,
   0, () => RevokeCertificateRequest$, () => RevokeCertificateResponse$
+];
+export var SearchCertificates$: StaticOperationSchema = [9, n0, _SC,
+  0, () => SearchCertificatesRequest$, () => SearchCertificatesResponse$
 ];
 export var UpdateCertificateOptions$: StaticOperationSchema = [9, n0, _UCO,
   0, () => UpdateCertificateOptionsRequest$, () => __Unit

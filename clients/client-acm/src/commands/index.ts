@@ -14,4 +14,5 @@ export * from "./RenewCertificateCommand";
 export * from "./RequestCertificateCommand";
 export * from "./ResendValidationEmailCommand";
 export * from "./RevokeCertificateCommand";
+export * from "./SearchCertificatesCommand";
 export * from "./UpdateCertificateOptionsCommand";

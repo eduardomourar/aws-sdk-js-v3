@@ -27,7 +27,7 @@ export interface RevokeCertificateCommandInput extends RevokeCertificateRequest 
 export interface RevokeCertificateCommandOutput extends RevokeCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Revokes a public ACM certificate. You can only revoke certificates that have been previously exported.</p>
+ * <p>Revokes a public ACM certificate. You can only revoke certificates that have been previously exported.</p> <important> <p>Once a certificate is revoked, you cannot reuse the certificate. Revoking a certificate is permanent.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

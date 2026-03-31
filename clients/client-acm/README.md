@@ -286,6 +286,13 @@ RevokeCertificate
 </details>
 <details>
 <summary>
+SearchCertificates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/SearchCertificatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/SearchCertificatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/SearchCertificatesCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateCertificateOptions
 </summary>
 

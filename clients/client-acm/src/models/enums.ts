@@ -3,13 +3,86 @@
  * @public
  * @enum
  */
-export const RecordType = {
-  CNAME: "CNAME",
+export const CertificateExport = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
 } as const;
 /**
  * @public
  */
-export type RecordType = (typeof RecordType)[keyof typeof RecordType];
+export type CertificateExport = (typeof CertificateExport)[keyof typeof CertificateExport];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateManagedBy = {
+  CLOUDFRONT: "CLOUDFRONT",
+} as const;
+/**
+ * @public
+ */
+export type CertificateManagedBy = (typeof CertificateManagedBy)[keyof typeof CertificateManagedBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const RenewalEligibility = {
+  ELIGIBLE: "ELIGIBLE",
+  INELIGIBLE: "INELIGIBLE",
+} as const;
+/**
+ * @public
+ */
+export type RenewalEligibility = (typeof RenewalEligibility)[keyof typeof RenewalEligibility];
+
+/**
+ * @public
+ * @enum
+ */
+export const RenewalStatus = {
+  FAILED: "FAILED",
+  PENDING_AUTO_RENEWAL: "PENDING_AUTO_RENEWAL",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  SUCCESS: "SUCCESS",
+} as const;
+/**
+ * @public
+ */
+export type RenewalStatus = (typeof RenewalStatus)[keyof typeof RenewalStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateStatus = {
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  ISSUED: "ISSUED",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  REVOKED: "REVOKED",
+  VALIDATION_TIMED_OUT: "VALIDATION_TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateType = {
+  AMAZON_ISSUED: "AMAZON_ISSUED",
+  IMPORTED: "IMPORTED",
+  PRIVATE: "PRIVATE",
+} as const;
+/**
+ * @public
+ */
+export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
 
 /**
  * @public
@@ -24,6 +97,18 @@ export const ValidationMethod = {
  * @public
  */
 export type ValidationMethod = (typeof ValidationMethod)[keyof typeof ValidationMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecordType = {
+  CNAME: "CNAME",
+} as const;
+/**
+ * @public
+ */
+export type RecordType = (typeof RecordType)[keyof typeof RecordType];
 
 /**
  * @public
@@ -134,18 +219,6 @@ export type KeyUsageName = (typeof KeyUsageName)[keyof typeof KeyUsageName];
  * @public
  * @enum
  */
-export const CertificateManagedBy = {
-  CLOUDFRONT: "CLOUDFRONT",
-} as const;
-/**
- * @public
- */
-export type CertificateManagedBy = (typeof CertificateManagedBy)[keyof typeof CertificateManagedBy];
-
-/**
- * @public
- * @enum
- */
 export const CertificateTransparencyLoggingPreference = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -155,47 +228,6 @@ export const CertificateTransparencyLoggingPreference = {
  */
 export type CertificateTransparencyLoggingPreference =
   (typeof CertificateTransparencyLoggingPreference)[keyof typeof CertificateTransparencyLoggingPreference];
-
-/**
- * @public
- * @enum
- */
-export const CertificateExport = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type CertificateExport = (typeof CertificateExport)[keyof typeof CertificateExport];
-
-/**
- * @public
- * @enum
- */
-export const RenewalEligibility = {
-  ELIGIBLE: "ELIGIBLE",
-  INELIGIBLE: "INELIGIBLE",
-} as const;
-/**
- * @public
- */
-export type RenewalEligibility = (typeof RenewalEligibility)[keyof typeof RenewalEligibility];
-
-/**
- * @public
- * @enum
- */
-export const RenewalStatus = {
-  FAILED: "FAILED",
-  PENDING_AUTO_RENEWAL: "PENDING_AUTO_RENEWAL",
-  PENDING_VALIDATION: "PENDING_VALIDATION",
-  SUCCESS: "SUCCESS",
-} as const;
-/**
- * @public
- */
-export type RenewalStatus = (typeof RenewalStatus)[keyof typeof RenewalStatus];
 
 /**
  * @public
@@ -223,33 +255,14 @@ export type RevocationReason = (typeof RevocationReason)[keyof typeof Revocation
  * @public
  * @enum
  */
-export const CertificateStatus = {
-  EXPIRED: "EXPIRED",
-  FAILED: "FAILED",
-  INACTIVE: "INACTIVE",
-  ISSUED: "ISSUED",
-  PENDING_VALIDATION: "PENDING_VALIDATION",
-  REVOKED: "REVOKED",
-  VALIDATION_TIMED_OUT: "VALIDATION_TIMED_OUT",
+export const ComparisonOperator = {
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
 } as const;
 /**
  * @public
  */
-export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
-
-/**
- * @public
- * @enum
- */
-export const CertificateType = {
-  AMAZON_ISSUED: "AMAZON_ISSUED",
-  IMPORTED: "IMPORTED",
-  PRIVATE: "PRIVATE",
-} as const;
-/**
- * @public
- */
-export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
  * @public
@@ -275,3 +288,46 @@ export const SortOrder = {
  * @public
  */
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchCertificatesSortBy = {
+  CERTIFICATE_ARN: "CERTIFICATE_ARN",
+  COMMON_NAME: "COMMON_NAME",
+  CREATED_AT: "CREATED_AT",
+  EXPORTED: "EXPORTED",
+  EXPORT_OPTION: "EXPORT_OPTION",
+  IMPORTED_AT: "IMPORTED_AT",
+  IN_USE: "IN_USE",
+  ISSUED_AT: "ISSUED_AT",
+  KEY_ALGORITHM: "KEY_ALGORITHM",
+  MANAGED_BY: "MANAGED_BY",
+  NOT_AFTER: "NOT_AFTER",
+  NOT_BEFORE: "NOT_BEFORE",
+  RENEWAL_ELIGIBILITY: "RENEWAL_ELIGIBILITY",
+  RENEWAL_STATUS: "RENEWAL_STATUS",
+  REVOKED_AT: "REVOKED_AT",
+  STATUS: "STATUS",
+  TYPE: "TYPE",
+  VALIDATION_METHOD: "VALIDATION_METHOD",
+} as const;
+/**
+ * @public
+ */
+export type SearchCertificatesSortBy = (typeof SearchCertificatesSortBy)[keyof typeof SearchCertificatesSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchCertificatesSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+/**
+ * @public
+ */
+export type SearchCertificatesSortOrder =
+  (typeof SearchCertificatesSortOrder)[keyof typeof SearchCertificatesSortOrder];

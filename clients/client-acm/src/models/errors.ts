@@ -2,6 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ACMServiceException as __BaseException } from "./ACMServiceException";
+import type { ThrottlingReason } from "./models_0";
 
 /**
  * <p>You do not have access required to perform this action.</p>
@@ -133,6 +134,12 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
+   * <p>One or more reasons why the request was throttled.</p>
+   * @public
+   */
+  throttlingReasons?: ThrottlingReason[] | undefined;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
@@ -142,6 +149,7 @@ export class ThrottlingException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.throttlingReasons = opts.throttlingReasons;
   }
 }
 

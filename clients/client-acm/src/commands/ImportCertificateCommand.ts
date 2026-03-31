@@ -62,6 +62,9 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+ *
  * @throws {@link InvalidArnException} (client fault)
  *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *

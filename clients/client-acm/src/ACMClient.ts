@@ -113,6 +113,10 @@ import type {
   RevokeCertificateCommandOutput,
 } from "./commands/RevokeCertificateCommand";
 import type {
+  SearchCertificatesCommandInput,
+  SearchCertificatesCommandOutput,
+} from "./commands/SearchCertificatesCommand";
+import type {
   UpdateCertificateOptionsCommandInput,
   UpdateCertificateOptionsCommandOutput,
 } from "./commands/UpdateCertificateOptionsCommand";
@@ -146,6 +150,7 @@ export type ServiceInputTypes =
   | RequestCertificateCommandInput
   | ResendValidationEmailCommandInput
   | RevokeCertificateCommandInput
+  | SearchCertificatesCommandInput
   | UpdateCertificateOptionsCommandInput;
 
 /**
@@ -167,6 +172,7 @@ export type ServiceOutputTypes =
   | RequestCertificateCommandOutput
   | ResendValidationEmailCommandOutput
   | RevokeCertificateCommandOutput
+  | SearchCertificatesCommandOutput
   | UpdateCertificateOptionsCommandOutput;
 
 /**
