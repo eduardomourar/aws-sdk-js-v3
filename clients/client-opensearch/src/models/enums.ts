@@ -660,6 +660,24 @@ export type VpcEndpointStatus = (typeof VpcEndpointStatus)[keyof typeof VpcEndpo
  * @public
  * @enum
  */
+export const CapabilityStatus = {
+  ACTIVE: "active",
+  CREATE_FAILED: "create_failed",
+  CREATING: "creating",
+  DELETE_FAILED: "delete_failed",
+  DELETING: "deleting",
+  UPDATE_FAILED: "update_failed",
+  UPDATING: "updating",
+} as const;
+/**
+ * @public
+ */
+export type CapabilityStatus = (typeof CapabilityStatus)[keyof typeof CapabilityStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ScheduledAutoTuneActionType = {
   JVM_HEAP_SIZE_TUNING: "JVM_HEAP_SIZE_TUNING",
   JVM_YOUNG_GEN_TUNING: "JVM_YOUNG_GEN_TUNING",
@@ -896,6 +914,18 @@ export const ApplicationStatus = {
  * @public
  */
 export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityFailureReason = {
+  KMS_KEY_INSUFFICIENT_PERMISSION: "KMS_KEY_INSUFFICIENT_PERMISSION",
+} as const;
+/**
+ * @public
+ */
+export type CapabilityFailureReason = (typeof CapabilityFailureReason)[keyof typeof CapabilityFailureReason];
 
 /**
  * @public

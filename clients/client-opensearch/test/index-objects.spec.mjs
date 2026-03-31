@@ -25,6 +25,7 @@ import {
   AdvancedSecurityOptions$,
   AdvancedSecurityOptionsInput$,
   AdvancedSecurityOptionsStatus$,
+  AIConfig$,
   AIMLOptionsInput$,
   AIMLOptionsOutput$,
   AIMLOptionsStatus$,
@@ -70,6 +71,12 @@ import {
   CancelServiceSoftwareUpdateCommand,
   CancelServiceSoftwareUpdateRequest$,
   CancelServiceSoftwareUpdateResponse$,
+  CapabilityBaseRequestConfig$,
+  CapabilityBaseResponseConfig$,
+  CapabilityExtendedResponseConfig$,
+  CapabilityFailure$,
+  CapabilityFailureReason,
+  CapabilityStatus,
   ChangeProgressDetails$,
   ChangeProgressStage$,
   ChangeProgressStatusDetails$,
@@ -155,6 +162,10 @@ import {
   DeploymentStrategy,
   DeploymentStrategyOptions$,
   DeploymentStrategyOptionsStatus$,
+  DeregisterCapability$,
+  DeregisterCapabilityCommand,
+  DeregisterCapabilityRequest$,
+  DeregisterCapabilityResponse$,
   DescribeDomain$,
   DescribeDomainAutoTunes$,
   DescribeDomainAutoTunesCommand,
@@ -262,6 +273,10 @@ import {
   GetApplicationCommand,
   GetApplicationRequest$,
   GetApplicationResponse$,
+  GetCapability$,
+  GetCapabilityCommand,
+  GetCapabilityRequest$,
+  GetCapabilityResponse$,
   GetCompatibleVersions$,
   GetCompatibleVersionsCommand,
   GetCompatibleVersionsRequest$,
@@ -469,6 +484,10 @@ import {
   PutDefaultApplicationSettingRequest$,
   PutDefaultApplicationSettingResponse$,
   RecurringCharge$,
+  RegisterCapability$,
+  RegisterCapabilityCommand,
+  RegisterCapabilityRequest$,
+  RegisterCapabilityResponse$,
   RejectInboundConnection$,
   RejectInboundConnectionCommand,
   RejectInboundConnectionRequest$,
@@ -503,6 +522,8 @@ import {
   ScheduledBy,
   SecurityLakeDirectQueryDataSource$,
   ServerlessVectorAcceleration$,
+  ServiceQuotaExceededException,
+  ServiceQuotaExceededException$,
   ServiceSoftwareOptions$,
   SkipUnavailableStatus,
   SlotNotAvailableException,
@@ -641,6 +662,8 @@ assert(typeof DeletePackageCommand === "function");
 assert(typeof DeletePackage$ === "object");
 assert(typeof DeleteVpcEndpointCommand === "function");
 assert(typeof DeleteVpcEndpoint$ === "object");
+assert(typeof DeregisterCapabilityCommand === "function");
+assert(typeof DeregisterCapability$ === "object");
 assert(typeof DescribeDomainCommand === "function");
 assert(typeof DescribeDomain$ === "object");
 assert(typeof DescribeDomainAutoTunesCommand === "function");
@@ -679,6 +702,8 @@ assert(typeof DissociatePackagesCommand === "function");
 assert(typeof DissociatePackages$ === "object");
 assert(typeof GetApplicationCommand === "function");
 assert(typeof GetApplication$ === "object");
+assert(typeof GetCapabilityCommand === "function");
+assert(typeof GetCapability$ === "object");
 assert(typeof GetCompatibleVersionsCommand === "function");
 assert(typeof GetCompatibleVersions$ === "object");
 assert(typeof GetDataSourceCommand === "function");
@@ -731,6 +756,8 @@ assert(typeof PurchaseReservedInstanceOfferingCommand === "function");
 assert(typeof PurchaseReservedInstanceOffering$ === "object");
 assert(typeof PutDefaultApplicationSettingCommand === "function");
 assert(typeof PutDefaultApplicationSetting$ === "object");
+assert(typeof RegisterCapabilityCommand === "function");
+assert(typeof RegisterCapability$ === "object");
 assert(typeof RejectInboundConnectionCommand === "function");
 assert(typeof RejectInboundConnection$ === "object");
 assert(typeof RemoveTagsCommand === "function");
@@ -775,6 +802,7 @@ assert(typeof AdvancedOptionsStatus$ === "object");
 assert(typeof AdvancedSecurityOptions$ === "object");
 assert(typeof AdvancedSecurityOptionsInput$ === "object");
 assert(typeof AdvancedSecurityOptionsStatus$ === "object");
+assert(typeof AIConfig$ === "object");
 assert(typeof AIMLOptionsInput$ === "object");
 assert(typeof AIMLOptionsOutput$ === "object");
 assert(typeof AIMLOptionsStatus$ === "object");
@@ -802,6 +830,10 @@ assert(typeof CancelDomainConfigChangeResponse$ === "object");
 assert(typeof CancelledChangeProperty$ === "object");
 assert(typeof CancelServiceSoftwareUpdateRequest$ === "object");
 assert(typeof CancelServiceSoftwareUpdateResponse$ === "object");
+assert(typeof CapabilityBaseRequestConfig$ === "object");
+assert(typeof CapabilityBaseResponseConfig$ === "object");
+assert(typeof CapabilityExtendedResponseConfig$ === "object");
+assert(typeof CapabilityFailure$ === "object");
 assert(typeof ChangeProgressDetails$ === "object");
 assert(typeof ChangeProgressStage$ === "object");
 assert(typeof ChangeProgressStatusDetails$ === "object");
@@ -848,6 +880,8 @@ assert(typeof DeleteVpcEndpointRequest$ === "object");
 assert(typeof DeleteVpcEndpointResponse$ === "object");
 assert(typeof DeploymentStrategyOptions$ === "object");
 assert(typeof DeploymentStrategyOptionsStatus$ === "object");
+assert(typeof DeregisterCapabilityRequest$ === "object");
+assert(typeof DeregisterCapabilityResponse$ === "object");
 assert(typeof DescribeDomainAutoTunesRequest$ === "object");
 assert(typeof DescribeDomainAutoTunesResponse$ === "object");
 assert(typeof DescribeDomainChangeProgressRequest$ === "object");
@@ -908,6 +942,8 @@ assert(typeof ErrorDetails$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof GetApplicationRequest$ === "object");
 assert(typeof GetApplicationResponse$ === "object");
+assert(typeof GetCapabilityRequest$ === "object");
+assert(typeof GetCapabilityResponse$ === "object");
 assert(typeof GetCompatibleVersionsRequest$ === "object");
 assert(typeof GetCompatibleVersionsResponse$ === "object");
 assert(typeof GetDataSourceRequest$ === "object");
@@ -1008,6 +1044,8 @@ assert(typeof PurchaseReservedInstanceOfferingResponse$ === "object");
 assert(typeof PutDefaultApplicationSettingRequest$ === "object");
 assert(typeof PutDefaultApplicationSettingResponse$ === "object");
 assert(typeof RecurringCharge$ === "object");
+assert(typeof RegisterCapabilityRequest$ === "object");
+assert(typeof RegisterCapabilityResponse$ === "object");
 assert(typeof RejectInboundConnectionRequest$ === "object");
 assert(typeof RejectInboundConnectionResponse$ === "object");
 assert(typeof RemoveTagsRequest$ === "object");
@@ -1078,6 +1116,8 @@ assert(typeof AutoTuneDesiredState === "object");
 assert(typeof AutoTuneState === "object");
 assert(typeof AutoTuneType === "object");
 assert(typeof AWSServicePrincipal === "object");
+assert(typeof CapabilityFailureReason === "object");
+assert(typeof CapabilityStatus === "object");
 assert(typeof ConfigChangeStatus === "object");
 assert(typeof ConnectionMode === "object");
 assert(typeof DataSourceStatus === "object");
@@ -1160,6 +1200,8 @@ assert(ResourceAlreadyExistsException.prototype instanceof OpenSearchServiceExce
 assert(typeof ResourceAlreadyExistsException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof OpenSearchServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
+assert(ServiceQuotaExceededException.prototype instanceof OpenSearchServiceException);
+assert(typeof ServiceQuotaExceededException$ === "object");
 assert(SlotNotAvailableException.prototype instanceof OpenSearchServiceException);
 assert(typeof SlotNotAvailableException$ === "object");
 assert(ThrottlingException.prototype instanceof OpenSearchServiceException);

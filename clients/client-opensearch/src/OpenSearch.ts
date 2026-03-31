@@ -119,6 +119,11 @@ import {
   DeleteVpcEndpointCommand,
 } from "./commands/DeleteVpcEndpointCommand";
 import {
+  type DeregisterCapabilityCommandInput,
+  type DeregisterCapabilityCommandOutput,
+  DeregisterCapabilityCommand,
+} from "./commands/DeregisterCapabilityCommand";
+import {
   type DescribeDomainAutoTunesCommandInput,
   type DescribeDomainAutoTunesCommandOutput,
   DescribeDomainAutoTunesCommand,
@@ -213,6 +218,11 @@ import {
   type GetApplicationCommandOutput,
   GetApplicationCommand,
 } from "./commands/GetApplicationCommand";
+import {
+  type GetCapabilityCommandInput,
+  type GetCapabilityCommandOutput,
+  GetCapabilityCommand,
+} from "./commands/GetCapabilityCommand";
 import {
   type GetCompatibleVersionsCommandInput,
   type GetCompatibleVersionsCommandOutput,
@@ -336,6 +346,11 @@ import {
   PutDefaultApplicationSettingCommand,
 } from "./commands/PutDefaultApplicationSettingCommand";
 import {
+  type RegisterCapabilityCommandInput,
+  type RegisterCapabilityCommandOutput,
+  RegisterCapabilityCommand,
+} from "./commands/RegisterCapabilityCommand";
+import {
   type RejectInboundConnectionCommandInput,
   type RejectInboundConnectionCommandOutput,
   RejectInboundConnectionCommand,
@@ -452,6 +467,7 @@ const commands = {
   DeleteOutboundConnectionCommand,
   DeletePackageCommand,
   DeleteVpcEndpointCommand,
+  DeregisterCapabilityCommand,
   DescribeDomainCommand,
   DescribeDomainAutoTunesCommand,
   DescribeDomainChangeProgressCommand,
@@ -471,6 +487,7 @@ const commands = {
   DissociatePackageCommand,
   DissociatePackagesCommand,
   GetApplicationCommand,
+  GetCapabilityCommand,
   GetCompatibleVersionsCommand,
   GetDataSourceCommand,
   GetDefaultApplicationSettingCommand,
@@ -497,6 +514,7 @@ const commands = {
   ListVpcEndpointsForDomainCommand,
   PurchaseReservedInstanceOfferingCommand,
   PutDefaultApplicationSettingCommand,
+  RegisterCapabilityCommand,
   RejectInboundConnectionCommand,
   RemoveTagsCommand,
   RevokeVpcEndpointAccessCommand,
@@ -941,6 +959,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link DeregisterCapabilityCommand}
+   */
+  deregisterCapability(
+    args: DeregisterCapabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterCapabilityCommandOutput>;
+  deregisterCapability(
+    args: DeregisterCapabilityCommandInput,
+    cb: (err: any, data?: DeregisterCapabilityCommandOutput) => void
+  ): void;
+  deregisterCapability(
+    args: DeregisterCapabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterCapabilityCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDomainCommand}
    */
   describeDomain(
@@ -1266,6 +1301,23 @@ export interface OpenSearch {
     args: GetApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCapabilityCommand}
+   */
+  getCapability(
+    args: GetCapabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapabilityCommandOutput>;
+  getCapability(
+    args: GetCapabilityCommandInput,
+    cb: (err: any, data?: GetCapabilityCommandOutput) => void
+  ): void;
+  getCapability(
+    args: GetCapabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapabilityCommandOutput) => void
   ): void;
 
   /**
@@ -1715,6 +1767,23 @@ export interface OpenSearch {
     args: PutDefaultApplicationSettingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutDefaultApplicationSettingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterCapabilityCommand}
+   */
+  registerCapability(
+    args: RegisterCapabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterCapabilityCommandOutput>;
+  registerCapability(
+    args: RegisterCapabilityCommandInput,
+    cb: (err: any, data?: RegisterCapabilityCommandOutput) => void
+  ): void;
+  registerCapability(
+    args: RegisterCapabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterCapabilityCommandOutput) => void
   ): void;
 
   /**

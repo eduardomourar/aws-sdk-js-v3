@@ -11,6 +11,8 @@ import type {
   AutoTuneState,
   AutoTuneType,
   AWSServicePrincipal,
+  CapabilityFailureReason,
+  CapabilityStatus,
   ConfigChangeStatus,
   ConnectionMode,
   DataSourceStatus,
@@ -21,7 +23,6 @@ import type {
   DomainPackageStatus,
   DomainProcessingStatusType,
   DomainState,
-  DryRunMode,
   EngineType,
   InboundConnectionStatusCode,
   IndexStatus,
@@ -47,7 +48,6 @@ import type {
   OptionState,
   OutboundConnectionStatusCode,
   OverallChangeStatus,
-  PackageScopeOperationEnum,
   PackageStatus,
   PackageType,
   PrincipalType,
@@ -1043,6 +1043,12 @@ export interface AdvancedSecurityOptionsStatus {
    */
   Status: OptionStatus | undefined;
 }
+
+/**
+ * <p>Configuration settings for AI-powered capabilities of an OpenSearch UI application.</p>
+ * @public
+ */
+export interface AIConfig {}
 
 /**
  * <p>Container for parameters required to enable the natural language query generation
@@ -3967,6 +3973,36 @@ export interface DeleteVpcEndpointResponse {
 }
 
 /**
+ * <p>Container for the parameters to the <code>DeregisterCapability</code> operation.</p>
+ * @public
+ */
+export interface DeregisterCapabilityRequest {
+  /**
+   * <p>The unique identifier of the OpenSearch UI application to deregister the capability from.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The name of the capability to deregister.</p>
+   * @public
+   */
+  capabilityName: string | undefined;
+}
+
+/**
+ * <p>The result of a <code>DeregisterCapability</code> request.</p>
+ * @public
+ */
+export interface DeregisterCapabilityResponse {
+  /**
+   * <p>The status of the deregistration operation. Returns <code>deleting</code> when the capability is being removed.</p>
+   * @public
+   */
+  status?: CapabilityStatus | undefined;
+}
+
+/**
  * <p>Container for the parameters to the <code>DescribeDomain</code> operation.</p>
  * @public
  */
@@ -6178,6 +6214,117 @@ export interface GetApplicationResponse {
 }
 
 /**
+ * <p>Container for the parameters to the <code>GetCapability</code> operation.</p>
+ * @public
+ */
+export interface GetCapabilityRequest {
+  /**
+   * <p>The unique identifier of the OpenSearch UI application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The name of the capability to retrieve information about.</p>
+   * @public
+   */
+  capabilityName: string | undefined;
+}
+
+/**
+ * <p>The extended configuration returned for a registered capability, including additional details beyond the base configuration.</p>
+ * @public
+ */
+export type CapabilityExtendedResponseConfig =
+  | CapabilityExtendedResponseConfig.AiConfigMember
+  | CapabilityExtendedResponseConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CapabilityExtendedResponseConfig {
+  /**
+   * <p>Configuration settings for AI-powered capabilities.</p>
+   * @public
+   */
+  export interface AiConfigMember {
+    aiConfig: AIConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    aiConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    aiConfig: (value: AIConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Information about a capability failure.</p>
+ * @public
+ */
+export interface CapabilityFailure {
+  /**
+   * <p>The reason for the capability failure. Possible values: <code>KMS_KEY_INSUFFICIENT_PERMISSION</code>.</p>
+   * @public
+   */
+  reason?: CapabilityFailureReason | undefined;
+
+  /**
+   * <p>Additional details about the capability failure.</p>
+   * @public
+   */
+  details?: string | undefined;
+}
+
+/**
+ * <p>The result of a <code>GetCapability</code> request. Contains details about the capability.</p>
+ * @public
+ */
+export interface GetCapabilityResponse {
+  /**
+   * <p>The name of the capability.</p>
+   * @public
+   */
+  capabilityName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the OpenSearch UI application.</p>
+   * @public
+   */
+  applicationId?: string | undefined;
+
+  /**
+   * <p>The current status of the capability. Possible values: <code>creating</code>, <code>create_failed</code>, <code>active</code>, <code>updating</code>, <code>update_failed</code>, <code>deleting</code>, <code>delete_failed</code>.</p>
+   * @public
+   */
+  status?: CapabilityStatus | undefined;
+
+  /**
+   * <p>The configuration settings for the capability, including capability-specific settings such as AI configuration.</p>
+   * @public
+   */
+  capabilityConfig?: CapabilityExtendedResponseConfig | undefined;
+
+  /**
+   * <p>A list of failures associated with the capability, if any. Each failure includes a reason and details about what went wrong.</p>
+   * @public
+   */
+  failures?: CapabilityFailure[] | undefined;
+}
+
+/**
  * <p>Container for the request parameters to <code>GetCompatibleVersions</code> operation.</p>
  * @public
  */
@@ -7843,6 +7990,139 @@ export interface PutDefaultApplicationSettingResponse {
 }
 
 /**
+ * <p>The base configuration for registering a capability. Contains capability-specific configuration such as AI settings.</p>
+ * @public
+ */
+export type CapabilityBaseRequestConfig =
+  | CapabilityBaseRequestConfig.AiConfigMember
+  | CapabilityBaseRequestConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CapabilityBaseRequestConfig {
+  /**
+   * <p>Configuration settings for AI-powered capabilities.</p>
+   * @public
+   */
+  export interface AiConfigMember {
+    aiConfig: AIConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    aiConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    aiConfig: (value: AIConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Container for the parameters to the <code>RegisterCapability</code> operation.</p>
+ * @public
+ */
+export interface RegisterCapabilityRequest {
+  /**
+   * <p>The unique identifier of the OpenSearch UI application to register the capability for.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The name of the capability to register. Must be between 3 and 30 characters and contain only alphanumeric characters and hyphens. This identifies the type of capability being enabled for the application. For registering AI Assistant capability, use <code>ai-capability</code>
+   *          </p>
+   * @public
+   */
+  capabilityName: string | undefined;
+
+  /**
+   * <p>The configuration settings for the capability being registered. This includes capability-specific settings such as AI configuration.</p>
+   * @public
+   */
+  capabilityConfig: CapabilityBaseRequestConfig | undefined;
+}
+
+/**
+ * <p>The base configuration returned for a registered capability.</p>
+ * @public
+ */
+export type CapabilityBaseResponseConfig =
+  | CapabilityBaseResponseConfig.AiConfigMember
+  | CapabilityBaseResponseConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CapabilityBaseResponseConfig {
+  /**
+   * <p>Configuration settings for AI-powered capabilities.</p>
+   * @public
+   */
+  export interface AiConfigMember {
+    aiConfig: AIConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    aiConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    aiConfig: (value: AIConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The result of a <code>RegisterCapability</code> request. Contains details about the registered capability.</p>
+ * @public
+ */
+export interface RegisterCapabilityResponse {
+  /**
+   * <p>The name of the registered capability.</p>
+   * @public
+   */
+  capabilityName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the OpenSearch UI application.</p>
+   * @public
+   */
+  applicationId?: string | undefined;
+
+  /**
+   * <p>The current status of the capability. Possible values: <code>creating</code>, <code>create_failed</code>, <code>active</code>, <code>updating</code>, <code>update_failed</code>, <code>deleting</code>, <code>delete_failed</code>.</p>
+   * @public
+   */
+  status?: CapabilityStatus | undefined;
+
+  /**
+   * <p>The configuration settings for the registered capability.</p>
+   * @public
+   */
+  capabilityConfig?: CapabilityBaseResponseConfig | undefined;
+}
+
+/**
  * <p>Container for the request parameters to the <code>RejectInboundConnection</code>
  *             operation.</p>
  * @public
@@ -8126,418 +8406,4 @@ export interface UpdateDataSourceRequest {
    * @public
    */
   Status?: DataSourceStatus | undefined;
-}
-
-/**
- * <p>The result of an <code>UpdateDataSource</code> operation.</p>
- * @public
- */
-export interface UpdateDataSourceResponse {
-  /**
-   * <p>A message associated with the updated data source.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDirectQueryDataSourceRequest {
-  /**
-   * <p> A unique, user-defined label to identify the data source within your OpenSearch
-   *             Service environment. </p>
-   * @public
-   */
-  DataSourceName: string | undefined;
-
-  /**
-   * <p> The supported Amazon Web Services service that you want to use as the source for
-   *             direct queries in OpenSearch Service. </p>
-   * @public
-   */
-  DataSourceType: DirectQueryDataSourceType | undefined;
-
-  /**
-   * <p> An optional text field for providing additional context and details about the data
-   *             source. </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p> An optional list of Amazon Resource Names (ARNs) for the OpenSearch collections that are
-   *             associated with the direct query data source. This field is required for CloudWatchLogs
-   *             and SecurityLake datasource types. </p>
-   * @public
-   */
-  OpenSearchArns?: string[] | undefined;
-
-  /**
-   * <p> An optional IAM access policy document that defines the updated permissions for accessing the direct query data source.
-   *             The policy document must be in valid JSON format and follow IAM policy syntax. If not specified, the existing access policy if present remains unchanged. </p>
-   * @public
-   */
-  DataSourceAccessPolicy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDirectQueryDataSourceResponse {
-  /**
-   * <p> The unique, system-generated identifier that represents the data source. </p>
-   * @public
-   */
-  DataSourceArn?: string | undefined;
-}
-
-/**
- * <p>Container for the request parameters to the <code>UpdateDomain</code>
- *             operation.</p>
- * @public
- */
-export interface UpdateDomainConfigRequest {
-  /**
-   * <p>The name of the domain that you're updating.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>Changes that you want to make to the cluster configuration, such as the instance type
-   *             and number of EC2 instances.</p>
-   * @public
-   */
-  ClusterConfig?: ClusterConfig | undefined;
-
-  /**
-   * <p>The type and size of the EBS volume to attach to instances in the domain.</p>
-   * @public
-   */
-  EBSOptions?: EBSOptions | undefined;
-
-  /**
-   * <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value
-   *             is <code>0</code> hours. </p>
-   * @public
-   */
-  SnapshotOptions?: SnapshotOptions | undefined;
-
-  /**
-   * <p>Options to specify the subnets and security groups for a VPC endpoint. For more
-   *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html">Launching your Amazon
-   *                 OpenSearch Service domains using a VPC</a>.</p>
-   * @public
-   */
-  VPCOptions?: VPCOptions | undefined;
-
-  /**
-   * <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch
-   *             Dashboards.</p>
-   * @public
-   */
-  CognitoOptions?: CognitoOptions | undefined;
-
-  /**
-   * <p>Key-value pairs to specify advanced configuration options. The following key-value
-   *             pairs are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note
-   *                     the use of a string rather than a boolean. Specifies whether explicit references
-   *                     to indexes are allowed inside the body of HTTP requests. If you want to
-   *                     configure access policies for domain sub-resources, such as specific indexes and
-   *                     domain APIs, you must disable this property. Default is true.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string
-   *                     rather than a boolean. Specifies the percentage of heap space allocated to field
-   *                     data. Default is unbounded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a
-   *                     string rather than a boolean. Specifies the maximum number of clauses allowed in
-   *                     a Lucene boolean query. Default is 1,024. Queries with more than the permitted
-   *                     number of clauses result in a <code>TooManyClauses</code> error.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
-   * @public
-   */
-  AdvancedOptions?: Record<string, string> | undefined;
-
-  /**
-   * <p>Identity and Access Management (IAM) access policy as a JSON-formatted string.</p>
-   * @public
-   */
-  AccessPolicies?: string | undefined;
-
-  /**
-   * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to
-   *             share domain resources across IPv4 and IPv6 address types, and is the recommended
-   *             option. If your IP address type is currently set to dual stack, you can't change it.
-   *         </p>
-   * @public
-   */
-  IPAddressType?: IPAddressType | undefined;
-
-  /**
-   * <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
-   * @public
-   */
-  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>> | undefined;
-
-  /**
-   * <p>Encryption at rest options for the domain.</p>
-   * @public
-   */
-  EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
-
-  /**
-   * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
-   *             traffic.</p>
-   * @public
-   */
-  DomainEndpointOptions?: DomainEndpointOptions | undefined;
-
-  /**
-   * <p>Node-to-node encryption options for the domain.</p>
-   * @public
-   */
-  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions | undefined;
-
-  /**
-   * <p>Options for fine-grained access control.</p>
-   * @public
-   */
-  AdvancedSecurityOptions?: AdvancedSecurityOptionsInput | undefined;
-
-  /**
-   * <p>Configuration settings for enabling and managing IAM Identity Center.</p>
-   * @public
-   */
-  IdentityCenterOptions?: IdentityCenterOptionsInput | undefined;
-
-  /**
-   * <p>Options for Auto-Tune.</p>
-   * @public
-   */
-  AutoTuneOptions?: AutoTuneOptions | undefined;
-
-  /**
-   * <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request
-   *             should return the results of a dry run analysis without actually applying the change. A
-   *             dry run determines what type of deployment the update will cause.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The type of dry run to perform.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Basic</code> only returns the type of deployment (blue/green or dynamic)
-   *                     that the update will cause.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Verbose</code> runs an additional check to validate the changes you're
-   *                     making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DryRunMode?: DryRunMode | undefined;
-
-  /**
-   * <p>Off-peak window options for the domain.</p>
-   * @public
-   */
-  OffPeakWindowOptions?: OffPeakWindowOptions | undefined;
-
-  /**
-   * <p>Service software update options for the domain.</p>
-   * @public
-   */
-  SoftwareUpdateOptions?: SoftwareUpdateOptions | undefined;
-
-  /**
-   * <p>Options for all machine learning features for the specified domain.</p>
-   * @public
-   */
-  AIMLOptions?: AIMLOptionsInput | undefined;
-
-  /**
-   * <p>Specifies the deployment strategy options for the domain.</p>
-   * @public
-   */
-  DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
-}
-
-/**
- * <p>The results of an <code>UpdateDomain</code> request. Contains the status of the domain
- *             being updated.</p>
- * @public
- */
-export interface UpdateDomainConfigResponse {
-  /**
-   * <p>The status of the updated domain.</p>
-   * @public
-   */
-  DomainConfig: DomainConfig | undefined;
-
-  /**
-   * <p>Results of the dry run performed in the update domain request.</p>
-   * @public
-   */
-  DryRunResults?: DryRunResults | undefined;
-
-  /**
-   * <p>The status of the dry run being performed on the domain, if any.</p>
-   * @public
-   */
-  DryRunProgressStatus?: DryRunProgressStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIndexRequest {
-  /**
-   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
-   *             owned by an account within an Amazon Web Services Region.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The name of the index to update.</p>
-   * @public
-   */
-  IndexName: string | undefined;
-
-  /**
-   * <p>The updated JSON schema for the index including any changes to mappings, settings, and semantic enrichment configuration.</p>
-   * @public
-   */
-  IndexSchema: __DocumentType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIndexResponse {
-  /**
-   * <p>The status of the index update operation.</p>
-   * @public
-   */
-  Status: IndexStatus | undefined;
-}
-
-/**
- * <p>Container for request parameters to the <code>UpdatePackage</code> operation.</p>
- * @public
- */
-export interface UpdatePackageRequest {
-  /**
-   * <p>The unique identifier for the package.</p>
-   * @public
-   */
-  PackageID: string | undefined;
-
-  /**
-   * <p>Amazon S3 bucket and key for the package.</p>
-   * @public
-   */
-  PackageSource: PackageSource | undefined;
-
-  /**
-   * <p>A new description of the package.</p>
-   * @public
-   */
-  PackageDescription?: string | undefined;
-
-  /**
-   * <p>Commit message for the updated file, which is shown as part of
-   *                 <code>GetPackageVersionHistoryResponse</code>.</p>
-   * @public
-   */
-  CommitMessage?: string | undefined;
-
-  /**
-   * <p>The updated configuration details for a package.</p>
-   * @public
-   */
-  PackageConfiguration?: PackageConfiguration | undefined;
-
-  /**
-   * <p>Encryption options for a package.</p>
-   * @public
-   */
-  PackageEncryptionOptions?: PackageEncryptionOptions | undefined;
-}
-
-/**
- * <p>Container for the response returned by the <code>UpdatePackage</code>
- *             operation.</p>
- * @public
- */
-export interface UpdatePackageResponse {
-  /**
-   * <p>Information about a package.</p>
-   * @public
-   */
-  PackageDetails?: PackageDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePackageScopeRequest {
-  /**
-   * <p>ID of the package whose scope is being updated.</p>
-   * @public
-   */
-  PackageID: string | undefined;
-
-  /**
-   * <p> The operation to perform on the package scope (e.g., add/remove/override
-   *             users).</p>
-   * @public
-   */
-  Operation: PackageScopeOperationEnum | undefined;
-
-  /**
-   * <p> List of users to be added or removed from the package scope.</p>
-   * @public
-   */
-  PackageUserList: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePackageScopeResponse {
-  /**
-   * <p> ID of the package whose scope was updated.</p>
-   * @public
-   */
-  PackageID?: string | undefined;
-
-  /**
-   * <p>The operation that was performed on the package scope.</p>
-   * @public
-   */
-  Operation?: PackageScopeOperationEnum | undefined;
-
-  /**
-   * <p> List of users who have access to the package after the scope update.</p>
-   * @public
-   */
-  PackageUserList?: string[] | undefined;
 }

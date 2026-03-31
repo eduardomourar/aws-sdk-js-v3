@@ -128,6 +128,10 @@ import type {
   DeleteVpcEndpointCommandOutput,
 } from "./commands/DeleteVpcEndpointCommand";
 import type {
+  DeregisterCapabilityCommandInput,
+  DeregisterCapabilityCommandOutput,
+} from "./commands/DeregisterCapabilityCommand";
+import type {
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
@@ -191,6 +195,7 @@ import type {
   DissociatePackagesCommandOutput,
 } from "./commands/DissociatePackagesCommand";
 import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import type { GetCapabilityCommandInput, GetCapabilityCommandOutput } from "./commands/GetCapabilityCommand";
 import type {
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
@@ -265,6 +270,10 @@ import type {
   PutDefaultApplicationSettingCommandInput,
   PutDefaultApplicationSettingCommandOutput,
 } from "./commands/PutDefaultApplicationSettingCommand";
+import type {
+  RegisterCapabilityCommandInput,
+  RegisterCapabilityCommandOutput,
+} from "./commands/RegisterCapabilityCommand";
 import type {
   RejectInboundConnectionCommandInput,
   RejectInboundConnectionCommandOutput,
@@ -349,6 +358,7 @@ export type ServiceInputTypes =
   | DeleteOutboundConnectionCommandInput
   | DeletePackageCommandInput
   | DeleteVpcEndpointCommandInput
+  | DeregisterCapabilityCommandInput
   | DescribeDomainAutoTunesCommandInput
   | DescribeDomainChangeProgressCommandInput
   | DescribeDomainCommandInput
@@ -368,6 +378,7 @@ export type ServiceInputTypes =
   | DissociatePackageCommandInput
   | DissociatePackagesCommandInput
   | GetApplicationCommandInput
+  | GetCapabilityCommandInput
   | GetCompatibleVersionsCommandInput
   | GetDataSourceCommandInput
   | GetDefaultApplicationSettingCommandInput
@@ -394,6 +405,7 @@ export type ServiceInputTypes =
   | ListVpcEndpointsForDomainCommandInput
   | PurchaseReservedInstanceOfferingCommandInput
   | PutDefaultApplicationSettingCommandInput
+  | RegisterCapabilityCommandInput
   | RejectInboundConnectionCommandInput
   | RemoveTagsCommandInput
   | RevokeVpcEndpointAccessCommandInput
@@ -438,6 +450,7 @@ export type ServiceOutputTypes =
   | DeleteOutboundConnectionCommandOutput
   | DeletePackageCommandOutput
   | DeleteVpcEndpointCommandOutput
+  | DeregisterCapabilityCommandOutput
   | DescribeDomainAutoTunesCommandOutput
   | DescribeDomainChangeProgressCommandOutput
   | DescribeDomainCommandOutput
@@ -457,6 +470,7 @@ export type ServiceOutputTypes =
   | DissociatePackageCommandOutput
   | DissociatePackagesCommandOutput
   | GetApplicationCommandOutput
+  | GetCapabilityCommandOutput
   | GetCompatibleVersionsCommandOutput
   | GetDataSourceCommandOutput
   | GetDefaultApplicationSettingCommandOutput
@@ -483,6 +497,7 @@ export type ServiceOutputTypes =
   | ListVpcEndpointsForDomainCommandOutput
   | PurchaseReservedInstanceOfferingCommandOutput
   | PutDefaultApplicationSettingCommandOutput
+  | RegisterCapabilityCommandOutput
   | RejectInboundConnectionCommandOutput
   | RemoveTagsCommandOutput
   | RevokeVpcEndpointAccessCommandOutput

@@ -264,6 +264,26 @@ export class InvalidPaginationTokenException extends __BaseException {
 }
 
 /**
+ * <p>An exception for when a request would cause a service quota to be exceeded.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
  * <p>An exception for attempting to schedule a domain action during an unavailable time slot.</p>
  * @public
  */

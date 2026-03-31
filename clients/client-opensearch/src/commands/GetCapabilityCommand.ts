@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateIndexRequest, UpdateIndexResponse } from "../models/models_1";
+import type { GetCapabilityRequest, GetCapabilityResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { UpdateIndex$ } from "../schemas/schemas_0";
+import { GetCapability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,50 +16,57 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateIndexCommand}.
+ * The input for {@link GetCapabilityCommand}.
  */
-export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
+export interface GetCapabilityCommandInput extends GetCapabilityRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateIndexCommand}.
+ * The output of {@link GetCapabilityCommand}.
  */
-export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __MetadataBearer {}
+export interface GetCapabilityCommandOutput extends GetCapabilityResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing OpenSearch index schema and semantic enrichment configuration. This operation allows modification of field mappings and semantic search settings for text fields. Changes to semantic enrichment configuration will apply to newly ingested documents.</p>
+ * <p>Retrieves information about a registered capability for an OpenSearch UI application, including its configuration and current status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, UpdateIndexCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, UpdateIndexCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, GetCapabilityCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, GetCapabilityCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
  * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
- * const input = { // UpdateIndexRequest
- *   DomainName: "STRING_VALUE", // required
- *   IndexName: "STRING_VALUE", // required
- *   IndexSchema: "DOCUMENT_VALUE", // required
+ * const input = { // GetCapabilityRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   capabilityName: "STRING_VALUE", // required
  * };
- * const command = new UpdateIndexCommand(input);
+ * const command = new GetCapabilityCommand(input);
  * const response = await client.send(command);
- * // { // UpdateIndexResponse
- * //   Status: "CREATED" || "UPDATED" || "DELETED", // required
+ * // { // GetCapabilityResponse
+ * //   capabilityName: "STRING_VALUE",
+ * //   applicationId: "STRING_VALUE",
+ * //   status: "creating" || "create_failed" || "active" || "updating" || "update_failed" || "deleting" || "delete_failed",
+ * //   capabilityConfig: { // CapabilityExtendedResponseConfig Union: only one key present
+ * //     aiConfig: {},
+ * //   },
+ * //   failures: [ // CapabilityFailures
+ * //     { // CapabilityFailure
+ * //       reason: "KMS_KEY_INSUFFICIENT_PERMISSION",
+ * //       details: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param UpdateIndexCommandInput - {@link UpdateIndexCommandInput}
- * @returns {@link UpdateIndexCommandOutput}
- * @see {@link UpdateIndexCommandInput} for command's `input` shape.
- * @see {@link UpdateIndexCommandOutput} for command's `response` shape.
+ * @param GetCapabilityCommandInput - {@link GetCapabilityCommandInput}
+ * @returns {@link GetCapabilityCommandOutput}
+ * @see {@link GetCapabilityCommandInput} for command's `input` shape.
+ * @see {@link GetCapabilityCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>An error occurred because you don't have permissions to access the resource.</p>
- *
- * @throws {@link DependencyFailureException} (client fault)
- *  <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
  *  <p>An error occured because the client wanted to access an unsupported operation.</p>
@@ -70,9 +77,6 @@ export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
@@ -82,10 +86,10 @@ export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __Metadat
  *
  * @public
  */
-export class UpdateIndexCommand extends $Command
+export class GetCapabilityCommand extends $Command
   .classBuilder<
-    UpdateIndexCommandInput,
-    UpdateIndexCommandOutput,
+    GetCapabilityCommandInput,
+    GetCapabilityCommandOutput,
     OpenSearchClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,19 +98,19 @@ export class UpdateIndexCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonOpenSearchService", "UpdateIndex", {})
-  .n("OpenSearchClient", "UpdateIndexCommand")
-  .sc(UpdateIndex$)
+  .s("AmazonOpenSearchService", "GetCapability", {})
+  .n("OpenSearchClient", "GetCapabilityCommand")
+  .sc(GetCapability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateIndexRequest;
-      output: UpdateIndexResponse;
+      input: GetCapabilityRequest;
+      output: GetCapabilityResponse;
     };
     sdk: {
-      input: UpdateIndexCommandInput;
-      output: UpdateIndexCommandOutput;
+      input: GetCapabilityCommandInput;
+      output: GetCapabilityCommandOutput;
     };
   };
 }

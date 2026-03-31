@@ -13,9 +13,10 @@ const _ADQDSRd = "AddDirectQueryDataSourceResponse";
 const _ADS = "AddDataSource";
 const _ADSR = "AddDataSourceRequest";
 const _ADSRd = "AddDataSourceResponse";
-const _AIC = "AcceptInboundConnection";
+const _AIC = "AIConfig";
 const _AICR = "AcceptInboundConnectionRequest";
 const _AICRc = "AcceptInboundConnectionResponse";
+const _AICc = "AcceptInboundConnection";
 const _AID = "ActionID";
 const _AIMLO = "AIMLOptions";
 const _AIMLOI = "AIMLOptionsInput";
@@ -87,6 +88,8 @@ const _CAR = "CreateApplicationRequest";
 const _CARr = "CreateApplicationResponse";
 const _CAr = "CreatedAt";
 const _CAre = "CreateApplication";
+const _CBRC = "CapabilityBaseRequestConfig";
+const _CBRCa = "CapabilityBaseResponseConfig";
 const _CC = "ClusterConfig";
 const _CCI = "CancelledChangeIds";
 const _CCP = "CancelledChangeProperties";
@@ -109,8 +112,11 @@ const _CE = "ConflictException";
 const _CECA = "CustomEndpointCertificateArn";
 const _CEE = "CustomEndpointEnabled";
 const _CEFR = "CronExpressionForRecurrence";
+const _CERC = "CapabilityExtendedResponseConfig";
 const _CEo = "CognitoEnabled";
 const _CEu = "CustomEndpoint";
+const _CF = "CapabilityFailure";
+const _CFa = "CapabilityFailures";
 const _CH = "ClusterHealth";
 const _CI = "ConnectionId";
 const _CIR = "CreateIndexRequest";
@@ -167,6 +173,9 @@ const _DAR = "DeleteApplicationRequest";
 const _DARe = "DeleteApplicationResponse";
 const _DAe = "DeleteApplication";
 const _DC = "DomainConfig";
+const _DCR = "DeregisterCapabilityRequest";
+const _DCRe = "DeregisterCapabilityResponse";
+const _DCe = "DeregisterCapability";
 const _DD = "DeleteDomain";
 const _DDAT = "DescribeDomainAutoTunes";
 const _DDATR = "DescribeDomainAutoTunesRequest";
@@ -335,6 +344,9 @@ const _Fr = "From";
 const _GA = "GetApplication";
 const _GAR = "GetApplicationRequest";
 const _GARe = "GetApplicationResponse";
+const _GC = "GetCapability";
+const _GCR = "GetCapabilityRequest";
+const _GCRe = "GetCapabilityResponse";
 const _GCV = "GetCompatibleVersions";
 const _GCVR = "GetCompatibleVersionsRequest";
 const _GCVRe = "GetCompatibleVersionsResponse";
@@ -573,7 +585,10 @@ const _RC = "RecurringCharge";
 const _RCA = "RecurringChargeAmount";
 const _RCF = "RecurringChargeFrequency";
 const _RCL = "RecurringChargeList";
+const _RCR = "RegisterCapabilityRequest";
+const _RCRe = "RegisterCapabilityResponse";
 const _RCe = "RecurringCharges";
+const _RCeg = "RegisterCapability";
 const _RDI = "RemoteDomainInfo";
 const _RI = "ReservedInstances";
 const _RIC = "RejectInboundConnection";
@@ -629,6 +644,7 @@ const _SNAE = "SlotNotAvailableException";
 const _SO = "SnapshotOptions";
 const _SOS = "SnapshotOptionsStatus";
 const _SOo = "SortOrder";
+const _SQEE = "ServiceQuotaExceededException";
 const _SS = "SlotSuggestions";
 const _SSO = "ServiceSoftwareOptions";
 const _SSSU = "StartServiceSoftwareUpdate";
@@ -764,11 +780,16 @@ const _ZS = "ZoneStatus";
 const _a = "arn";
 const _aA = "applicationArn";
 const _aC = "appConfigs";
+const _aCi = "aiConfig";
+const _aI = "applicationId";
 const _ac = "action";
 const _c = "client";
 const _cA = "createdAt";
+const _cC = "capabilityConfig";
+const _cN = "capabilityName";
 const _cT = "clientToken";
 const _ch = "changeid";
+const _d = "details";
 const _dN = "domainName";
 const _dRI = "dryRunId";
 const _dS = "dataSources";
@@ -778,6 +799,7 @@ const _e = "error";
 const _eT = "engineType";
 const _en = "endpoint";
 const _ena = "enabled";
+const _f = "failures";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
@@ -799,6 +821,7 @@ const _n = "name";
 const _nT = "nextToken";
 const _ne = "nexttoken";
 const _oI = "offeringId";
+const _r = "reason";
 const _rAZ = "retrieveAZs";
 const _rI = "reservationId";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.opensearch";
@@ -835,6 +858,7 @@ import {
   LimitExceededException,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SlotNotAvailableException,
   ThrottlingException,
   ValidationException,
@@ -912,6 +936,12 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   [0]
 ];
 n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SlotNotAvailableException$: StaticErrorSchema = [-3, n0, _SNAE,
   { [_e]: _c, [_hE]: 409 },
   [_SS, _m],
@@ -1005,6 +1035,11 @@ export var AdvancedSecurityOptionsStatus$: StaticStructureSchema = [3, n0, _ASOS
   0,
   [_O, _S],
   [() => AdvancedSecurityOptions$, () => OptionStatus$], 2
+];
+export var AIConfig$: StaticStructureSchema = [3, n0, _AIC,
+  0,
+  [],
+  []
 ];
 export var AIMLOptionsInput$: StaticStructureSchema = [3, n0, _AIMLOI,
   0,
@@ -1140,6 +1175,11 @@ export var CancelServiceSoftwareUpdateResponse$: StaticStructureSchema = [3, n0,
   0,
   [_SSO],
   [() => ServiceSoftwareOptions$]
+];
+export var CapabilityFailure$: StaticStructureSchema = [3, n0, _CF,
+  0,
+  [_r, _d],
+  [0, 0]
 ];
 export var ChangeProgressDetails$: StaticStructureSchema = [3, n0, _CPD,
   0,
@@ -1365,6 +1405,16 @@ export var DeploymentStrategyOptionsStatus$: StaticStructureSchema = [3, n0, _DS
   0,
   [_O, _S],
   [() => DeploymentStrategyOptions$, () => OptionStatus$], 2
+];
+export var DeregisterCapabilityRequest$: StaticStructureSchema = [3, n0, _DCR,
+  0,
+  [_aI, _cN],
+  [[0, 1], [0, 1]], 2
+];
+export var DeregisterCapabilityResponse$: StaticStructureSchema = [3, n0, _DCRe,
+  0,
+  [_st],
+  [0]
 ];
 export var DescribeDomainAutoTunesRequest$: StaticStructureSchema = [3, n0, _DDATR,
   0,
@@ -1660,6 +1710,16 @@ export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
   [_i, _a, _n, _en, _st, _iICO, _dS, _aC, _cA, _lUA, _kKA],
   [0, 0, 0, 0, 0, () => IamIdentityCenterOptions$, () => DataSources, () => AppConfigs, 4, 4, 0]
+];
+export var GetCapabilityRequest$: StaticStructureSchema = [3, n0, _GCR,
+  0,
+  [_aI, _cN],
+  [[0, 1], [0, 1]], 2
+];
+export var GetCapabilityResponse$: StaticStructureSchema = [3, n0, _GCRe,
+  0,
+  [_cN, _aI, _st, _cC, _f],
+  [0, 0, 0, () => CapabilityExtendedResponseConfig$, () => CapabilityFailures]
 ];
 export var GetCompatibleVersionsRequest$: StaticStructureSchema = [3, n0, _GCVR,
   0,
@@ -2161,6 +2221,16 @@ export var RecurringCharge$: StaticStructureSchema = [3, n0, _RC,
   [_RCA, _RCF],
   [1, 0]
 ];
+export var RegisterCapabilityRequest$: StaticStructureSchema = [3, n0, _RCR,
+  0,
+  [_aI, _cN, _cC],
+  [[0, 1], 0, () => CapabilityBaseRequestConfig$], 3
+];
+export var RegisterCapabilityResponse$: StaticStructureSchema = [3, n0, _RCRe,
+  0,
+  [_cN, _aI, _st, _cC],
+  [0, 0, 0, () => CapabilityBaseResponseConfig$]
+];
 export var RejectInboundConnectionRequest$: StaticStructureSchema = [3, n0, _RICR,
   0,
   [_CI],
@@ -2488,6 +2558,9 @@ var AvailabilityZoneList = 64 | 0;
 var CancelledChangePropertyList: StaticListSchema = [1, n0, _CCPL,
   0, () => CancelledChangeProperty$
 ];
+var CapabilityFailures: StaticListSchema = [1, n0, _CFa,
+  0, () => CapabilityFailure$
+];
 var ChangeProgressStageList: StaticListSchema = [1, n0, _CPSL,
   0, () => ChangeProgressStage$
 ];
@@ -2621,6 +2694,21 @@ var LimitsByRole: StaticMapSchema = [2, n0, _LBR,
 var LogPublishingOptions: StaticMapSchema = [2, n0, _LPO,
   0, 0, () => LogPublishingOption$
 ];
+export var CapabilityBaseRequestConfig$: StaticUnionSchema = [4, n0, _CBRC,
+  0,
+  [_aCi],
+  [() => AIConfig$]
+];
+export var CapabilityBaseResponseConfig$: StaticUnionSchema = [4, n0, _CBRCa,
+  0,
+  [_aCi],
+  [() => AIConfig$]
+];
+export var CapabilityExtendedResponseConfig$: StaticUnionSchema = [4, n0, _CERC,
+  0,
+  [_aCi],
+  [() => AIConfig$]
+];
 export var DataSourceType$: StaticUnionSchema = [4, n0, _DST,
   0,
   [_SGDC],
@@ -2631,7 +2719,7 @@ export var DirectQueryDataSourceType$: StaticUnionSchema = [4, n0, _DQDST,
   [_CWL, _SLe, _Prom],
   [() => CloudWatchDirectQueryDataSource$, () => SecurityLakeDirectQueryDataSource$, () => PrometheusDirectQueryDataSource$]
 ];
-export var AcceptInboundConnection$: StaticOperationSchema = [9, n0, _AIC,
+export var AcceptInboundConnection$: StaticOperationSchema = [9, n0, _AICc,
   { [_h]: ["PUT", "/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/accept", 200] }, () => AcceptInboundConnectionRequest$, () => AcceptInboundConnectionResponse$
 ];
 export var AddDataSource$: StaticOperationSchema = [9, n0, _ADS,
@@ -2703,6 +2791,9 @@ export var DeletePackage$: StaticOperationSchema = [9, n0, _DP,
 export var DeleteVpcEndpoint$: StaticOperationSchema = [9, n0, _DVE,
   { [_h]: ["DELETE", "/2021-01-01/opensearch/vpcEndpoints/{VpcEndpointId}", 200] }, () => DeleteVpcEndpointRequest$, () => DeleteVpcEndpointResponse$
 ];
+export var DeregisterCapability$: StaticOperationSchema = [9, n0, _DCe,
+  { [_h]: ["DELETE", "/2021-01-01/opensearch/application/{applicationId}/capability/deregister/{capabilityName}", 200] }, () => DeregisterCapabilityRequest$, () => DeregisterCapabilityResponse$
+];
 export var DescribeDomain$: StaticOperationSchema = [9, n0, _DDe,
   { [_h]: ["GET", "/2021-01-01/opensearch/domain/{DomainName}", 200] }, () => DescribeDomainRequest$, () => DescribeDomainResponse$
 ];
@@ -2759,6 +2850,9 @@ export var DissociatePackages$: StaticOperationSchema = [9, n0, _DPis,
 ];
 export var GetApplication$: StaticOperationSchema = [9, n0, _GA,
   { [_h]: ["GET", "/2021-01-01/opensearch/application/{id}", 200] }, () => GetApplicationRequest$, () => GetApplicationResponse$
+];
+export var GetCapability$: StaticOperationSchema = [9, n0, _GC,
+  { [_h]: ["GET", "/2021-01-01/opensearch/application/{applicationId}/capability/{capabilityName}", 200] }, () => GetCapabilityRequest$, () => GetCapabilityResponse$
 ];
 export var GetCompatibleVersions$: StaticOperationSchema = [9, n0, _GCV,
   { [_h]: ["GET", "/2021-01-01/opensearch/compatibleVersions", 200] }, () => GetCompatibleVersionsRequest$, () => GetCompatibleVersionsResponse$
@@ -2837,6 +2931,9 @@ export var PurchaseReservedInstanceOffering$: StaticOperationSchema = [9, n0, _P
 ];
 export var PutDefaultApplicationSetting$: StaticOperationSchema = [9, n0, _PDAS,
   { [_h]: ["PUT", "/2021-01-01/opensearch/defaultApplicationSetting", 200] }, () => PutDefaultApplicationSettingRequest$, () => PutDefaultApplicationSettingResponse$
+];
+export var RegisterCapability$: StaticOperationSchema = [9, n0, _RCeg,
+  { [_h]: ["POST", "/2021-01-01/opensearch/application/{applicationId}/capability/register", 200] }, () => RegisterCapabilityRequest$, () => RegisterCapabilityResponse$
 ];
 export var RejectInboundConnection$: StaticOperationSchema = [9, n0, _RIC,
   { [_h]: ["PUT", "/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/reject", 200] }, () => RejectInboundConnectionRequest$, () => RejectInboundConnectionResponse$

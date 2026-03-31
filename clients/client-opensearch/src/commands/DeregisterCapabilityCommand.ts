@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateIndexRequest, UpdateIndexResponse } from "../models/models_1";
+import type { DeregisterCapabilityRequest, DeregisterCapabilityResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { UpdateIndex$ } from "../schemas/schemas_0";
+import { DeregisterCapability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,50 +16,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateIndexCommand}.
+ * The input for {@link DeregisterCapabilityCommand}.
  */
-export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
+export interface DeregisterCapabilityCommandInput extends DeregisterCapabilityRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateIndexCommand}.
+ * The output of {@link DeregisterCapabilityCommand}.
  */
-export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __MetadataBearer {}
+export interface DeregisterCapabilityCommandOutput extends DeregisterCapabilityResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing OpenSearch index schema and semantic enrichment configuration. This operation allows modification of field mappings and semantic search settings for text fields. Changes to semantic enrichment configuration will apply to newly ingested documents.</p>
+ * <p>Deregisters a capability from an OpenSearch UI application. This operation removes the capability and its associated configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, UpdateIndexCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, UpdateIndexCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DeregisterCapabilityCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, DeregisterCapabilityCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
  * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
- * const input = { // UpdateIndexRequest
- *   DomainName: "STRING_VALUE", // required
- *   IndexName: "STRING_VALUE", // required
- *   IndexSchema: "DOCUMENT_VALUE", // required
+ * const input = { // DeregisterCapabilityRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   capabilityName: "STRING_VALUE", // required
  * };
- * const command = new UpdateIndexCommand(input);
+ * const command = new DeregisterCapabilityCommand(input);
  * const response = await client.send(command);
- * // { // UpdateIndexResponse
- * //   Status: "CREATED" || "UPDATED" || "DELETED", // required
+ * // { // DeregisterCapabilityResponse
+ * //   status: "creating" || "create_failed" || "active" || "updating" || "update_failed" || "deleting" || "delete_failed",
  * // };
  *
  * ```
  *
- * @param UpdateIndexCommandInput - {@link UpdateIndexCommandInput}
- * @returns {@link UpdateIndexCommandOutput}
- * @see {@link UpdateIndexCommandInput} for command's `input` shape.
- * @see {@link UpdateIndexCommandOutput} for command's `response` shape.
+ * @param DeregisterCapabilityCommandInput - {@link DeregisterCapabilityCommandInput}
+ * @returns {@link DeregisterCapabilityCommandOutput}
+ * @see {@link DeregisterCapabilityCommandInput} for command's `input` shape.
+ * @see {@link DeregisterCapabilityCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>An error occurred because you don't have permissions to access the resource.</p>
  *
- * @throws {@link DependencyFailureException} (client fault)
- *  <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
  *  <p>An error occured because the client wanted to access an unsupported operation.</p>
@@ -70,9 +69,6 @@ export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
@@ -82,10 +78,10 @@ export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __Metadat
  *
  * @public
  */
-export class UpdateIndexCommand extends $Command
+export class DeregisterCapabilityCommand extends $Command
   .classBuilder<
-    UpdateIndexCommandInput,
-    UpdateIndexCommandOutput,
+    DeregisterCapabilityCommandInput,
+    DeregisterCapabilityCommandOutput,
     OpenSearchClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,19 +90,19 @@ export class UpdateIndexCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonOpenSearchService", "UpdateIndex", {})
-  .n("OpenSearchClient", "UpdateIndexCommand")
-  .sc(UpdateIndex$)
+  .s("AmazonOpenSearchService", "DeregisterCapability", {})
+  .n("OpenSearchClient", "DeregisterCapabilityCommand")
+  .sc(DeregisterCapability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateIndexRequest;
-      output: UpdateIndexResponse;
+      input: DeregisterCapabilityRequest;
+      output: DeregisterCapabilityResponse;
     };
     sdk: {
-      input: UpdateIndexCommandInput;
-      output: UpdateIndexCommandOutput;
+      input: DeregisterCapabilityCommandInput;
+      output: DeregisterCapabilityCommandOutput;
     };
   };
 }
