@@ -51,6 +51,7 @@ import type {
   FieldLevelEncryptionProfileConfig,
   FunctionConfig,
   FunctionSummary,
+  IpamCidrConfig,
   KeyGroup,
   KeyGroupConfig,
   KeyValueStore,
@@ -3725,6 +3726,12 @@ export interface UpdateAnycastIpListRequest {
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p> A list of IPAM CIDR configurations that specify the IP address ranges and IPAM pool settings for updating the Anycast static IP list. </p>
+   * @public
+   */
+  IpamCidrConfigs?: IpamCidrConfig[] | undefined;
 
   /**
    * <p>The current version (ETag value) of the Anycast static IP list that you are updating.</p>

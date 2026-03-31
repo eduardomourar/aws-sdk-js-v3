@@ -39,6 +39,14 @@ export interface UpdateAnycastIpListCommandOutput extends UpdateAnycastIpListRes
  * const input = { // UpdateAnycastIpListRequest
  *   Id: "STRING_VALUE", // required
  *   IpAddressType: "ipv4" || "ipv6" || "dualstack",
+ *   IpamCidrConfigs: [ // IpamCidrConfigList
+ *     { // IpamCidrConfig
+ *       Cidr: "STRING_VALUE", // required
+ *       IpamPoolArn: "STRING_VALUE", // required
+ *       AnycastIp: "STRING_VALUE",
+ *       Status: "provisioned" || "failed-provision" || "provisioning" || "deprovisioned" || "failed-deprovision" || "deprovisioning" || "advertised" || "failed-advertise" || "advertising" || "withdrawn" || "failed-withdraw" || "withdrawing",
+ *     },
+ *   ],
  *   IfMatch: "STRING_VALUE", // required
  * };
  * const command = new UpdateAnycastIpListCommand(input);

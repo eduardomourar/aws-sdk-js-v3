@@ -4568,8 +4568,8 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 ];
 export var UpdateAnycastIpListRequest$: StaticStructureSchema = [3, n0, _UAILR,
   0,
-  [_Id, _IM, _IAT],
-  [[0, 1], [0, { [_hH]: _IM_ }], 0], 2
+  [_Id, _IM, _IAT, _ICC],
+  [[0, 1], [0, { [_hH]: _IM_ }], 0, [() => IpamCidrConfigList, 0]], 2
 ];
 export var UpdateAnycastIpListResult$: StaticStructureSchema = [3, n0, _UAILRp,
   0,
