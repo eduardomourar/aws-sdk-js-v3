@@ -1297,6 +1297,7 @@ export type TooltipTitleType = (typeof TooltipTitleType)[keyof typeof TooltipTit
 export const SelectedTooltipType = {
   BASIC: "BASIC",
   DETAILED: "DETAILED",
+  SHEET: "SHEET",
 } as const;
 /**
  * @public
@@ -2061,6 +2062,32 @@ export type TransposedColumnType = (typeof TransposedColumnType)[keyof typeof Tr
  * @public
  * @enum
  */
+export const SparklineVisualType = {
+  AREA_LINE: "AREA_LINE",
+  LINE: "LINE",
+} as const;
+/**
+ * @public
+ */
+export type SparklineVisualType = (typeof SparklineVisualType)[keyof typeof SparklineVisualType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SparklineAxisBehavior = {
+  INDEPENDENT: "INDEPENDENT",
+  SHARED: "SHARED",
+} as const;
+/**
+ * @public
+ */
+export type SparklineAxisBehavior = (typeof SparklineAxisBehavior)[keyof typeof SparklineAxisBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const TableOrientation = {
   HORIZONTAL: "HORIZONTAL",
   VERTICAL: "VERTICAL",
@@ -2420,6 +2447,7 @@ export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeo
  * @enum
  */
 export const AuthenticationType = {
+  KEYPAIR: "KEYPAIR",
   PASSWORD: "PASSWORD",
   TOKEN: "TOKEN",
   X509: "X509",
@@ -2540,6 +2568,22 @@ export const AuthorSpecifiedAggregation = {
  * @public
  */
 export type AuthorSpecifiedAggregation = (typeof AuthorSpecifiedAggregation)[keyof typeof AuthorSpecifiedAggregation];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutomationJobStatus = {
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type AutomationJobStatus = (typeof AutomationJobStatus)[keyof typeof AutomationJobStatus];
 
 /**
  * @public

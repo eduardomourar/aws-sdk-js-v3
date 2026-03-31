@@ -4,10 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateUserCustomPermissionRequest } from "../models/models_4";
-import type { UpdateUserCustomPermissionResponse } from "../models/models_5";
+import type { StartAutomationJobRequest, StartAutomationJobResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateUserCustomPermission$ } from "../schemas/schemas_0";
+import { StartAutomationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -17,45 +16,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateUserCustomPermissionCommand}.
+ * The input for {@link StartAutomationJobCommand}.
  */
-export interface UpdateUserCustomPermissionCommandInput extends UpdateUserCustomPermissionRequest {}
+export interface StartAutomationJobCommandInput extends StartAutomationJobRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateUserCustomPermissionCommand}.
+ * The output of {@link StartAutomationJobCommand}.
  */
-export interface UpdateUserCustomPermissionCommandOutput extends UpdateUserCustomPermissionResponse, __MetadataBearer {}
+export interface StartAutomationJobCommandOutput extends StartAutomationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a custom permissions profile for a user.</p>
+ * <p>Starts a new job for a specified automation. The job runs the automation with the provided input payload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateUserCustomPermissionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateUserCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, StartAutomationJobCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, StartAutomationJobCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
  * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
- * const input = { // UpdateUserCustomPermissionRequest
- *   UserName: "STRING_VALUE", // required
+ * const input = { // StartAutomationJobRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
- *   CustomPermissionsName: "STRING_VALUE", // required
+ *   AutomationGroupId: "STRING_VALUE", // required
+ *   AutomationId: "STRING_VALUE", // required
+ *   InputPayload: "STRING_VALUE",
  * };
- * const command = new UpdateUserCustomPermissionCommand(input);
+ * const command = new StartAutomationJobCommand(input);
  * const response = await client.send(command);
- * // { // UpdateUserCustomPermissionResponse
- * //   RequestId: "STRING_VALUE",
+ * // { // StartAutomationJobResponse
+ * //   Arn: "STRING_VALUE", // required
+ * //   JobId: "STRING_VALUE", // required
  * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param UpdateUserCustomPermissionCommandInput - {@link UpdateUserCustomPermissionCommandInput}
- * @returns {@link UpdateUserCustomPermissionCommandOutput}
- * @see {@link UpdateUserCustomPermissionCommandInput} for command's `input` shape.
- * @see {@link UpdateUserCustomPermissionCommandOutput} for command's `response` shape.
+ * @param StartAutomationJobCommandInput - {@link StartAutomationJobCommandInput}
+ * @returns {@link StartAutomationJobCommandOutput}
+ * @see {@link StartAutomationJobCommandInput} for command's `input` shape.
+ * @see {@link StartAutomationJobCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -64,23 +65,17 @@ export interface UpdateUserCustomPermissionCommandOutput extends UpdateUserCusto
  * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
- *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
  *
- * @throws {@link PreconditionNotMetException} (client fault)
- *  <p>One or more preconditions aren't met.</p>
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit is exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
- *
- * @throws {@link ResourceUnavailableException} (server fault)
- *  <p>This resource is currently unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
@@ -91,10 +86,10 @@ export interface UpdateUserCustomPermissionCommandOutput extends UpdateUserCusto
  *
  * @public
  */
-export class UpdateUserCustomPermissionCommand extends $Command
+export class StartAutomationJobCommand extends $Command
   .classBuilder<
-    UpdateUserCustomPermissionCommandInput,
-    UpdateUserCustomPermissionCommandOutput,
+    StartAutomationJobCommandInput,
+    StartAutomationJobCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,19 +98,19 @@ export class UpdateUserCustomPermissionCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("QuickSight_20180401", "UpdateUserCustomPermission", {})
-  .n("QuickSightClient", "UpdateUserCustomPermissionCommand")
-  .sc(UpdateUserCustomPermission$)
+  .s("QuickSight_20180401", "StartAutomationJob", {})
+  .n("QuickSightClient", "StartAutomationJobCommand")
+  .sc(StartAutomationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateUserCustomPermissionRequest;
-      output: UpdateUserCustomPermissionResponse;
+      input: StartAutomationJobRequest;
+      output: StartAutomationJobResponse;
     };
     sdk: {
-      input: UpdateUserCustomPermissionCommandInput;
-      output: UpdateUserCustomPermissionCommandOutput;
+      input: StartAutomationJobCommandInput;
+      output: StartAutomationJobCommandOutput;
     };
   };
 }

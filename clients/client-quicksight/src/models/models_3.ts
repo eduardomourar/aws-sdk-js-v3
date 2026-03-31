@@ -6,6 +6,7 @@ import type {
   AssetBundleImportJobStatus,
   AssignmentStatus,
   AuthorSpecifiedAggregation,
+  AutomationJobStatus,
   CategoryFilterFunction,
   CategoryFilterType,
   ColumnDataRole,
@@ -36,6 +37,7 @@ import type {
   IngestionRequestType,
   IngestionStatus,
   IngestionType,
+  JoinType,
   MemberType,
   NamedEntityAggType,
   NamedFilterAggType,
@@ -58,7 +60,6 @@ import type {
   SharingModel,
   SnapshotJobStatus,
   Status,
-  TemplateErrorType,
   TextQualifier,
   TextTransform,
   TopicRelativeDateFilterFunction,
@@ -105,6 +106,7 @@ import type {
   BrandDefinition,
   BrandDetail,
   Capabilities,
+  CastColumnTypeOperation,
   CellValueSynonym,
   CollectiveConstant,
   ColumnGroup,
@@ -112,6 +114,7 @@ import type {
   ColumnLevelPermissionRule,
   ColumnSchema,
   ComparativeOrder,
+  CreateColumnsOperation,
   DashboardPublishOptions,
   DashboardVersionDefinition,
   DataPrepConfiguration,
@@ -122,9 +125,12 @@ import type {
   DataSourceParameters,
   DisplayFormatOptions,
   FieldFolder,
+  FilterOperation,
   InputColumn,
-  JoinInstruction,
   LinkSharingConfiguration,
+  OverrideDatasetParameterOperation,
+  ProjectOperation,
+  RenameColumnOperation,
   ResourcePermission,
   SheetDefinition,
   SnapshotFile,
@@ -133,10 +139,249 @@ import type {
   SslProperties,
   StaticFile,
   Tag,
-  TransformOperation,
+  TagColumnOperation,
+  TooltipSheetDefinition,
+  UntagColumnOperation,
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>A data transformation on a logical table. This is a variant type structure. For this
+ *             structure to be valid, only one of the attributes can be non-null.</p>
+ * @public
+ */
+export type TransformOperation =
+  | TransformOperation.CastColumnTypeOperationMember
+  | TransformOperation.CreateColumnsOperationMember
+  | TransformOperation.FilterOperationMember
+  | TransformOperation.OverrideDatasetParameterOperationMember
+  | TransformOperation.ProjectOperationMember
+  | TransformOperation.RenameColumnOperationMember
+  | TransformOperation.TagColumnOperationMember
+  | TransformOperation.UntagColumnOperationMember
+  | TransformOperation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TransformOperation {
+  /**
+   * <p>An operation that projects columns. Operations that come after a projection can only
+   *             refer to projected columns.</p>
+   * @public
+   */
+  export interface ProjectOperationMember {
+    ProjectOperation: ProjectOperation;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An operation that filters rows based on some condition.</p>
+   * @public
+   */
+  export interface FilterOperationMember {
+    ProjectOperation?: never;
+    FilterOperation: FilterOperation;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An operation that creates calculated columns. Columns created in one such operation
+   *             form a lexical closure.</p>
+   * @public
+   */
+  export interface CreateColumnsOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation: CreateColumnsOperation;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An operation that renames a column.</p>
+   * @public
+   */
+  export interface RenameColumnOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation: RenameColumnOperation;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A transform operation that casts a column to a different type.</p>
+   * @public
+   */
+  export interface CastColumnTypeOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation: CastColumnTypeOperation;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An operation that tags a column with additional information.</p>
+   * @public
+   */
+  export interface TagColumnOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation: TagColumnOperation;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A transform operation that removes tags associated with a column.</p>
+   * @public
+   */
+  export interface UntagColumnOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation: UntagColumnOperation;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
+   * @public
+   */
+  export interface OverrideDatasetParameterOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation: OverrideDatasetParameterOperation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ProjectOperation: (value: ProjectOperation) => T;
+    FilterOperation: (value: FilterOperation) => T;
+    CreateColumnsOperation: (value: CreateColumnsOperation) => T;
+    RenameColumnOperation: (value: RenameColumnOperation) => T;
+    CastColumnTypeOperation: (value: CastColumnTypeOperation) => T;
+    TagColumnOperation: (value: TagColumnOperation) => T;
+    UntagColumnOperation: (value: UntagColumnOperation) => T;
+    OverrideDatasetParameterOperation: (value: OverrideDatasetParameterOperation) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Properties associated with the columns participating in a join.</p>
+ * @public
+ */
+export interface JoinKeyProperties {
+  /**
+   * <p>A value that indicates that a row in a table is uniquely identified by the columns in
+   *             a join key. This is used by Quick Sight to optimize query performance.</p>
+   * @public
+   */
+  UniqueKey?: boolean | undefined;
+}
+
+/**
+ * <p>The instructions associated with a join. </p>
+ * @public
+ */
+export interface JoinInstruction {
+  /**
+   * <p>The operand on the left side of a join.</p>
+   * @public
+   */
+  LeftOperand: string | undefined;
+
+  /**
+   * <p>The operand on the right side of a join.</p>
+   * @public
+   */
+  RightOperand: string | undefined;
+
+  /**
+   * <p>Join key properties of the left operand.</p>
+   * @public
+   */
+  LeftJoinKeyProperties?: JoinKeyProperties | undefined;
+
+  /**
+   * <p>Join key properties of the right operand.</p>
+   * @public
+   */
+  RightJoinKeyProperties?: JoinKeyProperties | undefined;
+
+  /**
+   * <p>The type of join that it is.</p>
+   * @public
+   */
+  Type: JoinType | undefined;
+
+  /**
+   * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
+   * @public
+   */
+  OnClause: string | undefined;
+}
 
 /**
  * <p>Information about the source of a logical table. This is a variant type structure. For
@@ -884,6 +1129,37 @@ export interface KeyPairCredentials {
 }
 
 /**
+ * <p>The OAuth 2.0 client credentials used for authenticating a data source connection.
+ *             Use this structure to provide a client ID, client secret, and username directly
+ *             instead of referencing a secret stored in Amazon Secrets Manager. This structure
+ *             supports data sources that use two-legged OAuth (2LO) authentication, such as
+ *             Snowflake.</p>
+ * @public
+ */
+export interface OAuthClientCredentials {
+  /**
+   * <p>The client ID of the OAuth 2.0 application that is registered with the data source
+   *             provider.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The client secret of the OAuth 2.0 application that is registered with the data source
+   *             provider.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>The username of the account that is used for OAuth 2.0 client credentials
+   *             authentication with the data source provider.</p>
+   * @public
+   */
+  Username?: string | undefined;
+}
+
+/**
  * <p>The credentials for authenticating with a web proxy server.</p>
  * @public
  */
@@ -942,6 +1218,16 @@ export interface DataSourceCredentials {
    * @public
    */
   WebProxyCredentials?: WebProxyCredentials | undefined;
+
+  /**
+   * <p>The OAuth client credentials for connecting to a data source using OAuth 2.0 client
+   *             credentials (2LO) authentication. For more information, see
+   *             <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_OAuthClientCredentials.html">OAuthClientCredentials</a>
+   *             </code>.</p>
+   * @public
+   */
+  OAuthClientCredentials?: OAuthClientCredentials | undefined;
 }
 
 /**
@@ -1923,6 +2209,12 @@ export interface TemplateVersionDefinition {
    * @public
    */
   Sheets?: SheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of tooltip sheet definitions for a template.</p>
+   * @public
+   */
+  TooltipSheets?: TooltipSheetDefinition[] | undefined;
 
   /**
    * <p>An array of calculated field definitions for the template.</p>
@@ -7142,6 +7434,100 @@ export interface DescribeAssetBundleImportJobResponse {
 /**
  * @public
  */
+export interface DescribeAutomationJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the automation job.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the automation group that contains the automation.</p>
+   * @public
+   */
+  AutomationGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the automation that the job belongs to.</p>
+   * @public
+   */
+  AutomationId: string | undefined;
+
+  /**
+   * <p>A Boolean value that indicates whether to include the input payload in the response. If set to <code>true</code>, the input payload will be included. If set to <code>false</code>, the input payload will be returned as <code>null</code>.</p>
+   * @public
+   */
+  IncludeInputPayload?: boolean | undefined;
+
+  /**
+   * <p>A Boolean value that indicates whether to include the output payload in the response. If set to <code>true</code>, the output payload will be included. If set to <code>false</code>, the output payload will be returned as <code>null</code>.</p>
+   * @public
+   */
+  IncludeOutputPayload?: boolean | undefined;
+
+  /**
+   * <p>The ID of the automation job to describe.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAutomationJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the automation job.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The time that the automation job was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The time that the automation job started running.</p>
+   * @public
+   */
+  StartedAt?: Date | undefined;
+
+  /**
+   * <p>The time that the automation job finished running.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+
+  /**
+   * <p>The current status of the automation job.</p>
+   * @public
+   */
+  JobStatus: AutomationJobStatus | undefined;
+
+  /**
+   * <p>The input payload that was provided when the automation job was started. This field is only included when <code>IncludeInputPayload</code> is set to <code>true</code> in the request.</p>
+   * @public
+   */
+  InputPayload?: string | undefined;
+
+  /**
+   * <p>The output payload that was generated by the automation job. This field is only included when <code>IncludeOutputPayload</code> is set to <code>true</code> in the request.</p>
+   * @public
+   */
+  OutputPayload?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeBrandRequest {
   /**
    * <p>The ID of the Amazon Web Services account that owns the brand.</p>
@@ -9321,260 +9707,4 @@ export interface DescribeSelfUpgradeConfigurationResponse {
    * @public
    */
   Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>(Optional) The number for the version to describe. If a <code>VersionNumber</code> parameter
-   * 			value isn't provided, the latest version of the template is described.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The alias of the template that you want to describe. If you name a specific alias, you
-   * 			describe the version that the alias points to. You can specify the latest version of the
-   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-}
-
-/**
- * <p>List of errors that occurred when the template version creation failed.</p>
- * @public
- */
-export interface TemplateError {
-  /**
-   * <p>Type of error.</p>
-   * @public
-   */
-  Type?: TemplateErrorType | undefined;
-
-  /**
-   * <p>Description of the error type.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>An error path that shows which entities caused the template error.</p>
-   * @public
-   */
-  ViolatedEntities?: Entity[] | undefined;
-}
-
-/**
- * <p>A version of a template.</p>
- * @public
- */
-export interface TemplateVersion {
-  /**
-   * <p>The time that this template version was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>Errors associated with this template version.</p>
-   * @public
-   */
-  Errors?: TemplateError[] | undefined;
-
-  /**
-   * <p>The version number of the template version.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The status that is associated with the template.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-
-  /**
-   * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
-   *             template should be bound to new datasets matching the same schema described through this
-   *             API operation.</p>
-   * @public
-   */
-  DataSetConfigurations?: DataSetConfiguration[] | undefined;
-
-  /**
-   * <p>The description of the template.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
-   *             template.</p>
-   * @public
-   */
-  SourceEntityArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the theme associated with this version of the template.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-   * @public
-   */
-  Sheets?: Sheet[] | undefined;
-}
-
-/**
- * <p>A template object. A <i>template</i> is an entity in Quick Sight that
- *             encapsulates the metadata required to create an analysis and that you can use to create
- *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
- *             dataset associated with an analysis. You can use templates to create dashboards by
- *             replacing dataset placeholders with datasets that follow the same schema that was used
- *             to create the source analysis and template.</p>
- *          <p>You can share templates across Amazon Web Services accounts by allowing users in other Amazon Web Services accounts to
- *             create a template or a dashboard from an existing template.</p>
- * @public
- */
-export interface Template {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The display name of the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A structure describing the versions of the template.</p>
-   * @public
-   */
-  Version?: TemplateVersion | undefined;
-
-  /**
-   * <p>The ID for the template. This is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>Time when this was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>Time when this was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateResponse {
-  /**
-   * <p>The template structure for the object you want to describe.</p>
-   * @public
-   */
-  Template?: Template | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template alias that you're
-   * 			describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The name of the template alias that you want to describe. If you name a specific alias, you
-   * 			describe the version that the alias points to. You can specify the latest version of the
-   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   * @public
-   */
-  AliasName: string | undefined;
 }

@@ -136,6 +136,7 @@ import {
   AuthorizationCodeGrantMetadata$,
   AuthorizedTargetsByService$,
   AuthorSpecifiedAggregation,
+  AutomationJobStatus,
   AwsIotAnalyticsParameters$,
   AxisBinding,
   AxisDataOptions$,
@@ -729,6 +730,10 @@ import {
   DescribeAssetBundleImportJobCommand,
   DescribeAssetBundleImportJobRequest$,
   DescribeAssetBundleImportJobResponse$,
+  DescribeAutomationJob$,
+  DescribeAutomationJobCommand,
+  DescribeAutomationJobRequest$,
+  DescribeAutomationJobResponse$,
   DescribeBrand$,
   DescribeBrandAssignment$,
   DescribeBrandAssignmentCommand,
@@ -1460,6 +1465,7 @@ import {
   NumericRangeFilterValue$,
   NumericSeparatorConfiguration$,
   NumericSeparatorSymbol,
+  OAuthClientCredentials$,
   OAuthParameters$,
   OracleParameters$,
   OtherCategories,
@@ -1823,6 +1829,7 @@ import {
   SheetLayoutGroupMemberType,
   SheetStyle$,
   SheetTextBox$,
+  SheetTooltip$,
   SheetVisualScopingConfiguration$,
   ShortFormatText$,
   SignupResponse$,
@@ -1860,6 +1867,9 @@ import {
   SortDirection,
   SourceTable$,
   Spacing$,
+  SparklineAxisBehavior,
+  SparklinesOptions$,
+  SparklineVisualType,
   SparkParameters$,
   SpatialStaticFile$,
   SpecialValue,
@@ -1875,6 +1885,10 @@ import {
   StartAssetBundleImportJobCommand,
   StartAssetBundleImportJobRequest$,
   StartAssetBundleImportJobResponse$,
+  StartAutomationJob$,
+  StartAutomationJobCommand,
+  StartAutomationJobRequest$,
+  StartAutomationJobResponse$,
   StartDashboardSnapshotJob$,
   StartDashboardSnapshotJobCommand,
   StartDashboardSnapshotJobRequest$,
@@ -1985,6 +1999,7 @@ import {
   TimeRangeFilterValue$,
   TooltipItem$,
   TooltipOptions$,
+  TooltipSheetDefinition$,
   TooltipTarget,
   TooltipTitleType,
   TopBottomComputationType,
@@ -2478,6 +2493,8 @@ assert(typeof DescribeAssetBundleExportJobCommand === "function");
 assert(typeof DescribeAssetBundleExportJob$ === "object");
 assert(typeof DescribeAssetBundleImportJobCommand === "function");
 assert(typeof DescribeAssetBundleImportJob$ === "object");
+assert(typeof DescribeAutomationJobCommand === "function");
+assert(typeof DescribeAutomationJob$ === "object");
 assert(typeof DescribeBrandCommand === "function");
 assert(typeof DescribeBrand$ === "object");
 assert(typeof DescribeBrandAssignmentCommand === "function");
@@ -2686,6 +2703,8 @@ assert(typeof StartAssetBundleExportJobCommand === "function");
 assert(typeof StartAssetBundleExportJob$ === "object");
 assert(typeof StartAssetBundleImportJobCommand === "function");
 assert(typeof StartAssetBundleImportJob$ === "object");
+assert(typeof StartAutomationJobCommand === "function");
+assert(typeof StartAutomationJob$ === "object");
 assert(typeof StartDashboardSnapshotJobCommand === "function");
 assert(typeof StartDashboardSnapshotJob$ === "object");
 assert(typeof StartDashboardSnapshotJobScheduleCommand === "function");
@@ -3283,6 +3302,8 @@ assert(typeof DescribeAssetBundleExportJobRequest$ === "object");
 assert(typeof DescribeAssetBundleExportJobResponse$ === "object");
 assert(typeof DescribeAssetBundleImportJobRequest$ === "object");
 assert(typeof DescribeAssetBundleImportJobResponse$ === "object");
+assert(typeof DescribeAutomationJobRequest$ === "object");
+assert(typeof DescribeAutomationJobResponse$ === "object");
 assert(typeof DescribeBrandAssignmentRequest$ === "object");
 assert(typeof DescribeBrandAssignmentResponse$ === "object");
 assert(typeof DescribeBrandPublishedVersionRequest$ === "object");
@@ -3744,6 +3765,7 @@ assert(typeof NumericFormatConfiguration$ === "object");
 assert(typeof NumericRangeFilter$ === "object");
 assert(typeof NumericRangeFilterValue$ === "object");
 assert(typeof NumericSeparatorConfiguration$ === "object");
+assert(typeof OAuthClientCredentials$ === "object");
 assert(typeof OAuthParameters$ === "object");
 assert(typeof OracleParameters$ === "object");
 assert(typeof OutputColumn$ === "object");
@@ -3971,6 +3993,7 @@ assert(typeof SheetLayoutGroup$ === "object");
 assert(typeof SheetLayoutGroupMember$ === "object");
 assert(typeof SheetStyle$ === "object");
 assert(typeof SheetTextBox$ === "object");
+assert(typeof SheetTooltip$ === "object");
 assert(typeof SheetVisualScopingConfiguration$ === "object");
 assert(typeof ShortFormatText$ === "object");
 assert(typeof SignupResponse$ === "object");
@@ -3998,6 +4021,7 @@ assert(typeof SnapshotUserConfigurationRedacted$ === "object");
 assert(typeof SnowflakeParameters$ === "object");
 assert(typeof SourceTable$ === "object");
 assert(typeof Spacing$ === "object");
+assert(typeof SparklinesOptions$ === "object");
 assert(typeof SparkParameters$ === "object");
 assert(typeof SpatialStaticFile$ === "object");
 assert(typeof SqlServerParameters$ === "object");
@@ -4007,6 +4031,8 @@ assert(typeof StartAssetBundleExportJobRequest$ === "object");
 assert(typeof StartAssetBundleExportJobResponse$ === "object");
 assert(typeof StartAssetBundleImportJobRequest$ === "object");
 assert(typeof StartAssetBundleImportJobResponse$ === "object");
+assert(typeof StartAutomationJobRequest$ === "object");
+assert(typeof StartAutomationJobResponse$ === "object");
 assert(typeof StartDashboardSnapshotJobRequest$ === "object");
 assert(typeof StartDashboardSnapshotJobResponse$ === "object");
 assert(typeof StartDashboardSnapshotJobScheduleRequest$ === "object");
@@ -4093,6 +4119,7 @@ assert(typeof TimeRangeFilter$ === "object");
 assert(typeof TimeRangeFilterValue$ === "object");
 assert(typeof TooltipItem$ === "object");
 assert(typeof TooltipOptions$ === "object");
+assert(typeof TooltipSheetDefinition$ === "object");
 assert(typeof TopBottomFilter$ === "object");
 assert(typeof TopBottomMoversComputation$ === "object");
 assert(typeof TopBottomRankedComputation$ === "object");
@@ -4325,6 +4352,7 @@ assert(typeof AuthenticationMethodOption === "object");
 assert(typeof AuthenticationType === "object");
 assert(typeof AuthorizationCodeGrantCredentialsSource === "object");
 assert(typeof AuthorSpecifiedAggregation === "object");
+assert(typeof AutomationJobStatus === "object");
 assert(typeof AxisBinding === "object");
 assert(typeof BarChartOrientation === "object");
 assert(typeof BarsArrangement === "object");
@@ -4522,6 +4550,8 @@ assert(typeof SnapshotFileFormatType === "object");
 assert(typeof SnapshotFileSheetSelectionScope === "object");
 assert(typeof SnapshotJobStatus === "object");
 assert(typeof SortDirection === "object");
+assert(typeof SparklineAxisBehavior === "object");
+assert(typeof SparklineVisualType === "object");
 assert(typeof SpecialValue === "object");
 assert(typeof StarburstProductType === "object");
 assert(typeof Status === "object");

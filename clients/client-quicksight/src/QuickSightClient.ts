@@ -266,6 +266,10 @@ import type {
   DescribeAssetBundleImportJobCommandOutput,
 } from "./commands/DescribeAssetBundleImportJobCommand";
 import type {
+  DescribeAutomationJobCommandInput,
+  DescribeAutomationJobCommandOutput,
+} from "./commands/DescribeAutomationJobCommand";
+import type {
   DescribeBrandAssignmentCommandInput,
   DescribeBrandAssignmentCommandOutput,
 } from "./commands/DescribeBrandAssignmentCommand";
@@ -574,6 +578,10 @@ import type {
   StartAssetBundleImportJobCommandOutput,
 } from "./commands/StartAssetBundleImportJobCommand";
 import type {
+  StartAutomationJobCommandInput,
+  StartAutomationJobCommandOutput,
+} from "./commands/StartAutomationJobCommand";
+import type {
   StartDashboardSnapshotJobCommandInput,
   StartDashboardSnapshotJobCommandOutput,
 } from "./commands/StartDashboardSnapshotJobCommand";
@@ -834,6 +842,7 @@ export type ServiceInputTypes =
   | DescribeAnalysisPermissionsCommandInput
   | DescribeAssetBundleExportJobCommandInput
   | DescribeAssetBundleImportJobCommandInput
+  | DescribeAutomationJobCommandInput
   | DescribeBrandAssignmentCommandInput
   | DescribeBrandCommandInput
   | DescribeBrandPublishedVersionCommandInput
@@ -938,6 +947,7 @@ export type ServiceInputTypes =
   | SearchTopicsCommandInput
   | StartAssetBundleExportJobCommandInput
   | StartAssetBundleImportJobCommandInput
+  | StartAutomationJobCommandInput
   | StartDashboardSnapshotJobCommandInput
   | StartDashboardSnapshotJobScheduleCommandInput
   | TagResourceCommandInput
@@ -1069,6 +1079,7 @@ export type ServiceOutputTypes =
   | DescribeAnalysisPermissionsCommandOutput
   | DescribeAssetBundleExportJobCommandOutput
   | DescribeAssetBundleImportJobCommandOutput
+  | DescribeAutomationJobCommandOutput
   | DescribeBrandAssignmentCommandOutput
   | DescribeBrandCommandOutput
   | DescribeBrandPublishedVersionCommandOutput
@@ -1173,6 +1184,7 @@ export type ServiceOutputTypes =
   | SearchTopicsCommandOutput
   | StartAssetBundleExportJobCommandOutput
   | StartAssetBundleImportJobCommandOutput
+  | StartAutomationJobCommandOutput
   | StartDashboardSnapshotJobCommandOutput
   | StartDashboardSnapshotJobScheduleCommandOutput
   | TagResourceCommandOutput

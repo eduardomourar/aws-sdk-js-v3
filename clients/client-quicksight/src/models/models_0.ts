@@ -8340,6 +8340,18 @@ export interface FieldBasedTooltip {
 }
 
 /**
+ * <p>The configuration of the sheet tooltip.</p>
+ * @public
+ */
+export interface SheetTooltip {
+  /**
+   * <p>The sheet ID of the tooltip sheet that is used by the tooltip.</p>
+   * @public
+   */
+  SheetId?: string | undefined;
+}
+
+/**
  * <p>The display options for the visual tooltip.</p>
  * @public
  */
@@ -8371,6 +8383,12 @@ export interface TooltipOptions {
    * @public
    */
   FieldBasedTooltip?: FieldBasedTooltip | undefined;
+
+  /**
+   * <p>The configuration of the sheet tooltip.</p>
+   * @public
+   */
+  SheetTooltip?: SheetTooltip | undefined;
 }
 
 /**
@@ -8449,22 +8467,4 @@ export interface DataPathColor {
    * @public
    */
   TimeGranularity?: TimeGranularity | undefined;
-}
-
-/**
- * <p>The visual display options for the visual palette.</p>
- * @public
- */
-export interface VisualPalette {
-  /**
-   * <p>The chart color options for the visual palette.</p>
-   * @public
-   */
-  ChartColor?: string | undefined;
-
-  /**
-   * <p>The color map options for the visual palette.</p>
-   * @public
-   */
-  ColorMap?: DataPathColor[] | undefined;
 }

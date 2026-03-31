@@ -49,7 +49,6 @@ import type {
   GeoSpatialDataRole,
   InputColumnDataType,
   JoinOperationType,
-  JoinType,
   LookbackWindowSizeUnit,
   NullFilterOption,
   NumberScale,
@@ -92,11 +91,13 @@ import type {
   DataPrepAggregationFunction,
   DataSetColumnIdMapping,
   DataSetIdentifierDeclaration,
+  DimensionField,
   FieldSortOptions,
   FilterControl,
   FilterGroup,
   ItemsLimitConfiguration,
   Layout,
+  MeasureField,
   ParameterControl,
   ParameterDeclaration,
   QueryExecutionOptions,
@@ -137,8 +138,38 @@ import type {
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
   WaterfallVisual,
-  WordCloudFieldWells,
 } from "./models_1";
+
+/**
+ * <p>The aggregated field wells of a word cloud.</p>
+ * @public
+ */
+export interface WordCloudAggregatedFieldWells {
+  /**
+   * <p>The group by field well of a word cloud. Values are grouped by group by fields.</p>
+   * @public
+   */
+  GroupBy?: DimensionField[] | undefined;
+
+  /**
+   * <p>The size field well of a word cloud. Values are aggregated based on group by fields.</p>
+   * @public
+   */
+  Size?: MeasureField[] | undefined;
+}
+
+/**
+ * <p>The field wells of a word cloud visual.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface WordCloudFieldWells {
+  /**
+   * <p>The aggregated field wells of a word cloud.</p>
+   * @public
+   */
+  WordCloudAggregatedFieldWells?: WordCloudAggregatedFieldWells | undefined;
+}
 
 /**
  * <p>The sort configuration of a word cloud visual.</p>
@@ -672,6 +703,51 @@ export interface StaticFile {
 }
 
 /**
+ * <p>A tooltip sheet is an object that contains a set of visuals that
+ *             are used as a tooltip. Every analysis and dashboard must contain at least one non-tooltip sheet.</p>
+ * @public
+ */
+export interface TooltipSheetDefinition {
+  /**
+   * <p>The unique identifier of a tooltip sheet.</p>
+   * @public
+   */
+  SheetId: string | undefined;
+
+  /**
+   * <p>The name of the tooltip sheet. This name is displayed on the sheet's tab in the Quick
+   *             console.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A list of the visuals that are on a tooltip sheet.</p>
+   * @public
+   */
+  Visuals?: Visual[] | undefined;
+
+  /**
+   * <p>The text boxes that are on a tooltip sheet.</p>
+   * @public
+   */
+  TextBoxes?: SheetTextBox[] | undefined;
+
+  /**
+   * <p>A list of images on a tooltip sheet.</p>
+   * @public
+   */
+  Images?: SheetImage[] | undefined;
+
+  /**
+   * <p>Layouts define how the components of a tooltip sheet are arranged.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  Layouts?: Layout[] | undefined;
+}
+
+/**
  * <p>The definition of an analysis.</p>
  * @public
  */
@@ -689,6 +765,13 @@ export interface AnalysisDefinition {
    * @public
    */
   Sheets?: SheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of tooltip sheet definitions for an analysis. Each <code>TooltipSheetDefinition</code> provides detailed information about
+   *             a tooltip sheet within this analysis.</p>
+   * @public
+   */
+  TooltipSheets?: TooltipSheetDefinition[] | undefined;
 
   /**
    * <p>An array of calculated field definitions for the analysis.</p>
@@ -7983,6 +8066,18 @@ export interface Capabilities {
   Space?: CapabilityState | undefined;
 
   /**
+   * <p>The ability to create spaces.</p>
+   * @public
+   */
+  CreateSpaces?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share spaces with other users and groups.</p>
+   * @public
+   */
+  ShareSpaces?: CapabilityState | undefined;
+
+  /**
    * <p>The ability to perform chat-related actions.</p>
    * @public
    */
@@ -7993,6 +8088,12 @@ export interface Capabilities {
    * @public
    */
   CreateChatAgents?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share chat agents with other users and groups.</p>
+   * @public
+   */
+  ShareChatAgents?: CapabilityState | undefined;
 
   /**
    * <p>The ability to perform research-related actions.</p>
@@ -9371,6 +9472,12 @@ export interface DashboardVersionDefinition {
    * @public
    */
   Sheets?: SheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of tooltip sheet definitions for a dashboard.</p>
+   * @public
+   */
+  TooltipSheets?: TooltipSheetDefinition[] | undefined;
 
   /**
    * <p>An array of calculated field definitions for the dashboard.</p>
@@ -10838,241 +10945,4 @@ export interface UntagColumnOperation {
    * @public
    */
   TagNames: ColumnTagName[] | undefined;
-}
-
-/**
- * <p>A data transformation on a logical table. This is a variant type structure. For this
- *             structure to be valid, only one of the attributes can be non-null.</p>
- * @public
- */
-export type TransformOperation =
-  | TransformOperation.CastColumnTypeOperationMember
-  | TransformOperation.CreateColumnsOperationMember
-  | TransformOperation.FilterOperationMember
-  | TransformOperation.OverrideDatasetParameterOperationMember
-  | TransformOperation.ProjectOperationMember
-  | TransformOperation.RenameColumnOperationMember
-  | TransformOperation.TagColumnOperationMember
-  | TransformOperation.UntagColumnOperationMember
-  | TransformOperation.$UnknownMember;
-
-/**
- * @public
- */
-export namespace TransformOperation {
-  /**
-   * <p>An operation that projects columns. Operations that come after a projection can only
-   *             refer to projected columns.</p>
-   * @public
-   */
-  export interface ProjectOperationMember {
-    ProjectOperation: ProjectOperation;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that filters rows based on some condition.</p>
-   * @public
-   */
-  export interface FilterOperationMember {
-    ProjectOperation?: never;
-    FilterOperation: FilterOperation;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that creates calculated columns. Columns created in one such operation
-   *             form a lexical closure.</p>
-   * @public
-   */
-  export interface CreateColumnsOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation: CreateColumnsOperation;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that renames a column.</p>
-   * @public
-   */
-  export interface RenameColumnOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation: RenameColumnOperation;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A transform operation that casts a column to a different type.</p>
-   * @public
-   */
-  export interface CastColumnTypeOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation: CastColumnTypeOperation;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that tags a column with additional information.</p>
-   * @public
-   */
-  export interface TagColumnOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation: TagColumnOperation;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A transform operation that removes tags associated with a column.</p>
-   * @public
-   */
-  export interface UntagColumnOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation: UntagColumnOperation;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
-   * @public
-   */
-  export interface OverrideDatasetParameterOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation: OverrideDatasetParameterOperation;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    ProjectOperation: (value: ProjectOperation) => T;
-    FilterOperation: (value: FilterOperation) => T;
-    CreateColumnsOperation: (value: CreateColumnsOperation) => T;
-    RenameColumnOperation: (value: RenameColumnOperation) => T;
-    CastColumnTypeOperation: (value: CastColumnTypeOperation) => T;
-    TagColumnOperation: (value: TagColumnOperation) => T;
-    UntagColumnOperation: (value: UntagColumnOperation) => T;
-    OverrideDatasetParameterOperation: (value: OverrideDatasetParameterOperation) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Properties associated with the columns participating in a join.</p>
- * @public
- */
-export interface JoinKeyProperties {
-  /**
-   * <p>A value that indicates that a row in a table is uniquely identified by the columns in
-   *             a join key. This is used by Quick Sight to optimize query performance.</p>
-   * @public
-   */
-  UniqueKey?: boolean | undefined;
-}
-
-/**
- * <p>The instructions associated with a join. </p>
- * @public
- */
-export interface JoinInstruction {
-  /**
-   * <p>The operand on the left side of a join.</p>
-   * @public
-   */
-  LeftOperand: string | undefined;
-
-  /**
-   * <p>The operand on the right side of a join.</p>
-   * @public
-   */
-  RightOperand: string | undefined;
-
-  /**
-   * <p>Join key properties of the left operand.</p>
-   * @public
-   */
-  LeftJoinKeyProperties?: JoinKeyProperties | undefined;
-
-  /**
-   * <p>Join key properties of the right operand.</p>
-   * @public
-   */
-  RightJoinKeyProperties?: JoinKeyProperties | undefined;
-
-  /**
-   * <p>The type of join that it is.</p>
-   * @public
-   */
-  Type: JoinType | undefined;
-
-  /**
-   * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
-   * @public
-   */
-  OnClause: string | undefined;
 }

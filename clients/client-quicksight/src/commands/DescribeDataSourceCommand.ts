@@ -144,7 +144,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Host: "STRING_VALUE", // required
  * //         Database: "STRING_VALUE", // required
  * //         Warehouse: "STRING_VALUE", // required
- * //         AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //         AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  * //         DatabaseAccessControlRole: "STRING_VALUE",
  * //         OAuthParameters: { // OAuthParameters
  * //           TokenProviderUrl: "STRING_VALUE", // required
@@ -191,7 +191,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Catalog: "STRING_VALUE", // required
  * //         ProductType: "GALAXY" || "ENTERPRISE",
  * //         DatabaseAccessControlRole: "STRING_VALUE",
- * //         AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //         AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  * //         OAuthParameters: {
  * //           TokenProviderUrl: "STRING_VALUE", // required
  * //           OAuthScope: "STRING_VALUE",
@@ -330,7 +330,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Host: "STRING_VALUE", // required
  * //           Database: "STRING_VALUE", // required
  * //           Warehouse: "STRING_VALUE", // required
- * //           AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //           AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  * //           DatabaseAccessControlRole: "STRING_VALUE",
  * //           OAuthParameters: {
  * //             TokenProviderUrl: "STRING_VALUE", // required
@@ -377,7 +377,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Catalog: "STRING_VALUE", // required
  * //           ProductType: "GALAXY" || "ENTERPRISE",
  * //           DatabaseAccessControlRole: "STRING_VALUE",
- * //           AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ * //           AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  * //           OAuthParameters: {
  * //             TokenProviderUrl: "STRING_VALUE", // required
  * //             OAuthScope: "STRING_VALUE",

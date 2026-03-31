@@ -31,6 +31,7 @@ import type {
   SelfUpgradeStatus,
   ServiceType,
   SharingModel,
+  TemplateErrorType,
   ThemeErrorType,
   ThemeType,
   TopicFilterAttribute,
@@ -38,7 +39,6 @@ import type {
   TopicRefreshStatus,
   TopicUserExperienceVersion,
   UserRole,
-  VisualRole,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./enums";
@@ -49,6 +49,8 @@ import type {
   ActiveIAMPolicyAssignment,
   AmazonQInQuickSightConsoleConfigurations,
   AmazonQInQuickSightDashboardConfigurations,
+  Entity,
+  Sheet,
 } from "./models_0";
 import type {
   _Parameters,
@@ -90,8 +92,6 @@ import type {
   SharedViewConfigurations,
   SslProperties,
   Tag,
-  TopicIR,
-  TopicTemplate,
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
@@ -102,6 +102,7 @@ import type {
   DashboardSummary,
   DashboardVersionSummary,
   DashboardVisualResult,
+  DataSetConfiguration,
   DataSetSearchFilter,
   DataSetSummary,
   DataSource,
@@ -122,7 +123,6 @@ import type {
   SemanticModelConfiguration,
   SnapshotConfiguration,
   TemplateAlias,
-  TemplateError,
   TemplateSourceEntity,
   TemplateVersionDefinition,
   ThemeAlias,
@@ -130,6 +130,262 @@ import type {
   TopicDetails,
   TopicRefreshSchedule,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeTemplateRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>(Optional) The number for the version to describe. If a <code>VersionNumber</code> parameter
+   * 			value isn't provided, the latest version of the template is described.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The alias of the template that you want to describe. If you name a specific alias, you
+   * 			describe the version that the alias points to. You can specify the latest version of the
+   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+}
+
+/**
+ * <p>List of errors that occurred when the template version creation failed.</p>
+ * @public
+ */
+export interface TemplateError {
+  /**
+   * <p>Type of error.</p>
+   * @public
+   */
+  Type?: TemplateErrorType | undefined;
+
+  /**
+   * <p>Description of the error type.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>An error path that shows which entities caused the template error.</p>
+   * @public
+   */
+  ViolatedEntities?: Entity[] | undefined;
+}
+
+/**
+ * <p>A version of a template.</p>
+ * @public
+ */
+export interface TemplateVersion {
+  /**
+   * <p>The time that this template version was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>Errors associated with this template version.</p>
+   * @public
+   */
+  Errors?: TemplateError[] | undefined;
+
+  /**
+   * <p>The version number of the template version.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The status that is associated with the template.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+   *             template should be bound to new datasets matching the same schema described through this
+   *             API operation.</p>
+   * @public
+   */
+  DataSetConfigurations?: DataSetConfiguration[] | undefined;
+
+  /**
+   * <p>The description of the template.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+   *             template.</p>
+   * @public
+   */
+  SourceEntityArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the theme associated with this version of the template.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+   * @public
+   */
+  Sheets?: Sheet[] | undefined;
+}
+
+/**
+ * <p>A template object. A <i>template</i> is an entity in Quick Sight that
+ *             encapsulates the metadata required to create an analysis and that you can use to create
+ *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
+ *             dataset associated with an analysis. You can use templates to create dashboards by
+ *             replacing dataset placeholders with datasets that follow the same schema that was used
+ *             to create the source analysis and template.</p>
+ *          <p>You can share templates across Amazon Web Services accounts by allowing users in other Amazon Web Services accounts to
+ *             create a template or a dashboard from an existing template.</p>
+ * @public
+ */
+export interface Template {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The display name of the template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A structure describing the versions of the template.</p>
+   * @public
+   */
+  Version?: TemplateVersion | undefined;
+
+  /**
+   * <p>The ID for the template. This is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>Time when this was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>Time when this was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateResponse {
+  /**
+   * <p>The template structure for the object you want to describe.</p>
+   * @public
+   */
+  Template?: Template | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template alias that you're
+   * 			describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The name of the template alias that you want to describe. If you name a specific alias, you
+   * 			describe the version that the alias points to. You can specify the latest version of the
+   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
 
 /**
  * @public
@@ -6348,6 +6604,64 @@ export interface StartAssetBundleImportJobResponse {
 }
 
 /**
+ * @public
+ */
+export interface StartAutomationJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the automation.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the automation group that contains the automation to run.</p>
+   * @public
+   */
+  AutomationGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the automation to run.</p>
+   * @public
+   */
+  AutomationId: string | undefined;
+
+  /**
+   * <p>The input payload for the automation job, provided as a JSON string.</p>
+   * @public
+   */
+  InputPayload?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAutomationJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the automation job.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the automation job that was started.</p>
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
  * <p>A structure that contains information on the anonymous user configuration.</p>
  * @public
  */
@@ -9705,290 +10019,4 @@ export interface UpdateUserCustomPermissionRequest {
    * @public
    */
   CustomPermissionsName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserCustomPermissionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateVPCConnectionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account that contains the VPC connection that
-   * 			you want to update.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that
-   * 			you're updating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId: string | undefined;
-
-  /**
-   * <p>The display name for the VPC connection.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A list of subnet IDs for the VPC connection.</p>
-   * @public
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>A list of security group IDs for the VPC connection.</p>
-   * @public
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
-   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
-   * @public
-   */
-  DnsResolvers?: string[] | undefined;
-
-  /**
-   * <p>An IAM role associated with the VPC connection.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateVPCConnectionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that you are updating. This ID is a unique identifier for each Amazon Web Services Region in anAmazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId?: string | undefined;
-
-  /**
-   * <p>The update status of the VPC connection's last update.</p>
-   * @public
-   */
-  UpdateStatus?: VPCConnectionResourceStatus | undefined;
-
-  /**
-   * <p>The availability status of the VPC connection.</p>
-   * @public
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * <p>The definition for a <code>TopicVisual</code>.</p>
- * @public
- */
-export interface TopicVisual {
-  /**
-   * <p>The visual ID for the <code>TopicVisual</code>.</p>
-   * @public
-   */
-  VisualId?: string | undefined;
-
-  /**
-   * <p>The role for the <code>TopicVisual</code>.</p>
-   * @public
-   */
-  Role?: VisualRole | undefined;
-
-  /**
-   * <p>The ir for the <code>TopicVisual</code>.</p>
-   * @public
-   */
-  Ir?: TopicIR | undefined;
-
-  /**
-   * <p>The supporting visuals for the <code>TopicVisual</code>.</p>
-   * @public
-   */
-  SupportingVisuals?: TopicVisual[] | undefined;
-}
-
-/**
- * <p>The definition for a <code>CreateTopicReviewedAnswer</code>.</p>
- * @public
- */
-export interface CreateTopicReviewedAnswer {
-  /**
-   * <p>The answer ID for the <code>CreateTopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  AnswerId: string | undefined;
-
-  /**
-   * <p>The Dataset arn for the <code>CreateTopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  DatasetArn: string | undefined;
-
-  /**
-   * <p>The Question to be created.</p>
-   * @public
-   */
-  Question: string | undefined;
-
-  /**
-   * <p>The Mir for the <code>CreateTopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  Mir?: TopicIR | undefined;
-
-  /**
-   * <p>The <code>PrimaryVisual</code> for the <code>CreateTopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  PrimaryVisual?: TopicVisual | undefined;
-
-  /**
-   * <p>The template for the <code>CreateTopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  Template?: TopicTemplate | undefined;
-}
-
-/**
- * <p>The deinition for a <code>TopicReviewedAnswer</code>.</p>
- * @public
- */
-export interface TopicReviewedAnswer {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the reviewed answer.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The answer ID of the reviewed answer.</p>
-   * @public
-   */
-  AnswerId: string | undefined;
-
-  /**
-   * <p>The Dataset ARN for the <code>TopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  DatasetArn: string | undefined;
-
-  /**
-   * <p>The question for the <code>TopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  Question: string | undefined;
-
-  /**
-   * <p>The mir for the <code>TopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  Mir?: TopicIR | undefined;
-
-  /**
-   * <p>The primary visual for the <code>TopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  PrimaryVisual?: TopicVisual | undefined;
-
-  /**
-   * <p>The template for the <code>TopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  Template?: TopicTemplate | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchCreateTopicReviewedAnswerRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that you want to create a reviewed answer in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the topic reviewed answer that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The definition of the Answers to be created.</p>
-   * @public
-   */
-  Answers: CreateTopicReviewedAnswer[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTopicReviewedAnswersResponse {
-  /**
-   * <p>The ID for the topic that contains the reviewed answer that you want to list. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>The definition of all Answers in the topic.</p>
-   * @public
-   */
-  Answers?: TopicReviewedAnswer[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
 }

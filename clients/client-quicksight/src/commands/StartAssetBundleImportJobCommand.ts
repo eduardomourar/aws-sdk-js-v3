@@ -176,7 +176,7 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Host: "STRING_VALUE", // required
  *             Database: "STRING_VALUE", // required
  *             Warehouse: "STRING_VALUE", // required
- *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  *             DatabaseAccessControlRole: "STRING_VALUE",
  *             OAuthParameters: { // OAuthParameters
  *               TokenProviderUrl: "STRING_VALUE", // required
@@ -223,7 +223,7 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Catalog: "STRING_VALUE", // required
  *             ProductType: "GALAXY" || "ENTERPRISE",
  *             DatabaseAccessControlRole: "STRING_VALUE",
- *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  *             OAuthParameters: {
  *               TokenProviderUrl: "STRING_VALUE", // required
  *               OAuthScope: "STRING_VALUE",

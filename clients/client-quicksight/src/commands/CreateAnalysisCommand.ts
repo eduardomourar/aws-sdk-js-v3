@@ -982,8 +982,104 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                       PositiveColor: "STRING_VALUE",
  *                       NegativeColor: "STRING_VALUE",
  *                     },
+ *                     Sparklines: { // SparklinesOptions
+ *                       FieldId: "STRING_VALUE", // required
+ *                       XAxisField: {
+ *                         NumericalDimensionField: {
+ *                           FieldId: "STRING_VALUE", // required
+ *                           Column: "<ColumnIdentifier>", // required
+ *                           HierarchyId: "STRING_VALUE",
+ *                           FormatConfiguration: {
+ *                             FormatConfiguration: "<NumericFormatConfiguration>",
+ *                           },
+ *                         },
+ *                         CategoricalDimensionField: {
+ *                           FieldId: "STRING_VALUE", // required
+ *                           Column: "<ColumnIdentifier>", // required
+ *                           HierarchyId: "STRING_VALUE",
+ *                           FormatConfiguration: {
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
+ *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
+ *                           },
+ *                         },
+ *                         DateDimensionField: {
+ *                           FieldId: "STRING_VALUE", // required
+ *                           Column: "<ColumnIdentifier>", // required
+ *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
+ *                           HierarchyId: "STRING_VALUE",
+ *                           FormatConfiguration: {
+ *                             DateTimeFormat: "STRING_VALUE",
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
+ *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
+ *                           },
+ *                         },
+ *                       },
+ *                       YAxisBehavior: "SHARED" || "INDEPENDENT",
+ *                       VisualType: "LINE" || "AREA_LINE",
+ *                       LineColor: "STRING_VALUE",
+ *                       LineInterpolation: "LINEAR" || "SMOOTH" || "STEPPED",
+ *                       AllPointsMarker: { // LineChartMarkerStyleSettings
+ *                         MarkerVisibility: "HIDDEN" || "VISIBLE",
+ *                         MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
+ *                         MarkerSize: "STRING_VALUE",
+ *                         MarkerColor: "STRING_VALUE",
+ *                       },
+ *                       MaxValueMarker: {
+ *                         MarkerVisibility: "HIDDEN" || "VISIBLE",
+ *                         MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
+ *                         MarkerSize: "STRING_VALUE",
+ *                         MarkerColor: "STRING_VALUE",
+ *                       },
+ *                       MinValueMarker: {
+ *                         MarkerVisibility: "HIDDEN" || "VISIBLE",
+ *                         MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
+ *                         MarkerSize: "STRING_VALUE",
+ *                         MarkerColor: "STRING_VALUE",
+ *                       },
+ *                     },
  *                   },
  *                 ],
+ *                 Tooltip: { // TooltipOptions
+ *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
+ *                   SelectedTooltipType: "BASIC" || "DETAILED" || "SHEET",
+ *                   FieldBasedTooltip: { // FieldBasedTooltip
+ *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
+ *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
+ *                     TooltipFields: [ // TooltipItemList
+ *                       { // TooltipItem
+ *                         FieldTooltipItem: { // FieldTooltipItem
+ *                           FieldId: "STRING_VALUE", // required
+ *                           Label: "STRING_VALUE",
+ *                           Visibility: "HIDDEN" || "VISIBLE",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
+ *                         },
+ *                         ColumnTooltipItem: { // ColumnTooltipItem
+ *                           Column: "<ColumnIdentifier>", // required
+ *                           Label: "STRING_VALUE",
+ *                           Visibility: "HIDDEN" || "VISIBLE",
+ *                           Aggregation: {
+ *                             NumericalAggregationFunction: {
+ *                               SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
+ *                               PercentileAggregation: {
+ *                                 PercentileValue: Number("double"),
+ *                               },
+ *                             },
+ *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
+ *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                             AttributeAggregationFunction: {
+ *                               SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                               ValueForMultipleValues: "STRING_VALUE",
+ *                             },
+ *                           },
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
+ *                         },
+ *                       },
+ *                     ],
+ *                   },
+ *                   SheetTooltip: { // SheetTooltip
+ *                     SheetId: "STRING_VALUE",
+ *                   },
+ *                 },
  *                 DashboardCustomizationVisualOptions: { // DashboardCustomizationVisualOptions
  *                   FieldsConfiguration: { // VisualCustomizationFieldsConfiguration
  *                     Status: "ENABLED" || "DISABLED",
@@ -1232,29 +1328,20 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                           FieldId: "STRING_VALUE", // required
  *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
+ *                           FormatConfiguration: "<NumberFormatConfiguration>",
  *                         },
  *                         CategoricalDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
  *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
- *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
+ *                           FormatConfiguration: "<StringFormatConfiguration>",
  *                         },
  *                         DateDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
  *                           Column: "<ColumnIdentifier>", // required
  *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
- *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
+ *                           FormatConfiguration: "<DateTimeFormatConfiguration>",
  *                         },
  *                       },
  *                     ],
@@ -1504,6 +1591,42 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
  *                   OverflowColumnHeaderVisibility: "HIDDEN" || "VISIBLE",
  *                 },
+ *                 Tooltip: {
+ *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
+ *                   SelectedTooltipType: "BASIC" || "DETAILED" || "SHEET",
+ *                   FieldBasedTooltip: {
+ *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
+ *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
+ *                     TooltipFields: [
+ *                       {
+ *                         FieldTooltipItem: {
+ *                           FieldId: "STRING_VALUE", // required
+ *                           Label: "STRING_VALUE",
+ *                           Visibility: "HIDDEN" || "VISIBLE",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
+ *                         },
+ *                         ColumnTooltipItem: {
+ *                           Column: "<ColumnIdentifier>", // required
+ *                           Label: "STRING_VALUE",
+ *                           Visibility: "HIDDEN" || "VISIBLE",
+ *                           Aggregation: {
+ *                             NumericalAggregationFunction: "<NumericalAggregationFunction>",
+ *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
+ *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                             AttributeAggregationFunction: {
+ *                               SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                               ValueForMultipleValues: "STRING_VALUE",
+ *                             },
+ *                           },
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
+ *                         },
+ *                       },
+ *                     ],
+ *                   },
+ *                   SheetTooltip: {
+ *                     SheetId: "STRING_VALUE",
+ *                   },
+ *                 },
  *                 DashboardCustomizationVisualOptions: {
  *                   FieldsConfiguration: {
  *                     Status: "ENABLED" || "DISABLED",
@@ -1695,12 +1818,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                         NumericalMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
  *                           Column: "<ColumnIdentifier>", // required
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                             PercentileAggregation: {
- *                               PercentileValue: Number("double"),
- *                             },
- *                           },
+ *                           AggregationFunction: "<NumericalAggregationFunction>",
  *                           FormatConfiguration: "<NumberFormatConfiguration>",
  *                         },
  *                         CategoricalMeasureField: {
@@ -1722,27 +1840,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                       },
  *                     ],
  *                     Colors: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: "<ColumnIdentifier>", // required
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: "<NumberFormatConfiguration>",
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: "<ColumnIdentifier>", // required
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: "<StringFormatConfiguration>",
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: "<ColumnIdentifier>", // required
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: "<DateTimeFormatConfiguration>",
- *                         },
- *                       },
+ *                       "<DimensionField>",
  *                     ],
  *                     SmallMultiples: [ // SmallMultiplesDimensionFieldList
  *                       "<DimensionField>",
@@ -1784,15 +1882,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                       ColumnSort: {
  *                         SortBy: "<ColumnIdentifier>", // required
  *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           AttributeAggregationFunction: {
- *                             SimpleAttributeAggregation: "UNIQUE_VALUE",
- *                             ValueForMultipleValues: "STRING_VALUE",
- *                           },
- *                         },
+ *                         AggregationFunction: "<AggregationFunction>",
  *                       },
  *                     },
  *                   ],
@@ -1809,15 +1899,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                       ColumnSort: {
  *                         SortBy: "<ColumnIdentifier>", // required
  *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           AttributeAggregationFunction: {
- *                             SimpleAttributeAggregation: "UNIQUE_VALUE",
- *                             ValueForMultipleValues: "STRING_VALUE",
- *                           },
- *                         },
+ *                         AggregationFunction: "<AggregationFunction>",
  *                       },
  *                     },
  *                   ],
@@ -2083,21 +2165,21 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
  *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
- *                 Tooltip: { // TooltipOptions
+ *                 Tooltip: {
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: { // FieldBasedTooltip
+ *                   SelectedTooltipType: "BASIC" || "DETAILED" || "SHEET",
+ *                   FieldBasedTooltip: {
  *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
  *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [ // TooltipItemList
- *                       { // TooltipItem
- *                         FieldTooltipItem: { // FieldTooltipItem
+ *                     TooltipFields: [
+ *                       {
+ *                         FieldTooltipItem: {
  *                           FieldId: "STRING_VALUE", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
- *                         ColumnTooltipItem: { // ColumnTooltipItem
+ *                         ColumnTooltipItem: {
  *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
@@ -2106,6 +2188,9 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                         },
  *                       },
  *                     ],
+ *                   },
+ *                   SheetTooltip: {
+ *                     SheetId: "STRING_VALUE",
  *                   },
  *                 },
  *                 ReferenceLines: [ // ReferenceLineList
@@ -2784,7 +2869,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                 },
  *                 Tooltip: {
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
+ *                   SelectedTooltipType: "BASIC" || "DETAILED" || "SHEET",
  *                   FieldBasedTooltip: {
  *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
  *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
@@ -2805,6 +2890,9 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                         },
  *                       },
  *                     ],
+ *                   },
+ *                   SheetTooltip: {
+ *                     SheetId: "STRING_VALUE",
  *                   },
  *                 },
  *                 VisualPalette: {
@@ -2994,7 +3082,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                 },
  *                 TooltipOptions: {
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
+ *                   SelectedTooltipType: "BASIC" || "DETAILED" || "SHEET",
  *                   FieldBasedTooltip: {
  *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
  *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
@@ -3015,6 +3103,9 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                         },
  *                       },
  *                     ],
+ *                   },
+ *                   SheetTooltip: {
+ *                     SheetId: "STRING_VALUE",
  *                   },
  *                 },
  *                 VisualPalette: {
@@ -3272,7 +3363,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                     LineStyle: "SOLID" || "DOTTED" || "DASHED",
  *                     LineWidth: "STRING_VALUE",
  *                   },
- *                   MarkerStyleSettings: { // LineChartMarkerStyleSettings
+ *                   MarkerStyleSettings: {
  *                     MarkerVisibility: "HIDDEN" || "VISIBLE",
  *                     MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
  *                     MarkerSize: "STRING_VALUE",
@@ -3298,12 +3389,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                           LineStyle: "SOLID" || "DOTTED" || "DASHED",
  *                           LineWidth: "STRING_VALUE",
  *                         },
- *                         MarkerStyleSettings: {
- *                           MarkerVisibility: "HIDDEN" || "VISIBLE",
- *                           MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
- *                           MarkerSize: "STRING_VALUE",
- *                           MarkerColor: "STRING_VALUE",
- *                         },
+ *                         MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
  *                         DecalSettings: {
  *                           ElementValue: "STRING_VALUE",
  *                           DecalVisibility: "HIDDEN" || "VISIBLE",
@@ -3324,12 +3410,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                           LineStyle: "SOLID" || "DOTTED" || "DASHED",
  *                           LineWidth: "STRING_VALUE",
  *                         },
- *                         MarkerStyleSettings: {
- *                           MarkerVisibility: "HIDDEN" || "VISIBLE",
- *                           MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
- *                           MarkerSize: "STRING_VALUE",
- *                           MarkerColor: "STRING_VALUE",
- *                         },
+ *                         MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
  *                         DecalSettings: "<DecalSettings>",
  *                       },
  *                     },
@@ -3410,31 +3491,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                     },
  *                   },
  *                 ],
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: "<ColumnIdentifier>", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: "<AggregationFunction>",
- *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
+ *                 Tooltip: "<TooltipOptions>",
  *                 ContributionAnalysisDefaults: [
  *                   {
  *                     MeasureFieldId: "STRING_VALUE", // required
@@ -3562,31 +3619,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
  *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: "<ColumnIdentifier>", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: "<AggregationFunction>",
- *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
+ *                 Tooltip: "<TooltipOptions>",
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ColumnHierarchies: [
@@ -4219,12 +4252,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                     LineStyle: "SOLID" || "DOTTED" || "DASHED",
  *                     LineWidth: "STRING_VALUE",
  *                   },
- *                   MarkerStyleSettings: {
- *                     MarkerVisibility: "HIDDEN" || "VISIBLE",
- *                     MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
- *                     MarkerSize: "STRING_VALUE",
- *                     MarkerColor: "STRING_VALUE",
- *                   },
+ *                   MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
  *                   DecalSettings: "<DecalSettings>",
  *                   BorderSettings: {
  *                     BorderVisibility: "HIDDEN" || "VISIBLE",
@@ -4243,12 +4271,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                           LineStyle: "SOLID" || "DOTTED" || "DASHED",
  *                           LineWidth: "STRING_VALUE",
  *                         },
- *                         MarkerStyleSettings: {
- *                           MarkerVisibility: "HIDDEN" || "VISIBLE",
- *                           MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
- *                           MarkerSize: "STRING_VALUE",
- *                           MarkerColor: "STRING_VALUE",
- *                         },
+ *                         MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
  *                         DecalSettings: "<DecalSettings>",
  *                         BorderSettings: {
  *                           BorderVisibility: "HIDDEN" || "VISIBLE",
@@ -5071,6 +5094,1833 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *         },
  *       },
  *     ],
+ *     TooltipSheets: [ // TooltipSheetDefinitionList
+ *       { // TooltipSheetDefinition
+ *         SheetId: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE",
+ *         Visuals: [ // TooltipSheetVisualList
+ *           {
+ *             TableVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   TableAggregatedFieldWells: {
+ *                     GroupBy: "<DimensionFieldList>",
+ *                     Values: "<MeasureFieldList>",
+ *                   },
+ *                   TableUnaggregatedFieldWells: {
+ *                     Values: [
+ *                       {
+ *                         FieldId: "STRING_VALUE", // required
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         FormatConfiguration: {
+ *                           StringFormatConfiguration: "<StringFormatConfiguration>",
+ *                           NumberFormatConfiguration: "<NumberFormatConfiguration>",
+ *                           DateTimeFormatConfiguration: "<DateTimeFormatConfiguration>",
+ *                         },
+ *                       },
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   RowSort: [
+ *                     "<FieldSortOptions>",
+ *                   ],
+ *                   PaginationConfiguration: {
+ *                     PageSize: Number("long"), // required
+ *                     PageNumber: Number("long"), // required
+ *                   },
+ *                 },
+ *                 TableOptions: {
+ *                   Orientation: "VERTICAL" || "HORIZONTAL",
+ *                   HeaderStyle: "<TableCellStyle>",
+ *                   CellStyle: "<TableCellStyle>",
+ *                   RowAlternateColorOptions: {
+ *                     Status: "ENABLED" || "DISABLED",
+ *                     RowAlternateColors: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     UsePrimaryBackgroundColor: "ENABLED" || "DISABLED",
+ *                   },
+ *                 },
+ *                 TotalOptions: {
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
+ *                   Placement: "START" || "END" || "AUTO",
+ *                   ScrollStatus: "PINNED" || "SCROLLED",
+ *                   CustomLabel: "STRING_VALUE",
+ *                   TotalCellStyle: "<TableCellStyle>",
+ *                   TotalAggregationOptions: [
+ *                     {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       TotalAggregationFunction: {
+ *                         SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ *                       },
+ *                     },
+ *                   ],
+ *                 },
+ *                 FieldOptions: {
+ *                   SelectedFieldOptions: [
+ *                     {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       Width: "STRING_VALUE",
+ *                       CustomLabel: "STRING_VALUE",
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       URLStyling: {
+ *                         LinkConfiguration: {
+ *                           Target: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
+ *                           Content: {
+ *                             CustomTextContent: {
+ *                               Value: "STRING_VALUE",
+ *                               FontConfiguration: "<FontConfiguration>", // required
+ *                             },
+ *                             CustomIconContent: {
+ *                               Icon: "LINK",
+ *                             },
+ *                           },
+ *                         },
+ *                         ImageConfiguration: {
+ *                           SizingOptions: {
+ *                             TableCellImageScalingConfiguration: "FIT_TO_CELL_HEIGHT" || "FIT_TO_CELL_WIDTH" || "DO_NOT_SCALE",
+ *                           },
+ *                         },
+ *                       },
+ *                     },
+ *                   ],
+ *                   Order: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   PinnedFieldOptions: {
+ *                     PinnedLeftFields: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                   TransposedTableOptions: [
+ *                     {
+ *                       ColumnIndex: Number("int"),
+ *                       ColumnWidth: "STRING_VALUE",
+ *                       ColumnType: "ROW_HEADER_COLUMN" || "VALUE_COLUMN", // required
+ *                     },
+ *                   ],
+ *                 },
+ *                 PaginatedReportOptions: {
+ *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
+ *                   OverflowColumnHeaderVisibility: "HIDDEN" || "VISIBLE",
+ *                 },
+ *                 TableInlineVisualizations: [
+ *                   {
+ *                     DataBars: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       PositiveColor: "STRING_VALUE",
+ *                       NegativeColor: "STRING_VALUE",
+ *                     },
+ *                     Sparklines: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       XAxisField: "<DimensionField>", // required
+ *                       YAxisBehavior: "SHARED" || "INDEPENDENT",
+ *                       VisualType: "LINE" || "AREA_LINE",
+ *                       LineColor: "STRING_VALUE",
+ *                       LineInterpolation: "LINEAR" || "SMOOTH" || "STEPPED",
+ *                       AllPointsMarker: "<LineChartMarkerStyleSettings>",
+ *                       MaxValueMarker: "<LineChartMarkerStyleSettings>",
+ *                       MinValueMarker: "<LineChartMarkerStyleSettings>",
+ *                     },
+ *                   },
+ *                 ],
+ *                 Tooltip: "<TooltipOptions>",
+ *                 DashboardCustomizationVisualOptions: {
+ *                   FieldsConfiguration: {
+ *                     Status: "ENABLED" || "DISABLED",
+ *                     AdditionalFields: [
+ *                       "<ColumnIdentifier>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               ConditionalFormatting: {
+ *                 ConditionalFormattingOptions: [
+ *                   {
+ *                     Cell: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       TextFormat: {
+ *                         BackgroundColor: "<ConditionalFormattingColor>",
+ *                         TextColor: "<ConditionalFormattingColor>",
+ *                         Icon: "<ConditionalFormattingIcon>",
+ *                       },
+ *                     },
+ *                     Row: {
+ *                       BackgroundColor: "<ConditionalFormattingColor>",
+ *                       TextColor: "<ConditionalFormattingColor>",
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             PivotTableVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   PivotTableAggregatedFieldWells: {
+ *                     Rows: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Columns: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Values: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   FieldSortOptions: [
+ *                     {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       SortBy: {
+ *                         Field: "<FieldSort>",
+ *                         Column: "<ColumnSort>",
+ *                         DataPath: {
+ *                           Direction: "ASC" || "DESC", // required
+ *                           SortPaths: "<DataPathValueList>", // required
+ *                         },
+ *                       },
+ *                     },
+ *                   ],
+ *                 },
+ *                 TableOptions: {
+ *                   MetricPlacement: "ROW" || "COLUMN",
+ *                   SingleMetricVisibility: "HIDDEN" || "VISIBLE",
+ *                   ColumnNamesVisibility: "HIDDEN" || "VISIBLE",
+ *                   ToggleButtonsVisibility: "HIDDEN" || "VISIBLE",
+ *                   ColumnHeaderStyle: "<TableCellStyle>",
+ *                   RowHeaderStyle: "<TableCellStyle>",
+ *                   CellStyle: "<TableCellStyle>",
+ *                   RowFieldNamesStyle: "<TableCellStyle>",
+ *                   RowAlternateColorOptions: {
+ *                     Status: "ENABLED" || "DISABLED",
+ *                     RowAlternateColors: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     UsePrimaryBackgroundColor: "ENABLED" || "DISABLED",
+ *                   },
+ *                   CollapsedRowDimensionsVisibility: "HIDDEN" || "VISIBLE",
+ *                   RowsLayout: "TABULAR" || "HIERARCHY",
+ *                   RowsLabelOptions: {
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                     CustomLabel: "STRING_VALUE",
+ *                   },
+ *                   DefaultCellWidth: "STRING_VALUE",
+ *                 },
+ *                 TotalOptions: {
+ *                   RowSubtotalOptions: {
+ *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
+ *                     CustomLabel: "STRING_VALUE",
+ *                     FieldLevel: "ALL" || "CUSTOM" || "LAST",
+ *                     FieldLevelOptions: [
+ *                       {
+ *                         FieldId: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     TotalCellStyle: "<TableCellStyle>",
+ *                     ValueCellStyle: "<TableCellStyle>",
+ *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     StyleTargets: [
+ *                       {
+ *                         CellType: "TOTAL" || "METRIC_HEADER" || "VALUE", // required
+ *                       },
+ *                     ],
+ *                   },
+ *                   ColumnSubtotalOptions: {
+ *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
+ *                     CustomLabel: "STRING_VALUE",
+ *                     FieldLevel: "ALL" || "CUSTOM" || "LAST",
+ *                     FieldLevelOptions: [
+ *                       {
+ *                         FieldId: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     TotalCellStyle: "<TableCellStyle>",
+ *                     ValueCellStyle: "<TableCellStyle>",
+ *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     StyleTargets: [
+ *                       {
+ *                         CellType: "TOTAL" || "METRIC_HEADER" || "VALUE", // required
+ *                       },
+ *                     ],
+ *                   },
+ *                   RowTotalOptions: {
+ *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
+ *                     Placement: "START" || "END" || "AUTO",
+ *                     ScrollStatus: "PINNED" || "SCROLLED",
+ *                     CustomLabel: "STRING_VALUE",
+ *                     TotalCellStyle: "<TableCellStyle>",
+ *                     ValueCellStyle: "<TableCellStyle>",
+ *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     TotalAggregationOptions: [
+ *                       {
+ *                         FieldId: "STRING_VALUE", // required
+ *                         TotalAggregationFunction: {
+ *                           SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ *                         },
+ *                       },
+ *                     ],
+ *                   },
+ *                   ColumnTotalOptions: {
+ *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
+ *                     Placement: "START" || "END" || "AUTO",
+ *                     ScrollStatus: "PINNED" || "SCROLLED",
+ *                     CustomLabel: "STRING_VALUE",
+ *                     TotalCellStyle: "<TableCellStyle>",
+ *                     ValueCellStyle: "<TableCellStyle>",
+ *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     TotalAggregationOptions: "<TotalAggregationOptionList>",
+ *                   },
+ *                 },
+ *                 FieldOptions: {
+ *                   SelectedFieldOptions: [
+ *                     {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       CustomLabel: "STRING_VALUE",
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                     },
+ *                   ],
+ *                   DataPathOptions: [
+ *                     {
+ *                       DataPathList: "<DataPathValueList>", // required
+ *                       Width: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   CollapseStateOptions: [
+ *                     {
+ *                       Target: {
+ *                         FieldId: "STRING_VALUE",
+ *                         FieldDataPathValues: "<DataPathValueList>",
+ *                       },
+ *                       State: "COLLAPSED" || "EXPANDED",
+ *                     },
+ *                   ],
+ *                 },
+ *                 PaginatedReportOptions: {
+ *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
+ *                   OverflowColumnHeaderVisibility: "HIDDEN" || "VISIBLE",
+ *                 },
+ *                 Tooltip: "<TooltipOptions>",
+ *                 DashboardCustomizationVisualOptions: {
+ *                   FieldsConfiguration: {
+ *                     Status: "ENABLED" || "DISABLED",
+ *                     AdditionalFields: [
+ *                       "<ColumnIdentifier>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               ConditionalFormatting: {
+ *                 ConditionalFormattingOptions: [
+ *                   {
+ *                     Cell: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       TextFormat: {
+ *                         BackgroundColor: "<ConditionalFormattingColor>",
+ *                         TextColor: "<ConditionalFormattingColor>",
+ *                         Icon: "<ConditionalFormattingIcon>",
+ *                       },
+ *                       Scope: {
+ *                         Role: "FIELD" || "FIELD_TOTAL" || "GRAND_TOTAL",
+ *                       },
+ *                       Scopes: [
+ *                         {
+ *                           Role: "FIELD" || "FIELD_TOTAL" || "GRAND_TOTAL",
+ *                         },
+ *                       ],
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             BarChartVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   BarChartAggregatedFieldWells: {
+ *                     Category: "<DimensionFieldList>",
+ *                     Values: "<MeasureFieldList>",
+ *                     Colors: "<DimensionFieldList>",
+ *                     SmallMultiples: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
+ *                   ColorSort: "<FieldSortOptionsList>",
+ *                   ColorItemsLimit: "<ItemsLimitConfiguration>",
+ *                   SmallMultiplesSort: "<FieldSortOptionsList>",
+ *                   SmallMultiplesLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 Orientation: "HORIZONTAL" || "VERTICAL",
+ *                 BarsArrangement: "CLUSTERED" || "STACKED" || "STACKED_PERCENT",
+ *                 VisualPalette: "<VisualPalette>",
+ *                 SmallMultiplesOptions: {
+ *                   MaxVisibleRows: Number("long"),
+ *                   MaxVisibleColumns: Number("long"),
+ *                   PanelConfiguration: {
+ *                     Title: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       FontConfiguration: "<FontConfiguration>",
+ *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
+ *                     },
+ *                     BorderVisibility: "HIDDEN" || "VISIBLE",
+ *                     BorderThickness: "STRING_VALUE",
+ *                     BorderStyle: "SOLID" || "DASHED" || "DOTTED",
+ *                     BorderColor: "STRING_VALUE",
+ *                     GutterVisibility: "HIDDEN" || "VISIBLE",
+ *                     GutterSpacing: "STRING_VALUE",
+ *                     BackgroundVisibility: "HIDDEN" || "VISIBLE",
+ *                     BackgroundColor: "STRING_VALUE",
+ *                   },
+ *                   XAxis: "<SmallMultiplesAxisProperties>",
+ *                   YAxis: "<SmallMultiplesAxisProperties>",
+ *                 },
+ *                 CategoryAxis: "<AxisDisplayOptions>",
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ValueAxis: "<AxisDisplayOptions>",
+ *                 ValueLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
+ *                 DefaultSeriesSettings: {
+ *                   DecalSettings: "<DecalSettings>",
+ *                   BorderSettings: "<BorderSettings>",
+ *                 },
+ *                 Series: [
+ *                   {
+ *                     FieldBarSeriesItem: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       Settings: {
+ *                         DecalSettings: "<DecalSettings>",
+ *                         BorderSettings: "<BorderSettings>",
+ *                       },
+ *                     },
+ *                     DataFieldBarSeriesItem: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       FieldValue: "STRING_VALUE",
+ *                       Settings: {
+ *                         DecalSettings: "<DecalSettings>",
+ *                         BorderSettings: "<BorderSettings>",
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *                 Legend: "<LegendOptions>",
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 ReferenceLines: [
+ *                   {
+ *                     Status: "ENABLED" || "DISABLED",
+ *                     DataConfiguration: {
+ *                       StaticConfiguration: {
+ *                         Value: Number("double"), // required
+ *                       },
+ *                       DynamicConfiguration: {
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>",
+ *                         Calculation: "<NumericalAggregationFunction>", // required
+ *                       },
+ *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                       SeriesType: "BAR" || "LINE",
+ *                     },
+ *                     StyleConfiguration: {
+ *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
+ *                       Color: "STRING_VALUE",
+ *                     },
+ *                     LabelConfiguration: {
+ *                       ValueLabelConfiguration: {
+ *                         RelativePosition: "BEFORE_CUSTOM_LABEL" || "AFTER_CUSTOM_LABEL",
+ *                         FormatConfiguration: "<NumericFormatConfiguration>",
+ *                       },
+ *                       CustomLabelConfiguration: {
+ *                         CustomLabel: "STRING_VALUE", // required
+ *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
+ *                       FontColor: "STRING_VALUE",
+ *                       HorizontalPosition: "LEFT" || "CENTER" || "RIGHT",
+ *                       VerticalPosition: "ABOVE" || "BELOW",
+ *                     },
+ *                   },
+ *                 ],
+ *                 ContributionAnalysisDefaults: [
+ *                   {
+ *                     MeasureFieldId: "STRING_VALUE", // required
+ *                     ContributorDimensions: [ // required
+ *                       "<ColumnIdentifier>",
+ *                     ],
+ *                   },
+ *                 ],
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             KPIVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   Values: "<MeasureFieldList>",
+ *                   TargetValues: "<MeasureFieldList>",
+ *                   TrendGroups: "<DimensionFieldList>",
+ *                 },
+ *                 SortConfiguration: {
+ *                   TrendGroupSort: "<FieldSortOptionsList>",
+ *                 },
+ *                 KPIOptions: {
+ *                   ProgressBar: {
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                   },
+ *                   TrendArrows: {
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                   },
+ *                   SecondaryValue: {
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                   },
+ *                   Comparison: {
+ *                     ComparisonMethod: "DIFFERENCE" || "PERCENT_DIFFERENCE" || "PERCENT",
+ *                     ComparisonFormat: {
+ *                       NumberDisplayFormatConfiguration: "<NumberDisplayFormatConfiguration>",
+ *                       PercentageDisplayFormatConfiguration: "<PercentageDisplayFormatConfiguration>",
+ *                     },
+ *                   },
+ *                   PrimaryValueDisplayType: "HIDDEN" || "COMPARISON" || "ACTUAL",
+ *                   PrimaryValueFontConfiguration: "<FontConfiguration>",
+ *                   SecondaryValueFontConfiguration: "<FontConfiguration>",
+ *                   Sparkline: {
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                     Type: "LINE" || "AREA", // required
+ *                     Color: "STRING_VALUE",
+ *                     TooltipVisibility: "HIDDEN" || "VISIBLE",
+ *                   },
+ *                   VisualLayoutOptions: {
+ *                     StandardLayout: {
+ *                       Type: "CLASSIC" || "VERTICAL", // required
+ *                     },
+ *                   },
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               ConditionalFormatting: {
+ *                 ConditionalFormattingOptions: [
+ *                   {
+ *                     PrimaryValue: {
+ *                       TextColor: "<ConditionalFormattingColor>",
+ *                       Icon: "<ConditionalFormattingIcon>",
+ *                     },
+ *                     ProgressBar: {
+ *                       ForegroundColor: "<ConditionalFormattingColor>",
+ *                     },
+ *                     ActualValue: {
+ *                       TextColor: "<ConditionalFormattingColor>",
+ *                       Icon: "<ConditionalFormattingIcon>",
+ *                     },
+ *                     ComparisonValue: {
+ *                       TextColor: "<ConditionalFormattingColor>",
+ *                       Icon: "<ConditionalFormattingIcon>",
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             PieChartVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   PieChartAggregatedFieldWells: {
+ *                     Category: "<DimensionFieldList>",
+ *                     Values: "<MeasureFieldList>",
+ *                     SmallMultiples: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
+ *                   SmallMultiplesSort: "<FieldSortOptionsList>",
+ *                   SmallMultiplesLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 DonutOptions: {
+ *                   ArcOptions: {
+ *                     ArcThickness: "SMALL" || "MEDIUM" || "LARGE" || "WHOLE",
+ *                   },
+ *                   DonutCenterOptions: {
+ *                     LabelVisibility: "HIDDEN" || "VISIBLE",
+ *                   },
+ *                 },
+ *                 SmallMultiplesOptions: {
+ *                   MaxVisibleRows: Number("long"),
+ *                   MaxVisibleColumns: Number("long"),
+ *                   PanelConfiguration: {
+ *                     Title: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       FontConfiguration: "<FontConfiguration>",
+ *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
+ *                     },
+ *                     BorderVisibility: "HIDDEN" || "VISIBLE",
+ *                     BorderThickness: "STRING_VALUE",
+ *                     BorderStyle: "SOLID" || "DASHED" || "DOTTED",
+ *                     BorderColor: "STRING_VALUE",
+ *                     GutterVisibility: "HIDDEN" || "VISIBLE",
+ *                     GutterSpacing: "STRING_VALUE",
+ *                     BackgroundVisibility: "HIDDEN" || "VISIBLE",
+ *                     BackgroundColor: "STRING_VALUE",
+ *                   },
+ *                   XAxis: "<SmallMultiplesAxisProperties>",
+ *                   YAxis: "<SmallMultiplesAxisProperties>",
+ *                 },
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ValueLabelOptions: "<ChartAxisLabelOptions>",
+ *                 Legend: "<LegendOptions>",
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 VisualPalette: "<VisualPalette>",
+ *                 ContributionAnalysisDefaults: [
+ *                   {
+ *                     MeasureFieldId: "STRING_VALUE", // required
+ *                     ContributorDimensions: [ // required
+ *                       "<ColumnIdentifier>",
+ *                     ],
+ *                   },
+ *                 ],
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             GaugeChartVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   Values: "<MeasureFieldList>",
+ *                   TargetValues: "<MeasureFieldList>",
+ *                 },
+ *                 GaugeChartOptions: {
+ *                   PrimaryValueDisplayType: "HIDDEN" || "COMPARISON" || "ACTUAL",
+ *                   Comparison: {
+ *                     ComparisonMethod: "DIFFERENCE" || "PERCENT_DIFFERENCE" || "PERCENT",
+ *                     ComparisonFormat: {
+ *                       NumberDisplayFormatConfiguration: "<NumberDisplayFormatConfiguration>",
+ *                       PercentageDisplayFormatConfiguration: "<PercentageDisplayFormatConfiguration>",
+ *                     },
+ *                   },
+ *                   ArcAxis: {
+ *                     Range: {
+ *                       Min: Number("double"),
+ *                       Max: Number("double"),
+ *                     },
+ *                     ReserveRange: Number("int"),
+ *                   },
+ *                   Arc: {
+ *                     ArcAngle: Number("double"),
+ *                     ArcThickness: "SMALL" || "MEDIUM" || "LARGE",
+ *                   },
+ *                   PrimaryValueFontConfiguration: "<FontConfiguration>",
+ *                 },
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 TooltipOptions: "<TooltipOptions>",
+ *                 VisualPalette: "<VisualPalette>",
+ *                 ColorConfiguration: {
+ *                   ForegroundColor: "STRING_VALUE",
+ *                   BackgroundColor: "STRING_VALUE",
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               ConditionalFormatting: {
+ *                 ConditionalFormattingOptions: [
+ *                   {
+ *                     PrimaryValue: {
+ *                       TextColor: "<ConditionalFormattingColor>",
+ *                       Icon: "<ConditionalFormattingIcon>",
+ *                     },
+ *                     Arc: {
+ *                       ForegroundColor: "<ConditionalFormattingColor>",
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             LineChartVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   LineChartAggregatedFieldWells: {
+ *                     Category: "<DimensionFieldList>",
+ *                     Values: "<MeasureFieldList>",
+ *                     Colors: "<DimensionFieldList>",
+ *                     SmallMultiples: "<SmallMultiplesDimensionFieldList>",
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                   ColorItemsLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                   SmallMultiplesSort: "<FieldSortOptionsList>",
+ *                   SmallMultiplesLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 ForecastConfigurations: [
+ *                   {
+ *                     ForecastProperties: {
+ *                       PeriodsForward: Number("int"),
+ *                       PeriodsBackward: Number("int"),
+ *                       UpperBoundary: Number("double"),
+ *                       LowerBoundary: Number("double"),
+ *                       PredictionInterval: Number("int"),
+ *                       Seasonality: Number("int"),
+ *                     },
+ *                     Scenario: {
+ *                       WhatIfPointScenario: {
+ *                         Date: new Date("TIMESTAMP"), // required
+ *                         Value: Number("double"), // required
+ *                       },
+ *                       WhatIfRangeScenario: {
+ *                         StartDate: new Date("TIMESTAMP"), // required
+ *                         EndDate: new Date("TIMESTAMP"), // required
+ *                         Value: Number("double"), // required
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *                 Type: "LINE" || "AREA" || "STACKED_AREA",
+ *                 SmallMultiplesOptions: "<SmallMultiplesOptions>",
+ *                 XAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 PrimaryYAxisDisplayOptions: {
+ *                   AxisOptions: "<AxisDisplayOptions>",
+ *                   MissingDataConfigurations: [
+ *                     {
+ *                       TreatmentOption: "INTERPOLATE" || "SHOW_AS_ZERO" || "SHOW_AS_BLANK",
+ *                     },
+ *                   ],
+ *                 },
+ *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SecondaryYAxisDisplayOptions: {
+ *                   AxisOptions: "<AxisDisplayOptions>",
+ *                   MissingDataConfigurations: [
+ *                     {
+ *                       TreatmentOption: "INTERPOLATE" || "SHOW_AS_ZERO" || "SHOW_AS_BLANK",
+ *                     },
+ *                   ],
+ *                 },
+ *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SingleAxisOptions: {
+ *                   YAxisOptions: {
+ *                     YAxis: "PRIMARY_Y_AXIS", // required
+ *                   },
+ *                 },
+ *                 DefaultSeriesSettings: {
+ *                   AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                   LineStyleSettings: "<LineChartLineStyleSettings>",
+ *                   MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
+ *                   DecalSettings: "<DecalSettings>",
+ *                 },
+ *                 Series: [
+ *                   {
+ *                     FieldSeriesItem: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS", // required
+ *                       Settings: {
+ *                         LineStyleSettings: "<LineChartLineStyleSettings>",
+ *                         MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
+ *                         DecalSettings: "<DecalSettings>",
+ *                       },
+ *                     },
+ *                     DataFieldSeriesItem: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       FieldValue: "STRING_VALUE",
+ *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS", // required
+ *                       Settings: {
+ *                         LineStyleSettings: "<LineChartLineStyleSettings>",
+ *                         MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
+ *                         DecalSettings: "<DecalSettings>",
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *                 Legend: "<LegendOptions>",
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 ReferenceLines: "<ReferenceLineList>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 ContributionAnalysisDefaults: "<ContributionAnalysisDefaultList>",
+ *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             HeatMapVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   HeatMapAggregatedFieldWells: {
+ *                     Rows: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Columns: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Values: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   HeatMapRowSort: "<FieldSortOptionsList>",
+ *                   HeatMapColumnSort: "<FieldSortOptionsList>",
+ *                   HeatMapRowItemsLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                   HeatMapColumnItemsLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 RowAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 RowLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColumnAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 ColumnLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColorScale: {
+ *                   Colors: [ // required
+ *                     {
+ *                       Color: "STRING_VALUE",
+ *                       DataValue: Number("double"),
+ *                     },
+ *                   ],
+ *                   ColorFillType: "DISCRETE" || "GRADIENT", // required
+ *                   NullValueColor: "<DataColor>",
+ *                 },
+ *                 Legend: "<LegendOptions>",
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             TreeMapVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   TreeMapAggregatedFieldWells: {
+ *                     Groups: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Sizes: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                     Colors: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   TreeMapSort: "<FieldSortOptionsList>",
+ *                   TreeMapGroupItemsLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 GroupLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SizeLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColorScale: {
+ *                   Colors: [ // required
+ *                     "<DataColor>",
+ *                   ],
+ *                   ColorFillType: "DISCRETE" || "GRADIENT", // required
+ *                   NullValueColor: "<DataColor>",
+ *                 },
+ *                 Legend: "<LegendOptions>",
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             GeospatialMapVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   GeospatialMapAggregatedFieldWells: {
+ *                     Geospatial: "<DimensionFieldList>",
+ *                     Values: "<MeasureFieldList>",
+ *                     Colors: "<DimensionFieldList>",
+ *                   },
+ *                 },
+ *                 Legend: "<LegendOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 WindowOptions: {
+ *                   Bounds: {
+ *                     North: Number("double"), // required
+ *                     South: Number("double"), // required
+ *                     West: Number("double"), // required
+ *                     East: Number("double"), // required
+ *                   },
+ *                   MapZoomMode: "AUTO" || "MANUAL",
+ *                 },
+ *                 MapStyleOptions: {
+ *                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
+ *                 },
+ *                 PointStyleOptions: {
+ *                   SelectedPointStyle: "POINT" || "CLUSTER" || "HEATMAP",
+ *                   ClusterMarkerConfiguration: {
+ *                     ClusterMarker: {
+ *                       SimpleClusterMarker: {
+ *                         Color: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                   },
+ *                   HeatmapConfiguration: {
+ *                     HeatmapColor: {
+ *                       Colors: [
+ *                         {
+ *                           Color: "STRING_VALUE", // required
+ *                         },
+ *                       ],
+ *                     },
+ *                   },
+ *                 },
+ *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *               GeocodingPreferences: [
+ *                 {
+ *                   RequestKey: {
+ *                     Country: "STRING_VALUE",
+ *                     State: "STRING_VALUE",
+ *                     County: "STRING_VALUE",
+ *                     City: "STRING_VALUE",
+ *                     PostCode: "STRING_VALUE",
+ *                   },
+ *                   Preference: {//  Union: only one key present
+ *                     GeocoderHierarchy: "<GeocoderHierarchy>",
+ *                     Coordinate: {
+ *                       Latitude: Number("double"), // required
+ *                       Longitude: Number("double"), // required
+ *                     },
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *             FilledMapVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   FilledMapAggregatedFieldWells: {
+ *                     Geospatial: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Values: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                 },
+ *                 Legend: "<LegendOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 WindowOptions: {
+ *                   Bounds: {
+ *                     North: Number("double"), // required
+ *                     South: Number("double"), // required
+ *                     West: Number("double"), // required
+ *                     East: Number("double"), // required
+ *                   },
+ *                   MapZoomMode: "AUTO" || "MANUAL",
+ *                 },
+ *                 MapStyleOptions: {
+ *                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               ConditionalFormatting: {
+ *                 ConditionalFormattingOptions: [ // required
+ *                   {
+ *                     Shape: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       Format: {
+ *                         BackgroundColor: "<ConditionalFormattingColor>", // required
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *               GeocodingPreferences: [
+ *                 {
+ *                   RequestKey: "<GeocoderHierarchy>", // required
+ *                   Preference: {//  Union: only one key present
+ *                     GeocoderHierarchy: "<GeocoderHierarchy>",
+ *                     Coordinate: {
+ *                       Latitude: Number("double"), // required
+ *                       Longitude: Number("double"), // required
+ *                     },
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *             LayerMapVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 Legend: "<LegendOptions>",
+ *                 MapLayers: [
+ *                   {
+ *                     LayerId: "STRING_VALUE", // required
+ *                     LayerType: "POINT" || "LINE" || "POLYGON",
+ *                     DataSource: {
+ *                       StaticFileDataSource: {
+ *                         StaticFileId: "STRING_VALUE", // required
+ *                       },
+ *                     },
+ *                     Label: "STRING_VALUE",
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                     LayerDefinition: {
+ *                       PointLayer: {
+ *                         Style: {
+ *                           CircleSymbolStyle: {
+ *                             FillColor: "<GeospatialColor>",
+ *                             StrokeColor: "<GeospatialColor>",
+ *                             StrokeWidth: {
+ *                               LineWidth: Number("double"),
+ *                             },
+ *                             CircleRadius: {
+ *                               Radius: Number("double"),
+ *                             },
+ *                           },
+ *                         },
+ *                       },
+ *                       LineLayer: {
+ *                         Style: {
+ *                           LineSymbolStyle: {
+ *                             FillColor: "<GeospatialColor>",
+ *                             LineWidth: {
+ *                               LineWidth: Number("double"),
+ *                             },
+ *                           },
+ *                         },
+ *                       },
+ *                       PolygonLayer: {
+ *                         Style: {
+ *                           PolygonSymbolStyle: {
+ *                             FillColor: "<GeospatialColor>",
+ *                             StrokeColor: "<GeospatialColor>",
+ *                             StrokeWidth: "<GeospatialLineWidth>",
+ *                           },
+ *                         },
+ *                       },
+ *                     },
+ *                     Tooltip: "<TooltipOptions>",
+ *                     JoinDefinition: {
+ *                       ShapeKeyField: "STRING_VALUE",
+ *                       DatasetKeyField: {
+ *                         FieldId: "STRING_VALUE", // required
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         FormatConfiguration: {
+ *                           StringFormatConfiguration: "<StringFormatConfiguration>",
+ *                           NumberFormatConfiguration: "<NumberFormatConfiguration>",
+ *                           DateTimeFormatConfiguration: "<DateTimeFormatConfiguration>",
+ *                         },
+ *                       },
+ *                       ColorField: {
+ *                         ColorDimensionsFields: [
+ *                           "<DimensionField>",
+ *                         ],
+ *                         ColorValuesFields: [
+ *                           "<MeasureField>",
+ *                         ],
+ *                       },
+ *                     },
+ *                     Actions: [
+ *                       {
+ *                         CustomActionId: "STRING_VALUE", // required
+ *                         Name: "STRING_VALUE", // required
+ *                         Status: "ENABLED" || "DISABLED",
+ *                         Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
+ *                         ActionOperations: [ // required
+ *                           {
+ *                             FilterOperation: "<CustomActionFilterOperation>",
+ *                             NavigationOperation: "<CustomActionNavigationOperation>",
+ *                             URLOperation: "<CustomActionURLOperation>",
+ *                             SetParametersOperation: "<CustomActionSetParametersOperation>",
+ *                           },
+ *                         ],
+ *                       },
+ *                     ],
+ *                   },
+ *                 ],
+ *                 MapState: {
+ *                   Bounds: "<GeospatialCoordinateBounds>",
+ *                   MapNavigation: "ENABLED" || "DISABLED",
+ *                 },
+ *                 MapStyle: {
+ *                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
+ *                   BackgroundColor: "STRING_VALUE",
+ *                   BaseMapVisibility: "HIDDEN" || "VISIBLE",
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             FunnelChartVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   FunnelChartAggregatedFieldWells: {
+ *                     Category: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Values: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ValueLabelOptions: "<ChartAxisLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 DataLabelOptions: {
+ *                   Visibility: "HIDDEN" || "VISIBLE",
+ *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
+ *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
+ *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
+ *                   LabelFontConfiguration: "<FontConfiguration>",
+ *                   LabelColor: "STRING_VALUE",
+ *                   MeasureDataLabelStyle: "VALUE_ONLY" || "PERCENTAGE_BY_FIRST_STAGE" || "PERCENTAGE_BY_PREVIOUS_STAGE" || "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE" || "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
+ *                 },
+ *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             ScatterPlotVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   ScatterPlotCategoricallyAggregatedFieldWells: {
+ *                     XAxis: "<MeasureFieldList>",
+ *                     YAxis: "<MeasureFieldList>",
+ *                     Category: "<DimensionFieldList>",
+ *                     Size: "<MeasureFieldList>",
+ *                     Label: "<DimensionFieldList>",
+ *                   },
+ *                   ScatterPlotUnaggregatedFieldWells: {
+ *                     XAxis: "<DimensionFieldList>",
+ *                     YAxis: "<DimensionFieldList>",
+ *                     Size: "<MeasureFieldList>",
+ *                     Category: "<DimensionFieldList>",
+ *                     Label: "<DimensionFieldList>",
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   ScatterPlotLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 XAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 YAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 YAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 Legend: "<LegendOptions>",
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             ComboChartVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   ComboChartAggregatedFieldWells: {
+ *                     Category: "<DimensionFieldList>",
+ *                     BarValues: "<MeasureFieldList>",
+ *                     Colors: "<DimensionFieldList>",
+ *                     LineValues: "<MeasureFieldList>",
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
+ *                   ColorSort: "<FieldSortOptionsList>",
+ *                   ColorItemsLimit: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 BarsArrangement: "CLUSTERED" || "STACKED" || "STACKED_PERCENT",
+ *                 CategoryAxis: "<AxisDisplayOptions>",
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 PrimaryYAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SecondaryYAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SingleAxisOptions: {
+ *                   YAxisOptions: {
+ *                     YAxis: "PRIMARY_Y_AXIS", // required
+ *                   },
+ *                 },
+ *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
+ *                 DefaultSeriesSettings: {
+ *                   LineStyleSettings: "<LineChartLineStyleSettings>",
+ *                   MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
+ *                   DecalSettings: "<DecalSettings>",
+ *                   BorderSettings: "<BorderSettings>",
+ *                 },
+ *                 Series: [
+ *                   {
+ *                     FieldComboSeriesItem: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       Settings: {
+ *                         LineStyleSettings: "<LineChartLineStyleSettings>",
+ *                         MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
+ *                         DecalSettings: "<DecalSettings>",
+ *                         BorderSettings: "<BorderSettings>",
+ *                       },
+ *                     },
+ *                     DataFieldComboSeriesItem: {
+ *                       FieldId: "STRING_VALUE", // required
+ *                       FieldValue: "STRING_VALUE",
+ *                       Settings: {
+ *                         LineStyleSettings: "<LineChartLineStyleSettings>",
+ *                         MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
+ *                         DecalSettings: "<DecalSettings>",
+ *                         BorderSettings: "<BorderSettings>",
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *                 Legend: "<LegendOptions>",
+ *                 BarDataLabels: "<DataLabelOptions>",
+ *                 LineDataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 ReferenceLines: "<ReferenceLineList>",
+ *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             BoxPlotVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   BoxPlotAggregatedFieldWells: {
+ *                     GroupBy: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Values: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   PaginationConfiguration: {
+ *                     PageSize: Number("long"), // required
+ *                     PageNumber: Number("long"), // required
+ *                   },
+ *                 },
+ *                 BoxPlotOptions: {
+ *                   StyleOptions: {
+ *                     FillStyle: "SOLID" || "TRANSPARENT",
+ *                   },
+ *                   OutlierVisibility: "HIDDEN" || "VISIBLE",
+ *                   AllDataPointsVisibility: "HIDDEN" || "VISIBLE",
+ *                 },
+ *                 CategoryAxis: "<AxisDisplayOptions>",
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 PrimaryYAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 Legend: "<LegendOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 ReferenceLines: "<ReferenceLineList>",
+ *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             WaterfallVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   WaterfallChartAggregatedFieldWells: {
+ *                     Categories: "<DimensionFieldList>",
+ *                     Values: "<MeasureFieldList>",
+ *                     Breakdowns: "<DimensionFieldList>",
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   BreakdownItemsLimit: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 WaterfallChartOptions: {
+ *                   TotalBarLabel: "STRING_VALUE",
+ *                 },
+ *                 CategoryAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 CategoryAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 PrimaryYAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 Legend: "<LegendOptions>",
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 VisualPalette: "<VisualPalette>",
+ *                 ColorConfiguration: {
+ *                   GroupColorConfiguration: {
+ *                     PositiveBarColor: "STRING_VALUE",
+ *                     NegativeBarColor: "STRING_VALUE",
+ *                     TotalBarColor: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             HistogramVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   HistogramAggregatedFieldWells: {
+ *                     Values: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 XAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 YAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 BinOptions: {
+ *                   SelectedBinType: "BIN_COUNT" || "BIN_WIDTH",
+ *                   BinCount: {
+ *                     Value: Number("int"),
+ *                   },
+ *                   BinWidth: {
+ *                     Value: Number("double"),
+ *                     BinCountLimit: Number("long"),
+ *                   },
+ *                   StartValue: Number("double"),
+ *                 },
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             WordCloudVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   WordCloudAggregatedFieldWells: {
+ *                     GroupBy: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Size: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                 },
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 WordCloudOptions: {
+ *                   WordOrientation: "HORIZONTAL" || "HORIZONTAL_AND_VERTICAL",
+ *                   WordScaling: "EMPHASIZE" || "NORMAL",
+ *                   CloudLayout: "FLUID" || "NORMAL",
+ *                   WordCasing: "LOWER_CASE" || "EXISTING_CASE",
+ *                   WordPadding: "NONE" || "SMALL" || "MEDIUM" || "LARGE",
+ *                   MaximumStringLength: Number("int"),
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             InsightVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               InsightConfiguration: {
+ *                 Computations: [
+ *                   {
+ *                     TopBottomRanked: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Category: "<DimensionField>",
+ *                       Value: "<MeasureField>",
+ *                       ResultSize: Number("int"),
+ *                       Type: "TOP" || "BOTTOM", // required
+ *                     },
+ *                     TopBottomMovers: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Time: "<DimensionField>",
+ *                       Category: "<DimensionField>",
+ *                       Value: "<MeasureField>",
+ *                       MoverSize: Number("int"),
+ *                       SortOrder: "PERCENT_DIFFERENCE" || "ABSOLUTE_DIFFERENCE",
+ *                       Type: "TOP" || "BOTTOM", // required
+ *                     },
+ *                     TotalAggregation: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Value: "<MeasureField>",
+ *                     },
+ *                     MaximumMinimum: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Time: "<DimensionField>",
+ *                       Value: "<MeasureField>",
+ *                       Type: "MAXIMUM" || "MINIMUM", // required
+ *                     },
+ *                     MetricComparison: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Time: "<DimensionField>",
+ *                       FromValue: "<MeasureField>",
+ *                       TargetValue: "<MeasureField>",
+ *                     },
+ *                     PeriodOverPeriod: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Time: "<DimensionField>",
+ *                       Value: "<MeasureField>",
+ *                     },
+ *                     PeriodToDate: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Time: "<DimensionField>",
+ *                       Value: "<MeasureField>",
+ *                       PeriodTimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
+ *                     },
+ *                     GrowthRate: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Time: "<DimensionField>",
+ *                       Value: "<MeasureField>",
+ *                       PeriodSize: Number("int"),
+ *                     },
+ *                     UniqueValues: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Category: "<DimensionField>",
+ *                     },
+ *                     Forecast: {
+ *                       ComputationId: "STRING_VALUE", // required
+ *                       Name: "STRING_VALUE",
+ *                       Time: "<DimensionField>",
+ *                       Value: "<MeasureField>",
+ *                       PeriodsForward: Number("int"),
+ *                       PeriodsBackward: Number("int"),
+ *                       UpperBoundary: Number("double"),
+ *                       LowerBoundary: Number("double"),
+ *                       PredictionInterval: Number("int"),
+ *                       Seasonality: "AUTOMATIC" || "CUSTOM",
+ *                       CustomSeasonalityValue: Number("int"),
+ *                     },
+ *                   },
+ *                 ],
+ *                 CustomNarrative: {
+ *                   Narrative: "STRING_VALUE", // required
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             SankeyDiagramVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   SankeyDiagramAggregatedFieldWells: {
+ *                     Source: "<DimensionFieldList>",
+ *                     Destination: "<DimensionFieldList>",
+ *                     Weight: "<MeasureFieldList>",
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   WeightSort: "<FieldSortOptionsList>",
+ *                   SourceItemsLimit: "<ItemsLimitConfiguration>",
+ *                   DestinationItemsLimit: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             CustomContentVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 ContentUrl: "STRING_VALUE",
+ *                 ContentType: "IMAGE" || "OTHER_EMBEDDED_CONTENT",
+ *                 ImageScaling: "FIT_TO_HEIGHT" || "FIT_TO_WIDTH" || "DO_NOT_SCALE" || "SCALE_TO_VISUAL",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             EmptyVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               Actions: "<VisualCustomActionList>",
+ *             },
+ *             RadarChartVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: {
+ *                   RadarChartAggregatedFieldWells: {
+ *                     Category: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Color: [
+ *                       "<DimensionField>",
+ *                     ],
+ *                     Values: [
+ *                       "<MeasureField>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 SortConfiguration: {
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
+ *                   ColorSort: "<FieldSortOptionsList>",
+ *                   ColorItemsLimit: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 Shape: "CIRCLE" || "POLYGON",
+ *                 BaseSeriesSettings: {
+ *                   AreaStyleSettings: {
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                   },
+ *                 },
+ *                 StartAngle: Number("double"),
+ *                 VisualPalette: "<VisualPalette>",
+ *                 AlternateBandColorsVisibility: "HIDDEN" || "VISIBLE",
+ *                 AlternateBandEvenColor: "STRING_VALUE",
+ *                 AlternateBandOddColor: "STRING_VALUE",
+ *                 CategoryAxis: "<AxisDisplayOptions>",
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColorAxis: "<AxisDisplayOptions>",
+ *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
+ *                 Legend: "<LegendOptions>",
+ *                 AxesRangeScale: "AUTO" || "INDEPENDENT" || "SHARED",
+ *                 Interactions: "<VisualInteractionOptions>",
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *             PluginVisual: {
+ *               VisualId: "STRING_VALUE", // required
+ *               PluginArn: "STRING_VALUE", // required
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: {
+ *                 FieldWells: [
+ *                   {
+ *                     AxisName: "GROUP_BY" || "VALUE",
+ *                     Dimensions: "<DimensionFieldList>",
+ *                     Measures: "<MeasureFieldList>",
+ *                     Unaggregated: [
+ *                       "<UnaggregatedField>",
+ *                     ],
+ *                   },
+ *                 ],
+ *                 VisualOptions: {
+ *                   VisualProperties: [
+ *                     {
+ *                       Name: "STRING_VALUE",
+ *                       Value: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                 },
+ *                 SortConfiguration: {
+ *                   PluginVisualTableQuerySort: {
+ *                     RowSort: [
+ *                       "<FieldSortOptions>",
+ *                     ],
+ *                     ItemsLimitConfiguration: {
+ *                       ItemsLimit: Number("long"),
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *               Actions: "<VisualCustomActionList>",
+ *               VisualContentAltText: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         TextBoxes: [ // TooltipSheetTextBoxList
+ *           {
+ *             SheetTextBoxId: "STRING_VALUE", // required
+ *             Content: "STRING_VALUE",
+ *             Interactions: {
+ *               TextBoxMenuOption: {
+ *                 AvailabilityStatus: "ENABLED" || "DISABLED",
+ *               },
+ *             },
+ *           },
+ *         ],
+ *         Images: [ // TooltipSheetImageList
+ *           {
+ *             SheetImageId: "STRING_VALUE", // required
+ *             Source: {
+ *               SheetImageStaticFileSource: {
+ *                 StaticFileId: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             Scaling: {
+ *               ScalingType: "SCALE_TO_WIDTH" || "SCALE_TO_HEIGHT" || "SCALE_TO_CONTAINER" || "SCALE_NONE",
+ *             },
+ *             Tooltip: {
+ *               TooltipText: {
+ *                 PlainText: "STRING_VALUE",
+ *               },
+ *               Visibility: "HIDDEN" || "VISIBLE",
+ *             },
+ *             ImageContentAltText: "STRING_VALUE",
+ *             Interactions: {
+ *               ImageMenuOption: {
+ *                 AvailabilityStatus: "ENABLED" || "DISABLED",
+ *               },
+ *             },
+ *             Actions: [
+ *               {
+ *                 CustomActionId: "STRING_VALUE", // required
+ *                 Name: "STRING_VALUE", // required
+ *                 Status: "ENABLED" || "DISABLED",
+ *                 Trigger: "CLICK" || "MENU", // required
+ *                 ActionOperations: [ // required
+ *                   {
+ *                     NavigationOperation: "<CustomActionNavigationOperation>",
+ *                     URLOperation: "<CustomActionURLOperation>",
+ *                     SetParametersOperation: "<CustomActionSetParametersOperation>",
+ *                   },
+ *                 ],
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         Layouts: [
+ *           {
+ *             Configuration: {
+ *               GridLayout: {
+ *                 Elements: [ // required
+ *                   {
+ *                     ElementId: "STRING_VALUE", // required
+ *                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX" || "IMAGE", // required
+ *                     ColumnIndex: Number("int"),
+ *                     ColumnSpan: Number("int"), // required
+ *                     RowIndex: Number("int"),
+ *                     RowSpan: Number("int"), // required
+ *                     BorderStyle: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       Color: "STRING_VALUE",
+ *                       Width: "STRING_VALUE",
+ *                     },
+ *                     SelectedBorderStyle: "<GridLayoutElementBorderStyle>",
+ *                     BackgroundStyle: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       Color: "STRING_VALUE",
+ *                     },
+ *                     LoadingAnimation: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                     },
+ *                     BorderRadius: "STRING_VALUE",
+ *                     Padding: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 CanvasSizeOptions: {
+ *                   ScreenCanvasSizeOptions: {
+ *                     ResizeOption: "FIXED" || "RESPONSIVE", // required
+ *                     OptimizedViewPortWidth: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               },
+ *               FreeFormLayout: {
+ *                 Elements: "<FreeFromLayoutElementList>", // required
+ *                 CanvasSizeOptions: {
+ *                   ScreenCanvasSizeOptions: {
+ *                     OptimizedViewPortWidth: "STRING_VALUE", // required
+ *                   },
+ *                 },
+ *                 Groups: [
+ *                   {
+ *                     Id: "STRING_VALUE", // required
+ *                     Members: [ // required
+ *                       {
+ *                         Id: "STRING_VALUE", // required
+ *                         Type: "ELEMENT" || "GROUP", // required
+ *                       },
+ *                     ],
+ *                   },
+ *                 ],
+ *               },
+ *               SectionBasedLayout: {
+ *                 HeaderSections: [ // required
+ *                   {
+ *                     SectionId: "STRING_VALUE", // required
+ *                     Layout: {
+ *                       FreeFormLayout: {
+ *                         Elements: "<FreeFromLayoutElementList>", // required
+ *                       },
+ *                     },
+ *                     Style: {
+ *                       Height: "STRING_VALUE",
+ *                       Padding: {
+ *                         Top: "STRING_VALUE",
+ *                         Bottom: "STRING_VALUE",
+ *                         Left: "STRING_VALUE",
+ *                         Right: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *                 BodySections: [ // required
+ *                   {
+ *                     SectionId: "STRING_VALUE", // required
+ *                     Content: {
+ *                       Layout: {
+ *                         FreeFormLayout: {
+ *                           Elements: "<FreeFromLayoutElementList>", // required
+ *                         },
+ *                       },
+ *                     },
+ *                     Style: {
+ *                       Height: "STRING_VALUE",
+ *                       Padding: "<Spacing>",
+ *                     },
+ *                     PageBreakConfiguration: {
+ *                       After: {
+ *                         Status: "ENABLED" || "DISABLED",
+ *                       },
+ *                     },
+ *                     RepeatConfiguration: {
+ *                       DimensionConfigurations: [
+ *                         {
+ *                           DynamicCategoryDimensionConfiguration: {
+ *                             Column: "<ColumnIdentifier>", // required
+ *                             Limit: Number("int"),
+ *                             SortByMetrics: [
+ *                               "<ColumnSort>",
+ *                             ],
+ *                           },
+ *                           DynamicNumericDimensionConfiguration: {
+ *                             Column: "<ColumnIdentifier>", // required
+ *                             Limit: Number("int"),
+ *                             SortByMetrics: [
+ *                               "<ColumnSort>",
+ *                             ],
+ *                           },
+ *                         },
+ *                       ],
+ *                       PageBreakConfiguration: {
+ *                         After: {
+ *                           Status: "ENABLED" || "DISABLED",
+ *                         },
+ *                       },
+ *                       NonRepeatingVisuals: [
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                   },
+ *                 ],
+ *                 FooterSections: [ // required
+ *                   {
+ *                     SectionId: "STRING_VALUE", // required
+ *                     Layout: "<SectionLayoutConfiguration>", // required
+ *                     Style: "<SectionStyle>",
+ *                   },
+ *                 ],
+ *                 CanvasSizeOptions: {
+ *                   PaperCanvasSizeOptions: {
+ *                     PaperSize: "US_LETTER" || "US_LEGAL" || "US_TABLOID_LEDGER" || "A0" || "A1" || "A2" || "A3" || "A4" || "A5" || "JIS_B4" || "JIS_B5",
+ *                     PaperOrientation: "PORTRAIT" || "LANDSCAPE",
+ *                     PaperMargin: "<Spacing>",
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
  *     CalculatedFields: [ // CalculatedFields
  *       { // CalculatedField
  *         DataSetIdentifier: "STRING_VALUE", // required
@@ -5662,11 +7512,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *     ColumnConfigurations: [ // ColumnConfigurationList
  *       { // ColumnConfiguration
  *         Column: "<ColumnIdentifier>", // required
- *         FormatConfiguration: {
- *           StringFormatConfiguration: "<StringFormatConfiguration>",
- *           NumberFormatConfiguration: "<NumberFormatConfiguration>",
- *           DateTimeFormatConfiguration: "<DateTimeFormatConfiguration>",
- *         },
+ *         FormatConfiguration: "<FormatConfiguration>",
  *         Role: "DIMENSION" || "MEASURE",
  *         ColorsConfiguration: { // ColorsConfiguration
  *           CustomColors: [ // CustomColorsList

@@ -46,6 +46,8 @@ import type {
   SimpleTotalAggregationFunction,
   SingleYAxisOption,
   SortDirection,
+  SparklineAxisBehavior,
+  SparklineVisualType,
   StyledCellType,
   TableBorderStyle,
   TableCellImageScalingConfiguration,
@@ -79,6 +81,7 @@ import type {
   CustomActionSetParametersOperation,
   CustomActionURLOperation,
   DataLabelOptions,
+  DataPathColor,
   DataPathValue,
   DecalSettings,
   DimensionField,
@@ -96,8 +99,25 @@ import type {
   TooltipOptions,
   VisualCustomAction,
   VisualInteractionOptions,
-  VisualPalette,
 } from "./models_0";
+
+/**
+ * <p>The visual display options for the visual palette.</p>
+ * @public
+ */
+export interface VisualPalette {
+  /**
+   * <p>The chart color options for the visual palette.</p>
+   * @public
+   */
+  ChartColor?: string | undefined;
+
+  /**
+   * <p>The color map options for the visual palette.</p>
+   * @public
+   */
+  ColorMap?: DataPathColor[] | undefined;
+}
 
 /**
  * <p>The configuration of a <code>BarChartVisual</code>.</p>
@@ -6473,6 +6493,12 @@ export interface PivotTableConfiguration {
   PaginatedReportOptions?: PivotTablePaginatedReportOptions | undefined;
 
   /**
+   * <p>The display options for the visual tooltip.</p>
+   * @public
+   */
+  Tooltip?: TooltipOptions | undefined;
+
+  /**
    * <p>The options that define customizations available to dashboard readers for a specific visual</p>
    * @public
    */
@@ -7733,6 +7759,66 @@ export interface DataBarsOptions {
 }
 
 /**
+ * <p>The options for sparklines in a table.</p>
+ * @public
+ */
+export interface SparklinesOptions {
+  /**
+   * <p>The field ID of the value column that the sparkline is applied to.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The dimension type field.</p>
+   * @public
+   */
+  XAxisField: DimensionField | undefined;
+
+  /**
+   * <p>Determines whether the Y axis is shared across all sparklines or independent for each sparkline.</p>
+   * @public
+   */
+  YAxisBehavior?: SparklineAxisBehavior | undefined;
+
+  /**
+   * <p>The type of the sparkline. Valid values are <code>LINE</code> and <code>AREA_LINE</code>.</p>
+   * @public
+   */
+  VisualType?: SparklineVisualType | undefined;
+
+  /**
+   * <p>The color of the sparkline line.</p>
+   * @public
+   */
+  LineColor?: string | undefined;
+
+  /**
+   * <p>The interpolation style for the sparkline line.</p>
+   * @public
+   */
+  LineInterpolation?: LineInterpolation | undefined;
+
+  /**
+   * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
+   * @public
+   */
+  AllPointsMarker?: LineChartMarkerStyleSettings | undefined;
+
+  /**
+   * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
+   * @public
+   */
+  MaxValueMarker?: LineChartMarkerStyleSettings | undefined;
+
+  /**
+   * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
+   * @public
+   */
+  MinValueMarker?: LineChartMarkerStyleSettings | undefined;
+}
+
+/**
  * <p>The inline visualization of a specific type to display within a chart.</p>
  * @public
  */
@@ -7742,6 +7828,12 @@ export interface TableInlineVisualization {
    * @public
    */
   DataBars?: DataBarsOptions | undefined;
+
+  /**
+   * <p>The configuration of the inline visualization of the sparklines within a chart.</p>
+   * @public
+   */
+  Sparklines?: SparklinesOptions | undefined;
 }
 
 /**
@@ -7862,6 +7954,12 @@ export interface TableConfiguration {
    * @public
    */
   TableInlineVisualizations?: TableInlineVisualization[] | undefined;
+
+  /**
+   * <p>The display options for the visual tooltip.</p>
+   * @public
+   */
+  Tooltip?: TooltipOptions | undefined;
 
   /**
    * <p>The options that define customizations available to dashboard readers for a specific visual</p>
@@ -8388,35 +8486,4 @@ export interface WaterfallVisual {
    * @public
    */
   VisualContentAltText?: string | undefined;
-}
-
-/**
- * <p>The aggregated field wells of a word cloud.</p>
- * @public
- */
-export interface WordCloudAggregatedFieldWells {
-  /**
-   * <p>The group by field well of a word cloud. Values are grouped by group by fields.</p>
-   * @public
-   */
-  GroupBy?: DimensionField[] | undefined;
-
-  /**
-   * <p>The size field well of a word cloud. Values are aggregated based on group by fields.</p>
-   * @public
-   */
-  Size?: MeasureField[] | undefined;
-}
-
-/**
- * <p>The field wells of a word cloud visual.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface WordCloudFieldWells {
-  /**
-   * <p>The aggregated field wells of a word cloud.</p>
-   * @public
-   */
-  WordCloudAggregatedFieldWells?: WordCloudAggregatedFieldWells | undefined;
 }

@@ -134,7 +134,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Host: "STRING_VALUE", // required
  *       Database: "STRING_VALUE", // required
  *       Warehouse: "STRING_VALUE", // required
- *       AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *       AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  *       DatabaseAccessControlRole: "STRING_VALUE",
  *       OAuthParameters: { // OAuthParameters
  *         TokenProviderUrl: "STRING_VALUE", // required
@@ -181,7 +181,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Catalog: "STRING_VALUE", // required
  *       ProductType: "GALAXY" || "ENTERPRISE",
  *       DatabaseAccessControlRole: "STRING_VALUE",
- *       AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *       AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  *       OAuthParameters: {
  *         TokenProviderUrl: "STRING_VALUE", // required
  *         OAuthScope: "STRING_VALUE",
@@ -324,7 +324,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Database: "STRING_VALUE", // required
  *             Warehouse: "STRING_VALUE", // required
- *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  *             DatabaseAccessControlRole: "STRING_VALUE",
  *             OAuthParameters: {
  *               TokenProviderUrl: "STRING_VALUE", // required
@@ -371,7 +371,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Catalog: "STRING_VALUE", // required
  *             ProductType: "GALAXY" || "ENTERPRISE",
  *             DatabaseAccessControlRole: "STRING_VALUE",
- *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  *             OAuthParameters: {
  *               TokenProviderUrl: "STRING_VALUE", // required
  *               OAuthScope: "STRING_VALUE",
@@ -428,6 +428,11 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *     WebProxyCredentials: { // WebProxyCredentials
  *       WebProxyUsername: "STRING_VALUE", // required
  *       WebProxyPassword: "STRING_VALUE", // required
+ *     },
+ *     OAuthClientCredentials: { // OAuthClientCredentials
+ *       ClientId: "STRING_VALUE",
+ *       ClientSecret: "STRING_VALUE",
+ *       Username: "STRING_VALUE",
  *     },
  *   },
  *   Permissions: [ // ResourcePermissionList

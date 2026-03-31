@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListTopicReviewedAnswersRequest, ListTopicReviewedAnswersResponse } from "../models/models_4";
+import type { ListTopicReviewedAnswersRequest } from "../models/models_4";
+import type { ListTopicReviewedAnswersResponse } from "../models/models_5";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { ListTopicReviewedAnswers$ } from "../schemas/schemas_0";
 

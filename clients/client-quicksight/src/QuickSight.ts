@@ -363,6 +363,11 @@ import {
   DescribeAssetBundleImportJobCommand,
 } from "./commands/DescribeAssetBundleImportJobCommand";
 import {
+  type DescribeAutomationJobCommandInput,
+  type DescribeAutomationJobCommandOutput,
+  DescribeAutomationJobCommand,
+} from "./commands/DescribeAutomationJobCommand";
+import {
   type DescribeBrandAssignmentCommandInput,
   type DescribeBrandAssignmentCommandOutput,
   DescribeBrandAssignmentCommand,
@@ -875,6 +880,11 @@ import {
   StartAssetBundleImportJobCommand,
 } from "./commands/StartAssetBundleImportJobCommand";
 import {
+  type StartAutomationJobCommandInput,
+  type StartAutomationJobCommandOutput,
+  StartAutomationJobCommand,
+} from "./commands/StartAutomationJobCommand";
+import {
   type StartDashboardSnapshotJobCommandInput,
   type StartDashboardSnapshotJobCommandOutput,
   StartDashboardSnapshotJobCommand,
@@ -1260,6 +1270,7 @@ const commands = {
   DescribeAnalysisPermissionsCommand,
   DescribeAssetBundleExportJobCommand,
   DescribeAssetBundleImportJobCommand,
+  DescribeAutomationJobCommand,
   DescribeBrandCommand,
   DescribeBrandAssignmentCommand,
   DescribeBrandPublishedVersionCommand,
@@ -1364,6 +1375,7 @@ const commands = {
   SearchTopicsCommand,
   StartAssetBundleExportJobCommand,
   StartAssetBundleImportJobCommand,
+  StartAutomationJobCommand,
   StartDashboardSnapshotJobCommand,
   StartDashboardSnapshotJobScheduleCommand,
   TagResourceCommand,
@@ -2686,6 +2698,23 @@ export interface QuickSight {
     args: DescribeAssetBundleImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAssetBundleImportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAutomationJobCommand}
+   */
+  describeAutomationJob(
+    args: DescribeAutomationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAutomationJobCommandOutput>;
+  describeAutomationJob(
+    args: DescribeAutomationJobCommandInput,
+    cb: (err: any, data?: DescribeAutomationJobCommandOutput) => void
+  ): void;
+  describeAutomationJob(
+    args: DescribeAutomationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAutomationJobCommandOutput) => void
   ): void;
 
   /**
@@ -4454,6 +4483,23 @@ export interface QuickSight {
     args: StartAssetBundleImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartAssetBundleImportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAutomationJobCommand}
+   */
+  startAutomationJob(
+    args: StartAutomationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAutomationJobCommandOutput>;
+  startAutomationJob(
+    args: StartAutomationJobCommandInput,
+    cb: (err: any, data?: StartAutomationJobCommandOutput) => void
+  ): void;
+  startAutomationJob(
+    args: StartAutomationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAutomationJobCommandOutput) => void
   ): void;
 
   /**

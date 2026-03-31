@@ -25,5 +25,6 @@ export * from "./models/models_1";
 export * from "./models/models_2";
 export * from "./models/models_3";
 export * from "./models/models_4";
+export * from "./models/models_5";
 
 export { QuickSightServiceException } from "./models/QuickSightServiceException";
