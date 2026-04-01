@@ -27,7 +27,7 @@ export interface CalculateRoutesCommandInput extends CalculateRoutesRequest {}
 export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, __MetadataBearer {}
 
 /**
- * <p> <code>CalculateRoutes</code> computes routes given the following required parameters: <code>Origin</code> and <code>Destination</code>.</p>
+ * <p> <code>CalculateRoutes</code> computes routes given the following required parameters: <code>Origin</code> and <code>Destination</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-routes.html">Calculate routes</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

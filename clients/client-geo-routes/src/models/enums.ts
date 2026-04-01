@@ -676,14 +676,11 @@ export const RoutePedestrianTravelStepType = {
   ARRIVE: "Arrive",
   CONTINUE: "Continue",
   DEPART: "Depart",
-  EXIT: "Exit",
   KEEP: "Keep",
-  RAMP: "Ramp",
   ROUNDABOUT_ENTER: "RoundaboutEnter",
   ROUNDABOUT_EXIT: "RoundaboutExit",
   ROUNDABOUT_PASS: "RoundaboutPass",
   TURN: "Turn",
-  U_TURN: "UTurn",
 } as const;
 /**
  * @public

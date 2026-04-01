@@ -357,7 +357,6 @@ const _RPTOS = "RoutePedestrianTravelOnlySummary";
 const _RPTP = "RoutePassThroughPlace";
 const _RPTS = "RoutePedestrianTravelStep";
 const _RPTSL = "RoutePedestrianTravelStepList";
-const _RPTST = "RoutePedestrianTravelStepType";
 const _RPTW = "RoutePassThroughWaypoint";
 const _RPTWL = "RoutePassThroughWaypointList";
 const _RR = "RouteRoad";
@@ -721,7 +720,6 @@ var RouteLegType: StaticSimpleSchema = [0, n0, _RLT, 8, 0];
 var RouteMatrixHazardousCargoType: StaticSimpleSchema = [0, n0, _RMHCT, 8, 0];
 var RouteMatrixTruckType: StaticSimpleSchema = [0, n0, _RMTT, 8, 0];
 var RouteMatrixZoneCategory: StaticSimpleSchema = [0, n0, _RMZC, 8, 0];
-var RoutePedestrianTravelStepType: StaticSimpleSchema = [0, n0, _RPTST, 8, 0];
 var RouteRoadType: StaticSimpleSchema = [0, n0, _RRT, 8, 0];
 var RouteSideOfStreet: StaticSimpleSchema = [0, n0, _RSOS, 8, 0];
 var RouteSpanCarAccessAttribute: StaticSimpleSchema = [0, n0, _RSCAA, 8, 0];
@@ -768,8 +766,8 @@ export var CalculateIsolinesResponse$: StaticStructureSchema = [3, n0, _CIRa,
 ];
 export var CalculateRouteMatrixRequest$: StaticStructureSchema = [3, n0, _CRMR,
   0,
-  [_De, _Or, _RB, _A, _Av, _DN, _DT, _E, _K, _ORF, _Tr, _TM, _TMO],
-  [[() => RouteMatrixDestinationList, 0], [() => RouteMatrixOriginList, 0], [() => RouteMatrixBoundary$, 0], [() => RouteMatrixAllowOptions$, 0], [() => RouteMatrixAvoidanceOptions$, 0], [() => SensitiveBoolean, 0], [() => TimestampWithTimezoneOffset, 0], [() => RouteMatrixExclusionOptions$, 0], [() => ApiKey, { [_hQ]: _k }], 0, [() => RouteMatrixTrafficOptions$, 0], 0, [() => RouteMatrixTravelModeOptions$, 0]], 3
+  [_De, _Or, _A, _Av, _DN, _DT, _E, _K, _ORF, _RB, _Tr, _TM, _TMO],
+  [[() => RouteMatrixDestinationList, 0], [() => RouteMatrixOriginList, 0], [() => RouteMatrixAllowOptions$, 0], [() => RouteMatrixAvoidanceOptions$, 0], [() => SensitiveBoolean, 0], [() => TimestampWithTimezoneOffset, 0], [() => RouteMatrixExclusionOptions$, 0], [() => ApiKey, { [_hQ]: _k }], 0, [() => RouteMatrixBoundary$, 0], [() => RouteMatrixTrafficOptions$, 0], 0, [() => RouteMatrixTravelModeOptions$, 0]], 2
 ];
 export var CalculateRouteMatrixResponse$: StaticStructureSchema = [3, n0, _CRMRa,
   0,
@@ -1319,7 +1317,7 @@ export var RoutePedestrianTravelOnlySummary$: StaticStructureSchema = [3, n0, _R
 export var RoutePedestrianTravelStep$: StaticStructureSchema = [3, n0, _RPTS,
   0,
   [_Du, _Ty, _CSD, _CR, _Di, _EN, _GO, _Ins, _KSD, _NR, _RESDo, _RESDou, _RPSD, _Si, _TSD],
-  [[() => DurationSeconds, 0], [() => RoutePedestrianTravelStepType, 0], [() => RouteContinueStepDetails$, 0], [() => RouteRoad$, 0], [() => DistanceMeters, 0], [() => LocalizedStringList, 0], 1, [() => SensitiveString, 0], [() => RouteKeepStepDetails$, 0], [() => RouteRoad$, 0], [() => RouteRoundaboutEnterStepDetails$, 0], [() => RouteRoundaboutExitStepDetails$, 0], [() => RouteRoundaboutPassStepDetails$, 0], [() => RouteSignpost$, 0], [() => RouteTurnStepDetails$, 0]], 2
+  [[() => DurationSeconds, 0], 0, [() => RouteContinueStepDetails$, 0], [() => RouteRoad$, 0], [() => DistanceMeters, 0], [() => LocalizedStringList, 0], 1, [() => SensitiveString, 0], [() => RouteKeepStepDetails$, 0], [() => RouteRoad$, 0], [() => RouteRoundaboutEnterStepDetails$, 0], [() => RouteRoundaboutExitStepDetails$, 0], [() => RouteRoundaboutPassStepDetails$, 0], [() => RouteSignpost$, 0], [() => RouteTurnStepDetails$, 0]], 2
 ];
 export var RouteRampStepDetails$: StaticStructureSchema = [3, n0, _RRSD,
   0,

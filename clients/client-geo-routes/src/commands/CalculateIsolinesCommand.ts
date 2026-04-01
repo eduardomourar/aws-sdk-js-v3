@@ -27,7 +27,7 @@ export interface CalculateIsolinesCommandInput extends CalculateIsolinesRequest 
 export interface CalculateIsolinesCommandOutput extends CalculateIsolinesResponse, __MetadataBearer {}
 
 /**
- * <p>Use the <code>CalculateIsolines</code> action to find service areas that can be reached in a given threshold of time, distance.</p>
+ * <p>Calculates areas that can be reached within specified time or distance thresholds from a given point. For example, you can use this operation to determine the area within a 30-minute drive of a store location, find neighborhoods within walking distance of a school, or identify delivery zones based on drive time.</p> <p>Isolines (also known as isochrones for time-based calculations) are useful for various applications including:</p> <ul> <li> <p>Service area visualization - Show customers the area you can serve within promised delivery times</p> </li> <li> <p>Site selection - Analyze potential business locations based on population within travel distance</p> </li> <li> <p>Site selection - Determine areas that can be reached within specified response times</p> </li> </ul> <note> <p>Route preferences such as avoiding toll roads or ferries are treated as preferences rather than absolute restrictions. If a viable route cannot be calculated while honoring all preferences, some may be ignored.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-isolines.html">Calculate isolines</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

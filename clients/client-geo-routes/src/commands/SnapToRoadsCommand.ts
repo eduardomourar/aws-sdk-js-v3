@@ -27,7 +27,7 @@ export interface SnapToRoadsCommandInput extends SnapToRoadsRequest {}
 export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __MetadataBearer {}
 
 /**
- * <p> <code>SnapToRoads</code> matches GPS trace to roads most likely traveled on.</p>
+ * <p> <code>SnapToRoads</code> matches GPS trace to roads most likely traveled on.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-roads.html">Snap to Roads</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
