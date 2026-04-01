@@ -76,6 +76,7 @@ import {
   EvaluationResultContent$,
   EvaluationTarget$,
   Event$,
+  EventFilterCondition,
   EventMetadataFilterExpression$,
   ExternalProxy$,
   ExtractionJob$,
@@ -226,6 +227,7 @@ import {
   ServiceException$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SessionFilter$,
   SessionStatus,
   SessionSummary$,
   SpanContext$,
@@ -480,6 +482,7 @@ assert(typeof SaveBrowserSessionProfileRequest$ === "object");
 assert(typeof SaveBrowserSessionProfileResponse$ === "object");
 assert(typeof SearchCriteria$ === "object");
 assert(typeof SecretsManagerLocation$ === "object");
+assert(typeof SessionFilter$ === "object");
 assert(typeof SessionSummary$ === "object");
 assert(typeof SpanContext$ === "object");
 assert(typeof StartBrowserSessionRequest$ === "object");
@@ -510,6 +513,7 @@ assert(typeof BrowserSessionStatus === "object");
 assert(typeof CodeInterpreterSessionStatus === "object");
 assert(typeof CommandExecutionStatus === "object");
 assert(typeof ContentBlockType === "object");
+assert(typeof EventFilterCondition === "object");
 assert(typeof ExtractionJobStatus === "object");
 assert(typeof LanguageRuntime === "object");
 assert(typeof MemoryRecordStatus === "object");

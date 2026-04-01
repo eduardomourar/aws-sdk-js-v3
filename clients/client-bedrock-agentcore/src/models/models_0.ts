@@ -8,6 +8,7 @@ import type {
   CodeInterpreterSessionStatus,
   CommandExecutionStatus,
   ContentBlockType,
+  EventFilterCondition,
   ExtractionJobStatus,
   LanguageRuntime,
   MemoryRecordStatus,
@@ -4287,6 +4288,18 @@ export interface ListMemoryRecordsOutput {
 }
 
 /**
+ * <p>Contains filter criteria for listing sessions.</p>
+ * @public
+ */
+export interface SessionFilter {
+  /**
+   * <p>The event filter condition to apply. Use this to filter sessions based on event presence.</p>
+   * @public
+   */
+  eventFilter?: EventFilterCondition | undefined;
+}
+
+/**
  * @public
  */
 export interface ListSessionsInput {
@@ -4313,6 +4326,12 @@ export interface ListSessionsInput {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>Filter criteria to apply when listing sessions.</p>
+   * @public
+   */
+  filter?: SessionFilter | undefined;
 }
 
 /**

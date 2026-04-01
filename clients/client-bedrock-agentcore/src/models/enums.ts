@@ -253,3 +253,15 @@ export const ExtractionJobStatus = {
  * @public
  */
 export type ExtractionJobStatus = (typeof ExtractionJobStatus)[keyof typeof ExtractionJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventFilterCondition = {
+  HAS_EVENTS: "HAS_EVENTS",
+} as const;
+/**
+ * @public
+ */
+export type EventFilterCondition = (typeof EventFilterCondition)[keyof typeof EventFilterCondition];

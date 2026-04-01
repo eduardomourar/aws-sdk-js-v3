@@ -210,6 +210,7 @@ const _SCISRtop = "StopCodeInterpreterSessionResponse";
 const _SCISt = "StopCodeInterpreterSession";
 const _SCp = "SpanContext";
 const _SE = "ServiceException";
+const _SF = "SessionFilter";
 const _SL = "S3Location";
 const _SMEJ = "StartMemoryExtractionJob";
 const _SMEJI = "StartMemoryExtractionJobInput";
@@ -293,6 +294,7 @@ const _e = "error";
 const _eA = "evaluatorArn";
 const _eC = "exitCode";
 const _eCr = "errorCode";
+const _eF = "eventFilter";
 const _eI = "eventId";
 const _eIv = "evaluatorId";
 const _eIva = "evaluationInput";
@@ -1026,8 +1028,8 @@ export var ListMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _LMRO,
 ];
 export var ListSessionsInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
-  [_mI, _aI, _mRa, _nT],
-  [[0, 1], [0, 1], 1, 0], 2
+  [_mI, _aI, _mRa, _nT, _f],
+  [[0, 1], [0, 1], 1, 0, () => SessionFilter$], 2
 ];
 export var ListSessionsOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
@@ -1133,6 +1135,11 @@ export var SecretsManagerLocation$: StaticStructureSchema = [3, n0, _SML,
   0,
   [_sA],
   [0], 1
+];
+export var SessionFilter$: StaticStructureSchema = [3, n0, _SF,
+  0,
+  [_eF],
+  [0]
 ];
 export var SessionSummary$: StaticStructureSchema = [3, n0, _SSe,
   0,

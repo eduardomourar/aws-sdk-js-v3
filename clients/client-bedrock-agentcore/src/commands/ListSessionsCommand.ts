@@ -45,6 +45,9 @@ export interface ListSessionsCommandOutput extends ListSessionsOutput, __Metadat
  *   actorId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   filter: { // SessionFilter
+ *     eventFilter: "HAS_EVENTS",
+ *   },
  * };
  * const command = new ListSessionsCommand(input);
  * const response = await client.send(command);
