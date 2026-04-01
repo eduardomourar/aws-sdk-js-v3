@@ -204,6 +204,7 @@ import {
   DeleteWorkloadIdentityResponse$,
   EncryptionFailure,
   EncryptionFailure$,
+  EndpointIpAddressType,
   EpisodicConsolidationOverride$,
   EpisodicExtractionOverride$,
   EpisodicMemoryStrategyInput$,
@@ -315,6 +316,7 @@ import {
   GithubOauth2ProviderConfigOutput$,
   GoogleOauth2ProviderConfigInput$,
   GoogleOauth2ProviderConfigOutput$,
+  IamCredentialProvider$,
   InboundTokenClaimValueType,
   IncludedOauth2ProviderConfigInput$,
   IncludedOauth2ProviderConfigOutput$,
@@ -410,6 +412,8 @@ import {
   ListWorkloadIdentitiesRequest$,
   ListWorkloadIdentitiesResponse$,
   LlmAsAJudgeEvaluatorConfig$,
+  ManagedLatticeResource$,
+  ManagedResourceDetails$,
   MCPGatewayConfiguration$,
   McpLambdaTargetConfiguration$,
   McpServerTargetConfiguration$,
@@ -478,6 +482,7 @@ import {
   PolicyGenerationStatus,
   PolicyStatus,
   PolicyValidationMode,
+  PrivateEndpoint$,
   ProtocolConfiguration$,
   PutResourcePolicy$,
   PutResourcePolicyCommand,
@@ -509,6 +514,7 @@ import {
   SecretsManagerLocation$,
   SelfManagedConfiguration$,
   SelfManagedConfigurationInput$,
+  SelfManagedLatticeResource$,
   SemanticConsolidationOverride$,
   SemanticExtractionOverride$,
   SemanticMemoryStrategyInput$,
@@ -1000,6 +1006,7 @@ assert(typeof GithubOauth2ProviderConfigInput$ === "object");
 assert(typeof GithubOauth2ProviderConfigOutput$ === "object");
 assert(typeof GoogleOauth2ProviderConfigInput$ === "object");
 assert(typeof GoogleOauth2ProviderConfigOutput$ === "object");
+assert(typeof IamCredentialProvider$ === "object");
 assert(typeof IncludedOauth2ProviderConfigInput$ === "object");
 assert(typeof IncludedOauth2ProviderConfigOutput$ === "object");
 assert(typeof InferenceConfiguration$ === "object");
@@ -1053,6 +1060,8 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListWorkloadIdentitiesRequest$ === "object");
 assert(typeof ListWorkloadIdentitiesResponse$ === "object");
 assert(typeof LlmAsAJudgeEvaluatorConfig$ === "object");
+assert(typeof ManagedLatticeResource$ === "object");
+assert(typeof ManagedResourceDetails$ === "object");
 assert(typeof MCPGatewayConfiguration$ === "object");
 assert(typeof McpLambdaTargetConfiguration$ === "object");
 assert(typeof McpServerTargetConfiguration$ === "object");
@@ -1090,6 +1099,7 @@ assert(typeof PolicyEngine$ === "object");
 assert(typeof PolicyGeneration$ === "object");
 assert(typeof PolicyGenerationAsset$ === "object");
 assert(typeof PolicyGenerationDetails$ === "object");
+assert(typeof PrivateEndpoint$ === "object");
 assert(typeof ProtocolConfiguration$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
@@ -1111,6 +1121,7 @@ assert(typeof Secret$ === "object");
 assert(typeof SecretsManagerLocation$ === "object");
 assert(typeof SelfManagedConfiguration$ === "object");
 assert(typeof SelfManagedConfigurationInput$ === "object");
+assert(typeof SelfManagedLatticeResource$ === "object");
 assert(typeof SemanticConsolidationOverride$ === "object");
 assert(typeof SemanticExtractionOverride$ === "object");
 assert(typeof SemanticMemoryStrategyInput$ === "object");
@@ -1200,6 +1211,7 @@ assert(typeof ContentLevel === "object");
 assert(typeof ContentType === "object");
 assert(typeof CredentialProviderType === "object");
 assert(typeof CredentialProviderVendorType === "object");
+assert(typeof EndpointIpAddressType === "object");
 assert(typeof EvaluatorLevel === "object");
 assert(typeof EvaluatorStatus === "object");
 assert(typeof EvaluatorType === "object");

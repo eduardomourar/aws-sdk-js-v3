@@ -18,6 +18,7 @@ import type {
   ContentType,
   CredentialProviderType,
   CredentialProviderVendorType,
+  EndpointIpAddressType,
   EvaluatorLevel,
   EvaluatorStatus,
   EvaluatorType,
@@ -4393,6 +4394,24 @@ export interface GatewayApiKeyCredentialProvider {
 }
 
 /**
+ * <p>An IAM credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using IAM credentials and SigV4 signing.</p>
+ * @public
+ */
+export interface IamCredentialProvider {
+  /**
+   * <p>The target Amazon Web Services service name used for SigV4 signing. This value identifies the service that the gateway authenticates with when making requests to the target endpoint.</p>
+   * @public
+   */
+  service: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region used for SigV4 signing. If not specified, defaults to the gateway's Region.</p>
+   * @public
+   */
+  region?: string | undefined;
+}
+
+/**
  * <p>An OAuth credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using OAuth.</p>
  * @public
  */
@@ -4434,6 +4453,7 @@ export interface OAuthCredentialProvider {
  */
 export type CredentialProvider =
   | CredentialProvider.ApiKeyCredentialProviderMember
+  | CredentialProvider.IamCredentialProviderMember
   | CredentialProvider.OauthCredentialProviderMember
   | CredentialProvider.$UnknownMember;
 
@@ -4448,6 +4468,7 @@ export namespace CredentialProvider {
   export interface OauthCredentialProviderMember {
     oauthCredentialProvider: OAuthCredentialProvider;
     apiKeyCredentialProvider?: never;
+    iamCredentialProvider?: never;
     $unknown?: never;
   }
 
@@ -4458,6 +4479,18 @@ export namespace CredentialProvider {
   export interface ApiKeyCredentialProviderMember {
     oauthCredentialProvider?: never;
     apiKeyCredentialProvider: GatewayApiKeyCredentialProvider;
+    iamCredentialProvider?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The IAM credential provider. This provider uses IAM authentication with SigV4 signing to access the target endpoint.</p>
+   * @public
+   */
+  export interface IamCredentialProviderMember {
+    oauthCredentialProvider?: never;
+    apiKeyCredentialProvider?: never;
+    iamCredentialProvider: IamCredentialProvider;
     $unknown?: never;
   }
 
@@ -4467,6 +4500,7 @@ export namespace CredentialProvider {
   export interface $UnknownMember {
     oauthCredentialProvider?: never;
     apiKeyCredentialProvider?: never;
+    iamCredentialProvider?: never;
     $unknown: [string, any];
   }
 
@@ -4477,6 +4511,7 @@ export namespace CredentialProvider {
   export interface Visitor<T> {
     oauthCredentialProvider: (value: OAuthCredentialProvider) => T;
     apiKeyCredentialProvider: (value: GatewayApiKeyCredentialProvider) => T;
+    iamCredentialProvider: (value: IamCredentialProvider) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4521,6 +4556,140 @@ export interface MetadataConfiguration {
    * @public
    */
   allowedResponseHeaders?: string[] | undefined;
+}
+
+/**
+ * <p>Configuration for a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role.</p>
+ * @public
+ */
+export interface ManagedLatticeResource {
+  /**
+   * <p>The ID of the VPC that contains your private resource.</p>
+   * @public
+   */
+  vpcIdentifier: string | undefined;
+
+  /**
+   * <p>The subnet IDs within the VPC where the VPC Lattice resource gateway is placed.</p>
+   * @public
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The IP address type for the resource configuration endpoint.</p>
+   * @public
+   */
+  endpointIpAddressType: EndpointIpAddressType | undefined;
+
+  /**
+   * <p>The security group IDs to associate with the VPC Lattice resource gateway. If not specified, the default security group for the VPC is used.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Tags to apply to the managed VPC Lattice resource gateway.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint. Required when your private endpoint uses a domain that is not publicly resolvable.</p>
+   * @public
+   */
+  routingDomain?: string | undefined;
+}
+
+/**
+ * <p>Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.</p>
+ * @public
+ */
+export type SelfManagedLatticeResource =
+  | SelfManagedLatticeResource.ResourceConfigurationIdentifierMember
+  | SelfManagedLatticeResource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SelfManagedLatticeResource {
+  /**
+   * <p>The ARN or ID of the VPC Lattice resource configuration.</p>
+   * @public
+   */
+  export interface ResourceConfigurationIdentifierMember {
+    resourceConfigurationIdentifier: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    resourceConfigurationIdentifier?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    resourceConfigurationIdentifier: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.</p>
+ * @public
+ */
+export type PrivateEndpoint =
+  | PrivateEndpoint.ManagedLatticeResourceMember
+  | PrivateEndpoint.SelfManagedLatticeResourceMember
+  | PrivateEndpoint.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivateEndpoint {
+  /**
+   * <p>Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.</p>
+   * @public
+   */
+  export interface SelfManagedLatticeResourceMember {
+    selfManagedLatticeResource: SelfManagedLatticeResource;
+    managedLatticeResource?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for connecting to a private resource using a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resources on your behalf.</p>
+   * @public
+   */
+  export interface ManagedLatticeResourceMember {
+    selfManagedLatticeResource?: never;
+    managedLatticeResource: ManagedLatticeResource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    selfManagedLatticeResource?: never;
+    managedLatticeResource?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    selfManagedLatticeResource: (value: SelfManagedLatticeResource) => T;
+    managedLatticeResource: (value: ManagedLatticeResource) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -4694,6 +4863,30 @@ export namespace ApiSchemaConfiguration {
     inlinePayload: (value: string) => T;
     _: (name: string, value: any) => T;
   }
+}
+
+/**
+ * <p>Details of a resource created and managed by the gateway for private endpoint connectivity.</p>
+ * @public
+ */
+export interface ManagedResourceDetails {
+  /**
+   * <p>The domain associated with this managed resource.</p>
+   * @public
+   */
+  domain?: string | undefined;
+
+  /**
+   * <p>The ARN of the VPC Lattice resource gateway created in your account.</p>
+   * @public
+   */
+  resourceGatewayArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the service network resource association.</p>
+   * @public
+   */
+  resourceAssociationArn?: string | undefined;
 }
 
 /**
@@ -9393,168 +9586,4 @@ export interface DeletePolicyEngineResponse {
    * @public
    */
   encryptionKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyEngineRequest {
-  /**
-   * <p>The unique identifier of the policy engine to be retrieved. This must be a valid policy engine ID that exists within the account.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyEngineResponse {
-  /**
-   * <p>The unique identifier of the retrieved policy engine. This matches the policy engine ID provided in the request and serves as the system identifier.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the policy engine. This is the human-readable identifier that was specified when the policy engine was created.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The human-readable description of the policy engine's purpose and scope. This helps administrators understand the policy engine's role in governance.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy engine.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyEnginesRequest {
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policy engines to return in a single response. If not specified, the default is 10 policy engines per page, with a maximum of 100 per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Represents a policy engine resource within the AgentCore Policy system. Policy engines serve as containers for grouping related policies and provide the execution context for policy evaluation and management. Each policy engine can be associated with one Gateway (one engine per Gateway), where it intercepts all agent tool calls and evaluates them against the contained policies before allowing tools to execute. The policy engine maintains the Cedar schema generated from the Gateway's tool manifest, ensuring that policies are validated against the actual tools and parameters available. Policy engines support two enforcement modes that can be configured when associating with a Gateway: log-only mode for testing (evaluates decisions without blocking) and enforce mode for production (actively allows or denies based on policy evaluation).</p>
- * @public
- */
-export interface PolicyEngine {
-  /**
-   * <p>The unique identifier for the policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy engine operations.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned immutable name for the policy engine. This human-readable identifier must be unique within the account and cannot exceed 48 characters.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A human-readable description of the policy engine's purpose and scope. Limited to 4,096 characters, this helps administrators understand the policy engine's role in the overall governance strategy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was originally created. This is automatically set by the service and used for auditing and lifecycle management.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration or metadata.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy engine.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine lifecycle.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyEnginesResponse {
-  /**
-   * <p>An array of policy engine objects that exist in the account. Each policy engine object contains the engine metadata, status, and key identifiers for further operations.</p>
-   * @public
-   */
-  policyEngines: PolicyEngine[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> calls to retrieve additional results. This token is only present when there are more results available. </p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

@@ -13,10 +13,176 @@ import type {
   ApiSchemaConfiguration,
   CredentialProviderConfiguration,
   KmsConfiguration,
+  ManagedResourceDetails,
   McpServerTargetConfiguration,
   MetadataConfiguration,
+  PrivateEndpoint,
   S3Configuration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetPolicyEngineRequest {
+  /**
+   * <p>The unique identifier of the policy engine to be retrieved. This must be a valid policy engine ID that exists within the account.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyEngineResponse {
+  /**
+   * <p>The unique identifier of the retrieved policy engine. This matches the policy engine ID provided in the request and serves as the system identifier.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the policy engine. This is the human-readable identifier that was specified when the policy engine was created.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The human-readable description of the policy engine's purpose and scope. This helps administrators understand the policy engine's role in governance.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEnginesRequest {
+  /**
+   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of policy engines to return in a single response. If not specified, the default is 10 policy engines per page, with a maximum of 100 per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Represents a policy engine resource within the AgentCore Policy system. Policy engines serve as containers for grouping related policies and provide the execution context for policy evaluation and management. Each policy engine can be associated with one Gateway (one engine per Gateway), where it intercepts all agent tool calls and evaluates them against the contained policies before allowing tools to execute. The policy engine maintains the Cedar schema generated from the Gateway's tool manifest, ensuring that policies are validated against the actual tools and parameters available. Policy engines support two enforcement modes that can be configured when associating with a Gateway: log-only mode for testing (evaluates decisions without blocking) and enforce mode for production (actively allows or denies based on policy evaluation).</p>
+ * @public
+ */
+export interface PolicyEngine {
+  /**
+   * <p>The unique identifier for the policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy engine operations.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned immutable name for the policy engine. This human-readable identifier must be unique within the account and cannot exceed 48 characters.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A human-readable description of the policy engine's purpose and scope. Limited to 4,096 characters, this helps administrators understand the policy engine's role in the overall governance strategy.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was originally created. This is automatically set by the service and used for auditing and lifecycle management.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration or metadata.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine lifecycle.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEnginesResponse {
+  /**
+   * <p>An array of policy engine objects that exist in the account. Each policy engine object contains the engine metadata, status, and key identifiers for further operations.</p>
+   * @public
+   */
+  policyEngines: PolicyEngine[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> calls to retrieve additional results. This token is only present when there are more results available. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * Wrapper for updating an optional Description field with PATCH semantics.
@@ -1786,6 +1952,12 @@ export interface CreateGatewayTargetRequest {
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
+
+  /**
+   * <p>The private endpoint configuration for the gateway target. Use this to connect the gateway to private resources in your VPC.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
 }
 
 /**
@@ -1863,6 +2035,18 @@ export interface CreateGatewayTargetResponse {
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
+
+  /**
+   * <p>The private endpoint configuration for the gateway target.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>The managed resources created by the gateway for private endpoint connectivity.</p>
+   * @public
+   */
+  privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 }
 
 /**
@@ -1941,6 +2125,18 @@ export interface GatewayTarget {
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
+
+  /**
+   * <p>The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>A list of managed resources created by the gateway for private endpoint connectivity. These resources are created in your account when you use a managed VPC Lattice resource configuration.</p>
+   * @public
+   */
+  privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 }
 
 /**
@@ -2018,6 +2214,18 @@ export interface GetGatewayTargetResponse {
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
+
+  /**
+   * <p>The private endpoint configuration for the gateway target.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>The managed resources created by the gateway for private endpoint connectivity.</p>
+   * @public
+   */
+  privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 }
 
 /**
@@ -2065,6 +2273,12 @@ export interface UpdateGatewayTargetRequest {
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
+
+  /**
+   * <p>The private endpoint configuration for the gateway target. Use this to connect the gateway to private resources in your VPC.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
 }
 
 /**
@@ -2142,6 +2356,18 @@ export interface UpdateGatewayTargetResponse {
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
+
+  /**
+   * <p>The private endpoint configuration for the gateway target.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>The managed resources created by the gateway for private endpoint connectivity.</p>
+   * @public
+   */
+  privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 }
 
 /**

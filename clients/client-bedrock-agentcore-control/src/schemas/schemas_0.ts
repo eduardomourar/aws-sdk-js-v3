@@ -266,6 +266,7 @@ const _GWIR = "GetWorkloadIdentityRequest";
 const _GWIRe = "GetWorkloadIdentityResponse";
 const _IC = "InferenceConfiguration";
 const _ICI = "InvocationConfigurationInput";
+const _ICP = "IamCredentialProvider";
 const _ICn = "InvocationConfiguration";
 const _ICnt = "InterceptorConfiguration";
 const _IIC = "InterceptorInputConfiguration";
@@ -346,6 +347,7 @@ const _MCC = "ModifyConsolidationConfiguration";
 const _MCPGC = "MCPGatewayConfiguration";
 const _MEC = "ModifyExtractionConfiguration";
 const _MICI = "ModifyInvocationConfigurationInput";
+const _MLR = "ManagedLatticeResource";
 const _MLTC = "McpLambdaTargetConfiguration";
 const _MMS = "ModifyMemoryStrategies";
 const _MMSI = "ModifyMemoryStrategyInput";
@@ -353,6 +355,7 @@ const _MMSL = "ModifyMemoryStrategiesList";
 const _MOPCI = "MicrosoftOauth2ProviderConfigInput";
 const _MOPCO = "MicrosoftOauth2ProviderConfigOutput";
 const _MRC = "ModifyReflectionConfiguration";
+const _MRD = "ManagedResourceDetails";
 const _MS = "MemoryStrategy";
 const _MSC = "ModifyStrategyConfiguration";
 const _MSI = "MemoryStrategyInput";
@@ -382,7 +385,9 @@ const _P = "Prompt";
 const _PC = "ProtocolConfiguration";
 const _PD = "PolicyDefinition";
 const _PE = "PolicyEngine";
+const _PEMR = "PrivateEndpointManagedResources";
 const _PEo = "PolicyEngines";
+const _PEr = "PrivateEndpoint";
 const _PG = "PolicyGeneration";
 const _PGA = "PolicyGenerationAsset";
 const _PGAo = "PolicyGenerationAssets";
@@ -423,6 +428,7 @@ const _SL = "S3Location";
 const _SMC = "SelfManagedConfiguration";
 const _SMCI = "SelfManagedConfigurationInput";
 const _SML = "SecretsManagerLocation";
+const _SMLR = "SelfManagedLatticeResource";
 const _SMSI = "SemanticMemoryStrategyInput";
 const _SMSIu = "SummaryMemoryStrategyInput";
 const _SOCCI = "SemanticOverrideConsolidationConfigurationInput";
@@ -607,6 +613,7 @@ const _dSC = "dataSourceConfig";
 const _dU = "discoveryUrl";
 const _dV = "doubleValue";
 const _de = "definition";
+const _do = "domain";
 const _e = "error";
 const _eA = "evaluatorArn";
 const _eC = "evaluatorConfig";
@@ -615,6 +622,7 @@ const _eED = "eventExpiryDuration";
 const _eEO = "episodicExtractionOverride";
 const _eERA = "evaluationExecutionRoleArn";
 const _eI = "evaluatorId";
+const _eIAT = "endpointIpAddressType";
 const _eKA = "encryptionKeyArn";
 const _eL = "exceptionLevel";
 const _eMS = "episodicMemoryStrategy";
@@ -653,6 +661,7 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "id";
 const _iC = "inferenceConfig";
+const _iCP = "iamCredentialProvider";
 const _iCn = "interceptorConfigurations";
 const _iCnp = "inputConfiguration";
 const _iCnv = "invocationConfiguration";
@@ -704,6 +713,7 @@ const _mERA = "memoryExecutionRoleArn";
 const _mI = "modelId";
 const _mIe = "memoryId";
 const _mL = "maxLifetime";
+const _mLR = "managedLatticeResource";
 const _mMS = "modifyMemoryStrategies";
 const _mOPC = "microsoftOauth2ProviderConfig";
 const _mP = "mountPath";
@@ -747,10 +757,12 @@ const _pAo = "policyArn";
 const _pAr = "providerArn";
 const _pC = "protocolConfiguration";
 const _pDBN = "payloadDeliveryBucketName";
-const _pE = "policyEngines";
+const _pE = "privateEndpoint";
 const _pEA = "policyEngineArn";
 const _pEC = "policyEngineConfiguration";
 const _pEI = "policyEngineId";
+const _pEMR = "privateEndpointManagedResources";
+const _pEo = "policyEngines";
 const _pG = "policyGenerations";
 const _pGA = "policyGenerationArn";
 const _pGAI = "policyGenerationAssetId";
@@ -768,10 +780,14 @@ const _pr = "prefix";
 const _pro = "properties";
 const _r = "reason";
 const _rA = "roleArn";
+const _rAA = "resourceAssociationArn";
 const _rAI = "restApiId";
 const _rAe = "resourceArn";
 const _rC = "reflectionConfiguration";
+const _rCI = "resourceConfigurationIdentifier";
+const _rD = "routingDomain";
 const _rE = "runtimeEndpoints";
+const _rGA = "resourceGatewayArn";
 const _rHA = "requestHeaderAllowlist";
 const _rHC = "requestHeaderConfiguration";
 const _rMMDSV = "requireMMDSV2";
@@ -781,6 +797,7 @@ const _rTF = "rawTextFragment";
 const _rTa = "rawText";
 const _re = "recording";
 const _ref = "reflection";
+const _reg = "region";
 const _req = "required";
 const _res = "resource";
 const _reso = "resources";
@@ -795,10 +812,13 @@ const _sCe = "sessionConfig";
 const _sDR = "streamDeliveryResources";
 const _sEO = "semanticExtractionOverride";
 const _sG = "securityGroups";
-const _sI = "strategyId";
+const _sGI = "securityGroupIds";
+const _sI = "subnetIds";
+const _sIt = "strategyId";
 const _sL = "s3Location";
 const _sM = "secretsManager";
 const _sMC = "selfManagedConfiguration";
+const _sMLR = "selfManagedLatticeResource";
 const _sMS = "semanticMemoryStrategy";
 const _sMSu = "summaryMemoryStrategy";
 const _sMm = "smithyModel";
@@ -819,6 +839,7 @@ const _sVt = "stringValue";
 const _s_ = "s3";
 const _sc = "scopes";
 const _se = "server";
+const _ser = "service";
 const _st = "status";
 const _sta = "stage";
 const _stat = "statement";
@@ -855,7 +876,8 @@ const _uPMS = "userPreferenceMemoryStrategy";
 const _uPO = "userPreferenceOverride";
 const _v = "value";
 const _vC = "vpcConfig";
-const _vI = "versionId";
+const _vI = "vpcIdentifier";
+const _vIe = "versionId";
 const _vM = "validationMode";
 const _ve = "version";
 const _vi = "view";
@@ -1223,13 +1245,13 @@ export var CreateGatewayResponse$: StaticStructureSchema = [3, n0, _CGRr,
 ];
 export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
   0,
-  [_gIa, _n, _tC, _d, _cTl, _cPC, _mC],
-  [[0, 1], [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => TargetDescription, 0], [0, 4], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$], 3
+  [_gIa, _n, _tC, _d, _cTl, _cPC, _mC, _pE],
+  [[0, 1], [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => TargetDescription, 0], [0, 4], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 3
 ];
 export var CreateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _CGTRr,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources], 8
 ];
 export var CreateMemoryInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
@@ -1573,8 +1595,8 @@ export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
 ];
 export var GatewayTarget$: StaticStructureSchema = [3, n0, _GT,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources], 8
 ];
 export var GetAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _GARER,
   0,
@@ -1663,8 +1685,8 @@ export var GetGatewayTargetRequest$: StaticStructureSchema = [3, n0, _GGTR,
 ];
 export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources], 8
 ];
 export var GetMemoryInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
@@ -1775,6 +1797,11 @@ export var GoogleOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _G
   0,
   [_oD, _cI],
   [() => Oauth2Discovery$, 0], 1
+];
+export var IamCredentialProvider$: StaticStructureSchema = [3, n0, _ICP,
+  0,
+  [_ser, _reg],
+  [0, 0], 1
 ];
 export var IncludedOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _IOPCI,
   0,
@@ -1988,7 +2015,7 @@ export var ListPolicyEnginesRequest$: StaticStructureSchema = [3, n0, _LPER,
 ];
 export var ListPolicyEnginesResponse$: StaticStructureSchema = [3, n0, _LPERi,
   0,
-  [_pE, _nTe],
+  [_pEo, _nTe],
   [[() => PolicyEngines, 0], 0], 1
 ];
 export var ListPolicyGenerationAssetsRequest$: StaticStructureSchema = [3, n0, _LPGAR,
@@ -2036,6 +2063,16 @@ export var LlmAsAJudgeEvaluatorConfig$: StaticStructureSchema = [3, n0, _LAAJEC,
   [_ins, _rS, _mCo],
   [[() => EvaluatorInstructions, 0], () => RatingScale$, () => EvaluatorModelConfig$], 3
 ];
+export var ManagedLatticeResource$: StaticStructureSchema = [3, n0, _MLR,
+  0,
+  [_vI, _sI, _eIAT, _sGI, _ta, _rD],
+  [0, 64 | 0, 0, 64 | 0, 128 | 0, 0], 3
+];
+export var ManagedResourceDetails$: StaticStructureSchema = [3, n0, _MRD,
+  0,
+  [_do, _rGA, _rAA],
+  [0, 0, 0]
+];
 export var MCPGatewayConfiguration$: StaticStructureSchema = [3, n0, _MCPGC,
   0,
   [_sV, _ins, _sT],
@@ -2058,7 +2095,7 @@ export var Memory$: StaticStructureSchema = [3, n0, _M,
 ];
 export var MemoryStrategy$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_sI, _n, _t, _na, _nT, _d, _con, _cA, _uA, _st],
+  [_sIt, _n, _t, _na, _nT, _d, _con, _cA, _uA, _st],
   [0, 0, 0, 64 | 0, 64 | 0, [() => Description, 0], [() => StrategyConfiguration$, 0], 4, 4, 0], 5
 ];
 export var MemorySummary$: StaticStructureSchema = [3, n0, _MSe,
@@ -2213,7 +2250,7 @@ export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
-  [_b, _pr, _vI],
+  [_b, _pr, _vIe],
   [0, 0, 0], 2
 ];
 export var SalesforceOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _SOPCI,
@@ -2473,13 +2510,13 @@ export var UpdateGatewayResponse$: StaticStructureSchema = [3, n0, _UGRp,
 ];
 export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
   0,
-  [_gIa, _tI, _n, _tC, _d, _cPC, _mC],
-  [[0, 1], [0, 1], [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => TargetDescription, 0], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$], 4
+  [_gIa, _tI, _n, _tC, _d, _cPC, _mC, _pE],
+  [[0, 1], [0, 1], [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => TargetDescription, 0], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 4
 ];
 export var UpdateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _UGTRp,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources], 8
 ];
 export var UpdateMemoryInput$: StaticStructureSchema = [3, n0, _UMI,
   0,
@@ -2723,17 +2760,22 @@ var PolicyGenerations: StaticListSchema = [1, n0, _PGo,
   0, () => PolicyGeneration$
 ];
 var PolicyStatusReasons = 64 | 0;
+var PrivateEndpointManagedResources: StaticListSchema = [1, n0, _PEMR,
+  0, () => ManagedResourceDetails$
+];
 var RequestHeaderAllowlist = 64 | 0;
 var RequiredProperties = 64 | 0;
 var ResourceOauth2ReturnUrlListType = 64 | 0;
 var ResponseListType = 64 | 0;
 var RestApiMethods = 64 | 0;
+var SecurityGroupIds = 64 | 0;
 var SecurityGroups = 64 | 0;
 var ServiceNamesList = 64 | 0;
 var StatusReasons = 64 | 0;
 var StreamDeliveryResourcesList: StaticListSchema = [1, n0, _SDRL,
   0, () => StreamDeliveryResource$
 ];
+var SubnetIds = 64 | 0;
 var Subnets = 64 | 0;
 var TagKeyList = 64 | 0;
 var TargetIdList = 64 | 0;
@@ -2817,8 +2859,8 @@ export var Content$: StaticUnionSchema = [4, n0, _Con,
 ];
 export var CredentialProvider$: StaticUnionSchema = [4, n0, _CPr,
   0,
-  [_oCP, _aKCP],
-  [[() => OAuthCredentialProvider$, 0], () => GatewayApiKeyCredentialProvider$]
+  [_oCP, _aKCP, _iCP],
+  [[() => OAuthCredentialProvider$, 0], () => GatewayApiKeyCredentialProvider$, () => IamCredentialProvider$]
 ];
 export var CustomConfigurationInput$: StaticUnionSchema = [4, n0, _CCI,
   0,
@@ -2945,6 +2987,11 @@ export var PolicyDefinition$: StaticUnionSchema = [4, n0, _PD,
   [_ced, _pGo],
   [() => CedarPolicy$, () => PolicyGenerationDetails$]
 ];
+export var PrivateEndpoint$: StaticUnionSchema = [4, n0, _PEr,
+  0,
+  [_sMLR, _mLR],
+  [() => SelfManagedLatticeResource$, () => ManagedLatticeResource$]
+];
 export var RatingScale$: StaticUnionSchema = [4, n0, _RS,
   0,
   [_nu, _ca],
@@ -2969,6 +3016,11 @@ export var ResourceLocation$: StaticUnionSchema = [4, n0, _RL,
   0,
   [_s_],
   [() => S3Location$]
+];
+export var SelfManagedLatticeResource$: StaticUnionSchema = [4, n0, _SMLR,
+  0,
+  [_rCI],
+  [0]
 ];
 export var StreamDeliveryResource$: StaticUnionSchema = [4, n0, _SDRt,
   0,

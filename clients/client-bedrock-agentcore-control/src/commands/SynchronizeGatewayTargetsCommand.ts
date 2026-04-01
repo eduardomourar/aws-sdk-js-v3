@@ -163,6 +163,10 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //               credentialPrefix: "STRING_VALUE",
  * //               credentialLocation: "HEADER" || "QUERY_PARAMETER",
  * //             },
+ * //             iamCredentialProvider: { // IamCredentialProvider
+ * //               service: "STRING_VALUE", // required
+ * //               region: "STRING_VALUE",
+ * //             },
  * //           },
  * //         },
  * //       ],
@@ -178,6 +182,32 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       privateEndpoint: { // PrivateEndpoint Union: only one key present
+ * //         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
+ * //           resourceConfigurationIdentifier: "STRING_VALUE",
+ * //         },
+ * //         managedLatticeResource: { // ManagedLatticeResource
+ * //           vpcIdentifier: "STRING_VALUE", // required
+ * //           subnetIds: [ // SubnetIds // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //           securityGroupIds: [ // SecurityGroupIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           tags: { // TagsMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           routingDomain: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       privateEndpointManagedResources: [ // PrivateEndpointManagedResources
+ * //         { // ManagedResourceDetails
+ * //           domain: "STRING_VALUE",
+ * //           resourceGatewayArn: "STRING_VALUE",
+ * //           resourceAssociationArn: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };
