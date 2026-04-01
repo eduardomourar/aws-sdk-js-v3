@@ -77,6 +77,10 @@ export interface GetModelInvocationJobCommandOutput extends GetModelInvocationJo
  * //   timeoutDurationInHours: Number("int"),
  * //   jobExpirationTime: new Date("TIMESTAMP"),
  * //   modelInvocationType: "InvokeModel" || "Converse",
+ * //   totalRecordCount: Number("long"),
+ * //   processedRecordCount: Number("long"),
+ * //   successRecordCount: Number("long"),
+ * //   errorRecordCount: Number("long"),
  * // };
  *
  * ```

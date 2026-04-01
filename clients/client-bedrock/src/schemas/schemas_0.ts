@@ -849,6 +849,7 @@ const _eMx = "excludedModels";
 const _eN = "endpointName";
 const _eOLT = "endOfLifeTime";
 const _eR = "expectedResult";
+const _eRC = "errorRecordCount";
 const _eRx = "executionRole";
 const _eS = "endpointStatus";
 const _eSC = "externalSourcesConfiguration";
@@ -1086,6 +1087,7 @@ const _pN = "pageNumber";
 const _pNr = "providerName";
 const _pRA = "promptRouterArn";
 const _pRAo = "policyRepairAssets";
+const _pRC = "processedRecordCount";
 const _pRN = "promptRouterName";
 const _pRS = "promptRouterSummaries";
 const _pRSC = "precomputedRagSourceConfig";
@@ -1165,6 +1167,7 @@ const _sO = "sortOrder";
 const _sODC = "s3OutputDataConfig";
 const _sOLT = "startOfLifeTime";
 const _sR = "supportingRules";
+const _sRC = "successRecordCount";
 const _sRt = "statusReasons";
 const _sS = "stopSequences";
 const _sT = "sourceType";
@@ -1216,6 +1219,7 @@ const _tPC = "topicPolicyConfig";
 const _tPT = "textPromptTemplate";
 const _tPo = "topP";
 const _tR = "testResult";
+const _tRC = "totalRecordCount";
 const _tRR = "testRunResult";
 const _tRS = "testRunStatus";
 const _tRe = "testResults";
@@ -2553,8 +2557,8 @@ export var GetModelInvocationJobRequest$: StaticStructureSchema = [3, n0, _GMIJR
 ];
 export var GetModelInvocationJobResponse$: StaticStructureSchema = [3, n0, _GMIJReto,
   0,
-  [_jA, _mIo, _rA, _sTu, _iDC, _oDC, _jN, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET, _mIT],
-  [0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5, 0], 6
+  [_jA, _mIo, _rA, _sTu, _iDC, _oDC, _jN, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET, _mIT, _tRC, _pRC, _sRC, _eRC],
+  [0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5, 0, 1, 1, 1, 1], 6
 ];
 export var GetModelInvocationLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GMILCR,
   0,
@@ -3103,8 +3107,8 @@ export var ModelInvocationJobS3OutputDataConfig$: StaticStructureSchema = [3, n0
 ];
 export var ModelInvocationJobSummary$: StaticStructureSchema = [3, n0, _MIJSo,
   0,
-  [_jA, _jN, _mIo, _rA, _sTu, _iDC, _oDC, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET, _mIT],
-  [0, 0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5, 0], 7
+  [_jA, _jN, _mIo, _rA, _sTu, _iDC, _oDC, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET, _mIT, _tRC, _pRC, _sRC, _eRC],
+  [0, 0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5, 0, 1, 1, 1, 1], 7
 ];
 export var Offer$: StaticStructureSchema = [3, n0, _O,
   0,

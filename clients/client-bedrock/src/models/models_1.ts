@@ -2098,6 +2098,30 @@ export interface GetModelInvocationJobResponse {
    * @public
    */
   modelInvocationType?: ModelInvocationType | undefined;
+
+  /**
+   * <p>The total number of records in the batch inference job.</p>
+   * @public
+   */
+  totalRecordCount?: number | undefined;
+
+  /**
+   * <p>The number of records that have been processed in the batch inference job.</p>
+   * @public
+   */
+  processedRecordCount?: number | undefined;
+
+  /**
+   * <p>The number of records that were successfully processed in the batch inference job.</p>
+   * @public
+   */
+  successRecordCount?: number | undefined;
+
+  /**
+   * <p>The number of records that failed to process in the batch inference job.</p>
+   * @public
+   */
+  errorRecordCount?: number | undefined;
 }
 
 /**
@@ -2253,6 +2277,30 @@ export interface ModelInvocationJobSummary {
    * @public
    */
   modelInvocationType?: ModelInvocationType | undefined;
+
+  /**
+   * <p>The total number of records in the batch inference job.</p>
+   * @public
+   */
+  totalRecordCount?: number | undefined;
+
+  /**
+   * <p>The number of records that have been processed in the batch inference job.</p>
+   * @public
+   */
+  processedRecordCount?: number | undefined;
+
+  /**
+   * <p>The number of records that were successfully processed in the batch inference job.</p>
+   * @public
+   */
+  successRecordCount?: number | undefined;
+
+  /**
+   * <p>The number of records that failed to process in the batch inference job.</p>
+   * @public
+   */
+  errorRecordCount?: number | undefined;
 }
 
 /**
