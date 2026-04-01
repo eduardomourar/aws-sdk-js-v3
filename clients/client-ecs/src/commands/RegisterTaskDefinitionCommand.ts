@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse } from "../models/models_0";
+import type { RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse } from "../models/models_1";
 import { RegisterTaskDefinition$ } from "../schemas/schemas_0";
 
 /**
@@ -566,6 +566,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //     },
  * //     registeredAt: new Date("TIMESTAMP"),
  * //     deregisteredAt: new Date("TIMESTAMP"),
+ * //     deleteRequestedAt: new Date("TIMESTAMP"),
  * //     registeredBy: "STRING_VALUE",
  * //     ephemeralStorage: { // EphemeralStorage
  * //       sizeInGiB: Number("int"), // required

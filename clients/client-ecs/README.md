@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ECSClient` and
-the commands you need, for example `ListTasksCommand`:
+the commands you need, for example `ListDaemonsCommand`:
 
 ```js
 // ES5 example
-const { ECSClient, ListTasksCommand } = require("@aws-sdk/client-ecs");
+const { ECSClient, ListDaemonsCommand } = require("@aws-sdk/client-ecs");
 ```
 
 ```ts
 // ES6+ example
-import { ECSClient, ListTasksCommand } from "@aws-sdk/client-ecs";
+import { ECSClient, ListDaemonsCommand } from "@aws-sdk/client-ecs";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new ECSClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListTasksCommand(params);
+const command = new ListDaemonsCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new ECS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listTasks(params);
+  const data = await client.listDaemons(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listTasks(params)
+  .listDaemons(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listTasks(params, (err, data) => {
+client.listDaemons(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -195,6 +195,13 @@ CreateCluster
 </details>
 <details>
 <summary>
+CreateDaemon
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/CreateDaemonCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/CreateDaemonCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/CreateDaemonCommandOutput/)
+</details>
+<details>
+<summary>
 CreateExpressGatewayService
 </summary>
 
@@ -241,6 +248,20 @@ DeleteCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DeleteClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DeleteClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DeleteClusterCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteDaemon
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DeleteDaemonCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DeleteDaemonCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DeleteDaemonCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteDaemonTaskDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DeleteDaemonTaskDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DeleteDaemonTaskDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DeleteDaemonTaskDefinitionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -304,6 +325,34 @@ DescribeContainerInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DescribeContainerInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeContainerInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeContainerInstancesCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeDaemon
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DescribeDaemonCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeDaemonCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeDaemonCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeDaemonDeployments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DescribeDaemonDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeDaemonDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeDaemonDeploymentsCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeDaemonRevisions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DescribeDaemonRevisionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeDaemonRevisionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeDaemonRevisionsCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeDaemonTaskDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DescribeDaemonTaskDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeDaemonTaskDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeDaemonTaskDefinitionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -405,6 +454,27 @@ ListContainerInstances
 </details>
 <details>
 <summary>
+ListDaemonDeployments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/ListDaemonDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListDaemonDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListDaemonDeploymentsCommandOutput/)
+</details>
+<details>
+<summary>
+ListDaemons
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/ListDaemonsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListDaemonsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListDaemonsCommandOutput/)
+</details>
+<details>
+<summary>
+ListDaemonTaskDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/ListDaemonTaskDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListDaemonTaskDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListDaemonTaskDefinitionsCommandOutput/)
+</details>
+<details>
+<summary>
 ListServiceDeployments
 </summary>
 
@@ -486,6 +556,13 @@ RegisterContainerInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/RegisterContainerInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/RegisterContainerInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/RegisterContainerInstanceCommandOutput/)
+</details>
+<details>
+<summary>
+RegisterDaemonTaskDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/RegisterDaemonTaskDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/RegisterDaemonTaskDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/RegisterDaemonTaskDefinitionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -591,6 +668,13 @@ UpdateContainerInstancesState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/UpdateContainerInstancesStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/UpdateContainerInstancesStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/UpdateContainerInstancesStateCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateDaemon
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/UpdateDaemonCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/UpdateDaemonCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/UpdateDaemonCommandOutput/)
 </details>
 <details>
 <summary>

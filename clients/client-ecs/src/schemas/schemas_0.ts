@@ -38,9 +38,12 @@ const _CCTE = "ClusterContainsTasksException";
 const _CCl = "ClusterConfiguration";
 const _CCr = "CreateCluster";
 const _CD = "ContainerDefinition";
+const _CDR = "CreateDaemonRequest";
+const _CDRr = "CreateDaemonResponse";
 const _CDo = "ContainerDependency";
 const _CDon = "ContainerDefinitions";
 const _CDont = "ContainerDependencies";
+const _CDr = "CreateDaemon";
 const _CE = "ClientException";
 const _CEGS = "CreateExpressGatewayService";
 const _CEGSR = "CreateExpressGatewayServiceRequest";
@@ -80,6 +83,7 @@ const _Co = "Container";
 const _Con = "Containers";
 const _D = "Deployment";
 const _DA = "DeploymentAlarms";
+const _DAC = "DaemonAlarmConfiguration";
 const _DAR = "DeleteAttributesRequest";
 const _DARe = "DeleteAttributesResponse";
 const _DAS = "DeleteAccountSetting";
@@ -87,19 +91,26 @@ const _DASR = "DeleteAccountSettingRequest";
 const _DASRe = "DeleteAccountSettingResponse";
 const _DAe = "DeleteAttributes";
 const _DC = "DeploymentConfiguration";
-const _DCB = "DeploymentCircuitBreaker";
-const _DCI = "DeregisterContainerInstance";
+const _DCB = "DaemonCircuitBreaker";
+const _DCBe = "DeploymentCircuitBreaker";
+const _DCD = "DaemonContainerDefinition";
+const _DCDL = "DaemonContainerDefinitionList";
+const _DCI = "DaemonContainerImage";
 const _DCIR = "DeregisterContainerInstanceRequest";
 const _DCIRe = "DeregisterContainerInstanceResponse";
 const _DCIRes = "DescribeContainerInstancesRequest";
 const _DCIResc = "DescribeContainerInstancesResponse";
-const _DCIe = "DescribeContainerInstances";
-const _DCP = "DeleteCapacityProvider";
+const _DCIa = "DaemonContainerImages";
+const _DCIe = "DeregisterContainerInstance";
+const _DCIes = "DescribeContainerInstances";
+const _DCP = "DaemonCapacityProvider";
+const _DCPL = "DaemonCapacityProviderList";
 const _DCPR = "DeleteCapacityProviderRequest";
 const _DCPRe = "DeleteCapacityProviderResponse";
 const _DCPRes = "DescribeCapacityProvidersRequest";
 const _DCPResc = "DescribeCapacityProvidersResponse";
-const _DCPe = "DescribeCapacityProviders";
+const _DCPe = "DeleteCapacityProvider";
+const _DCPes = "DescribeCapacityProviders";
 const _DCR = "DeleteClusterRequest";
 const _DCRe = "DeleteClusterResponse";
 const _DCRes = "DescribeClustersRequest";
@@ -107,6 +118,35 @@ const _DCResc = "DescribeClustersResponse";
 const _DCe = "DeploymentController";
 const _DCel = "DeleteCluster";
 const _DCes = "DescribeClusters";
+const _DD = "DaemonDeployment";
+const _DDA = "DaemonDeploymentAlarms";
+const _DDC = "DaemonDeploymentConfiguration";
+const _DDCP = "DaemonDeploymentCapacityProvider";
+const _DDCPL = "DaemonDeploymentCapacityProviderList";
+const _DDD = "DescribeDaemonDeployments";
+const _DDDR = "DescribeDaemonDeploymentsRequest";
+const _DDDRe = "DescribeDaemonDeploymentsResponse";
+const _DDL = "DaemonDeploymentList";
+const _DDR = "DeleteDaemonRequest";
+const _DDRD = "DaemonDeploymentRevisionDetail";
+const _DDRDL = "DaemonDeploymentRevisionDetailList";
+const _DDRR = "DescribeDaemonRevisionsRequest";
+const _DDRRe = "DescribeDaemonRevisionsResponse";
+const _DDRe = "DeleteDaemonResponse";
+const _DDRes = "DescribeDaemonRequest";
+const _DDResc = "DescribeDaemonResponse";
+const _DDRescr = "DescribeDaemonRevisions";
+const _DDS = "DaemonDeploymentSummary";
+const _DDSL = "DaemonDeploymentSummaryList";
+const _DDTD = "DeleteDaemonTaskDefinition";
+const _DDTDR = "DeleteDaemonTaskDefinitionRequest";
+const _DDTDRe = "DeleteDaemonTaskDefinitionResponse";
+const _DDTDRes = "DescribeDaemonTaskDefinitionRequest";
+const _DDTDResc = "DescribeDaemonTaskDefinitionResponse";
+const _DDTDe = "DescribeDaemonTaskDefinition";
+const _DDa = "DaemonDetail";
+const _DDe = "DeleteDaemon";
+const _DDes = "DescribeDaemon";
 const _DEGS = "DeleteExpressGatewayService";
 const _DEGSR = "DeleteExpressGatewayServiceRequest";
 const _DEGSRe = "DeleteExpressGatewayServiceResponse";
@@ -117,13 +157,22 @@ const _DES = "DeploymentEphemeralStorage";
 const _DL = "DevicesList";
 const _DLH = "DeploymentLifecycleHook";
 const _DLHL = "DeploymentLifecycleHookList";
+const _DLP = "DaemonLinuxParameters";
+const _DNAE = "DaemonNotActiveException";
+const _DNFE = "DaemonNotFoundException";
 const _DPE = "DiscoverPollEndpoint";
 const _DPER = "DiscoverPollEndpointRequest";
 const _DPERi = "DiscoverPollEndpointResponse";
-const _DS = "DeleteService";
+const _DR = "DaemonRevision";
+const _DRD = "DaemonRevisionDetail";
+const _DRDL = "DaemonRevisionDetailList";
+const _DRa = "DaemonRollback";
+const _DRae = "DaemonRevisions";
+const _DS = "DaemonSummary";
 const _DSD = "DescribeServiceDeployments";
 const _DSDR = "DescribeServiceDeploymentsRequest";
 const _DSDRe = "DescribeServiceDeploymentsResponse";
+const _DSL = "DaemonSummariesList";
 const _DSR = "DeleteServiceRequest";
 const _DSRR = "DescribeServiceRevisionsRequest";
 const _DSRRe = "DescribeServiceRevisionsResponse";
@@ -131,16 +180,20 @@ const _DSRe = "DeleteServiceResponse";
 const _DSRes = "DescribeServicesRequest";
 const _DSResc = "DescribeServicesResponse";
 const _DSRescr = "DescribeServiceRevisions";
-const _DSe = "DescribeServices";
+const _DSe = "DeleteService";
+const _DSes = "DescribeServices";
 const _DT = "DescribeTasks";
-const _DTD = "DeleteTaskDefinitions";
+const _DTD = "DaemonTaskDefinition";
 const _DTDR = "DeleteTaskDefinitionsRequest";
 const _DTDRe = "DeleteTaskDefinitionsResponse";
 const _DTDRer = "DeregisterTaskDefinitionRequest";
 const _DTDRere = "DeregisterTaskDefinitionResponse";
 const _DTDRes = "DescribeTaskDefinitionRequest";
 const _DTDResc = "DescribeTaskDefinitionResponse";
-const _DTDe = "DeregisterTaskDefinition";
+const _DTDS = "DaemonTaskDefinitionSummary";
+const _DTDSa = "DaemonTaskDefinitionSummaries";
+const _DTDe = "DeleteTaskDefinitions";
+const _DTDer = "DeregisterTaskDefinition";
 const _DTDes = "DescribeTaskDefinition";
 const _DTR = "DescribeTasksRequest";
 const _DTRe = "DescribeTasksResponse";
@@ -150,7 +203,9 @@ const _DTSRe = "DeleteTaskSetResponse";
 const _DTSRes = "DescribeTaskSetsRequest";
 const _DTSResc = "DescribeTaskSetsResponse";
 const _DTSe = "DescribeTaskSets";
+const _DV = "DaemonVolume";
 const _DVC = "DockerVolumeConfiguration";
+const _DVL = "DaemonVolumeList";
 const _De = "Device";
 const _Dep = "Deployments";
 const _EBSTS = "EBSTagSpecification";
@@ -223,6 +278,15 @@ const _LCR = "ListClustersRequest";
 const _LCRi = "ListClustersResponse";
 const _LCi = "ListClusters";
 const _LCo = "LogConfiguration";
+const _LD = "ListDaemons";
+const _LDD = "ListDaemonDeployments";
+const _LDDR = "ListDaemonDeploymentsRequest";
+const _LDDRi = "ListDaemonDeploymentsResponse";
+const _LDR = "ListDaemonsRequest";
+const _LDRi = "ListDaemonsResponse";
+const _LDTD = "ListDaemonTaskDefinitions";
+const _LDTDR = "ListDaemonTaskDefinitionsRequest";
+const _LDTDRi = "ListDaemonTaskDefinitionsResponse";
 const _LEE = "LimitExceededException";
 const _LP = "LinuxParameters";
 const _LS = "ListServices";
@@ -323,6 +387,9 @@ const _RCI = "RegisterContainerInstance";
 const _RCIR = "RegisterContainerInstanceRequest";
 const _RCIRe = "RegisterContainerInstanceResponse";
 const _RCe = "ResolvedConfiguration";
+const _RDTD = "RegisterDaemonTaskDefinition";
+const _RDTDR = "RegisterDaemonTaskDefinitionRequest";
+const _RDTDRe = "RegisterDaemonTaskDefinitionResponse";
 const _RIUE = "ResourceInUseException";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RuntimePlatform";
@@ -446,6 +513,9 @@ const _UCRp = "UpdateClusterResponse";
 const _UCS = "UpdateClusterSettings";
 const _UCSR = "UpdateClusterSettingsRequest";
 const _UCSRp = "UpdateClusterSettingsResponse";
+const _UD = "UpdateDaemon";
+const _UDR = "UpdateDaemonRequest";
+const _UDRp = "UpdateDaemonResponse";
 const _UEGS = "UpdatedExpressGatewayService";
 const _UEGSR = "UpdateExpressGatewayServiceRequest";
 const _UEGSRp = "UpdateExpressGatewayServiceResponse";
@@ -538,17 +608,18 @@ const _cAo = "containerArn";
 const _cAon = "connectivityAt";
 const _cAp = "cpuArchitecture";
 const _cAr = "createdAt";
-const _cB = "createdBy";
+const _cB = "circuitBreaker";
 const _cBTIM = "canaryBakeTimeInMinutes";
+const _cBr = "createdBy";
 const _cC = "canaryConfiguration";
-const _cD = "currentDeployment";
+const _cD = "containerDefinitions";
 const _cDC = "computedDesiredCount";
-const _cDo = "containerDefinitions";
-const _cI = "containerInstance";
+const _cDu = "currentDeployment";
+const _cI = "containerImages";
 const _cIA = "containerInstanceArn";
 const _cIAo = "containerInstanceArns";
-const _cIo = "containerInstances";
-const _cIon = "containerImages";
+const _cIo = "containerInstance";
+const _cIon = "containerInstances";
 const _cM = "cpuManufacturers";
 const _cN = "clusterName";
 const _cNo = "containerName";
@@ -556,6 +627,7 @@ const _cO = "containerOverrides";
 const _cOT = "capacityOptionType";
 const _cP = "canaryPercent";
 const _cPA = "capacityProviderArn";
+const _cPAa = "capacityProviderArns";
 const _cPN = "capacityProviderName";
 const _cPR = "containerPortRange";
 const _cPS = "capacityProviderStrategy";
@@ -564,7 +636,8 @@ const _cPap = "capacityProviders";
 const _cPo = "containerPath";
 const _cPon = "containerPort";
 const _cPr = "credentialsParameter";
-const _cR = "capacityReservations";
+const _cR = "currentRevisions";
+const _cRa = "capacityReservations";
 const _cS = "credentialSpecs";
 const _cSD = "currentServiceDeployment";
 const _cSR = "currentServiceRevisions";
@@ -585,15 +658,22 @@ const _conta = "containers";
 const _cou = "count";
 const _cp = "cpu";
 const _d = "details";
-const _dA = "discoveryArn";
-const _dAe = "deregisteredAt";
-const _dC = "desiredCount";
+const _dA = "daemonArn";
+const _dAe = "deploymentArn";
+const _dAer = "deregisteredAt";
+const _dAi = "discoveryArn";
+const _dC = "deploymentConfiguration";
 const _dCB = "deploymentCircuitBreaker";
 const _dCPS = "defaultCapacityProviderStrategy";
-const _dCe = "deploymentConfiguration";
+const _dCe = "desiredCount";
 const _dCep = "deploymentController";
+const _dD = "daemonDeployments";
+const _dDA = "daemonDeploymentArn";
+const _dDAa = "daemonDeploymentArns";
+const _dIC = "drainingInstanceCount";
 const _dL = "dockerLabels";
 const _dN = "disableNetworking";
+const _dNa = "daemonName";
 const _dNe = "deviceName";
 const _dNi = "discoveryName";
 const _dNn = "dnsName";
@@ -601,17 +681,27 @@ const _dNo = "domainName";
 const _dO = "dependsOn";
 const _dOT = "deleteOnTermination";
 const _dOr = "driverOpts";
+const _dP = "drainPercent";
+const _dR = "daemonRevisions";
+const _dRA = "daemonRevisionArn";
+const _dRAa = "daemonRevisionArns";
+const _dRAe = "deleteRequestedAt";
 const _dS = "dnsServers";
 const _dSD = "dnsSearchDomains";
+const _dSL = "daemonSummariesList";
 const _dSO = "dockerSecurityOptions";
 const _dSe = "desiredStatus";
 const _dT = "deviceType";
+const _dTD = "daemonTaskDefinition";
+const _dTDA = "daemonTaskDefinitionArn";
+const _dTDa = "daemonTaskDefinitions";
 const _dV = "doubleValue";
 const _dVC = "dockerVolumeConfiguration";
 const _dVo = "dockerVersion";
-const _de = "detail";
+const _da = "daemon";
+const _de = "devices";
 const _dep = "deployments";
-const _dev = "devices";
+const _det = "detail";
 const _do = "domain";
 const _dr = "driver";
 const _dro = "drop";
@@ -645,7 +735,7 @@ const _es = "essential";
 const _ev = "events";
 const _ex = "expression";
 const _exa = "exact";
-const _f = "force";
+const _f = "family";
 const _fA = "finishedAt";
 const _fC = "firelensConfiguration";
 const _fCa = "failureCount";
@@ -660,10 +750,10 @@ const _fTi = "filesystemType";
 const _fWFSVC = "fsxWindowsFileServerVolumeConfiguration";
 const _fa = "failures";
 const _fam = "families";
-const _fami = "family";
 const _fi = "filter";
 const _fie = "field";
-const _fo = "format";
+const _fo = "force";
+const _for = "format";
 const _g = "group";
 const _gDE = "guardDutyEnabled";
 const _gI = "gpuIds";
@@ -828,6 +918,7 @@ const _rAes = "resourceArn";
 const _rB = "registeredBy";
 const _rC = "repositoryCredentials";
 const _rCIC = "registeredContainerInstancesCount";
+const _rCP = "rollbackCapacityProviders";
 const _rCe = "requiresCompatibilities";
 const _rCes = "resolvedConfiguration";
 const _rCu = "runningCount";
@@ -835,6 +926,7 @@ const _rD = "rootDirectory";
 const _rGA = "reservationGroupArn";
 const _rHS = "requireHibernateSupport";
 const _rI = "resourceIds";
+const _rIC = "runningInstanceCount";
 const _rIe = "referenceId";
 const _rIu = "runtimeId";
 const _rMT = "resourceManagementType";
@@ -853,18 +945,19 @@ const _rT = "resourceType";
 const _rTC = "runningTasksCount";
 const _rTCe = "requestedTaskCount";
 const _rTCu = "runningTaskCount";
+const _rTDRA = "rollbackTargetDaemonRevisionArn";
 const _rTTW = "requestedTestTrafficWeight";
-const _re = "retries";
-const _rev = "revision";
+const _re = "revision";
+const _ret = "retries";
 const _ro = "role";
 const _rol = "rollback";
 const _ru = "rule";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ecs";
-const _sA = "serviceArn";
-const _sAe = "serviceArns";
-const _sAt = "startedAt";
-const _sAto = "stoppedAt";
-const _sAtop = "stoppingAt";
+const _sA = "startedAt";
+const _sAe = "serviceArn";
+const _sAer = "serviceArns";
+const _sAt = "stoppedAt";
+const _sAto = "stoppingAt";
 const _sB = "startedBy";
 const _sBN = "s3BucketName";
 const _sBTIM = "stepBakeTimeInMinutes";
@@ -880,6 +973,7 @@ const _sCtop = "stopCode";
 const _sD = "serviceDeployments";
 const _sDA = "serviceDeploymentArns";
 const _sDAe = "serviceDeploymentArn";
+const _sDR = "sourceDaemonRevisions";
 const _sEE = "s3EncryptionEnabled";
 const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
@@ -943,6 +1037,9 @@ const _tCa = "targetConfiguration";
 const _tD = "taskDefinition";
 const _tDA = "taskDefinitionArns";
 const _tDAa = "taskDefinitionArn";
+const _tDIC = "totalDrainingInstanceCount";
+const _tDR = "targetDaemonRevision";
+const _tDRA = "targetDaemonRevisionArn";
 const _tDa = "taskDefinitions";
 const _tE = "telemetryEndpoint";
 const _tEP = "transitEncryptionPort";
@@ -956,6 +1053,8 @@ const _tLSGB = "totalLocalStorageGB";
 const _tP = "terminationPolicy";
 const _tR = "totalResources";
 const _tRA = "taskRoleArn";
+const _tRC = "totalRunningCount";
+const _tRIC = "totalRunningInstanceCount";
 const _tS = "taskSet";
 const _tSA = "taskSetArn";
 const _tSR = "targetServiceRevision";
@@ -1021,6 +1120,8 @@ import {
   ClusterContainsTasksException,
   ClusterNotFoundException,
   ConflictException,
+  DaemonNotActiveException,
+  DaemonNotFoundException,
   InvalidParameterException,
   LimitExceededException,
   MissingVersionException,
@@ -1106,6 +1207,18 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
   [64 | 0, 0]
 ];
 n0_registry.registerError(ConflictException$, ConflictException);
+export var DaemonNotActiveException$: StaticErrorSchema = [-3, n0, _DNAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DaemonNotActiveException$, DaemonNotActiveException);
+export var DaemonNotFoundException$: StaticErrorSchema = [-3, n0, _DNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DaemonNotFoundException$, DaemonNotFoundException);
 export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
   { [_e]: _c },
   [_m],
@@ -1327,7 +1440,7 @@ export var Container$: StaticStructureSchema = [3, n0, _Co,
 export var ContainerDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_n, _im, _rC, _cp, _me, _mR, _l, _pM, _es, _rPe, _eP, _com, _en, _eF, _mP, _vF, _lP, _sec, _dO, _sT, _sTt, _vC, _h, _u, _wD, _dN, _p, _rRF, _dS, _dSD, _eH, _dSO, _in, _pT, _dL, _ul, _lC, _hC, _sC, _rR, _fC, _cS],
-  [0, 0, () => RepositoryCredentials$, 1, 1, 1, 64 | 0, () => PortMappingList, 2, () => ContainerRestartPolicy$, 64 | 0, 64 | 0, () => EnvironmentVariables, () => EnvironmentFiles, () => MountPointList, () => VolumeFromList, () => LinuxParameters$, () => SecretList, () => ContainerDependencies, 1, 1, 0, 0, 0, 0, 2, 2, 2, 64 | 0, 64 | 0, () => HostEntryList, 64 | 0, 2, 2, 128 | 0, () => UlimitList, () => LogConfiguration$, () => HealthCheck$, () => SystemControls, () => ResourceRequirements, () => FirelensConfiguration$, 64 | 0]
+  [0, 0, [() => RepositoryCredentials$, 0], 1, 1, 1, 64 | 0, () => PortMappingList, 2, () => ContainerRestartPolicy$, 64 | 0, 64 | 0, () => EnvironmentVariables, () => EnvironmentFiles, () => MountPointList, () => VolumeFromList, () => LinuxParameters$, () => SecretList, () => ContainerDependencies, 1, 1, 0, 0, 0, 0, 2, 2, 2, 64 | 0, 64 | 0, () => HostEntryList, 64 | 0, 2, 2, 128 | 0, () => UlimitList, () => LogConfiguration$, () => HealthCheck$, () => SystemControls, () => ResourceRequirements, () => FirelensConfiguration$, 64 | 0]
 ];
 export var ContainerDependency$: StaticStructureSchema = [3, n0, _CDo,
   0,
@@ -1384,6 +1497,16 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
   [_cl],
   [() => Cluster$]
 ];
+export var CreateDaemonRequest$: StaticStructureSchema = [3, n0, _CDR,
+  0,
+  [_dNa, _dTDA, _cPAa, _cA, _dC, _ta, _pTr, _eECSMT, _eEC, _cT],
+  [0, 0, 64 | 0, 0, () => DaemonDeploymentConfiguration$, () => Tags, 0, 2, 2, 0], 3
+];
+export var CreateDaemonResponse$: StaticStructureSchema = [3, n0, _CDRr,
+  0,
+  [_dA, _st, _cAr, _dAe],
+  [0, 0, 4, 0]
+];
 export var CreatedAt$: StaticStructureSchema = [3, n0, _CA,
   0,
   [_be, _af],
@@ -1406,7 +1529,7 @@ export var CreateManagedInstancesProviderConfiguration$: StaticStructureSchema =
 ];
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_sN, _cl, _tD, _aZR, _lB, _sRe, _dC, _cT, _lT, _cPS, _pV, _ro, _dCe, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _eECSMT, _pTr, _eEC, _sCC, _vCo, _vLC],
+  [_sN, _cl, _tD, _aZR, _lB, _sRe, _dCe, _cT, _lT, _cPS, _pV, _ro, _dC, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _eECSMT, _pTr, _eEC, _sCC, _vCo, _vLC],
   [0, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, 1, 0, 0, () => CapacityProviderStrategy, 0, 0, () => DeploymentConfiguration$, () => PlacementConstraints, () => PlacementStrategies, () => NetworkConfiguration$, 1, 0, () => DeploymentController$, () => Tags, 2, 0, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations], 1
 ];
 export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
@@ -1423,6 +1546,106 @@ export var CreateTaskSetResponse$: StaticStructureSchema = [3, n0, _CTSRr,
   0,
   [_tS],
   [() => TaskSet$]
+];
+export var DaemonAlarmConfiguration$: StaticStructureSchema = [3, n0, _DAC,
+  0,
+  [_aN, _enab],
+  [64 | 0, 2]
+];
+export var DaemonCapacityProvider$: StaticStructureSchema = [3, n0, _DCP,
+  0,
+  [_ar, _rCu],
+  [0, 1]
+];
+export var DaemonCircuitBreaker$: StaticStructureSchema = [3, n0, _DCB,
+  0,
+  [_fCa, _st, _th],
+  [1, 0, 1]
+];
+export var DaemonContainerDefinition$: StaticStructureSchema = [3, n0, _DCD,
+  0,
+  [_im, _n, _me, _mR, _rC, _hC, _cp, _es, _eP, _com, _wD, _eF, _en, _sec, _rRF, _mP, _lC, _fC, _p, _u, _ul, _lP, _dO, _sT, _sTt, _sC, _in, _pT, _rPe],
+  [0, 0, 1, 1, [() => RepositoryCredentials$, 0], () => HealthCheck$, 1, 2, 64 | 0, 64 | 0, 0, () => EnvironmentFiles, () => EnvironmentVariables, () => SecretList, 2, () => MountPointList, () => LogConfiguration$, () => FirelensConfiguration$, 2, 0, () => UlimitList, () => DaemonLinuxParameters$, () => ContainerDependencies, 1, 1, () => SystemControls, 2, 2, () => ContainerRestartPolicy$], 1
+];
+export var DaemonContainerImage$: StaticStructureSchema = [3, n0, _DCI,
+  0,
+  [_cNo, _iD, _im],
+  [0, 0, 0]
+];
+export var DaemonDeployment$: StaticStructureSchema = [3, n0, _DD,
+  0,
+  [_dDA, _cA, _st, _sR, _tDR, _sDR, _cB, _al, _rol, _dC, _cAr, _sA, _sAt, _fA],
+  [0, 0, 0, 0, () => DaemonDeploymentRevisionDetail$, () => DaemonDeploymentRevisionDetailList, () => DaemonCircuitBreaker$, () => DaemonDeploymentAlarms$, () => DaemonRollback$, () => DaemonDeploymentConfiguration$, 4, 4, 4, 4]
+];
+export var DaemonDeploymentAlarms$: StaticStructureSchema = [3, n0, _DDA,
+  0,
+  [_st, _aN, _tAN],
+  [0, 64 | 0, 64 | 0]
+];
+export var DaemonDeploymentCapacityProvider$: StaticStructureSchema = [3, n0, _DDCP,
+  0,
+  [_ar, _rIC, _dIC],
+  [0, 1, 1]
+];
+export var DaemonDeploymentConfiguration$: StaticStructureSchema = [3, n0, _DDC,
+  0,
+  [_dP, _al, _bTIM],
+  [1, () => DaemonAlarmConfiguration$, 1]
+];
+export var DaemonDeploymentRevisionDetail$: StaticStructureSchema = [3, n0, _DDRD,
+  0,
+  [_ar, _cPap, _tRIC, _tDIC],
+  [0, () => DaemonDeploymentCapacityProviderList, 1, 1]
+];
+export var DaemonDeploymentSummary$: StaticStructureSchema = [3, n0, _DDS,
+  0,
+  [_dDA, _dA, _cA, _st, _sR, _tDRA, _cAr, _sA, _sAt, _fA],
+  [0, 0, 0, 0, 0, 0, 4, 4, 4, 4]
+];
+export var DaemonDetail$: StaticStructureSchema = [3, n0, _DDa,
+  0,
+  [_dA, _cA, _st, _cR, _dAe, _cAr, _uA],
+  [0, 0, 0, () => DaemonRevisionDetailList, 0, 4, 4]
+];
+export var DaemonLinuxParameters$: StaticStructureSchema = [3, n0, _DLP,
+  0,
+  [_ca, _de, _iPE, _tm],
+  [() => KernelCapabilities$, () => DevicesList, 2, () => TmpfsList]
+];
+export var DaemonRevision$: StaticStructureSchema = [3, n0, _DR,
+  0,
+  [_dRA, _cA, _dA, _dTDA, _cAr, _cI, _pTr, _eECSMT, _eEC],
+  [0, 0, 0, 0, 4, () => DaemonContainerImages, 0, 2, 2]
+];
+export var DaemonRevisionDetail$: StaticStructureSchema = [3, n0, _DRD,
+  0,
+  [_ar, _cPap, _tRC],
+  [0, () => DaemonCapacityProviderList, 1]
+];
+export var DaemonRollback$: StaticStructureSchema = [3, n0, _DRa,
+  0,
+  [_r, _sA, _rTDRA, _rCP],
+  [0, 4, 0, 64 | 0]
+];
+export var DaemonSummary$: StaticStructureSchema = [3, n0, _DS,
+  0,
+  [_dA, _st, _cAr, _uA],
+  [0, 0, 4, 4]
+];
+export var DaemonTaskDefinition$: StaticStructureSchema = [3, n0, _DTD,
+  0,
+  [_dTDA, _f, _re, _tRA, _eRA, _cD, _vo, _cp, _me, _st, _rAe, _dRAe, _rB],
+  [0, 0, 1, 0, 0, [() => DaemonContainerDefinitionList, 0], () => DaemonVolumeList, 0, 0, 0, 4, 4, 0]
+];
+export var DaemonTaskDefinitionSummary$: StaticStructureSchema = [3, n0, _DTDS,
+  0,
+  [_ar, _rAe, _rB, _dRAe, _st],
+  [0, 4, 0, 4, 0]
+];
+export var DaemonVolume$: StaticStructureSchema = [3, n0, _DV,
+  0,
+  [_n, _ho],
+  [0, () => HostVolumeProperties$]
 ];
 export var DeleteAccountSettingRequest$: StaticStructureSchema = [3, n0, _DASR,
   0,
@@ -1464,9 +1687,29 @@ export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
   [_cl],
   [() => Cluster$]
 ];
+export var DeleteDaemonRequest$: StaticStructureSchema = [3, n0, _DDR,
+  0,
+  [_dA],
+  [0], 1
+];
+export var DeleteDaemonResponse$: StaticStructureSchema = [3, n0, _DDRe,
+  0,
+  [_dA, _st, _cAr, _uA, _dAe],
+  [0, 0, 4, 4, 0]
+];
+export var DeleteDaemonTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _DDTDR,
+  0,
+  [_dTD],
+  [0], 1
+];
+export var DeleteDaemonTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _DDTDRe,
+  0,
+  [_dTDA],
+  [0]
+];
 export var DeleteExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _DEGSR,
   0,
-  [_sA],
+  [_sAe],
   [0], 1
 ];
 export var DeleteExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _DEGSRe,
@@ -1476,7 +1719,7 @@ export var DeleteExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0,
 ];
 export var DeleteServiceRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
-  [_ser, _cl, _f],
+  [_ser, _cl, _fo],
   [0, 0, 2], 1
 ];
 export var DeleteServiceResponse$: StaticStructureSchema = [3, n0, _DSRe,
@@ -1492,11 +1735,11 @@ export var DeleteTaskDefinitionsRequest$: StaticStructureSchema = [3, n0, _DTDR,
 export var DeleteTaskDefinitionsResponse$: StaticStructureSchema = [3, n0, _DTDRe,
   0,
   [_tDa, _fa],
-  [() => TaskDefinitionList, () => Failures]
+  [[() => TaskDefinitionList, 0], () => Failures]
 ];
 export var DeleteTaskSetRequest$: StaticStructureSchema = [3, n0, _DTSR,
   0,
-  [_cl, _ser, _tS, _f],
+  [_cl, _ser, _tS, _fo],
   [0, 0, 0, 2], 3
 ];
 export var DeleteTaskSetResponse$: StaticStructureSchema = [3, n0, _DTSRe,
@@ -1506,7 +1749,7 @@ export var DeleteTaskSetResponse$: StaticStructureSchema = [3, n0, _DTSRe,
 ];
 export var Deployment$: StaticStructureSchema = [3, n0, _D,
   0,
-  [_i, _st, _tD, _dC, _pCe, _rCu, _fT, _cAr, _uA, _cPS, _lT, _pV, _pF, _nC, _rS, _rSR, _sCC, _sCR, _vCo, _fES, _vLC],
+  [_i, _st, _tD, _dCe, _pCe, _rCu, _fT, _cAr, _uA, _cPS, _lT, _pV, _pF, _nC, _rS, _rSR, _sCC, _sCR, _vCo, _fES, _vLC],
   [0, 0, 0, 1, 1, 1, 1, 4, 4, () => CapacityProviderStrategy, 0, 0, 0, () => NetworkConfiguration$, 0, 0, () => ServiceConnectConfiguration$, () => ServiceConnectServiceResourceList, () => ServiceVolumeConfigurations, () => DeploymentEphemeralStorage$, () => VpcLatticeConfigurations]
 ];
 export var DeploymentAlarms$: StaticStructureSchema = [3, n0, _DA,
@@ -1514,7 +1757,7 @@ export var DeploymentAlarms$: StaticStructureSchema = [3, n0, _DA,
   [_aN, _rol, _enab],
   [64 | 0, 2, 2], 3
 ];
-export var DeploymentCircuitBreaker$: StaticStructureSchema = [3, n0, _DCB,
+export var DeploymentCircuitBreaker$: StaticStructureSchema = [3, n0, _DCBe,
   0,
   [_enab, _rol],
   [2, 2], 2
@@ -1541,12 +1784,12 @@ export var DeploymentLifecycleHook$: StaticStructureSchema = [3, n0, _DLH,
 ];
 export var DeregisterContainerInstanceRequest$: StaticStructureSchema = [3, n0, _DCIR,
   0,
-  [_cI, _cl, _f],
+  [_cIo, _cl, _fo],
   [0, 0, 2], 1
 ];
 export var DeregisterContainerInstanceResponse$: StaticStructureSchema = [3, n0, _DCIRe,
   0,
-  [_cI],
+  [_cIo],
   [() => ContainerInstance$]
 ];
 export var DeregisterTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _DTDRer,
@@ -1557,7 +1800,7 @@ export var DeregisterTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _DT
 export var DeregisterTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _DTDRere,
   0,
   [_tD],
-  [() => TaskDefinition$]
+  [[() => TaskDefinition$, 0]]
 ];
 export var DescribeCapacityProvidersRequest$: StaticStructureSchema = [3, n0, _DCPRes,
   0,
@@ -1581,17 +1824,57 @@ export var DescribeClustersResponse$: StaticStructureSchema = [3, n0, _DCResc,
 ];
 export var DescribeContainerInstancesRequest$: StaticStructureSchema = [3, n0, _DCIRes,
   0,
-  [_cIo, _cl, _inc],
+  [_cIon, _cl, _inc],
   [64 | 0, 0, 64 | 0], 1
 ];
 export var DescribeContainerInstancesResponse$: StaticStructureSchema = [3, n0, _DCIResc,
   0,
-  [_cIo, _fa],
+  [_cIon, _fa],
   [() => ContainerInstances, () => Failures]
+];
+export var DescribeDaemonDeploymentsRequest$: StaticStructureSchema = [3, n0, _DDDR,
+  0,
+  [_dDAa],
+  [64 | 0], 1
+];
+export var DescribeDaemonDeploymentsResponse$: StaticStructureSchema = [3, n0, _DDDRe,
+  0,
+  [_fa, _dD],
+  [() => Failures, () => DaemonDeploymentList]
+];
+export var DescribeDaemonRequest$: StaticStructureSchema = [3, n0, _DDRes,
+  0,
+  [_dA],
+  [0], 1
+];
+export var DescribeDaemonResponse$: StaticStructureSchema = [3, n0, _DDResc,
+  0,
+  [_da],
+  [() => DaemonDetail$]
+];
+export var DescribeDaemonRevisionsRequest$: StaticStructureSchema = [3, n0, _DDRR,
+  0,
+  [_dRAa],
+  [64 | 0], 1
+];
+export var DescribeDaemonRevisionsResponse$: StaticStructureSchema = [3, n0, _DDRRe,
+  0,
+  [_dR, _fa],
+  [() => DaemonRevisions, () => Failures]
+];
+export var DescribeDaemonTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _DDTDRes,
+  0,
+  [_dTD],
+  [0], 1
+];
+export var DescribeDaemonTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _DDTDResc,
+  0,
+  [_dTD],
+  [[() => DaemonTaskDefinition$, 0]]
 ];
 export var DescribeExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _DEGSRes,
   0,
-  [_sA, _inc],
+  [_sAe, _inc],
   [0, 64 | 0], 1
 ];
 export var DescribeExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _DEGSResc,
@@ -1637,7 +1920,7 @@ export var DescribeTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _DTDR
 export var DescribeTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _DTDResc,
   0,
   [_tD, _ta],
-  [() => TaskDefinition$, () => Tags]
+  [[() => TaskDefinition$, 0], () => Tags]
 ];
 export var DescribeTaskSetsRequest$: StaticStructureSchema = [3, n0, _DTSRes,
   0,
@@ -1666,7 +1949,7 @@ export var Device$: StaticStructureSchema = [3, n0, _De,
 ];
 export var DiscoverPollEndpointRequest$: StaticStructureSchema = [3, n0, _DPER,
   0,
-  [_cI, _cl],
+  [_cIo, _cl],
   [0, 0]
 ];
 export var DiscoverPollEndpointResponse$: StaticStructureSchema = [3, n0, _DPERi,
@@ -1686,7 +1969,7 @@ export var EBSTagSpecification$: StaticStructureSchema = [3, n0, _EBSTS,
 ];
 export var ECSExpressGatewayService$: StaticStructureSchema = [3, n0, _ECSEGS,
   0,
-  [_cl, _sN, _sA, _iRA, _st, _cD, _aCc, _ta, _cAr, _uA],
+  [_cl, _sN, _sAe, _iRA, _st, _cDu, _aCc, _ta, _cAr, _uA],
   [0, 0, 0, 0, () => ExpressGatewayServiceStatus$, 0, () => ExpressGatewayServiceConfigurations, () => Tags, 4, 4]
 ];
 export var ECSManagedResources$: StaticStructureSchema = [3, n0, _ECSMR,
@@ -1771,7 +2054,7 @@ export var ExpressGatewayServiceStatus$: StaticStructureSchema = [3, n0, _EGSS,
 ];
 export var Failure$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_ar, _r, _de],
+  [_ar, _r, _det],
   [0, 0, 0]
 ];
 export var FirelensConfiguration$: StaticStructureSchema = [3, n0, _FC,
@@ -1801,7 +2084,7 @@ export var GetTaskProtectionResponse$: StaticStructureSchema = [3, n0, _GTPRe,
 ];
 export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
   0,
-  [_com, _int, _ti, _re, _sP],
+  [_com, _int, _ti, _ret, _sP],
   [64 | 0, 1, 1, 1, 1], 1
 ];
 export var HostEntry$: StaticStructureSchema = [3, n0, _HE,
@@ -1841,12 +2124,12 @@ export var InstanceHealthCheckResult$: StaticStructureSchema = [3, n0, _IHCR,
 ];
 export var InstanceLaunchTemplate$: StaticStructureSchema = [3, n0, _ILT,
   0,
-  [_eIPA, _nC, _sCto, _lSCo, _mo, _cOT, _iMTP, _iR, _fE, _cR],
+  [_eIPA, _nC, _sCto, _lSCo, _mo, _cOT, _iMTP, _iR, _fE, _cRa],
   [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, () => ManagedInstancesLocalStorageConfiguration$, 0, 0, 2, [() => InstanceRequirementsRequest$, 0], 2, () => CapacityReservationRequest$], 2
 ];
 export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
   0,
-  [_eIPA, _nC, _sCto, _iMTP, _lSCo, _mo, _iR, _cR],
+  [_eIPA, _nC, _sCto, _iMTP, _lSCo, _mo, _iR, _cRa],
   [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 2, () => ManagedInstancesLocalStorageConfiguration$, 0, [() => InstanceRequirementsRequest$, 0], () => CapacityReservationRequest$]
 ];
 export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
@@ -1871,7 +2154,7 @@ export var LinearConfiguration$: StaticStructureSchema = [3, n0, _LC,
 ];
 export var LinuxParameters$: StaticStructureSchema = [3, n0, _LP,
   0,
-  [_ca, _dev, _iPE, _sMS, _tm, _mSa, _sw],
+  [_ca, _de, _iPE, _sMS, _tm, _mSa, _sw],
   [() => KernelCapabilities$, () => DevicesList, 2, 1, () => TmpfsList, 1, 1]
 ];
 export var ListAccountSettingsRequest$: StaticStructureSchema = [3, n0, _LASR,
@@ -1914,6 +2197,36 @@ export var ListContainerInstancesResponse$: StaticStructureSchema = [3, n0, _LCI
   [_cIAo, _nT],
   [64 | 0, 0]
 ];
+export var ListDaemonDeploymentsRequest$: StaticStructureSchema = [3, n0, _LDDR,
+  0,
+  [_dA, _st, _cAr, _mRa, _nT],
+  [0, 64 | 0, () => CreatedAt$, 1, 0], 1
+];
+export var ListDaemonDeploymentsResponse$: StaticStructureSchema = [3, n0, _LDDRi,
+  0,
+  [_nT, _dD],
+  [0, () => DaemonDeploymentSummaryList]
+];
+export var ListDaemonsRequest$: StaticStructureSchema = [3, n0, _LDR,
+  0,
+  [_cA, _cPAa, _mRa, _nT],
+  [0, 64 | 0, 1, 0]
+];
+export var ListDaemonsResponse$: StaticStructureSchema = [3, n0, _LDRi,
+  0,
+  [_dSL, _nT],
+  [() => DaemonSummariesList, 0]
+];
+export var ListDaemonTaskDefinitionsRequest$: StaticStructureSchema = [3, n0, _LDTDR,
+  0,
+  [_fP, _f, _re, _st, _so, _nT, _mRa],
+  [0, 0, 0, 0, 0, 0, 1]
+];
+export var ListDaemonTaskDefinitionsResponse$: StaticStructureSchema = [3, n0, _LDTDRi,
+  0,
+  [_dTDa, _nT],
+  [() => DaemonTaskDefinitionSummaries, 0]
+];
 export var ListServiceDeploymentsRequest$: StaticStructureSchema = [3, n0, _LSDR,
   0,
   [_ser, _cl, _st, _cAr, _nT, _mRa],
@@ -1931,7 +2244,7 @@ export var ListServicesByNamespaceRequest$: StaticStructureSchema = [3, n0, _LSB
 ];
 export var ListServicesByNamespaceResponse$: StaticStructureSchema = [3, n0, _LSBNRi,
   0,
-  [_sAe, _nT],
+  [_sAer, _nT],
   [64 | 0, 0]
 ];
 export var ListServicesRequest$: StaticStructureSchema = [3, n0, _LSR,
@@ -1941,7 +2254,7 @@ export var ListServicesRequest$: StaticStructureSchema = [3, n0, _LSR,
 ];
 export var ListServicesResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
-  [_sAe, _nT],
+  [_sAer, _nT],
   [64 | 0, 0]
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
@@ -1976,8 +2289,8 @@ export var ListTaskDefinitionsResponse$: StaticStructureSchema = [3, n0, _LTDRi,
 ];
 export var ListTasksRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
-  [_cl, _cI, _fami, _nT, _mRa, _sB, _sN, _dSe, _lT],
-  [0, 0, 0, 0, 1, 0, 0, 0, 0]
+  [_cl, _cIo, _f, _nT, _mRa, _sB, _sN, _dSe, _lT, _dNa],
+  [0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
 ];
 export var ListTasksResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -2211,21 +2524,31 @@ export var RegisterContainerInstanceRequest$: StaticStructureSchema = [3, n0, _R
 ];
 export var RegisterContainerInstanceResponse$: StaticStructureSchema = [3, n0, _RCIRe,
   0,
-  [_cI],
+  [_cIo],
   [() => ContainerInstance$]
+];
+export var RegisterDaemonTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _RDTDR,
+  0,
+  [_f, _cD, _tRA, _eRA, _cp, _me, _vo, _ta],
+  [0, [() => DaemonContainerDefinitionList, 0], 0, 0, 0, 0, () => DaemonVolumeList, () => Tags], 2
+];
+export var RegisterDaemonTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _RDTDRe,
+  0,
+  [_dTDA],
+  [0]
 ];
 export var RegisterTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _RTDR,
   0,
-  [_fami, _cDo, _tRA, _eRA, _nM, _vo, _pCl, _rCe, _cp, _me, _ta, _pMi, _iM, _pCr, _iAn, _eSp, _rPu, _eFI],
-  [0, () => ContainerDefinitions, 0, 0, 0, () => VolumeList, () => TaskDefinitionPlacementConstraints, 64 | 0, 0, 0, () => Tags, 0, 0, () => ProxyConfiguration$, () => InferenceAccelerators, () => EphemeralStorage$, () => RuntimePlatform$, 2], 2
+  [_f, _cD, _tRA, _eRA, _nM, _vo, _pCl, _rCe, _cp, _me, _ta, _pMi, _iM, _pCr, _iAn, _eSp, _rPu, _eFI],
+  [0, [() => ContainerDefinitions, 0], 0, 0, 0, () => VolumeList, () => TaskDefinitionPlacementConstraints, 64 | 0, 0, 0, () => Tags, 0, 0, () => ProxyConfiguration$, () => InferenceAccelerators, () => EphemeralStorage$, () => RuntimePlatform$, 2], 2
 ];
 export var RegisterTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _RTDRe,
   0,
   [_tD, _ta],
-  [() => TaskDefinition$, () => Tags]
+  [[() => TaskDefinition$, 0], () => Tags]
 ];
 export var RepositoryCredentials$: StaticStructureSchema = [3, n0, _RC,
-  0,
+  8,
   [_cPr],
   [0], 1
 ];
@@ -2246,7 +2569,7 @@ export var ResourceRequirement$: StaticStructureSchema = [3, n0, _RR,
 ];
 export var Rollback$: StaticStructureSchema = [3, n0, _Ro,
   0,
-  [_r, _sAt, _sRAe],
+  [_r, _sA, _sRAe],
   [0, 4, 0]
 ];
 export var RunTaskRequest$: StaticStructureSchema = [3, n0, _RTR,
@@ -2276,12 +2599,12 @@ export var Secret$: StaticStructureSchema = [3, n0, _Se,
 ];
 export var Service$: StaticStructureSchema = [3, n0, _Ser,
   0,
-  [_sA, _sN, _cA, _lB, _sRe, _st, _dC, _rCu, _pCe, _lT, _cPS, _pV, _pF, _tD, _dCe, _tSa, _dep, _rA, _ev, _cAr, _cSD, _cSR, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _cB, _eECSMT, _pTr, _eEC, _aZR, _rMT],
+  [_sAe, _sN, _cA, _lB, _sRe, _st, _dCe, _rCu, _pCe, _lT, _cPS, _pV, _pF, _tD, _dC, _tSa, _dep, _rA, _ev, _cAr, _cSD, _cSR, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _cBr, _eECSMT, _pTr, _eEC, _aZR, _rMT],
   [0, 0, 0, () => LoadBalancers, () => ServiceRegistries, 0, 1, 1, 1, 0, () => CapacityProviderStrategy, 0, 0, 0, () => DeploymentConfiguration$, () => TaskSets, () => Deployments, 0, () => ServiceEvents, 4, 0, () => ServiceCurrentRevisionSummaryList, () => PlacementConstraints, () => PlacementStrategies, () => NetworkConfiguration$, 1, 0, () => DeploymentController$, () => Tags, 0, 2, 0, 2, 0, 0]
 ];
 export var ServiceConnectAccessLogConfiguration$: StaticStructureSchema = [3, n0, _SCALC,
   0,
-  [_fo, _iQP],
+  [_for, _iQP],
   [0, 0], 1
 ];
 export var ServiceConnectClientAlias$: StaticStructureSchema = [3, n0, _SCCA,
@@ -2301,7 +2624,7 @@ export var ServiceConnectService$: StaticStructureSchema = [3, n0, _SCS,
 ];
 export var ServiceConnectServiceResource$: StaticStructureSchema = [3, n0, _SCSR,
   0,
-  [_dNi, _dA],
+  [_dNi, _dAi],
   [0, 0]
 ];
 export var ServiceConnectTestTrafficHeaderMatchRules$: StaticStructureSchema = [3, n0, _SCTTHMR,
@@ -2336,7 +2659,7 @@ export var ServiceCurrentRevisionSummary$: StaticStructureSchema = [3, n0, _SCRS
 ];
 export var ServiceDeployment$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_sDAe, _sA, _cA, _cAr, _sAt, _fA, _sAto, _uA, _sSR, _tSR, _st, _sR, _lSif, _dCe, _rol, _dCB, _al],
+  [_sDAe, _sAe, _cA, _cAr, _sA, _fA, _sAt, _uA, _sSR, _tSR, _st, _sR, _lSif, _dC, _rol, _dCB, _al],
   [0, 0, 0, 4, 4, 4, 4, 4, () => ServiceRevisionsSummaryList, () => ServiceRevisionSummary$, 0, 0, 0, () => DeploymentConfiguration$, () => Rollback$, () => ServiceDeploymentCircuitBreaker$, () => ServiceDeploymentAlarms$]
 ];
 export var ServiceDeploymentAlarms$: StaticStructureSchema = [3, n0, _SDA,
@@ -2346,7 +2669,7 @@ export var ServiceDeploymentAlarms$: StaticStructureSchema = [3, n0, _SDA,
 ];
 export var ServiceDeploymentBrief$: StaticStructureSchema = [3, n0, _SDB,
   0,
-  [_sDAe, _sA, _cA, _sAt, _cAr, _fA, _tSRA, _st, _sR],
+  [_sDAe, _sAe, _cA, _sA, _cAr, _fA, _tSRA, _st, _sR],
   [0, 0, 0, 4, 4, 4, 0, 0, 0]
 ];
 export var ServiceDeploymentCircuitBreaker$: StaticStructureSchema = [3, n0, _SDCB,
@@ -2371,7 +2694,7 @@ export var ServiceRegistry$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var ServiceRevision$: StaticStructureSchema = [3, n0, _SRe,
   0,
-  [_sRAe, _sA, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cIon, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes, _eMR],
+  [_sRAe, _sAe, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cI, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes, _eMR],
   [0, 0, 0, 0, () => CapacityProviderStrategy, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, () => NetworkConfiguration$, () => ContainerImages, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => DeploymentEphemeralStorage$, 4, () => VpcLatticeConfigurations, () => ResolvedConfiguration$, () => ECSManagedResources$]
 ];
 export var ServiceRevisionLoadBalancer$: StaticStructureSchema = [3, n0, _SRLB,
@@ -2401,7 +2724,7 @@ export var Setting$: StaticStructureSchema = [3, n0, _Set,
 ];
 export var StartTaskRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
-  [_cIo, _tD, _cl, _eECSMT, _eEC, _g, _nC, _ov, _pTr, _rIe, _sB, _ta, _vCo],
+  [_cIon, _tD, _cl, _eECSMT, _eEC, _g, _nC, _ov, _pTr, _rIe, _sB, _ta, _vCo],
   [64 | 0, 0, 0, 2, 2, 0, () => NetworkConfiguration$, () => TaskOverride$, 0, 0, 0, () => Tags, () => TaskVolumeConfigurations], 2
 ];
 export var StartTaskResponse$: StaticStructureSchema = [3, n0, _STRt,
@@ -2481,13 +2804,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_a, _at, _aZ, _cPN, _cA, _conn, _cAon, _cIA, _conta, _cp, _cAr, _dSe, _eEC, _eSA, _g, _hS, _iAn, _lS, _lT, _me, _ov, _pV, _pF, _pSA, _pSAu, _sAt, _sB, _sCtop, _sAto, _sRt, _sAtop, _ta, _tA, _tDAa, _ve, _eSp, _fES],
+  [_a, _at, _aZ, _cPN, _cA, _conn, _cAon, _cIA, _conta, _cp, _cAr, _dSe, _eEC, _eSA, _g, _hS, _iAn, _lS, _lT, _me, _ov, _pV, _pF, _pSA, _pSAu, _sA, _sB, _sCtop, _sAt, _sRt, _sAto, _ta, _tA, _tDAa, _ve, _eSp, _fES],
   [() => Attachments, () => Attributes, 0, 0, 0, 0, 4, 0, () => Containers, 0, 4, 0, 2, 4, 0, 0, () => InferenceAccelerators, 0, 0, 0, () => TaskOverride$, 0, 0, 4, 4, 4, 0, 0, 4, 0, 4, () => Tags, 0, 0, 1, () => EphemeralStorage$, () => TaskEphemeralStorage$]
 ];
 export var TaskDefinition$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_tDAa, _cDo, _fami, _tRA, _eRA, _nM, _rev, _vo, _st, _rAeq, _pCl, _comp, _rPu, _rCe, _cp, _me, _iAn, _pMi, _iM, _pCr, _rAe, _dAe, _rB, _eSp, _eFI],
-  [0, () => ContainerDefinitions, 0, 0, 0, 0, 1, () => VolumeList, 0, () => RequiresAttributes, () => TaskDefinitionPlacementConstraints, 64 | 0, () => RuntimePlatform$, 64 | 0, 0, 0, () => InferenceAccelerators, 0, 0, () => ProxyConfiguration$, 4, 4, 0, () => EphemeralStorage$, 2]
+  [_tDAa, _cD, _f, _tRA, _eRA, _nM, _re, _vo, _st, _rAeq, _pCl, _comp, _rPu, _rCe, _cp, _me, _iAn, _pMi, _iM, _pCr, _rAe, _dAer, _dRAe, _rB, _eSp, _eFI],
+  [0, [() => ContainerDefinitions, 0], 0, 0, 0, 0, 1, () => VolumeList, 0, () => RequiresAttributes, () => TaskDefinitionPlacementConstraints, 64 | 0, () => RuntimePlatform$, 64 | 0, 0, 0, () => InferenceAccelerators, 0, 0, () => ProxyConfiguration$, 4, 4, 4, 0, () => EphemeralStorage$, 2]
 ];
 export var TaskDefinitionPlacementConstraint$: StaticStructureSchema = [3, n0, _TDPC,
   0,
@@ -2516,7 +2839,7 @@ export var TaskOverride$: StaticStructureSchema = [3, n0, _TO,
 ];
 export var TaskSet$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_i, _tSA, _sA, _cA, _sB, _eI, _st, _tD, _cDC, _pCe, _rCu, _cAr, _uA, _lT, _cPS, _pV, _pF, _nC, _lB, _sRe, _sc, _sSt, _sSA, _ta, _fES],
+  [_i, _tSA, _sAe, _cA, _sB, _eI, _st, _tD, _cDC, _pCe, _rCu, _cAr, _uA, _lT, _cPS, _pV, _pF, _nC, _lB, _sRe, _sc, _sSt, _sSA, _ta, _fES],
   [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 4, 4, 0, () => CapacityProviderStrategy, 0, 0, () => NetworkConfiguration$, () => LoadBalancers, () => ServiceRegistries, () => Scale$, 0, 4, () => Tags, () => DeploymentEphemeralStorage$]
 ];
 export var TaskVolumeConfiguration$: StaticStructureSchema = [3, n0, _TVC,
@@ -2586,32 +2909,42 @@ export var UpdateClusterSettingsResponse$: StaticStructureSchema = [3, n0, _UCSR
 ];
 export var UpdateContainerAgentRequest$: StaticStructureSchema = [3, n0, _UCAR,
   0,
-  [_cI, _cl],
+  [_cIo, _cl],
   [0, 0], 1
 ];
 export var UpdateContainerAgentResponse$: StaticStructureSchema = [3, n0, _UCARp,
   0,
-  [_cI],
+  [_cIo],
   [() => ContainerInstance$]
 ];
 export var UpdateContainerInstancesStateRequest$: StaticStructureSchema = [3, n0, _UCISR,
   0,
-  [_cIo, _st, _cl],
+  [_cIon, _st, _cl],
   [64 | 0, 0, 0], 2
 ];
 export var UpdateContainerInstancesStateResponse$: StaticStructureSchema = [3, n0, _UCISRp,
   0,
-  [_cIo, _fa],
+  [_cIon, _fa],
   [() => ContainerInstances, () => Failures]
+];
+export var UpdateDaemonRequest$: StaticStructureSchema = [3, n0, _UDR,
+  0,
+  [_dA, _dTDA, _cPAa, _dC, _pTr, _eECSMT, _eEC],
+  [0, 0, 64 | 0, () => DaemonDeploymentConfiguration$, 0, 2, 2], 3
+];
+export var UpdateDaemonResponse$: StaticStructureSchema = [3, n0, _UDRp,
+  0,
+  [_dA, _st, _cAr, _uA, _dAe],
+  [0, 0, 4, 4, 0]
 ];
 export var UpdatedExpressGatewayService$: StaticStructureSchema = [3, n0, _UEGS,
   0,
-  [_sA, _cl, _sN, _st, _tCa, _cAr, _uA],
+  [_sAe, _cl, _sN, _st, _tCa, _cAr, _uA],
   [0, 0, 0, () => ExpressGatewayServiceStatus$, () => ExpressGatewayServiceConfiguration$, 4, 4]
 ];
 export var UpdateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _UEGSR,
   0,
-  [_sA, _eRA, _hCP, _pC, _tRA, _nC, _cp, _me, _sTc],
+  [_sAe, _eRA, _hCP, _pC, _tRA, _nC, _cp, _me, _sTc],
   [0, 0, 0, () => ExpressGatewayContainer$, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$], 1
 ];
 export var UpdateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _UEGSRp,
@@ -2636,7 +2969,7 @@ export var UpdateServicePrimaryTaskSetResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateServiceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_ser, _cl, _dC, _tD, _cPS, _dCe, _aZR, _nC, _pCl, _pS, _pV, _fND, _hCGPS, _dCep, _eEC, _eECSMT, _lB, _pTr, _sRe, _sCC, _vCo, _vLC],
+  [_ser, _cl, _dCe, _tD, _cPS, _dC, _aZR, _nC, _pCl, _pS, _pV, _fND, _hCGPS, _dCep, _eEC, _eECSMT, _lB, _pTr, _sRe, _sCC, _vCo, _vLC],
   [0, 0, 1, 0, () => CapacityProviderStrategy, () => DeploymentConfiguration$, 0, () => NetworkConfiguration$, () => PlacementConstraints, () => PlacementStrategies, 0, 2, 1, () => DeploymentController$, 2, 2, () => LoadBalancers, 0, () => ServiceRegistries, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations], 1
 ];
 export var UpdateServiceResponse$: StaticStructureSchema = [3, n0, _USRp,
@@ -2734,7 +3067,8 @@ var ClusterSettings: StaticListSchema = [1, n0, _CSl,
 ];
 var CompatibilityList = 64 | 0;
 var ContainerDefinitions: StaticListSchema = [1, n0, _CDon,
-  0, () => ContainerDefinition$
+  0, [() => ContainerDefinition$,
+    0]
 ];
 var ContainerDependencies: StaticListSchema = [1, n0, _CDont,
   0, () => ContainerDependency$
@@ -2758,6 +3092,44 @@ var ContainerStateChanges: StaticListSchema = [1, n0, _CSCo,
 var CpuManufacturerSet: StaticListSchema = [1, n0, _CMS,
   0, [0,
     { [_xN]: _it }]
+];
+var DaemonCapacityProviderList: StaticListSchema = [1, n0, _DCPL,
+  0, () => DaemonCapacityProvider$
+];
+var DaemonContainerDefinitionList: StaticListSchema = [1, n0, _DCDL,
+  0, [() => DaemonContainerDefinition$,
+    0]
+];
+var DaemonContainerImages: StaticListSchema = [1, n0, _DCIa,
+  0, () => DaemonContainerImage$
+];
+var DaemonDeploymentCapacityProviderList: StaticListSchema = [1, n0, _DDCPL,
+  0, () => DaemonDeploymentCapacityProvider$
+];
+var DaemonDeploymentList: StaticListSchema = [1, n0, _DDL,
+  0, () => DaemonDeployment$
+];
+var DaemonDeploymentRevisionDetailList: StaticListSchema = [1, n0, _DDRDL,
+  0, () => DaemonDeploymentRevisionDetail$
+];
+var DaemonDeploymentStatusList = 64 | 0;
+var DaemonDeploymentSummaryList: StaticListSchema = [1, n0, _DDSL,
+  0, () => DaemonDeploymentSummary$
+];
+var DaemonRevisionDetailList: StaticListSchema = [1, n0, _DRDL,
+  0, () => DaemonRevisionDetail$
+];
+var DaemonRevisions: StaticListSchema = [1, n0, _DRae,
+  0, () => DaemonRevision$
+];
+var DaemonSummariesList: StaticListSchema = [1, n0, _DSL,
+  0, () => DaemonSummary$
+];
+var DaemonTaskDefinitionSummaries: StaticListSchema = [1, n0, _DTDSa,
+  0, () => DaemonTaskDefinitionSummary$
+];
+var DaemonVolumeList: StaticListSchema = [1, n0, _DVL,
+  0, () => DaemonVolume$
 ];
 var DeploymentLifecycleHookList: StaticListSchema = [1, n0, _DLHL,
   0, () => DeploymentLifecycleHook$
@@ -2939,7 +3311,8 @@ var Tags: StaticListSchema = [1, n0, _Tag,
 ];
 var TaskDefinitionFieldList = 64 | 0;
 var TaskDefinitionList: StaticListSchema = [1, n0, _TDL,
-  0, () => TaskDefinition$
+  0, [() => TaskDefinition$,
+    0]
 ];
 var TaskDefinitionPlacementConstraints: StaticListSchema = [1, n0, _TDPCa,
   0, () => TaskDefinitionPlacementConstraint$
@@ -2980,6 +3353,9 @@ export var CreateCapacityProvider$: StaticOperationSchema = [9, n0, _CCP,
 export var CreateCluster$: StaticOperationSchema = [9, n0, _CCr,
   0, () => CreateClusterRequest$, () => CreateClusterResponse$
 ];
+export var CreateDaemon$: StaticOperationSchema = [9, n0, _CDr,
+  0, () => CreateDaemonRequest$, () => CreateDaemonResponse$
+];
 export var CreateExpressGatewayService$: StaticOperationSchema = [9, n0, _CEGS,
   0, () => CreateExpressGatewayServiceRequest$, () => CreateExpressGatewayServiceResponse$
 ];
@@ -2995,38 +3371,56 @@ export var DeleteAccountSetting$: StaticOperationSchema = [9, n0, _DAS,
 export var DeleteAttributes$: StaticOperationSchema = [9, n0, _DAe,
   0, () => DeleteAttributesRequest$, () => DeleteAttributesResponse$
 ];
-export var DeleteCapacityProvider$: StaticOperationSchema = [9, n0, _DCP,
+export var DeleteCapacityProvider$: StaticOperationSchema = [9, n0, _DCPe,
   2, () => DeleteCapacityProviderRequest$, () => DeleteCapacityProviderResponse$
 ];
 export var DeleteCluster$: StaticOperationSchema = [9, n0, _DCel,
   2, () => DeleteClusterRequest$, () => DeleteClusterResponse$
 ];
+export var DeleteDaemon$: StaticOperationSchema = [9, n0, _DDe,
+  2, () => DeleteDaemonRequest$, () => DeleteDaemonResponse$
+];
+export var DeleteDaemonTaskDefinition$: StaticOperationSchema = [9, n0, _DDTD,
+  0, () => DeleteDaemonTaskDefinitionRequest$, () => DeleteDaemonTaskDefinitionResponse$
+];
 export var DeleteExpressGatewayService$: StaticOperationSchema = [9, n0, _DEGS,
   0, () => DeleteExpressGatewayServiceRequest$, () => DeleteExpressGatewayServiceResponse$
 ];
-export var DeleteService$: StaticOperationSchema = [9, n0, _DS,
+export var DeleteService$: StaticOperationSchema = [9, n0, _DSe,
   2, () => DeleteServiceRequest$, () => DeleteServiceResponse$
 ];
-export var DeleteTaskDefinitions$: StaticOperationSchema = [9, n0, _DTD,
+export var DeleteTaskDefinitions$: StaticOperationSchema = [9, n0, _DTDe,
   0, () => DeleteTaskDefinitionsRequest$, () => DeleteTaskDefinitionsResponse$
 ];
 export var DeleteTaskSet$: StaticOperationSchema = [9, n0, _DTS,
   2, () => DeleteTaskSetRequest$, () => DeleteTaskSetResponse$
 ];
-export var DeregisterContainerInstance$: StaticOperationSchema = [9, n0, _DCI,
+export var DeregisterContainerInstance$: StaticOperationSchema = [9, n0, _DCIe,
   0, () => DeregisterContainerInstanceRequest$, () => DeregisterContainerInstanceResponse$
 ];
-export var DeregisterTaskDefinition$: StaticOperationSchema = [9, n0, _DTDe,
+export var DeregisterTaskDefinition$: StaticOperationSchema = [9, n0, _DTDer,
   0, () => DeregisterTaskDefinitionRequest$, () => DeregisterTaskDefinitionResponse$
 ];
-export var DescribeCapacityProviders$: StaticOperationSchema = [9, n0, _DCPe,
+export var DescribeCapacityProviders$: StaticOperationSchema = [9, n0, _DCPes,
   0, () => DescribeCapacityProvidersRequest$, () => DescribeCapacityProvidersResponse$
 ];
 export var DescribeClusters$: StaticOperationSchema = [9, n0, _DCes,
   0, () => DescribeClustersRequest$, () => DescribeClustersResponse$
 ];
-export var DescribeContainerInstances$: StaticOperationSchema = [9, n0, _DCIe,
+export var DescribeContainerInstances$: StaticOperationSchema = [9, n0, _DCIes,
   0, () => DescribeContainerInstancesRequest$, () => DescribeContainerInstancesResponse$
+];
+export var DescribeDaemon$: StaticOperationSchema = [9, n0, _DDes,
+  0, () => DescribeDaemonRequest$, () => DescribeDaemonResponse$
+];
+export var DescribeDaemonDeployments$: StaticOperationSchema = [9, n0, _DDD,
+  0, () => DescribeDaemonDeploymentsRequest$, () => DescribeDaemonDeploymentsResponse$
+];
+export var DescribeDaemonRevisions$: StaticOperationSchema = [9, n0, _DDRescr,
+  0, () => DescribeDaemonRevisionsRequest$, () => DescribeDaemonRevisionsResponse$
+];
+export var DescribeDaemonTaskDefinition$: StaticOperationSchema = [9, n0, _DDTDe,
+  0, () => DescribeDaemonTaskDefinitionRequest$, () => DescribeDaemonTaskDefinitionResponse$
 ];
 export var DescribeExpressGatewayService$: StaticOperationSchema = [9, n0, _DEGSe,
   0, () => DescribeExpressGatewayServiceRequest$, () => DescribeExpressGatewayServiceResponse$
@@ -3037,7 +3431,7 @@ export var DescribeServiceDeployments$: StaticOperationSchema = [9, n0, _DSD,
 export var DescribeServiceRevisions$: StaticOperationSchema = [9, n0, _DSRescr,
   0, () => DescribeServiceRevisionsRequest$, () => DescribeServiceRevisionsResponse$
 ];
-export var DescribeServices$: StaticOperationSchema = [9, n0, _DSe,
+export var DescribeServices$: StaticOperationSchema = [9, n0, _DSes,
   0, () => DescribeServicesRequest$, () => DescribeServicesResponse$
 ];
 export var DescribeTaskDefinition$: StaticOperationSchema = [9, n0, _DTDes,
@@ -3069,6 +3463,15 @@ export var ListClusters$: StaticOperationSchema = [9, n0, _LCi,
 ];
 export var ListContainerInstances$: StaticOperationSchema = [9, n0, _LCI,
   0, () => ListContainerInstancesRequest$, () => ListContainerInstancesResponse$
+];
+export var ListDaemonDeployments$: StaticOperationSchema = [9, n0, _LDD,
+  0, () => ListDaemonDeploymentsRequest$, () => ListDaemonDeploymentsResponse$
+];
+export var ListDaemons$: StaticOperationSchema = [9, n0, _LD,
+  0, () => ListDaemonsRequest$, () => ListDaemonsResponse$
+];
+export var ListDaemonTaskDefinitions$: StaticOperationSchema = [9, n0, _LDTD,
+  0, () => ListDaemonTaskDefinitionsRequest$, () => ListDaemonTaskDefinitionsResponse$
 ];
 export var ListServiceDeployments$: StaticOperationSchema = [9, n0, _LSD,
   0, () => ListServiceDeploymentsRequest$, () => ListServiceDeploymentsResponse$
@@ -3105,6 +3508,9 @@ export var PutClusterCapacityProviders$: StaticOperationSchema = [9, n0, _PCCP,
 ];
 export var RegisterContainerInstance$: StaticOperationSchema = [9, n0, _RCI,
   0, () => RegisterContainerInstanceRequest$, () => RegisterContainerInstanceResponse$
+];
+export var RegisterDaemonTaskDefinition$: StaticOperationSchema = [9, n0, _RDTD,
+  0, () => RegisterDaemonTaskDefinitionRequest$, () => RegisterDaemonTaskDefinitionResponse$
 ];
 export var RegisterTaskDefinition$: StaticOperationSchema = [9, n0, _RTD,
   0, () => RegisterTaskDefinitionRequest$, () => RegisterTaskDefinitionResponse$
@@ -3150,6 +3556,9 @@ export var UpdateContainerAgent$: StaticOperationSchema = [9, n0, _UCA,
 ];
 export var UpdateContainerInstancesState$: StaticOperationSchema = [9, n0, _UCIS,
   0, () => UpdateContainerInstancesStateRequest$, () => UpdateContainerInstancesStateResponse$
+];
+export var UpdateDaemon$: StaticOperationSchema = [9, n0, _UD,
+  0, () => UpdateDaemonRequest$, () => UpdateDaemonResponse$
 ];
 export var UpdateExpressGatewayService$: StaticOperationSchema = [9, n0, _UEGSp,
   0, () => UpdateExpressGatewayServiceRequest$, () => UpdateExpressGatewayServiceResponse$

@@ -19,6 +19,11 @@ import {
   CreateClusterCommand,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateDaemonCommandInput,
+  type CreateDaemonCommandOutput,
+  CreateDaemonCommand,
+} from "./commands/CreateDaemonCommand";
+import {
   type CreateExpressGatewayServiceCommandInput,
   type CreateExpressGatewayServiceCommandOutput,
   CreateExpressGatewayServiceCommand,
@@ -53,6 +58,16 @@ import {
   type DeleteClusterCommandOutput,
   DeleteClusterCommand,
 } from "./commands/DeleteClusterCommand";
+import {
+  type DeleteDaemonCommandInput,
+  type DeleteDaemonCommandOutput,
+  DeleteDaemonCommand,
+} from "./commands/DeleteDaemonCommand";
+import {
+  type DeleteDaemonTaskDefinitionCommandInput,
+  type DeleteDaemonTaskDefinitionCommandOutput,
+  DeleteDaemonTaskDefinitionCommand,
+} from "./commands/DeleteDaemonTaskDefinitionCommand";
 import {
   type DeleteExpressGatewayServiceCommandInput,
   type DeleteExpressGatewayServiceCommandOutput,
@@ -98,6 +113,26 @@ import {
   type DescribeContainerInstancesCommandOutput,
   DescribeContainerInstancesCommand,
 } from "./commands/DescribeContainerInstancesCommand";
+import {
+  type DescribeDaemonCommandInput,
+  type DescribeDaemonCommandOutput,
+  DescribeDaemonCommand,
+} from "./commands/DescribeDaemonCommand";
+import {
+  type DescribeDaemonDeploymentsCommandInput,
+  type DescribeDaemonDeploymentsCommandOutput,
+  DescribeDaemonDeploymentsCommand,
+} from "./commands/DescribeDaemonDeploymentsCommand";
+import {
+  type DescribeDaemonRevisionsCommandInput,
+  type DescribeDaemonRevisionsCommandOutput,
+  DescribeDaemonRevisionsCommand,
+} from "./commands/DescribeDaemonRevisionsCommand";
+import {
+  type DescribeDaemonTaskDefinitionCommandInput,
+  type DescribeDaemonTaskDefinitionCommandOutput,
+  DescribeDaemonTaskDefinitionCommand,
+} from "./commands/DescribeDaemonTaskDefinitionCommand";
 import {
   type DescribeExpressGatewayServiceCommandInput,
   type DescribeExpressGatewayServiceCommandOutput,
@@ -169,6 +204,21 @@ import {
   ListContainerInstancesCommand,
 } from "./commands/ListContainerInstancesCommand";
 import {
+  type ListDaemonDeploymentsCommandInput,
+  type ListDaemonDeploymentsCommandOutput,
+  ListDaemonDeploymentsCommand,
+} from "./commands/ListDaemonDeploymentsCommand";
+import {
+  type ListDaemonsCommandInput,
+  type ListDaemonsCommandOutput,
+  ListDaemonsCommand,
+} from "./commands/ListDaemonsCommand";
+import {
+  type ListDaemonTaskDefinitionsCommandInput,
+  type ListDaemonTaskDefinitionsCommandOutput,
+  ListDaemonTaskDefinitionsCommand,
+} from "./commands/ListDaemonTaskDefinitionsCommand";
+import {
   type ListServiceDeploymentsCommandInput,
   type ListServiceDeploymentsCommandOutput,
   ListServiceDeploymentsCommand,
@@ -224,6 +274,11 @@ import {
   type RegisterContainerInstanceCommandOutput,
   RegisterContainerInstanceCommand,
 } from "./commands/RegisterContainerInstanceCommand";
+import {
+  type RegisterDaemonTaskDefinitionCommandInput,
+  type RegisterDaemonTaskDefinitionCommandOutput,
+  RegisterDaemonTaskDefinitionCommand,
+} from "./commands/RegisterDaemonTaskDefinitionCommand";
 import {
   type RegisterTaskDefinitionCommandInput,
   type RegisterTaskDefinitionCommandOutput,
@@ -288,6 +343,11 @@ import {
   UpdateContainerInstancesStateCommand,
 } from "./commands/UpdateContainerInstancesStateCommand";
 import {
+  type UpdateDaemonCommandInput,
+  type UpdateDaemonCommandOutput,
+  UpdateDaemonCommand,
+} from "./commands/UpdateDaemonCommand";
+import {
   type UpdateExpressGatewayServiceCommandInput,
   type UpdateExpressGatewayServiceCommandOutput,
   UpdateExpressGatewayServiceCommand,
@@ -322,6 +382,11 @@ import { paginateListServices } from "./pagination/ListServicesPaginator";
 import { paginateListTaskDefinitionFamilies } from "./pagination/ListTaskDefinitionFamiliesPaginator";
 import { paginateListTaskDefinitions } from "./pagination/ListTaskDefinitionsPaginator";
 import { paginateListTasks } from "./pagination/ListTasksPaginator";
+import { waitUntilDaemonActive } from "./waiters/waitForDaemonActive";
+import { waitUntilDaemonDeploymentStopped } from "./waiters/waitForDaemonDeploymentStopped";
+import { waitUntilDaemonDeploymentSuccessful } from "./waiters/waitForDaemonDeploymentSuccessful";
+import { waitUntilDaemonTaskDefinitionActive } from "./waiters/waitForDaemonTaskDefinitionActive";
+import { waitUntilDaemonTaskDefinitionDeleted } from "./waiters/waitForDaemonTaskDefinitionDeleted";
 import { waitUntilServicesInactive } from "./waiters/waitForServicesInactive";
 import { waitUntilServicesStable } from "./waiters/waitForServicesStable";
 import { waitUntilTasksRunning } from "./waiters/waitForTasksRunning";
@@ -330,6 +395,7 @@ import { waitUntilTasksStopped } from "./waiters/waitForTasksStopped";
 const commands = {
   CreateCapacityProviderCommand,
   CreateClusterCommand,
+  CreateDaemonCommand,
   CreateExpressGatewayServiceCommand,
   CreateServiceCommand,
   CreateTaskSetCommand,
@@ -337,6 +403,8 @@ const commands = {
   DeleteAttributesCommand,
   DeleteCapacityProviderCommand,
   DeleteClusterCommand,
+  DeleteDaemonCommand,
+  DeleteDaemonTaskDefinitionCommand,
   DeleteExpressGatewayServiceCommand,
   DeleteServiceCommand,
   DeleteTaskDefinitionsCommand,
@@ -346,6 +414,10 @@ const commands = {
   DescribeCapacityProvidersCommand,
   DescribeClustersCommand,
   DescribeContainerInstancesCommand,
+  DescribeDaemonCommand,
+  DescribeDaemonDeploymentsCommand,
+  DescribeDaemonRevisionsCommand,
+  DescribeDaemonTaskDefinitionCommand,
   DescribeExpressGatewayServiceCommand,
   DescribeServiceDeploymentsCommand,
   DescribeServiceRevisionsCommand,
@@ -360,6 +432,9 @@ const commands = {
   ListAttributesCommand,
   ListClustersCommand,
   ListContainerInstancesCommand,
+  ListDaemonDeploymentsCommand,
+  ListDaemonsCommand,
+  ListDaemonTaskDefinitionsCommand,
   ListServiceDeploymentsCommand,
   ListServicesCommand,
   ListServicesByNamespaceCommand,
@@ -372,6 +447,7 @@ const commands = {
   PutAttributesCommand,
   PutClusterCapacityProvidersCommand,
   RegisterContainerInstanceCommand,
+  RegisterDaemonTaskDefinitionCommand,
   RegisterTaskDefinitionCommand,
   RunTaskCommand,
   StartTaskCommand,
@@ -387,6 +463,7 @@ const commands = {
   UpdateClusterSettingsCommand,
   UpdateContainerAgentCommand,
   UpdateContainerInstancesStateCommand,
+  UpdateDaemonCommand,
   UpdateExpressGatewayServiceCommand,
   UpdateServiceCommand,
   UpdateServicePrimaryTaskSetCommand,
@@ -405,6 +482,11 @@ const paginators = {
   paginateListTasks,
 };
 const waiters = {
+  waitUntilDaemonActive,
+  waitUntilDaemonDeploymentSuccessful,
+  waitUntilDaemonDeploymentStopped,
+  waitUntilDaemonTaskDefinitionActive,
+  waitUntilDaemonTaskDefinitionDeleted,
   waitUntilServicesInactive,
   waitUntilServicesStable,
   waitUntilTasksRunning,
@@ -445,6 +527,23 @@ export interface ECS {
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDaemonCommand}
+   */
+  createDaemon(
+    args: CreateDaemonCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDaemonCommandOutput>;
+  createDaemon(
+    args: CreateDaemonCommandInput,
+    cb: (err: any, data?: CreateDaemonCommandOutput) => void
+  ): void;
+  createDaemon(
+    args: CreateDaemonCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDaemonCommandOutput) => void
   ): void;
 
   /**
@@ -564,6 +663,40 @@ export interface ECS {
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDaemonCommand}
+   */
+  deleteDaemon(
+    args: DeleteDaemonCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDaemonCommandOutput>;
+  deleteDaemon(
+    args: DeleteDaemonCommandInput,
+    cb: (err: any, data?: DeleteDaemonCommandOutput) => void
+  ): void;
+  deleteDaemon(
+    args: DeleteDaemonCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDaemonCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDaemonTaskDefinitionCommand}
+   */
+  deleteDaemonTaskDefinition(
+    args: DeleteDaemonTaskDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDaemonTaskDefinitionCommandOutput>;
+  deleteDaemonTaskDefinition(
+    args: DeleteDaemonTaskDefinitionCommandInput,
+    cb: (err: any, data?: DeleteDaemonTaskDefinitionCommandOutput) => void
+  ): void;
+  deleteDaemonTaskDefinition(
+    args: DeleteDaemonTaskDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDaemonTaskDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -719,6 +852,74 @@ export interface ECS {
     args: DescribeContainerInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeContainerInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDaemonCommand}
+   */
+  describeDaemon(
+    args: DescribeDaemonCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDaemonCommandOutput>;
+  describeDaemon(
+    args: DescribeDaemonCommandInput,
+    cb: (err: any, data?: DescribeDaemonCommandOutput) => void
+  ): void;
+  describeDaemon(
+    args: DescribeDaemonCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDaemonCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDaemonDeploymentsCommand}
+   */
+  describeDaemonDeployments(
+    args: DescribeDaemonDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDaemonDeploymentsCommandOutput>;
+  describeDaemonDeployments(
+    args: DescribeDaemonDeploymentsCommandInput,
+    cb: (err: any, data?: DescribeDaemonDeploymentsCommandOutput) => void
+  ): void;
+  describeDaemonDeployments(
+    args: DescribeDaemonDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDaemonDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDaemonRevisionsCommand}
+   */
+  describeDaemonRevisions(
+    args: DescribeDaemonRevisionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDaemonRevisionsCommandOutput>;
+  describeDaemonRevisions(
+    args: DescribeDaemonRevisionsCommandInput,
+    cb: (err: any, data?: DescribeDaemonRevisionsCommandOutput) => void
+  ): void;
+  describeDaemonRevisions(
+    args: DescribeDaemonRevisionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDaemonRevisionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDaemonTaskDefinitionCommand}
+   */
+  describeDaemonTaskDefinition(
+    args: DescribeDaemonTaskDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDaemonTaskDefinitionCommandOutput>;
+  describeDaemonTaskDefinition(
+    args: DescribeDaemonTaskDefinitionCommandInput,
+    cb: (err: any, data?: DescribeDaemonTaskDefinitionCommandOutput) => void
+  ): void;
+  describeDaemonTaskDefinition(
+    args: DescribeDaemonTaskDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDaemonTaskDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -964,6 +1165,59 @@ export interface ECS {
   ): void;
 
   /**
+   * @see {@link ListDaemonDeploymentsCommand}
+   */
+  listDaemonDeployments(
+    args: ListDaemonDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDaemonDeploymentsCommandOutput>;
+  listDaemonDeployments(
+    args: ListDaemonDeploymentsCommandInput,
+    cb: (err: any, data?: ListDaemonDeploymentsCommandOutput) => void
+  ): void;
+  listDaemonDeployments(
+    args: ListDaemonDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDaemonDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDaemonsCommand}
+   */
+  listDaemons(): Promise<ListDaemonsCommandOutput>;
+  listDaemons(
+    args: ListDaemonsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDaemonsCommandOutput>;
+  listDaemons(
+    args: ListDaemonsCommandInput,
+    cb: (err: any, data?: ListDaemonsCommandOutput) => void
+  ): void;
+  listDaemons(
+    args: ListDaemonsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDaemonsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDaemonTaskDefinitionsCommand}
+   */
+  listDaemonTaskDefinitions(): Promise<ListDaemonTaskDefinitionsCommandOutput>;
+  listDaemonTaskDefinitions(
+    args: ListDaemonTaskDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDaemonTaskDefinitionsCommandOutput>;
+  listDaemonTaskDefinitions(
+    args: ListDaemonTaskDefinitionsCommandInput,
+    cb: (err: any, data?: ListDaemonTaskDefinitionsCommandOutput) => void
+  ): void;
+  listDaemonTaskDefinitions(
+    args: ListDaemonTaskDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDaemonTaskDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListServiceDeploymentsCommand}
    */
   listServiceDeployments(
@@ -1170,6 +1424,23 @@ export interface ECS {
     args: RegisterContainerInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RegisterContainerInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterDaemonTaskDefinitionCommand}
+   */
+  registerDaemonTaskDefinition(
+    args: RegisterDaemonTaskDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterDaemonTaskDefinitionCommandOutput>;
+  registerDaemonTaskDefinition(
+    args: RegisterDaemonTaskDefinitionCommandInput,
+    cb: (err: any, data?: RegisterDaemonTaskDefinitionCommandOutput) => void
+  ): void;
+  registerDaemonTaskDefinition(
+    args: RegisterDaemonTaskDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterDaemonTaskDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -1430,6 +1701,23 @@ export interface ECS {
   ): void;
 
   /**
+   * @see {@link UpdateDaemonCommand}
+   */
+  updateDaemon(
+    args: UpdateDaemonCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDaemonCommandOutput>;
+  updateDaemon(
+    args: UpdateDaemonCommandInput,
+    cb: (err: any, data?: UpdateDaemonCommandOutput) => void
+  ): void;
+  updateDaemon(
+    args: UpdateDaemonCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDaemonCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateExpressGatewayServiceCommand}
    */
   updateExpressGatewayService(
@@ -1612,6 +1900,56 @@ export interface ECS {
     args?: ListTasksCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeDaemonCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDaemonActive(
+    args: DescribeDaemonCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDaemonDeploymentsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDaemonDeploymentSuccessful(
+    args: DescribeDaemonDeploymentsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDaemonDeploymentsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDaemonDeploymentStopped(
+    args: DescribeDaemonDeploymentsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDaemonTaskDefinitionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDaemonTaskDefinitionActive(
+    args: DescribeDaemonTaskDefinitionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDaemonTaskDefinitionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDaemonTaskDefinitionDeleted(
+    args: DescribeDaemonTaskDefinitionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
+  ): Promise<WaiterResult>;
 
   /**
    * @see {@link DescribeServicesCommand}

@@ -80,6 +80,10 @@ import {
   CreateClusterCommand,
   CreateClusterRequest$,
   CreateClusterResponse$,
+  CreateDaemon$,
+  CreateDaemonCommand,
+  CreateDaemonRequest$,
+  CreateDaemonResponse$,
   CreatedAt$,
   CreateExpressGatewayService$,
   CreateExpressGatewayServiceCommand,
@@ -94,6 +98,37 @@ import {
   CreateTaskSetCommand,
   CreateTaskSetRequest$,
   CreateTaskSetResponse$,
+  DaemonAlarmConfiguration$,
+  DaemonCapacityProvider$,
+  DaemonCircuitBreaker$,
+  DaemonContainerDefinition$,
+  DaemonContainerImage$,
+  DaemonDeployment$,
+  DaemonDeploymentAlarms$,
+  DaemonDeploymentCapacityProvider$,
+  DaemonDeploymentConfiguration$,
+  DaemonDeploymentRevisionDetail$,
+  DaemonDeploymentRollbackMonitorsStatus,
+  DaemonDeploymentStatus,
+  DaemonDeploymentSummary$,
+  DaemonDetail$,
+  DaemonLinuxParameters$,
+  DaemonNotActiveException,
+  DaemonNotActiveException$,
+  DaemonNotFoundException,
+  DaemonNotFoundException$,
+  DaemonPropagateTags,
+  DaemonRevision$,
+  DaemonRevisionDetail$,
+  DaemonRollback$,
+  DaemonStatus,
+  DaemonSummary$,
+  DaemonTaskDefinition$,
+  DaemonTaskDefinitionRevisionFilter,
+  DaemonTaskDefinitionStatus,
+  DaemonTaskDefinitionStatusFilter,
+  DaemonTaskDefinitionSummary$,
+  DaemonVolume$,
   DeleteAccountSetting$,
   DeleteAccountSettingCommand,
   DeleteAccountSettingRequest$,
@@ -110,6 +145,14 @@ import {
   DeleteClusterCommand,
   DeleteClusterRequest$,
   DeleteClusterResponse$,
+  DeleteDaemon$,
+  DeleteDaemonCommand,
+  DeleteDaemonRequest$,
+  DeleteDaemonResponse$,
+  DeleteDaemonTaskDefinition$,
+  DeleteDaemonTaskDefinitionCommand,
+  DeleteDaemonTaskDefinitionRequest$,
+  DeleteDaemonTaskDefinitionResponse$,
   DeleteExpressGatewayService$,
   DeleteExpressGatewayServiceCommand,
   DeleteExpressGatewayServiceRequest$,
@@ -157,6 +200,22 @@ import {
   DescribeContainerInstancesCommand,
   DescribeContainerInstancesRequest$,
   DescribeContainerInstancesResponse$,
+  DescribeDaemon$,
+  DescribeDaemonCommand,
+  DescribeDaemonDeployments$,
+  DescribeDaemonDeploymentsCommand,
+  DescribeDaemonDeploymentsRequest$,
+  DescribeDaemonDeploymentsResponse$,
+  DescribeDaemonRequest$,
+  DescribeDaemonResponse$,
+  DescribeDaemonRevisions$,
+  DescribeDaemonRevisionsCommand,
+  DescribeDaemonRevisionsRequest$,
+  DescribeDaemonRevisionsResponse$,
+  DescribeDaemonTaskDefinition$,
+  DescribeDaemonTaskDefinitionCommand,
+  DescribeDaemonTaskDefinitionRequest$,
+  DescribeDaemonTaskDefinitionResponse$,
   DescribeExpressGatewayService$,
   DescribeExpressGatewayServiceCommand,
   DescribeExpressGatewayServiceRequest$,
@@ -274,6 +333,18 @@ import {
   ListContainerInstancesCommand,
   ListContainerInstancesRequest$,
   ListContainerInstancesResponse$,
+  ListDaemonDeployments$,
+  ListDaemonDeploymentsCommand,
+  ListDaemonDeploymentsRequest$,
+  ListDaemonDeploymentsResponse$,
+  ListDaemons$,
+  ListDaemonsCommand,
+  ListDaemonsRequest$,
+  ListDaemonsResponse$,
+  ListDaemonTaskDefinitions$,
+  ListDaemonTaskDefinitionsCommand,
+  ListDaemonTaskDefinitionsRequest$,
+  ListDaemonTaskDefinitionsResponse$,
   ListServiceDeployments$,
   ListServiceDeploymentsCommand,
   ListServiceDeploymentsRequest$,
@@ -395,6 +466,10 @@ import {
   RegisterContainerInstanceCommand,
   RegisterContainerInstanceRequest$,
   RegisterContainerInstanceResponse$,
+  RegisterDaemonTaskDefinition$,
+  RegisterDaemonTaskDefinitionCommand,
+  RegisterDaemonTaskDefinitionRequest$,
+  RegisterDaemonTaskDefinitionResponse$,
   RegisterTaskDefinition$,
   RegisterTaskDefinitionCommand,
   RegisterTaskDefinitionRequest$,
@@ -550,6 +625,10 @@ import {
   UpdateContainerInstancesStateCommand,
   UpdateContainerInstancesStateRequest$,
   UpdateContainerInstancesStateResponse$,
+  UpdateDaemon$,
+  UpdateDaemonCommand,
+  UpdateDaemonRequest$,
+  UpdateDaemonResponse$,
   UpdatedExpressGatewayService$,
   UpdateExpressGatewayService$,
   UpdateExpressGatewayServiceCommand,
@@ -580,10 +659,20 @@ import {
   Volume$,
   VolumeFrom$,
   VpcLatticeConfiguration$,
+  waitForDaemonActive,
+  waitForDaemonDeploymentStopped,
+  waitForDaemonDeploymentSuccessful,
+  waitForDaemonTaskDefinitionActive,
+  waitForDaemonTaskDefinitionDeleted,
   waitForServicesInactive,
   waitForServicesStable,
   waitForTasksRunning,
   waitForTasksStopped,
+  waitUntilDaemonActive,
+  waitUntilDaemonDeploymentStopped,
+  waitUntilDaemonDeploymentSuccessful,
+  waitUntilDaemonTaskDefinitionActive,
+  waitUntilDaemonTaskDefinitionDeleted,
   waitUntilServicesInactive,
   waitUntilServicesStable,
   waitUntilTasksRunning,
@@ -598,6 +687,8 @@ assert(typeof CreateCapacityProviderCommand === "function");
 assert(typeof CreateCapacityProvider$ === "object");
 assert(typeof CreateClusterCommand === "function");
 assert(typeof CreateCluster$ === "object");
+assert(typeof CreateDaemonCommand === "function");
+assert(typeof CreateDaemon$ === "object");
 assert(typeof CreateExpressGatewayServiceCommand === "function");
 assert(typeof CreateExpressGatewayService$ === "object");
 assert(typeof CreateServiceCommand === "function");
@@ -612,6 +703,10 @@ assert(typeof DeleteCapacityProviderCommand === "function");
 assert(typeof DeleteCapacityProvider$ === "object");
 assert(typeof DeleteClusterCommand === "function");
 assert(typeof DeleteCluster$ === "object");
+assert(typeof DeleteDaemonCommand === "function");
+assert(typeof DeleteDaemon$ === "object");
+assert(typeof DeleteDaemonTaskDefinitionCommand === "function");
+assert(typeof DeleteDaemonTaskDefinition$ === "object");
 assert(typeof DeleteExpressGatewayServiceCommand === "function");
 assert(typeof DeleteExpressGatewayService$ === "object");
 assert(typeof DeleteServiceCommand === "function");
@@ -630,6 +725,14 @@ assert(typeof DescribeClustersCommand === "function");
 assert(typeof DescribeClusters$ === "object");
 assert(typeof DescribeContainerInstancesCommand === "function");
 assert(typeof DescribeContainerInstances$ === "object");
+assert(typeof DescribeDaemonCommand === "function");
+assert(typeof DescribeDaemon$ === "object");
+assert(typeof DescribeDaemonDeploymentsCommand === "function");
+assert(typeof DescribeDaemonDeployments$ === "object");
+assert(typeof DescribeDaemonRevisionsCommand === "function");
+assert(typeof DescribeDaemonRevisions$ === "object");
+assert(typeof DescribeDaemonTaskDefinitionCommand === "function");
+assert(typeof DescribeDaemonTaskDefinition$ === "object");
 assert(typeof DescribeExpressGatewayServiceCommand === "function");
 assert(typeof DescribeExpressGatewayService$ === "object");
 assert(typeof DescribeServiceDeploymentsCommand === "function");
@@ -658,6 +761,12 @@ assert(typeof ListClustersCommand === "function");
 assert(typeof ListClusters$ === "object");
 assert(typeof ListContainerInstancesCommand === "function");
 assert(typeof ListContainerInstances$ === "object");
+assert(typeof ListDaemonDeploymentsCommand === "function");
+assert(typeof ListDaemonDeployments$ === "object");
+assert(typeof ListDaemonsCommand === "function");
+assert(typeof ListDaemons$ === "object");
+assert(typeof ListDaemonTaskDefinitionsCommand === "function");
+assert(typeof ListDaemonTaskDefinitions$ === "object");
 assert(typeof ListServiceDeploymentsCommand === "function");
 assert(typeof ListServiceDeployments$ === "object");
 assert(typeof ListServicesCommand === "function");
@@ -682,6 +791,8 @@ assert(typeof PutClusterCapacityProvidersCommand === "function");
 assert(typeof PutClusterCapacityProviders$ === "object");
 assert(typeof RegisterContainerInstanceCommand === "function");
 assert(typeof RegisterContainerInstance$ === "object");
+assert(typeof RegisterDaemonTaskDefinitionCommand === "function");
+assert(typeof RegisterDaemonTaskDefinition$ === "object");
 assert(typeof RegisterTaskDefinitionCommand === "function");
 assert(typeof RegisterTaskDefinition$ === "object");
 assert(typeof RunTaskCommand === "function");
@@ -712,6 +823,8 @@ assert(typeof UpdateContainerAgentCommand === "function");
 assert(typeof UpdateContainerAgent$ === "object");
 assert(typeof UpdateContainerInstancesStateCommand === "function");
 assert(typeof UpdateContainerInstancesState$ === "object");
+assert(typeof UpdateDaemonCommand === "function");
+assert(typeof UpdateDaemon$ === "object");
 assert(typeof UpdateExpressGatewayServiceCommand === "function");
 assert(typeof UpdateExpressGatewayService$ === "object");
 assert(typeof UpdateServiceCommand === "function");
@@ -755,6 +868,8 @@ assert(typeof CreateCapacityProviderRequest$ === "object");
 assert(typeof CreateCapacityProviderResponse$ === "object");
 assert(typeof CreateClusterRequest$ === "object");
 assert(typeof CreateClusterResponse$ === "object");
+assert(typeof CreateDaemonRequest$ === "object");
+assert(typeof CreateDaemonResponse$ === "object");
 assert(typeof CreatedAt$ === "object");
 assert(typeof CreateExpressGatewayServiceRequest$ === "object");
 assert(typeof CreateExpressGatewayServiceResponse$ === "object");
@@ -763,6 +878,26 @@ assert(typeof CreateServiceRequest$ === "object");
 assert(typeof CreateServiceResponse$ === "object");
 assert(typeof CreateTaskSetRequest$ === "object");
 assert(typeof CreateTaskSetResponse$ === "object");
+assert(typeof DaemonAlarmConfiguration$ === "object");
+assert(typeof DaemonCapacityProvider$ === "object");
+assert(typeof DaemonCircuitBreaker$ === "object");
+assert(typeof DaemonContainerDefinition$ === "object");
+assert(typeof DaemonContainerImage$ === "object");
+assert(typeof DaemonDeployment$ === "object");
+assert(typeof DaemonDeploymentAlarms$ === "object");
+assert(typeof DaemonDeploymentCapacityProvider$ === "object");
+assert(typeof DaemonDeploymentConfiguration$ === "object");
+assert(typeof DaemonDeploymentRevisionDetail$ === "object");
+assert(typeof DaemonDeploymentSummary$ === "object");
+assert(typeof DaemonDetail$ === "object");
+assert(typeof DaemonLinuxParameters$ === "object");
+assert(typeof DaemonRevision$ === "object");
+assert(typeof DaemonRevisionDetail$ === "object");
+assert(typeof DaemonRollback$ === "object");
+assert(typeof DaemonSummary$ === "object");
+assert(typeof DaemonTaskDefinition$ === "object");
+assert(typeof DaemonTaskDefinitionSummary$ === "object");
+assert(typeof DaemonVolume$ === "object");
 assert(typeof DeleteAccountSettingRequest$ === "object");
 assert(typeof DeleteAccountSettingResponse$ === "object");
 assert(typeof DeleteAttributesRequest$ === "object");
@@ -771,6 +906,10 @@ assert(typeof DeleteCapacityProviderRequest$ === "object");
 assert(typeof DeleteCapacityProviderResponse$ === "object");
 assert(typeof DeleteClusterRequest$ === "object");
 assert(typeof DeleteClusterResponse$ === "object");
+assert(typeof DeleteDaemonRequest$ === "object");
+assert(typeof DeleteDaemonResponse$ === "object");
+assert(typeof DeleteDaemonTaskDefinitionRequest$ === "object");
+assert(typeof DeleteDaemonTaskDefinitionResponse$ === "object");
 assert(typeof DeleteExpressGatewayServiceRequest$ === "object");
 assert(typeof DeleteExpressGatewayServiceResponse$ === "object");
 assert(typeof DeleteServiceRequest$ === "object");
@@ -796,6 +935,14 @@ assert(typeof DescribeClustersRequest$ === "object");
 assert(typeof DescribeClustersResponse$ === "object");
 assert(typeof DescribeContainerInstancesRequest$ === "object");
 assert(typeof DescribeContainerInstancesResponse$ === "object");
+assert(typeof DescribeDaemonDeploymentsRequest$ === "object");
+assert(typeof DescribeDaemonDeploymentsResponse$ === "object");
+assert(typeof DescribeDaemonRequest$ === "object");
+assert(typeof DescribeDaemonResponse$ === "object");
+assert(typeof DescribeDaemonRevisionsRequest$ === "object");
+assert(typeof DescribeDaemonRevisionsResponse$ === "object");
+assert(typeof DescribeDaemonTaskDefinitionRequest$ === "object");
+assert(typeof DescribeDaemonTaskDefinitionResponse$ === "object");
 assert(typeof DescribeExpressGatewayServiceRequest$ === "object");
 assert(typeof DescribeExpressGatewayServiceResponse$ === "object");
 assert(typeof DescribeServiceDeploymentsRequest$ === "object");
@@ -861,6 +1008,12 @@ assert(typeof ListClustersRequest$ === "object");
 assert(typeof ListClustersResponse$ === "object");
 assert(typeof ListContainerInstancesRequest$ === "object");
 assert(typeof ListContainerInstancesResponse$ === "object");
+assert(typeof ListDaemonDeploymentsRequest$ === "object");
+assert(typeof ListDaemonDeploymentsResponse$ === "object");
+assert(typeof ListDaemonsRequest$ === "object");
+assert(typeof ListDaemonsResponse$ === "object");
+assert(typeof ListDaemonTaskDefinitionsRequest$ === "object");
+assert(typeof ListDaemonTaskDefinitionsResponse$ === "object");
 assert(typeof ListServiceDeploymentsRequest$ === "object");
 assert(typeof ListServiceDeploymentsResponse$ === "object");
 assert(typeof ListServicesByNamespaceRequest$ === "object");
@@ -921,6 +1074,8 @@ assert(typeof PutClusterCapacityProvidersRequest$ === "object");
 assert(typeof PutClusterCapacityProvidersResponse$ === "object");
 assert(typeof RegisterContainerInstanceRequest$ === "object");
 assert(typeof RegisterContainerInstanceResponse$ === "object");
+assert(typeof RegisterDaemonTaskDefinitionRequest$ === "object");
+assert(typeof RegisterDaemonTaskDefinitionResponse$ === "object");
 assert(typeof RegisterTaskDefinitionRequest$ === "object");
 assert(typeof RegisterTaskDefinitionResponse$ === "object");
 assert(typeof RepositoryCredentials$ === "object");
@@ -999,6 +1154,8 @@ assert(typeof UpdateContainerAgentRequest$ === "object");
 assert(typeof UpdateContainerAgentResponse$ === "object");
 assert(typeof UpdateContainerInstancesStateRequest$ === "object");
 assert(typeof UpdateContainerInstancesStateResponse$ === "object");
+assert(typeof UpdateDaemonRequest$ === "object");
+assert(typeof UpdateDaemonResponse$ === "object");
 assert(typeof UpdatedExpressGatewayService$ === "object");
 assert(typeof UpdateExpressGatewayServiceRequest$ === "object");
 assert(typeof UpdateExpressGatewayServiceResponse$ === "object");
@@ -1042,6 +1199,13 @@ assert(typeof ContainerInstanceField === "object");
 assert(typeof ContainerInstanceStatus === "object");
 assert(typeof CPUArchitecture === "object");
 assert(typeof CpuManufacturer === "object");
+assert(typeof DaemonDeploymentRollbackMonitorsStatus === "object");
+assert(typeof DaemonDeploymentStatus === "object");
+assert(typeof DaemonPropagateTags === "object");
+assert(typeof DaemonStatus === "object");
+assert(typeof DaemonTaskDefinitionRevisionFilter === "object");
+assert(typeof DaemonTaskDefinitionStatus === "object");
+assert(typeof DaemonTaskDefinitionStatusFilter === "object");
 assert(typeof DeploymentControllerType === "object");
 assert(typeof DeploymentLifecycleHookStage === "object");
 assert(typeof DeploymentRolloutState === "object");
@@ -1130,6 +1294,10 @@ assert(ClusterNotFoundException.prototype instanceof ECSServiceException);
 assert(typeof ClusterNotFoundException$ === "object");
 assert(ConflictException.prototype instanceof ECSServiceException);
 assert(typeof ConflictException$ === "object");
+assert(DaemonNotActiveException.prototype instanceof ECSServiceException);
+assert(typeof DaemonNotActiveException$ === "object");
+assert(DaemonNotFoundException.prototype instanceof ECSServiceException);
+assert(typeof DaemonNotFoundException$ === "object");
 assert(InvalidParameterException.prototype instanceof ECSServiceException);
 assert(typeof InvalidParameterException$ === "object");
 assert(LimitExceededException.prototype instanceof ECSServiceException);
@@ -1168,10 +1336,20 @@ assert(UpdateInProgressException.prototype instanceof ECSServiceException);
 assert(typeof UpdateInProgressException$ === "object");
 assert(ECSServiceException.prototype instanceof Error);
 // waiters
+assert(typeof waitForDaemonActive === "function");
+assert(typeof waitForDaemonDeploymentStopped === "function");
+assert(typeof waitForDaemonDeploymentSuccessful === "function");
+assert(typeof waitForDaemonTaskDefinitionActive === "function");
+assert(typeof waitForDaemonTaskDefinitionDeleted === "function");
 assert(typeof waitForServicesInactive === "function");
 assert(typeof waitForServicesStable === "function");
 assert(typeof waitForTasksRunning === "function");
 assert(typeof waitForTasksStopped === "function");
+assert(typeof waitUntilDaemonActive === "function");
+assert(typeof waitUntilDaemonDeploymentStopped === "function");
+assert(typeof waitUntilDaemonDeploymentSuccessful === "function");
+assert(typeof waitUntilDaemonTaskDefinitionActive === "function");
+assert(typeof waitUntilDaemonTaskDefinitionDeleted === "function");
 assert(typeof waitUntilServicesInactive === "function");
 assert(typeof waitUntilServicesStable === "function");
 assert(typeof waitUntilTasksRunning === "function");

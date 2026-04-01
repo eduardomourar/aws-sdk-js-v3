@@ -381,7 +381,9 @@ export type InstanceHealthCheckState = (typeof InstanceHealthCheckState)[keyof t
  * @enum
  */
 export const InstanceHealthCheckType = {
+  ACCELERATED_COMPUTE: "ACCELERATED_COMPUTE",
   CONTAINER_RUNTIME: "CONTAINER_RUNTIME",
+  DAEMON: "DAEMON",
 } as const;
 /**
  * @public
@@ -503,51 +505,62 @@ export type PlatformDeviceType = (typeof PlatformDeviceType)[keyof typeof Platfo
  * @public
  * @enum
  */
-export const SettingName = {
-  AWSVPC_TRUNKING: "awsvpcTrunking",
-  CONTAINER_INSIGHTS: "containerInsights",
-  CONTAINER_INSTANCE_LONG_ARN_FORMAT: "containerInstanceLongArnFormat",
-  DEFAULT_LOG_DRIVER_MODE: "defaultLogDriverMode",
-  FARGATE_EVENT_WINDOWS: "fargateEventWindows",
-  FARGATE_FIPS_MODE: "fargateFIPSMode",
-  FARGATE_TASK_RETIREMENT_WAIT_PERIOD: "fargateTaskRetirementWaitPeriod",
-  GUARD_DUTY_ACTIVATE: "guardDutyActivate",
-  SERVICE_LONG_ARN_FORMAT: "serviceLongArnFormat",
-  TAG_RESOURCE_AUTHORIZATION: "tagResourceAuthorization",
-  TASK_LONG_ARN_FORMAT: "taskLongArnFormat",
+export const DaemonDeploymentRollbackMonitorsStatus = {
+  DISABLED: "DISABLED",
+  MONITORING: "MONITORING",
+  MONITORING_COMPLETE: "MONITORING_COMPLETE",
+  TRIGGERED: "TRIGGERED",
 } as const;
 /**
  * @public
  */
-export type SettingName = (typeof SettingName)[keyof typeof SettingName];
+export type DaemonDeploymentRollbackMonitorsStatus =
+  (typeof DaemonDeploymentRollbackMonitorsStatus)[keyof typeof DaemonDeploymentRollbackMonitorsStatus];
 
 /**
  * @public
  * @enum
  */
-export const SettingType = {
-  AWS_MANAGED: "aws_managed",
-  USER: "user",
+export const DaemonDeploymentStatus = {
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  ROLLBACK_SUCCESSFUL: "ROLLBACK_SUCCESSFUL",
+  STOPPED: "STOPPED",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUCCESSFUL: "SUCCESSFUL",
 } as const;
 /**
  * @public
  */
-export type SettingType = (typeof SettingType)[keyof typeof SettingType];
+export type DaemonDeploymentStatus = (typeof DaemonDeploymentStatus)[keyof typeof DaemonDeploymentStatus];
 
 /**
  * @public
  * @enum
  */
-export const Compatibility = {
-  EC2: "EC2",
-  EXTERNAL: "EXTERNAL",
-  FARGATE: "FARGATE",
-  MANAGED_INSTANCES: "MANAGED_INSTANCES",
+export const DaemonPropagateTags = {
+  DAEMON: "DAEMON",
+  NONE: "NONE",
 } as const;
 /**
  * @public
  */
-export type Compatibility = (typeof Compatibility)[keyof typeof Compatibility];
+export type DaemonPropagateTags = (typeof DaemonPropagateTags)[keyof typeof DaemonPropagateTags];
+
+/**
+ * @public
+ * @enum
+ */
+export const DaemonStatus = {
+  ACTIVE: "ACTIVE",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type DaemonStatus = (typeof DaemonStatus)[keyof typeof DaemonStatus];
 
 /**
  * @public
@@ -626,6 +639,137 @@ export type LogDriver = (typeof LogDriver)[keyof typeof LogDriver];
  * @public
  * @enum
  */
+export const UlimitName = {
+  CORE: "core",
+  CPU: "cpu",
+  DATA: "data",
+  FSIZE: "fsize",
+  LOCKS: "locks",
+  MEMLOCK: "memlock",
+  MSGQUEUE: "msgqueue",
+  NICE: "nice",
+  NOFILE: "nofile",
+  NPROC: "nproc",
+  RSS: "rss",
+  RTPRIO: "rtprio",
+  RTTIME: "rttime",
+  SIGPENDING: "sigpending",
+  STACK: "stack",
+} as const;
+/**
+ * @public
+ */
+export type UlimitName = (typeof UlimitName)[keyof typeof UlimitName];
+
+/**
+ * @public
+ * @enum
+ */
+export const DaemonTaskDefinitionStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type DaemonTaskDefinitionStatus = (typeof DaemonTaskDefinitionStatus)[keyof typeof DaemonTaskDefinitionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DaemonTaskDefinitionRevisionFilter = {
+  LAST_REGISTERED: "LAST_REGISTERED",
+} as const;
+/**
+ * @public
+ */
+export type DaemonTaskDefinitionRevisionFilter =
+  (typeof DaemonTaskDefinitionRevisionFilter)[keyof typeof DaemonTaskDefinitionRevisionFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const DaemonTaskDefinitionStatusFilter = {
+  ACTIVE: "ACTIVE",
+  ALL: "ALL",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type DaemonTaskDefinitionStatusFilter =
+  (typeof DaemonTaskDefinitionStatusFilter)[keyof typeof DaemonTaskDefinitionStatusFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const SettingName = {
+  AWSVPC_TRUNKING: "awsvpcTrunking",
+  CONTAINER_INSIGHTS: "containerInsights",
+  CONTAINER_INSTANCE_LONG_ARN_FORMAT: "containerInstanceLongArnFormat",
+  DEFAULT_LOG_DRIVER_MODE: "defaultLogDriverMode",
+  FARGATE_EVENT_WINDOWS: "fargateEventWindows",
+  FARGATE_FIPS_MODE: "fargateFIPSMode",
+  FARGATE_TASK_RETIREMENT_WAIT_PERIOD: "fargateTaskRetirementWaitPeriod",
+  GUARD_DUTY_ACTIVATE: "guardDutyActivate",
+  SERVICE_LONG_ARN_FORMAT: "serviceLongArnFormat",
+  TAG_RESOURCE_AUTHORIZATION: "tagResourceAuthorization",
+  TASK_LONG_ARN_FORMAT: "taskLongArnFormat",
+} as const;
+/**
+ * @public
+ */
+export type SettingName = (typeof SettingName)[keyof typeof SettingName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SettingType = {
+  AWS_MANAGED: "aws_managed",
+  USER: "user",
+} as const;
+/**
+ * @public
+ */
+export type SettingType = (typeof SettingType)[keyof typeof SettingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Compatibility = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+  MANAGED_INSTANCES: "MANAGED_INSTANCES",
+} as const;
+/**
+ * @public
+ */
+export type Compatibility = (typeof Compatibility)[keyof typeof Compatibility];
+
+/**
+ * @public
+ * @enum
+ */
 export const ApplicationProtocol = {
   GRPC: "grpc",
   HTTP: "http",
@@ -648,32 +792,6 @@ export const ResourceType = {
  * @public
  */
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * @enum
- */
-export const UlimitName = {
-  CORE: "core",
-  CPU: "cpu",
-  DATA: "data",
-  FSIZE: "fsize",
-  LOCKS: "locks",
-  MEMLOCK: "memlock",
-  MSGQUEUE: "msgqueue",
-  NICE: "nice",
-  NOFILE: "nofile",
-  NPROC: "nproc",
-  RSS: "rss",
-  RTPRIO: "rtprio",
-  RTTIME: "rttime",
-  SIGPENDING: "sigpending",
-  STACK: "stack",
-} as const;
-/**
- * @public
- */
-export type UlimitName = (typeof UlimitName)[keyof typeof UlimitName];
 
 /**
  * @public
@@ -1246,19 +1364,6 @@ export const ManagedResourceStatus = {
  * @public
  */
 export type ManagedResourceStatus = (typeof ManagedResourceStatus)[keyof typeof ManagedResourceStatus];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public

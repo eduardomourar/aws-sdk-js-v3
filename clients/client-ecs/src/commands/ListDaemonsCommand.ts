@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetTaskProtectionRequest, GetTaskProtectionResponse } from "../models/models_1";
-import { GetTaskProtection$ } from "../schemas/schemas_0";
+import type { ListDaemonsRequest, ListDaemonsResponse } from "../models/models_0";
+import { ListDaemons$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,57 +16,54 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetTaskProtectionCommand}.
+ * The input for {@link ListDaemonsCommand}.
  */
-export interface GetTaskProtectionCommandInput extends GetTaskProtectionRequest {}
+export interface ListDaemonsCommandInput extends ListDaemonsRequest {}
 /**
  * @public
  *
- * The output of {@link GetTaskProtectionCommand}.
+ * The output of {@link ListDaemonsCommand}.
  */
-export interface GetTaskProtectionCommandOutput extends GetTaskProtectionResponse, __MetadataBearer {}
+export interface ListDaemonsCommandOutput extends ListDaemonsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the protection status of tasks in an Amazon ECS service.</p>
+ * <p>Returns a list of daemons. You can filter the results by cluster or capacity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, GetTaskProtectionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, GetTaskProtectionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListDaemonsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, ListDaemonsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
  * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
- * const input = { // GetTaskProtectionRequest
- *   cluster: "STRING_VALUE", // required
- *   tasks: [ // StringList
+ * const input = { // ListDaemonsRequest
+ *   clusterArn: "STRING_VALUE",
+ *   capacityProviderArns: [ // StringList
  *     "STRING_VALUE",
  *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new GetTaskProtectionCommand(input);
+ * const command = new ListDaemonsCommand(input);
  * const response = await client.send(command);
- * // { // GetTaskProtectionResponse
- * //   protectedTasks: [ // ProtectedTasks
- * //     { // ProtectedTask
- * //       taskArn: "STRING_VALUE",
- * //       protectionEnabled: true || false,
- * //       expirationDate: new Date("TIMESTAMP"),
+ * // { // ListDaemonsResponse
+ * //   daemonSummariesList: [ // DaemonSummariesList
+ * //     { // DaemonSummary
+ * //       daemonArn: "STRING_VALUE",
+ * //       status: "ACTIVE" || "DELETE_IN_PROGRESS",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
- * //   failures: [ // Failures
- * //     { // Failure
- * //       arn: "STRING_VALUE",
- * //       reason: "STRING_VALUE",
- * //       detail: "STRING_VALUE",
- * //     },
- * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetTaskProtectionCommandInput - {@link GetTaskProtectionCommandInput}
- * @returns {@link GetTaskProtectionCommandOutput}
- * @see {@link GetTaskProtectionCommandInput} for command's `input` shape.
- * @see {@link GetTaskProtectionCommandOutput} for command's `response` shape.
+ * @param ListDaemonsCommandInput - {@link ListDaemonsCommandInput}
+ * @returns {@link ListDaemonsCommandOutput}
+ * @see {@link ListDaemonsCommandInput} for command's `input` shape.
+ * @see {@link ListDaemonsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,9 +78,6 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource wasn't found.</p>
- *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
@@ -94,25 +88,28 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  *
- * @example To get the protection status of a task
+ * @example To list daemons in a cluster
  * ```javascript
- * // In this example, we get the protection status for a single task.
+ * // This example lists all daemons in the specified cluster.
  * const input = {
- *   cluster: "test-task-protection",
- *   tasks: [
- *     "b8b1cf532d0e46ba8d44a40d1de16772"
- *   ]
+ *   clusterArn: "arn:aws:ecs:us-east-1:123456789012:cluster/my-cluster"
  * };
- * const command = new GetTaskProtectionCommand(input);
+ * const command = new ListDaemonsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   failures:   [],
- *   protectedTasks: [
+ *   daemonSummariesList: [
  *     {
- *       expirationDate: "2022-11-02T06:56:32.553Z",
- *       protectionEnabled: true,
- *       taskArn: "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
+ *       createdAt: "2025-03-15T12:00:00.000Z",
+ *       daemonArn: "arn:aws:ecs:us-east-1:123456789012:daemon/my-cluster/my-monitoring-daemon",
+ *       status: "ACTIVE",
+ *       updatedAt: "2025-03-20T15:30:00.000Z"
+ *     },
+ *     {
+ *       createdAt: "2025-03-16T09:00:00.000Z",
+ *       daemonArn: "arn:aws:ecs:us-east-1:123456789012:daemon/my-cluster/my-logging-daemon",
+ *       status: "ACTIVE",
+ *       updatedAt: "2025-03-16T09:00:00.000Z"
  *     }
  *   ]
  * }
@@ -121,10 +118,10 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  *
  * @public
  */
-export class GetTaskProtectionCommand extends $Command
+export class ListDaemonsCommand extends $Command
   .classBuilder<
-    GetTaskProtectionCommandInput,
-    GetTaskProtectionCommandOutput,
+    ListDaemonsCommandInput,
+    ListDaemonsCommandOutput,
     ECSClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -133,19 +130,19 @@ export class GetTaskProtectionCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonEC2ContainerServiceV20141113", "GetTaskProtection", {})
-  .n("ECSClient", "GetTaskProtectionCommand")
-  .sc(GetTaskProtection$)
+  .s("AmazonEC2ContainerServiceV20141113", "ListDaemons", {})
+  .n("ECSClient", "ListDaemonsCommand")
+  .sc(ListDaemons$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetTaskProtectionRequest;
-      output: GetTaskProtectionResponse;
+      input: ListDaemonsRequest;
+      output: ListDaemonsResponse;
     };
     sdk: {
-      input: GetTaskProtectionCommandInput;
-      output: GetTaskProtectionCommandOutput;
+      input: ListDaemonsCommandInput;
+      output: ListDaemonsCommandOutput;
     };
   };
 }

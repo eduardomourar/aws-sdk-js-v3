@@ -18,5 +18,6 @@ export * from "./waiters";
 export * from "./models/enums";
 export * from "./models/errors";
 export * from "./models/models_0";
+export * from "./models/models_1";
 
 export { ECSServiceException } from "./models/ECSServiceException";

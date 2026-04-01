@@ -66,6 +66,7 @@ import type {
   CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand";
 import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import type { CreateDaemonCommandInput, CreateDaemonCommandOutput } from "./commands/CreateDaemonCommand";
 import type {
   CreateExpressGatewayServiceCommandInput,
   CreateExpressGatewayServiceCommandOutput,
@@ -82,6 +83,11 @@ import type {
   DeleteCapacityProviderCommandOutput,
 } from "./commands/DeleteCapacityProviderCommand";
 import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import type { DeleteDaemonCommandInput, DeleteDaemonCommandOutput } from "./commands/DeleteDaemonCommand";
+import type {
+  DeleteDaemonTaskDefinitionCommandInput,
+  DeleteDaemonTaskDefinitionCommandOutput,
+} from "./commands/DeleteDaemonTaskDefinitionCommand";
 import type {
   DeleteExpressGatewayServiceCommandInput,
   DeleteExpressGatewayServiceCommandOutput,
@@ -109,6 +115,19 @@ import type {
   DescribeContainerInstancesCommandInput,
   DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
+import type { DescribeDaemonCommandInput, DescribeDaemonCommandOutput } from "./commands/DescribeDaemonCommand";
+import type {
+  DescribeDaemonDeploymentsCommandInput,
+  DescribeDaemonDeploymentsCommandOutput,
+} from "./commands/DescribeDaemonDeploymentsCommand";
+import type {
+  DescribeDaemonRevisionsCommandInput,
+  DescribeDaemonRevisionsCommandOutput,
+} from "./commands/DescribeDaemonRevisionsCommand";
+import type {
+  DescribeDaemonTaskDefinitionCommandInput,
+  DescribeDaemonTaskDefinitionCommandOutput,
+} from "./commands/DescribeDaemonTaskDefinitionCommand";
 import type {
   DescribeExpressGatewayServiceCommandInput,
   DescribeExpressGatewayServiceCommandOutput,
@@ -148,6 +167,15 @@ import type {
   ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
 import type {
+  ListDaemonDeploymentsCommandInput,
+  ListDaemonDeploymentsCommandOutput,
+} from "./commands/ListDaemonDeploymentsCommand";
+import type { ListDaemonsCommandInput, ListDaemonsCommandOutput } from "./commands/ListDaemonsCommand";
+import type {
+  ListDaemonTaskDefinitionsCommandInput,
+  ListDaemonTaskDefinitionsCommandOutput,
+} from "./commands/ListDaemonTaskDefinitionsCommand";
+import type {
   ListServiceDeploymentsCommandInput,
   ListServiceDeploymentsCommandOutput,
 } from "./commands/ListServiceDeploymentsCommand";
@@ -186,6 +214,10 @@ import type {
   RegisterContainerInstanceCommandInput,
   RegisterContainerInstanceCommandOutput,
 } from "./commands/RegisterContainerInstanceCommand";
+import type {
+  RegisterDaemonTaskDefinitionCommandInput,
+  RegisterDaemonTaskDefinitionCommandOutput,
+} from "./commands/RegisterDaemonTaskDefinitionCommand";
 import type {
   RegisterTaskDefinitionCommandInput,
   RegisterTaskDefinitionCommandOutput,
@@ -228,6 +260,7 @@ import type {
   UpdateContainerInstancesStateCommandInput,
   UpdateContainerInstancesStateCommandOutput,
 } from "./commands/UpdateContainerInstancesStateCommand";
+import type { UpdateDaemonCommandInput, UpdateDaemonCommandOutput } from "./commands/UpdateDaemonCommand";
 import type {
   UpdateExpressGatewayServiceCommandInput,
   UpdateExpressGatewayServiceCommandOutput,
@@ -259,6 +292,7 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateCapacityProviderCommandInput
   | CreateClusterCommandInput
+  | CreateDaemonCommandInput
   | CreateExpressGatewayServiceCommandInput
   | CreateServiceCommandInput
   | CreateTaskSetCommandInput
@@ -266,6 +300,8 @@ export type ServiceInputTypes =
   | DeleteAttributesCommandInput
   | DeleteCapacityProviderCommandInput
   | DeleteClusterCommandInput
+  | DeleteDaemonCommandInput
+  | DeleteDaemonTaskDefinitionCommandInput
   | DeleteExpressGatewayServiceCommandInput
   | DeleteServiceCommandInput
   | DeleteTaskDefinitionsCommandInput
@@ -275,6 +311,10 @@ export type ServiceInputTypes =
   | DescribeCapacityProvidersCommandInput
   | DescribeClustersCommandInput
   | DescribeContainerInstancesCommandInput
+  | DescribeDaemonCommandInput
+  | DescribeDaemonDeploymentsCommandInput
+  | DescribeDaemonRevisionsCommandInput
+  | DescribeDaemonTaskDefinitionCommandInput
   | DescribeExpressGatewayServiceCommandInput
   | DescribeServiceDeploymentsCommandInput
   | DescribeServiceRevisionsCommandInput
@@ -289,6 +329,9 @@ export type ServiceInputTypes =
   | ListAttributesCommandInput
   | ListClustersCommandInput
   | ListContainerInstancesCommandInput
+  | ListDaemonDeploymentsCommandInput
+  | ListDaemonTaskDefinitionsCommandInput
+  | ListDaemonsCommandInput
   | ListServiceDeploymentsCommandInput
   | ListServicesByNamespaceCommandInput
   | ListServicesCommandInput
@@ -301,6 +344,7 @@ export type ServiceInputTypes =
   | PutAttributesCommandInput
   | PutClusterCapacityProvidersCommandInput
   | RegisterContainerInstanceCommandInput
+  | RegisterDaemonTaskDefinitionCommandInput
   | RegisterTaskDefinitionCommandInput
   | RunTaskCommandInput
   | StartTaskCommandInput
@@ -316,6 +360,7 @@ export type ServiceInputTypes =
   | UpdateClusterSettingsCommandInput
   | UpdateContainerAgentCommandInput
   | UpdateContainerInstancesStateCommandInput
+  | UpdateDaemonCommandInput
   | UpdateExpressGatewayServiceCommandInput
   | UpdateServiceCommandInput
   | UpdateServicePrimaryTaskSetCommandInput
@@ -328,6 +373,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateCapacityProviderCommandOutput
   | CreateClusterCommandOutput
+  | CreateDaemonCommandOutput
   | CreateExpressGatewayServiceCommandOutput
   | CreateServiceCommandOutput
   | CreateTaskSetCommandOutput
@@ -335,6 +381,8 @@ export type ServiceOutputTypes =
   | DeleteAttributesCommandOutput
   | DeleteCapacityProviderCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteDaemonCommandOutput
+  | DeleteDaemonTaskDefinitionCommandOutput
   | DeleteExpressGatewayServiceCommandOutput
   | DeleteServiceCommandOutput
   | DeleteTaskDefinitionsCommandOutput
@@ -344,6 +392,10 @@ export type ServiceOutputTypes =
   | DescribeCapacityProvidersCommandOutput
   | DescribeClustersCommandOutput
   | DescribeContainerInstancesCommandOutput
+  | DescribeDaemonCommandOutput
+  | DescribeDaemonDeploymentsCommandOutput
+  | DescribeDaemonRevisionsCommandOutput
+  | DescribeDaemonTaskDefinitionCommandOutput
   | DescribeExpressGatewayServiceCommandOutput
   | DescribeServiceDeploymentsCommandOutput
   | DescribeServiceRevisionsCommandOutput
@@ -358,6 +410,9 @@ export type ServiceOutputTypes =
   | ListAttributesCommandOutput
   | ListClustersCommandOutput
   | ListContainerInstancesCommandOutput
+  | ListDaemonDeploymentsCommandOutput
+  | ListDaemonTaskDefinitionsCommandOutput
+  | ListDaemonsCommandOutput
   | ListServiceDeploymentsCommandOutput
   | ListServicesByNamespaceCommandOutput
   | ListServicesCommandOutput
@@ -370,6 +425,7 @@ export type ServiceOutputTypes =
   | PutAttributesCommandOutput
   | PutClusterCapacityProvidersCommandOutput
   | RegisterContainerInstanceCommandOutput
+  | RegisterDaemonTaskDefinitionCommandOutput
   | RegisterTaskDefinitionCommandOutput
   | RunTaskCommandOutput
   | StartTaskCommandOutput
@@ -385,6 +441,7 @@ export type ServiceOutputTypes =
   | UpdateClusterSettingsCommandOutput
   | UpdateContainerAgentCommandOutput
   | UpdateContainerInstancesStateCommandOutput
+  | UpdateDaemonCommandOutput
   | UpdateExpressGatewayServiceCommandOutput
   | UpdateServiceCommandOutput
   | UpdateServicePrimaryTaskSetCommandOutput

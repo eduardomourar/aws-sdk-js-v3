@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeTaskSetsRequest, DescribeTaskSetsResponse } from "../models/models_0";
+import type { DescribeTaskSetsRequest, DescribeTaskSetsResponse } from "../models/models_1";
 import { DescribeTaskSets$ } from "../schemas/schemas_0";
 
 /**

@@ -119,7 +119,7 @@ export interface UpdateContainerInstancesStateCommandOutput extends UpdateContai
  * //         overallStatus: "OK" || "IMPAIRED" || "INSUFFICIENT_DATA" || "INITIALIZING",
  * //         details: [ // InstanceHealthCheckResultList
  * //           { // InstanceHealthCheckResult
- * //             type: "CONTAINER_RUNTIME",
+ * //             type: "CONTAINER_RUNTIME" || "ACCELERATED_COMPUTE" || "DAEMON",
  * //             status: "OK" || "IMPAIRED" || "INSUFFICIENT_DATA" || "INITIALIZING",
  * //             lastUpdated: new Date("TIMESTAMP"),
  * //             lastStatusChange: new Date("TIMESTAMP"),

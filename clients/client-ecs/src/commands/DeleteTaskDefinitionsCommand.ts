@@ -311,6 +311,7 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * //       },
  * //       registeredAt: new Date("TIMESTAMP"),
  * //       deregisteredAt: new Date("TIMESTAMP"),
+ * //       deleteRequestedAt: new Date("TIMESTAMP"),
  * //       registeredBy: "STRING_VALUE",
  * //       ephemeralStorage: { // EphemeralStorage
  * //         sizeInGiB: Number("int"), // required

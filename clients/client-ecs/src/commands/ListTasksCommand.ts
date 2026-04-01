@@ -46,6 +46,7 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  *   serviceName: "STRING_VALUE",
  *   desiredStatus: "RUNNING" || "PENDING" || "STOPPED",
  *   launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
+ *   daemonName: "STRING_VALUE",
  * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);

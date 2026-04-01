@@ -404,26 +404,6 @@ export class NoUpdateAvailableException extends __BaseException {
 }
 
 /**
- * <p>The specified platform version doesn't satisfy the required capabilities of the task definition.</p>
- * @public
- */
-export class PlatformTaskDefinitionIncompatibilityException extends __BaseException {
-  readonly name = "PlatformTaskDefinitionIncompatibilityException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PlatformTaskDefinitionIncompatibilityException, __BaseException>) {
-    super({
-      name: "PlatformTaskDefinitionIncompatibilityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PlatformTaskDefinitionIncompatibilityException.prototype);
-  }
-}
-
-/**
  * <p>The specified platform version doesn't exist.</p>
  * @public
  */
@@ -440,6 +420,66 @@ export class PlatformUnknownException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, PlatformUnknownException.prototype);
+  }
+}
+
+/**
+ * <p>The specified daemon isn't active. You can't update a daemon that's inactive. If you have previously deleted a daemon, you can re-create it with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateDaemon.html">CreateDaemon</a>.</p>
+ * @public
+ */
+export class DaemonNotActiveException extends __BaseException {
+  readonly name = "DaemonNotActiveException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DaemonNotActiveException, __BaseException>) {
+    super({
+      name: "DaemonNotActiveException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DaemonNotActiveException.prototype);
+  }
+}
+
+/**
+ * <p>The specified daemon wasn't found. You can view your available daemons with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListDaemons.html">ListDaemons</a>. Amazon ECS daemons are cluster specific and Region specific.</p>
+ * @public
+ */
+export class DaemonNotFoundException extends __BaseException {
+  readonly name = "DaemonNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DaemonNotFoundException, __BaseException>) {
+    super({
+      name: "DaemonNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DaemonNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The specified platform version doesn't satisfy the required capabilities of the task definition.</p>
+ * @public
+ */
+export class PlatformTaskDefinitionIncompatibilityException extends __BaseException {
+  readonly name = "PlatformTaskDefinitionIncompatibilityException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PlatformTaskDefinitionIncompatibilityException, __BaseException>) {
+    super({
+      name: "PlatformTaskDefinitionIncompatibilityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PlatformTaskDefinitionIncompatibilityException.prototype);
   }
 }
 
