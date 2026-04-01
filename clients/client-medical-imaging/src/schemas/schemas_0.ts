@@ -1,4 +1,5 @@
 const _ADE = "AccessDeniedException";
+const _BRE = "BadRequestException";
 const _CA = "CopiableAttributes";
 const _CD = "CreateDatastore";
 const _CDIS = "CopyDestinationImageSet";
@@ -84,6 +85,7 @@ const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _MC = "MetadataCopies";
 const _MU = "MetadataUpdates";
+const _NAE = "NotAcceptableException";
 const _O = "Overrides";
 const _PB = "PayloadBlob";
 const _RNFE = "ResourceNotFoundException";
@@ -145,6 +147,7 @@ const _iOAI = "inputOwnerAccountId";
 const _iP = "isPrimary";
 const _iSA = "imageSetArn";
 const _iSI = "imageSetId";
+const _iSIS = "includeStudyImageSets";
 const _iSMB = "imageSetMetadataBlob";
 const _iSMS = "imageSetsMetadataSummaries";
 const _iSPL = "imageSetPropertiesList";
@@ -208,8 +211,10 @@ import type {
 
 import {
   AccessDeniedException,
+  BadRequestException,
   ConflictException,
   InternalServerException,
+  NotAcceptableException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
@@ -228,6 +233,12 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   [0], 1
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
@@ -240,6 +251,12 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   [0], 1
 ];
 n0_registry.registerError(InternalServerException$, InternalServerException);
+export var NotAcceptableException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_e]: _c, [_hE]: 406 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(NotAcceptableException$, NotAcceptableException);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
@@ -563,8 +580,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateImageSetMetadataRequest$: StaticStructureSchema = [3, n0, _UISMR,
   0,
-  [_dI, _iSI, _lVI, _uISMU, _f],
-  [[0, 1], [0, 1], [0, { [_hQ]: _lV }], [() => MetadataUpdates$, 16], [2, { [_hQ]: _f }]], 4
+  [_dI, _iSI, _lVI, _uISMU, _f, _iSIS],
+  [[0, 1], [0, 1], [0, { [_hQ]: _lV }], [() => MetadataUpdates$, 16], [2, { [_hQ]: _f }], [2, { [_hQ]: _iSIS }]], 4
 ];
 export var UpdateImageSetMetadataResponse$: StaticStructureSchema = [3, n0, _UISMRp,
   0,

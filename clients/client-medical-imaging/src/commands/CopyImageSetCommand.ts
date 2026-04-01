@@ -66,7 +66,7 @@ export interface CopyImageSetCommandOutput extends CopyImageSetResponse, __Metad
  * //     imageSetId: "STRING_VALUE", // required
  * //     latestVersionId: "STRING_VALUE", // required
  * //     imageSetState: "ACTIVE" || "LOCKED" || "DELETED",
- * //     imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "IMPORTING" || "IMPORTED" || "IMPORT_FAILED",
+ * //     imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATING_FOR_STUDY_CONSISTENCY" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "IMPORTING" || "IMPORTED" || "IMPORT_FAILED",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     imageSetArn: "STRING_VALUE",
@@ -75,7 +75,7 @@ export interface CopyImageSetCommandOutput extends CopyImageSetResponse, __Metad
  * //     imageSetId: "STRING_VALUE", // required
  * //     latestVersionId: "STRING_VALUE", // required
  * //     imageSetState: "ACTIVE" || "LOCKED" || "DELETED",
- * //     imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "IMPORTING" || "IMPORTED" || "IMPORT_FAILED",
+ * //     imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATING_FOR_STUDY_CONSISTENCY" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "IMPORTING" || "IMPORTED" || "IMPORT_FAILED",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     imageSetArn: "STRING_VALUE",

@@ -31,6 +31,7 @@ export const ImageSetWorkflowStatus = {
   UPDATED: "UPDATED",
   UPDATE_FAILED: "UPDATE_FAILED",
   UPDATING: "UPDATING",
+  UPDATING_FOR_STUDY_CONSISTENCY: "UPDATING_FOR_STUDY_CONSISTENCY",
 } as const;
 /**
  * @public

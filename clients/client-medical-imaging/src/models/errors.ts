@@ -142,3 +142,43 @@ export class ValidationException extends __BaseException {
     Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
+
+/**
+ * <p>The request is invalid or malformed.</p>
+ * @public
+ */
+export class BadRequestException extends __BaseException {
+  readonly name = "BadRequestException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+  }
+}
+
+/**
+ * <p>The request content type or accept header is not supported.</p>
+ * @public
+ */
+export class NotAcceptableException extends __BaseException {
+  readonly name = "NotAcceptableException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotAcceptableException, __BaseException>) {
+    super({
+      name: "NotAcceptableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAcceptableException.prototype);
+  }
+}

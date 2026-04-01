@@ -72,11 +72,17 @@ export interface GetImageFrameCommandOutput extends Omit<GetImageFrameResponse, 
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The user does not have sufficient access to perform this action.</p>
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is invalid or malformed.</p>
+ *
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred during processing of the request.</p>
+ *
+ * @throws {@link NotAcceptableException} (client fault)
+ *  <p>The request content type or accept header is not supported.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource which does not exist.</p>

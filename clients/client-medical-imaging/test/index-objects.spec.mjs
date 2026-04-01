@@ -1,6 +1,8 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  BadRequestException,
+  BadRequestException$,
   ConflictException,
   ConflictException$,
   CopyDestinationImageSet$,
@@ -82,6 +84,8 @@ import {
   MedicalImagingServiceException,
   MetadataCopies$,
   MetadataUpdates$,
+  NotAcceptableException,
+  NotAcceptableException$,
   Operator,
   Overrides$,
   paginateListDatastores,
@@ -237,10 +241,14 @@ assert(typeof StorageTier === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof MedicalImagingServiceException);
 assert(typeof AccessDeniedException$ === "object");
+assert(BadRequestException.prototype instanceof MedicalImagingServiceException);
+assert(typeof BadRequestException$ === "object");
 assert(ConflictException.prototype instanceof MedicalImagingServiceException);
 assert(typeof ConflictException$ === "object");
 assert(InternalServerException.prototype instanceof MedicalImagingServiceException);
 assert(typeof InternalServerException$ === "object");
+assert(NotAcceptableException.prototype instanceof MedicalImagingServiceException);
+assert(typeof NotAcceptableException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof MedicalImagingServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof MedicalImagingServiceException);
