@@ -136,7 +136,7 @@ export interface DescribeElasticsearchDomainsCommandOutput extends DescribeElast
  * //       },
  * //       DomainEndpointOptions: { // DomainEndpointOptions
  * //         EnforceHTTPS: true || false,
- * //         TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07" || "Policy-Min-TLS-1-2-PFS-2023-10",
+ * //         TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07" || "Policy-Min-TLS-1-2-PFS-2023-10" || "Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08",
  * //         CustomEndpointEnabled: true || false,
  * //         CustomEndpoint: "STRING_VALUE",
  * //         CustomEndpointCertificateArn: "STRING_VALUE",
