@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1022.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1021.0...v3.1022.0) (2026-04-01)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for VPC egress private endpoints for Amazon Bedrock AgentCore gateway targets, enabling private connectivity through managed VPC Lattice resources. Also adds IAM credential provider for gateway targets, enabling IAM-based authentication to target endpoints ([de64266](https://github.com/aws/aws-sdk-js-v3/commit/de64266978a92920bc003895149c4e759cfd834c))
+* **client-bedrock-agentcore:** Added the ability to filter out empty sessions when listing sessions. Customers can now retrieve only sessions that still contain events, eliminating the need to check each session individually. No changes required for existing integrations. ([a4d1169](https://github.com/aws/aws-sdk-js-v3/commit/a4d1169cd9611b5ed059e436250a26304de804c5))
+* **client-bedrock:** Adds support for Bedrock Batch Inference Job Progress Monitoring ([4f7aa9c](https://github.com/aws/aws-sdk-js-v3/commit/4f7aa9cf900b5a0b9767a8fa55a9fc7421fc724e))
+* **client-ecs:** Amazon ECS now supports Managed Daemons with dedicated APIs for registering daemon task definitions, creating daemons, and managing daemon deployments. ([244432f](https://github.com/aws/aws-sdk-js-v3/commit/244432f24eb0a7e51833c1f74b292666b31b2b4b))
+* **client-elasticache:** Updated SnapshotRetentionLimit documentation for ServerlessCache to correctly describe the parameter as number of days (max 35) instead of number of snapshots. ([67fd75e](https://github.com/aws/aws-sdk-js-v3/commit/67fd75ea4f4c67b6f2fd7d002ea4da11ef504d22))
+* **client-elasticsearch-service:** Adding Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08 as TLS Policy in Supported Regions ([4819301](https://github.com/aws/aws-sdk-js-v3/commit/4819301bb7989bf80727f2c42f850039254c443e))
+* **client-geo-routes:** This release makes RoutingBoundary optional in CalculateRouteMatrix, set StopDuration with a maximum value of 49999 for CalculateRoutes, set TrailerCount with a maximum value of 4, and introduces region restrictions for Grab Maps users. ([fc9dd50](https://github.com/aws/aws-sdk-js-v3/commit/fc9dd509095710d0368a3bf5723578410f864278))
+* **client-medical-imaging:** Added new boolean flag to persist metadata updates to all primary image sets in the same study as the requested image set. ([af90be3](https://github.com/aws/aws-sdk-js-v3/commit/af90be39a051be2e1d619a74445923179d12c32a))
+* **client-opensearch:** Adding Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08 as TLS Policy in Supported Regions ([3173ac0](https://github.com/aws/aws-sdk-js-v3/commit/3173ac0bf336d3b7c1afb4556126f319ec44e51d))
+
+
+
+
+
 # [3.1021.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1020.0...v3.1021.0) (2026-03-31)
 
 

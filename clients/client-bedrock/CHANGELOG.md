@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1022.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1021.0...v3.1022.0) (2026-04-01)
+
+
+### Features
+
+* **client-bedrock:** Adds support for Bedrock Batch Inference Job Progress Monitoring ([4f7aa9c](https://github.com/aws/aws-sdk-js-v3/commit/4f7aa9cf900b5a0b9767a8fa55a9fc7421fc724e))
+
+
+
+
+
 # [3.1021.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1020.0...v3.1021.0) (2026-03-31)
 
 

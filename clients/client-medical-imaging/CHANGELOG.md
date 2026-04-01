@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1022.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1021.0...v3.1022.0) (2026-04-01)
+
+
+### Features
+
+* **client-medical-imaging:** Added new boolean flag to persist metadata updates to all primary image sets in the same study as the requested image set. ([af90be3](https://github.com/aws/aws-sdk-js-v3/commit/af90be39a051be2e1d619a74445923179d12c32a))
+
+
+
+
+
 # [3.1021.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1020.0...v3.1021.0) (2026-03-31)
 
 
