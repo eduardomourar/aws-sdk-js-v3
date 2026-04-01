@@ -86,6 +86,7 @@ export interface DescribeServerlessCachesCommandOutput extends DescribeServerles
  * //       ],
  * //       SnapshotRetentionLimit: Number("int"),
  * //       DailySnapshotTime: "STRING_VALUE",
+ * //       NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //     },
  * //   ],
  * // };

@@ -71,6 +71,7 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  *   ],
  *   SnapshotRetentionLimit: Number("int"),
  *   DailySnapshotTime: "STRING_VALUE",
+ *   NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * };
  * const command = new CreateServerlessCacheCommand(input);
  * const response = await client.send(command);
@@ -113,6 +114,7 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  * //     ],
  * //     SnapshotRetentionLimit: Number("int"),
  * //     DailySnapshotTime: "STRING_VALUE",
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //   },
  * // };
  *

@@ -1019,7 +1019,7 @@ export interface ReplicationGroup {
   ClusterMode?: ClusterMode | undefined;
 
   /**
-   * <p>The engine used in a replication group. The options are redis, memcached or valkey.</p>
+   * <p>The engine used in a replication group. The options are valkey, memcached or redis.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -1047,7 +1047,7 @@ export interface CopyServerlessCacheSnapshotRequest {
   SourceServerlessCacheSnapshotName: string | undefined;
 
   /**
-   * <p>The identifier for the snapshot to be created. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+   * <p>The identifier for the snapshot to be created. Available for Valkey, Redis OSS and Serverless Memcached only. This value is stored as a lowercase string.</p>
    * @public
    */
   TargetServerlessCacheSnapshotName: string | undefined;
@@ -1175,7 +1175,7 @@ export interface CopySnapshotMessage {
   /**
    * <p>A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot,
    *             therefore this name must be unique within its context - ElastiCache or an Amazon S3
-   *             bucket if exporting.</p>
+   *             bucket if exporting. This value is stored as a lowercase string.</p>
    * @public
    */
   TargetSnapshotName: string | undefined;
@@ -3250,7 +3250,7 @@ export interface CreateCacheClusterResult {
  */
 export interface CreateCacheParameterGroupMessage {
   /**
-   * <p>A user-specified name for the cache parameter group.</p>
+   * <p>A user-specified name for the cache parameter group. This value is stored as a lowercase string.</p>
    * @public
    */
   CacheParameterGroupName: string | undefined;
@@ -3585,7 +3585,7 @@ export interface CreateGlobalReplicationGroupMessage {
 
   /**
    * <p>The name of the primary cluster that accepts writes and will replicate updates to the
-   *             secondary cluster.</p>
+   *             secondary cluster. This value is stored as a lowercase string.</p>
    * @public
    */
   PrimaryReplicationGroupId: string | undefined;
@@ -4354,7 +4354,7 @@ export interface CreateReplicationGroupMessage {
    *             replication group. </p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using Valkey 7.2 and later, Redis OSS version <code>3.2.6</code>, or Redis OSS <code>4.x</code> and
+   *             group in an Amazon VPC using Valkey <code>7.2</code> and later, Redis OSS version <code>3.2.6</code>, or Redis OSS <code>4.x</code> and
    *             later.</p>
    *          <p>Default: <code>true</code> when using Valkey, <code>false</code> when using Redis OSS</p>
    * @public
@@ -4588,8 +4588,8 @@ export interface CreateServerlessCacheRequest {
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>The number of snapshots that will be retained for the serverless cache that is being created.
-   *            As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+   * <p>The number of days for which ElastiCache retains automatic snapshots before deleting them.
+   *            Available for Valkey, Redis OSS and Serverless Memcached only. The maximum value allowed is 35 days.</p>
    * @public
    */
   SnapshotRetentionLimit?: number | undefined;
@@ -4600,6 +4600,16 @@ export interface CreateServerlessCacheRequest {
    * @public
    */
   DailySnapshotTime?: string | undefined;
+
+  /**
+   * <p>The IP protocol version used by the serverless cache.
+   *            Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>.
+   *            <code>ipv6</code> is only supported with ipv6-only subnets.
+   *            If not specified, defaults to <code>ipv4</code>, unless all provided subnets are IPv6-only, in which case it defaults to <code>ipv6</code>.
+   *            </p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -4702,7 +4712,7 @@ export interface ServerlessCache {
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>The current setting for the number of serverless cache snapshots the system will retain. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+   * <p>The number of days for which ElastiCache retains automatic snapshots before deleting them. Available for Valkey, Redis OSS and Serverless Memcached only. The maximum value allowed is 35 days.</p>
    * @public
    */
   SnapshotRetentionLimit?: number | undefined;
@@ -4713,6 +4723,15 @@ export interface ServerlessCache {
    * @public
    */
   DailySnapshotTime?: string | undefined;
+
+  /**
+   * <p>The type of IP address protocol used by the serverless cache.
+   *            Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>.
+   *            <code>ipv6</code> is only supported with IPv6-only subnets.
+   *            If not specified, defaults to <code>ipv4</code>, unless all provided subnets are IPv6-only, in which case it defaults to <code>ipv6</code>.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -4732,7 +4751,7 @@ export interface CreateServerlessCacheResponse {
 export interface CreateServerlessCacheSnapshotRequest {
   /**
    * <p>The name for the snapshot being created. Must be unique for the customer account. Available for Valkey, Redis OSS and Serverless Memcached only.
-   *            Must be between 1 and 255 characters.</p>
+   *            Must be between 1 and 255 characters. This value is stored as a lowercase string.</p>
    * @public
    */
   ServerlessCacheSnapshotName: string | undefined;
@@ -4787,7 +4806,7 @@ export interface CreateSnapshotMessage {
   CacheClusterId?: string | undefined;
 
   /**
-   * <p>A name for the snapshot being created.</p>
+   * <p>A name for the snapshot being created. This value is stored as a lowercase string.</p>
    * @public
    */
   SnapshotName: string | undefined;
@@ -4843,7 +4862,7 @@ export interface AuthenticationMode {
  */
 export interface CreateUserMessage {
   /**
-   * <p>The ID of the user.</p>
+   * <p>The ID of the user. This value is stored as a lowercase string.</p>
    * @public
    */
   UserId: string | undefined;
@@ -4974,7 +4993,7 @@ export interface User {
  */
 export interface CreateUserGroupMessage {
   /**
-   * <p>The ID of the user group.</p>
+   * <p>The ID of the user group. This value is stored as a lowercase string.</p>
    * @public
    */
   UserGroupId: string | undefined;
@@ -9167,7 +9186,7 @@ export interface ModifyGlobalReplicationGroupMessage {
   CacheNodeType?: string | undefined;
 
   /**
-   * <p>Modifies the engine listed in a global replication group message. The options are redis, memcached or valkey.</p>
+   * <p>Modifies the engine listed in a global replication group message. The options are valkey, memcached or redis.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -9387,7 +9406,7 @@ export interface ModifyReplicationGroupMessage {
   ApplyImmediately?: boolean | undefined;
 
   /**
-   * <p>Modifies the engine listed in a replication group message. The options are redis, memcached or valkey.</p>
+   * <p>Modifies the engine listed in a replication group message. The options are valkey, memcached or redis.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -9699,7 +9718,7 @@ export interface ModifyServerlessCacheRequest {
   DailySnapshotTime?: string | undefined;
 
   /**
-   * <p>Modifies the engine listed in a serverless cache request. The options are redis, memcached or valkey.</p>
+   * <p>Modifies the engine listed in a serverless cache request. The options are valkey, memcached or redis.</p>
    * @public
    */
   Engine?: string | undefined;
