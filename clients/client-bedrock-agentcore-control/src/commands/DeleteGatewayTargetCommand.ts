@@ -31,7 +31,7 @@ export interface DeleteGatewayTargetCommandInput extends DeleteGatewayTargetRequ
 export interface DeleteGatewayTargetCommandOutput extends DeleteGatewayTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a gateway target.</p>
+ * <p>Deletes a gateway target.</p> <p>You cannot delete a target that is in a pending authorization state (<code>CREATE_PENDING_AUTH</code>, <code>UPDATE_PENDING_AUTH</code>, or <code>SYNCHRONIZE_PENDING_AUTH</code>). Wait for the authorization to complete or fail before deleting the target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,7 +49,7 @@ export interface DeleteGatewayTargetCommandOutput extends DeleteGatewayTargetRes
  * // { // DeleteGatewayTargetResponse
  * //   gatewayArn: "STRING_VALUE", // required
  * //   targetId: "STRING_VALUE", // required
- * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL", // required
+ * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH" || "SYNCHRONIZE_PENDING_AUTH", // required
  * //   statusReasons: [ // StatusReasons
  * //     "STRING_VALUE",
  * //   ],

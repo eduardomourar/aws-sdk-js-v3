@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreatePolicyEngineRequest, CreatePolicyEngineResponse } from "../models/models_0";
+import type { CreatePolicyEngineRequest } from "../models/models_0";
+import type { CreatePolicyEngineResponse } from "../models/models_1";
 import { CreatePolicyEngine$ } from "../schemas/schemas_0";
 
 /**

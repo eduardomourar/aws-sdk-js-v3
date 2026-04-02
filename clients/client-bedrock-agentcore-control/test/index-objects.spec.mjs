@@ -16,6 +16,7 @@ import {
   ApiSchemaConfiguration$,
   AtlassianOauth2ProviderConfigInput$,
   AtlassianOauth2ProviderConfigOutput$,
+  AuthorizationData$,
   AuthorizerConfiguration$,
   AuthorizerType,
   AuthorizingClaimMatchValueType$,
@@ -418,6 +419,7 @@ import {
   McpLambdaTargetConfiguration$,
   McpServerTargetConfiguration$,
   McpTargetConfiguration$,
+  McpToolSchemaConfiguration$,
   Memory$,
   MemoryStatus,
   MemoryStrategy$,
@@ -442,6 +444,7 @@ import {
   NetworkConfiguration$,
   NetworkMode,
   NumericalScaleDefinition$,
+  OAuth2AuthorizationData$,
   Oauth2AuthorizationServerMetadata$,
   Oauth2CredentialProviderItem$,
   Oauth2Discovery$,
@@ -838,6 +841,7 @@ assert(typeof ApiKeyCredentialProviderItem$ === "object");
 assert(typeof ApiSchemaConfiguration$ === "object");
 assert(typeof AtlassianOauth2ProviderConfigInput$ === "object");
 assert(typeof AtlassianOauth2ProviderConfigOutput$ === "object");
+assert(typeof AuthorizationData$ === "object");
 assert(typeof AuthorizerConfiguration$ === "object");
 assert(typeof AuthorizingClaimMatchValueType$ === "object");
 assert(typeof BedrockEvaluatorModelConfig$ === "object");
@@ -1066,6 +1070,7 @@ assert(typeof MCPGatewayConfiguration$ === "object");
 assert(typeof McpLambdaTargetConfiguration$ === "object");
 assert(typeof McpServerTargetConfiguration$ === "object");
 assert(typeof McpTargetConfiguration$ === "object");
+assert(typeof McpToolSchemaConfiguration$ === "object");
 assert(typeof Memory$ === "object");
 assert(typeof MemoryStrategy$ === "object");
 assert(typeof MemoryStrategyInput$ === "object");
@@ -1085,6 +1090,7 @@ assert(typeof ModifySelfManagedConfiguration$ === "object");
 assert(typeof ModifyStrategyConfiguration$ === "object");
 assert(typeof NetworkConfiguration$ === "object");
 assert(typeof NumericalScaleDefinition$ === "object");
+assert(typeof OAuth2AuthorizationData$ === "object");
 assert(typeof Oauth2AuthorizationServerMetadata$ === "object");
 assert(typeof Oauth2CredentialProviderItem$ === "object");
 assert(typeof Oauth2Discovery$ === "object");

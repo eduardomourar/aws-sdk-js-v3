@@ -31,7 +31,7 @@ export interface UpdateGatewayTargetCommandInput extends UpdateGatewayTargetRequ
 export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing gateway target.</p>
+ * <p>Updates an existing gateway target.</p> <p>You cannot update a target that is in a pending authorization state (<code>CREATE_PENDING_AUTH</code>, <code>UPDATE_PENDING_AUTH</code>, or <code>SYNCHRONIZE_PENDING_AUTH</code>). Wait for the authorization to complete or fail before updating the target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,6 +100,13 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  *       },
  *       mcpServer: { // McpServerTargetConfiguration
  *         endpoint: "STRING_VALUE", // required
+ *         mcpToolSchema: { // McpToolSchemaConfiguration Union: only one key present
+ *           s3: {
+ *             uri: "STRING_VALUE",
+ *             bucketOwnerAccountId: "STRING_VALUE",
+ *           },
+ *           inlinePayload: "STRING_VALUE",
+ *         },
  *       },
  *       apiGateway: { // ApiGatewayTargetConfiguration
  *         restApiId: "STRING_VALUE", // required
@@ -191,7 +198,7 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //   targetId: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
- * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL", // required
+ * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH" || "SYNCHRONIZE_PENDING_AUTH", // required
  * //   statusReasons: [ // StatusReasons
  * //     "STRING_VALUE",
  * //   ],
@@ -252,6 +259,13 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //       },
  * //       mcpServer: { // McpServerTargetConfiguration
  * //         endpoint: "STRING_VALUE", // required
+ * //         mcpToolSchema: { // McpToolSchemaConfiguration Union: only one key present
+ * //           s3: {
+ * //             uri: "STRING_VALUE",
+ * //             bucketOwnerAccountId: "STRING_VALUE",
+ * //           },
+ * //           inlinePayload: "STRING_VALUE",
+ * //         },
  * //       },
  * //       apiGateway: { // ApiGatewayTargetConfiguration
  * //         restApiId: "STRING_VALUE", // required
@@ -343,6 +357,12 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //       resourceAssociationArn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   authorizationData: { // AuthorizationData Union: only one key present
+ * //     oauth2: { // OAuth2AuthorizationData
+ * //       authorizationUrl: "STRING_VALUE", // required
+ * //       userId: "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```

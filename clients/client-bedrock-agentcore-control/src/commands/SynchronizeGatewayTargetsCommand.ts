@@ -32,7 +32,7 @@ export interface SynchronizeGatewayTargetsCommandInput extends SynchronizeGatewa
 export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatewayTargetsResponse, __MetadataBearer {}
 
 /**
- * <p>The gateway targets.</p>
+ * <p>Synchronizes the gateway targets by fetching the latest tool definitions from the target endpoints.</p> <p>You cannot synchronize a target that is in a pending authorization state (<code>CREATE_PENDING_AUTH</code>, <code>UPDATE_PENDING_AUTH</code>, or <code>SYNCHRONIZE_PENDING_AUTH</code>). Wait for the authorization to complete or fail before synchronizing.</p> <p>You cannot synchronize a target that has a static tool schema (<code>mcpToolSchema</code>) configured. Remove the static schema through an <code>UpdateGatewayTarget</code> call to enable dynamic tool synchronization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,7 +56,7 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //       targetId: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
- * //       status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL", // required
+ * //       status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH" || "SYNCHRONIZE_PENDING_AUTH", // required
  * //       statusReasons: [ // StatusReasons
  * //         "STRING_VALUE",
  * //       ],
@@ -117,6 +117,13 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //           },
  * //           mcpServer: { // McpServerTargetConfiguration
  * //             endpoint: "STRING_VALUE", // required
+ * //             mcpToolSchema: { // McpToolSchemaConfiguration Union: only one key present
+ * //               s3: {
+ * //                 uri: "STRING_VALUE",
+ * //                 bucketOwnerAccountId: "STRING_VALUE",
+ * //               },
+ * //               inlinePayload: "STRING_VALUE",
+ * //             },
  * //           },
  * //           apiGateway: { // ApiGatewayTargetConfiguration
  * //             restApiId: "STRING_VALUE", // required
@@ -208,6 +215,12 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //           resourceAssociationArn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       authorizationData: { // AuthorizationData Union: only one key present
+ * //         oauth2: { // OAuth2AuthorizationData
+ * //           authorizationUrl: "STRING_VALUE", // required
+ * //           userId: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

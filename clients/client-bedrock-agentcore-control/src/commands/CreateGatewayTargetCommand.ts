@@ -100,6 +100,13 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  *       },
  *       mcpServer: { // McpServerTargetConfiguration
  *         endpoint: "STRING_VALUE", // required
+ *         mcpToolSchema: { // McpToolSchemaConfiguration Union: only one key present
+ *           s3: {
+ *             uri: "STRING_VALUE",
+ *             bucketOwnerAccountId: "STRING_VALUE",
+ *           },
+ *           inlinePayload: "STRING_VALUE",
+ *         },
  *       },
  *       apiGateway: { // ApiGatewayTargetConfiguration
  *         restApiId: "STRING_VALUE", // required
@@ -191,7 +198,7 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * //   targetId: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
- * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL", // required
+ * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH" || "SYNCHRONIZE_PENDING_AUTH", // required
  * //   statusReasons: [ // StatusReasons
  * //     "STRING_VALUE",
  * //   ],
@@ -252,6 +259,13 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * //       },
  * //       mcpServer: { // McpServerTargetConfiguration
  * //         endpoint: "STRING_VALUE", // required
+ * //         mcpToolSchema: { // McpToolSchemaConfiguration Union: only one key present
+ * //           s3: {
+ * //             uri: "STRING_VALUE",
+ * //             bucketOwnerAccountId: "STRING_VALUE",
+ * //           },
+ * //           inlinePayload: "STRING_VALUE",
+ * //         },
  * //       },
  * //       apiGateway: { // ApiGatewayTargetConfiguration
  * //         restApiId: "STRING_VALUE", // required
@@ -343,6 +357,12 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * //       resourceAssociationArn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   authorizationData: { // AuthorizationData Union: only one key present
+ * //     oauth2: { // OAuth2AuthorizationData
+ * //       authorizationUrl: "STRING_VALUE", // required
+ * //       userId: "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```

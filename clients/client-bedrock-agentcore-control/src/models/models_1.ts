@@ -11,6 +11,7 @@ import type {
 import type {
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
+  AuthorizationData,
   CredentialProviderConfiguration,
   KmsConfiguration,
   ManagedResourceDetails,
@@ -19,6 +20,135 @@ import type {
   PrivateEndpoint,
   S3Configuration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreatePolicyEngineResponse {
+  /**
+   * <p>The unique identifier for the created policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and is used for all subsequent policy engine operations.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the created policy engine. This matches the name provided in the request and serves as the human-readable identifier.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A human-readable description of the policy engine's purpose.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last updated. For newly created policy engines, this matches the <code>createdAt</code> timestamp.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine. A status of <code>ACTIVE</code> indicates the policy engine is ready for use.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine creation process.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyEngineRequest {
+  /**
+   * <p>The unique identifier of the policy engine to be deleted. This must be a valid policy engine ID that exists within the account.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyEngineResponse {
+  /**
+   * <p>The unique identifier of the policy engine being deleted. This confirms which policy engine the deletion operation targets.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the deleted policy engine.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The human-readable description of the deleted policy engine.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the deleted policy engine was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the deleted policy engine was last modified before deletion. This tracks the final state of the policy engine before it was removed from the system.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted policy engine. This globally unique identifier confirms which policy engine resource was successfully removed.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The status of the policy engine deletion operation. This provides status about any issues that occurred during the deletion process.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
 
 /**
  * @public
@@ -2047,6 +2177,12 @@ export interface CreateGatewayTargetResponse {
    * @public
    */
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
+
+  /**
+   * <p>OAuth2 authorization data for the created gateway target. This data is returned when the target requires user authorization through an authorization code grant type.</p>
+   * @public
+   */
+  authorizationData?: AuthorizationData | undefined;
 }
 
 /**
@@ -2137,6 +2273,12 @@ export interface GatewayTarget {
    * @public
    */
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
+
+  /**
+   * <p>OAuth2 authorization data for the gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+   * @public
+   */
+  authorizationData?: AuthorizationData | undefined;
 }
 
 /**
@@ -2226,6 +2368,12 @@ export interface GetGatewayTargetResponse {
    * @public
    */
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
+
+  /**
+   * <p>OAuth2 authorization data for the gateway target. This data is returned when the target requires user authorization through an authorization code grant type.</p>
+   * @public
+   */
+  authorizationData?: AuthorizationData | undefined;
 }
 
 /**
@@ -2368,6 +2516,12 @@ export interface UpdateGatewayTargetResponse {
    * @public
    */
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
+
+  /**
+   * <p>OAuth2 authorization data for the updated gateway target. This data is returned when the target requires user authorization through an authorization code grant type.</p>
+   * @public
+   */
+  authorizationData?: AuthorizationData | undefined;
 }
 
 /**

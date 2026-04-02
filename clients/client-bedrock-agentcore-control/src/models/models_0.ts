@@ -39,7 +39,6 @@ import type {
   OnlineEvaluationConfigStatus,
   OnlineEvaluationExecutionStatus,
   OverrideType,
-  PolicyEngineStatus,
   ResourceType,
   RestApiMethod,
   SearchType,
@@ -4801,6 +4800,59 @@ export interface S3Configuration {
 }
 
 /**
+ * <p>The MCP tool schema configuration for an MCP server target. The tool schema must be aligned with the MCP specification.</p>
+ * @public
+ */
+export type McpToolSchemaConfiguration =
+  | McpToolSchemaConfiguration.InlinePayloadMember
+  | McpToolSchemaConfiguration.S3Member
+  | McpToolSchemaConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace McpToolSchemaConfiguration {
+  /**
+   * <p>The Amazon S3 location of the tool schema. This location contains the schema definition file.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Configuration;
+    inlinePayload?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The inline payload containing the MCP tool schema definition.</p>
+   * @public
+   */
+  export interface InlinePayloadMember {
+    s3?: never;
+    inlinePayload: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    inlinePayload?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3Configuration) => T;
+    inlinePayload: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The target configuration for the MCP server.</p>
  * @public
  */
@@ -4810,6 +4862,12 @@ export interface McpServerTargetConfiguration {
    * @public
    */
   endpoint: string | undefined;
+
+  /**
+   * <p>The tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. Dynamic tool discovery/synchronization will be disabled when target is configured with mcpToolSchema.</p>
+   * @public
+   */
+  mcpToolSchema?: McpToolSchemaConfiguration | undefined;
 }
 
 /**
@@ -4861,6 +4919,63 @@ export namespace ApiSchemaConfiguration {
   export interface Visitor<T> {
     s3: (value: S3Configuration) => T;
     inlinePayload: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>OAuth2-specific authorization data, including the authorization URL and user identifier for the authorization session.</p>
+ * @public
+ */
+export interface OAuth2AuthorizationData {
+  /**
+   * <p>The URL to initiate the authorization process. This URL is provided when the OAuth2 access token requires user authorization.</p>
+   * @public
+   */
+  authorizationUrl: string | undefined;
+
+  /**
+   * <p>The user identifier associated with the OAuth2 authorization session that is defined by AgentCore Gateway.</p>
+   * @public
+   */
+  userId?: string | undefined;
+}
+
+/**
+ * <p>Contains the authorization data that is returned when a gateway target requires user authorization through an authorization code grant type.</p>
+ * @public
+ */
+export type AuthorizationData =
+  | AuthorizationData.Oauth2Member
+  | AuthorizationData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AuthorizationData {
+  /**
+   * <p>OAuth2 authorization data for the gateway target.</p>
+   * @public
+   */
+  export interface Oauth2Member {
+    oauth2: OAuth2AuthorizationData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    oauth2?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    oauth2: (value: OAuth2AuthorizationData) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9457,133 +9572,4 @@ export interface CreatePolicyEngineRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePolicyEngineResponse {
-  /**
-   * <p>The unique identifier for the created policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and is used for all subsequent policy engine operations.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the created policy engine. This matches the name provided in the request and serves as the human-readable identifier.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A human-readable description of the policy engine's purpose.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last updated. For newly created policy engines, this matches the <code>createdAt</code> timestamp.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy engine. A status of <code>ACTIVE</code> indicates the policy engine is ready for use.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine creation process.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePolicyEngineRequest {
-  /**
-   * <p>The unique identifier of the policy engine to be deleted. This must be a valid policy engine ID that exists within the account.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePolicyEngineResponse {
-  /**
-   * <p>The unique identifier of the policy engine being deleted. This confirms which policy engine the deletion operation targets.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the deleted policy engine.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The human-readable description of the deleted policy engine.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the deleted policy engine was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the deleted policy engine was last modified before deletion. This tracks the final state of the policy engine before it was removed from the system.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted policy engine. This globally unique identifier confirms which policy engine resource was successfully removed.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The status of the policy engine deletion operation. This provides status about any issues that occurred during the deletion process.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
 }

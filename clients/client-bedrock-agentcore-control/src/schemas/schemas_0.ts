@@ -1,5 +1,6 @@
 const _AC = "AuthorizerConfiguration";
 const _ACMVT = "AuthorizingClaimMatchValueType";
+const _AD = "AuthorizationData";
 const _ADE = "AccessDeniedException";
 const _AGTC = "ApiGatewayTargetConfiguration";
 const _AGTCp = "ApiGatewayToolConfiguration";
@@ -366,9 +367,11 @@ const _MSMC = "ModifySelfManagedConfiguration";
 const _MSTC = "McpServerTargetConfiguration";
 const _MSe = "MemorySummary";
 const _MTC = "McpTargetConfiguration";
+const _MTSC = "McpToolSchemaConfiguration";
 const _NC = "NetworkConfiguration";
 const _NSD = "NumericalScaleDefinition";
 const _NSDu = "NumericalScaleDefinitions";
+const _OAAD = "OAuth2AuthorizationData";
 const _OACP = "OAuthCredentialProvider";
 const _OACPV = "OAuthCustomParametersValue";
 const _OACPu = "OAuthCustomParameters";
@@ -529,6 +532,7 @@ const _aA = "allowedAudience";
 const _aC = "authorizerConfiguration";
 const _aCMV = "authorizingClaimMatchValue";
 const _aCl = "allowedClients";
+const _aD = "authorizationData";
 const _aE = "authorizationEndpoint";
 const _aG = "apiGateway";
 const _aGTC = "apiGatewayToolConfiguration";
@@ -553,6 +557,7 @@ const _aS = "allowedScopes";
 const _aSM = "authorizationServerMetadata";
 const _aT = "authorizerType";
 const _aTP = "appendToPrompt";
+const _aU = "authorizationUrl";
 const _b = "bucket";
 const _bA = "browserArn";
 const _bEMC = "bedrockEvaluatorModelConfig";
@@ -722,6 +727,7 @@ const _mS = "memoryStrategies";
 const _mSI = "memoryStrategyId";
 const _mSc = "mcpServer";
 const _mT = "maxTokens";
+const _mTS = "mcpToolSchema";
 const _mVS = "matchValueString";
 const _mVSL = "matchValueStringList";
 const _mc = "mcp";
@@ -751,6 +757,7 @@ const _oPCI = "oauth2ProviderConfigInput";
 const _oPCO = "oauth2ProviderConfigOutput";
 const _oS = "outputSchema";
 const _oV = "optionalValue";
+const _oa = "oauth2";
 const _p = "path";
 const _pA = "profileArn";
 const _pAo = "policyArn";
@@ -870,6 +877,7 @@ const _tar = "targets";
 const _te = "temperature";
 const _u = "uri";
 const _uA = "updatedAt";
+const _uI = "userId";
 const _uPCO = "userPreferenceConsolidationOverride";
 const _uPEO = "userPreferenceExtractionOverride";
 const _uPMS = "userPreferenceMemoryStrategy";
@@ -1250,8 +1258,8 @@ export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
 ];
 export var CreateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _CGTRr,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$], 8
 ];
 export var CreateMemoryInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
@@ -1595,8 +1603,8 @@ export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
 ];
 export var GatewayTarget$: StaticStructureSchema = [3, n0, _GT,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$], 8
 ];
 export var GetAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _GARER,
   0,
@@ -1685,8 +1693,8 @@ export var GetGatewayTargetRequest$: StaticStructureSchema = [3, n0, _GGTR,
 ];
 export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$], 8
 ];
 export var GetMemoryInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
@@ -2085,8 +2093,8 @@ export var McpLambdaTargetConfiguration$: StaticStructureSchema = [3, n0, _MLTC,
 ];
 export var McpServerTargetConfiguration$: StaticStructureSchema = [3, n0, _MSTC,
   0,
-  [_end],
-  [0], 1
+  [_end, _mTS],
+  [0, [() => McpToolSchemaConfiguration$, 0]], 1
 ];
 export var Memory$: StaticStructureSchema = [3, n0, _M,
   0,
@@ -2162,6 +2170,11 @@ export var NumericalScaleDefinition$: StaticStructureSchema = [3, n0, _NSD,
   0,
   [_de, _v, _la],
   [0, 1, 0], 3
+];
+export var OAuth2AuthorizationData$: StaticStructureSchema = [3, n0, _OAAD,
+  0,
+  [_aU, _uI],
+  [0, 0], 1
 ];
 export var Oauth2AuthorizationServerMetadata$: StaticStructureSchema = [3, n0, _OASM,
   0,
@@ -2515,8 +2528,8 @@ export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
 ];
 export var UpdateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _UGTRp,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$], 8
 ];
 export var UpdateMemoryInput$: StaticStructureSchema = [3, n0, _UMI,
   0,
@@ -2822,6 +2835,11 @@ export var ApiSchemaConfiguration$: StaticUnionSchema = [4, n0, _ASC,
   [_s_, _iPn],
   [() => S3Configuration$, [() => InlinePayload, 0]]
 ];
+export var AuthorizationData$: StaticUnionSchema = [4, n0, _AD,
+  0,
+  [_oa],
+  [() => OAuth2AuthorizationData$]
+];
 export var AuthorizerConfiguration$: StaticUnionSchema = [4, n0, _AC,
   0,
   [_cJWTA],
@@ -2945,7 +2963,12 @@ export var InterceptorConfiguration$: StaticUnionSchema = [4, n0, _ICnt,
 export var McpTargetConfiguration$: StaticUnionSchema = [4, n0, _MTC,
   0,
   [_oAS, _sMm, _lam, _mSc, _aG],
-  [[() => ApiSchemaConfiguration$, 0], [() => ApiSchemaConfiguration$, 0], () => McpLambdaTargetConfiguration$, () => McpServerTargetConfiguration$, () => ApiGatewayTargetConfiguration$]
+  [[() => ApiSchemaConfiguration$, 0], [() => ApiSchemaConfiguration$, 0], () => McpLambdaTargetConfiguration$, [() => McpServerTargetConfiguration$, 0], () => ApiGatewayTargetConfiguration$]
+];
+export var McpToolSchemaConfiguration$: StaticUnionSchema = [4, n0, _MTSC,
+  0,
+  [_s_, _iPn],
+  [() => S3Configuration$, [() => InlinePayload, 0]]
 ];
 export var MemoryStrategyInput$: StaticUnionSchema = [4, n0, _MSI,
   0,
