@@ -79,7 +79,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ],
-        "source": "__source__"
+        "source": "__source__",
+        "destination": "__destination__"
       },
       "dateTimeConverter": {
         "source": "__source__",
@@ -305,7 +306,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ],
-        "source": "__source__"
+        "source": "__source__",
+        "destination": "__destination__"
       },
       "dateTimeConverter": {
         "source": "__source__",
@@ -531,7 +533,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ],
-        "source": "__source__"
+        "source": "__source__",
+        "destination": "__destination__"
       },
       "dateTimeConverter": {
         "source": "__source__",
@@ -767,7 +770,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ],
-        source: "__source__"
+        source: "__source__",
+        destination: "__destination__"
       },
       dateTimeConverter: {
         source: "__source__",
@@ -993,7 +997,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ],
-        source: "__source__"
+        source: "__source__",
+        destination: "__destination__"
       },
       dateTimeConverter: {
         source: "__source__",
@@ -1219,7 +1224,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ],
-        source: "__source__"
+        source: "__source__",
+        destination: "__destination__"
       },
       dateTimeConverter: {
         source: "__source__",

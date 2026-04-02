@@ -1223,8 +1223,8 @@ export var CreateScheduledQueryResponse$: StaticStructureSchema = [3, n0, _CSQRr
 ];
 export var CSV$: StaticStructureSchema = [3, n0, _CSV,
   0,
-  [_qC, _del, _co, _so],
-  [0, 0, 64 | 0, 0]
+  [_qC, _del, _co, _so, _des],
+  [0, 0, 64 | 0, 0, 0]
 ];
 export var DataSource$: StaticStructureSchema = [3, n0, _DS,
   0,

@@ -70,6 +70,7 @@ export interface TestTransformerCommandOutput extends TestTransformerResponse, _
  *           "STRING_VALUE",
  *         ],
  *         source: "STRING_VALUE",
+ *         destination: "STRING_VALUE",
  *       },
  *       dateTimeConverter: { // DateTimeConverter
  *         source: "STRING_VALUE", // required

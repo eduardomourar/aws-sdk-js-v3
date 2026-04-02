@@ -3,14 +3,14 @@ POST https://logs.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: Logs_20140328.TestTransformer
-content-length: 9062
+content-length: 9158
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudwatch-logs#_.__ m/E,e
 host: logs.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: f6bd87c25475e7189b8c98348dd7136110bf66288bbc2c493d4cda121b15e5f7
+x-amz-content-sha256: 174f326a62e81c9295ca8b302bfbd09af161ebe70468924f35ad16de17c8e12d
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -63,7 +63,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_requ
           "__member__",
           "__member__"
         ],
-        "source": "__source__"
+        "source": "__source__",
+        "destination": "__destination__"
       },
       "dateTimeConverter": {
         "source": "__source__",
@@ -289,7 +290,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_requ
           "__member__",
           "__member__"
         ],
-        "source": "__source__"
+        "source": "__source__",
+        "destination": "__destination__"
       },
       "dateTimeConverter": {
         "source": "__source__",
@@ -515,7 +517,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_requ
           "__member__",
           "__member__"
         ],
-        "source": "__source__"
+        "source": "__source__",
+        "destination": "__destination__"
       },
       "dateTimeConverter": {
         "source": "__source__",

@@ -78,6 +78,7 @@ export interface GetTransformerCommandOutput extends GetTransformerResponse, __M
  * //           "STRING_VALUE",
  * //         ],
  * //         source: "STRING_VALUE",
+ * //         destination: "STRING_VALUE",
  * //       },
  * //       dateTimeConverter: { // DateTimeConverter
  * //         source: "STRING_VALUE", // required

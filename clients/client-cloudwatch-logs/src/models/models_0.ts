@@ -1313,13 +1313,13 @@ export interface S3Configuration {
   roleArn: string | undefined;
 
   /**
-   * <p>The AWS accountId for the bucket owning account.</p>
+   * <p>The Amazon Web Services accountId for the bucket owning account.</p>
    * @public
    */
   ownerAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS encryption key. Must belong to the same AWS Region
+   * <p>The Amazon Resource Name (ARN) of the KMS encryption key. Must belong to the same Amazon Web Services Region
    *       as the destination Amazon S3 bucket.</p>
    * @public
    */
@@ -1497,6 +1497,13 @@ export interface CSV {
    * @public
    */
   source?: string | undefined;
+
+  /**
+   * <p>The path to the parent field to put transformed key value pairs under.
+   *       If you omit this value, the key value pairs will be placed under the root node.</p>
+   * @public
+   */
+  destination?: string | undefined;
 }
 
 /**
@@ -7783,6 +7790,9 @@ export interface PutDeliverySourceRequest {
    *             </li>
    *             <li>
    *                <p>For CloudFront, the valid value is <code>ACCESS_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For DevOps Agent, the valid value is <code>APPLICATION_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon CodeWhisperer, the valid value is <code>EVENT_LOGS</code>.</p>
