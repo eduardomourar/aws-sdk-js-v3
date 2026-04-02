@@ -27,13 +27,7 @@ export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the metadata for one service or a list of the metadata for all services. Use
- *          this without a service code to get the service codes for all services.
- *          Use it with a service code, such as <code>AmazonEC2</code>, to get information specific to
- *          that service, such as the attribute
- *          names available for that service. For example, some of the attribute names available for EC2 are
- *          <code>volumeType</code>, <code>maxIopsVolume</code>, <code>operation</code>,
- *          <code>locationType</code>, and <code>instanceCapacity10xlarge</code>.</p>
+ * <p>Returns the metadata for one service or a list of the metadata for all services. Use this without a service code to get the service codes for all services. Use it with a service code, such as <code>AmazonEC2</code>, to get information specific to that service, such as the attribute names available for that service. For example, some of the attribute names available for EC2 are <code>volumeType</code>, <code>maxIopsVolume</code>, <code>operation</code>, <code>locationType</code>, and <code>instanceCapacity10xlarge</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +65,9 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request wasn't signed correctly.</p>
+ *
  * @throws {@link ExpiredNextTokenException} (client fault)
  *  <p>The pagination token expired. Try again without a pagination token.</p>
  *
@@ -87,8 +84,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You've made too many requests exceeding service quotas.
- *       </p>
+ *  <p>You've made too many requests exceeding service quotas. </p>
  *
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>

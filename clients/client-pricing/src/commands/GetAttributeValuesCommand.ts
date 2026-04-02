@@ -27,10 +27,7 @@ export interface GetAttributeValuesCommandInput extends GetAttributeValuesReques
 export interface GetAttributeValuesCommandOutput extends GetAttributeValuesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of attribute values. Attributes are similar to the details
- *           in a Price List API offer file. For a list of available attributes, see
- *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer File Definitions</a>
- *          in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">Billing and Cost Management User Guide</a>.</p>
+ * <p>Returns a list of attribute values. Attributes are similar to the details in a Price List API offer file. For a list of available attributes, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer File Definitions</a> in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">Billing and Cost Management User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +61,9 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * @see {@link GetAttributeValuesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request wasn't signed correctly.</p>
+ *
  * @throws {@link ExpiredNextTokenException} (client fault)
  *  <p>The pagination token expired. Try again without a pagination token.</p>
  *
@@ -80,8 +80,7 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You've made too many requests exceeding service quotas.
- *       </p>
+ *  <p>You've made too many requests exceeding service quotas. </p>
  *
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>

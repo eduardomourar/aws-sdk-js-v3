@@ -137,8 +137,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've made too many requests exceeding service quotas.
- *       </p>
+ * <p>You've made too many requests exceeding service quotas. </p>
  * @public
  */
 export class ThrottlingException extends __BaseException {

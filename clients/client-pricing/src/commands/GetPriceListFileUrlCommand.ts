@@ -27,14 +27,7 @@ export interface GetPriceListFileUrlCommandInput extends GetPriceListFileUrlRequ
 export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             <i>
- *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
- *             </i>
- *          </p>
- *          <p>This returns the URL that you can retrieve your Price List file from. This URL is based
- *          on the <code>PriceListArn</code> and <code>FileFormat</code> that you retrieve from the
- *             <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a> response. </p>
+ * <p> <i> <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b> </i> </p> <p>This returns the URL that you can retrieve your Price List file from. This URL is based on the <code>PriceListArn</code> and <code>FileFormat</code> that you retrieve from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a> response. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,8 +70,7 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You've made too many requests exceeding service quotas.
- *       </p>
+ *  <p>You've made too many requests exceeding service quotas. </p>
  *
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>

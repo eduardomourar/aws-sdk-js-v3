@@ -67,6 +67,9 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * @see {@link GetProductsCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request wasn't signed correctly.</p>
+ *
  * @throws {@link ExpiredNextTokenException} (client fault)
  *  <p>The pagination token expired. Try again without a pagination token.</p>
  *
@@ -83,8 +86,7 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You've made too many requests exceeding service quotas.
- *       </p>
+ *  <p>You've made too many requests exceeding service quotas. </p>
  *
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
