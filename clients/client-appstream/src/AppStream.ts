@@ -321,6 +321,11 @@ import {
   DisassociateSoftwareFromImageBuilderCommand,
 } from "./commands/DisassociateSoftwareFromImageBuilderCommand";
 import {
+  type DrainSessionInstanceCommandInput,
+  type DrainSessionInstanceCommandOutput,
+  DrainSessionInstanceCommand,
+} from "./commands/DrainSessionInstanceCommand";
+import {
   type EnableUserCommandInput,
   type EnableUserCommandOutput,
   EnableUserCommand,
@@ -514,6 +519,7 @@ const commands = {
   DisassociateApplicationFromEntitlementCommand,
   DisassociateFleetCommand,
   DisassociateSoftwareFromImageBuilderCommand,
+  DrainSessionInstanceCommand,
   EnableUserCommand,
   ExpireSessionCommand,
   GetExportImageTaskCommand,
@@ -1635,6 +1641,23 @@ export interface AppStream {
     args: DisassociateSoftwareFromImageBuilderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateSoftwareFromImageBuilderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DrainSessionInstanceCommand}
+   */
+  drainSessionInstance(
+    args: DrainSessionInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DrainSessionInstanceCommandOutput>;
+  drainSessionInstance(
+    args: DrainSessionInstanceCommandInput,
+    cb: (err: any, data?: DrainSessionInstanceCommandOutput) => void
+  ): void;
+  drainSessionInstance(
+    args: DrainSessionInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DrainSessionInstanceCommandOutput) => void
   ): void;
 
   /**

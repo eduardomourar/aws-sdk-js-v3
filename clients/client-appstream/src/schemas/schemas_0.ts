@@ -226,6 +226,8 @@ const _DIResc = "DescribeImagesResult";
 const _DIe = "DeleteImage";
 const _DIes = "DescribeImages";
 const _DJI = "DomainJoinInfo";
+const _DMAUS = "DrainModeActiveUserSessions";
+const _DMUUS = "DrainModeUnusedUserSessions";
 const _DN = "DisplayName";
 const _DNi = "DirectoryName";
 const _DNir = "DirectoryNames";
@@ -241,6 +243,9 @@ const _DSC = "DeleteStorageConnectors";
 const _DSFIB = "DisassociateSoftwareFromImageBuilder";
 const _DSFIBR = "DisassociateSoftwareFromImageBuilderRequest";
 const _DSFIBRi = "DisassociateSoftwareFromImageBuilderResult";
+const _DSI = "DrainSessionInstance";
+const _DSIR = "DrainSessionInstanceRequest";
+const _DSIRr = "DrainSessionInstanceResult";
 const _DSR = "DeleteStackRequest";
 const _DSRe = "DeleteStackResult";
 const _DSRes = "DescribeSessionsRequest";
@@ -280,6 +285,7 @@ const _DUi = "DisableUser";
 const _DVC = "DeleteVpcConfig";
 const _De = "Desired";
 const _Do = "Domains";
+const _Dr = "Draining";
 const _E = "Enabled";
 const _EA = "EntitledApplication";
 const _EAEE = "EntitlementAlreadyExistsException";
@@ -343,6 +349,7 @@ const _IBN = "ImageBuilderName";
 const _IBS = "ImageBuilderSupported";
 const _IBSCR = "ImageBuilderStateChangeReason";
 const _IBm = "ImageBuilders";
+const _IDS = "InstanceDrainStatus";
 const _IDTIS = "IdleDisconnectTimeoutInSeconds";
 const _IE = "ImageErrors";
 const _IF = "InstanceFamilies";
@@ -873,8 +880,8 @@ export var ComputeCapacity$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var ComputeCapacityStatus$: StaticStructureSchema = [3, n0, _CCS,
   0,
-  [_De, _R, _IU, _Av, _DUS, _AUS, _AUSc, _AUSct],
-  [1, 1, 1, 1, 1, 1, 1, 1], 1
+  [_De, _R, _IU, _Av, _DUS, _AUS, _AUSc, _AUSct, _Dr, _DMAUS, _DMUUS],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 1
 ];
 export var ContentRedirection$: StaticStructureSchema = [3, n0, _CR,
   0,
@@ -1451,6 +1458,16 @@ export var DomainJoinInfo$: StaticStructureSchema = [3, n0, _DJI,
   [_DNi, _OUDNr],
   [0, 0]
 ];
+export var DrainSessionInstanceRequest$: StaticStructureSchema = [3, n0, _DSIR,
+  0,
+  [_SI],
+  [0], 1
+];
+export var DrainSessionInstanceResult$: StaticStructureSchema = [3, n0, _DSIRr,
+  0,
+  [],
+  []
+];
 export var EnableUserRequest$: StaticStructureSchema = [3, n0, _EUR,
   0,
   [_UN, _AT],
@@ -1633,8 +1650,8 @@ export var ServiceAccountCredentials$: StaticStructureSchema = [3, n0, _SAC,
 ];
 export var Session$: StaticStructureSchema = [3, n0, _Ses,
   0,
-  [_Id, _UI, _SN, _FN, _S, _CS, _ST, _MET, _AT, _NAC, _II],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, () => NetworkAccessConfiguration$, 0], 5
+  [_Id, _UI, _SN, _FN, _S, _CS, _ST, _MET, _AT, _NAC, _II, _IDS],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, () => NetworkAccessConfiguration$, 0, 0], 5
 ];
 export var SharedImagePermissions$: StaticStructureSchema = [3, n0, _SIP,
   0,
@@ -2199,6 +2216,9 @@ export var DisassociateFleet$: StaticOperationSchema = [9, n0, _DFi,
 ];
 export var DisassociateSoftwareFromImageBuilder$: StaticOperationSchema = [9, n0, _DSFIB,
   0, () => DisassociateSoftwareFromImageBuilderRequest$, () => DisassociateSoftwareFromImageBuilderResult$
+];
+export var DrainSessionInstance$: StaticOperationSchema = [9, n0, _DSI,
+  0, () => DrainSessionInstanceRequest$, () => DrainSessionInstanceResult$
 ];
 export var EnableUser$: StaticOperationSchema = [9, n0, _EU,
   0, () => EnableUserRequest$, () => EnableUserResult$

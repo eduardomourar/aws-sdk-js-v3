@@ -262,6 +262,10 @@ import type {
   DisassociateSoftwareFromImageBuilderCommandInput,
   DisassociateSoftwareFromImageBuilderCommandOutput,
 } from "./commands/DisassociateSoftwareFromImageBuilderCommand";
+import type {
+  DrainSessionInstanceCommandInput,
+  DrainSessionInstanceCommandOutput,
+} from "./commands/DrainSessionInstanceCommand";
 import type { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import type { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
 import type {
@@ -413,6 +417,7 @@ export type ServiceInputTypes =
   | DisassociateApplicationFromEntitlementCommandInput
   | DisassociateFleetCommandInput
   | DisassociateSoftwareFromImageBuilderCommandInput
+  | DrainSessionInstanceCommandInput
   | EnableUserCommandInput
   | ExpireSessionCommandInput
   | GetExportImageTaskCommandInput
@@ -506,6 +511,7 @@ export type ServiceOutputTypes =
   | DisassociateApplicationFromEntitlementCommandOutput
   | DisassociateFleetCommandOutput
   | DisassociateSoftwareFromImageBuilderCommandOutput
+  | DrainSessionInstanceCommandOutput
   | EnableUserCommandOutput
   | ExpireSessionCommandOutput
   | GetExportImageTaskCommandOutput

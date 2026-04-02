@@ -69,6 +69,7 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * //         EniId: "STRING_VALUE",
  * //       },
  * //       InstanceId: "STRING_VALUE",
+ * //       InstanceDrainStatus: "ACTIVE" || "DRAINING" || "NOT_APPLICABLE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

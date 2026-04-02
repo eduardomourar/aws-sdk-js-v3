@@ -577,6 +577,20 @@ export type SessionConnectionState = (typeof SessionConnectionState)[keyof typeo
  * @public
  * @enum
  */
+export const InstanceDrainStatus = {
+  ACTIVE: "ACTIVE",
+  DRAINING: "DRAINING",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+} as const;
+/**
+ * @public
+ */
+export type InstanceDrainStatus = (typeof InstanceDrainStatus)[keyof typeof InstanceDrainStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const SessionState = {
   ACTIVE: "ACTIVE",
   EXPIRED: "EXPIRED",

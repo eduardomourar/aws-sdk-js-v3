@@ -639,6 +639,13 @@ DisassociateSoftwareFromImageBuilder
 </details>
 <details>
 <summary>
+DrainSessionInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/DrainSessionInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DrainSessionInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DrainSessionInstanceCommandOutput/)
+</details>
+<details>
+<summary>
 EnableUser
 </summary>
 

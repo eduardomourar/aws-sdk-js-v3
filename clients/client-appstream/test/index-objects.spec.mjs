@@ -285,6 +285,10 @@ import {
   DisassociateSoftwareFromImageBuilderRequest$,
   DisassociateSoftwareFromImageBuilderResult$,
   DomainJoinInfo$,
+  DrainSessionInstance$,
+  DrainSessionInstanceCommand,
+  DrainSessionInstanceRequest$,
+  DrainSessionInstanceResult$,
   DryRunOperationException,
   DryRunOperationException$,
   DynamicAppProvidersEnabled,
@@ -330,6 +334,7 @@ import {
   ImageType,
   IncompatibleImageException,
   IncompatibleImageException$,
+  InstanceDrainStatus,
   InvalidAccountStatusException,
   InvalidAccountStatusException$,
   InvalidParameterCombinationException,
@@ -622,6 +627,8 @@ assert(typeof DisassociateFleetCommand === "function");
 assert(typeof DisassociateFleet$ === "object");
 assert(typeof DisassociateSoftwareFromImageBuilderCommand === "function");
 assert(typeof DisassociateSoftwareFromImageBuilder$ === "object");
+assert(typeof DrainSessionInstanceCommand === "function");
+assert(typeof DrainSessionInstance$ === "object");
 assert(typeof EnableUserCommand === "function");
 assert(typeof EnableUser$ === "object");
 assert(typeof ExpireSessionCommand === "function");
@@ -816,6 +823,8 @@ assert(typeof DisassociateFleetResult$ === "object");
 assert(typeof DisassociateSoftwareFromImageBuilderRequest$ === "object");
 assert(typeof DisassociateSoftwareFromImageBuilderResult$ === "object");
 assert(typeof DomainJoinInfo$ === "object");
+assert(typeof DrainSessionInstanceRequest$ === "object");
+assert(typeof DrainSessionInstanceResult$ === "object");
 assert(typeof EnableUserRequest$ === "object");
 assert(typeof EnableUserResult$ === "object");
 assert(typeof EntitledApplication$ === "object");
@@ -928,6 +937,7 @@ assert(typeof ImageSharedWithOthers === "object");
 assert(typeof ImageState === "object");
 assert(typeof ImageStateChangeReasonCode === "object");
 assert(typeof ImageType === "object");
+assert(typeof InstanceDrainStatus === "object");
 assert(typeof LatestAppstreamAgentVersion === "object");
 assert(typeof MessageAction === "object");
 assert(typeof PackagingType === "object");

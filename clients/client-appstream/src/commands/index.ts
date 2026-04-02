@@ -62,6 +62,7 @@ export * from "./DisassociateApplicationFleetCommand";
 export * from "./DisassociateApplicationFromEntitlementCommand";
 export * from "./DisassociateFleetCommand";
 export * from "./DisassociateSoftwareFromImageBuilderCommand";
+export * from "./DrainSessionInstanceCommand";
 export * from "./EnableUserCommand";
 export * from "./ExpireSessionCommand";
 export * from "./GetExportImageTaskCommand";

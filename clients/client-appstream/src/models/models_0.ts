@@ -24,6 +24,7 @@ import type {
   ImageState,
   ImageStateChangeReasonCode,
   ImageType,
+  InstanceDrainStatus,
   LatestAppstreamAgentVersion,
   MessageAction,
   PackagingType,
@@ -1074,6 +1075,24 @@ export interface ComputeCapacityStatus {
    * @public
    */
   ActualUserSessions?: number | undefined;
+
+  /**
+   * <p>The number of instances in drain mode. This only applies to multi-session fleets.</p>
+   * @public
+   */
+  Draining?: number | undefined;
+
+  /**
+   * <p>The number of active user sessions on instances in drain mode. This only applies to multi-session fleets.</p>
+   * @public
+   */
+  DrainModeActiveUserSessions?: number | undefined;
+
+  /**
+   * <p>The number of unused session slots on instances in drain mode that cannot be used for user session provisioning. This only applies to multi-session fleets.</p>
+   * @public
+   */
+  DrainModeUnusedUserSessions?: number | undefined;
 }
 
 /**
@@ -5117,6 +5136,12 @@ export interface Session {
    * @public
    */
   InstanceId?: string | undefined;
+
+  /**
+   * <p>The drain status of the instance hosting the streaming session. This only applies to multi-session fleets.</p>
+   * @public
+   */
+  InstanceDrainStatus?: InstanceDrainStatus | undefined;
 }
 
 /**
@@ -5822,6 +5847,22 @@ export interface DisassociateSoftwareFromImageBuilderRequest {
  * @public
  */
 export interface DisassociateSoftwareFromImageBuilderResult {}
+
+/**
+ * @public
+ */
+export interface DrainSessionInstanceRequest {
+  /**
+   * <p>The identifier of the streaming session.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DrainSessionInstanceResult {}
 
 /**
  * @public
