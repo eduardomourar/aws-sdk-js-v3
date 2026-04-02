@@ -1834,8 +1834,8 @@ export var GameServerInstance$: StaticStructureSchema = [3, n0, _GSIame,
 ];
 export var GameSession$: StaticStructureSchema = [3, n0, _GSa,
   0,
-  [_GSIa, _N, _FI, _FA, _CT, _TT, _CPSC, _MPSC, _St, _SR, _GP, _IA, _DN, _Po, _PSCP, _CIr, _GSDa, _MD, _L, _PGS],
-  [0, 0, 0, 0, 4, 4, 1, 1, 0, 0, () => GamePropertyList, [() => IpAddress, 0], 0, [() => PortNumber, 0], 0, 0, 0, 0, 0, 0]
+  [_GSIa, _N, _FI, _FA, _CT, _TT, _CPSC, _MPSC, _St, _SR, _GP, _IA, _DN, _Po, _PSCP, _CIr, _GSDa, _MD, _L, _CN, _PGS],
+  [0, 0, 0, 0, 4, 4, 1, 1, 0, 0, () => GamePropertyList, [() => IpAddress, 0], 0, [() => PortNumber, 0], 0, 0, 0, 0, 0, 0, 0]
 ];
 export var GameSessionConnectionInfo$: StaticStructureSchema = [3, n0, _GSCI,
   0,

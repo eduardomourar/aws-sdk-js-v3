@@ -4217,6 +4217,12 @@ export interface GameSession {
   Location?: string | undefined;
 
   /**
+   * <p>A descriptive label for the compute resource. The compute resource that is hosting the game session. For EC2 fleets, this is the EC2 instance ID. For Container fleets, each game server container group on a fleet instance is assigned a compute name. For Anywhere fleets, this is the custom compute name.</p>
+   * @public
+   */
+  ComputeName?: string | undefined;
+
+  /**
    * <p>Indicates whether player gateway is available for use for this game session. Note, even if a fleet has PlayerGatewayMode configured as <code>ENABLED</code>, player gateway might not be available in a specific location. For more information about locations where player gateway is supported, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html">Amazon GameLift Servers service locations</a>.</p>
    *          <p>Possible values include:</p>
    *          <ul>

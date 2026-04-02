@@ -167,6 +167,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  * //       GameSessionData: "STRING_VALUE",
  * //       MatchmakerData: "STRING_VALUE",
  * //       Location: "STRING_VALUE",
+ * //       ComputeName: "STRING_VALUE",
  * //       PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //     },
  * //   ],
