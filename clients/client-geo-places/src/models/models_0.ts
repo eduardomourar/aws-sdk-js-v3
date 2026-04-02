@@ -118,7 +118,7 @@ export interface Country {
  */
 export interface Region {
   /**
-   * <p>Abbreviated code for a the state, province or region of the country. </p> <p>Example: <code>BC</code>.</p>
+   * <p> Abbreviated code for a the state, province or region of the country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: <code>BC</code>.</p>
    * @public
    */
   Code?: string | undefined;
@@ -208,7 +208,7 @@ export interface StreetComponents {
  */
 export interface SubRegion {
   /**
-   * <p>Abbreviated code for the county or sub-region.</p>
+   * <p> Abbreviated code for the county or sub-region. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   Code?: string | undefined;
@@ -274,19 +274,19 @@ export interface Address {
   PostalCode?: string | undefined;
 
   /**
-   * <p>Name of the block. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
+   * <p> Name of the block. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
    * @public
    */
   Block?: string | undefined;
 
   /**
-   * <p>Name of sub-block. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
+   * <p> Name of sub-block. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
    * @public
    */
   SubBlock?: string | undefined;
 
   /**
-   * <p>Name of the streets in the intersection. </p> <p>Example: <code>["Friedrichstraße","Unter den Linden"]</code> </p>
+   * <p> Name of the streets in the intersection. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: <code>["Friedrichstraße","Unter den Linden"]</code> </p>
    * @public
    */
   Intersection?: string[] | undefined;
@@ -298,7 +298,7 @@ export interface Address {
   Street?: string | undefined;
 
   /**
-   * <p>Components of the street. </p> <p>Example: Younge from the "Younge street".</p>
+   * <p> Components of the street. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: Yonge from "Yonge street".</p>
    * @public
    */
   StreetComponents?: StreetComponents[] | undefined;
@@ -310,13 +310,13 @@ export interface Address {
   AddressNumber?: string | undefined;
 
   /**
-   * <p>The name of the building at the address.</p>
+   * <p> The name of the building at the address. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   Building?: string | undefined;
 
   /**
-   * <p>Components that correspond to secondary identifiers on an Address. Secondary address components include information such as Suite or Unit Number, Building, or Floor.</p> <note> <p>Coverage for <code>Address.SecondaryAddressComponents</code> is available in the following countries:</p> <p>AUS, CAN, NZL, USA, PRI</p> </note>
+   * <p> Components that correspond to secondary identifiers on an Address. Secondary address components include information such as Suite or Unit Number, Building, or Floor. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>Coverage for <code>Address.SecondaryAddressComponents</code> is available in the following countries:</p> <p>AUS, CAN, NZL, USA, PRI</p> </note>
    * @public
    */
   SecondaryAddressComponents?: SecondaryAddressComponent[] | undefined;
@@ -514,7 +514,7 @@ export interface FilterCircle {
   Center: number[] | undefined;
 
   /**
-   * <p>The radius, in meters, of the <code>FilterCircle</code>.</p>
+   * <p> The radius, in meters, of the <code>FilterCircle</code>. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers,<code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only up to a maximum value of 300,000. </p>
    * @public
    */
   Radius: number | undefined;
@@ -603,7 +603,7 @@ export interface AutocompleteRequest {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
+   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Currently, <code>Autocomplete</code> does not support storage of results. </p>
    * @public
    */
   IntendedUse?: AutocompleteIntendedUse | undefined;
@@ -1129,7 +1129,7 @@ export interface GeocodeRequest {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an Geocode query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>When storing <code>Geocode</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: GeocodeIntendedUse | undefined;
@@ -1655,25 +1655,25 @@ export interface GetPlaceRequest {
   PlaceId: string | undefined;
 
   /**
-   * <p>A list of optional additional parameters such as time zone that can be requested for each result.</p>
+   * <p> A list of optional additional parameters such as time zone that can be requested for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>TimeZone</code> value. </p>
    * @public
    */
   AdditionalFeatures?: GetPlaceAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p> A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an GetPlace query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>When storing <code>GetPlace</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: GetPlaceIntendedUse | undefined;
@@ -1792,13 +1792,13 @@ export interface GetPlaceResponse {
   Address?: Address | undefined;
 
   /**
-   * <p>Boolean indicating if the address provided has been corrected.</p>
+   * <p> Boolean indicating if the address provided has been corrected. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   AddressNumberCorrected?: boolean | undefined;
 
   /**
-   * <p>Contains details about the postal code of the place/result. </p>
+   * <p> Contains details about the postal code of the place/result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   PostalCodeDetails?: PostalCodeDetails[] | undefined;
@@ -1822,7 +1822,7 @@ export interface GetPlaceResponse {
   Categories?: Category[] | undefined;
 
   /**
-   * <p>List of food types offered by this result.</p>
+   * <p> List of food types offered by this result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   FoodTypes?: FoodType[] | undefined;
@@ -1834,25 +1834,25 @@ export interface GetPlaceResponse {
   BusinessChains?: BusinessChain[] | undefined;
 
   /**
-   * <p>List of potential contact methods for the result/place.</p>
+   * <p> List of potential contact methods for the result/place. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   Contacts?: Contacts | undefined;
 
   /**
-   * <p>List of opening hours objects.</p>
+   * <p> List of opening hours objects. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   OpeningHours?: OpeningHours[] | undefined;
 
   /**
-   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * <p> Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude]. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 
   /**
-   * <p>Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.</p>
+   * <p> Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   AccessRestrictions?: AccessRestriction[] | undefined;
@@ -1864,25 +1864,25 @@ export interface GetPlaceResponse {
   TimeZone?: TimeZone | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>How the various components of the result's address are pronounced in various languages.</p>
+   * <p> How the various components of the result's address are pronounced in various languages. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
 
   /**
-   * <p>The main address corresponding to a place of type Secondary Address.</p>
+   * <p> The main address corresponding to a place of type Secondary Address. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   MainAddress?: RelatedPlace | undefined;
 
   /**
-   * <p>All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information.</p> <note> <p>Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.</p> </note>
+   * <p> All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.</p> </note>
    * @public
    */
   SecondaryAddresses?: RelatedPlace[] | undefined;
@@ -1894,7 +1894,7 @@ export interface GetPlaceResponse {
  */
 export interface ReverseGeocodeFilter {
   /**
-   * <p>The included place types.</p>
+   * <p> The included place types. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only <code>Street</code> and <code>PointAddress</code> values. </p>
    * @public
    */
   IncludePlaceTypes?: ReverseGeocodeFilterPlaceType[] | undefined;
@@ -1911,13 +1911,13 @@ export interface ReverseGeocodeRequest {
   QueryPosition: number[] | undefined;
 
   /**
-   * <p>The maximum distance in meters from the QueryPosition from which a result will be returned.</p>
+   * <p> The maximum distance in meters from the QueryPosition from which a result will be returned. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only up to a maximum value of 100,000. </p>
    * @public
    */
   QueryRadius?: number | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 1</p>
+   * <p> An optional limit for the number of results returned in a single call.</p> <p>Default value: 1</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1929,25 +1929,25 @@ export interface ReverseGeocodeRequest {
   Filter?: ReverseGeocodeFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone that can be requested for each result.</p>
+   * <p> A list of optional additional parameters, such as time zone that can be requested for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>TimeZone</code> value. </p>
    * @public
    */
   AdditionalFeatures?: ReverseGeocodeAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p> A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an ReverseGeocode query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). </p> <note> <p>When storing <code>ReverseGeocode</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: ReverseGeocodeIntendedUse | undefined;
@@ -1995,13 +1995,13 @@ export interface ReverseGeocodeResultItem {
   Address?: Address | undefined;
 
   /**
-   * <p>Boolean indicating if the address provided has been corrected.</p>
+   * <p> Boolean indicating if the address provided has been corrected. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   AddressNumberCorrected?: boolean | undefined;
 
   /**
-   * <p>Contains details about the postal code of the place/result. </p>
+   * <p> Contains details about the postal code of the place/result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   PostalCodeDetails?: PostalCodeDetails[] | undefined;
@@ -2031,13 +2031,13 @@ export interface ReverseGeocodeResultItem {
   Categories?: Category[] | undefined;
 
   /**
-   * <p>List of food types offered by this result.</p>
+   * <p> List of food types offered by this result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * <p> Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude]. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -2049,13 +2049,13 @@ export interface ReverseGeocodeResultItem {
   TimeZone?: TimeZone | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>All Intersections that are near the provided address.</p>
+   * <p> All Intersections that are near the provided address. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   Intersections?: Intersection[] | undefined;
@@ -2179,7 +2179,7 @@ export interface SearchNearbyRequest {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an SearchNearby query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>When storing <code>SearchNearby</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: SearchNearbyIntendedUse | undefined;
@@ -2369,7 +2369,7 @@ export interface SearchTextRequest {
   QueryText?: string | undefined;
 
   /**
-   * <p>The query Id returned by the suggest API. If passed in the request, the SearchText API will preform a SearchText query with the improved query terms for the original query made to the suggest API.</p> <note> <p>Exactly one of the following fields must be set: <code>QueryText</code> or <code>QueryId</code>.</p> </note>
+   * <p>The query Id returned by the suggest API. If passed in the request, the SearchText API will preform a SearchText query with the improved query terms for the original query made to the suggest API. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <note> <p>Exactly one of the following fields must be set: <code>QueryText</code> or <code>QueryId</code>.</p> </note>
    * @public
    */
   QueryId?: string | undefined;
@@ -2393,25 +2393,25 @@ export interface SearchTextRequest {
   Filter?: SearchTextFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result.</p>
+   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>TimeZone</code> value.</p>
    * @public
    */
   AdditionalFeatures?: SearchTextAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an SearchText query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). </p> <note> <p>When storing <code>SearchText</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: SearchTextIntendedUse | undefined;
@@ -2601,13 +2601,13 @@ export interface SuggestRequest {
   QueryText: string | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 20</p>
+   * <p> An optional limit for the number of results returned in a single call. </p> <p>Default value: 20</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Maximum number of query terms to be returned for use with a search text query.</p>
+   * <p> Maximum number of query terms to be returned for use with a search text query. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   MaxQueryRefinements?: number | undefined;
@@ -2625,25 +2625,25 @@ export interface SuggestRequest {
   Filter?: SuggestFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result.</p>
+   * <p> A list of optional additional parameters, such as time zone, that can be requested for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>Core</code> and <code>TimeZone</code> values. </p>
    * @public
    */
   AdditionalFeatures?: SuggestAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p> A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
+   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Currently, <code>Suggest</code> does not support storage of results. </p>
    * @public
    */
   IntendedUse?: SuggestIntendedUse | undefined;
@@ -2763,25 +2763,25 @@ export interface SuggestPlaceResult {
   Categories?: Category[] | undefined;
 
   /**
-   * <p>List of food types offered by this result.</p>
+   * <p> List of food types offered by this result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>The Business Chains associated with the place.</p>
+   * <p> The Business Chains associated with the place. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   BusinessChains?: BusinessChain[] | undefined;
 
   /**
-   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * <p> Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude]. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 
   /**
-   * <p>Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.</p>
+   * <p> Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   AccessRestrictions?: AccessRestriction[] | undefined;
@@ -2793,13 +2793,13 @@ export interface SuggestPlaceResult {
   TimeZone?: TimeZone | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>How the various components of the result's address are pronounced in various languages.</p>
+   * <p> How the various components of the result's address are pronounced in various languages. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
@@ -2811,13 +2811,13 @@ export interface SuggestPlaceResult {
  */
 export interface SuggestQueryResult {
   /**
-   * <p>QueryId can be used to complete a follow up query through the SearchText API. The QueryId retains context from the original Suggest request such as filters, political view and language. See the SearchText API documentation for more details <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchText.html">SearchText API docs</a>.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * <p>QueryId can be used to complete a follow up query through the SearchText API. The QueryId retains context from the original Suggest request such as filters, political view and language. See the SearchText API documentation for more details <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchText.html">SearchText API docs</a>. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryId?: string | undefined;
 
   /**
-   * <p>The query type. Category queries will search for places which have an entry matching the given category, for example "doctor office". BusinessChain queries will search for instances of a given business.</p>
+   * <p> The query type. Category queries will search for places which have an entry matching the given category, for example "doctor office". BusinessChain queries will search for instances of a given business. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   QueryType?: QueryType | undefined;
@@ -2876,7 +2876,7 @@ export interface SuggestResponse {
   ResultItems?: SuggestResultItem[] | undefined;
 
   /**
-   * <p>Maximum number of query terms to be returned for use with a search text query.</p>
+   * <p> Maximum number of query terms to be returned for use with a search text query. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   QueryRefinements?: QueryRefinement[] | undefined;

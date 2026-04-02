@@ -837,23 +837,23 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
     0]
 ];
 export var Autocomplete$: StaticOperationSchema = [9, n0, _Au,
-  { [_h]: ["POST", "/autocomplete", 200] }, () => AutocompleteRequest$, () => AutocompleteResponse$
+  { [_h]: ["POST", "/v2/autocomplete", 200] }, () => AutocompleteRequest$, () => AutocompleteResponse$
 ];
 export var Geocode$: StaticOperationSchema = [9, n0, _G,
-  { [_h]: ["POST", "/geocode", 200] }, () => GeocodeRequest$, () => GeocodeResponse$
+  { [_h]: ["POST", "/v2/geocode", 200] }, () => GeocodeRequest$, () => GeocodeResponse$
 ];
 export var GetPlace$: StaticOperationSchema = [9, n0, _GP,
-  { [_h]: ["GET", "/place/{PlaceId}", 200] }, () => GetPlaceRequest$, () => GetPlaceResponse$
+  { [_h]: ["GET", "/v2/place/{PlaceId}", 200] }, () => GetPlaceRequest$, () => GetPlaceResponse$
 ];
 export var ReverseGeocode$: StaticOperationSchema = [9, n0, _RG,
-  { [_h]: ["POST", "/reverse-geocode", 200] }, () => ReverseGeocodeRequest$, () => ReverseGeocodeResponse$
+  { [_h]: ["POST", "/v2/reverse-geocode", 200] }, () => ReverseGeocodeRequest$, () => ReverseGeocodeResponse$
 ];
 export var SearchNearby$: StaticOperationSchema = [9, n0, _SN,
-  { [_h]: ["POST", "/search-nearby", 200] }, () => SearchNearbyRequest$, () => SearchNearbyResponse$
+  { [_h]: ["POST", "/v2/search-nearby", 200] }, () => SearchNearbyRequest$, () => SearchNearbyResponse$
 ];
 export var SearchText$: StaticOperationSchema = [9, n0, _ST,
-  { [_h]: ["POST", "/search-text", 200] }, () => SearchTextRequest$, () => SearchTextResponse$
+  { [_h]: ["POST", "/v2/search-text", 200] }, () => SearchTextRequest$, () => SearchTextResponse$
 ];
 export var Suggest$: StaticOperationSchema = [9, n0, _Sug,
-  { [_h]: ["POST", "/suggest", 200] }, () => SuggestRequest$, () => SuggestResponse$
+  { [_h]: ["POST", "/v2/suggest", 200] }, () => SuggestRequest$, () => SuggestResponse$
 ];
