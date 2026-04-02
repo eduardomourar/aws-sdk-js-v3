@@ -9,6 +9,7 @@ import type {
   QueueFleetAssociationStatus,
   QueueLimitAssociationStatus,
   SearchTermMatchingType,
+  SessionsStatisticsAggregationStatus,
   SortOrder,
   StepLifecycleStatus,
   StepTargetTaskRunStatus,
@@ -25,8 +26,155 @@ import type {
   HostPropertiesResponse,
   JobParameter,
   ParameterSpace,
+  Statistics,
   TaskParameterValue,
 } from "./models_0";
+
+/**
+ * Shared pagination field for List operation outputs (nextToken).
+ * @public
+ */
+export interface GetSessionsStatisticsAggregationResponse {
+  /**
+   * <p>The statistics for the specified fleets or queues.</p>
+   * @public
+   */
+  statistics?: Statistics[] | undefined;
+
+  /**
+   * <p>The status of the aggregated results. An aggregation may fail or time out if the results are too large. If this happens, you can call the <code>StartSessionsStatisticsAggregation</code> operation after you reduce the aggregation time frame, reduce the number of queues or fleets in the aggregation, or increase the period length.</p> <p>If you call the <code>StartSessionsStatisticsAggregation </code> operation when the status is <code>IN_PROGRESS</code>, you will receive a <code>ThrottlingException</code>.</p>
+   * @public
+   */
+  status: SessionsStatisticsAggregationStatus | undefined;
+
+  /**
+   * <p>A message that describes the status.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLicenseEndpointRequest {
+  /**
+   * <p>The license endpoint ID of the license endpoint to delete.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLicenseEndpointResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMeteredProductRequest {
+  /**
+   * <p>The ID of the license endpoint from which to remove the metered product.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
+
+  /**
+   * <p>The product ID to remove from the license endpoint.</p>
+   * @public
+   */
+  productId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMeteredProductResponse {}
+
+/**
+ * @public
+ */
+export interface GetLicenseEndpointRequest {
+  /**
+   * <p>The license endpoint ID.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
+}
+
+/**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
+ * @public
+ */
+export interface GetLicenseEndpointResponse {
+  /**
+   * <p>The license endpoint ID.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
+
+  /**
+   * <p>The status of the license endpoint.</p>
+   * @public
+   */
+  status: LicenseEndpointStatus | undefined;
+
+  /**
+   * <p>The status message of the license endpoint.</p>
+   * @public
+   */
+  statusMessage: string | undefined;
+
+  /**
+   * <p>The VPC (virtual private cloud) ID associated with the license endpoint.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The DNS name.</p>
+   * @public
+   */
+  dnsName?: string | undefined;
+
+  /**
+   * <p>The subnet IDs.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The security group IDs for the license endpoint.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+}
+
+/**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
+ * @public
+ */
+export interface ListLicenseEndpointsRequest {
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
 
 /**
  * <p>The details for a license endpoint.</p>

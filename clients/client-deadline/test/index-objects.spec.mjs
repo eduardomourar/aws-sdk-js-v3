@@ -497,6 +497,8 @@ import {
   PathMappingRule$,
   Period,
   PosixUser$,
+  PriorityBalancedSchedulingConfiguration$,
+  PriorityFifoSchedulingConfiguration$,
   PutMeteredProduct$,
   PutMeteredProductCommand,
   PutMeteredProductRequest$,
@@ -516,6 +518,11 @@ import {
   ResponseBudgetAction$,
   RunAs,
   S3Location$,
+  SchedulingConfiguration$,
+  SchedulingMaxPriorityOverride$,
+  SchedulingMaxPriorityOverrideAlwaysScheduleFirst$,
+  SchedulingMinPriorityOverride$,
+  SchedulingMinPriorityOverrideAlwaysScheduleLast$,
   SearchFilterExpression$,
   SearchGroupedFilterExpressions$,
   SearchJobs$,
@@ -702,6 +709,7 @@ import {
   waitUntilQueueLimitAssociationStopped,
   waitUntilQueueScheduling,
   waitUntilQueueSchedulingBlocked,
+  WeightedBalancedSchedulingConfiguration$,
   WindowsUser$,
   WorkerAmountCapability$,
   WorkerAttributeCapability$,
@@ -1195,6 +1203,8 @@ assert(typeof ParameterSortExpression$ === "object");
 assert(typeof ParameterSpace$ === "object");
 assert(typeof PathMappingRule$ === "object");
 assert(typeof PosixUser$ === "object");
+assert(typeof PriorityBalancedSchedulingConfiguration$ === "object");
+assert(typeof PriorityFifoSchedulingConfiguration$ === "object");
 assert(typeof PutMeteredProductRequest$ === "object");
 assert(typeof PutMeteredProductResponse$ === "object");
 assert(typeof QueueEnvironmentSummary$ === "object");
@@ -1204,6 +1214,11 @@ assert(typeof QueueMember$ === "object");
 assert(typeof QueueSummary$ === "object");
 assert(typeof ResponseBudgetAction$ === "object");
 assert(typeof S3Location$ === "object");
+assert(typeof SchedulingConfiguration$ === "object");
+assert(typeof SchedulingMaxPriorityOverride$ === "object");
+assert(typeof SchedulingMaxPriorityOverrideAlwaysScheduleFirst$ === "object");
+assert(typeof SchedulingMinPriorityOverride$ === "object");
+assert(typeof SchedulingMinPriorityOverrideAlwaysScheduleLast$ === "object");
 assert(typeof SearchFilterExpression$ === "object");
 assert(typeof SearchGroupedFilterExpressions$ === "object");
 assert(typeof SearchJobsRequest$ === "object");
@@ -1295,6 +1310,7 @@ assert(typeof UserJobsFirst$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VCpuCountRange$ === "object");
 assert(typeof VpcConfiguration$ === "object");
+assert(typeof WeightedBalancedSchedulingConfiguration$ === "object");
 assert(typeof WindowsUser$ === "object");
 assert(typeof WorkerAmountCapability$ === "object");
 assert(typeof WorkerAttributeCapability$ === "object");

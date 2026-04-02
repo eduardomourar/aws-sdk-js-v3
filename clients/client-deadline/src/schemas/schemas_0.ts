@@ -375,7 +375,9 @@ const _MPS = "MeteredProductSummary";
 const _MPSL = "MeteredProductSummaryList";
 const _MS = "MonitorSummary";
 const _MSo = "MonitorSummaries";
+const _PBSC = "PriorityBalancedSchedulingConfiguration";
 const _PFE = "ParameterFilterExpression";
+const _PFSC = "PriorityFifoSchedulingConfiguration";
 const _PMP = "PutMeteredProduct";
 const _PMPR = "PutMeteredProductRequest";
 const _PMPRu = "PutMeteredProductResponse";
@@ -410,6 +412,7 @@ const _SAPM = "SessionActionProgressMessage";
 const _SAS = "SessionActionSummary";
 const _SASe = "SessionActionSummaries";
 const _SC = "StepConsumer";
+const _SCc = "SchedulingConfiguration";
 const _SCt = "StepConsumers";
 const _SD = "StepDescription";
 const _SDE = "StepDetailsEntity";
@@ -433,6 +436,10 @@ const _SMEASC = "ServiceManagedEc2AutoScalingConfiguration";
 const _SMEFC = "ServiceManagedEc2FleetConfiguration";
 const _SMEIC = "ServiceManagedEc2InstanceCapabilities";
 const _SMEIMO = "ServiceManagedEc2InstanceMarketOptions";
+const _SMPO = "SchedulingMaxPriorityOverride";
+const _SMPOASF = "SchedulingMaxPriorityOverrideAlwaysScheduleFirst";
+const _SMPOASL = "SchedulingMinPriorityOverrideAlwaysScheduleLast";
+const _SMPOc = "SchedulingMinPriorityOverride";
 const _SP = "StepParameter";
 const _SPC = "StepParameterChunks";
 const _SPL = "StepParameterList";
@@ -544,6 +551,7 @@ const _WAC = "WorkerAmountCapability";
 const _WACL = "WorkerAmountCapabilityList";
 const _WACLo = "WorkerAttributeCapabilityList";
 const _WACo = "WorkerAttributeCapability";
+const _WBSC = "WeightedBalancedSchedulingConfiguration";
 const _WC = "WorkerCapabilities";
 const _WS = "WorkerSummary";
 const _WSS = "WorkerSearchSummary";
@@ -567,6 +575,8 @@ const _aOl = "allOf";
 const _aRN = "amountRequirementName";
 const _aS = "assignedSessions";
 const _aSC = "autoScalingConfiguration";
+const _aSF = "alwaysScheduleFirst";
+const _aSL = "alwaysScheduleLast";
 const _aSPI = "allowedStorageProfileIds";
 const _aSPITA = "allowedStorageProfileIdsToAdd";
 const _aSPITR = "allowedStorageProfileIdsToRemove";
@@ -634,6 +644,7 @@ const _eIA = "ec2InstanceArn";
 const _eIT = "ec2InstanceType";
 const _eITx = "excludedInstanceTypes";
 const _eT = "endTime";
+const _eW = "errorWeight";
 const _en = "entities";
 const _end = "endpoint";
 const _env = "environments";
@@ -713,6 +724,8 @@ const _mI = "monitorId";
 const _mL = "membershipLevel";
 const _mMB = "memoryMiB";
 const _mP = "meteredProducts";
+const _mPO = "maxPriorityOverride";
+const _mPOi = "minPriorityOverride";
 const _mR = "maxResults";
 const _mRPT = "maxRetriesPerTask";
 const _mT = "matchType";
@@ -736,8 +749,10 @@ const _oRD = "outputRelativeDirectories";
 const _op = "options";
 const _p = "parameters";
 const _pA = "passwordArn";
+const _pB = "priorityBalanced";
 const _pEC = "processExitCode";
-const _pF = "parameterFilter";
+const _pF = "priorityFifo";
+const _pFa = "parameterFilter";
 const _pI = "principalId";
 const _pIr = "productId";
 const _pM = "progressMessage";
@@ -747,6 +762,7 @@ const _pS = "parameterSpace";
 const _pSa = "pageSize";
 const _pSar = "parameterSort";
 const _pT = "principalType";
+const _pW = "priorityWeight";
 const _pa = "path";
 const _pe = "period";
 const _po = "posix";
@@ -781,6 +797,8 @@ const _rPF = "rootPathFormat";
 const _rPo = "rootPath";
 const _rS = "runStatus";
 const _rT = "resourceType";
+const _rTB = "renderingTaskBuffer";
+const _rTW = "renderingTaskWeight";
 const _ru = "runtime";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.deadline";
 const _sA = "sessionActions";
@@ -790,6 +808,7 @@ const _sAt = "startedAt";
 const _sB = "scriptBody";
 const _sBN = "s3BucketName";
 const _sC = "serviceCode";
+const _sCc = "schedulingConfiguration";
 const _sD = "stepDetails";
 const _sE = "sortExpressions";
 const _sF = "stringFilter";
@@ -812,6 +831,7 @@ const _sPo = "sourcePath";
 const _sT = "sessionToken";
 const _sTF = "searchTermFilter";
 const _sTS = "scriptTimeoutSeconds";
+const _sTW = "submissionTimeWeight";
 const _sTe = "searchTerm";
 const _sTt = "startTime";
 const _sV = "schemaVersion";
@@ -867,6 +887,7 @@ const _vI = "vpcId";
 const _va = "value";
 const _ve = "vendor";
 const _w = "windows";
+const _wB = "weightedBalanced";
 const _wC = "workerCapabilities";
 const _wCo = "workerCount";
 const _wI = "workerId";
@@ -1264,8 +1285,8 @@ export var CreateQueueLimitAssociationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateQueueRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
-  [_fI, _dN, _cT, _de, _dBA, _jAS, _rA, _jRAU, _rFSLN, _aSPI, _ta],
-  [[0, 1], 0, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0], 0, () => JobAttachmentSettings$, 0, () => JobRunAsUser$, 64 | 0, 64 | 0, 128 | 0], 2
+  [_fI, _dN, _cT, _de, _dBA, _jAS, _rA, _jRAU, _rFSLN, _aSPI, _ta, _sCc],
+  [[0, 1], 0, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0], 0, () => JobAttachmentSettings$, 0, () => JobRunAsUser$, 64 | 0, 64 | 0, 128 | 0, () => SchedulingConfiguration$], 2
 ];
 export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr,
   0,
@@ -1684,8 +1705,8 @@ export var GetQueueRequest$: StaticStructureSchema = [3, n0, _GQR,
 ];
 export var GetQueueResponse$: StaticStructureSchema = [3, n0, _GQRe,
   0,
-  [_fI, _qI, _dN, _st, _dBA, _cA, _cB, _bR, _uA, _uB, _de, _jAS, _rA, _rFSLN, _aSPI, _jRAU],
-  [0, 0, 0, 0, 0, 5, 0, 0, 5, 0, [() => Description, 0], () => JobAttachmentSettings$, 0, 64 | 0, 64 | 0, () => JobRunAsUser$], 7
+  [_fI, _qI, _dN, _st, _dBA, _cA, _cB, _bR, _uA, _uB, _de, _jAS, _rA, _rFSLN, _aSPI, _jRAU, _sCc],
+  [0, 0, 0, 0, 0, 5, 0, 0, 5, 0, [() => Description, 0], () => JobAttachmentSettings$, 0, 64 | 0, 64 | 0, () => JobRunAsUser$, () => SchedulingConfiguration$], 7
 ];
 export var GetSessionActionRequest$: StaticStructureSchema = [3, n0, _GSAR,
   0,
@@ -2192,6 +2213,16 @@ export var PosixUser$: StaticStructureSchema = [3, n0, _PU,
   [_us, _g],
   [0, 0], 2
 ];
+export var PriorityBalancedSchedulingConfiguration$: StaticStructureSchema = [3, n0, _PBSC,
+  0,
+  [_rTB],
+  [1]
+];
+export var PriorityFifoSchedulingConfiguration$: StaticStructureSchema = [3, n0, _PFSC,
+  0,
+  [],
+  []
+];
 export var PutMeteredProductRequest$: StaticStructureSchema = [3, n0, _PMPR,
   0,
   [_lEI, _pIr],
@@ -2236,6 +2267,16 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_bN, _k],
   [0, 0], 2
+];
+export var SchedulingMaxPriorityOverrideAlwaysScheduleFirst$: StaticStructureSchema = [3, n0, _SMPOASF,
+  0,
+  [],
+  []
+];
+export var SchedulingMinPriorityOverrideAlwaysScheduleLast$: StaticStructureSchema = [3, n0, _SMPOASL,
+  0,
+  [],
+  []
 ];
 export var SearchGroupedFilterExpressions$: StaticStructureSchema = [3, n0, _SGFE,
   0,
@@ -2569,8 +2610,8 @@ export var UpdateQueueLimitAssociationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateQueueRequest$: StaticStructureSchema = [3, n0, _UQR,
   0,
-  [_fI, _qI, _cT, _dN, _de, _dBA, _jAS, _rA, _jRAU, _rFSLNTA, _rFSLNTR, _aSPITA, _aSPITR],
-  [[0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 0, [() => Description, 0], 0, () => JobAttachmentSettings$, 0, () => JobRunAsUser$, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 2
+  [_fI, _qI, _cT, _dN, _de, _dBA, _jAS, _rA, _jRAU, _rFSLNTA, _rFSLNTR, _aSPITA, _aSPITR, _sCc],
+  [[0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 0, [() => Description, 0], 0, () => JobAttachmentSettings$, 0, () => JobRunAsUser$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => SchedulingConfiguration$], 2
 ];
 export var UpdateQueueResponse$: StaticStructureSchema = [3, n0, _UQRp,
   0,
@@ -2656,6 +2697,11 @@ export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_rCA],
   [64 | 0]
+];
+export var WeightedBalancedSchedulingConfiguration$: StaticStructureSchema = [3, n0, _WBSC,
+  0,
+  [_pW, _eW, _sTW, _rTW, _rTB, _mPO, _mPOi],
+  [1, 1, 1, 1, 1, () => SchedulingMaxPriorityOverride$, () => SchedulingMinPriorityOverride$]
 ];
 export var WindowsUser$: StaticStructureSchema = [3, n0, _WU,
   0,
@@ -2957,9 +3003,24 @@ export var JobParameter$: StaticUnionSchema = [4, n0, _JPo,
   [_in, _flo, _str, _pa],
   [0, 0, 0, 0]
 ];
+export var SchedulingConfiguration$: StaticUnionSchema = [4, n0, _SCc,
+  0,
+  [_pF, _pB, _wB],
+  [() => PriorityFifoSchedulingConfiguration$, () => PriorityBalancedSchedulingConfiguration$, () => WeightedBalancedSchedulingConfiguration$]
+];
+export var SchedulingMaxPriorityOverride$: StaticUnionSchema = [4, n0, _SMPO,
+  0,
+  [_aSF],
+  [() => SchedulingMaxPriorityOverrideAlwaysScheduleFirst$]
+];
+export var SchedulingMinPriorityOverride$: StaticUnionSchema = [4, n0, _SMPOc,
+  0,
+  [_aSL],
+  [() => SchedulingMinPriorityOverrideAlwaysScheduleLast$]
+];
 export var SearchFilterExpression$: StaticUnionSchema = [4, n0, _SFEea,
   0,
-  [_dTF, _pF, _sTF, _sF, _sLF, _gF],
+  [_dTF, _pFa, _sTF, _sF, _sLF, _gF],
   [() => DateTimeFilterExpression$, () => ParameterFilterExpression$, () => SearchTermFilterExpression$, () => StringFilterExpression$, () => StringListFilterExpression$, () => SearchGroupedFilterExpressions$]
 ];
 export var SearchSortExpression$: StaticUnionSchema = [4, n0, _SSEe,

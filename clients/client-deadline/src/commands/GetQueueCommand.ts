@@ -76,6 +76,25 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * //     },
  * //     runAs: "QUEUE_CONFIGURED_USER" || "WORKER_AGENT_USER", // required
  * //   },
+ * //   schedulingConfiguration: { // SchedulingConfiguration Union: only one key present
+ * //     priorityFifo: {},
+ * //     priorityBalanced: { // PriorityBalancedSchedulingConfiguration
+ * //       renderingTaskBuffer: Number("int"),
+ * //     },
+ * //     weightedBalanced: { // WeightedBalancedSchedulingConfiguration
+ * //       priorityWeight: Number("double"),
+ * //       errorWeight: Number("double"),
+ * //       submissionTimeWeight: Number("double"),
+ * //       renderingTaskWeight: Number("double"),
+ * //       renderingTaskBuffer: Number("int"),
+ * //       maxPriorityOverride: { // SchedulingMaxPriorityOverride Union: only one key present
+ * //         alwaysScheduleFirst: {},
+ * //       },
+ * //       minPriorityOverride: { // SchedulingMinPriorityOverride Union: only one key present
+ * //         alwaysScheduleLast: {},
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

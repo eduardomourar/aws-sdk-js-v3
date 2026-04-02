@@ -26,7 +26,6 @@ import type {
   JobLifecycleStatus,
   JobTargetTaskRunStatus,
   JobTemplateType,
-  LicenseEndpointStatus,
   MembershipLevel,
   PathFormat,
   QueueBlockedReason,
@@ -39,7 +38,6 @@ import type {
   SessionActionStatus,
   SessionLifecycleStatus,
   SessionLifecycleTargetStatus,
-  SessionsStatisticsAggregationStatus,
   StepLifecycleStatus,
   StepParameterType,
   StepTargetTaskRunStatus,
@@ -2432,24 +2430,24 @@ export interface CreateFarmResponse {
 }
 
 /**
- * <p>The auto scaling configuration options for a customer managed fleet.</p>
+ * <p>The auto scaling configuration settings for a customer managed fleet.</p>
  * @public
  */
 export interface CustomerManagedAutoScalingConfiguration {
   /**
-   * <p>The number of standby workers to maintain for the fleet.</p>
+   * <p>The number of idle workers maintained and ready to process incoming tasks. The default is 0.</p>
    * @public
    */
   standbyWorkerCount?: number | undefined;
 
   /**
-   * <p>The duration in seconds that a worker can be idle before it is scaled down.</p>
+   * <p>The number of seconds that a worker can remain idle before it is shut down. The default is 300 seconds (5 minutes).</p>
    * @public
    */
   workerIdleDurationSeconds?: number | undefined;
 
   /**
-   * <p>The number of workers that can be scaled out per minute.</p>
+   * <p>The number of workers that can be added per minute to the fleet. The default is a service-defined value that balances efficiency with cost.</p>
    * @public
    */
   scaleOutWorkersPerMinute?: number | undefined;
@@ -2605,7 +2603,7 @@ export interface CustomerManagedFleetConfiguration {
   mode: AutoScalingMode | undefined;
 
   /**
-   * <p>The auto scaling configuration options for the customer managed fleet.</p>
+   * <p>The auto scaling configuration settings for the customer managed fleet.</p>
    * @public
    */
   autoScalingConfiguration?: CustomerManagedAutoScalingConfiguration | undefined;
@@ -2630,24 +2628,24 @@ export interface CustomerManagedFleetConfiguration {
 }
 
 /**
- * <p>The auto scaling configuration options for a service managed EC2 fleet.</p>
+ * <p>The auto scaling configuration settings for a service managed EC2 fleet.</p>
  * @public
  */
 export interface ServiceManagedEc2AutoScalingConfiguration {
   /**
-   * <p>The number of standby workers to maintain for the fleet.</p>
+   * <p>The number of idle workers maintained and ready to process incoming tasks. The default is 0.</p>
    * @public
    */
   standbyWorkerCount?: number | undefined;
 
   /**
-   * <p>The duration in seconds that a worker can be idle before it is scaled down.</p>
+   * <p>The number of seconds that a worker can remain idle before it is shut down. The default is 300 seconds (5 minutes).</p>
    * @public
    */
   workerIdleDurationSeconds?: number | undefined;
 
   /**
-   * <p>The number of workers that can be scaled out per minute.</p>
+   * <p>The number of workers that can be added per minute to the fleet. The default is a service-defined value that balances efficiency with cost.</p>
    * @public
    */
   scaleOutWorkersPerMinute?: number | undefined;
@@ -2797,7 +2795,7 @@ export interface ServiceManagedEc2FleetConfiguration {
   storageProfileId?: string | undefined;
 
   /**
-   * <p>The auto scaling configuration options for the service managed EC2 fleet.</p>
+   * <p>The auto scaling configuration settings for the service managed EC2 fleet.</p>
    * @public
    */
   autoScalingConfiguration?: ServiceManagedEc2AutoScalingConfiguration | undefined;
@@ -3235,6 +3233,231 @@ export interface CreateMonitorResponse {
 }
 
 /**
+ * <p>Configuration for priority balanced scheduling. Workers are distributed evenly across all jobs at the highest priority level.</p>
+ * @public
+ */
+export interface PriorityBalancedSchedulingConfiguration {
+  /**
+   * <p>The rendering task buffer controls worker stickiness. A worker only switches from its current job to another job at the same priority if the other job has fewer rendering tasks by more than this buffer value. Higher values make workers stickier to their current jobs. The default value is <code>1</code>.</p>
+   * @public
+   */
+  renderingTaskBuffer?: number | undefined;
+}
+
+/**
+ * <p>Configuration for priority first-in, first-out (FIFO) scheduling. Workers are assigned to the highest-priority job first. When multiple jobs share the same priority, the job submitted earliest receives workers first.</p>
+ * @public
+ */
+export interface PriorityFifoSchedulingConfiguration {}
+
+/**
+ * <p>Specifies that jobs at the maximum priority (100) are always scheduled first.</p>
+ * @public
+ */
+export interface SchedulingMaxPriorityOverrideAlwaysScheduleFirst {}
+
+/**
+ * <p>Defines the override behavior for jobs at the maximum priority (100) in weighted balanced scheduling.</p>
+ * @public
+ */
+export type SchedulingMaxPriorityOverride =
+  | SchedulingMaxPriorityOverride.AlwaysScheduleFirstMember
+  | SchedulingMaxPriorityOverride.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SchedulingMaxPriorityOverride {
+  /**
+   * <p>Jobs at the maximum priority (100) are always scheduled before other jobs, regardless of the weighted scheduling formula. If multiple jobs have priority 100, ties are broken using the standard weighted formula.</p>
+   * @public
+   */
+  export interface AlwaysScheduleFirstMember {
+    alwaysScheduleFirst: SchedulingMaxPriorityOverrideAlwaysScheduleFirst;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    alwaysScheduleFirst?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    alwaysScheduleFirst: (value: SchedulingMaxPriorityOverrideAlwaysScheduleFirst) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Specifies that jobs at the minimum priority (0) are always scheduled last.</p>
+ * @public
+ */
+export interface SchedulingMinPriorityOverrideAlwaysScheduleLast {}
+
+/**
+ * <p>Defines the override behavior for jobs at the minimum priority (0) in weighted balanced scheduling.</p>
+ * @public
+ */
+export type SchedulingMinPriorityOverride =
+  | SchedulingMinPriorityOverride.AlwaysScheduleLastMember
+  | SchedulingMinPriorityOverride.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SchedulingMinPriorityOverride {
+  /**
+   * <p>Jobs at the minimum priority (0) are always scheduled after all other jobs, regardless of the weighted scheduling formula. If multiple jobs have priority 0, ties are broken using the standard weighted formula.</p>
+   * @public
+   */
+  export interface AlwaysScheduleLastMember {
+    alwaysScheduleLast: SchedulingMinPriorityOverrideAlwaysScheduleLast;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    alwaysScheduleLast?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    alwaysScheduleLast: (value: SchedulingMinPriorityOverrideAlwaysScheduleLast) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for weighted balanced scheduling. Workers are assigned to jobs based on a weighted formula:</p> <p> <code>weight = (priority * priorityWeight) + (errors * errorWeight) + ((currentTime - submissionTime) * submissionTimeWeight) + ((renderingTasks - renderingTaskBuffer) * renderingTaskWeight)</code> </p> <p>The job with the highest calculated weight is scheduled first. Workers are distributed evenly amongst jobs with the same weight.</p>
+ * @public
+ */
+export interface WeightedBalancedSchedulingConfiguration {
+  /**
+   * <p>The weight applied to job priority in the scheduling formula. Higher values give more influence to job priority. A value of <code>0</code> means priority is ignored. The default value is <code>100.0</code>.</p>
+   * @public
+   */
+  priorityWeight?: number | undefined;
+
+  /**
+   * <p>The weight applied to the number of errors on a job. A negative value means jobs without errors are scheduled first. A value of <code>0</code> means errors are ignored. The default value is <code>-10.0</code>.</p>
+   * @public
+   */
+  errorWeight?: number | undefined;
+
+  /**
+   * <p>The weight applied to job submission time. A positive value means earlier jobs are scheduled first. A value of <code>0</code> means submission time is ignored. The default value is <code>3.0</code>.</p>
+   * @public
+   */
+  submissionTimeWeight?: number | undefined;
+
+  /**
+   * <p>The weight applied to the number of tasks currently rendering on a job. A negative value means jobs that are not already rendering are scheduled next. A value of <code>0</code> means the rendering state is ignored. The default value is <code>-100.0</code>.</p>
+   * @public
+   */
+  renderingTaskWeight?: number | undefined;
+
+  /**
+   * <p>The rendering task buffer is subtracted from the number of rendering tasks before applying the rendering task weight. This creates a stickiness effect where workers prefer to stay with their current job. Higher values make workers stickier. The default value is <code>1</code>. The buffer is only applied in the weight calculation for a job if the worker is currently assigned to that job.</p>
+   * @public
+   */
+  renderingTaskBuffer?: number | undefined;
+
+  /**
+   * <p>Overrides the weighted scheduling formula for jobs at the maximum priority (100). When set, jobs with priority 100 are always scheduled first regardless of their calculated weight. When absent, maximum priority jobs use the standard weighted formula.</p>
+   * @public
+   */
+  maxPriorityOverride?: SchedulingMaxPriorityOverride | undefined;
+
+  /**
+   * <p>Overrides the weighted scheduling formula for jobs at the minimum priority (0). When set, jobs with priority 0 are always scheduled last regardless of their calculated weight. When absent, minimum priority jobs use the standard weighted formula.</p>
+   * @public
+   */
+  minPriorityOverride?: SchedulingMinPriorityOverride | undefined;
+}
+
+/**
+ * <p>The scheduling configuration for a queue. Defines the strategy used to assign workers to jobs.</p>
+ * @public
+ */
+export type SchedulingConfiguration =
+  | SchedulingConfiguration.PriorityBalancedMember
+  | SchedulingConfiguration.PriorityFifoMember
+  | SchedulingConfiguration.WeightedBalancedMember
+  | SchedulingConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SchedulingConfiguration {
+  /**
+   * <p>Workers are assigned to the highest-priority job first. When multiple jobs share the same priority, the job submitted earliest receives workers first. This is the default scheduling configuration for new queues.</p>
+   * @public
+   */
+  export interface PriorityFifoMember {
+    priorityFifo: PriorityFifoSchedulingConfiguration;
+    priorityBalanced?: never;
+    weightedBalanced?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Workers are distributed evenly across all jobs at the highest priority level. When workers cannot be evenly divided, the extra workers are assigned to the jobs submitted earliest. If a job has fewer remaining tasks than its share of workers, the surplus workers are redistributed to other jobs at the same priority level.</p>
+   * @public
+   */
+  export interface PriorityBalancedMember {
+    priorityFifo?: never;
+    priorityBalanced: PriorityBalancedSchedulingConfiguration;
+    weightedBalanced?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Workers are assigned to jobs based on a weighted formula that considers job priority, error count, submission time, and the number of tasks currently rendering. Each factor has a configurable weight that determines its influence on scheduling decisions.</p>
+   * @public
+   */
+  export interface WeightedBalancedMember {
+    priorityFifo?: never;
+    priorityBalanced?: never;
+    weightedBalanced: WeightedBalancedSchedulingConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    priorityFifo?: never;
+    priorityBalanced?: never;
+    weightedBalanced?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    priorityFifo: (value: PriorityFifoSchedulingConfiguration) => T;
+    priorityBalanced: (value: PriorityBalancedSchedulingConfiguration) => T;
+    weightedBalanced: (value: WeightedBalancedSchedulingConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * Shared displayName + description for Create operations where both are present.
  * displayName is @required here - this mixin is Create-only by design (Update has optional displayName).
  * @public
@@ -3305,6 +3528,12 @@ export interface CreateQueueRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue.</p> <p>If not specified, the queue defaults to the <code>priorityFifo</code> scheduling configuration.</p>
+   * @public
+   */
+  schedulingConfiguration?: SchedulingConfiguration | undefined;
 }
 
 /**
@@ -5649,6 +5878,12 @@ export interface GetQueueResponse {
    * @public
    */
   jobRunAsUser?: JobRunAsUser | undefined;
+
+  /**
+   * <p>The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue.</p>
+   * @public
+   */
+  schedulingConfiguration?: SchedulingConfiguration | undefined;
 }
 
 /**
@@ -8577,6 +8812,12 @@ export interface UpdateQueueRequest {
    * @public
    */
   allowedStorageProfileIdsToRemove?: string[] | undefined;
+
+  /**
+   * <p>The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue.</p> <p>When updating the scheduling configuration, the entire configuration is replaced.</p> <p>In-progress tasks run to completion before the new scheduling configuration takes effect.</p>
+   * @public
+   */
+  schedulingConfiguration?: SchedulingConfiguration | undefined;
 }
 
 /**
@@ -9048,150 +9289,4 @@ export interface Statistics {
    * @public
    */
   aggregationEndTime?: Date | undefined;
-}
-
-/**
- * Shared pagination field for List operation outputs (nextToken).
- * @public
- */
-export interface GetSessionsStatisticsAggregationResponse {
-  /**
-   * <p>The statistics for the specified fleets or queues.</p>
-   * @public
-   */
-  statistics?: Statistics[] | undefined;
-
-  /**
-   * <p>The status of the aggregated results. An aggregation may fail or time out if the results are too large. If this happens, you can call the <code>StartSessionsStatisticsAggregation</code> operation after you reduce the aggregation time frame, reduce the number of queues or fleets in the aggregation, or increase the period length.</p> <p>If you call the <code>StartSessionsStatisticsAggregation </code> operation when the status is <code>IN_PROGRESS</code>, you will receive a <code>ThrottlingException</code>.</p>
-   * @public
-   */
-  status: SessionsStatisticsAggregationStatus | undefined;
-
-  /**
-   * <p>A message that describes the status.</p>
-   * @public
-   */
-  statusMessage?: string | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLicenseEndpointRequest {
-  /**
-   * <p>The license endpoint ID of the license endpoint to delete.</p>
-   * @public
-   */
-  licenseEndpointId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLicenseEndpointResponse {}
-
-/**
- * @public
- */
-export interface DeleteMeteredProductRequest {
-  /**
-   * <p>The ID of the license endpoint from which to remove the metered product.</p>
-   * @public
-   */
-  licenseEndpointId: string | undefined;
-
-  /**
-   * <p>The product ID to remove from the license endpoint.</p>
-   * @public
-   */
-  productId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMeteredProductResponse {}
-
-/**
- * @public
- */
-export interface GetLicenseEndpointRequest {
-  /**
-   * <p>The license endpoint ID.</p>
-   * @public
-   */
-  licenseEndpointId: string | undefined;
-}
-
-/**
- * Mixin that adds an optional ARN field to response structures.
- * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
- * @public
- */
-export interface GetLicenseEndpointResponse {
-  /**
-   * <p>The license endpoint ID.</p>
-   * @public
-   */
-  licenseEndpointId: string | undefined;
-
-  /**
-   * <p>The status of the license endpoint.</p>
-   * @public
-   */
-  status: LicenseEndpointStatus | undefined;
-
-  /**
-   * <p>The status message of the license endpoint.</p>
-   * @public
-   */
-  statusMessage: string | undefined;
-
-  /**
-   * <p>The VPC (virtual private cloud) ID associated with the license endpoint.</p>
-   * @public
-   */
-  vpcId?: string | undefined;
-
-  /**
-   * <p>The DNS name.</p>
-   * @public
-   */
-  dnsName?: string | undefined;
-
-  /**
-   * <p>The subnet IDs.</p>
-   * @public
-   */
-  subnetIds?: string[] | undefined;
-
-  /**
-   * <p>The security group IDs for the license endpoint.</p>
-   * @public
-   */
-  securityGroupIds?: string[] | undefined;
-}
-
-/**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
- * @public
- */
-export interface ListLicenseEndpointsRequest {
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }

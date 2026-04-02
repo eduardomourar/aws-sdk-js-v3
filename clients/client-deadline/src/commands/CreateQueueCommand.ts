@@ -67,6 +67,25 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   schedulingConfiguration: { // SchedulingConfiguration Union: only one key present
+ *     priorityFifo: {},
+ *     priorityBalanced: { // PriorityBalancedSchedulingConfiguration
+ *       renderingTaskBuffer: Number("int"),
+ *     },
+ *     weightedBalanced: { // WeightedBalancedSchedulingConfiguration
+ *       priorityWeight: Number("double"),
+ *       errorWeight: Number("double"),
+ *       submissionTimeWeight: Number("double"),
+ *       renderingTaskWeight: Number("double"),
+ *       renderingTaskBuffer: Number("int"),
+ *       maxPriorityOverride: { // SchedulingMaxPriorityOverride Union: only one key present
+ *         alwaysScheduleFirst: {},
+ *       },
+ *       minPriorityOverride: { // SchedulingMinPriorityOverride Union: only one key present
+ *         alwaysScheduleLast: {},
+ *       },
+ *     },
+ *   },
  * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);

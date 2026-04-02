@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteLicenseEndpointRequest, DeleteLicenseEndpointResponse } from "../models/models_0";
+import type { DeleteLicenseEndpointRequest, DeleteLicenseEndpointResponse } from "../models/models_1";
 import { DeleteLicenseEndpoint$ } from "../schemas/schemas_0";
 
 /**
