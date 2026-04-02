@@ -9,6 +9,7 @@ import type {
   EvaluationState,
   HistoryItemType,
   MetricStreamOutputFormat,
+  OTelEnrichmentStatus,
   RecentlyActive,
   ScanBy,
   StandardUnit,
@@ -135,6 +136,35 @@ export interface AlarmMuteRuleSummary {
    * @public
    */
   LastUpdatedTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Contains the configuration that determines how a PromQL alarm evaluates its
+ *             contributors, including the query to run and the durations that define when contributors
+ *             transition between states.</p>
+ * @public
+ */
+export interface AlarmPromQLCriteria {
+  /**
+   * <p>The PromQL query that the alarm evaluates. The query must return a result of vector
+   *             type. Each entry in the vector result represents an alarm contributor.</p>
+   * @public
+   */
+  Query: string | undefined;
+
+  /**
+   * <p>The duration, in seconds, that a contributor must be continuously breaching before
+   *             it transitions to the <code>ALARM</code> state.</p>
+   * @public
+   */
+  PendingPeriod?: number | undefined;
+
+  /**
+   * <p>The duration, in seconds, that a contributor must continuously not be breaching
+   *             before it transitions back to the <code>OK</code> state.</p>
+   * @public
+   */
+  RecoveryPeriod?: number | undefined;
 }
 
 /**
@@ -1264,6 +1294,46 @@ export interface DescribeAlarmsInput {
 }
 
 /**
+ * <p>The evaluation criteria for an alarm. This is a union type that currently
+ *             supports <code>PromQLCriteria</code>.</p>
+ * @public
+ */
+export type EvaluationCriteria =
+  | EvaluationCriteria.PromQLCriteriaMember
+  | EvaluationCriteria.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationCriteria {
+  /**
+   * <p>The PromQL criteria for the alarm evaluation.</p>
+   * @public
+   */
+  export interface PromQLCriteriaMember {
+    PromQLCriteria: AlarmPromQLCriteria;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    PromQLCriteria?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    PromQLCriteria: (value: AlarmPromQLCriteria) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The details about a metric alarm.</p>
  * @public
  */
@@ -1425,6 +1495,9 @@ export interface MetricAlarm {
    *             <code>missing</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring how CloudWatch alarms treat missing data</a>.</p>
    *          <p>If this parameter is omitted, the default behavior of <code>missing</code> is
    *             used.</p>
+   *          <note>
+   *             <p>This parameter is not applicable to PromQL alarms.</p>
+   *          </note>
    * @public
    */
   TreatMissingData?: string | undefined;
@@ -1470,6 +1543,18 @@ export interface MetricAlarm {
    * @public
    */
   StateTransitionedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The evaluation criteria for the alarm.</p>
+   * @public
+   */
+  EvaluationCriteria?: EvaluationCriteria | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which the alarm is evaluated.</p>
+   * @public
+   */
+  EvaluationInterval?: number | undefined;
 }
 
 /**
@@ -3142,6 +3227,24 @@ export interface GetMetricWidgetImageOutput {
 /**
  * @public
  */
+export interface GetOTelEnrichmentInput {}
+
+/**
+ * @public
+ */
+export interface GetOTelEnrichmentOutput {
+  /**
+   * <p>The status of OTel enrichment for the account. Valid values are
+   *             <code>Running</code> (enrichment is enabled) and <code>Stopped</code>
+   *             (enrichment is disabled).</p>
+   * @public
+   */
+  Status: OTelEnrichmentStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAlarmMuteRulesInput {
   /**
    * <p>Filter results to show only mute rules that target the specified alarm name.</p>
@@ -4537,7 +4640,8 @@ export interface PutMetricAlarmInput {
   /**
    * <p>The name for the metric associated with the alarm. For each
    *             <code>PutMetricAlarm</code> operation, you must specify either
-   *             <code>MetricName</code> or a <code>Metrics</code> array.</p>
+   *             <code>MetricName</code>, a <code>Metrics</code> array, or an
+   *             <code>EvaluationCriteria</code>.</p>
    *          <p>If you are creating an alarm based on a math expression, you cannot specify this
    *             parameter, or any of the <code>Namespace</code>, <code>Dimensions</code>,
    *             <code>Period</code>, <code>Unit</code>, <code>Statistic</code>, or
@@ -4689,7 +4793,7 @@ export interface PutMetricAlarmInput {
    *             "M out of N" alarm, this value is the N.</p>
    * @public
    */
-  EvaluationPeriods: number | undefined;
+  EvaluationPeriods?: number | undefined;
 
   /**
    * <p>The number of data points that must be breaching to trigger the alarm. This is used
@@ -4716,7 +4820,7 @@ export interface PutMetricAlarmInput {
    *             used only for alarms based on anomaly detection models.</p>
    * @public
    */
-  ComparisonOperator: ComparisonOperator | undefined;
+  ComparisonOperator?: ComparisonOperator | undefined;
 
   /**
    * <p> Sets how this alarm is to handle missing data points. If
@@ -4729,6 +4833,9 @@ export interface PutMetricAlarmInput {
    *                 <code>ignore</code> missing data even if you choose a different option for
    *                 <code>TreatMissingData</code>. When an <code>AWS/DynamoDB</code> metric has
    *                 missing data, alarms that evaluate that metric remain in their current state.</p>
+   *          </note>
+   *          <note>
+   *             <p>This parameter is not applicable to PromQL alarms.</p>
    *          </note>
    * @public
    */
@@ -4749,8 +4856,8 @@ export interface PutMetricAlarmInput {
   /**
    * <p>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm
    *             based on the result of a metric math expression. For each <code>PutMetricAlarm</code>
-   *             operation, you must specify either <code>MetricName</code> or a <code>Metrics</code>
-   *             array.</p>
+   *             operation, you must specify either <code>MetricName</code>, a <code>Metrics</code>
+   *             array, or an <code>EvaluationCriteria</code>.</p>
    *          <p>Each item in the <code>Metrics</code> array either retrieves a metric or performs a
    *             math expression.</p>
    *          <p>One item in the <code>Metrics</code> array is the expression that the alarm watches.
@@ -4758,10 +4865,10 @@ export interface PutMetricAlarmInput {
    *             in the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</p>
    *          <p>If you use the <code>Metrics</code> parameter, you cannot include the
    *             <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>,
-   *             <code>Period</code>, <code>Unit</code>, <code>Statistic</code>, or
-   *             <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same
-   *             operation. Instead, you retrieve the metrics you are using in your math expression as
-   *             part of the <code>Metrics</code> array.</p>
+   *             <code>Period</code>, <code>Unit</code>, <code>Statistic</code>,
+   *             or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code>
+   *             in the same operation. Instead, you retrieve the metrics you are using in your
+   *             math expression as part of the <code>Metrics</code> array.</p>
    * @public
    */
   Metrics?: MetricDataQuery[] | undefined;
@@ -4791,6 +4898,34 @@ export interface PutMetricAlarmInput {
    * @public
    */
   ThresholdMetricId?: string | undefined;
+
+  /**
+   * <p>The evaluation criteria for the alarm. For each <code>PutMetricAlarm</code>
+   *             operation, you must specify either <code>MetricName</code>, a <code>Metrics</code>
+   *             array, or an <code>EvaluationCriteria</code>.</p>
+   *          <p>If you use the <code>EvaluationCriteria</code> parameter, you cannot include the
+   *             <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>,
+   *             <code>Period</code>, <code>Unit</code>, <code>Statistic</code>,
+   *             <code>ExtendedStatistic</code>, <code>Metrics</code>, <code>Threshold</code>,
+   *             <code>ComparisonOperator</code>, <code>ThresholdMetricId</code>,
+   *             <code>EvaluationPeriods</code>, or <code>DatapointsToAlarm</code> parameters of
+   *             <code>PutMetricAlarm</code> in the same operation. Instead, all evaluation parameters
+   *             are defined within this structure.</p>
+   *          <p>For an example of how to use this parameter, see the <b>PromQL
+   *             alarm</b> example on this page.</p>
+   * @public
+   */
+  EvaluationCriteria?: EvaluationCriteria | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which the alarm is evaluated. Valid values are 10,
+   *             20, 30, and any multiple of 60.</p>
+   *          <p>This parameter is required for alarms that use <code>EvaluationCriteria</code>, and
+   *             cannot be specified for alarms configured with <code>MetricName</code> or
+   *             <code>Metrics</code>.</p>
+   * @public
+   */
+  EvaluationInterval?: number | undefined;
 }
 
 /**
@@ -5057,6 +5192,16 @@ export interface StartMetricStreamsOutput {}
 /**
  * @public
  */
+export interface StartOTelEnrichmentInput {}
+
+/**
+ * @public
+ */
+export interface StartOTelEnrichmentOutput {}
+
+/**
+ * @public
+ */
 export interface StopMetricStreamsInput {
   /**
    * <p>The array of the names of metric streams to stop streaming.</p>
@@ -5072,6 +5217,16 @@ export interface StopMetricStreamsInput {
  * @public
  */
 export interface StopMetricStreamsOutput {}
+
+/**
+ * @public
+ */
+export interface StopOTelEnrichmentInput {}
+
+/**
+ * @public
+ */
+export interface StopOTelEnrichmentOutput {}
 
 /**
  * @public

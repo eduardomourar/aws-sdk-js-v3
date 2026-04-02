@@ -4,21 +4,19 @@ POST https://monitoring.us-east-1.amazonaws.com
 content-type: application/x-amz-json-1.0
 x-amz-target: GraniteServiceVersion20100801.PutMetricAlarm
 x-amzn-query-mode: true
-content-length: 1554
+content-length: 1676
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudwatch#_.__ m/E,e
 host: monitoring.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: d5e5e9ff6cadfc774c840234652408e945b6f7562c52acbb8ce3c6b51f8a4be6
+x-amz-content-sha256: be2be778a982047b2a9d07aaaa46018ec4a3880a4edae7552fbeb5a16d858ae9
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/monitoring/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
 
 [string (json)]
 {
   "AlarmName": "__AlarmName__",
-  "EvaluationPeriods": 0,
-  "ComparisonOperator": "__ComparisonOperator__",
   "AlarmDescription": "__AlarmDescription__",
   "ActionsEnabled": false,
   "OKActions": [
@@ -56,8 +54,10 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/monitoring/aws
   ],
   "Period": 0,
   "Unit": "__Unit__",
+  "EvaluationPeriods": 0,
   "DatapointsToAlarm": 0,
   "Threshold": 0,
+  "ComparisonOperator": "__ComparisonOperator__",
   "TreatMissingData": "__TreatMissingData__",
   "EvaluateLowSampleCountPercentile": "__EvaluateLowSampleCountPercentile__",
   "Metrics": [
@@ -118,5 +118,13 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/monitoring/aws
       "Value": "__Value__"
     }
   ],
-  "ThresholdMetricId": "__ThresholdMetricId__"
+  "ThresholdMetricId": "__ThresholdMetricId__",
+  "EvaluationCriteria": {
+    "PromQLCriteria": {
+      "Query": "__Query__",
+      "PendingPeriod": 0,
+      "RecoveryPeriod": 0
+    }
+  },
+  "EvaluationInterval": 0
 }

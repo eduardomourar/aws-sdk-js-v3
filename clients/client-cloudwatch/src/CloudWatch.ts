@@ -125,6 +125,11 @@ import {
   GetMetricWidgetImageCommand,
 } from "./commands/GetMetricWidgetImageCommand";
 import {
+  type GetOTelEnrichmentCommandInput,
+  type GetOTelEnrichmentCommandOutput,
+  GetOTelEnrichmentCommand,
+} from "./commands/GetOTelEnrichmentCommand";
+import {
   type ListAlarmMuteRulesCommandInput,
   type ListAlarmMuteRulesCommandOutput,
   ListAlarmMuteRulesCommand,
@@ -210,10 +215,20 @@ import {
   StartMetricStreamsCommand,
 } from "./commands/StartMetricStreamsCommand";
 import {
+  type StartOTelEnrichmentCommandInput,
+  type StartOTelEnrichmentCommandOutput,
+  StartOTelEnrichmentCommand,
+} from "./commands/StartOTelEnrichmentCommand";
+import {
   type StopMetricStreamsCommandInput,
   type StopMetricStreamsCommandOutput,
   StopMetricStreamsCommand,
 } from "./commands/StopMetricStreamsCommand";
+import {
+  type StopOTelEnrichmentCommandInput,
+  type StopOTelEnrichmentCommandOutput,
+  StopOTelEnrichmentCommand,
+} from "./commands/StopOTelEnrichmentCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -262,6 +277,7 @@ const commands = {
   GetMetricStatisticsCommand,
   GetMetricStreamCommand,
   GetMetricWidgetImageCommand,
+  GetOTelEnrichmentCommand,
   ListAlarmMuteRulesCommand,
   ListDashboardsCommand,
   ListManagedInsightRulesCommand,
@@ -279,7 +295,9 @@ const commands = {
   PutMetricStreamCommand,
   SetAlarmStateCommand,
   StartMetricStreamsCommand,
+  StartOTelEnrichmentCommand,
   StopMetricStreamsCommand,
+  StopOTelEnrichmentCommand,
   TagResourceCommand,
   UntagResourceCommand,
 };
@@ -699,6 +717,24 @@ export interface CloudWatch {
   ): void;
 
   /**
+   * @see {@link GetOTelEnrichmentCommand}
+   */
+  getOTelEnrichment(): Promise<GetOTelEnrichmentCommandOutput>;
+  getOTelEnrichment(
+    args: GetOTelEnrichmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOTelEnrichmentCommandOutput>;
+  getOTelEnrichment(
+    args: GetOTelEnrichmentCommandInput,
+    cb: (err: any, data?: GetOTelEnrichmentCommandOutput) => void
+  ): void;
+  getOTelEnrichment(
+    args: GetOTelEnrichmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOTelEnrichmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAlarmMuteRulesCommand}
    */
   listAlarmMuteRules(): Promise<ListAlarmMuteRulesCommandOutput>;
@@ -993,6 +1029,24 @@ export interface CloudWatch {
   ): void;
 
   /**
+   * @see {@link StartOTelEnrichmentCommand}
+   */
+  startOTelEnrichment(): Promise<StartOTelEnrichmentCommandOutput>;
+  startOTelEnrichment(
+    args: StartOTelEnrichmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOTelEnrichmentCommandOutput>;
+  startOTelEnrichment(
+    args: StartOTelEnrichmentCommandInput,
+    cb: (err: any, data?: StartOTelEnrichmentCommandOutput) => void
+  ): void;
+  startOTelEnrichment(
+    args: StartOTelEnrichmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOTelEnrichmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopMetricStreamsCommand}
    */
   stopMetricStreams(
@@ -1007,6 +1061,24 @@ export interface CloudWatch {
     args: StopMetricStreamsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopMetricStreamsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopOTelEnrichmentCommand}
+   */
+  stopOTelEnrichment(): Promise<StopOTelEnrichmentCommandOutput>;
+  stopOTelEnrichment(
+    args: StopOTelEnrichmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopOTelEnrichmentCommandOutput>;
+  stopOTelEnrichment(
+    args: StopOTelEnrichmentCommandInput,
+    cb: (err: any, data?: StopOTelEnrichmentCommandOutput) => void
+  ): void;
+  stopOTelEnrichment(
+    args: StopOTelEnrichmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopOTelEnrichmentCommandOutput) => void
   ): void;
 
   /**

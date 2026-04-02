@@ -227,7 +227,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "ThresholdMetricId": "__ThresholdMetricId__",
       "EvaluationState": "__EvaluationState__",
-      "StateTransitionedTimestamp": 946702799.999
+      "StateTransitionedTimestamp": 946702799.999,
+      "EvaluationCriteria": {
+        "PromQLCriteria": {
+          "Query": "__Query__",
+          "PendingPeriod": 0,
+          "RecoveryPeriod": 0
+        }
+      },
+      "EvaluationInterval": 0
     },
     {
       "AlarmName": "__AlarmName__",
@@ -326,7 +334,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "ThresholdMetricId": "__ThresholdMetricId__",
       "EvaluationState": "__EvaluationState__",
-      "StateTransitionedTimestamp": 946702799.999
+      "StateTransitionedTimestamp": 946702799.999,
+      "EvaluationCriteria": {
+        "PromQLCriteria": {
+          "Query": "__Query__",
+          "PendingPeriod": 0,
+          "RecoveryPeriod": 0
+        }
+      },
+      "EvaluationInterval": 0
     },
     {
       "AlarmName": "__AlarmName__",
@@ -425,7 +441,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "ThresholdMetricId": "__ThresholdMetricId__",
       "EvaluationState": "__EvaluationState__",
-      "StateTransitionedTimestamp": 946702799.999
+      "StateTransitionedTimestamp": 946702799.999,
+      "EvaluationCriteria": {
+        "PromQLCriteria": {
+          "Query": "__Query__",
+          "PendingPeriod": 0,
+          "RecoveryPeriod": 0
+        }
+      },
+      "EvaluationInterval": 0
     }
   ],
   "NextToken": "__NextToken__"
@@ -633,7 +657,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       ThresholdMetricId: "__ThresholdMetricId__",
       EvaluationState: "__EvaluationState__",
-      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EvaluationCriteria: {
+        PromQLCriteria: {
+          Query: "__Query__",
+          PendingPeriod: (number) 0,
+          RecoveryPeriod: (number) 0
+        }
+      },
+      EvaluationInterval: (number) 0
     },
     {
       AlarmName: "__AlarmName__",
@@ -732,7 +764,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       ThresholdMetricId: "__ThresholdMetricId__",
       EvaluationState: "__EvaluationState__",
-      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EvaluationCriteria: {
+        PromQLCriteria: {
+          Query: "__Query__",
+          PendingPeriod: (number) 0,
+          RecoveryPeriod: (number) 0
+        }
+      },
+      EvaluationInterval: (number) 0
     },
     {
       AlarmName: "__AlarmName__",
@@ -831,7 +871,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       ThresholdMetricId: "__ThresholdMetricId__",
       EvaluationState: "__EvaluationState__",
-      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EvaluationCriteria: {
+        PromQLCriteria: {
+          Query: "__Query__",
+          PendingPeriod: (number) 0,
+          RecoveryPeriod: (number) 0
+        }
+      },
+      EvaluationInterval: (number) 0
     }
   ],
   NextToken: "__NextToken__",

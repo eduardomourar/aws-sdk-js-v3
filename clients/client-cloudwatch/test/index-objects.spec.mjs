@@ -4,6 +4,7 @@ import {
   AlarmHistoryItem$,
   AlarmMuteRuleStatus,
   AlarmMuteRuleSummary$,
+  AlarmPromQLCriteria$,
   AlarmType,
   AnomalyDetector$,
   AnomalyDetectorConfiguration$,
@@ -89,6 +90,7 @@ import {
   EnableInsightRulesOutput$,
   Entity$,
   EntityMetricData$,
+  EvaluationCriteria$,
   EvaluationState,
   GetAlarmMuteRule$,
   GetAlarmMuteRuleCommand,
@@ -118,6 +120,10 @@ import {
   GetMetricWidgetImageCommand,
   GetMetricWidgetImageInput$,
   GetMetricWidgetImageOutput$,
+  GetOTelEnrichment$,
+  GetOTelEnrichmentCommand,
+  GetOTelEnrichmentInput$,
+  GetOTelEnrichmentOutput$,
   HistoryItemType,
   InsightRule$,
   InsightRuleContributor$,
@@ -182,6 +188,7 @@ import {
   MissingRequiredParameterException,
   MissingRequiredParameterException$,
   MuteTargets$,
+  OTelEnrichmentStatus,
   paginateDescribeAlarmHistory,
   paginateDescribeAlarms,
   paginateDescribeAnomalyDetectors,
@@ -243,6 +250,10 @@ import {
   StartMetricStreamsCommand,
   StartMetricStreamsInput$,
   StartMetricStreamsOutput$,
+  StartOTelEnrichment$,
+  StartOTelEnrichmentCommand,
+  StartOTelEnrichmentInput$,
+  StartOTelEnrichmentOutput$,
   StateValue,
   Statistic,
   StatisticSet$,
@@ -251,6 +262,10 @@ import {
   StopMetricStreamsCommand,
   StopMetricStreamsInput$,
   StopMetricStreamsOutput$,
+  StopOTelEnrichment$,
+  StopOTelEnrichmentCommand,
+  StopOTelEnrichmentInput$,
+  StopOTelEnrichmentOutput$,
   Tag$,
   TagResource$,
   TagResourceCommand,
@@ -318,6 +333,8 @@ assert(typeof GetMetricStreamCommand === "function");
 assert(typeof GetMetricStream$ === "object");
 assert(typeof GetMetricWidgetImageCommand === "function");
 assert(typeof GetMetricWidgetImage$ === "object");
+assert(typeof GetOTelEnrichmentCommand === "function");
+assert(typeof GetOTelEnrichment$ === "object");
 assert(typeof ListAlarmMuteRulesCommand === "function");
 assert(typeof ListAlarmMuteRules$ === "object");
 assert(typeof ListDashboardsCommand === "function");
@@ -352,8 +369,12 @@ assert(typeof SetAlarmStateCommand === "function");
 assert(typeof SetAlarmState$ === "object");
 assert(typeof StartMetricStreamsCommand === "function");
 assert(typeof StartMetricStreams$ === "object");
+assert(typeof StartOTelEnrichmentCommand === "function");
+assert(typeof StartOTelEnrichment$ === "object");
 assert(typeof StopMetricStreamsCommand === "function");
 assert(typeof StopMetricStreams$ === "object");
+assert(typeof StopOTelEnrichmentCommand === "function");
+assert(typeof StopOTelEnrichment$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -362,6 +383,7 @@ assert(typeof UntagResource$ === "object");
 assert(typeof AlarmContributor$ === "object");
 assert(typeof AlarmHistoryItem$ === "object");
 assert(typeof AlarmMuteRuleSummary$ === "object");
+assert(typeof AlarmPromQLCriteria$ === "object");
 assert(typeof AnomalyDetector$ === "object");
 assert(typeof AnomalyDetectorConfiguration$ === "object");
 assert(typeof CompositeAlarm$ === "object");
@@ -400,6 +422,7 @@ assert(typeof EnableInsightRulesInput$ === "object");
 assert(typeof EnableInsightRulesOutput$ === "object");
 assert(typeof Entity$ === "object");
 assert(typeof EntityMetricData$ === "object");
+assert(typeof EvaluationCriteria$ === "object");
 assert(typeof GetAlarmMuteRuleInput$ === "object");
 assert(typeof GetAlarmMuteRuleOutput$ === "object");
 assert(typeof GetDashboardInput$ === "object");
@@ -414,6 +437,8 @@ assert(typeof GetMetricStreamInput$ === "object");
 assert(typeof GetMetricStreamOutput$ === "object");
 assert(typeof GetMetricWidgetImageInput$ === "object");
 assert(typeof GetMetricWidgetImageOutput$ === "object");
+assert(typeof GetOTelEnrichmentInput$ === "object");
+assert(typeof GetOTelEnrichmentOutput$ === "object");
 assert(typeof InsightRule$ === "object");
 assert(typeof InsightRuleContributor$ === "object");
 assert(typeof InsightRuleContributorDatapoint$ === "object");
@@ -470,9 +495,13 @@ assert(typeof SetAlarmStateInput$ === "object");
 assert(typeof SingleMetricAnomalyDetector$ === "object");
 assert(typeof StartMetricStreamsInput$ === "object");
 assert(typeof StartMetricStreamsOutput$ === "object");
+assert(typeof StartOTelEnrichmentInput$ === "object");
+assert(typeof StartOTelEnrichmentOutput$ === "object");
 assert(typeof StatisticSet$ === "object");
 assert(typeof StopMetricStreamsInput$ === "object");
 assert(typeof StopMetricStreamsOutput$ === "object");
+assert(typeof StopOTelEnrichmentInput$ === "object");
+assert(typeof StopOTelEnrichmentOutput$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
@@ -488,6 +517,7 @@ assert(typeof ComparisonOperator === "object");
 assert(typeof EvaluationState === "object");
 assert(typeof HistoryItemType === "object");
 assert(typeof MetricStreamOutputFormat === "object");
+assert(typeof OTelEnrichmentStatus === "object");
 assert(typeof RecentlyActive === "object");
 assert(typeof ScanBy === "object");
 assert(typeof StandardUnit === "object");

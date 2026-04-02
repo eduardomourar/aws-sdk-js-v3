@@ -28,12 +28,13 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates an alarm and associates it with the specified metric, metric
- *             math expression, anomaly detection model, or Metrics Insights query. For more
+ *             math expression, anomaly detection model, Metrics Insights query, or PromQL query. For more
  *             information about using a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create
  *             alarms on Metrics Insights queries</a>.</p>
  *          <p>Alarms based on anomaly detection models cannot have Auto Scaling actions.</p>
  *          <p>When this operation creates an alarm, the alarm state is immediately set to
- *             <code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set
+ *             <code>INSUFFICIENT_DATA</code>. For PromQL alarms, the alarm state is instead
+ *             immediately set to <code>OK</code>. The alarm is then evaluated and its state is set
  *             appropriately. Any actions associated with the new state are then executed.</p>
  *          <p>When you update an existing alarm, its state is left unchanged, but the update
  *             completely overwrites the previous configuration of the alarm.</p>
@@ -110,10 +111,10 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *   ],
  *   Period: Number("int"),
  *   Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
- *   EvaluationPeriods: Number("int"), // required
+ *   EvaluationPeriods: Number("int"),
  *   DatapointsToAlarm: Number("int"),
  *   Threshold: Number("double"),
- *   ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold" || "LessThanLowerOrGreaterThanUpperThreshold" || "LessThanLowerThreshold" || "GreaterThanUpperThreshold", // required
+ *   ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold" || "LessThanLowerOrGreaterThanUpperThreshold" || "LessThanLowerThreshold" || "GreaterThanUpperThreshold",
  *   TreatMissingData: "STRING_VALUE",
  *   EvaluateLowSampleCountPercentile: "STRING_VALUE",
  *   Metrics: [ // MetricDataQueries
@@ -148,6 +149,14 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *     },
  *   ],
  *   ThresholdMetricId: "STRING_VALUE",
+ *   EvaluationCriteria: { // EvaluationCriteria Union: only one key present
+ *     PromQLCriteria: { // AlarmPromQLCriteria
+ *       Query: "STRING_VALUE", // required
+ *       PendingPeriod: Number("int"),
+ *       RecoveryPeriod: Number("int"),
+ *     },
+ *   },
+ *   EvaluationInterval: Number("int"),
  * };
  * const command = new PutMetricAlarmCommand(input);
  * const response = await client.send(command);

@@ -229,6 +229,19 @@ export type MetricStreamOutputFormat = (typeof MetricStreamOutputFormat)[keyof t
  * @public
  * @enum
  */
+export const OTelEnrichmentStatus = {
+  RUNNING: "Running",
+  STOPPED: "Stopped",
+} as const;
+/**
+ * @public
+ */
+export type OTelEnrichmentStatus = (typeof OTelEnrichmentStatus)[keyof typeof OTelEnrichmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecentlyActive = {
   PT3H: "PT3H",
 } as const;

@@ -138,6 +138,10 @@ import type {
   GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand";
 import type {
+  GetOTelEnrichmentCommandInput,
+  GetOTelEnrichmentCommandOutput,
+} from "./commands/GetOTelEnrichmentCommand";
+import type {
   ListAlarmMuteRulesCommandInput,
   ListAlarmMuteRulesCommandOutput,
 } from "./commands/ListAlarmMuteRulesCommand";
@@ -179,9 +183,17 @@ import type {
   StartMetricStreamsCommandOutput,
 } from "./commands/StartMetricStreamsCommand";
 import type {
+  StartOTelEnrichmentCommandInput,
+  StartOTelEnrichmentCommandOutput,
+} from "./commands/StartOTelEnrichmentCommand";
+import type {
   StopMetricStreamsCommandInput,
   StopMetricStreamsCommandOutput,
 } from "./commands/StopMetricStreamsCommand";
+import type {
+  StopOTelEnrichmentCommandInput,
+  StopOTelEnrichmentCommandOutput,
+} from "./commands/StopOTelEnrichmentCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -222,6 +234,7 @@ export type ServiceInputTypes =
   | GetMetricStatisticsCommandInput
   | GetMetricStreamCommandInput
   | GetMetricWidgetImageCommandInput
+  | GetOTelEnrichmentCommandInput
   | ListAlarmMuteRulesCommandInput
   | ListDashboardsCommandInput
   | ListManagedInsightRulesCommandInput
@@ -239,7 +252,9 @@ export type ServiceInputTypes =
   | PutMetricStreamCommandInput
   | SetAlarmStateCommandInput
   | StartMetricStreamsCommandInput
+  | StartOTelEnrichmentCommandInput
   | StopMetricStreamsCommandInput
+  | StopOTelEnrichmentCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
@@ -270,6 +285,7 @@ export type ServiceOutputTypes =
   | GetMetricStatisticsCommandOutput
   | GetMetricStreamCommandOutput
   | GetMetricWidgetImageCommandOutput
+  | GetOTelEnrichmentCommandOutput
   | ListAlarmMuteRulesCommandOutput
   | ListDashboardsCommandOutput
   | ListManagedInsightRulesCommandOutput
@@ -287,7 +303,9 @@ export type ServiceOutputTypes =
   | PutMetricStreamCommandOutput
   | SetAlarmStateCommandOutput
   | StartMetricStreamsCommandOutput
+  | StartOTelEnrichmentCommandOutput
   | StopMetricStreamsCommandOutput
+  | StopOTelEnrichmentCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 

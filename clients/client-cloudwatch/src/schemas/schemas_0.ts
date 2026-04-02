@@ -26,6 +26,7 @@ const _ANP = "AlarmNamePrefix";
 const _ANl = "AlarmNames";
 const _AOTL = "ApplyOnTransformedLogs";
 const _AP = "ActionPrefix";
+const _APQLC = "AlarmPromQLCriteria";
 const _AR = "AlarmRule";
 const _AS = "ActionsSuppressor";
 const _ASB = "ActionsSuppressedBy";
@@ -119,9 +120,11 @@ const _Du = "Duration";
 const _E = "Entity";
 const _EAA = "EnableAlarmActions";
 const _EAAI = "EnableAlarmActionsInput";
+const _EC = "EvaluationCriteria";
 const _ED = "ExpireDate";
 const _EDn = "EndDate";
 const _EF = "ExcludeFilters";
+const _EI = "EvaluationInterval";
 const _EIR = "EnableInsightRules";
 const _EIRI = "EnableInsightRulesInput";
 const _EIRO = "EnableInsightRulesOutput";
@@ -163,6 +166,9 @@ const _GMSe = "GetMetricStream";
 const _GMWI = "GetMetricWidgetImage";
 const _GMWII = "GetMetricWidgetImageInput";
 const _GMWIO = "GetMetricWidgetImageOutput";
+const _GOTE = "GetOTelEnrichment";
+const _GOTEI = "GetOTelEnrichmentInput";
+const _GOTEO = "GetOTelEnrichmentOutput";
 const _HD = "HistoryData";
 const _HIT = "HistoryItemType";
 const _HS = "HistorySummary";
@@ -295,7 +301,10 @@ const _PMS = "PutMetricStream";
 const _PMSI = "PutMetricStreamInput";
 const _PMSO = "PutMetricStreamOutput";
 const _POAN = "ParentsOfAlarmName";
+const _PP = "PendingPeriod";
+const _PQLC = "PromQLCriteria";
 const _PS = "PeriodicSpikes";
+const _Q = "Query";
 const _R = "Rule";
 const _RA = "RoleArn";
 const _RARN = "ResourceARN";
@@ -307,6 +316,7 @@ const _RN = "RuleNames";
 const _RNF = "ResourceNotFound";
 const _RNFE = "ResourceNotFoundException";
 const _RNu = "RuleName";
+const _RP = "RecoveryPeriod";
 const _RS = "RuleState";
 const _RT = "ResourceType";
 const _Ra = "Range";
@@ -326,6 +336,12 @@ const _SMSIt = "StopMetricStreamsInput";
 const _SMSO = "StartMetricStreamsOutput";
 const _SMSOt = "StopMetricStreamsOutput";
 const _SMSt = "StopMetricStreams";
+const _SOTE = "StartOTelEnrichment";
+const _SOTEI = "StartOTelEnrichmentInput";
+const _SOTEIt = "StopOTelEnrichmentInput";
+const _SOTEO = "StartOTelEnrichmentOutput";
+const _SOTEOt = "StopOTelEnrichmentOutput";
+const _SOTEt = "StopOTelEnrichment";
 const _SR = "StateReason";
 const _SRD = "StateReasonData";
 const _SRt = "StorageResolution";
@@ -383,6 +399,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { CloudWatchServiceException } from "../models/CloudWatchServiceException";
@@ -515,6 +532,11 @@ export var AlarmMuteRuleSummary$: StaticStructureSchema = [3, n0, _AMRS,
   0,
   [_AMRA, _ED, _S, _MT, _LUT],
   [0, 4, 0, 0, 4]
+];
+export var AlarmPromQLCriteria$: StaticStructureSchema = [3, n0, _APQLC,
+  0,
+  [_Q, _PP, _RP],
+  [0, 1, 1], 1
 ];
 export var AnomalyDetector$: StaticStructureSchema = [3, n0, _AD,
   0,
@@ -776,6 +798,16 @@ export var GetMetricWidgetImageOutput$: StaticStructureSchema = [3, n0, _GMWIO,
   [_MWI],
   [21]
 ];
+export var GetOTelEnrichmentInput$: StaticStructureSchema = [3, n0, _GOTEI,
+  0,
+  [],
+  []
+];
+export var GetOTelEnrichmentOutput$: StaticStructureSchema = [3, n0, _GOTEO,
+  0,
+  [_S],
+  [0], 1
+];
 export var InsightRule$: StaticStructureSchema = [3, n0, _IRn,
   0,
   [_Na, _State, _Sc, _Def, _MRan, _AOTL],
@@ -888,8 +920,8 @@ export var Metric$: StaticStructureSchema = [3, n0, _Met,
 ];
 export var MetricAlarm$: StaticStructureSchema = [3, n0, _MAe,
   0,
-  [_AN, _AAl, _ADl, _ACUT, _AE, _OKA, _AA, _IDA, _SV, _SR, _SRD, _SUT, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _TMI, _ESv, _STT],
-  [0, 0, 0, 4, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 4, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, 0, 0, 4]
+  [_AN, _AAl, _ADl, _ACUT, _AE, _OKA, _AA, _IDA, _SV, _SR, _SRD, _SUT, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _TMI, _ESv, _STT, _EC, _EI],
+  [0, 0, 0, 4, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 4, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, 0, 0, 4, () => EvaluationCriteria$, 1]
 ];
 export var MetricCharacteristics$: StaticStructureSchema = [3, n0, _MC,
   0,
@@ -1003,8 +1035,8 @@ export var PutManagedInsightRulesOutput$: StaticStructureSchema = [3, n0, _PMIRO
 ];
 export var PutMetricAlarmInput$: StaticStructureSchema = [3, n0, _PMAI,
   0,
-  [_AN, _EP, _CO, _ADl, _AE, _OKA, _AA, _IDA, _MN, _N, _Sta, _ESx, _D, _P, _U, _DTA, _Th, _TMD, _ELSCP, _Me, _Ta, _TMI],
-  [0, 1, 0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 0, 0, () => MetricDataQueries, () => TagList, 0], 3
+  [_AN, _ADl, _AE, _OKA, _AA, _IDA, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _Ta, _TMI, _EC, _EI],
+  [0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, () => TagList, 0, () => EvaluationCriteria$, 1], 1
 ];
 export var PutMetricDataInput$: StaticStructureSchema = [3, n0, _PMDI,
   0,
@@ -1056,6 +1088,16 @@ export var StartMetricStreamsOutput$: StaticStructureSchema = [3, n0, _SMSO,
   [],
   []
 ];
+export var StartOTelEnrichmentInput$: StaticStructureSchema = [3, n0, _SOTEI,
+  0,
+  [],
+  []
+];
+export var StartOTelEnrichmentOutput$: StaticStructureSchema = [3, n0, _SOTEO,
+  0,
+  [],
+  []
+];
 export var StatisticSet$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_SC, _Su, _Mi, _Ma],
@@ -1067,6 +1109,16 @@ export var StopMetricStreamsInput$: StaticStructureSchema = [3, n0, _SMSIt,
   [64 | 0], 1
 ];
 export var StopMetricStreamsOutput$: StaticStructureSchema = [3, n0, _SMSOt,
+  0,
+  [],
+  []
+];
+export var StopOTelEnrichmentInput$: StaticStructureSchema = [3, n0, _SOTEIt,
+  0,
+  [],
+  []
+];
+export var StopOTelEnrichmentOutput$: StaticStructureSchema = [3, n0, _SOTEOt,
   0,
   [],
   []
@@ -1213,6 +1265,11 @@ var ContributorAttributes = 128 | 0;
 var DatapointValueMap = 128 | 1;
 var EntityAttributesMap = 128 | 0;
 var EntityKeyAttributesMap = 128 | 0;
+export var EvaluationCriteria$: StaticUnionSchema = [4, n0, _EC,
+  0,
+  [_PQLC],
+  [() => AlarmPromQLCriteria$]
+];
 export var DeleteAlarmMuteRule$: StaticOperationSchema = [9, n0, _DAMR,
   0, () => DeleteAlarmMuteRuleInput$, () => __Unit
 ];
@@ -1282,6 +1339,9 @@ export var GetMetricStream$: StaticOperationSchema = [9, n0, _GMSe,
 export var GetMetricWidgetImage$: StaticOperationSchema = [9, n0, _GMWI,
   0, () => GetMetricWidgetImageInput$, () => GetMetricWidgetImageOutput$
 ];
+export var GetOTelEnrichment$: StaticOperationSchema = [9, n0, _GOTE,
+  0, () => GetOTelEnrichmentInput$, () => GetOTelEnrichmentOutput$
+];
 export var ListAlarmMuteRules$: StaticOperationSchema = [9, n0, _LAMR,
   0, () => ListAlarmMuteRulesInput$, () => ListAlarmMuteRulesOutput$
 ];
@@ -1333,8 +1393,14 @@ export var SetAlarmState$: StaticOperationSchema = [9, n0, _SAS,
 export var StartMetricStreams$: StaticOperationSchema = [9, n0, _SMS,
   0, () => StartMetricStreamsInput$, () => StartMetricStreamsOutput$
 ];
+export var StartOTelEnrichment$: StaticOperationSchema = [9, n0, _SOTE,
+  0, () => StartOTelEnrichmentInput$, () => StartOTelEnrichmentOutput$
+];
 export var StopMetricStreams$: StaticOperationSchema = [9, n0, _SMSt,
   0, () => StopMetricStreamsInput$, () => StopMetricStreamsOutput$
+];
+export var StopOTelEnrichment$: StaticOperationSchema = [9, n0, _SOTEt,
+  0, () => StopOTelEnrichmentInput$, () => StopOTelEnrichmentOutput$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   0, () => TagResourceInput$, () => TagResourceOutput$

@@ -152,6 +152,14 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * //       ThresholdMetricId: "STRING_VALUE",
  * //       EvaluationState: "PARTIAL_DATA" || "EVALUATION_FAILURE" || "EVALUATION_ERROR",
  * //       StateTransitionedTimestamp: new Date("TIMESTAMP"),
+ * //       EvaluationCriteria: { // EvaluationCriteria Union: only one key present
+ * //         PromQLCriteria: { // AlarmPromQLCriteria
+ * //           Query: "STRING_VALUE", // required
+ * //           PendingPeriod: Number("int"),
+ * //           RecoveryPeriod: Number("int"),
+ * //         },
+ * //       },
+ * //       EvaluationInterval: Number("int"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
