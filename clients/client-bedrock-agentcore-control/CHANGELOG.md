@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for three-legged (Authorization Code grant type) OAuth along with predefined MCP tool schema configuration for Amazon Bedrock AgentCore gateway MCP server targets. ([3bf4e65](https://github.com/aws/aws-sdk-js-v3/commit/3bf4e65003f3ff7642c07ed69d7e685272398afb))
+
+
+
+
+
 # [3.1022.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1021.0...v3.1022.0) (2026-04-01)
 
 

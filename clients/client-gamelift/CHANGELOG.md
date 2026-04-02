@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift Servers now includes a ComputeName field in game session API responses, making it easier to identify which compute is hosting a game session without cross-referencing IP addresses. ([9eb2723](https://github.com/aws/aws-sdk-js-v3/commit/9eb2723f8ef541d9f5f1d4d5401dbfa4cf28ad61))
+
+
+
+
+
 # [3.1022.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1021.0...v3.1022.0) (2026-04-01)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift

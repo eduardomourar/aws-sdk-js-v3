@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
+
+
+### Features
+
+* **client-appstream:** Amazon WorkSpaces Applications now supports drain mode for instances in multi-session fleets. This capability allows administrators to instruct individual fleet instances to stop accepting new user sessions while allowing existing sessions to continue uninterrupted. ([3644b4c](https://github.com/aws/aws-sdk-js-v3/commit/3644b4c1b9d7f2903782c01f6fda12d7988fdeb0))
+* **client-bedrock-agentcore-control:** Adds support for three-legged (Authorization Code grant type) OAuth along with predefined MCP tool schema configuration for Amazon Bedrock AgentCore gateway MCP server targets. ([3bf4e65](https://github.com/aws/aws-sdk-js-v3/commit/3bf4e65003f3ff7642c07ed69d7e685272398afb))
+* **client-bedrock-data-automation:** Data Automation Library is a BDA capability that lets you create reusable entity resources to improve extraction accuracy. Libraries support Custom Vocabulary entities that enhance speech recognition for audio and video content with domain-specific terminology shared across projects ([b7560ab](https://github.com/aws/aws-sdk-js-v3/commit/b7560ab11e24a6c3f9e6e88d33cb4b745aab8d93))
+* **client-bedrock-runtime:** Relax ToolUseId pattern to allow dots and colons ([2837c47](https://github.com/aws/aws-sdk-js-v3/commit/2837c47705656a871fadb1db5ae5f9d6587a7cfe))
+* **client-cloudwatch-logs:** We are pleased to announce that our logs transformation csv processor now has a destination field, allowing you to specify under which parent node parsed columns be placed under. ([d3d6f2b](https://github.com/aws/aws-sdk-js-v3/commit/d3d6f2bb383b8b18797237bd3553a7555dc881f2))
+* **client-cloudwatch:** CloudWatch now supports OTel enrichment to make vended metrics for supported AWS resources queryable via PromQL with resource ARN and tag labels, and PromQL alarms for metrics ingested via the OTLP endpoint with multi-contributor evaluation. ([c34638a](https://github.com/aws/aws-sdk-js-v3/commit/c34638a1910a8536e3a1935481055b41f142c0d4))
+* **client-connect:** Include CUSTOMER to evaluation target and participant role. Support Korean, Japanese and Simplified Chinese in evaluation forms. ([69be144](https://github.com/aws/aws-sdk-js-v3/commit/69be1448fb6468f3a2f60e6628c62c3a00064bcc))
+* **client-deadline:** AWS Deadline Cloud now supports configurable scheduling on each queue. The scheduling configuration controls how workers are distributed across jobs. ([522c454](https://github.com/aws/aws-sdk-js-v3/commit/522c454c9ad64391491564211483d4c85a747a2e))
+* **client-gamelift:** Amazon GameLift Servers now includes a ComputeName field in game session API responses, making it easier to identify which compute is hosting a game session without cross-referencing IP addresses. ([9eb2723](https://github.com/aws/aws-sdk-js-v3/commit/9eb2723f8ef541d9f5f1d4d5401dbfa4cf28ad61))
+* **client-pricing:** This release increases the MaxResults parameter of the GetAttributeValues API from 100 to 10000. ([f394460](https://github.com/aws/aws-sdk-js-v3/commit/f3944601156bd3826d2f8c40efd135bbe34d6784))
+* **clients:** update client endpoints as of 2026-04-02 ([b5ffded](https://github.com/aws/aws-sdk-js-v3/commit/b5ffded0d79f0990f66e033fc071ebcb129d3a0d))
+
+
+
+
+
 # [3.1022.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1021.0...v3.1022.0) (2026-04-01)
 
 

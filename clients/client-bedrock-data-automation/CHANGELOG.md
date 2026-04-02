@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
+
+
+### Features
+
+* **client-bedrock-data-automation:** Data Automation Library is a BDA capability that lets you create reusable entity resources to improve extraction accuracy. Libraries support Custom Vocabulary entities that enhance speech recognition for audio and video content with domain-specific terminology shared across projects ([b7560ab](https://github.com/aws/aws-sdk-js-v3/commit/b7560ab11e24a6c3f9e6e88d33cb4b745aab8d93))
+
+
+
+
+
 # [3.1022.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1021.0...v3.1022.0) (2026-04-01)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-data-automation

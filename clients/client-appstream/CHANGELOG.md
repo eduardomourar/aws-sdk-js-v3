@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
+
+
+### Features
+
+* **client-appstream:** Amazon WorkSpaces Applications now supports drain mode for instances in multi-session fleets. This capability allows administrators to instruct individual fleet instances to stop accepting new user sessions while allowing existing sessions to continue uninterrupted. ([3644b4c](https://github.com/aws/aws-sdk-js-v3/commit/3644b4c1b9d7f2903782c01f6fda12d7988fdeb0))
+
+
+
+
+
 # [3.1022.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1021.0...v3.1022.0) (2026-04-01)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

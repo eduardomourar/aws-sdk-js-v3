@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
+
+
+### Features
+
+* **client-pricing:** This release increases the MaxResults parameter of the GetAttributeValues API from 100 to 10000. ([f394460](https://github.com/aws/aws-sdk-js-v3/commit/f3944601156bd3826d2f8c40efd135bbe34d6784))
+
+
+
+
+
 # [3.1022.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1021.0...v3.1022.0) (2026-04-01)
 
 **Note:** Version bump only for package @aws-sdk/client-pricing
