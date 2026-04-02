@@ -324,10 +324,10 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *     EligibilityDays: Number("int"),
  *   },
  *   TargetConfiguration: { // EvaluationFormTargetConfiguration
- *     ContactInteractionType: "AGENT" || "AUTOMATED", // required
+ *     ContactInteractionType: "AGENT" || "AUTOMATED" || "CUSTOMER", // required
  *   },
  *   LanguageConfiguration: { // EvaluationFormLanguageConfiguration
- *     FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR",
+ *     FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN",
  *   },
  * };
  * const command = new CreateEvaluationFormCommand(input);

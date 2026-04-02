@@ -82,7 +82,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //         ],
  * //       },
  * //       ContactParticipant: { // EvaluationContactParticipant
- * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT",
+ * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT" || "CUSTOMER",
  * //         ContactParticipantId: "STRING_VALUE",
  * //       },
  * //       SamplingJobId: "STRING_VALUE",
@@ -448,10 +448,10 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //       Enabled: true || false, // required
  * //     },
  * //     TargetConfiguration: { // EvaluationFormTargetConfiguration
- * //       ContactInteractionType: "AGENT" || "AUTOMATED", // required
+ * //       ContactInteractionType: "AGENT" || "AUTOMATED" || "CUSTOMER", // required
  * //     },
  * //     LanguageConfiguration: { // EvaluationFormLanguageConfiguration
- * //       FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR",
+ * //       FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN",
  * //     },
  * //     ReviewConfiguration: { // EvaluationReviewConfiguration
  * //       ReviewNotificationRecipients: [ // EvaluationReviewNotificationRecipientList // required

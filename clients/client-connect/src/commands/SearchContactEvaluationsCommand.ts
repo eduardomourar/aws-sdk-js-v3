@@ -183,7 +183,7 @@ export interface SearchContactEvaluationsCommandOutput extends SearchContactEval
  * //         AcknowledgerComment: "STRING_VALUE",
  * //         SamplingJobId: "STRING_VALUE",
  * //         ReviewId: "STRING_VALUE",
- * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT",
+ * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT" || "CUSTOMER",
  * //         ContactParticipantId: "STRING_VALUE",
  * //       },
  * //       Status: "DRAFT" || "SUBMITTED" || "REVIEW_REQUESTED" || "UNDER_REVIEW", // required

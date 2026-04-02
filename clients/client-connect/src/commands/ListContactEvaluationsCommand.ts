@@ -70,7 +70,7 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * //       CreatedTime: new Date("TIMESTAMP"), // required
  * //       LastModifiedTime: new Date("TIMESTAMP"), // required
  * //       ContactParticipant: { // EvaluationContactParticipant
- * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT",
+ * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT" || "CUSTOMER",
  * //         ContactParticipantId: "STRING_VALUE",
  * //       },
  * //     },

@@ -803,7 +803,10 @@ export const EvaluationFormLanguageCode = {
   ES_ES: "es-ES",
   FR_FR: "fr-FR",
   IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
   PT_BR: "pt-BR",
+  ZH_CN: "zh-CN",
 } as const;
 /**
  * @public
@@ -857,6 +860,7 @@ export type EvaluationFormScoringStatus =
 export const ContactInteractionType = {
   AGENT: "AGENT",
   AUTOMATED: "AUTOMATED",
+  CUSTOMER: "CUSTOMER",
 } as const;
 /**
  * @public
@@ -1597,6 +1601,7 @@ export type AutoEvaluationStatus = (typeof AutoEvaluationStatus)[keyof typeof Au
  */
 export const ContactParticipantRole = {
   AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
   CUSTOM_BOT: "CUSTOM_BOT",
   SYSTEM: "SYSTEM",
 } as const;
