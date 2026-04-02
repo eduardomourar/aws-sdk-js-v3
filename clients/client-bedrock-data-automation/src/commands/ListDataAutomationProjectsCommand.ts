@@ -50,6 +50,9 @@ export interface ListDataAutomationProjectsCommandOutput extends ListDataAutomat
  *     blueprintStage: "DEVELOPMENT" || "LIVE",
  *   },
  *   resourceOwner: "SERVICE" || "ACCOUNT",
+ *   libraryFilter: { // DataAutomationLibraryFilter
+ *     libraryArn: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new ListDataAutomationProjectsCommand(input);
  * const response = await client.send(command);

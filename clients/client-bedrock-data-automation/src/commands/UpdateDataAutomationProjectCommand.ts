@@ -230,6 +230,13 @@ export interface UpdateDataAutomationProjectCommandOutput extends UpdateDataAuto
  *       mov: "IMAGE" || "DOCUMENT" || "AUDIO" || "VIDEO",
  *     },
  *   },
+ *   dataAutomationLibraryConfiguration: { // DataAutomationLibraryConfiguration
+ *     libraries: [ // DataAutomationLibraryItems
+ *       { // DataAutomationLibraryItem
+ *         libraryArn: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  *   encryptionConfiguration: { // EncryptionConfiguration
  *     kmsKeyId: "STRING_VALUE", // required
  *     kmsEncryptionContext: { // KmsEncryptionContext

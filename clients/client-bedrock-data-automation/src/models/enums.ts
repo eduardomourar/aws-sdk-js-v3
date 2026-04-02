@@ -88,15 +88,42 @@ export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
  * @public
  * @enum
  */
-export const AudioGenerativeOutputLanguage = {
-  DEFAULT: "DEFAULT",
-  EN: "EN",
+export const EntityType = {
+  VOCABULARY: "VOCABULARY",
 } as const;
 /**
  * @public
  */
-export type AudioGenerativeOutputLanguage =
-  (typeof AudioGenerativeOutputLanguage)[keyof typeof AudioGenerativeOutputLanguage];
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LibraryIngestionJobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type LibraryIngestionJobStatus = (typeof LibraryIngestionJobStatus)[keyof typeof LibraryIngestionJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LibraryIngestionJobOperationType = {
+  DELETE: "DELETE",
+  UPSERT: "UPSERT",
+} as const;
+/**
+ * @public
+ */
+export type LibraryIngestionJobOperationType =
+  (typeof LibraryIngestionJobOperationType)[keyof typeof LibraryIngestionJobOperationType];
 
 /**
  * @public
@@ -119,6 +146,34 @@ export const Language = {
  * @public
  */
 export type Language = (typeof Language)[keyof typeof Language];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataAutomationLibraryStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
+/**
+ * @public
+ */
+export type DataAutomationLibraryStatus =
+  (typeof DataAutomationLibraryStatus)[keyof typeof DataAutomationLibraryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioGenerativeOutputLanguage = {
+  DEFAULT: "DEFAULT",
+  EN: "EN",
+} as const;
+/**
+ * @public
+ */
+export type AudioGenerativeOutputLanguage =
+  (typeof AudioGenerativeOutputLanguage)[keyof typeof AudioGenerativeOutputLanguage];
 
 /**
  * @public

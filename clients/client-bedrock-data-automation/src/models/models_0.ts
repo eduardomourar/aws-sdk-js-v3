@@ -6,6 +6,7 @@ import type {
   BlueprintOptimizationJobStatus,
   BlueprintStage,
   BlueprintStageFilter,
+  DataAutomationLibraryStatus,
   DataAutomationProjectStage,
   DataAutomationProjectStageFilter,
   DataAutomationProjectStatus,
@@ -13,9 +14,12 @@ import type {
   DesiredModality,
   DocumentExtractionGranularityType,
   DocumentOutputTextFormatType,
+  EntityType,
   ImageExtractionCategoryType,
   ImageStandardGenerativeFieldType,
   Language,
+  LibraryIngestionJobOperationType,
+  LibraryIngestionJobStatus,
   PIIEntityType,
   PIIRedactionMaskMode,
   ResourceOwner,
@@ -670,6 +674,740 @@ export interface CreateBlueprintVersionResponse {
 }
 
 /**
+ * Get DataAutomationLibraryIngestionJob Request
+ * @public
+ */
+export interface GetDataAutomationLibraryIngestionJobRequest {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+
+  /**
+   * ARN of the DataAutomationLibraryIngestionJob
+   * @public
+   */
+  jobArn: string | undefined;
+}
+
+/**
+ * Output configuration for DataAutomationLibraryIngestionJob
+ * @public
+ */
+export interface OutputConfiguration {
+  /**
+   * S3 Uri
+   * @public
+   */
+  s3Uri: string | undefined;
+}
+
+/**
+ * Contains the information of a DataAutomationLibraryIngestionJob
+ * @public
+ */
+export interface DataAutomationLibraryIngestionJob {
+  /**
+   * ARN of the DataAutomationLibraryIngestionJob
+   * @public
+   */
+  jobArn: string | undefined;
+
+  /**
+   * Timestamp when the DataAutomationLibraryIngestionJob was created
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * The entity type associated with DataAutomationLibraryIngestionJob
+   * @public
+   */
+  entityType: EntityType | undefined;
+
+  /**
+   * The operation associated with DataAutomationLibraryIngestionJob
+   * @public
+   */
+  operationType: LibraryIngestionJobOperationType | undefined;
+
+  /**
+   * The status of the DataAutomationLibraryIngestionJob
+   * @public
+   */
+  jobStatus: LibraryIngestionJobStatus | undefined;
+
+  /**
+   * Output configuration of DataAutomationLibraryIngestionJob
+   * @public
+   */
+  outputConfiguration: OutputConfiguration | undefined;
+
+  /**
+   * Timestamp when the DataAutomationLibraryIngestionJob was completed
+   * @public
+   */
+  completionTime?: Date | undefined;
+
+  /**
+   * Error message
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * Error type
+   * @public
+   */
+  errorType?: string | undefined;
+}
+
+/**
+ * Get DataAutomationLibraryIngestionJob Response
+ * @public
+ */
+export interface GetDataAutomationLibraryIngestionJobResponse {
+  /**
+   * Contains the information of a library ingestion job
+   * @public
+   */
+  job?: DataAutomationLibraryIngestionJob | undefined;
+}
+
+/**
+ * Input for entities needed to be deleted
+ * @public
+ */
+export interface DeleteEntitiesInfo {
+  /**
+   * List of EntityId
+   * @public
+   */
+  entityIds: string[] | undefined;
+}
+
+/**
+ * Phrase structure for vocabulary
+ * @public
+ */
+export interface Phrase {
+  /**
+   * Text content of the phrase
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * Text to configure how phrase is displayed in Transcript
+   * @public
+   */
+  displayAsText?: string | undefined;
+}
+
+/**
+ * Vocabulary entity info with detailed information
+ * @public
+ */
+export interface VocabularyEntityInfo {
+  /**
+   * Unique identifier for the entity
+   * @public
+   */
+  entityId?: string | undefined;
+
+  /**
+   * Description of the entity
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Supported input languages
+   * @public
+   */
+  language: Language | undefined;
+
+  /**
+   * List of phrases
+   * @public
+   */
+  phrases: Phrase[] | undefined;
+}
+
+/**
+ * Input configuration for upserting data in a DataAutomationLibraryIngestionJob
+ * @public
+ */
+export type UpsertEntityInfo =
+  | UpsertEntityInfo.VocabularyMember
+  | UpsertEntityInfo.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpsertEntityInfo {
+  /**
+   * Vocabulary entity info with detailed information
+   * @public
+   */
+  export interface VocabularyMember {
+    vocabulary: VocabularyEntityInfo;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    vocabulary?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    vocabulary: (value: VocabularyEntityInfo) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * Input payload structure definition
+ * @public
+ */
+export type InlinePayload =
+  | InlinePayload.DeleteEntitiesInfoMember
+  | InlinePayload.UpsertEntitiesInfoMember
+  | InlinePayload.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InlinePayload {
+  /**
+   * List of UpsertEntityInfo for upserting data in a DataAutomationLibraryIngestionJob
+   * @public
+   */
+  export interface UpsertEntitiesInfoMember {
+    upsertEntitiesInfo: UpsertEntityInfo[];
+    deleteEntitiesInfo?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Input for entities needed to be deleted
+   * @public
+   */
+  export interface DeleteEntitiesInfoMember {
+    upsertEntitiesInfo?: never;
+    deleteEntitiesInfo: DeleteEntitiesInfo;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    upsertEntitiesInfo?: never;
+    deleteEntitiesInfo?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    upsertEntitiesInfo: (value: UpsertEntityInfo[]) => T;
+    deleteEntitiesInfo: (value: DeleteEntitiesInfo) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * Input configuration for DataAutomationLibraryIngestionJob
+ * @public
+ */
+export interface InputConfiguration {
+  /**
+   * S3 object
+   * @public
+   */
+  s3Object?: S3Object | undefined;
+
+  /**
+   * Input Payload
+   * @public
+   */
+  inlinePayload?: InlinePayload | undefined;
+}
+
+/**
+ * Event bridge configuration.
+ * @public
+ */
+export interface EventBridgeConfiguration {
+  /**
+   * Event bridge flag.
+   * @public
+   */
+  eventBridgeEnabled: boolean | undefined;
+}
+
+/**
+ * Notification configuration.
+ * @public
+ */
+export interface NotificationConfiguration {
+  /**
+   * Event bridge configuration.
+   * @public
+   */
+  eventBridgeConfiguration: EventBridgeConfiguration | undefined;
+}
+
+/**
+ * Invoke DataAutomationLibraryIngestionJob Request
+ * @public
+ */
+export interface InvokeDataAutomationLibraryIngestionJobRequest {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+
+  /**
+   * Idempotency token
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * Input configuration of DataAutomationLibraryIngestionJob request
+   * @public
+   */
+  inputConfiguration: InputConfiguration | undefined;
+
+  /**
+   * The entity type for which DataAutomationLibraryIngestionJob is being run
+   * @public
+   */
+  entityType: EntityType | undefined;
+
+  /**
+   * The operation to be performed by DataAutomationLibraryIngestionJob
+   * @public
+   */
+  operationType: LibraryIngestionJobOperationType | undefined;
+
+  /**
+   * Output configuration of DataAutomationLibraryIngestionJob
+   * @public
+   */
+  outputConfiguration: OutputConfiguration | undefined;
+
+  /**
+   * Notification configuration.
+   * @public
+   */
+  notificationConfiguration?: NotificationConfiguration | undefined;
+
+  /**
+   * List of tags
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * Invoke DataAutomationLibraryIngestionJob Response
+ * @public
+ */
+export interface InvokeDataAutomationLibraryIngestionJobResponse {
+  /**
+   * ARN of the DataAutomationLibraryIngestionJob
+   * @public
+   */
+  jobArn?: string | undefined;
+}
+
+/**
+ * List DataAutomationLibraryIngestionJobs Request
+ * @public
+ */
+export interface ListDataAutomationLibraryIngestionJobsRequest {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+
+  /**
+   * Max Results
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * Pagination token for retrieving the next set of results
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * Summary of a DataAutomationLibraryIngestionJob
+ * @public
+ */
+export interface DataAutomationLibraryIngestionJobSummary {
+  /**
+   * ARN of the DataAutomationLibraryIngestionJob
+   * @public
+   */
+  jobArn: string | undefined;
+
+  /**
+   * Status of DataAutomationLibraryIngestionJob
+   * @public
+   */
+  jobStatus: LibraryIngestionJobStatus | undefined;
+
+  /**
+   * Entity types supported in DataAutomationLibraries
+   * @public
+   */
+  entityType: EntityType | undefined;
+
+  /**
+   * DataAutomationLibraryIngestionJob operation type
+   * @public
+   */
+  operationType: LibraryIngestionJobOperationType | undefined;
+
+  /**
+   * Time Stamp
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * Time Stamp
+   * @public
+   */
+  completionTime?: Date | undefined;
+}
+
+/**
+ * List DataAutomationLibraryIngestionJobs Response
+ * @public
+ */
+export interface ListDataAutomationLibraryIngestionJobsResponse {
+  /**
+   * List of data automation library ingestion jobs
+   * @public
+   */
+  jobs?: DataAutomationLibraryIngestionJobSummary[] | undefined;
+
+  /**
+   * Pagination token for retrieving the next set of results
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * Create DataAutomationLibrary Request
+ * @public
+ */
+export interface CreateDataAutomationLibraryRequest {
+  /**
+   * Name of the DataAutomationLibrary
+   * @public
+   */
+  libraryName: string | undefined;
+
+  /**
+   * Description of the DataAutomationLibrary
+   * @public
+   */
+  libraryDescription?: string | undefined;
+
+  /**
+   * Client specified token used for idempotency checks
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * KMS Encryption Configuration
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * List of tags
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * Create DataAutomationLibrary Response
+ * @public
+ */
+export interface CreateDataAutomationLibraryResponse {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn?: string | undefined;
+
+  /**
+   * Status of DataAutomationLibrary
+   * @public
+   */
+  status?: DataAutomationLibraryStatus | undefined;
+}
+
+/**
+ * Delete DataAutomationLibrary Request
+ * @public
+ */
+export interface DeleteDataAutomationLibraryRequest {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+}
+
+/**
+ * Delete DataAutomationLibrary Response
+ * @public
+ */
+export interface DeleteDataAutomationLibraryResponse {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn?: string | undefined;
+
+  /**
+   * Status of DataAutomationLibrary
+   * @public
+   */
+  status?: DataAutomationLibraryStatus | undefined;
+}
+
+/**
+ * Get DataAutomationLibrary Request
+ * @public
+ */
+export interface GetDataAutomationLibraryRequest {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+}
+
+/**
+ * Information about an entity type in the DataAutomationLibrary
+ * @public
+ */
+export interface EntityTypeInfo {
+  /**
+   * Entity types supported in DataAutomationLibraries
+   * @public
+   */
+  entityType: EntityType | undefined;
+
+  /**
+   * JSON string representing relevant metadata for the entity type
+   * @public
+   */
+  entityMetadata?: string | undefined;
+}
+
+/**
+ * Contains the information of a DataAutomationLibrary.
+ * @public
+ */
+export interface DataAutomationLibrary {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+
+  /**
+   * Time Stamp
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * Name of the DataAutomationLibrary
+   * @public
+   */
+  libraryName: string | undefined;
+
+  /**
+   * Description of the DataAutomationLibrary
+   * @public
+   */
+  libraryDescription?: string | undefined;
+
+  /**
+   * Status of DataAutomationLibrary
+   * @public
+   */
+  status: DataAutomationLibraryStatus | undefined;
+
+  /**
+   * List of info for each entity type in the DataAutomationLibrary
+   * @public
+   */
+  entityTypes?: EntityTypeInfo[] | undefined;
+
+  /**
+   * KMS Key Identifier
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * KMS Encryption Context
+   * @public
+   */
+  kmsEncryptionContext?: Record<string, string> | undefined;
+}
+
+/**
+ * Get DataAutomationLibrary Response
+ * @public
+ */
+export interface GetDataAutomationLibraryResponse {
+  /**
+   * Contains the information of a DataAutomationLibrary.
+   * @public
+   */
+  library?: DataAutomationLibrary | undefined;
+}
+
+/**
+ * List DataAutomationLibraries Request
+ * @public
+ */
+export interface ListDataAutomationLibrariesRequest {
+  /**
+   * Max Results
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * Pagination token
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * Data Automation Project Filter
+   * @public
+   */
+  projectFilter?: DataAutomationProjectFilter | undefined;
+}
+
+/**
+ * Summary of a DataAutomationLibrary
+ * @public
+ */
+export interface DataAutomationLibrarySummary {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+
+  /**
+   * Name of the DataAutomationLibrary
+   * @public
+   */
+  libraryName?: string | undefined;
+
+  /**
+   * Time Stamp
+   * @public
+   */
+  creationTime: Date | undefined;
+}
+
+/**
+ * List DataAutomationLibraries Response
+ * @public
+ */
+export interface ListDataAutomationLibrariesResponse {
+  /**
+   * List of DataAutomationLibrarySummary objects
+   * @public
+   */
+  libraries?: DataAutomationLibrarySummary[] | undefined;
+
+  /**
+   * Pagination token
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * Update DataAutomationLibrary Request
+ * @public
+ */
+export interface UpdateDataAutomationLibraryRequest {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+
+  /**
+   * Description of the DataAutomationLibrary
+   * @public
+   */
+  libraryDescription?: string | undefined;
+
+  /**
+   * Client specified token used for idempotency checks
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * Update DataAutomationLibrary Response
+ * @public
+ */
+export interface UpdateDataAutomationLibraryResponse {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn?: string | undefined;
+
+  /**
+   * Status of DataAutomationLibrary
+   * @public
+   */
+  status?: DataAutomationLibraryStatus | undefined;
+}
+
+/**
  * Blueprint Item
  * @public
  */
@@ -703,6 +1441,30 @@ export interface CustomOutputConfiguration {
    * @public
    */
   blueprints?: BlueprintItem[] | undefined;
+}
+
+/**
+ * DataAutomationLibrary Item
+ * @public
+ */
+export interface DataAutomationLibraryItem {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+}
+
+/**
+ * DataAutomation Library configuration
+ * @public
+ */
+export interface DataAutomationLibraryConfiguration {
+  /**
+   * List of DataAutomationLibrary Items
+   * @public
+   */
+  libraries?: DataAutomationLibraryItem[] | undefined;
 }
 
 /**
@@ -1437,6 +2199,12 @@ export interface CreateDataAutomationProjectRequest {
   overrideConfiguration?: OverrideConfiguration | undefined;
 
   /**
+   * DataAutomation Library configuration
+   * @public
+   */
+  dataAutomationLibraryConfiguration?: DataAutomationLibraryConfiguration | undefined;
+
+  /**
    * Client specified token used for idempotency checks
    * @public
    */
@@ -1593,6 +2361,12 @@ export interface DataAutomationProject {
   overrideConfiguration?: OverrideConfiguration | undefined;
 
   /**
+   * DataAutomation Library configuration
+   * @public
+   */
+  dataAutomationLibraryConfiguration?: DataAutomationLibraryConfiguration | undefined;
+
+  /**
    * Status of Data Automation Project
    * @public
    */
@@ -1648,6 +2422,18 @@ export interface BlueprintFilter {
 }
 
 /**
+ * Data Automation Library Filter
+ * @public
+ */
+export interface DataAutomationLibraryFilter {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+}
+
+/**
  * List DataAutomationProject Request
  * @public
  */
@@ -1681,6 +2467,12 @@ export interface ListDataAutomationProjectsRequest {
    * @public
    */
   resourceOwner?: ResourceOwner | undefined;
+
+  /**
+   * Data Automation Library Filter
+   * @public
+   */
+  libraryFilter?: DataAutomationLibraryFilter | undefined;
 }
 
 /**
@@ -1779,6 +2571,12 @@ export interface UpdateDataAutomationProjectRequest {
   overrideConfiguration?: OverrideConfiguration | undefined;
 
   /**
+   * DataAutomation Library configuration
+   * @public
+   */
+  dataAutomationLibraryConfiguration?: DataAutomationLibraryConfiguration | undefined;
+
+  /**
    * KMS Encryption Configuration
    * @public
    */
@@ -1807,6 +2605,240 @@ export interface UpdateDataAutomationProjectResponse {
    * @public
    */
   status?: DataAutomationProjectStatus | undefined;
+}
+
+/**
+ * Get DataAutomationLibraryEntity Request
+ * @public
+ */
+export interface GetDataAutomationLibraryEntityRequest {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+
+  /**
+   * The entity type for which the entity is requested
+   * @public
+   */
+  entityType: EntityType | undefined;
+
+  /**
+   * Unique identifier for the entity
+   * @public
+   */
+  entityId: string | undefined;
+}
+
+/**
+ * Vocabulary entity with detailed information
+ * @public
+ */
+export interface VocabularyEntity {
+  /**
+   * Unique identifier for the entity
+   * @public
+   */
+  entityId?: string | undefined;
+
+  /**
+   * Description of the entity
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Supported input languages
+   * @public
+   */
+  language?: Language | undefined;
+
+  /**
+   * List of phrases
+   * @public
+   */
+  phrases?: Phrase[] | undefined;
+
+  /**
+   * Time Stamp
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+}
+
+/**
+ * Detailed information about an entity
+ * @public
+ */
+export type EntityDetails =
+  | EntityDetails.VocabularyMember
+  | EntityDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EntityDetails {
+  /**
+   * Vocabulary entity with detailed information
+   * @public
+   */
+  export interface VocabularyMember {
+    vocabulary: VocabularyEntity;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    vocabulary?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    vocabulary: (value: VocabularyEntity) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * Get DataAutomationLibraryEntity Response
+ * @public
+ */
+export interface GetDataAutomationLibraryEntityResponse {
+  /**
+   * Detailed information about the entity
+   * @public
+   */
+  entity?: EntityDetails | undefined;
+}
+
+/**
+ * List DataAutomationLibraryEntities Request
+ * @public
+ */
+export interface ListDataAutomationLibraryEntitiesRequest {
+  /**
+   * ARN generated at the server side when a DataAutomationLibrary is created
+   * @public
+   */
+  libraryArn: string | undefined;
+
+  /**
+   * The entity type for which the entity list is requested
+   * @public
+   */
+  entityType: EntityType | undefined;
+
+  /**
+   * Max Results
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * Pagination token for retrieving the next set of results
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * Summary of a Vocabulary entity
+ * @public
+ */
+export interface VocabularyEntitySummary {
+  /**
+   * Unique identifier for the entity
+   * @public
+   */
+  entityId?: string | undefined;
+
+  /**
+   * Description of the entity
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Supported input languages
+   * @public
+   */
+  language?: Language | undefined;
+
+  /**
+   * num of phrases in the entity
+   * @public
+   */
+  numOfPhrases?: number | undefined;
+
+  /**
+   * Time Stamp
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+}
+
+/**
+ * Summarized information about an entity
+ * @public
+ */
+export type DataAutomationLibraryEntitySummary =
+  | DataAutomationLibraryEntitySummary.VocabularyMember
+  | DataAutomationLibraryEntitySummary.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataAutomationLibraryEntitySummary {
+  /**
+   * Summary of a Vocabulary entity
+   * @public
+   */
+  export interface VocabularyMember {
+    vocabulary: VocabularyEntitySummary;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    vocabulary?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    vocabulary: (value: VocabularyEntitySummary) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * List DataAutomationLibraryEntities Response
+ * @public
+ */
+export interface ListDataAutomationLibraryEntitiesResponse {
+  /**
+   * List of entities
+   * @public
+   */
+  entities?: DataAutomationLibraryEntitySummary[] | undefined;
+
+  /**
+   * Pagination token for retrieving the next set of results
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**

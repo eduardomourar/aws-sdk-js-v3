@@ -231,6 +231,13 @@ export interface CreateDataAutomationProjectCommandOutput extends CreateDataAuto
  *       mov: "IMAGE" || "DOCUMENT" || "AUDIO" || "VIDEO",
  *     },
  *   },
+ *   dataAutomationLibraryConfiguration: { // DataAutomationLibraryConfiguration
+ *     libraries: [ // DataAutomationLibraryItems
+ *       { // DataAutomationLibraryItem
+ *         libraryArn: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  *   clientToken: "STRING_VALUE",
  *   encryptionConfiguration: { // EncryptionConfiguration
  *     kmsKeyId: "STRING_VALUE", // required

@@ -71,10 +71,18 @@ import type {
   CreateBlueprintVersionCommandOutput,
 } from "./commands/CreateBlueprintVersionCommand";
 import type {
+  CreateDataAutomationLibraryCommandInput,
+  CreateDataAutomationLibraryCommandOutput,
+} from "./commands/CreateDataAutomationLibraryCommand";
+import type {
   CreateDataAutomationProjectCommandInput,
   CreateDataAutomationProjectCommandOutput,
 } from "./commands/CreateDataAutomationProjectCommand";
 import type { DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput } from "./commands/DeleteBlueprintCommand";
+import type {
+  DeleteDataAutomationLibraryCommandInput,
+  DeleteDataAutomationLibraryCommandOutput,
+} from "./commands/DeleteDataAutomationLibraryCommand";
 import type {
   DeleteDataAutomationProjectCommandInput,
   DeleteDataAutomationProjectCommandOutput,
@@ -85,6 +93,18 @@ import type {
   GetBlueprintOptimizationStatusCommandOutput,
 } from "./commands/GetBlueprintOptimizationStatusCommand";
 import type {
+  GetDataAutomationLibraryCommandInput,
+  GetDataAutomationLibraryCommandOutput,
+} from "./commands/GetDataAutomationLibraryCommand";
+import type {
+  GetDataAutomationLibraryEntityCommandInput,
+  GetDataAutomationLibraryEntityCommandOutput,
+} from "./commands/GetDataAutomationLibraryEntityCommand";
+import type {
+  GetDataAutomationLibraryIngestionJobCommandInput,
+  GetDataAutomationLibraryIngestionJobCommandOutput,
+} from "./commands/GetDataAutomationLibraryIngestionJobCommand";
+import type {
   GetDataAutomationProjectCommandInput,
   GetDataAutomationProjectCommandOutput,
 } from "./commands/GetDataAutomationProjectCommand";
@@ -92,7 +112,23 @@ import type {
   InvokeBlueprintOptimizationAsyncCommandInput,
   InvokeBlueprintOptimizationAsyncCommandOutput,
 } from "./commands/InvokeBlueprintOptimizationAsyncCommand";
+import type {
+  InvokeDataAutomationLibraryIngestionJobCommandInput,
+  InvokeDataAutomationLibraryIngestionJobCommandOutput,
+} from "./commands/InvokeDataAutomationLibraryIngestionJobCommand";
 import type { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
+import type {
+  ListDataAutomationLibrariesCommandInput,
+  ListDataAutomationLibrariesCommandOutput,
+} from "./commands/ListDataAutomationLibrariesCommand";
+import type {
+  ListDataAutomationLibraryEntitiesCommandInput,
+  ListDataAutomationLibraryEntitiesCommandOutput,
+} from "./commands/ListDataAutomationLibraryEntitiesCommand";
+import type {
+  ListDataAutomationLibraryIngestionJobsCommandInput,
+  ListDataAutomationLibraryIngestionJobsCommandOutput,
+} from "./commands/ListDataAutomationLibraryIngestionJobsCommand";
 import type {
   ListDataAutomationProjectsCommandInput,
   ListDataAutomationProjectsCommandOutput,
@@ -104,6 +140,10 @@ import type {
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "./commands/UpdateBlueprintCommand";
+import type {
+  UpdateDataAutomationLibraryCommandInput,
+  UpdateDataAutomationLibraryCommandOutput,
+} from "./commands/UpdateDataAutomationLibraryCommand";
 import type {
   UpdateDataAutomationProjectCommandInput,
   UpdateDataAutomationProjectCommandOutput,
@@ -126,19 +166,29 @@ export type ServiceInputTypes =
   | CopyBlueprintStageCommandInput
   | CreateBlueprintCommandInput
   | CreateBlueprintVersionCommandInput
+  | CreateDataAutomationLibraryCommandInput
   | CreateDataAutomationProjectCommandInput
   | DeleteBlueprintCommandInput
+  | DeleteDataAutomationLibraryCommandInput
   | DeleteDataAutomationProjectCommandInput
   | GetBlueprintCommandInput
   | GetBlueprintOptimizationStatusCommandInput
+  | GetDataAutomationLibraryCommandInput
+  | GetDataAutomationLibraryEntityCommandInput
+  | GetDataAutomationLibraryIngestionJobCommandInput
   | GetDataAutomationProjectCommandInput
   | InvokeBlueprintOptimizationAsyncCommandInput
+  | InvokeDataAutomationLibraryIngestionJobCommandInput
   | ListBlueprintsCommandInput
+  | ListDataAutomationLibrariesCommandInput
+  | ListDataAutomationLibraryEntitiesCommandInput
+  | ListDataAutomationLibraryIngestionJobsCommandInput
   | ListDataAutomationProjectsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBlueprintCommandInput
+  | UpdateDataAutomationLibraryCommandInput
   | UpdateDataAutomationProjectCommandInput;
 
 /**
@@ -148,19 +198,29 @@ export type ServiceOutputTypes =
   | CopyBlueprintStageCommandOutput
   | CreateBlueprintCommandOutput
   | CreateBlueprintVersionCommandOutput
+  | CreateDataAutomationLibraryCommandOutput
   | CreateDataAutomationProjectCommandOutput
   | DeleteBlueprintCommandOutput
+  | DeleteDataAutomationLibraryCommandOutput
   | DeleteDataAutomationProjectCommandOutput
   | GetBlueprintCommandOutput
   | GetBlueprintOptimizationStatusCommandOutput
+  | GetDataAutomationLibraryCommandOutput
+  | GetDataAutomationLibraryEntityCommandOutput
+  | GetDataAutomationLibraryIngestionJobCommandOutput
   | GetDataAutomationProjectCommandOutput
   | InvokeBlueprintOptimizationAsyncCommandOutput
+  | InvokeDataAutomationLibraryIngestionJobCommandOutput
   | ListBlueprintsCommandOutput
+  | ListDataAutomationLibrariesCommandOutput
+  | ListDataAutomationLibraryEntitiesCommandOutput
+  | ListDataAutomationLibraryIngestionJobsCommandOutput
   | ListDataAutomationProjectsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBlueprintCommandOutput
+  | UpdateDataAutomationLibraryCommandOutput
   | UpdateDataAutomationProjectCommandOutput;
 
 /**

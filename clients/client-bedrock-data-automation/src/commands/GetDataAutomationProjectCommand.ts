@@ -241,6 +241,13 @@ export interface GetDataAutomationProjectCommandOutput extends GetDataAutomation
  * //         mov: "IMAGE" || "DOCUMENT" || "AUDIO" || "VIDEO",
  * //       },
  * //     },
+ * //     dataAutomationLibraryConfiguration: { // DataAutomationLibraryConfiguration
+ * //       libraries: [ // DataAutomationLibraryItems
+ * //         { // DataAutomationLibraryItem
+ * //           libraryArn: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //     status: "COMPLETED" || "IN_PROGRESS" || "FAILED", // required
  * //     kmsKeyId: "STRING_VALUE",
  * //     kmsEncryptionContext: { // KmsEncryptionContext

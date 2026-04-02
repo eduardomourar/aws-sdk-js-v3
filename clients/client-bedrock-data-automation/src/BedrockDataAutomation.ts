@@ -19,6 +19,11 @@ import {
   CreateBlueprintVersionCommand,
 } from "./commands/CreateBlueprintVersionCommand";
 import {
+  type CreateDataAutomationLibraryCommandInput,
+  type CreateDataAutomationLibraryCommandOutput,
+  CreateDataAutomationLibraryCommand,
+} from "./commands/CreateDataAutomationLibraryCommand";
+import {
   type CreateDataAutomationProjectCommandInput,
   type CreateDataAutomationProjectCommandOutput,
   CreateDataAutomationProjectCommand,
@@ -28,6 +33,11 @@ import {
   type DeleteBlueprintCommandOutput,
   DeleteBlueprintCommand,
 } from "./commands/DeleteBlueprintCommand";
+import {
+  type DeleteDataAutomationLibraryCommandInput,
+  type DeleteDataAutomationLibraryCommandOutput,
+  DeleteDataAutomationLibraryCommand,
+} from "./commands/DeleteDataAutomationLibraryCommand";
 import {
   type DeleteDataAutomationProjectCommandInput,
   type DeleteDataAutomationProjectCommandOutput,
@@ -44,6 +54,21 @@ import {
   GetBlueprintOptimizationStatusCommand,
 } from "./commands/GetBlueprintOptimizationStatusCommand";
 import {
+  type GetDataAutomationLibraryCommandInput,
+  type GetDataAutomationLibraryCommandOutput,
+  GetDataAutomationLibraryCommand,
+} from "./commands/GetDataAutomationLibraryCommand";
+import {
+  type GetDataAutomationLibraryEntityCommandInput,
+  type GetDataAutomationLibraryEntityCommandOutput,
+  GetDataAutomationLibraryEntityCommand,
+} from "./commands/GetDataAutomationLibraryEntityCommand";
+import {
+  type GetDataAutomationLibraryIngestionJobCommandInput,
+  type GetDataAutomationLibraryIngestionJobCommandOutput,
+  GetDataAutomationLibraryIngestionJobCommand,
+} from "./commands/GetDataAutomationLibraryIngestionJobCommand";
+import {
   type GetDataAutomationProjectCommandInput,
   type GetDataAutomationProjectCommandOutput,
   GetDataAutomationProjectCommand,
@@ -54,10 +79,30 @@ import {
   InvokeBlueprintOptimizationAsyncCommand,
 } from "./commands/InvokeBlueprintOptimizationAsyncCommand";
 import {
+  type InvokeDataAutomationLibraryIngestionJobCommandInput,
+  type InvokeDataAutomationLibraryIngestionJobCommandOutput,
+  InvokeDataAutomationLibraryIngestionJobCommand,
+} from "./commands/InvokeDataAutomationLibraryIngestionJobCommand";
+import {
   type ListBlueprintsCommandInput,
   type ListBlueprintsCommandOutput,
   ListBlueprintsCommand,
 } from "./commands/ListBlueprintsCommand";
+import {
+  type ListDataAutomationLibrariesCommandInput,
+  type ListDataAutomationLibrariesCommandOutput,
+  ListDataAutomationLibrariesCommand,
+} from "./commands/ListDataAutomationLibrariesCommand";
+import {
+  type ListDataAutomationLibraryEntitiesCommandInput,
+  type ListDataAutomationLibraryEntitiesCommandOutput,
+  ListDataAutomationLibraryEntitiesCommand,
+} from "./commands/ListDataAutomationLibraryEntitiesCommand";
+import {
+  type ListDataAutomationLibraryIngestionJobsCommandInput,
+  type ListDataAutomationLibraryIngestionJobsCommandOutput,
+  ListDataAutomationLibraryIngestionJobsCommand,
+} from "./commands/ListDataAutomationLibraryIngestionJobsCommand";
 import {
   type ListDataAutomationProjectsCommandInput,
   type ListDataAutomationProjectsCommandOutput,
@@ -84,34 +129,57 @@ import {
   UpdateBlueprintCommand,
 } from "./commands/UpdateBlueprintCommand";
 import {
+  type UpdateDataAutomationLibraryCommandInput,
+  type UpdateDataAutomationLibraryCommandOutput,
+  UpdateDataAutomationLibraryCommand,
+} from "./commands/UpdateDataAutomationLibraryCommand";
+import {
   type UpdateDataAutomationProjectCommandInput,
   type UpdateDataAutomationProjectCommandOutput,
   UpdateDataAutomationProjectCommand,
 } from "./commands/UpdateDataAutomationProjectCommand";
 import { paginateListBlueprints } from "./pagination/ListBlueprintsPaginator";
+import { paginateListDataAutomationLibraries } from "./pagination/ListDataAutomationLibrariesPaginator";
+import { paginateListDataAutomationLibraryEntities } from "./pagination/ListDataAutomationLibraryEntitiesPaginator";
+import {
+  paginateListDataAutomationLibraryIngestionJobs,
+} from "./pagination/ListDataAutomationLibraryIngestionJobsPaginator";
 import { paginateListDataAutomationProjects } from "./pagination/ListDataAutomationProjectsPaginator";
 
 const commands = {
   CopyBlueprintStageCommand,
   CreateBlueprintCommand,
   CreateBlueprintVersionCommand,
+  CreateDataAutomationLibraryCommand,
   CreateDataAutomationProjectCommand,
   DeleteBlueprintCommand,
+  DeleteDataAutomationLibraryCommand,
   DeleteDataAutomationProjectCommand,
   GetBlueprintCommand,
   GetBlueprintOptimizationStatusCommand,
+  GetDataAutomationLibraryCommand,
+  GetDataAutomationLibraryEntityCommand,
+  GetDataAutomationLibraryIngestionJobCommand,
   GetDataAutomationProjectCommand,
   InvokeBlueprintOptimizationAsyncCommand,
+  InvokeDataAutomationLibraryIngestionJobCommand,
   ListBlueprintsCommand,
+  ListDataAutomationLibrariesCommand,
+  ListDataAutomationLibraryEntitiesCommand,
+  ListDataAutomationLibraryIngestionJobsCommand,
   ListDataAutomationProjectsCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateBlueprintCommand,
+  UpdateDataAutomationLibraryCommand,
   UpdateDataAutomationProjectCommand,
 };
 const paginators = {
   paginateListBlueprints,
+  paginateListDataAutomationLibraries,
+  paginateListDataAutomationLibraryEntities,
+  paginateListDataAutomationLibraryIngestionJobs,
   paginateListDataAutomationProjects,
 };
 
@@ -168,6 +236,23 @@ export interface BedrockDataAutomation {
   ): void;
 
   /**
+   * @see {@link CreateDataAutomationLibraryCommand}
+   */
+  createDataAutomationLibrary(
+    args: CreateDataAutomationLibraryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataAutomationLibraryCommandOutput>;
+  createDataAutomationLibrary(
+    args: CreateDataAutomationLibraryCommandInput,
+    cb: (err: any, data?: CreateDataAutomationLibraryCommandOutput) => void
+  ): void;
+  createDataAutomationLibrary(
+    args: CreateDataAutomationLibraryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataAutomationLibraryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDataAutomationProjectCommand}
    */
   createDataAutomationProject(
@@ -199,6 +284,23 @@ export interface BedrockDataAutomation {
     args: DeleteBlueprintCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBlueprintCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataAutomationLibraryCommand}
+   */
+  deleteDataAutomationLibrary(
+    args: DeleteDataAutomationLibraryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataAutomationLibraryCommandOutput>;
+  deleteDataAutomationLibrary(
+    args: DeleteDataAutomationLibraryCommandInput,
+    cb: (err: any, data?: DeleteDataAutomationLibraryCommandOutput) => void
+  ): void;
+  deleteDataAutomationLibrary(
+    args: DeleteDataAutomationLibraryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataAutomationLibraryCommandOutput) => void
   ): void;
 
   /**
@@ -253,6 +355,57 @@ export interface BedrockDataAutomation {
   ): void;
 
   /**
+   * @see {@link GetDataAutomationLibraryCommand}
+   */
+  getDataAutomationLibrary(
+    args: GetDataAutomationLibraryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataAutomationLibraryCommandOutput>;
+  getDataAutomationLibrary(
+    args: GetDataAutomationLibraryCommandInput,
+    cb: (err: any, data?: GetDataAutomationLibraryCommandOutput) => void
+  ): void;
+  getDataAutomationLibrary(
+    args: GetDataAutomationLibraryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataAutomationLibraryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataAutomationLibraryEntityCommand}
+   */
+  getDataAutomationLibraryEntity(
+    args: GetDataAutomationLibraryEntityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataAutomationLibraryEntityCommandOutput>;
+  getDataAutomationLibraryEntity(
+    args: GetDataAutomationLibraryEntityCommandInput,
+    cb: (err: any, data?: GetDataAutomationLibraryEntityCommandOutput) => void
+  ): void;
+  getDataAutomationLibraryEntity(
+    args: GetDataAutomationLibraryEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataAutomationLibraryEntityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataAutomationLibraryIngestionJobCommand}
+   */
+  getDataAutomationLibraryIngestionJob(
+    args: GetDataAutomationLibraryIngestionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataAutomationLibraryIngestionJobCommandOutput>;
+  getDataAutomationLibraryIngestionJob(
+    args: GetDataAutomationLibraryIngestionJobCommandInput,
+    cb: (err: any, data?: GetDataAutomationLibraryIngestionJobCommandOutput) => void
+  ): void;
+  getDataAutomationLibraryIngestionJob(
+    args: GetDataAutomationLibraryIngestionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataAutomationLibraryIngestionJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataAutomationProjectCommand}
    */
   getDataAutomationProject(
@@ -287,6 +440,23 @@ export interface BedrockDataAutomation {
   ): void;
 
   /**
+   * @see {@link InvokeDataAutomationLibraryIngestionJobCommand}
+   */
+  invokeDataAutomationLibraryIngestionJob(
+    args: InvokeDataAutomationLibraryIngestionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeDataAutomationLibraryIngestionJobCommandOutput>;
+  invokeDataAutomationLibraryIngestionJob(
+    args: InvokeDataAutomationLibraryIngestionJobCommandInput,
+    cb: (err: any, data?: InvokeDataAutomationLibraryIngestionJobCommandOutput) => void
+  ): void;
+  invokeDataAutomationLibraryIngestionJob(
+    args: InvokeDataAutomationLibraryIngestionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeDataAutomationLibraryIngestionJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListBlueprintsCommand}
    */
   listBlueprints(): Promise<ListBlueprintsCommandOutput>;
@@ -302,6 +472,58 @@ export interface BedrockDataAutomation {
     args: ListBlueprintsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBlueprintsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataAutomationLibrariesCommand}
+   */
+  listDataAutomationLibraries(): Promise<ListDataAutomationLibrariesCommandOutput>;
+  listDataAutomationLibraries(
+    args: ListDataAutomationLibrariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataAutomationLibrariesCommandOutput>;
+  listDataAutomationLibraries(
+    args: ListDataAutomationLibrariesCommandInput,
+    cb: (err: any, data?: ListDataAutomationLibrariesCommandOutput) => void
+  ): void;
+  listDataAutomationLibraries(
+    args: ListDataAutomationLibrariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataAutomationLibrariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataAutomationLibraryEntitiesCommand}
+   */
+  listDataAutomationLibraryEntities(
+    args: ListDataAutomationLibraryEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataAutomationLibraryEntitiesCommandOutput>;
+  listDataAutomationLibraryEntities(
+    args: ListDataAutomationLibraryEntitiesCommandInput,
+    cb: (err: any, data?: ListDataAutomationLibraryEntitiesCommandOutput) => void
+  ): void;
+  listDataAutomationLibraryEntities(
+    args: ListDataAutomationLibraryEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataAutomationLibraryEntitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataAutomationLibraryIngestionJobsCommand}
+   */
+  listDataAutomationLibraryIngestionJobs(
+    args: ListDataAutomationLibraryIngestionJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataAutomationLibraryIngestionJobsCommandOutput>;
+  listDataAutomationLibraryIngestionJobs(
+    args: ListDataAutomationLibraryIngestionJobsCommandInput,
+    cb: (err: any, data?: ListDataAutomationLibraryIngestionJobsCommandOutput) => void
+  ): void;
+  listDataAutomationLibraryIngestionJobs(
+    args: ListDataAutomationLibraryIngestionJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataAutomationLibraryIngestionJobsCommandOutput) => void
   ): void;
 
   /**
@@ -391,6 +613,23 @@ export interface BedrockDataAutomation {
   ): void;
 
   /**
+   * @see {@link UpdateDataAutomationLibraryCommand}
+   */
+  updateDataAutomationLibrary(
+    args: UpdateDataAutomationLibraryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataAutomationLibraryCommandOutput>;
+  updateDataAutomationLibrary(
+    args: UpdateDataAutomationLibraryCommandInput,
+    cb: (err: any, data?: UpdateDataAutomationLibraryCommandOutput) => void
+  ): void;
+  updateDataAutomationLibrary(
+    args: UpdateDataAutomationLibraryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataAutomationLibraryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDataAutomationProjectCommand}
    */
   updateDataAutomationProject(
@@ -417,6 +656,39 @@ export interface BedrockDataAutomation {
     args?: ListBlueprintsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListBlueprintsCommandOutput>;
+
+  /**
+   * @see {@link ListDataAutomationLibrariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataAutomationLibrariesCommandOutput}.
+   */
+  paginateListDataAutomationLibraries(
+    args?: ListDataAutomationLibrariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataAutomationLibrariesCommandOutput>;
+
+  /**
+   * @see {@link ListDataAutomationLibraryEntitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataAutomationLibraryEntitiesCommandOutput}.
+   */
+  paginateListDataAutomationLibraryEntities(
+    args: ListDataAutomationLibraryEntitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataAutomationLibraryEntitiesCommandOutput>;
+
+  /**
+   * @see {@link ListDataAutomationLibraryIngestionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataAutomationLibraryIngestionJobsCommandOutput}.
+   */
+  paginateListDataAutomationLibraryIngestionJobs(
+    args: ListDataAutomationLibraryIngestionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataAutomationLibraryIngestionJobsCommandOutput>;
 
   /**
    * @see {@link ListDataAutomationProjectsCommand}
