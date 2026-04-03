@@ -51,6 +51,10 @@ export interface ListEnforcedGuardrailsConfigurationCommandOutput extends ListEn
  * //       guardrailArn: "STRING_VALUE",
  * //       guardrailId: "STRING_VALUE",
  * //       inputTags: "HONOR" || "IGNORE",
+ * //       selectiveContentGuarding: { // SelectiveContentGuarding
+ * //         system: "SELECTIVE" || "COMPREHENSIVE",
+ * //         messages: "SELECTIVE" || "COMPREHENSIVE",
+ * //       },
  * //       guardrailVersion: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       createdBy: "STRING_VALUE",

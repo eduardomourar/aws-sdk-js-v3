@@ -57,7 +57,8 @@ import type {
   GuardrailContextualGroundingPolicyConfig,
   GuardrailCrossRegionConfig,
   GuardrailCrossRegionDetails,
-  GuardrailSensitiveInformationPolicy,
+  GuardrailPiiEntity,
+  GuardrailRegex,
   GuardrailSensitiveInformationPolicyConfig,
   GuardrailTopicPolicyConfig,
   GuardrailWordPolicyConfig,
@@ -73,6 +74,24 @@ import type {
   VectorSearchRerankingConfiguration,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Contains details about PII entities and regular expressions configured for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailSensitiveInformationPolicy {
+  /**
+   * <p>The list of PII entities configured for the guardrail.</p>
+   * @public
+   */
+  piiEntities?: GuardrailPiiEntity[] | undefined;
+
+  /**
+   * <p>The list of regular expressions configured for the guardrail.</p>
+   * @public
+   */
+  regexes?: GuardrailRegex[] | undefined;
+}
 
 /**
  * <p>The tier that your guardrail uses for denied topic filters.</p>
@@ -3189,6 +3208,72 @@ export interface UpdateProvisionedModelThroughputRequest {
  * @public
  */
 export interface UpdateProvisionedModelThroughputResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The ARN of the Bedrock resource to which this resource policy applies.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyResponse {}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The ARN of the Bedrock resource to which this resource policy applies.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The JSON string representing the Bedrock resource policy.</p>
+   * @public
+   */
+  resourcePolicy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The ARN of the Bedrock resource to which this resource policy applies.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The JSON string representing the Bedrock resource policy.</p>
+   * @public
+   */
+  resourcePolicy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The ARN of the Bedrock resource to which this resource policy applies.</p>
+   * @public
+   */
+  resourceArn?: string | undefined;
+}
 
 /**
  * @public

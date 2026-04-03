@@ -262,6 +262,10 @@ import {
   DeleteProvisionedModelThroughputCommand,
   DeleteProvisionedModelThroughputRequest$,
   DeleteProvisionedModelThroughputResponse$,
+  DeleteResourcePolicy$,
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyRequest$,
+  DeleteResourcePolicyResponse$,
   DeregisterMarketplaceModelEndpoint$,
   DeregisterMarketplaceModelEndpointCommand,
   DeregisterMarketplaceModelEndpointRequest$,
@@ -398,6 +402,10 @@ import {
   GetProvisionedModelThroughputCommand,
   GetProvisionedModelThroughputRequest$,
   GetProvisionedModelThroughputResponse$,
+  GetResourcePolicy$,
+  GetResourcePolicyCommand,
+  GetResourcePolicyRequest$,
+  GetResourcePolicyResponse$,
   GetUseCaseForModelAccess$,
   GetUseCaseForModelAccessCommand,
   GetUseCaseForModelAccessRequest$,
@@ -623,6 +631,10 @@ import {
   PutModelInvocationLoggingConfigurationCommand,
   PutModelInvocationLoggingConfigurationRequest$,
   PutModelInvocationLoggingConfigurationResponse$,
+  PutResourcePolicy$,
+  PutResourcePolicyCommand,
+  PutResourcePolicyRequest$,
+  PutResourcePolicyResponse$,
   PutUseCaseForModelAccess$,
   PutUseCaseForModelAccessCommand,
   PutUseCaseForModelAccessRequest$,
@@ -659,6 +671,8 @@ import {
   S3ObjectDoc$,
   SageMakerEndpoint$,
   SearchType,
+  SelectiveContentGuarding$,
+  SelectiveGuardingMode,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   ServiceUnavailableException,
@@ -821,6 +835,8 @@ assert(typeof DeletePromptRouterCommand === "function");
 assert(typeof DeletePromptRouter$ === "object");
 assert(typeof DeleteProvisionedModelThroughputCommand === "function");
 assert(typeof DeleteProvisionedModelThroughput$ === "object");
+assert(typeof DeleteResourcePolicyCommand === "function");
+assert(typeof DeleteResourcePolicy$ === "object");
 assert(typeof DeregisterMarketplaceModelEndpointCommand === "function");
 assert(typeof DeregisterMarketplaceModelEndpoint$ === "object");
 assert(typeof ExportAutomatedReasoningPolicyVersionCommand === "function");
@@ -871,6 +887,8 @@ assert(typeof GetPromptRouterCommand === "function");
 assert(typeof GetPromptRouter$ === "object");
 assert(typeof GetProvisionedModelThroughputCommand === "function");
 assert(typeof GetProvisionedModelThroughput$ === "object");
+assert(typeof GetResourcePolicyCommand === "function");
+assert(typeof GetResourcePolicy$ === "object");
 assert(typeof GetUseCaseForModelAccessCommand === "function");
 assert(typeof GetUseCaseForModelAccess$ === "object");
 assert(typeof ListAutomatedReasoningPoliciesCommand === "function");
@@ -919,6 +937,8 @@ assert(typeof PutEnforcedGuardrailConfigurationCommand === "function");
 assert(typeof PutEnforcedGuardrailConfiguration$ === "object");
 assert(typeof PutModelInvocationLoggingConfigurationCommand === "function");
 assert(typeof PutModelInvocationLoggingConfiguration$ === "object");
+assert(typeof PutResourcePolicyCommand === "function");
+assert(typeof PutResourcePolicy$ === "object");
 assert(typeof PutUseCaseForModelAccessCommand === "function");
 assert(typeof PutUseCaseForModelAccess$ === "object");
 assert(typeof RegisterMarketplaceModelEndpointCommand === "function");
@@ -1123,6 +1143,8 @@ assert(typeof DeletePromptRouterRequest$ === "object");
 assert(typeof DeletePromptRouterResponse$ === "object");
 assert(typeof DeleteProvisionedModelThroughputRequest$ === "object");
 assert(typeof DeleteProvisionedModelThroughputResponse$ === "object");
+assert(typeof DeleteResourcePolicyRequest$ === "object");
+assert(typeof DeleteResourcePolicyResponse$ === "object");
 assert(typeof DeregisterMarketplaceModelEndpointRequest$ === "object");
 assert(typeof DeregisterMarketplaceModelEndpointResponse$ === "object");
 assert(typeof DimensionalPriceRate$ === "object");
@@ -1202,6 +1224,8 @@ assert(typeof GetPromptRouterRequest$ === "object");
 assert(typeof GetPromptRouterResponse$ === "object");
 assert(typeof GetProvisionedModelThroughputRequest$ === "object");
 assert(typeof GetProvisionedModelThroughputResponse$ === "object");
+assert(typeof GetResourcePolicyRequest$ === "object");
+assert(typeof GetResourcePolicyResponse$ === "object");
 assert(typeof GetUseCaseForModelAccessRequest$ === "object");
 assert(typeof GetUseCaseForModelAccessResponse$ === "object");
 assert(typeof GraderConfig$ === "object");
@@ -1326,6 +1350,8 @@ assert(typeof PutEnforcedGuardrailConfigurationRequest$ === "object");
 assert(typeof PutEnforcedGuardrailConfigurationResponse$ === "object");
 assert(typeof PutModelInvocationLoggingConfigurationRequest$ === "object");
 assert(typeof PutModelInvocationLoggingConfigurationResponse$ === "object");
+assert(typeof PutResourcePolicyRequest$ === "object");
+assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof PutUseCaseForModelAccessRequest$ === "object");
 assert(typeof PutUseCaseForModelAccessResponse$ === "object");
 assert(typeof QueryTransformationConfiguration$ === "object");
@@ -1347,6 +1373,7 @@ assert(typeof S3Config$ === "object");
 assert(typeof S3DataSource$ === "object");
 assert(typeof S3ObjectDoc$ === "object");
 assert(typeof SageMakerEndpoint$ === "object");
+assert(typeof SelectiveContentGuarding$ === "object");
 assert(typeof StartAutomatedReasoningPolicyBuildWorkflowRequest$ === "object");
 assert(typeof StartAutomatedReasoningPolicyBuildWorkflowResponse$ === "object");
 assert(typeof StartAutomatedReasoningPolicyTestWorkflowRequest$ === "object");
@@ -1460,6 +1487,7 @@ assert(typeof RerankingMetadataSelectionMode === "object");
 assert(typeof RetrieveAndGenerateType === "object");
 assert(typeof S3InputFormat === "object");
 assert(typeof SearchType === "object");
+assert(typeof SelectiveGuardingMode === "object");
 assert(typeof SortByProvisionedModels === "object");
 assert(typeof SortJobsBy === "object");
 assert(typeof SortModelsBy === "object");

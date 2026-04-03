@@ -280,6 +280,9 @@ const _DPR = "DimensionalPriceRate";
 const _DPRR = "DeletePromptRouterRequest";
 const _DPRRe = "DeletePromptRouterResponse";
 const _DPRe = "DeletePromptRouter";
+const _DRP = "DeleteResourcePolicy";
+const _DRPR = "DeleteResourcePolicyRequest";
+const _DRPRe = "DeleteResourcePolicyResponse";
 const _EARPV = "ExportAutomatedReasoningPolicyVersion";
 const _EARPVR = "ExportAutomatedReasoningPolicyVersionRequest";
 const _EARPVRx = "ExportAutomatedReasoningPolicyVersionResponse";
@@ -434,6 +437,9 @@ const _GPRRe = "GetPromptRouterResponse";
 const _GR = "GuardrailRegex";
 const _GRC = "GuardrailRegexConfig";
 const _GRCu = "GuardrailRegexesConfig";
+const _GRP = "GetResourcePolicy";
+const _GRPR = "GetResourcePolicyRequest";
+const _GRPRe = "GetResourcePolicyResponse";
 const _GRu = "GuardrailRegexes";
 const _GS = "GuardrailSummary";
 const _GSIP = "GuardrailSensitiveInformationPolicy";
@@ -590,6 +596,9 @@ const _PMILCRu = "PutModelInvocationLoggingConfigurationResponse";
 const _PMS = "ProvisionedModelSummary";
 const _PMSr = "ProvisionedModelSummaries";
 const _PRD = "PromptRouterDescription";
+const _PRP = "PutResourcePolicy";
+const _PRPR = "PutResourcePolicyRequest";
+const _PRPRu = "PutResourcePolicyResponse";
 const _PRS = "PromptRouterSummary";
 const _PRSr = "PromptRouterSummaries";
 const _PRTM = "PromptRouterTargetModel";
@@ -630,6 +639,7 @@ const _SARPTW = "StartAutomatedReasoningPolicyTestWorkflow";
 const _SARPTWR = "StartAutomatedReasoningPolicyTestWorkflowRequest";
 const _SARPTWRt = "StartAutomatedReasoningPolicyTestWorkflowResponse";
 const _SC = "S3Config";
+const _SCG = "SelectiveContentGuarding";
 const _SD = "StatusDetails";
 const _SDS = "S3DataSource";
 const _SEJ = "StopEvaluationJob";
@@ -1108,7 +1118,8 @@ const _rA = "roleArn";
 const _rAGC = "retrieveAndGenerateConfig";
 const _rAGSC = "retrieveAndGenerateSourceConfig";
 const _rARN = "resourceARN";
-const _rAe = "regionAvailability";
+const _rAe = "resourceArn";
+const _rAeg = "regionAvailability";
 const _rC = "ruleCount";
 const _rCS = "ragConfigSummary";
 const _rCa = "rateCard";
@@ -1126,6 +1137,7 @@ const _rIu = "ruleIds";
 const _rM = "ratingMethod";
 const _rMF = "requestMetadataFilters";
 const _rN = "resourceName";
+const _rP = "resourcePolicy";
 const _rPD = "refundPolicyDescription";
 const _rQD = "responseQualityDifference";
 const _rR = "ruleReports";
@@ -1141,6 +1153,7 @@ const _sAI = "sourceAccountId";
 const _sB = "sortBy";
 const _sBO = "s3BucketOwner";
 const _sC = "s3Config";
+const _sCG = "selectiveContentGuarding";
 const _sCo = "sourceContent";
 const _sCt = "stringContains";
 const _sD = "statusDetails";
@@ -1184,6 +1197,7 @@ const _se = "server";
 const _so = "sources";
 const _st = "status";
 const _sta = "statements";
+const _sy = "system";
 const _t = "translation";
 const _tA = "translationAmbiguous";
 const _tC = "typeCount";
@@ -1437,13 +1451,13 @@ var PromptRouterDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
 var TextPromptTemplate: StaticSimpleSchema = [0, n0, _TPT, 8, 0];
 export var AccountEnforcedGuardrailInferenceInputConfiguration$: StaticStructureSchema = [3, n0, _AEGIIC,
   0,
-  [_gI, _gV, _iT, _mE],
-  [0, 0, 0, () => ModelEnforcement$], 3
+  [_gI, _gV, _sCG, _mE],
+  [0, 0, () => SelectiveContentGuarding$, () => ModelEnforcement$], 2
 ];
 export var AccountEnforcedGuardrailOutputConfiguration$: StaticStructureSchema = [3, n0, _AEGOC,
   0,
-  [_cI, _gA, _gIu, _iT, _gV, _cA, _cB, _uA, _uB, _o, _mE],
-  [0, 0, 0, 0, 0, 5, 0, 5, 0, 0, () => ModelEnforcement$]
+  [_cI, _gA, _gIu, _iT, _sCG, _gV, _cA, _cB, _uA, _uB, _o, _mE],
+  [0, 0, 0, 0, () => SelectiveContentGuarding$, 0, 5, 0, 5, 0, 0, () => ModelEnforcement$]
 ];
 export var AgreementAvailability$: StaticStructureSchema = [3, n0, _AA,
   0,
@@ -2230,6 +2244,16 @@ export var DeleteProvisionedModelThroughputResponse$: StaticStructureSchema = [3
   [],
   []
 ];
+export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
+  0,
+  [_rAe],
+  [[0, 1]], 1
+];
+export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
+  0,
+  [],
+  []
+];
 export var DeregisterMarketplaceModelEndpointRequest$: StaticStructureSchema = [3, n0, _DMMERer,
   0,
   [_eA],
@@ -2467,7 +2491,7 @@ export var GetFoundationModelAvailabilityRequest$: StaticStructureSchema = [3, n
 ];
 export var GetFoundationModelAvailabilityResponse$: StaticStructureSchema = [3, n0, _GFMARe,
   0,
-  [_mIo, _aA, _aSu, _eAn, _rAe],
+  [_mIo, _aA, _aSu, _eAn, _rAeg],
   [0, () => AgreementAvailability$, 0, 0, 0], 5
 ];
 export var GetFoundationModelRequest$: StaticStructureSchema = [3, n0, _GFMR,
@@ -2589,6 +2613,16 @@ export var GetProvisionedModelThroughputResponse$: StaticStructureSchema = [3, n
   0,
   [_mU, _dMU, _pMN, _pMA, _mA, _dMA, _fMA, _st, _cTr, _lMT, _fMa, _cD, _cET],
   [1, 1, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 5], 10
+];
+export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
+  0,
+  [_rAe],
+  [[0, 1]], 1
+];
+export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
+  0,
+  [_rP],
+  [0]
 ];
 export var GetUseCaseForModelAccessRequest$: StaticStructureSchema = [3, n0, _GUCFMAR,
   0,
@@ -3175,6 +3209,16 @@ export var PutModelInvocationLoggingConfigurationResponse$: StaticStructureSchem
   [],
   []
 ];
+export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
+  0,
+  [_rAe, _rP],
+  [0, 0], 2
+];
+export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
+  0,
+  [_rAe],
+  [0]
+];
 export var PutUseCaseForModelAccessRequest$: StaticStructureSchema = [3, n0, _PUCFMAR,
   0,
   [_fD],
@@ -3254,6 +3298,11 @@ export var SageMakerEndpoint$: StaticStructureSchema = [3, n0, _SME,
   0,
   [_iIC, _iTn, _eRx, _kEK, _vp],
   [1, 0, 0, 0, () => VpcConfig$], 3
+];
+export var SelectiveContentGuarding$: StaticStructureSchema = [3, n0, _SCG,
+  0,
+  [_sy, _me],
+  [0, 0]
 ];
 export var StartAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [3, n0, _SARPBWR,
   0,
@@ -4116,6 +4165,9 @@ export var DeletePromptRouter$: StaticOperationSchema = [9, n0, _DPRe,
 export var DeleteProvisionedModelThroughput$: StaticOperationSchema = [9, n0, _DPMT,
   { [_ht]: ["DELETE", "/provisioned-model-throughput/{provisionedModelId}", 200] }, () => DeleteProvisionedModelThroughputRequest$, () => DeleteProvisionedModelThroughputResponse$
 ];
+export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
+  { [_ht]: ["DELETE", "/resource-policy/{resourceArn}", 200] }, () => DeleteResourcePolicyRequest$, () => DeleteResourcePolicyResponse$
+];
 export var DeregisterMarketplaceModelEndpoint$: StaticOperationSchema = [9, n0, _DMMEe,
   { [_ht]: ["DELETE", "/marketplace-model/endpoints/{endpointArn}/registration", 200] }, () => DeregisterMarketplaceModelEndpointRequest$, () => DeregisterMarketplaceModelEndpointResponse$
 ];
@@ -4191,6 +4243,9 @@ export var GetPromptRouter$: StaticOperationSchema = [9, n0, _GPR,
 export var GetProvisionedModelThroughput$: StaticOperationSchema = [9, n0, _GPMT,
   { [_ht]: ["GET", "/provisioned-model-throughput/{provisionedModelId}", 200] }, () => GetProvisionedModelThroughputRequest$, () => GetProvisionedModelThroughputResponse$
 ];
+export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
+  { [_ht]: ["GET", "/resource-policy/{resourceArn}", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
+];
 export var GetUseCaseForModelAccess$: StaticOperationSchema = [9, n0, _GUCFMA,
   { [_ht]: ["GET", "/use-case-for-model-access", 200] }, () => GetUseCaseForModelAccessRequest$, () => GetUseCaseForModelAccessResponse$
 ];
@@ -4262,6 +4317,9 @@ export var PutEnforcedGuardrailConfiguration$: StaticOperationSchema = [9, n0, _
 ];
 export var PutModelInvocationLoggingConfiguration$: StaticOperationSchema = [9, n0, _PMILC,
   { [_ht]: ["PUT", "/logging/modelinvocations", 200] }, () => PutModelInvocationLoggingConfigurationRequest$, () => PutModelInvocationLoggingConfigurationResponse$
+];
+export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
+  { [_ht]: ["POST", "/resource-policy", 201] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
 ];
 export var PutUseCaseForModelAccess$: StaticOperationSchema = [9, n0, _PUCFMA,
   { [_ht]: ["POST", "/use-case-for-model-access", 201] }, () => PutUseCaseForModelAccessRequest$, () => PutUseCaseForModelAccessResponse$

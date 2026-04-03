@@ -3,6 +3,19 @@
  * @public
  * @enum
  */
+export const SelectiveGuardingMode = {
+  COMPREHENSIVE: "COMPREHENSIVE",
+  SELECTIVE: "SELECTIVE",
+} as const;
+/**
+ * @public
+ */
+export type SelectiveGuardingMode = (typeof SelectiveGuardingMode)[keyof typeof SelectiveGuardingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const InputTags = {
   HONOR: "HONOR",
   IGNORE: "IGNORE",

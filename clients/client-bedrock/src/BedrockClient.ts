@@ -188,6 +188,10 @@ import type {
   DeleteProvisionedModelThroughputCommandOutput,
 } from "./commands/DeleteProvisionedModelThroughputCommand";
 import type {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import type {
   DeregisterMarketplaceModelEndpointCommandInput,
   DeregisterMarketplaceModelEndpointCommandOutput,
 } from "./commands/DeregisterMarketplaceModelEndpointCommand";
@@ -269,6 +273,10 @@ import type {
   GetProvisionedModelThroughputCommandInput,
   GetProvisionedModelThroughputCommandOutput,
 } from "./commands/GetProvisionedModelThroughputCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import type {
   GetUseCaseForModelAccessCommandInput,
   GetUseCaseForModelAccessCommandOutput,
@@ -359,6 +367,10 @@ import type {
   PutModelInvocationLoggingConfigurationCommandInput,
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import type {
   PutUseCaseForModelAccessCommandInput,
   PutUseCaseForModelAccessCommandOutput,
@@ -462,6 +474,7 @@ export type ServiceInputTypes =
   | DeleteModelInvocationLoggingConfigurationCommandInput
   | DeletePromptRouterCommandInput
   | DeleteProvisionedModelThroughputCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeregisterMarketplaceModelEndpointCommandInput
   | ExportAutomatedReasoningPolicyVersionCommandInput
   | GetAutomatedReasoningPolicyAnnotationsCommandInput
@@ -487,6 +500,7 @@ export type ServiceInputTypes =
   | GetModelInvocationLoggingConfigurationCommandInput
   | GetPromptRouterCommandInput
   | GetProvisionedModelThroughputCommandInput
+  | GetResourcePolicyCommandInput
   | GetUseCaseForModelAccessCommandInput
   | ListAutomatedReasoningPoliciesCommandInput
   | ListAutomatedReasoningPolicyBuildWorkflowsCommandInput
@@ -511,6 +525,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutEnforcedGuardrailConfigurationCommandInput
   | PutModelInvocationLoggingConfigurationCommandInput
+  | PutResourcePolicyCommandInput
   | PutUseCaseForModelAccessCommandInput
   | RegisterMarketplaceModelEndpointCommandInput
   | StartAutomatedReasoningPolicyBuildWorkflowCommandInput
@@ -565,6 +580,7 @@ export type ServiceOutputTypes =
   | DeleteModelInvocationLoggingConfigurationCommandOutput
   | DeletePromptRouterCommandOutput
   | DeleteProvisionedModelThroughputCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeregisterMarketplaceModelEndpointCommandOutput
   | ExportAutomatedReasoningPolicyVersionCommandOutput
   | GetAutomatedReasoningPolicyAnnotationsCommandOutput
@@ -590,6 +606,7 @@ export type ServiceOutputTypes =
   | GetModelInvocationLoggingConfigurationCommandOutput
   | GetPromptRouterCommandOutput
   | GetProvisionedModelThroughputCommandOutput
+  | GetResourcePolicyCommandOutput
   | GetUseCaseForModelAccessCommandOutput
   | ListAutomatedReasoningPoliciesCommandOutput
   | ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput
@@ -614,6 +631,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutEnforcedGuardrailConfigurationCommandOutput
   | PutModelInvocationLoggingConfigurationCommandOutput
+  | PutResourcePolicyCommandOutput
   | PutUseCaseForModelAccessCommandOutput
   | RegisterMarketplaceModelEndpointCommandOutput
   | StartAutomatedReasoningPolicyBuildWorkflowCommandOutput

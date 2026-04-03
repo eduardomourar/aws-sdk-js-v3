@@ -43,6 +43,7 @@ import type {
   QueryTransformationType,
   ReasoningEffort,
   RerankingMetadataSelectionMode,
+  SelectiveGuardingMode,
   SortJobsBy,
   SortModelsBy,
   SortOrder,
@@ -69,6 +70,24 @@ export interface ModelEnforcement {
 }
 
 /**
+ * <p>Selective content guarding controls for enforced guardrails.</p>
+ * @public
+ */
+export interface SelectiveContentGuarding {
+  /**
+   * <p>Selective guarding mode for system prompts."</p>
+   * @public
+   */
+  system?: SelectiveGuardingMode | undefined;
+
+  /**
+   * <p>Selective guarding mode for user messages.</p>
+   * @public
+   */
+  messages?: SelectiveGuardingMode | undefined;
+}
+
+/**
  * <p>Account-level enforced guardrail input configuration.</p>
  * @public
  */
@@ -86,10 +105,10 @@ export interface AccountEnforcedGuardrailInferenceInputConfiguration {
   guardrailVersion: string | undefined;
 
   /**
-   * <p>Whether to honor or ignore input tags at runtime.</p>
+   * <p>Selective content guarding controls for enforced guardrails.</p>
    * @public
    */
-  inputTags: InputTags | undefined;
+  selectiveContentGuarding?: SelectiveContentGuarding | undefined;
 
   /**
    * <p>Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models</p>
@@ -123,9 +142,17 @@ export interface AccountEnforcedGuardrailOutputConfiguration {
 
   /**
    * <p>Whether to honor or ignore input tags at runtime.</p>
+   *
+   * @deprecated (since 2026-04-03) This field is being deprecated and will be removed once customers transition their existing policies to the new schema.
    * @public
    */
   inputTags?: InputTags | undefined;
+
+  /**
+   * <p>Selective content guarding controls for enforced guardrails.</p>
+   * @public
+   */
+  selectiveContentGuarding?: SelectiveContentGuarding | undefined;
 
   /**
    * <p>Numerical guardrail version.</p>
@@ -8111,22 +8138,4 @@ export interface GuardrailRegex {
    * @public
    */
   outputEnabled?: boolean | undefined;
-}
-
-/**
- * <p>Contains details about PII entities and regular expressions configured for the guardrail.</p>
- * @public
- */
-export interface GuardrailSensitiveInformationPolicy {
-  /**
-   * <p>The list of PII entities configured for the guardrail.</p>
-   * @public
-   */
-  piiEntities?: GuardrailPiiEntity[] | undefined;
-
-  /**
-   * <p>The list of regular expressions configured for the guardrail.</p>
-   * @public
-   */
-  regexes?: GuardrailRegex[] | undefined;
 }

@@ -412,6 +412,13 @@ DeleteProvisionedModelThroughput
 </details>
 <details>
 <summary>
+DeleteResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/DeleteResourcePolicyCommandOutput/)
+</details>
+<details>
+<summary>
 DeregisterMarketplaceModelEndpoint
 </summary>
 
@@ -587,6 +594,13 @@ GetProvisionedModelThroughput
 </details>
 <details>
 <summary>
+GetResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetResourcePolicyCommandOutput/)
+</details>
+<details>
+<summary>
 GetUseCaseForModelAccess
 </summary>
 
@@ -752,6 +766,13 @@ PutModelInvocationLoggingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/PutModelInvocationLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/PutModelInvocationLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/PutModelInvocationLoggingConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+PutResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/PutResourcePolicyCommandOutput/)
 </details>
 <details>
 <summary>

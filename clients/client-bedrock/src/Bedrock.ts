@@ -169,6 +169,11 @@ import {
   DeleteProvisionedModelThroughputCommand,
 } from "./commands/DeleteProvisionedModelThroughputCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
+  DeleteResourcePolicyCommand,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   type DeregisterMarketplaceModelEndpointCommandInput,
   type DeregisterMarketplaceModelEndpointCommandOutput,
   DeregisterMarketplaceModelEndpointCommand,
@@ -294,6 +299,11 @@ import {
   GetProvisionedModelThroughputCommand,
 } from "./commands/GetProvisionedModelThroughputCommand";
 import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
+  GetResourcePolicyCommand,
+} from "./commands/GetResourcePolicyCommand";
+import {
   type GetUseCaseForModelAccessCommandInput,
   type GetUseCaseForModelAccessCommandOutput,
   GetUseCaseForModelAccessCommand,
@@ -413,6 +423,11 @@ import {
   type PutModelInvocationLoggingConfigurationCommandOutput,
   PutModelInvocationLoggingConfigurationCommand,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
+import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
+  PutResourcePolicyCommand,
+} from "./commands/PutResourcePolicyCommand";
 import {
   type PutUseCaseForModelAccessCommandInput,
   type PutUseCaseForModelAccessCommandOutput,
@@ -552,6 +567,7 @@ const commands = {
   DeleteModelInvocationLoggingConfigurationCommand,
   DeletePromptRouterCommand,
   DeleteProvisionedModelThroughputCommand,
+  DeleteResourcePolicyCommand,
   DeregisterMarketplaceModelEndpointCommand,
   ExportAutomatedReasoningPolicyVersionCommand,
   GetAutomatedReasoningPolicyCommand,
@@ -577,6 +593,7 @@ const commands = {
   GetModelInvocationLoggingConfigurationCommand,
   GetPromptRouterCommand,
   GetProvisionedModelThroughputCommand,
+  GetResourcePolicyCommand,
   GetUseCaseForModelAccessCommand,
   ListAutomatedReasoningPoliciesCommand,
   ListAutomatedReasoningPolicyBuildWorkflowsCommand,
@@ -601,6 +618,7 @@ const commands = {
   ListTagsForResourceCommand,
   PutEnforcedGuardrailConfigurationCommand,
   PutModelInvocationLoggingConfigurationCommand,
+  PutResourcePolicyCommand,
   PutUseCaseForModelAccessCommand,
   RegisterMarketplaceModelEndpointCommand,
   StartAutomatedReasoningPolicyBuildWorkflowCommand,
@@ -1203,6 +1221,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeregisterMarketplaceModelEndpointCommand}
    */
   deregisterMarketplaceModelEndpoint(
@@ -1629,6 +1664,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetUseCaseForModelAccessCommand}
    */
   getUseCaseForModelAccess(): Promise<GetUseCaseForModelAccessCommandOutput>;
@@ -2051,6 +2103,23 @@ export interface Bedrock {
     args: PutModelInvocationLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutModelInvocationLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

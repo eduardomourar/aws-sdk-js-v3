@@ -44,7 +44,10 @@ export interface PutEnforcedGuardrailConfigurationCommandOutput extends PutEnfor
  *   guardrailInferenceConfig: { // AccountEnforcedGuardrailInferenceInputConfiguration
  *     guardrailIdentifier: "STRING_VALUE", // required
  *     guardrailVersion: "STRING_VALUE", // required
- *     inputTags: "HONOR" || "IGNORE", // required
+ *     selectiveContentGuarding: { // SelectiveContentGuarding
+ *       system: "SELECTIVE" || "COMPREHENSIVE",
+ *       messages: "SELECTIVE" || "COMPREHENSIVE",
+ *     },
  *     modelEnforcement: { // ModelEnforcement
  *       includedModels: [ // IncludedModelsList // required
  *         "STRING_VALUE",
