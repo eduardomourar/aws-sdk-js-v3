@@ -8695,6 +8695,12 @@ export interface ValidationError {
 export interface ColorSpacePassthroughSettings {}
 
 /**
+ * Hlg2020 Settings
+ * @public
+ */
+export interface Hlg2020Settings {}
+
+/**
  * Rec601 Settings
  * @public
  */
@@ -8734,6 +8740,12 @@ export interface Av1ColorSpaceSettings {
    * @public
    */
   Rec709Settings?: Rec709Settings | undefined;
+
+  /**
+   * Hlg2020 Settings
+   * @public
+   */
+  Hlg2020Settings?: Hlg2020Settings | undefined;
 }
 
 /**
@@ -9361,12 +9373,6 @@ export interface H264Settings {
  * @public
  */
 export interface DolbyVision81Settings {}
-
-/**
- * Hlg2020 Settings
- * @public
- */
-export interface Hlg2020Settings {}
 
 /**
  * H265 Color Space Settings

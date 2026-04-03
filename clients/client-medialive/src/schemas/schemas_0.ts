@@ -2697,8 +2697,8 @@ export var AutomaticInputFailoverSettings$: StaticStructureSchema = [3, n0, _AIF
 ];
 export var Av1ColorSpaceSettings$: StaticStructureSchema = [3, n0, _ACSS,
   0,
-  [_CSPS, _HS, _RSec, _RSece],
-  [[() => ColorSpacePassthroughSettings$, { [_jN]: _cSPS }], [() => Hdr10Settings$, { [_jN]: _hS }], [() => Rec601Settings$, { [_jN]: _rSec }], [() => Rec709Settings$, { [_jN]: _rSece }]]
+  [_CSPS, _HS, _RSec, _RSece, _HSl],
+  [[() => ColorSpacePassthroughSettings$, { [_jN]: _cSPS }], [() => Hdr10Settings$, { [_jN]: _hS }], [() => Rec601Settings$, { [_jN]: _rSec }], [() => Rec709Settings$, { [_jN]: _rSece }], [() => Hlg2020Settings$, { [_jN]: _hSl }]]
 ];
 export var Av1Settings$: StaticStructureSchema = [3, n0, _ASv,
   0,
