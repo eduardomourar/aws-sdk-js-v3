@@ -35,7 +35,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "queryString": "__queryString__",
       "status": "__status__",
       "createTime": 0,
-      "logGroupName": "__logGroupName__"
+      "logGroupName": "__logGroupName__",
+      "queryDuration": 0,
+      "bytesScanned": 0,
+      "userIdentity": "__userIdentity__"
     },
     {
       "queryLanguage": "__queryLanguage__",
@@ -43,7 +46,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "queryString": "__queryString__",
       "status": "__status__",
       "createTime": 0,
-      "logGroupName": "__logGroupName__"
+      "logGroupName": "__logGroupName__",
+      "queryDuration": 0,
+      "bytesScanned": 0,
+      "userIdentity": "__userIdentity__"
     },
     {
       "queryLanguage": "__queryLanguage__",
@@ -51,7 +57,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "queryString": "__queryString__",
       "status": "__status__",
       "createTime": 0,
-      "logGroupName": "__logGroupName__"
+      "logGroupName": "__logGroupName__",
+      "queryDuration": 0,
+      "bytesScanned": 0,
+      "userIdentity": "__userIdentity__"
     }
   ],
   "nextToken": "__nextToken__"
@@ -67,7 +76,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       queryString: "__queryString__",
       status: "__status__",
       createTime: (number) 0,
-      logGroupName: "__logGroupName__"
+      logGroupName: "__logGroupName__",
+      queryDuration: (number) 0,
+      bytesScanned: (number) 0,
+      userIdentity: "__userIdentity__"
     },
     {
       queryLanguage: "__queryLanguage__",
@@ -75,7 +87,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       queryString: "__queryString__",
       status: "__status__",
       createTime: (number) 0,
-      logGroupName: "__logGroupName__"
+      logGroupName: "__logGroupName__",
+      queryDuration: (number) 0,
+      bytesScanned: (number) 0,
+      userIdentity: "__userIdentity__"
     },
     {
       queryLanguage: "__queryLanguage__",
@@ -83,7 +98,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       queryString: "__queryString__",
       status: "__status__",
       createTime: (number) 0,
-      logGroupName: "__logGroupName__"
+      logGroupName: "__logGroupName__",
+      queryDuration: (number) 0,
+      bytesScanned: (number) 0,
+      userIdentity: "__userIdentity__"
     }
   ],
   nextToken: "__nextToken__",

@@ -782,6 +782,7 @@ const _qCE = "queryCompileError";
 const _qD = "queryDefinitions";
 const _qDI = "queryDefinitionId";
 const _qDNP = "queryDefinitionNamePrefix";
+const _qDu = "queryDuration";
 const _qI = "queryId";
 const _qL = "queryLanguage";
 const _qS = "queryString";
@@ -886,6 +887,7 @@ const _to = "to";
 const _ty = "type";
 const _u = "unmask";
 const _uCS = "upperCaseString";
+const _uI = "userIdentity";
 const _uST = "uploadSequenceToken";
 const _un = "unit";
 const _v = "value";
@@ -2333,8 +2335,8 @@ export var QueryDefinition$: StaticStructureSchema = [3, n0, _QD,
 ];
 export var QueryInfo$: StaticStructureSchema = [3, n0, _QI,
   0,
-  [_qL, _qI, _qS, _sta, _cTr, _lGN],
-  [0, 0, 0, 0, 1, 0]
+  [_qL, _qI, _qS, _sta, _cTr, _lGN, _qDu, _bS, _uI],
+  [0, 0, 0, 0, 1, 0, 1, 1, 0]
 ];
 export var QueryParameter$: StaticStructureSchema = [3, n0, _QP,
   0,

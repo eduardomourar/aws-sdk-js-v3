@@ -3677,6 +3677,24 @@ export interface QueryInfo {
    * @public
    */
   logGroupName?: string | undefined;
+
+  /**
+   * <p>The duration in milliseconds that the query took to execute.</p>
+   * @public
+   */
+  queryDuration?: number | undefined;
+
+  /**
+   * <p>The total number of bytes scanned by the query. This indicates the cost associated with the query.</p>
+   * @public
+   */
+  bytesScanned?: number | undefined;
+
+  /**
+   * <p>The ARN of the user who ran the query.</p>
+   * @public
+   */
+  userIdentity?: string | undefined;
 }
 
 /**
@@ -7753,6 +7771,10 @@ export interface PutDeliverySourceRequest {
    *       example,
    *         <code>arn:aws:workmail:us-east-1:123456789012:organization/m-1234EXAMPLEabcd1234abcd1234abcd1234</code>
    *          </p>
+   *          <p>For the <code>SECURITY_FINDING_LOGS</code> logType, use a wildcard ARN for the hub
+   *       resource. For example,
+   *         <code>arn:aws:securityhub:us-east-1:111122223333:hub/*</code>
+   *          </p>
    * @public
    */
   resourceArn: string | undefined;
@@ -7839,6 +7861,10 @@ export interface PutDeliverySourceRequest {
    *             <li>
    *                <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and
    *             <code>SYNC_JOB_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Web Services Security Hub CSPM, the valid value is
+   *             <code>SECURITY_FINDING_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon SES mail manager, the valid values are
