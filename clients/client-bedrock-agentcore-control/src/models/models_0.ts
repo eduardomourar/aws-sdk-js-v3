@@ -4942,7 +4942,7 @@ export interface OAuth2AuthorizationData {
 }
 
 /**
- * <p>Contains the authorization data that is returned when a gateway target requires user authorization through an authorization code grant type.</p>
+ * <p>Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.</p>
  * @public
  */
 export type AuthorizationData =

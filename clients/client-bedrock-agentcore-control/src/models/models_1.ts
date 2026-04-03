@@ -2179,7 +2179,7 @@ export interface CreateGatewayTargetResponse {
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 
   /**
-   * <p>OAuth2 authorization data for the created gateway target. This data is returned when the target requires user authorization through an authorization code grant type.</p>
+   * <p>OAuth2 authorization data for the created gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.</p>
    * @public
    */
   authorizationData?: AuthorizationData | undefined;
@@ -2370,7 +2370,7 @@ export interface GetGatewayTargetResponse {
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 
   /**
-   * <p>OAuth2 authorization data for the gateway target. This data is returned when the target requires user authorization through an authorization code grant type.</p>
+   * <p>OAuth2 authorization data for the gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.</p>
    * @public
    */
   authorizationData?: AuthorizationData | undefined;
@@ -2518,7 +2518,7 @@ export interface UpdateGatewayTargetResponse {
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 
   /**
-   * <p>OAuth2 authorization data for the updated gateway target. This data is returned when the target requires user authorization through an authorization code grant type.</p>
+   * <p>OAuth2 authorization data for the updated gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.</p>
    * @public
    */
   authorizationData?: AuthorizationData | undefined;
