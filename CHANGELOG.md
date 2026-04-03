@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1024.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1023.0...v3.1024.0) (2026-04-03)
+
+
+### Features
+
+* **client-bedrock-agent:** Added strict parameter to ToolSpecification to allow users to enforce strict JSON schema adherence for tool input schemas. ([2d57cd6](https://github.com/aws/aws-sdk-js-v3/commit/2d57cd61c7c6e65c716726b117de387a3c985143))
+* **client-bedrock:** Amazon Bedrock Guardrails enforcement configuration APIs now support selective guarding controls for system prompts as well as user and assistant messages, along with SDK support for Amazon Bedrock resource policy APIs. ([4aa232c](https://github.com/aws/aws-sdk-js-v3/commit/4aa232cc268e3cb4f3b24d947fe3b39742a8a0f3))
+* **client-cloudwatch-logs:** Added queryDuration, bytesScanned, and userIdentity fields to the QueryInfo response object returned by DescribeQueries. Customers can now view detailed query cost information including who ran the query, how long it took, and the volume of data scanned. ([c4b9df8](https://github.com/aws/aws-sdk-js-v3/commit/c4b9df8e63abc716559d7a9c6f96a4562f43f6c1))
+* **client-imagebuilder:** Updated pagination token validation for ListContainerRecipes API to support maximum size of 65K characters ([0d392c9](https://github.com/aws/aws-sdk-js-v3/commit/0d392c9013b89fa469e08ac59415ab1b6d79daef))
+* **client-lightsail:** Add support for tagging of Alarm resource type ([ad9e0d7](https://github.com/aws/aws-sdk-js-v3/commit/ad9e0d7195bffce0987ba447089a9c068c30c0f3))
+* **client-medialive:** AWS Elemental MediaLive released a new features that allows customers to use HLG 2020 as a color space for AV1 video codec. ([b9ff368](https://github.com/aws/aws-sdk-js-v3/commit/b9ff368c11c6747f7d104bda4955407cfea000c1))
+* **client-payment-cryptography:** Adds optional support to retrieve previously generated import and export tokens to simplify import and export functions ([7627474](https://github.com/aws/aws-sdk-js-v3/commit/7627474328ec5741df10bff91b7db564a672d30d))
+
+
+
+
+
 # [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
 
 

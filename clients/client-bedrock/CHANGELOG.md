@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1024.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1023.0...v3.1024.0) (2026-04-03)
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock Guardrails enforcement configuration APIs now support selective guarding controls for system prompts as well as user and assistant messages, along with SDK support for Amazon Bedrock resource policy APIs. ([4aa232c](https://github.com/aws/aws-sdk-js-v3/commit/4aa232cc268e3cb4f3b24d947fe3b39742a8a0f3))
+
+
+
+
+
 # [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock

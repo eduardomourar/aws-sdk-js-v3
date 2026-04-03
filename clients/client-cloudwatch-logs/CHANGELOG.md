@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1024.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1023.0...v3.1024.0) (2026-04-03)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Added queryDuration, bytesScanned, and userIdentity fields to the QueryInfo response object returned by DescribeQueries. Customers can now view detailed query cost information including who ran the query, how long it took, and the volume of data scanned. ([c4b9df8](https://github.com/aws/aws-sdk-js-v3/commit/c4b9df8e63abc716559d7a9c6f96a4562f43f6c1))
+
+
+
+
+
 # [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
 
 

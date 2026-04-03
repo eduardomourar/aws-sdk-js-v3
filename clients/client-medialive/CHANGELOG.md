@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1024.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1023.0...v3.1024.0) (2026-04-03)
+
+
+### Features
+
+* **client-medialive:** AWS Elemental MediaLive released a new features that allows customers to use HLG 2020 as a color space for AV1 video codec. ([b9ff368](https://github.com/aws/aws-sdk-js-v3/commit/b9ff368c11c6747f7d104bda4955407cfea000c1))
+
+
+
+
+
 # [3.1023.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1022.0...v3.1023.0) (2026-04-02)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive
