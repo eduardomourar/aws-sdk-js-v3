@@ -101,6 +101,7 @@ export interface CreatePromptVersionCommandOutput extends CreatePromptVersionRes
  * //                   inputSchema: { // ToolInputSchema Union: only one key present
  * //                     json: "DOCUMENT_VALUE",
  * //                   },
+ * //                   strict: true || false,
  * //                 },
  * //                 cachePoint: "<CachePointBlock>",
  * //               },

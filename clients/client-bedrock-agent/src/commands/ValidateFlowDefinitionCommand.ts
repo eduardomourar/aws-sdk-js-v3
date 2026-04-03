@@ -180,6 +180,7 @@ export interface ValidateFlowDefinitionCommandOutput extends ValidateFlowDefinit
  *                             inputSchema: { // ToolInputSchema Union: only one key present
  *                               json: "DOCUMENT_VALUE",
  *                             },
+ *                             strict: true || false,
  *                           },
  *                           cachePoint: "<CachePointBlock>",
  *                         },
@@ -344,6 +345,7 @@ export interface ValidateFlowDefinitionCommandOutput extends ValidateFlowDefinit
  *                                       inputSchema: {//  Union: only one key present
  *                                         json: "DOCUMENT_VALUE",
  *                                       },
+ *                                       strict: true || false,
  *                                     },
  *                                     cachePoint: "<CachePointBlock>",
  *                                   },

@@ -914,6 +914,7 @@ const _sq = "sql";
 const _st = "status";
 const _sta = "statistics";
 const _sto = "storage";
+const _str = "strict";
 const _sy = "system";
 const _t = "type";
 const _tC = "toolConfiguration";
@@ -2647,8 +2648,8 @@ export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TC,
 ];
 export var ToolSpecification$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_n, _iSn, _d],
-  [0, () => ToolInputSchema$, 0], 2
+  [_n, _iSn, _d, _str],
+  [0, () => ToolInputSchema$, 0, 2], 2
 ];
 export var Transformation$: StaticStructureSchema = [3, n0, _T,
   0,

@@ -91,6 +91,7 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  *                   inputSchema: { // ToolInputSchema Union: only one key present
  *                     json: "DOCUMENT_VALUE",
  *                   },
+ *                   strict: true || false,
  *                 },
  *                 cachePoint: "<CachePointBlock>",
  *               },
@@ -192,6 +193,7 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * //                   inputSchema: { // ToolInputSchema Union: only one key present
  * //                     json: "DOCUMENT_VALUE",
  * //                   },
+ * //                   strict: true || false,
  * //                 },
  * //                 cachePoint: "<CachePointBlock>",
  * //               },

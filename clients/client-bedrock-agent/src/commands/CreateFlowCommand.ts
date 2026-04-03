@@ -184,6 +184,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *                             inputSchema: { // ToolInputSchema Union: only one key present
  *                               json: "DOCUMENT_VALUE",
  *                             },
+ *                             strict: true || false,
  *                           },
  *                           cachePoint: "<CachePointBlock>",
  *                         },
@@ -348,6 +349,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *                                       inputSchema: {//  Union: only one key present
  *                                         json: "DOCUMENT_VALUE",
  *                                       },
+ *                                       strict: true || false,
  *                                     },
  *                                     cachePoint: "<CachePointBlock>",
  *                                   },
@@ -643,6 +645,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //                             inputSchema: { // ToolInputSchema Union: only one key present
  * //                               json: "DOCUMENT_VALUE",
  * //                             },
+ * //                             strict: true || false,
  * //                           },
  * //                           cachePoint: "<CachePointBlock>",
  * //                         },
@@ -807,6 +810,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //                                       inputSchema: {//  Union: only one key present
  * //                                         json: "DOCUMENT_VALUE",
  * //                                       },
+ * //                                       strict: true || false,
  * //                                     },
  * //                                     cachePoint: "<CachePointBlock>",
  * //                                   },

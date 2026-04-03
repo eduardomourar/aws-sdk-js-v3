@@ -4451,6 +4451,12 @@ export interface ToolSpecification {
    * @public
    */
   inputSchema: ToolInputSchema | undefined;
+
+  /**
+   * Whether to enforce strict JSON schema adherence for the tool input
+   * @public
+   */
+  strict?: boolean | undefined;
 }
 
 /**

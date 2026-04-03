@@ -197,6 +197,7 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //                             inputSchema: { // ToolInputSchema Union: only one key present
  * //                               json: "DOCUMENT_VALUE",
  * //                             },
+ * //                             strict: true || false,
  * //                           },
  * //                           cachePoint: "<CachePointBlock>",
  * //                         },
@@ -361,6 +362,7 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //                                       inputSchema: {//  Union: only one key present
  * //                                         json: "DOCUMENT_VALUE",
  * //                                       },
+ * //                                       strict: true || false,
  * //                                     },
  * //                                     cachePoint: "<CachePointBlock>",
  * //                                   },

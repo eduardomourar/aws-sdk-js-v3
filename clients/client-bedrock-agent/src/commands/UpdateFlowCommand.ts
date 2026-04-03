@@ -184,6 +184,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *                             inputSchema: { // ToolInputSchema Union: only one key present
  *                               json: "DOCUMENT_VALUE",
  *                             },
+ *                             strict: true || false,
  *                           },
  *                           cachePoint: "<CachePointBlock>",
  *                         },
@@ -348,6 +349,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *                                       inputSchema: {//  Union: only one key present
  *                                         json: "DOCUMENT_VALUE",
  *                                       },
+ *                                       strict: true || false,
  *                                     },
  *                                     cachePoint: "<CachePointBlock>",
  *                                   },
@@ -640,6 +642,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * //                             inputSchema: { // ToolInputSchema Union: only one key present
  * //                               json: "DOCUMENT_VALUE",
  * //                             },
+ * //                             strict: true || false,
  * //                           },
  * //                           cachePoint: "<CachePointBlock>",
  * //                         },
@@ -804,6 +807,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * //                                       inputSchema: {//  Union: only one key present
  * //                                         json: "DOCUMENT_VALUE",
  * //                                       },
+ * //                                       strict: true || false,
  * //                                     },
  * //                                     cachePoint: "<CachePointBlock>",
  * //                                   },

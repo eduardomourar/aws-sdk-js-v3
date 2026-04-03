@@ -196,6 +196,7 @@ export interface GetFlowCommandOutput extends GetFlowResponse, __MetadataBearer 
  * //                             inputSchema: { // ToolInputSchema Union: only one key present
  * //                               json: "DOCUMENT_VALUE",
  * //                             },
+ * //                             strict: true || false,
  * //                           },
  * //                           cachePoint: "<CachePointBlock>",
  * //                         },
@@ -360,6 +361,7 @@ export interface GetFlowCommandOutput extends GetFlowResponse, __MetadataBearer 
  * //                                       inputSchema: {//  Union: only one key present
  * //                                         json: "DOCUMENT_VALUE",
  * //                                       },
+ * //                                       strict: true || false,
  * //                                     },
  * //                                     cachePoint: "<CachePointBlock>",
  * //                                   },
