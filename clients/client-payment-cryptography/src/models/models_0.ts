@@ -1158,6 +1158,12 @@ export interface GetParametersForExportInput {
    * @public
    */
   SigningKeyAlgorithm: KeyAlgorithm | undefined;
+
+  /**
+   * <p>Specifies whether to reuse the existing export token and signing key certificate. If set to <code>true</code> and a valid export token exists for the same key material type and signing key algorithm with at least 7 days of remaining validity, the existing token and signing key certificate are returned. Otherwise, a new export token and signing key certificate are generated. The default value is <code>false</code>, which generates a new export token and signing key certificate on every call.</p>
+   * @public
+   */
+  ReuseLastGeneratedToken?: boolean | undefined;
 }
 
 /**
@@ -1210,6 +1216,12 @@ export interface GetParametersForImportInput {
    * @public
    */
   WrappingKeyAlgorithm: KeyAlgorithm | undefined;
+
+  /**
+   * <p>Specifies whether to reuse the existing import token and wrapping key certificate. If set to <code>true</code> and a valid import token exists for the same key material type and wrapping key algorithm with at least 7 days of remaining validity, the existing token and wrapping key certificate are returned. Otherwise, a new import token and wrapping key certificate are generated. The default value is <code>false</code>, which generates a new import token and wrapping key certificate on every call.</p>
+   * @public
+   */
+  ReuseLastGeneratedToken?: boolean | undefined;
 }
 
 /**
@@ -1263,7 +1275,7 @@ export interface GetPublicKeyCertificateInput {
  */
 export interface GetPublicKeyCertificateOutput {
   /**
-   * <p>The public key component of the asymmetric key pair in a certificate PEM format (base64 encoded). It is signed by the root certificate authority (CA). The certificate expires in 90 days.</p>
+   * <p>The public key component of the asymmetric key pair in a certificate PEM format (base64 encoded). It is signed by the root certificate authority (CA). The certificate is valid for 90 days from the time it is issued. The service returns a cached certificate if one exists with at least 30 days of remaining validity. Otherwise, a new 90-day certificate is issued.</p>
    * @public
    */
   KeyCertificate: string | undefined;

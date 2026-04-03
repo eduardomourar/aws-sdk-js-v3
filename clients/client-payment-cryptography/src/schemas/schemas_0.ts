@@ -155,6 +155,7 @@ const _RKO = "RestoreKeyOutput";
 const _RKRR = "RemoveKeyReplicationRegions";
 const _RKRRI = "RemoveKeyReplicationRegionsInput";
 const _RKRRO = "RemoveKeyReplicationRegionsOutput";
+const _RLGT = "ReuseLastGeneratedToken";
 const _RN = "RandomNonce";
 const _RNFE = "ResourceNotFoundException";
 const _RR = "ReplicationRegions";
@@ -481,8 +482,8 @@ export var GetKeyOutput$: StaticStructureSchema = [3, n0, _GKO,
 ];
 export var GetParametersForExportInput$: StaticStructureSchema = [3, n0, _GPFEI,
   0,
-  [_KMT, _SKA],
-  [0, 0], 2
+  [_KMT, _SKA, _RLGT],
+  [0, 0, 2], 2
 ];
 export var GetParametersForExportOutput$: StaticStructureSchema = [3, n0, _GPFEO,
   0,
@@ -491,8 +492,8 @@ export var GetParametersForExportOutput$: StaticStructureSchema = [3, n0, _GPFEO
 ];
 export var GetParametersForImportInput$: StaticStructureSchema = [3, n0, _GPFII,
   0,
-  [_KMT, _WKA],
-  [0, 0], 2
+  [_KMT, _WKA, _RLGT],
+  [0, 0, 2], 2
 ];
 export var GetParametersForImportOutput$: StaticStructureSchema = [3, n0, _GPFIO,
   0,
