@@ -541,6 +541,29 @@ export interface MonitoredResourceInfo {
 }
 
 /**
+ * <p>Describes a tag key and optional value assigned to an Amazon Lightsail resource.</p>
+ *          <p>For more information about tags in Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The key of the tag.</p>
+   *          <p>Constraints: Tag keys accept a maximum of 128 letters, numbers, spaces in UTF-8, or the
+   *       following characters: + - = . _ : / @</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>The value of the tag.</p>
+   *          <p>Constraints: Tag values accept a maximum of 256 letters, numbers, spaces in UTF-8, or the
+   *       following characters: + - = . _ : / @</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
  * <p>Describes an alarm.</p>
  *          <p>An alarm is a way to monitor your Lightsail resource metrics. For more information, see
  *         <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms">Alarms in Amazon Lightsail</a>.</p>
@@ -740,6 +763,13 @@ export interface Alarm {
    * @public
    */
   notificationEnabled?: boolean | undefined;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1359,29 +1389,6 @@ export interface BucketState {
    * @public
    */
   message?: string | undefined;
-}
-
-/**
- * <p>Describes a tag key and optional value assigned to an Amazon Lightsail resource.</p>
- *          <p>For more information about tags in Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>The key of the tag.</p>
-   *          <p>Constraints: Tag keys accept a maximum of 128 letters, numbers, spaces in UTF-8, or the
-   *       following characters: + - = . _ : / @</p>
-   * @public
-   */
-  key?: string | undefined;
-
-  /**
-   * <p>The value of the tag.</p>
-   *          <p>Constraints: Tag values accept a maximum of 256 letters, numbers, spaces in UTF-8, or the
-   *       following characters: + - = . _ : / @</p>
-   * @public
-   */
-  value?: string | undefined;
 }
 
 /**

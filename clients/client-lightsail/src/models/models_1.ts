@@ -3247,6 +3247,13 @@ export interface PutAlarmRequest {
    * @public
    */
   notificationEnabled?: boolean | undefined;
+
+  /**
+   * <p>The tag keys and optional values to add to the alarm during create.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
 }
 
 /**

@@ -38,6 +38,8 @@ export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer 
  *          <p>When you update an existing alarm, its state is left unchanged, but the update completely
  *       overwrites the previous configuration of the alarm. The alarm is then evaluated with the
  *       updated configuration.</p>
+ *          <p>The <code>put alarm</code> operation supports tag-based access control via request
+ *       tags. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +64,12 @@ export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer 
  *     "OK" || "ALARM" || "INSUFFICIENT_DATA",
  *   ],
  *   notificationEnabled: true || false,
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new PutAlarmCommand(input);
  * const response = await client.send(command);

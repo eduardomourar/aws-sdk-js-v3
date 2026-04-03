@@ -83,6 +83,12 @@ export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBeare
  * //         "OK" || "ALARM" || "INSUFFICIENT_DATA",
  * //       ],
  * //       notificationEnabled: true || false,
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextPageToken: "STRING_VALUE",

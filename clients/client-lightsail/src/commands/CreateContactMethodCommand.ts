@@ -32,6 +32,8 @@ export interface CreateContactMethodCommandOutput extends CreateContactMethodRes
  *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
  *       Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
  *       see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+ *          <p>The <code>create contact method</code> operation supports tag-based access control via request
+ *       tags. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

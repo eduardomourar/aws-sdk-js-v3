@@ -1301,8 +1301,8 @@ export var AddOnRequest$: StaticStructureSchema = [3, n0, _AOR,
 ];
 export var Alarm$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_n, _a, _cA, _l, _rT, _sC, _mRI, _cO, _eP, _p, _th, _dTA, _tMD, _sta, _mN, _stat, _u, _cP, _nT, _nE],
-  [0, 0, 4, () => ResourceLocation$, 0, 0, () => MonitoredResourceInfo$, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 2]
+  [_n, _a, _cA, _l, _rT, _sC, _mRI, _cO, _eP, _p, _th, _dTA, _tMD, _sta, _mN, _stat, _u, _cP, _nT, _nE, _ta],
+  [0, 0, 4, () => ResourceLocation$, 0, 0, () => MonitoredResourceInfo$, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 2, () => TagList]
 ];
 export var AllocateStaticIpRequest$: StaticStructureSchema = [3, n0, _ASIR,
   0,
@@ -3046,8 +3046,8 @@ export var PrivateRegistryAccessRequest$: StaticStructureSchema = [3, n0, _PRAR,
 ];
 export var PutAlarmRequest$: StaticStructureSchema = [3, n0, _PAR,
   0,
-  [_aN, _mN, _mRN, _cO, _th, _eP, _dTA, _tMD, _cP, _nT, _nE],
-  [0, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 64 | 0, 2], 6
+  [_aN, _mN, _mRN, _cO, _th, _eP, _dTA, _tMD, _cP, _nT, _nE, _ta],
+  [0, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 64 | 0, 2, () => TagList], 6
 ];
 export var PutAlarmResult$: StaticStructureSchema = [3, n0, _PARu,
   0,
